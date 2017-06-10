@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.githbu.io/"/>
-  <updated>2017-06-10T13:53:15.000Z</updated>
+  <updated>2017-06-10T13:51:10.000Z</updated>
   <id>http://kevien.githbu.io/</id>
   
   <author>
@@ -14,22 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>20160611安全动态</title>
-    <link href="http://kevien.githbu.io/2017/06/10/20160611%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.githbu.io/2017/06/10/20160611安全动态/</id>
-    <published>2017-06-10T13:52:37.000Z</published>
-    <updated>2017-06-10T13:53:15.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="每日安全动态" scheme="http://kevien.githbu.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>20170610安全动态</title>
