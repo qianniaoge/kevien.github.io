@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>M0rk&#39;s Blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://kevien.githbu.io/"/>
+  <updated>2017-06-10T06:53:29.000Z</updated>
+  <id>http://kevien.githbu.io/</id>
+  
+  <author>
+    <name>M0rk</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170610安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/10/20170610%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/10/20170610安全动态/</id>
+    <published>2017-06-10T05:55:38.000Z</published>
+    <updated>2017-06-10T06:53:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>一个windows本地信息搜集的ps脚本 <a href="https://www.blackhillsinfosec.com/?p=5824" target="_blank" rel="external">https://www.blackhillsinfosec.com/?p=5824</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">测试了一下效果不错，里面有一个DNS cache对于信息搜集来说挺好</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2017/06/10/20170610安全动态/pic1.png" alt=""></p>
+<ul>
+<li>内网中的针对RDP的中间人攻击 <a href="https://github.com/SySS-Research/Seth/blob/master/doc/paper/Attacking_RDP-Paper.pdf" target="_blank" rel="external">https://github.com/SySS-Research/Seth/blob/master/doc/paper/Attacking_RDP-Paper.pdf</a></li>
+<li><p>Heimdall 集中管理*nix机器漏洞的web工具<br><a href="http://www.kitploit.com/2017/06/heimdall-manage-vulnerables-packages-in.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/heimdall-manage-vulnerables-packages-in.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看过了介绍视频还可以，运维的童鞋可以看看</div></pre></td></tr></table></figure>
+</li>
+<li><p>facebook的一个任意邮箱地址获取的漏洞 <a href="https://www.youtube.com/watch?v=RkRKTH7fXqQ" target="_blank" rel="external">https://www.youtube.com/watch?v=RkRKTH7fXqQ</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">获取任意用户的邮箱，facebook给的bounty还挺高的</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;一个windows本地信息搜集的ps脚本 &lt;a href=&quot;https://www.blackh
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170609安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/09/20170609%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/09/20170609安全动态/</id>
+    <published>2017-06-09T02:51:34.000Z</published>
+    <updated>2017-06-09T10:34:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>Domain Hunter - 域名信誉对于攻击者从事钓鱼和 C&amp;C 很重要，所以攻击者开始尝试注册一些过期的历史信誉良好的域名，用于躲避检测。Domain Hunter 这个工具用于识别这类域名 <a href="https://github.com/minisllc/domainhunter" target="_blank" rel="external">https://github.com/minisllc/domainhunter</a></li>
+<li>穿越边界的姿势 <a href="https://mp.weixin.qq.com/s/l-0sWU4ijMOQWqRgsWcNFA" target="_blank" rel="external">https://mp.weixin.qq.com/s/l-0sWU4ijMOQWqRgsWcNFA</a></li>
+<li>破解了十款路由器之后，我们有话要说 <a href="https://zhuanlan.zhihu.com/p/27312102" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/27312102</a></li>
+<li>docker搭建私有仓库 <a href="http://kekefund.com/2017/06/07/doker-registry/" target="_blank" rel="external">http://kekefund.com/2017/06/07/doker-registry/</a></li>
+<li>简单的机器学习 <a href="http://kekefund.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" target="_blank" rel="external">http://kekefund.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</a></li>
+<li>win10 winserver2012 2016 的一个提权 CVE-2017-0213  <a href="http://www.hackingarticles.in/bypass-admin-access-guest-account-windows-10/" target="_blank" rel="external">http://www.hackingarticles.in/bypass-admin-access-guest-account-windows-10/</a> <a href="https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213" target="_blank" rel="external">https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213</a></li>
+<li><p>0day RCE Exploit for Google Chrome 59.0.3071.86<br><a href="https://www.youtube.com/watch?v=DUHMhObmWdU" target="_blank" rel="external">https://www.youtube.com/watch?v=DUHMhObmWdU</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">真的是0day啊，老外真牛逼</div></pre></td></tr></table></figure>
+</li>
+<li><p>深入理解java反序列化漏洞 <a href="http://paper.seebug.org/312/?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">http://paper.seebug.org/312/?from=timeline&amp;isappinstalled=0</a></p>
+</li>
+<li>sitemap 扫描工具 也就是网站目录以及文件扫描工具 <a href="https://github.com/JusticeRage/freedomfighting#listurlpy" target="_blank" rel="external">https://github.com/JusticeRage/freedomfighting#listurlpy</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Domain Hunter - 域名信誉对于攻击者从事钓鱼和 C&amp;amp;C 很重要，所以攻击者
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170608</title>
+    <link href="http://kevien.githbu.io/2017/06/08/20170608%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/08/20170608安全动态/</id>
+    <published>2017-06-08T11:07:07.000Z</published>
+    <updated>2017-06-08T11:41:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>WannaLocker - 针对国内 Android 用户的 WannaCry 勒索软件仿制版本出现了，当然只是勒索界面比较像 <a href="https://blog.avast.com/wannacry-wannabe-targeting-android-smartphones" target="_blank" rel="external">https://blog.avast.com/wannacry-wannabe-targeting-android-smartphones</a></li>
+<li>Cisco AnyConnect（Windows 版本）存在一个 DLL 加载本地 SYSTEM 提权漏洞（CVE-2017-6638） <a href="https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170607-anyconnect" target="_blank" rel="external">https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170607-anyconnect</a></li>
+<li>CI框架下column注入 <a href="http://www.wupco.cn/?p=3646" target="_blank" rel="external">http://www.wupco.cn/?p=3646</a></li>
+<li>利用应用程序验证器进行hook函数和持久化 <a href="http://blacksunhackers.club/2017/06/leveraging-application-verifier-for-function-hooking-and-persistence/" target="_blank" rel="external">http://blacksunhackers.club/2017/06/leveraging-application-verifier-for-function-hooking-and-persistence/</a></li>
+<li>关于现代无线鼠标和键盘的安全性报告 <a href="https://www.exploit-db.com/docs/42109.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/42109.pdf</a></li>
+<li>蜜罐技术  <a href="https://ipot.sec-wiki.com/" target="_blank" rel="external">https://ipot.sec-wiki.com/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己对蜜罐技术比较感兴趣，有想法的小伙伴我们交流一下</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>*windows 和linux 提权的一些exp  <a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="external">https://github.com/SecWiki/windows-kernel-exploits</a> <a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="external">https://github.com/SecWiki/linux-kernel-exploits</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;WannaLocker - 针对国内 Android 用户的 WannaCry 勒索软件仿制版本
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170607安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/07/20170607%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/07/20170607安全动态/</id>
+    <published>2017-06-07T02:39:06.000Z</published>
+    <updated>2017-06-07T08:18:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####每日安全动态</p>
+<ul>
+<li>关于验证码识别的一篇文章 <a href="http://www.cnblogs.com/beer/p/5672678.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/5672678.html</a></li>
+<li>Mac OSX上检测rootkit <a href="http://macappstore.org/chkrootkit/" target="_blank" rel="external">http://macappstore.org/chkrootkit/</a>  mac上安装rkhunter <a href="http://macappstore.org/rkhunter/" target="_blank" rel="external">http://macappstore.org/rkhunter/</a></li>
+<li>Mac上取证分析工具以及rootkit分析工具 <a href="http://yelp.github.io/osxcollector/" target="_blank" rel="external">http://yelp.github.io/osxcollector/</a></li>
+<li><p>黑客入侵应急分析手工排查 <a href="https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还是比较全面的，攻击者可以学习思路，避免留下把柄，防御者全面分析安全事件</div></pre></td></tr></table></figure>
+</li>
+<li><p>检测windows存在的漏洞，需要先导出systeminfo信息 <a href="https://github.com/GDSSecurity/Windows-Exploit-Suggester/" target="_blank" rel="external">https://github.com/GDSSecurity/Windows-Exploit-Suggester/</a></p>
+</li>
+<li>samba CVE-2017-7497 EXP <a href="https://github.com/joxeankoret/CVE-2017-7494" target="_blank" rel="external">https://github.com/joxeankoret/CVE-2017-7494</a></li>
+<li>一个在线分析pcap数据包的网站 <a href="http://www.capanalysis.net/ca/" target="_blank" rel="external">http://www.capanalysis.net/ca/</a></li>
+<li>测试你通过msfvenom 生成shellcode的工具 <a href="https://github.com/emptymonkey/drinkme" target="_blank" rel="external">https://github.com/emptymonkey/drinkme</a></li>
+<li>使用 VirtualBox、INetSim 和 Burp 搭建自己的恶意软件分析平台 <a href="https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/" target="_blank" rel="external">https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/</a></li>
+<li>据说很厉害的windows提权工具 <a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank" rel="external">https://github.com/PowerShellMafia/PowerSploit</a>  <a href="https://www.zero-day.io/metasploitwalkthrough/" target="_blank" rel="external">https://www.zero-day.io/metasploitwalkthrough/</a></li>
+<li>利用 dashboard 页面的一个 js 文件绕过认证 <a href="http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html" target="_blank" rel="external">http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html</a></li>
+<li>三个案例看Nginx配置安全 <a href="https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html</a></li>
+<li>一个故事告诉你比特币的原理及运作机制 <a href="http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html" target="_blank" rel="external">http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html</a></li>
+<li>渗透技巧——程序的降权启动 <a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/</a></li>
+<li>二维码支付原理分析及安全性的探究 <a href="http://www.cnblogs.com/beer/p/6918180.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/6918180.html</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*  Web应用系统的小安全漏洞及相应的攻击方式 &lt;http://www.cnblogs.com/beer/p/4814587.html&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+<p>这也是一种攻击方式，不知道你们注意过没<br>```</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####每日安全动态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;关于验证码识别的一篇文章 &lt;a href=&quot;http://www.cnblogs.com/beer/p/5672678.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblo
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170606安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/06/20170606%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/06/20170606安全动态/</id>
+    <published>2017-06-06T05:46:29.000Z</published>
+    <updated>2017-06-06T13:50:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>Printer Exploitation Toolkit 打印机漏洞利用工具 <a href="http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1" target="_blank" rel="external">http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1</a></li>
+<li><p>基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources <a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing" target="_blank" rel="external">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个框架比较适合甲方安全部门内部搞红蓝对抗时使用 甲方的安全同学可以好好看看</div></pre></td></tr></table></figure>
+</li>
+<li><p>The Journey to Hijacking a Country’s TLD – The Hidden Risks of Domain Extensions <a href="https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html" target="_blank" rel="external">https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html</a></p>
+</li>
+<li>Parallels Desktop 虚拟机逃逸，共享文件夹功能存在缺陷，虚拟机可向宿主机中写入任意文件 <a href="https://www.exploit-db.com/exploits/42116/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42116/</a></li>
+<li>StarFighters- 基于 JavaScript 和 VBScript 的 Empire 攻击框架的进程 Launcher，无需启动 PowerShell.exe <a href="https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017" target="_blank" rel="external">https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017</a></li>
+<li>Lazydroid - 为评估 Android 应用程序提供方便的 Bash 脚本 <a href="https://github.com/nccgroup/LazyDroid" target="_blank" rel="external">https://github.com/nccgroup/LazyDroid</a></li>
+<li>windows-syscall-table - 从 WinXp sp0 到 Win10 rs2 1703  的 Windows 内核系统调用表收集 <a href="https://github.com/tinysec" target="_blank" rel="external">https://github.com/tinysec</a></li>
+<li>Joomla! Payage 2.05组件’aid’参数存在SQL注入 <a href="https://www.exploit-db.com/exploits/42113/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42113/</a></li>
+<li>通过xss能拿到shell的cms <a href="http://brutelogic.com.br/blog/compromising-cmses-xss/" target="_blank" rel="external">http://brutelogic.com.br/blog/compromising-cmses-xss/</a></li>
+<li>WordSteal-一个从远程盗取NTMl的漏洞POC脚本 <a href="https://github.com/0x09al/wordsteal" target="_blank" rel="external">https://github.com/0x09al/wordsteal</a></li>
+<li>使用JavaSnoop测试Java应用程序 <a href="http://bobao.360.cn/learning/detail/3939.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3939.html</a></li>
+<li>An interesting way of bypassing Windows Attachment Manager <a href="https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/</a></li>
+<li>警惕“永恒之蓝”抓鸡工具包里的后门 <a href="http://www.freebuf.com/articles/system/136361.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/136361.html</a></li>
+<li>GIT泄露漏洞综合利用的小工具 <a href="https://github.com/internetwache/GitTools" target="_blank" rel="external">https://github.com/internetwache/GitTools</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Printer Exploitation Toolkit 打印机漏洞利用工具 &lt;a href=&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170605</title>
+    <link href="http://kevien.githbu.io/2017/06/05/20170605/"/>
+    <id>http://kevien.githbu.io/2017/06/05/20170605/</id>
+    <published>2017-06-05T05:45:46.000Z</published>
+    <updated>2017-06-05T06:27:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>##安全动态</p>
+<ul>
+<li>用来查找exp的工具getsploit - command line exploit search and download tool (supports Exploit-DB, MSF, Packet Storm, 0daytoday) <a href="https://github.com/vulnersCom/getsploit" target="_blank" rel="external">https://github.com/vulnersCom/getsploit</a></li>
+<li>如何实现渗透过程中的 Fileless 反弹 shell <a href="https://0x00sec.org/t/running-binaries-without-leaving-tracks/2166" target="_blank" rel="external">https://0x00sec.org/t/running-binaries-without-leaving-tracks/2166</a></li>
+<li>NTLM Relaying 实战  <a href="https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html" target="_blank" rel="external">https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html</a>  <a href="https://www.youtube.com/watch?v=f9oMVoc2Umccc" target="_blank" rel="external">https://www.youtube.com/watch?v=f9oMVoc2Umccc</a></li>
+<li>通过Empire和Msfconsole利用永恒之蓝获得shell <a href="http://www.hackingtutorials.org/exploit-tutorials/exploiting-eternalblue-for-shell-with-empire-msfconsole/" target="_blank" rel="external">http://www.hackingtutorials.org/exploit-tutorials/exploiting-eternalblue-for-shell-with-empire-msfconsole/</a></li>
+<li>基于机器学习的分布式webshell检测系统 <a href="http://www.s0nnet.com/project" target="_blank" rel="external">http://www.s0nnet.com/project</a></li>
+<li>初见 Chrome Headless系列 <a href="https://lightless.me/archives/first-glance-at-chrome-headless-browser.html" target="_blank" rel="external">https://lightless.me/archives/first-glance-at-chrome-headless-browser.html</a></li>
+<li>portspider - 轻量级的多线程极速网络扫描工具 <a href="http://www.kitploit.com/2017/06/portspider-lightning-fast-multithreaded.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/portspider-lightning-fast-multithreaded.html</a></li>
+<li>服务端注入之Flask框架中服务端模板注入问题 <a href="http://www.freebuf.com/articles/web/135953.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/135953.html</a> <a href="https://nvisium.com/blog/2015/12/07/injecting-flask/" target="_blank" rel="external">https://nvisium.com/blog/2015/12/07/injecting-flask/</a></li>
+<li>一款强大的WordPress漏洞利用框架 – WPXF <a href="http://www.freebuf.com/articles/web/135777.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/135777.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;##安全动态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用来查找exp的工具getsploit - command line exploit search and download tool (supports Exploit-DB, MSF, Packet Storm, 0daytoda
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>每周安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/04/%E6%AF%8F%E5%91%A8%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/04/每周安全动态/</id>
+    <published>2017-06-04T09:56:49.000Z</published>
+    <updated>2017-06-04T10:56:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h1><ul>
+<li>Google 引入定制的机器学习技术检测 Gmail 中的钓鱼邮件 <a href="https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/" target="_blank" rel="external">https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/</a></li>
+<li>Ganxo - 开源 API Hook 框架 <a href="https://github.com/PassingTheKnowledge/Ganxo" target="_blank" rel="external">https://github.com/PassingTheKnowledge/Ganxo</a></li>
+<li>HTTPS 原理浅析及其在 Android 中的使用 <a href="http://mobile.51cto.com/android-540662.htm" target="_blank" rel="external">http://mobile.51cto.com/android-540662.htm</a></li>
+<li>初见 Chrome Headless Browser <a href="https://lightless.me/archives/first-glance-at-chrome-headless-browser.html" target="_blank" rel="external">https://lightless.me/archives/first-glance-at-chrome-headless-browser.html</a></li>
+<li>EternalPot - 搭建全球性的SMB漏洞蜜罐基础设施的经验 <a href="https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe" target="_blank" rel="external">https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe</a></li>
+<li>来自内部员工的威胁以及如何防御，来自 NCC Group 的 Paper  <a href="https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/" target="_blank" rel="external">https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/</a>  </li>
+<li>Cheat Sheet of Machine Learning and Python (and Math) Cheat Sheets <a href="https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6" target="_blank" rel="external">https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6</a></li>
+<li>Package 钓鱼 <a href="http://blog.fatezero.org/2017/06/01/package-fishing/" target="_blank" rel="external">http://blog.fatezero.org/2017/06/01/package-fishing/</a></li>
+<li>Invoke-Phant0m Windows日志杀手 <a href="https://github.com/hlldz/Invoke-Phant0m" target="_blank" rel="external">https://github.com/hlldz/Invoke-Phant0m</a></li>
+<li>如何在PE文件中手动植入一个后门 <a href="http://bobao.360.cn/learning/detail/3931.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3931.html</a></li>
+<li>渗透标准思维导图 <a href="https://www.processon.com/view/583e8834e4b08e31357bb727" target="_blank" rel="external">https://www.processon.com/view/583e8834e4b08e31357bb727</a></li>
+<li>从蜜罐数据到SSH蜜罐的典型攻击分析 <a href="http://bobao.360.cn/learning/detail/3929.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3929.html</a></li>
+<li>Joomla Core 3.x后台getshell <a href="https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload" target="_blank" rel="external">https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload</a></li>
+<li>sudo-CVE-2017-1000367漏洞利用程序 <a href="https://github.com/c0d3z3r0/sudo-CVE-2017-1000367" target="_blank" rel="external">https://github.com/c0d3z3r0/sudo-CVE-2017-1000367</a></li>
+<li>一键自动化域渗透工具 <a href="https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html" target="_blank" rel="external">https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html</a></li>
+<li>在OSX上监听单个应用HTTPS流量 <a href="https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/" target="_blank" rel="external">https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Google 引入定制的机器学习技术检测 Gmail 中的钓鱼邮件 &lt;a href=&quot;https
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博客平台搭建</title>
+    <link href="http://kevien.githbu.io/2017/04/28/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>http://kevien.githbu.io/2017/04/28/hexo博客搭建/</id>
+    <published>2017-04-28T04:09:41.000Z</published>
+    <updated>2017-06-04T10:56:03.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="可参考"><a href="#可参考" class="headerlink" title="可参考"></a>可参考</h2><p><a href="http://gonghonglou.com/2016/02/03/firstblog/" target="_blank" rel="external">http://gonghonglou.com/2016/02/03/firstblog/</a></p>
+<h3 id="搭建完成后常用命令"><a href="#搭建完成后常用命令" class="headerlink" title="搭建完成后常用命令"></a>搭建完成后常用命令</h3><h4 id="发表一篇文章"><a href="#发表一篇文章" class="headerlink" title="发表一篇文章"></a>发表一篇文章</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<h4 id="mac上使用可以使用mweb工具进行md文件编辑"><a href="#mac上使用可以使用mweb工具进行md文件编辑" class="headerlink" title="mac上使用可以使用mweb工具进行md文件编辑"></a>mac上使用可以使用mweb工具进行md文件编辑</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在/source/_posts 目录下面找到对应md文件编辑</div></pre></td></tr></table></figure>
+<h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><p>hexo clean<br>hexo g <del>generate</del><br>hexo d <del>deploy</del></p>
+<h4 id="ok了"><a href="#ok了" class="headerlink" title="ok了"></a>ok了</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;可参考&quot;&gt;&lt;a href=&quot;#可参考&quot; class=&quot;headerlink&quot; title=&quot;可参考&quot;&gt;&lt;/a&gt;可参考&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://gonghonglou.com/2016/02/03/firstblog/&quot; target=&quot;_bl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://kevien.githbu.io/2017/04/28/hello-world/"/>
+    <id>http://kevien.githbu.io/2017/04/28/hello-world/</id>
+    <published>2017-04-28T04:02:18.000Z</published>
+    <updated>2017-04-28T04:02:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
