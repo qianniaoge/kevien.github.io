@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.githbu.io/"/>
-  <updated>2017-06-11T04:55:01.000Z</updated>
+  <updated>2017-06-12T12:45:59.000Z</updated>
   <id>http://kevien.githbu.io/</id>
   
   <author>
@@ -16,11 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20170612安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/12/20170612%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/12/20170612安全动态/</id>
+    <published>2017-06-12T12:15:27.000Z</published>
+    <updated>2017-06-12T12:45:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####每日安全动态</p>
+<ul>
+<li>Apple FSEvents（文件系统事件）相关的取证问题总结 &lt; <a href="http://nicoleibrahim.com/apple-fsevents-forensics/&gt;" target="_blank" rel="external">http://nicoleibrahim.com/apple-fsevents-forensics/&gt;</a></li>
+<li>macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） <a href="https://www.exploit-db.com/exploits/42146/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42146/</a></li>
+<li>kwetza - 向 Android 应用中注入 Meterpreter payload 的 Python 脚本 <a href="https://github.com/sensepost/kwetza" target="_blank" rel="external">https://github.com/sensepost/kwetza</a></li>
+<li>如何通过WiFi热点实施网络钓鱼 <a href="http://xeushack.com/phishing-with-a-rogue-wifi-access-point" target="_blank" rel="external">http://xeushack.com/phishing-with-a-rogue-wifi-access-point</a></li>
+<li>渗透测试实验环境搭建：通过Proxmox VE构建域环境 <https: 2017="" sethsec.blogspot.tw="" 06="" pentest-home-lab-0x2-building-your-ad.html=""></https:></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####每日安全动态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Apple FSEvents（文件系统事件）相关的取证问题总结 &amp;lt; &lt;a href=&quot;http://nicoleibrahim.com/apple-fsevents-forensics/&amp;gt;&quot; target=&quot;_bl
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.githbu.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170611安全动态</title>
     <link href="http://kevien.githbu.io/2017/06/11/20170611%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.githbu.io/2017/06/11/20170611安全动态/</id>
     <published>2017-06-11T04:12:32.000Z</published>
-    <updated>2017-06-11T04:55:01.000Z</updated>
+    <updated>2017-06-11T04:58:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>####每日安全动态</p>
 <ul>
@@ -44,6 +74,8 @@
 &lt;li&gt;国外黑阔的渗透实战经验的一些有趣的经历 不同寻常的journey &lt;a href=&quot;https://pentest.blog/article-series/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ht
     
     </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.githbu.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     
     
   </entry>

@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="每日安全动态 Printer Exploitation Toolkit 打印机漏洞利用工具 http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1 基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources https:">
+<meta name="description" content="####每日安全动态  Apple FSEvents（文件系统事件）相关的取证问题总结 &amp;lt; http://nicoleibrahim.com/apple-fsevents-forensics/&amp;gt; macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） https://www.exploit-db.com/exploits/42">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20170606安全动态">
-<meta property="og:url" content="http://kevien.githbu.io/2017/06/06/20170606安全动态/index.html">
+<meta property="og:title" content="20170612安全动态">
+<meta property="og:url" content="http://kevien.githbu.io/2017/06/12/20170612安全动态/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="每日安全动态 Printer Exploitation Toolkit 打印机漏洞利用工具 http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1 基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources https:">
-<meta property="og:updated_time" content="2017-06-06T13:50:39.000Z">
+<meta property="og:description" content="####每日安全动态  Apple FSEvents（文件系统事件）相关的取证问题总结 &amp;lt; http://nicoleibrahim.com/apple-fsevents-forensics/&amp;gt; macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） https://www.exploit-db.com/exploits/42">
+<meta property="og:updated_time" content="2017-06-12T12:45:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20170606安全动态">
-<meta name="twitter:description" content="每日安全动态 Printer Exploitation Toolkit 打印机漏洞利用工具 http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1 基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources https:">
+<meta name="twitter:title" content="20170612安全动态">
+<meta name="twitter:description" content="####每日安全动态  Apple FSEvents（文件系统事件）相关的取证问题总结 &amp;lt; http://nicoleibrahim.com/apple-fsevents-forensics/&amp;gt; macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） https://www.exploit-db.com/exploits/42">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.githbu.io/2017/06/06/20170606安全动态/"/>
+  <link rel="canonical" href="http://kevien.githbu.io/2017/06/12/20170612安全动态/"/>
 
 
 
 
 
-  <title>20170606安全动态 | M0rk's Blog</title>
+  <title>20170612安全动态 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.githbu.io/2017/06/06/20170606安全动态/">
+    <link itemprop="mainEntityOfPage" href="http://kevien.githbu.io/2017/06/12/20170612安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="M0rk">
@@ -286,7 +286,7 @@
             
             
               
-                20170606安全动态
+                20170612安全动态
               
             
           </h1>
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T13:46:29+08:00">
-                2017-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T20:15:27+08:00">
+                2017-06-12
               </time>
             
 
@@ -311,6 +311,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
+                    <span itemprop="name">每日安全动态</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -336,24 +358,13 @@
       
 
       
-        <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Printer Exploitation Toolkit 打印机漏洞利用工具 <a href="http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1" target="_blank" rel="external">http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1</a></li>
-<li><p>基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources <a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing" target="_blank" rel="external">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个框架比较适合甲方安全部门内部搞红蓝对抗时使用 甲方的安全同学可以好好看看</div></pre></td></tr></table></figure>
-</li>
-<li><p>The Journey to Hijacking a Country’s TLD – The Hidden Risks of Domain Extensions <a href="https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html" target="_blank" rel="external">https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html</a></p>
-</li>
-<li>Parallels Desktop 虚拟机逃逸，共享文件夹功能存在缺陷，虚拟机可向宿主机中写入任意文件 <a href="https://www.exploit-db.com/exploits/42116/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42116/</a></li>
-<li>StarFighters- 基于 JavaScript 和 VBScript 的 Empire 攻击框架的进程 Launcher，无需启动 PowerShell.exe <a href="https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017" target="_blank" rel="external">https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017</a></li>
-<li>Lazydroid - 为评估 Android 应用程序提供方便的 Bash 脚本 <a href="https://github.com/nccgroup/LazyDroid" target="_blank" rel="external">https://github.com/nccgroup/LazyDroid</a></li>
-<li>windows-syscall-table - 从 WinXp sp0 到 Win10 rs2 1703  的 Windows 内核系统调用表收集 <a href="https://github.com/tinysec" target="_blank" rel="external">https://github.com/tinysec</a></li>
-<li>Joomla! Payage 2.05组件’aid’参数存在SQL注入 <a href="https://www.exploit-db.com/exploits/42113/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42113/</a></li>
-<li>通过xss能拿到shell的cms <a href="http://brutelogic.com.br/blog/compromising-cmses-xss/" target="_blank" rel="external">http://brutelogic.com.br/blog/compromising-cmses-xss/</a></li>
-<li>WordSteal-一个从远程盗取NTMl的漏洞POC脚本 <a href="https://github.com/0x09al/wordsteal" target="_blank" rel="external">https://github.com/0x09al/wordsteal</a></li>
-<li>使用JavaSnoop测试Java应用程序 <a href="http://bobao.360.cn/learning/detail/3939.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3939.html</a></li>
-<li>An interesting way of bypassing Windows Attachment Manager <a href="https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/</a></li>
-<li>警惕“永恒之蓝”抓鸡工具包里的后门 <a href="http://www.freebuf.com/articles/system/136361.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/136361.html</a></li>
-<li>GIT泄露漏洞综合利用的小工具 <a href="https://github.com/internetwache/GitTools" target="_blank" rel="external">https://github.com/internetwache/GitTools</a></li>
+        <p>####每日安全动态</p>
+<ul>
+<li>Apple FSEvents（文件系统事件）相关的取证问题总结 &lt; <a href="http://nicoleibrahim.com/apple-fsevents-forensics/&gt;" target="_blank" rel="external">http://nicoleibrahim.com/apple-fsevents-forensics/&gt;</a></li>
+<li>macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） <a href="https://www.exploit-db.com/exploits/42146/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42146/</a></li>
+<li>kwetza - 向 Android 应用中注入 Meterpreter payload 的 Python 脚本 <a href="https://github.com/sensepost/kwetza" target="_blank" rel="external">https://github.com/sensepost/kwetza</a></li>
+<li>如何通过WiFi热点实施网络钓鱼 <a href="http://xeushack.com/phishing-with-a-rogue-wifi-access-point" target="_blank" rel="external">http://xeushack.com/phishing-with-a-rogue-wifi-access-point</a></li>
+<li>渗透测试实验环境搭建：通过Proxmox VE构建域环境 <https: 2017="" sethsec.blogspot.tw="" 06="" pentest-home-lab-0x2-building-your-ad.html=""></https:></li>
 </ul>
 
       
@@ -391,18 +402,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/07/20170607安全动态/" rel="next" title="20170607安全动态">
-                <i class="fa fa-chevron-left"></i> 20170607安全动态
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/05/20170605/" rel="prev" title="20170605">
-                20170605 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/11/20170611安全动态/" rel="prev" title="20170611安全动态">
+                20170611安全动态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -450,17 +457,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -549,22 +547,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日安全动态"><span class="nav-number">1.</span> <span class="nav-text">每日安全动态</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
