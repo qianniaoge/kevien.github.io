@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.githbu.io/"/>
-  <updated>2017-06-12T12:45:59.000Z</updated>
+  <updated>2017-06-12T13:43:30.000Z</updated>
   <id>http://kevien.githbu.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kevien.githbu.io/2017/06/12/20170612%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.githbu.io/2017/06/12/20170612安全动态/</id>
     <published>2017-06-12T12:15:27.000Z</published>
-    <updated>2017-06-12T12:45:59.000Z</updated>
+    <updated>2017-06-12T13:43:30.000Z</updated>
     
     <content type="html"><![CDATA[<p>####每日安全动态</p>
 <ul>
@@ -29,6 +29,10 @@
 <li>kwetza - 向 Android 应用中注入 Meterpreter payload 的 Python 脚本 <a href="https://github.com/sensepost/kwetza" target="_blank" rel="external">https://github.com/sensepost/kwetza</a></li>
 <li>如何通过WiFi热点实施网络钓鱼 <a href="http://xeushack.com/phishing-with-a-rogue-wifi-access-point" target="_blank" rel="external">http://xeushack.com/phishing-with-a-rogue-wifi-access-point</a></li>
 <li>渗透测试实验环境搭建：通过Proxmox VE构建域环境 <https: 2017="" sethsec.blogspot.tw="" 06="" pentest-home-lab-0x2-building-your-ad.html=""></https:></li>
+<li>psad - Intrusion Detection with iptables Logs <a href="https://github.com/mrash/psad/blob/master/README.md" target="_blank" rel="external">https://github.com/mrash/psad/blob/master/README.md</a></li>
+<li>Linux之DNS服务器搭建及常见DNS攻击和防御 <a href="https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484468&amp;idx=1&amp;sn=1c30bd929c57b438a8a75003d2f0fd94&amp;chksm=eb668137dc1108217a1c8594b5d1ebf0f3a6c5c9f048ddbe0a9d01cd0d73e098720bbe0387c2&amp;mpshare=1&amp;scene=23&amp;srcid=0611T0yATydptfUoJpaq3G2i#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484468&amp;idx=1&amp;sn=1c30bd929c57b438a8a75003d2f0fd94&amp;chksm=eb668137dc1108217a1c8594b5d1ebf0f3a6c5c9f048ddbe0a9d01cd0d73e098720bbe0387c2&amp;mpshare=1&amp;scene=23&amp;srcid=0611T0yATydptfUoJpaq3G2i#rd</a></li>
+<li>一个sizeof引发的血案 <a href="https://zhuanlan.zhihu.com/p/26815897" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/26815897</a></li>
+<li>前端跨域请求原理及实践 <a href="https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=2651552250&amp;idx=1&amp;sn=f168cb8272e61ccd30b216db73bb6ae3&amp;chksm=8025ae3bb752272dd59c47d89faaada6e82c20c2e84c188a2bd5c1efd566d23dcda32cd37019&amp;mpshare=1&amp;scene=23&amp;srcid=0611bAo4MuFZR3LhkUxTYOy7#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=2651552250&amp;idx=1&amp;sn=f168cb8272e61ccd30b216db73bb6ae3&amp;chksm=8025ae3bb752272dd59c47d89faaada6e82c20c2e84c188a2bd5c1efd566d23dcda32cd37019&amp;mpshare=1&amp;scene=23&amp;srcid=0611bAo4MuFZR3LhkUxTYOy7#rd</a></li>
 </ul>
 ]]></content>
     
