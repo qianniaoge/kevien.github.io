@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.githbu.io/"/>
-  <updated>2017-06-13T06:52:39.000Z</updated>
+  <updated>2017-06-14T05:03:42.000Z</updated>
   <id>http://kevien.githbu.io/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170614安全动态</title>
+    <link href="http://kevien.githbu.io/2017/06/14/20170614%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.githbu.io/2017/06/14/20170614安全动态/</id>
+    <published>2017-06-14T01:09:05.000Z</published>
+    <updated>2017-06-14T05:03:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>DNS隧道技术解析<a href="https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484066&amp;idx=1&amp;sn=aff9df0cde254e9900da4d4264886480&amp;chksm=ec1e328adb69bb9ce1e95ea0abc19e046f29375e3d25e45a4236b806a2177f6e28d661c52e6e&amp;mpshare=1&amp;scene=23&amp;srcid=061454Cz67xcFN1T3GhNifnj#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484066&amp;idx=1&amp;sn=aff9df0cde254e9900da4d4264886480&amp;chksm=ec1e328adb69bb9ce1e95ea0abc19e046f29375e3d25e45a4236b806a2177f6e28d661c52e6e&amp;mpshare=1&amp;scene=23&amp;srcid=061454Cz67xcFN1T3GhNifnj#rd</a></li>
+<li>微软出了两个高危漏洞Windows Search Remote Code Execution Vulnerability (CVE-2017-8543) and a LNK Remote Code Execution Vulnerability (CVE-2017-8464) <a href="https://threatpost.com/microsoft-patches-two-critical-vulnerabilities-under-attack/126239/" target="_blank" rel="external">https://threatpost.com/microsoft-patches-two-critical-vulnerabilities-under-attack/126239/</a></li>
+<li>堡垒机工作机制 <a href="https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484486&amp;idx=2&amp;sn=7f641c4180219b2a75bf714a29ef0dc2&amp;chksm=eb668145dc110853748c37920f11e42ded46d055627784341ae9c62d5b860a295b1c7ead6995&amp;mpshare=1&amp;scene=23&amp;srcid=06144aGVVOd6GTIn2s2F5glR#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484486&amp;idx=2&amp;sn=7f641c4180219b2a75bf714a29ef0dc2&amp;chksm=eb668145dc110853748c37920f11e42ded46d055627784341ae9c62d5b860a295b1c7ead6995&amp;mpshare=1&amp;scene=23&amp;srcid=06144aGVVOd6GTIn2s2F5glR#rd</a></li>
+<li>Metasploit实验：制作免杀payload+对任意“外网”主机的远控 <a href="http://www.freebuf.com/sectool/136736.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136736.html</a></li>
+<li><p>Github泄露监测工具 <a href="https://github.com/0xbug/Hawkeye" target="_blank" rel="external">https://github.com/0xbug/Hawkeye</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这人的github上面都是甲方相关的一些项目，甲方的小伙伴可以关注一下</div></pre></td></tr></table></figure>
+</li>
+<li><p>内存中检测恶意软件 <a href="https://www.endgame.com/blog/technical-blog/hunting-memory" target="_blank" rel="external">https://www.endgame.com/blog/technical-blog/hunting-memory</a></p>
+</li>
+<li>使用 Sysmon 与 Splunk 进行高级事件检测与威胁捕获 <a href="http://security-research.dyndns.org/pub/slides/FIRST2017/FIRST-2017_Tom-Ueltschi_Sysmon_FINAL.pdf" target="_blank" rel="external">http://security-research.dyndns.org/pub/slides/FIRST2017/FIRST-2017_Tom-Ueltschi_Sysmon_FINAL.pdf</a></li>
+<li>微软将在今年秋季的 Windows 10 RS3 中开始禁用 SMBv1 文件共享协议 <a href="https://www.bleepingcomputer.com/news/microsoft/microsoft-to-disable-smbv1-in-windows-starting-this-fall/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/microsoft/microsoft-to-disable-smbv1-in-windows-starting-this-fall/</a></li>
+<li>WordSteal -  用于构造窃取远程机器 NetNTLM Hash 的 Word 文件的脚本 <a href="https://github.com/0x09AL/WordSteal" target="_blank" rel="external">https://github.com/0x09AL/WordSteal</a></li>
+<li>HTTrack是一个网站镜像工具，本来是用来抓取网站做离线浏览用的。但是我发现它的爬虫特性和搜索引擎爬虫非常的像，逐渐应用到了自己的SEO工作中。其实这两种看似不同的爬虫做的都是同样的工作，就是复制网站并存储下来 <a href="http://www.httrack.com/" target="_blank" rel="external">http://www.httrack.com/</a></li>
+<li>劫持一个国家的顶级域名之旅-域名后缀的隐藏威胁（中） <a href="http://bobao.360.cn/learning/detail/3975.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3975.html</a></li>
+<li>透过F5获取服务器真实内网IP <a href="http://www.lewisec.com/2017/06/13/Get_the_real_IP_through_F5/" target="_blank" rel="external">http://www.lewisec.com/2017/06/13/Get_the_real_IP_through_F5/</a></li>
+<li>使用MSRC API和get-msrcvulnerabilityreport API来生成CVEs月报。 <a href="https://github.com/JohnLaTwC/MSRC/blob/master/Reports/MSRC_CVEs2017-Jun.html" target="_blank" rel="external">https://github.com/JohnLaTwC/MSRC/blob/master/Reports/MSRC_CVEs2017-Jun.html</a> </li>
+<li>SMB协议研究 <a href="https://www.wikiwand.com/en/Server_Message_Block" target="_blank" rel="external">https://www.wikiwand.com/en/Server_Message_Block</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;DNS隧道技术解析&lt;a href=&quot;https://mp.weixin.qq.com/s?__b
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.githbu.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>20170613安全动态</title>
