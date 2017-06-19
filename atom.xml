@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-19T06:11:56.000Z</updated>
+  <updated>2017-06-19T10:18:20.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>PyCharm: The project at … uses a non-standard layout and cannot be attached to this project</title>
+    <link href="http://kevien.github.io/2017/06/19/PyCharm-The-project-at-%E2%80%A6-uses-a-non-standard-layout-and-cannot-be-attached-to-this-project/"/>
+    <id>http://kevien.github.io/2017/06/19/PyCharm-The-project-at-…-uses-a-non-standard-layout-and-cannot-be-attached-to-this-project/</id>
+    <published>2017-06-19T10:15:15.000Z</published>
+    <updated>2017-06-19T10:18:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>PyCharm: The project at … uses a non-standard layout and cannot be attached to<br>问题的解决：<br>  referer: <a href="https://stackoverflow.com/questions/43792869/pycharm-the-project-at-uses-a-non-standard-layout-and-cannot-be-attached-to/43879392#43879392" target="_blank" rel="external">https://stackoverflow.com/questions/43792869/pycharm-the-project-at-uses-a-non-standard-layout-and-cannot-be-attached-to/43879392#43879392</a><br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">题外话：程序员还是要用古狗啊</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h4&gt;&lt;p&gt;PyCharm: The project at … uses a non-standard layout and cannot be att
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170619安全动态</title>
     <link href="http://kevien.github.io/2017/06/19/20170619%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/06/19/20170619安全动态/</id>
     <published>2017-06-19T03:25:24.000Z</published>
-    <updated>2017-06-19T06:11:56.000Z</updated>
+    <updated>2017-06-19T07:18:40.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li><p>看我如何在赛门铁克邮件安全网关上实现弱口令到RCE漏洞执行 <a href="http://www.freebuf.com/articles/network/137341.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/137341.html</a></p>
@@ -37,8 +56,12 @@
 <li>2017年最佳iPhone渗透APP及工具 <a href="http://www.freebuf.com/sectool/137504.html" target="_blank" rel="external">http://www.freebuf.com/sectool/137504.html</a></li>
 <li>[漏洞分析]Samba远程代码执行漏洞(CVE-2017-7494)分析 <a href="https://xianzhi.aliyun.com/forum/read/1728.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1728.html</a></li>
 <li>CVE-2017-8464 LNK 远程代码执行漏洞 <a href="http://b404.xyz/2017/06/17/use-windows-link-file-to-attack" target="_blank" rel="external">http://b404.xyz/2017/06/17/use-windows-link-file-to-attack</a></li>
-<li>Metasploit <a href="http://b404.xyz/2017/06/17/Metasploit" target="_blank" rel="external">http://b404.xyz/2017/06/17/Metasploit</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">作者整理了一些metasploit工具的使用方法和技巧，我近期也准备研究一下metasploit，主要是代码方面的，分析一下msf的框架</div></pre></td></tr></table></figure>
+<li><p>Metasploit <a href="http://b404.xyz/2017/06/17/Metasploit" target="_blank" rel="external">http://b404.xyz/2017/06/17/Metasploit</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">作者整理了一些metasploit工具的使用方法和技巧，我近期也准备研究一下metasploit，主要是代码方面的，分析一下msf的框架</div></pre></td></tr></table></figure>
 </li>
+<li><p>【YISRC】技术分享——HTTPS通信知多少？<a href="https://mp.weixin.qq.com/s?__biz=MzIyNjQzMjcyNw==&amp;mid=2247484634&amp;idx=1&amp;sn=919d8e864b989ac0d6ac94b005df6598&amp;chksm=e871c762df064e74a9b24c9f59f870434a716487460567eda837a5609459298e7a5c7aec205e&amp;scene=0&amp;key=51ed750aa8560dbf71b3ea5dda9a9cf3046a8fb8aef9dad3170e4188e41460eb01c905c3d89f28828d9bfd9b5a062b6c898566d959dd030dd08a7e15e10809b8f18659b78a33bfd886a79b330fd7af1a&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=Y2%2F4SmK1w2g0n8a3eP2Q80FuyDZWLKoetwZOfnE98VE%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIyNjQzMjcyNw==&amp;mid=2247484634&amp;idx=1&amp;sn=919d8e864b989ac0d6ac94b005df6598&amp;chksm=e871c762df064e74a9b24c9f59f870434a716487460567eda837a5609459298e7a5c7aec205e&amp;scene=0&amp;key=51ed750aa8560dbf71b3ea5dda9a9cf3046a8fb8aef9dad3170e4188e41460eb01c905c3d89f28828d9bfd9b5a062b6c898566d959dd030dd08a7e15e10809b8f18659b78a33bfd886a79b330fd7af1a&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=Y2%2F4SmK1w2g0n8a3eP2Q80FuyDZWLKoetwZOfnE98VE%3D</a></p>
+</li>
+<li>浅谈Windows 10中藏着的那个Linux <a href="http://www.freebuf.com/column/137639.html" target="_blank" rel="external">http://www.freebuf.com/column/137639.html</a></li>
 </ul>
 ]]></content>
     
