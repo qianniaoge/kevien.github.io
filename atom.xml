@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-19T10:18:20.000Z</updated>
+  <updated>2017-06-20T02:17:55.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170620安全动态</title>
+    <link href="http://kevien.github.io/2017/06/20/20170620%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/06/20/20170620安全动态/</id>
+    <published>2017-06-20T01:49:05.000Z</published>
+    <updated>2017-06-20T02:17:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####每日安全动态</p>
+<ul>
+<li>一个国外的mac小工具安装的网站，比如说mac上没有的一些linux系统命令比如 pstree、binwalk等，都可以从这里找到下载和安装的方法，推荐 <a href="http://macappstore.org/" target="_blank" rel="external">http://macappstore.org/</a></li>
+<li>Waidps: 一款新的WiFi无线审计套装，界面好看，傻瓜化操作，在YouTube 上有各种功能的演示视频 <a href="https://github.com/SYWorks/waidps" target="_blank" rel="external">https://github.com/SYWorks/waidps</a></li>
+<li>如何构建一个分布式爬虫：基础篇 <a href="http://python.jobbole.com/87826/" target="_blank" rel="external">http://python.jobbole.com/87826/</a></li>
+<li>《浏览器地址栏之困》，深刻理解地址栏之困，即是挖掘URL Spoof漏洞的核心奥义。PPT下载 <a href="https://github.com/xisigr/paper/blob/master/NSC2017%E7%AC%AC%E4%BA%94%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E4%BC%9A/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E4%B9%8B%E5%9B%B0.pdf" target="_blank" rel="external">https://github.com/xisigr/paper/blob/master/NSC2017%E7%AC%AC%E4%BA%94%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E4%BC%9A/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%9C%B0%E5%9D%80%E6%A0%8F%E4%B9%8B%E5%9B%B0.pdf</a></li>
+<li>linux 提权工具 <a href="https://github.com/mzet-/linux-exploit-suggester" target="_blank" rel="external">https://github.com/mzet-/linux-exploit-suggester</a> <a href="https://github.com/PenturaLabs/Linux_Exploit_Suggester" target="_blank" rel="external">https://github.com/PenturaLabs/Linux_Exploit_Suggester</a> <a href="https://github.com/jondonas/linux-exploit-suggester-2" target="_blank" rel="external">https://github.com/jondonas/linux-exploit-suggester-2</a></li>
+<li>What is command injection and how does it work? <a href="https://www.quora.com/What-is-command-injection-and-how-does-it-work" target="_blank" rel="external">https://www.quora.com/What-is-command-injection-and-how-does-it-work</a></li>
+<li><p>A VirusTotal-powered Python daemon that watches files in a directory for malware.  <a href="https://github.com/supriyo-biswas/vtlivescan" target="_blank" rel="external">https://github.com/supriyo-biswas/vtlivescan</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">不得不说这是个好东西，自己下载的东西可以在不安装杀毒软件的情况下检测是否有毒</div><div class="line">mac 下面没有notify-send怎么办？mac下面有 terminal-notifier（亲测效果不错） http://osxdaily.com/2012/08/03/send-an-alert-to-notification-center-from-the-command-line-in-os-x/</div></pre></td></tr></table></figure>
+</li>
+<li><p>nmap扫描的图形化展示 php开发  <a href="https://github.com/RASSec/NMAP_INTERFACE" target="_blank" rel="external">https://github.com/RASSec/NMAP_INTERFACE</a></p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####每日安全动态&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个国外的mac小工具安装的网站，比如说mac上没有的一些linux系统命令比如 pstree、binwalk等，都可以从这里找到下载和安装的方法，推荐 &lt;a href=&quot;http://macappstore.org/&quot; ta
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>PyCharm: The project at … uses a non-standard layout and cannot be attached to this project</title>
@@ -39,7 +75,7 @@
     <link href="http://kevien.github.io/2017/06/19/20170619%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/06/19/20170619安全动态/</id>
     <published>2017-06-19T03:25:24.000Z</published>
-    <updated>2017-06-19T07:18:40.000Z</updated>
+    <updated>2017-06-19T11:36:23.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li><p>看我如何在赛门铁克邮件安全网关上实现弱口令到RCE漏洞执行 <a href="http://www.freebuf.com/articles/network/137341.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/137341.html</a></p>
@@ -62,6 +98,7 @@
 <li><p>【YISRC】技术分享——HTTPS通信知多少？<a href="https://mp.weixin.qq.com/s?__biz=MzIyNjQzMjcyNw==&amp;mid=2247484634&amp;idx=1&amp;sn=919d8e864b989ac0d6ac94b005df6598&amp;chksm=e871c762df064e74a9b24c9f59f870434a716487460567eda837a5609459298e7a5c7aec205e&amp;scene=0&amp;key=51ed750aa8560dbf71b3ea5dda9a9cf3046a8fb8aef9dad3170e4188e41460eb01c905c3d89f28828d9bfd9b5a062b6c898566d959dd030dd08a7e15e10809b8f18659b78a33bfd886a79b330fd7af1a&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=Y2%2F4SmK1w2g0n8a3eP2Q80FuyDZWLKoetwZOfnE98VE%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIyNjQzMjcyNw==&amp;mid=2247484634&amp;idx=1&amp;sn=919d8e864b989ac0d6ac94b005df6598&amp;chksm=e871c762df064e74a9b24c9f59f870434a716487460567eda837a5609459298e7a5c7aec205e&amp;scene=0&amp;key=51ed750aa8560dbf71b3ea5dda9a9cf3046a8fb8aef9dad3170e4188e41460eb01c905c3d89f28828d9bfd9b5a062b6c898566d959dd030dd08a7e15e10809b8f18659b78a33bfd886a79b330fd7af1a&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=Y2%2F4SmK1w2g0n8a3eP2Q80FuyDZWLKoetwZOfnE98VE%3D</a></p>
 </li>
 <li>浅谈Windows 10中藏着的那个Linux <a href="http://www.freebuf.com/column/137639.html" target="_blank" rel="external">http://www.freebuf.com/column/137639.html</a></li>
+<li>教你如何让SSH使用一次性密码登陆 <a href="http://www.freebuf.com/articles/system/137580.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/137580.html</a></li>
 </ul>
 ]]></content>
     
