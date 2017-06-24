@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-22T05:37:26.000Z</updated>
+  <updated>2017-06-24T10:04:43.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,50 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20170623安全动态</title>
+    <link href="http://kevien.github.io/2017/06/23/20170623%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/06/23/20170623安全动态/</id>
+    <published>2017-06-23T02:57:54.000Z</published>
+    <updated>2017-06-24T10:04:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>发现一个不错的社区 v2ex V2EX 是创意工作者们的社区。这里目前汇聚了超过 110,000 名主要来自互联网行业、游戏行业和媒体行业的创意工作者<a href="https://www.v2ex.com/" target="_blank" rel="external">https://www.v2ex.com/</a></li>
+<li>内网渗透之PC控制及完美过杀毒!!! <a href="https://mp.weixin.qq.com/s?__biz=MjM5MDkwNjA2Nw==&amp;mid=2650374095&amp;idx=1&amp;sn=5d0fdb1efdba018f36a55aaa40c9aa7a&amp;chksm=beb07c7389c7f5650d3f1d26e0d5d5f230a5e569498f23dbb4cac925c34a133bf256a826f0b1&amp;mpshare=1&amp;scene=23&amp;srcid=0624DcbNkIfgyn9BrpMG68gC#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5MDkwNjA2Nw==&amp;mid=2650374095&amp;idx=1&amp;sn=5d0fdb1efdba018f36a55aaa40c9aa7a&amp;chksm=beb07c7389c7f5650d3f1d26e0d5d5f230a5e569498f23dbb4cac925c34a133bf256a826f0b1&amp;mpshare=1&amp;scene=23&amp;srcid=0624DcbNkIfgyn9BrpMG68gC#rd</a></li>
+<li>Firefox 56 现已开始支持 headless 模式 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1355150" target="_blank" rel="external">https://bugzilla.mozilla.org/show_bug.cgi?id=1355150</a></li>
+<li>收集 npm 弱凭据的三种方法 <a href="https://github.com/ChALkeR/notes/blob/master/Gathering-weak-npm-credentials.md" target="_blank" rel="external">https://github.com/ChALkeR/notes/blob/master/Gathering-weak-npm-credentials.md</a></li>
+<li><p>bt2 - 使用 Python 编写的一款利用 Telegram 通信平台作为 C&amp;C 服务的后门工具<a href="https://github.com/blazeinfosec/bt2" target="_blank" rel="external">https://github.com/blazeinfosec/bt2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">思路够猥琐</div></pre></td></tr></table></figure>
+</li>
+<li><p>yarGen - YARA 规则生成器 <a href="https://github.com/Neo23x0/yarGen" target="_blank" rel="external">https://github.com/Neo23x0/yarGen</a></p>
+</li>
+<li>使用 Burp Infiltrator 进行漏洞挖掘 <a href="http://blog.portswigger.net/2017/06/behind-enemy-lines-bug-hunting-with.html" target="_blank" rel="external">http://blog.portswigger.net/2017/06/behind-enemy-lines-bug-hunting-with.html</a></li>
+<li>sharkPy - 使用 Wireshark 和 libpcap 来解析、分析与交互操作网络数据包的的 Python 工具 <a href="http://www.kitploit.com/2017/06/sharkpy-nsa-tool-to-dissect-analyze-and.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/sharkpy-nsa-tool-to-dissect-analyze-and.html</a></li>
+<li>Web 中的跨域 Json 劫持 <a href="http://blog.portswigger.net/2016/11/json-hijacking-for-modern-web.html" target="_blank" rel="external">http://blog.portswigger.net/2016/11/json-hijacking-for-modern-web.html</a></li>
+<li>通过盗窃OAuth令牌绕过Airbnb认证 <a href="https://www.arneswinnen.net/2017/06/authentication-bypass-on-airbnb-via-oauth-tokens-theft/" target="_blank" rel="external">https://www.arneswinnen.net/2017/06/authentication-bypass-on-airbnb-via-oauth-tokens-theft/</a></li>
+<li>hooking新技术:GhostHook-可以绕过安全内核和基于钩子的处理器追踪 <a href="https://www.cyberark.com/threat-research-blog/ghosthook-bypassing-patchguard-processor-trace-based-hooking/" target="_blank" rel="external">https://www.cyberark.com/threat-research-blog/ghosthook-bypassing-patchguard-processor-trace-based-hooking/</a></li>
+<li>另类的Javascript伪协议 <a href="http://brutelogic.com.br/blog/alternative-javascript-pseudo-protocol/" target="_blank" rel="external">http://brutelogic.com.br/blog/alternative-javascript-pseudo-protocol/</a></li>
+<li>MVVM 框架安全 <a href="https://speakerdeck.com/oritz/mvvm-framework-security" target="_blank" rel="external">https://speakerdeck.com/oritz/mvvm-framework-security</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;发现一个不错的社区 v2ex V2EX 是创意工作者们的社区。这里目前汇聚了超过 110,000
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170622安全动态</title>
     <link href="http://kevien.github.io/2017/06/22/20170622%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/06/22/20170622安全动态/</id>
     <published>2017-06-22T03:20:17.000Z</published>
-    <updated>2017-06-22T05:37:26.000Z</updated>
+    <updated>2017-06-22T13:22:34.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>Serpico - 渗透测试报告生成与协作工具<a href="https://github.com/SerpicoProject/Serpico" target="_blank" rel="external">https://github.com/SerpicoProject/Serpico</a></li>
@@ -48,6 +87,7 @@
 <li>根据从恶意软件中发现的字符串自动化生成YARA规则 <a href="https://github.com/Neo23x0/yarGen" target="_blank" rel="external">https://github.com/Neo23x0/yarGen</a></li>
 <li>java反序列化漏洞分析 <a href="https://xianzhi.aliyun.com/forum/read/1757.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1757.html</a></li>
 <li>【技术分享】TP-Link WR841N路由器任意代码执行漏洞分析（附演示视频）<a href="http://bobao.360.cn/learning/detail/4008.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4008.html</a></li>
+<li>我是如何拿下破冰项目的 <a href="https://xianzhi.aliyun.com/forum/read/1769.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1769.html</a></li>
 </ul>
 ]]></content>
     
@@ -732,33 +772,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;旧的博客-博客园可能以后不会再更新-地址：http-www-cnblogs-com-mrchang&quot;&gt;&lt;a href=&quot;#旧的博客-博客园可能以后不会再更新-地址：http-www-cnblogs-com-mrchang&quot; class=&quot;headerlink&quot; t
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://kevien.github.io/2017/04/28/hello-world/"/>
-    <id>http://kevien.github.io/2017/04/28/hello-world/</id>
-    <published>2017-04-28T04:02:18.000Z</published>
-    <updated>2017-04-28T04:02:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
     
     </summary>
     
