@@ -92,17 +92,20 @@
 
 
 
-<meta name="description" content="####每日安全动态  关于验证码识别的一篇文章 http://www.cnblogs.com/beer/p/5672678.html Mac OSX上检测rootkit http://macappstore.org/chkrootkit/  mac上安装rkhunter http://macappstore.org/rkhunter/ Mac上取证分析工具以及rootkit分析工具 http:/">
+<meta name="description" content="0x01 前言本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20170607安全动态">
-<meta property="og:url" content="http://kevien.github.io/2017/06/07/20170607安全动态/index.html">
+<meta property="og:title" content="ssh蜜罐搭建">
+<meta property="og:url" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="####每日安全动态  关于验证码识别的一篇文章 http://www.cnblogs.com/beer/p/5672678.html Mac OSX上检测rootkit http://macappstore.org/chkrootkit/  mac上安装rkhunter http://macappstore.org/rkhunter/ Mac上取证分析工具以及rootkit分析工具 http:/">
-<meta property="og:updated_time" content="2017-06-07T08:18:17.000Z">
+<meta property="og:description" content="0x01 前言本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，">
+<meta property="og:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/1.jpg">
+<meta property="og:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/2.jpg">
+<meta property="og:updated_time" content="2017-06-25T04:39:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20170607安全动态">
-<meta name="twitter:description" content="####每日安全动态  关于验证码识别的一篇文章 http://www.cnblogs.com/beer/p/5672678.html Mac OSX上检测rootkit http://macappstore.org/chkrootkit/  mac上安装rkhunter http://macappstore.org/rkhunter/ Mac上取证分析工具以及rootkit分析工具 http:/">
+<meta name="twitter:title" content="ssh蜜罐搭建">
+<meta name="twitter:description" content="0x01 前言本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，">
+<meta name="twitter:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/1.jpg">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/2017/06/07/20170607安全动态/"/>
+  <link rel="canonical" href="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/"/>
 
 
 
 
 
-  <title>20170607安全动态 | M0rk's Blog</title>
+  <title>ssh蜜罐搭建 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -265,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/07/20170607安全动态/">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="M0rk">
@@ -286,7 +289,7 @@
             
             
               
-                20170607安全动态
+                ssh蜜罐搭建
               
             
           </h1>
@@ -301,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-07T10:39:06+08:00">
-                2017-06-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T10:21:34+08:00">
+                2017-06-25
               </time>
             
 
@@ -311,6 +314,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常分享/" itemprop="url" rel="index">
+                    <span itemprop="name">日常分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -336,28 +361,18 @@
       
 
       
-        <p>####每日安全动态</p>
-<ul>
-<li>关于验证码识别的一篇文章 <a href="http://www.cnblogs.com/beer/p/5672678.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/5672678.html</a></li>
-<li>Mac OSX上检测rootkit <a href="http://macappstore.org/chkrootkit/" target="_blank" rel="external">http://macappstore.org/chkrootkit/</a>  mac上安装rkhunter <a href="http://macappstore.org/rkhunter/" target="_blank" rel="external">http://macappstore.org/rkhunter/</a></li>
-<li>Mac上取证分析工具以及rootkit分析工具 <a href="http://yelp.github.io/osxcollector/" target="_blank" rel="external">http://yelp.github.io/osxcollector/</a></li>
-<li><p>黑客入侵应急分析手工排查 <a href="https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还是比较全面的，攻击者可以学习思路，避免留下把柄，防御者全面分析安全事件</div></pre></td></tr></table></figure>
-</li>
-<li><p>检测windows存在的漏洞，需要先导出systeminfo信息 <a href="https://github.com/GDSSecurity/Windows-Exploit-Suggester/" target="_blank" rel="external">https://github.com/GDSSecurity/Windows-Exploit-Suggester/</a></p>
-</li>
-<li>samba CVE-2017-7497 EXP <a href="https://github.com/joxeankoret/CVE-2017-7494" target="_blank" rel="external">https://github.com/joxeankoret/CVE-2017-7494</a></li>
-<li>一个在线分析pcap数据包的网站 <a href="http://www.capanalysis.net/ca/" target="_blank" rel="external">http://www.capanalysis.net/ca/</a></li>
-<li>测试你通过msfvenom 生成shellcode的工具 <a href="https://github.com/emptymonkey/drinkme" target="_blank" rel="external">https://github.com/emptymonkey/drinkme</a></li>
-<li>使用 VirtualBox、INetSim 和 Burp 搭建自己的恶意软件分析平台 <a href="https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/" target="_blank" rel="external">https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/</a></li>
-<li>据说很厉害的windows提权工具 <a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank" rel="external">https://github.com/PowerShellMafia/PowerSploit</a>  <a href="https://www.zero-day.io/metasploitwalkthrough/" target="_blank" rel="external">https://www.zero-day.io/metasploitwalkthrough/</a></li>
-<li>利用 dashboard 页面的一个 js 文件绕过认证 <a href="http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html" target="_blank" rel="external">http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html</a></li>
-<li>三个案例看Nginx配置安全 <a href="https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html</a></li>
-<li>一个故事告诉你比特币的原理及运作机制 <a href="http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html" target="_blank" rel="external">http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html</a></li>
-<li>渗透技巧——程序的降权启动 <a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/</a></li>
-<li>二维码支付原理分析及安全性的探究 <a href="http://www.cnblogs.com/beer/p/6918180.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/6918180.html</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*  Web应用系统的小安全漏洞及相应的攻击方式 &lt;http://www.cnblogs.com/beer/p/4814587.html&gt;</div></pre></td></tr></table></figure></li>
-</ul>
-<p>这也是一种攻击方式，不知道你们注意过没<br>```</p>
+        <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？<br>1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。<br>2.ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
+<h4 id="0x02-具体安装步骤"><a href="#0x02-具体安装步骤" class="headerlink" title="0x02 具体安装步骤"></a>0x02 具体安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本次测试是在ubuntu14.04X64环境下测试</div></pre></td></tr></table></figure>
+<p>1.首先git clone这两个资源<a href="https://github.com/openssh/openssh-portable" target="_blank" rel="external">https://github.com/openssh/openssh-portable</a><br><a href="https://github.com/w8rbt/sshlog" target="_blank" rel="external">https://github.com/w8rbt/sshlog</a><br>2.打补丁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ patch --dry-run &lt; sshlog.patch</div><div class="line">$ patch &lt; sshlog.patch</div></pre></td></tr></table></figure></p>
+<p>运行上面两条命令，其实就是在auth-passwd.c中加上几行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">struct ssh *ssh = active_state;</div><div class="line"></div><div class="line">       if(authctxt-&gt;user &amp;&amp; password &amp;&amp; ssh) &#123;</div><div class="line">	logit(&quot;sshlog: %.100s %s %.200s %lu&quot;, </div><div class="line">		authctxt-&gt;user, </div><div class="line">		password, </div><div class="line">		ssh_remote_ipaddr(ssh),</div><div class="line">		(unsigned long)time(NULL));</div><div class="line">&#125;</div><div class="line"></div><div class="line">       else &#123;</div><div class="line">	logit(&quot;sshlog: unable to log attempt&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.安装前检查<br>发现源码中没有configure文件，原来是需要自己运行autoreconf这个来生成configure文件,参考官方说明：<a href="http://www.openssh.com/portable.html" target="_blank" rel="external">http://www.openssh.com/portable.html</a><br>4.编译<br>编译的时候需要安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install libz-dev</div><div class="line">$ sudo apt-get install libssl-dev</div></pre></td></tr></table></figure>
+<p>5.链接和安装<br>这个时候又会报一个错<br>Privilege separation user sshd does not exist<br>这个时候需要在/etc/passwd文件中加入 ： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div></pre></td></tr></table></figure>
+<p>6.Done!<br><img src="/2017/06/25/ssh蜜罐搭建/1.jpg" alt=""><br><img src="/2017/06/25/ssh蜜罐搭建/2.jpg" alt=""></p>
+<h4 id="0x03-待续"><a href="#0x03-待续" class="headerlink" title="0x03 待续"></a>0x03 待续</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">图形化界面实时展示ssh被爆破记录</div></pre></td></tr></table></figure>
+<h4 id="0x04-referer"><a href="#0x04-referer" class="headerlink" title="0x04 referer"></a>0x04 referer</h4><p>1.<a href="https://www.wikiwand.com/en/Secure_Shell" target="_blank" rel="external">https://www.wikiwand.com/en/Secure_Shell</a><br>2.<a href="https://www.wikiwand.com/en/Elliptic_curve_cryptography" target="_blank" rel="external">https://www.wikiwand.com/en/Elliptic_curve_cryptography</a><br>3.<a href="https://my.oschina.net/realfighter/blog/388486" target="_blank" rel="external">https://my.oschina.net/realfighter/blog/388486</a><br>4.<a href="https://m14.cc/magic-behind-compiling-software/" target="_blank" rel="external">https://m14.cc/magic-behind-compiling-software/</a></p>
 
       
     </div>
@@ -394,18 +409,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/08/20170608安全动态/" rel="next" title="20170608">
-                <i class="fa fa-chevron-left"></i> 20170608
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/06/20170606安全动态/" rel="prev" title="20170606安全动态">
-                20170606安全动态 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/23/20170623安全动态/" rel="prev" title="20170623安全动态">
+                20170623安全动态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -476,8 +487,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -566,6 +586,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x02-具体安装步骤"><span class="nav-number">2.</span> <span class="nav-text">0x02 具体安装步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x03-待续"><span class="nav-number">3.</span> <span class="nav-text">0x03 待续</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x04-referer"><span class="nav-number">4.</span> <span class="nav-text">0x04 referer</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
