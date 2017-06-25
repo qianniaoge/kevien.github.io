@@ -92,19 +92,19 @@
 
 
 
-<meta name="description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
+<meta name="description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？  较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh蜜罐搭建">
 <meta property="og:url" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
+<meta property="og:description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？  较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
 <meta property="og:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/1.png">
 <meta property="og:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/2.png">
-<meta property="og:updated_time" content="2017-06-25T04:48:29.000Z">
+<meta property="og:updated_time" content="2017-06-25T04:51:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh蜜罐搭建">
-<meta name="twitter:description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
+<meta name="twitter:description" content="0x01 前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。一直以来想去做蜜罐这么个东西，ssh is the begining!ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？  较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协">
 <meta name="twitter:image" content="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/1.png">
 
 
@@ -361,16 +361,31 @@
       
 
       
-        <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？<br>1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。<br>2.ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
+        <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？</p>
+<ol>
+<li>较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。</li>
+<li><p>ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
 <h4 id="0x02-具体安装步骤"><a href="#0x02-具体安装步骤" class="headerlink" title="0x02 具体安装步骤"></a>0x02 具体安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本次测试是在ubuntu14.04X64环境下测试</div></pre></td></tr></table></figure>
-<p>1.首先git clone这两个资源<a href="https://github.com/openssh/openssh-portable" target="_blank" rel="external">https://github.com/openssh/openssh-portable</a><br><a href="https://github.com/w8rbt/sshlog" target="_blank" rel="external">https://github.com/w8rbt/sshlog</a><br>2.打补丁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ patch --dry-run &lt; sshlog.patch</div><div class="line">$ patch &lt; sshlog.patch</div></pre></td></tr></table></figure></p>
+</li>
+<li><p>首先git clone这两个资源<a href="https://github.com/openssh/openssh-portable" target="_blank" rel="external">https://github.com/openssh/openssh-portable</a><br><a href="https://github.com/w8rbt/sshlog" target="_blank" rel="external">https://github.com/w8rbt/sshlog</a></p>
+</li>
+<li>‘打补丁’。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ patch --dry-run &lt; sshlog.patch</div><div class="line">$ patch &lt; sshlog.patch</div></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>运行上面两条命令，其实就是在auth-passwd.c中加上几行代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">struct ssh *ssh = active_state;</div><div class="line"></div><div class="line">       if(authctxt-&gt;user &amp;&amp; password &amp;&amp; ssh) &#123;</div><div class="line">	logit(&quot;sshlog: %.100s %s %.200s %lu&quot;, </div><div class="line">		authctxt-&gt;user, </div><div class="line">		password, </div><div class="line">		ssh_remote_ipaddr(ssh),</div><div class="line">		(unsigned long)time(NULL));</div><div class="line">&#125;</div><div class="line"></div><div class="line">       else &#123;</div><div class="line">	logit(&quot;sshlog: unable to log attempt&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>3.安装前检查<br>发现源码中没有configure文件，原来是需要自己运行autoreconf这个来生成configure文件,参考官方说明：<a href="http://www.openssh.com/portable.html" target="_blank" rel="external">http://www.openssh.com/portable.html</a><br>4.编译<br>编译的时候需要安装依赖</p>
+<ol>
+<li>安装前检查<br>发现源码中没有configure文件，原来是需要自己运行autoreconf这个来生成configure文件,参考官方说明：<a href="http://www.openssh.com/portable.html" target="_blank" rel="external">http://www.openssh.com/portable.html</a></li>
+<li>编译<br>编译的时候需要安装依赖</li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install libz-dev</div><div class="line">$ sudo apt-get install libssl-dev</div></pre></td></tr></table></figure>
-<p>5.链接和安装<br>这个时候又会报一个错<br>Privilege separation user sshd does not exist<br>这个时候需要在/etc/passwd文件中加入 ： </p>
+<ol>
+<li>链接和安装<br>这个时候又会报一个错<br>Privilege separation user sshd does not exist<br>这个时候需要在/etc/passwd文件中加入 ： </li>
+</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div></pre></td></tr></table></figure>
-<p>6.Done!<br><img src="/2017/06/25/ssh蜜罐搭建/1.png" alt=""><br><img src="/2017/06/25/ssh蜜罐搭建/2.png" alt=""></p>
+<ol>
+<li>Done!<br><img src="/2017/06/25/ssh蜜罐搭建/1.png" alt=""><br><img src="/2017/06/25/ssh蜜罐搭建/2.png" alt=""></li>
+</ol>
 <h4 id="0x03-待续"><a href="#0x03-待续" class="headerlink" title="0x03 待续"></a>0x03 待续</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">图形化界面实时展示ssh被爆破记录</div></pre></td></tr></table></figure>
 <h4 id="0x04-referer"><a href="#0x04-referer" class="headerlink" title="0x04 referer"></a>0x04 referer</h4><p>1.<a href="https://www.wikiwand.com/en/Secure_Shell" target="_blank" rel="external">https://www.wikiwand.com/en/Secure_Shell</a><br>2.<a href="https://www.wikiwand.com/en/Elliptic_curve_cryptography" target="_blank" rel="external">https://www.wikiwand.com/en/Elliptic_curve_cryptography</a><br>3.<a href="https://my.oschina.net/realfighter/blog/388486" target="_blank" rel="external">https://my.oschina.net/realfighter/blog/388486</a><br>4.<a href="https://m14.cc/magic-behind-compiling-software/" target="_blank" rel="external">https://m14.cc/magic-behind-compiling-software/</a></p>
 
