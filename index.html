@@ -360,7 +360,7 @@
       
         
           
-            <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？</p>
+            <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is only the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？</p>
 <ol>
 <li>较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。</li>
 <li><p>ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
