@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-25T04:58:44.000Z</updated>
+  <updated>2017-06-25T09:07:24.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>weblogic反序列化漏洞</title>
+    <link href="http://kevien.github.io/2017/06/25/weblogic%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/"/>
+    <id>http://kevien.github.io/2017/06/25/weblogic反序列化漏洞/</id>
+    <published>2017-06-25T08:17:02.000Z</published>
+    <updated>2017-06-25T09:07:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####先挖个坑</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####先挖个坑&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="漏洞分析" scheme="http://kevien.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>ssh蜜罐搭建</title>
     <link href="http://kevien.github.io/2017/06/25/ssh%E8%9C%9C%E7%BD%90%E6%90%AD%E5%BB%BA/"/>
     <id>http://kevien.github.io/2017/06/25/ssh蜜罐搭建/</id>
     <published>2017-06-25T02:21:34.000Z</published>
-    <updated>2017-06-25T04:58:44.000Z</updated>
+    <updated>2017-06-25T09:20:09.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is only the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？</p>
 <ol>
@@ -773,43 +795,6 @@
       &lt;p&gt;##安全动态&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;用来查找exp的工具getsploit - command line exploit search and download tool (supports Exploit-DB, MSF, Packet Storm, 0daytoda
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>每周安全动态</title>
-    <link href="http://kevien.github.io/2017/06/04/%E6%AF%8F%E5%91%A8%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/06/04/每周安全动态/</id>
-    <published>2017-06-04T09:56:49.000Z</published>
-    <updated>2017-06-04T10:56:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h1><ul>
-<li>Google 引入定制的机器学习技术检测 Gmail 中的钓鱼邮件 <a href="https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/" target="_blank" rel="external">https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/</a></li>
-<li>Ganxo - 开源 API Hook 框架 <a href="https://github.com/PassingTheKnowledge/Ganxo" target="_blank" rel="external">https://github.com/PassingTheKnowledge/Ganxo</a></li>
-<li>HTTPS 原理浅析及其在 Android 中的使用 <a href="http://mobile.51cto.com/android-540662.htm" target="_blank" rel="external">http://mobile.51cto.com/android-540662.htm</a></li>
-<li>初见 Chrome Headless Browser <a href="https://lightless.me/archives/first-glance-at-chrome-headless-browser.html" target="_blank" rel="external">https://lightless.me/archives/first-glance-at-chrome-headless-browser.html</a></li>
-<li>EternalPot - 搭建全球性的SMB漏洞蜜罐基础设施的经验 <a href="https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe" target="_blank" rel="external">https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe</a></li>
-<li>来自内部员工的威胁以及如何防御，来自 NCC Group 的 Paper  <a href="https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/" target="_blank" rel="external">https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/</a>  </li>
-<li>Cheat Sheet of Machine Learning and Python (and Math) Cheat Sheets <a href="https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6" target="_blank" rel="external">https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6</a></li>
-<li>Package 钓鱼 <a href="http://blog.fatezero.org/2017/06/01/package-fishing/" target="_blank" rel="external">http://blog.fatezero.org/2017/06/01/package-fishing/</a></li>
-<li>Invoke-Phant0m Windows日志杀手 <a href="https://github.com/hlldz/Invoke-Phant0m" target="_blank" rel="external">https://github.com/hlldz/Invoke-Phant0m</a></li>
-<li>如何在PE文件中手动植入一个后门 <a href="http://bobao.360.cn/learning/detail/3931.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3931.html</a></li>
-<li>渗透标准思维导图 <a href="https://www.processon.com/view/583e8834e4b08e31357bb727" target="_blank" rel="external">https://www.processon.com/view/583e8834e4b08e31357bb727</a></li>
-<li>从蜜罐数据到SSH蜜罐的典型攻击分析 <a href="http://bobao.360.cn/learning/detail/3929.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3929.html</a></li>
-<li>Joomla Core 3.x后台getshell <a href="https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload" target="_blank" rel="external">https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload</a></li>
-<li>sudo-CVE-2017-1000367漏洞利用程序 <a href="https://github.com/c0d3z3r0/sudo-CVE-2017-1000367" target="_blank" rel="external">https://github.com/c0d3z3r0/sudo-CVE-2017-1000367</a></li>
-<li>一键自动化域渗透工具 <a href="https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html" target="_blank" rel="external">https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html</a></li>
-<li>在OSX上监听单个应用HTTPS流量 <a href="https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/" target="_blank" rel="external">https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Google 引入定制的机器学习技术检测 Gmail 中的钓鱼邮件 &lt;a href=&quot;https
     
     </summary>
     
