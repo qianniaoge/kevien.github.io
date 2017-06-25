@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-25T04:42:05.000Z</updated>
+  <updated>2017-06-25T04:48:29.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://kevien.github.io/2017/06/25/ssh%E8%9C%9C%E7%BD%90%E6%90%AD%E5%BB%BA/"/>
     <id>http://kevien.github.io/2017/06/25/ssh蜜罐搭建/</id>
     <published>2017-06-25T02:21:34.000Z</published>
-    <updated>2017-06-25T04:42:05.000Z</updated>
+    <updated>2017-06-25T04:48:29.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？<br>1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。<br>2.ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
+    <content type="html"><![CDATA[<h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？<br>1.较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。<br>2.ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。</p>
 <h4 id="0x02-具体安装步骤"><a href="#0x02-具体安装步骤" class="headerlink" title="0x02 具体安装步骤"></a>0x02 具体安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本次测试是在ubuntu14.04X64环境下测试</div></pre></td></tr></table></figure>
 <p>1.首先git clone这两个资源<a href="https://github.com/openssh/openssh-portable" target="_blank" rel="external">https://github.com/openssh/openssh-portable</a><br><a href="https://github.com/w8rbt/sshlog" target="_blank" rel="external">https://github.com/w8rbt/sshlog</a><br>2.打补丁。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ patch --dry-run &lt; sshlog.patch</div><div class="line">$ patch &lt; sshlog.patch</div></pre></td></tr></table></figure></p>
 <p>运行上面两条命令，其实就是在auth-passwd.c中加上几行代码</p>
@@ -38,7 +38,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;0x01-前言&quot;&gt;&lt;a href=&quot;#0x01-前言&quot; class=&quot;headerlink&quot; title=&quot;0x01 前言&quot;&gt;&lt;/a&gt;0x01 前言&lt;/h4&gt;&lt;p&gt;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。&lt;
+      &lt;h4 id=&quot;0x01-前言&quot;&gt;&lt;a href=&quot;#0x01-前言&quot; class=&quot;headerlink&quot; title=&quot;0x01 前言&quot;&gt;&lt;/a&gt;0x01 前言&lt;/h4&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞
     
     </summary>
     
@@ -560,7 +560,7 @@
     <link href="http://kevien.github.io/2017/06/10/20170610%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/06/10/20170610安全动态/</id>
     <published>2017-06-10T05:55:38.000Z</published>
-    <updated>2017-06-10T13:51:10.000Z</updated>
+    <updated>2017-06-25T04:48:45.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>一个windows本地信息搜集的ps脚本 <a href="https://www.blackhillsinfosec.com/?p=5824" target="_blank" rel="external">https://www.blackhillsinfosec.com/?p=5824</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">测试了一下效果不错，里面有一个DNS cache对于信息搜集来说挺好</div></pre></td></tr></table></figure>
