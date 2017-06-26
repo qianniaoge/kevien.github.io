@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-25T09:07:24.000Z</updated>
+  <updated>2017-06-26T05:16:43.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170626安全动态</title>
+    <link href="http://kevien.github.io/2017/06/26/20170626%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/06/26/20170626安全动态/</id>
+    <published>2017-06-26T03:34:42.000Z</published>
+    <updated>2017-06-26T05:16:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>使用 Sysmon 与 Powershell Logs 检测攻击行为 <a href="https://securitylogsdotorg.files.wordpress.com/2017/06/bsides-athens-sysmon-final.pdf" target="_blank" rel="external">https://securitylogsdotorg.files.wordpress.com/2017/06/bsides-athens-sysmon-final.pdf</a></li>
+<li>T00LS帖子正文XSS <a href="https://mp.weixin.qq.com/s/HCKs6Bhc30dlMMmcIH401Q" target="_blank" rel="external">https://mp.weixin.qq.com/s/HCKs6Bhc30dlMMmcIH401Q</a></li>
+<li>BurpSuite 几个扩展的使用  <a href="https://zhuanlan.zhihu.com/p/27545785?group_id=862240683996622848" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/27545785?group_id=862240683996622848</a></li>
+<li>看我如何利用开发人员所犯的小错误来盗取各种tokens <a href="http://www.freebuf.com/articles/web/137793.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/137793.html</a></li>
+<li>PhpStorm Xdebug远程调试环境搭建原理分析及问题排查 <a href="http://xxlegend.com/2017/05/23/PhpStorm%20Xdebug%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" target="_blank" rel="external">http://xxlegend.com/2017/05/23/PhpStorm%20Xdebug%E8%BF%9C%E7%A8%8B%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</a></li>
+<li>利用BeEF REST API自动化控制僵尸主机 <a href="http://www.freebuf.com/articles/network/137662.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/137662.html</a></li>
+<li>[代码审计]菜鸟学代码审计-PIMS三个漏洞+里程密最新版V2.3 SQL注入漏洞 <a href="https://xianzhi.aliyun.com/forum/read/1761.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1761.html</a></li>
+<li>ssrf、ssrf内网地址fuzz、dns二次rebinding、支持ipv4/ipv6、支持ip地址转码、dns记录污染<br><a href="https://github.com/Tr3jer/dnsAutoRebinding" target="_blank" rel="external">https://github.com/Tr3jer/dnsAutoRebinding</a></li>
+<li>DNS typosquatting 实现水坑攻击 <a href="https://blog.0day.rocks/practical-waterholing-through-dns-typosquatting-e252e6a2f99e" target="_blank" rel="external">https://blog.0day.rocks/practical-waterholing-through-dns-typosquatting-e252e6a2f99e</a></li>
+<li>Viproy - VoIP 渗透测试与漏洞利用工具集 <a href="https://twitter.com/KitPloit/status/878632599639412736/photo/1" target="_blank" rel="external">https://twitter.com/KitPloit/status/878632599639412736/photo/1</a></li>
+<li>NTFS 相关的取证分析、恶意软件与漏洞介绍 <a href="https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view" target="_blank" rel="external">https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view</a></li>
+<li>XSS’OR 开源，Hack with JavaScript <a href="https://mp.weixin.qq.com/s/BUNFEbEbDjbBwRvEloomOg" target="_blank" rel="external">https://mp.weixin.qq.com/s/BUNFEbEbDjbBwRvEloomOg</a></li>
+<li>利用 Huginn 将微信公众号转化为 RSS 订阅 <a href="https://www.40huo.cn/blog/wechat2rss-by-huginn.html" target="_blank" rel="external">https://www.40huo.cn/blog/wechat2rss-by-huginn.html</a></li>
+<li>Python Waf黑名单过滤下的一些Bypass思路 <a href="http://www.0aa.me/index.php/archives/123/" target="_blank" rel="external">http://www.0aa.me/index.php/archives/123/</a></li>
+<li>电子数据取证技能树 (V1) <a href="https://mp.weixin.qq.com/s?__biz=MzUyNTA2MTQ5Mw==&amp;mid=2247483707&amp;idx=1&amp;sn=584d666fb85762354378d0919dad5ed5&amp;scene=0" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzUyNTA2MTQ5Mw==&amp;mid=2247483707&amp;idx=1&amp;sn=584d666fb85762354378d0919dad5ed5&amp;scene=0</a></li>
+<li>Tomcat 源代码调试笔记 - 看不见的 Shell <a href="https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483666&amp;idx=1&amp;sn=6421b39037735953fa3148bdbf5bf912&amp;chksm=ecb11de2dbc694f4e00a55667fdc81387d53494788f43ec90327fa64f8c02fa6805fc0577671&amp;mpshare=1&amp;scene=1&amp;srcid=0623Z7avuWtePZvyDd2GWbOi&amp;key=f0ee669" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483666&amp;idx=1&amp;sn=6421b39037735953fa3148bdbf5bf912&amp;chksm=ecb11de2dbc694f4e00a55667fdc81387d53494788f43ec90327fa64f8c02fa6805fc0577671&amp;mpshare=1&amp;scene=1&amp;srcid=0623Z7avuWtePZvyDd2GWbOi&amp;key=f0ee669</a></li>
+<li>通过NSynth生成你自己的声音 <a href="https://magenta.tensorflow.org/nsynth-fastgen" target="_blank" rel="external">https://magenta.tensorflow.org/nsynth-fastgen</a></li>
+<li>apparatus：IOT安全分析框架 <a href="http://seclist.us/apparatus-is-a-security-framework-to-facilitate-security-analysis-in-iot-systems.html" target="_blank" rel="external">http://seclist.us/apparatus-is-a-security-framework-to-facilitate-security-analysis-in-iot-systems.html</a></li>
+<li>pwn Vivotek 的网络摄像头 <a href="https://blog.cal1.cn/post/An%20easy%20way%20to%20pwn%20most%20of%20the%20vivotek%20network%20cameras" target="_blank" rel="external">https://blog.cal1.cn/post/An%20easy%20way%20to%20pwn%20most%20of%20the%20vivotek%20network%20cameras</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;使用 Sysmon 与 Powershell Logs 检测攻击行为 &lt;a href=&quot;http
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>weblogic反序列化漏洞</title>
@@ -131,7 +173,7 @@
     <link href="http://kevien.github.io/2017/06/22/20170622%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/06/22/20170622安全动态/</id>
     <published>2017-06-22T03:20:17.000Z</published>
-    <updated>2017-06-22T13:22:34.000Z</updated>
+    <updated>2017-06-25T15:06:31.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>Serpico - 渗透测试报告生成与协作工具<a href="https://github.com/SerpicoProject/Serpico" target="_blank" rel="external">https://github.com/SerpicoProject/Serpico</a></li>
@@ -160,6 +202,7 @@
 <li>java反序列化漏洞分析 <a href="https://xianzhi.aliyun.com/forum/read/1757.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1757.html</a></li>
 <li>【技术分享】TP-Link WR841N路由器任意代码执行漏洞分析（附演示视频）<a href="http://bobao.360.cn/learning/detail/4008.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4008.html</a></li>
 <li>我是如何拿下破冰项目的 <a href="https://xianzhi.aliyun.com/forum/read/1769.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1769.html</a></li>
+<li>badusb的一个资源 <a href="https://pan.baidu.com/share/link?shareid=215811729&amp;uk=3535191920#list/path=%2FF11%2Fbadusb&amp;parentPath=%2FF11" target="_blank" rel="external">https://pan.baidu.com/share/link?shareid=215811729&amp;uk=3535191920#list/path=%2FF11%2Fbadusb&amp;parentPath=%2FF11</a></li>
 </ul>
 ]]></content>
     
@@ -752,38 +795,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Printer Exploitation Toolkit 打印机漏洞利用工具 &lt;a href=&quot;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170605</title>
-    <link href="http://kevien.github.io/2017/06/05/20170605/"/>
-    <id>http://kevien.github.io/2017/06/05/20170605/</id>
-    <published>2017-06-05T05:45:46.000Z</published>
-    <updated>2017-06-05T06:27:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>##安全动态</p>
-<ul>
-<li>用来查找exp的工具getsploit - command line exploit search and download tool (supports Exploit-DB, MSF, Packet Storm, 0daytoday) <a href="https://github.com/vulnersCom/getsploit" target="_blank" rel="external">https://github.com/vulnersCom/getsploit</a></li>
-<li>如何实现渗透过程中的 Fileless 反弹 shell <a href="https://0x00sec.org/t/running-binaries-without-leaving-tracks/2166" target="_blank" rel="external">https://0x00sec.org/t/running-binaries-without-leaving-tracks/2166</a></li>
-<li>NTLM Relaying 实战  <a href="https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html" target="_blank" rel="external">https://byt3bl33d3r.github.io/practical-guide-to-ntlm-relaying-in-2017-aka-getting-a-foothold-in-under-5-minutes.html</a>  <a href="https://www.youtube.com/watch?v=f9oMVoc2Umccc" target="_blank" rel="external">https://www.youtube.com/watch?v=f9oMVoc2Umccc</a></li>
-<li>通过Empire和Msfconsole利用永恒之蓝获得shell <a href="http://www.hackingtutorials.org/exploit-tutorials/exploiting-eternalblue-for-shell-with-empire-msfconsole/" target="_blank" rel="external">http://www.hackingtutorials.org/exploit-tutorials/exploiting-eternalblue-for-shell-with-empire-msfconsole/</a></li>
-<li>基于机器学习的分布式webshell检测系统 <a href="http://www.s0nnet.com/project" target="_blank" rel="external">http://www.s0nnet.com/project</a></li>
-<li>初见 Chrome Headless系列 <a href="https://lightless.me/archives/first-glance-at-chrome-headless-browser.html" target="_blank" rel="external">https://lightless.me/archives/first-glance-at-chrome-headless-browser.html</a></li>
-<li>portspider - 轻量级的多线程极速网络扫描工具 <a href="http://www.kitploit.com/2017/06/portspider-lightning-fast-multithreaded.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/portspider-lightning-fast-multithreaded.html</a></li>
-<li>服务端注入之Flask框架中服务端模板注入问题 <a href="http://www.freebuf.com/articles/web/135953.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/135953.html</a> <a href="https://nvisium.com/blog/2015/12/07/injecting-flask/" target="_blank" rel="external">https://nvisium.com/blog/2015/12/07/injecting-flask/</a></li>
-<li>一款强大的WordPress漏洞利用框架 – WPXF <a href="http://www.freebuf.com/articles/web/135777.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/135777.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;##安全动态&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用来查找exp的工具getsploit - command line exploit search and download tool (supports Exploit-DB, MSF, Packet Storm, 0daytoda
     
     </summary>
     
