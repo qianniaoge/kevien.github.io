@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-26T05:16:43.000Z</updated>
+  <updated>2017-06-27T05:41:39.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170627安全动态</title>
+    <link href="http://kevien.github.io/2017/06/27/20170627%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/06/27/20170627安全动态/</id>
+    <published>2017-06-27T04:56:20.000Z</published>
+    <updated>2017-06-27T05:41:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><p>*【漏洞预警】CVE-2017-6920:Drupal远程代码执行漏洞分析及POC构造 <a href="https://mp.weixin.qq.com/s?__biz=MzAwNTI1NDI3MQ==&amp;mid=2649612528&amp;idx=1&amp;sn=1f4550c9c7226a514e2e568fdbf590b0&amp;chksm=83063de0b471b4f65a0361aaf35e2978456689a009f32e92de54b6728ded7161dc67b7d55584&amp;mpshare=1&amp;scene=23&amp;srcid=0626gn319cHUnTLlydyaAefi#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzAwNTI1NDI3MQ==&amp;mid=2649612528&amp;idx=1&amp;sn=1f4550c9c7226a514e2e568fdbf590b0&amp;chksm=83063de0b471b4f65a0361aaf35e2978456689a009f32e92de54b6728ded7161dc67b7d55584&amp;mpshare=1&amp;scene=23&amp;srcid=0626gn319cHUnTLlydyaAefi#rd</a></p>
+<ul>
+<li>将 Metasploit Payloads 注入到 Android 应用的手法介绍 <a href="https://pentestlab.blog/2017/06/26/injecting-metasploit-payloads-into-android-applications-manually/" target="_blank" rel="external">https://pentestlab.blog/2017/06/26/injecting-metasploit-payloads-into-android-applications-manually/</a><br>*内存取证分析示例 <a href="https://articles.forensicfocus.com/2017/06/26/ram-forensic-analysis/" target="_blank" rel="external">https://articles.forensicfocus.com/2017/06/26/ram-forensic-analysis/</a></li>
+<li>如何在 macOS 上安装 Powershell 6.0 <a href="http://www.techrepublic.com/article/how-to-install-microsoft-powershell-6-0-on-macos/" target="_blank" rel="external">http://www.techrepublic.com/article/how-to-install-microsoft-powershell-6-0-on-macos/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个不错啊，可以试试</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>*jsonp注入实例 <a href="https://www.exploit-db.com/docs/42250.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/42250.pdf</a></p>
+<ul>
+<li>Responder 工具与 LLMNR/NBT-NS 协议 <a href="https://securitycafe.ro/2017/06/26/going-further-with-responders-basic-authentication/" target="_blank" rel="external">https://securitycafe.ro/2017/06/26/going-further-with-responders-basic-authentication/</a></li>
+<li>红队攻击手法的要点备忘录 <a href="https://github.com/vysec/RedTips" target="_blank" rel="external">https://github.com/vysec/RedTips</a></li>
+<li>渗透测试基础架构系列 part4： 后渗透攻击 <a href="http://bitvijays.github.io/LFF-IPS-P4-PostExploitation.html" target="_blank" rel="external">http://bitvijays.github.io/LFF-IPS-P4-PostExploitation.html</a></li>
+<li>渗透测试工程师常用的 Python 库和程序列表 <a href="https://vulnerablelife.wordpress.com/2017/05/13/python-for-penetration-testers/" target="_blank" rel="external">https://vulnerablelife.wordpress.com/2017/05/13/python-for-penetration-testers/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看完你还觉得你python很熟练吗</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>无文件应用白名单绕过及 Powershell 混淆 <a href="http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW" target="_blank" rel="external">http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW</a>
+</em>Illuminate Js - JS 在线反混淆网站 <a href="https://www.illuminatejs.com/" target="_blank" rel="external">https://www.illuminatejs.com/</a><br><em>NTFS 文件格式的取证、恶意滥用与漏洞分析 <a href="https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view" target="_blank" rel="external">https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view</a>
+</em>GraphQL NoSQL Injection Through JSON Types <a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x65;&#x61;&#115;&#116;&#x35;&#x74;&#104;&#x2f;&#103;&#114;&#97;&#112;&#x68;&#x71;&#x6c;&#45;&#110;&#111;&#x73;&#113;&#108;&#45;&#105;&#x6e;&#106;&#x65;&#x63;&#116;&#105;&#x6f;&#x6e;&#45;&#x74;&#x68;&#x72;&#x6f;&#117;&#103;&#104;&#x2d;&#106;&#x73;&#x6f;&#x6e;&#x2d;&#116;&#121;&#112;&#x65;&#x73;&#45;&#97;&#x31;&#x61;&#x30;&#97;&#51;&#x31;&#x30;&#x63;&#x37;&#x35;&#57;">&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x65;&#x61;&#115;&#116;&#x35;&#x74;&#104;&#x2f;&#103;&#114;&#97;&#112;&#x68;&#x71;&#x6c;&#45;&#110;&#111;&#x73;&#113;&#108;&#45;&#105;&#x6e;&#106;&#x65;&#x63;&#116;&#105;&#x6f;&#x6e;&#45;&#x74;&#x68;&#x72;&#x6f;&#117;&#103;&#104;&#x2d;&#106;&#x73;&#x6f;&#x6e;&#x2d;&#116;&#121;&#112;&#x65;&#x73;&#45;&#97;&#x31;&#x61;&#x30;&#97;&#51;&#x31;&#x30;&#x63;&#x37;&#x35;&#57;</a></p>
+<ul>
+<li>ffmpeg的一个信息泄漏漏洞、项目、实例和paper <a href="https://hackerone.com/reports/243470" target="_blank" rel="external">https://hackerone.com/reports/243470</a></li>
+</ul>
+<p><a href="https://github.com/neex/ffmpeg-avi-m3u-xbin/" target="_blank" rel="external">https://github.com/neex/ffmpeg-avi-m3u-xbin/</a>  </p>
+<p><a href="https://docs.google.com/presentation/d/1yqWy_aE3dQNXAhW8kxMxRqtP7qMHaIfMzUDpEqFneos/edit" target="_blank" rel="external">https://docs.google.com/presentation/d/1yqWy_aE3dQNXAhW8kxMxRqtP7qMHaIfMzUDpEqFneos/edit</a><br><em>基于Graylog日志安全审计实践<a href="http://bobao.360.cn/learning/detail/4025.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4025.html</a>
+</em>Python安全 - 从SSRF到命令执行惨案<a href="https://www.leavesongs.com/PENETRATION/getshell-via-ssrf-and-redis.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/getshell-via-ssrf-and-redis.html</a><br><em>Oauth协议介绍与安全隐患 <a href="https://mp.weixin.qq.com/s/bK6RSpX65XlHmbMG1N0myg" target="_blank" rel="external">https://mp.weixin.qq.com/s/bK6RSpX65XlHmbMG1N0myg</a>
+</em>OpenVPN fuzzers发布（前段时间作者发了一份关于多个openvpn的漏洞，就是用的这个）<a href="https://github.com/guidovranken/openvpn/tree/fuzzing" target="_blank" rel="external">https://github.com/guidovranken/openvpn/tree/fuzzing</a><br><em>通过非数字和字符的方式Bypass WAF(PHP)<a href="https://securityonline.info/bypass-waf-php-webshell-without-numbers-letters/" target="_blank" rel="external">https://securityonline.info/bypass-waf-php-webshell-without-numbers-letters/</a>
+</em>简单$ _COOKIE后门&lt;<a href="http://labs.sucuri.net/?note=2017-03-09" target="_blank" rel="external">http://labs.sucuri.net/?note=2017-03-09</a> </p>
+<p><a href="http://labs.sucuri.net/?note=2017-05-30&gt;" target="_blank" rel="external">http://labs.sucuri.net/?note=2017-05-30&gt;</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还第一次听说cookie后门</div></pre></td></tr></table></figure></p>
+<p><em>Metasploit RSS feed插件（获取shell时获取推送通知）<a href="https://github.com/rapid7/metasploit-framework/pull/8612" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8612</a>
+</em>CrackMapExec：渗透后期利用工具 <a href="https://github.com/byt3bl33d3r/CrackMapExec" target="_blank" rel="external">https://github.com/byt3bl33d3r/CrackMapExec</a><br><em>通过Sysinternals Sysmon和 Powershell logs检测攻击行为<a href="https://securitylogsdotorg.files.wordpress.com/2017/06/bsides-athens-sysmon-final.pdf" target="_blank" rel="external">https://securitylogsdotorg.files.wordpress.com/2017/06/bsides-athens-sysmon-final.pdf</a>
+</em>利用单片机快速实现家庭智能控制平台<a href="http://www.freebuf.com/news/138438.html" target="_blank" rel="external">http://www.freebuf.com/news/138438.html</a><br><em>修改了一个爬虫htcap<a href="http://0cx.cc/Modify_the_htcap_to_mysql.jspx" target="_blank" rel="external">http://0cx.cc/Modify_the_htcap_to_mysql.jspx</a>
+</em>如何检测钓鱼攻击<a href="https://blog.malwarebytes.com/101/2017/06/somethings-phishy-how-to-detect-phishing-attempts/" target="_blank" rel="external">https://blog.malwarebytes.com/101/2017/06/somethings-phishy-how-to-detect-phishing-attempts/</a><br><em>提高驾驶技术：用GAN去除(爱情)动作片中的马赛克和衣服<a href="https://zhuanlan.zhihu.com/p/27199954" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/27199954</a>
+</em>【技术分享】全面复现Esteemaudit利用过程(含域环境搭建过程)<a href="http://bobao.360.cn/learning/detail/4021.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4021.html</a><br><em>Python + js 通过RSA算法对post表单数据进行加密处理<a href="http://blog.nsfocus.net/python-js-encrypts-post-form-data-rsa-algorithm/" target="_blank" rel="external">http://blog.nsfocus.net/python-js-encrypts-post-form-data-rsa-algorithm/</a>
+</em>NTI任务管理之django+python篇celery异步任务使用-1<a href="http://blog.nsfocus.net/nti-task-management-djangopython-chapter-celery-asynchronous-task-1/" target="_blank" rel="external">http://blog.nsfocus.net/nti-task-management-djangopython-chapter-celery-asynchronous-task-1/</a><br>*Mirai代码及原理分析<a href="http://blog.nsfocus.net/mirai-code-principle-analysis/" target="_blank" rel="external">http://blog.nsfocus.net/mirai-code-principle-analysis/</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">绿盟出品的几篇干货文章</div></pre></td></tr></table></figure></p>
+<p>今天的文章貌似有点儿多。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;p&gt;*【漏洞预警】CVE-2017-6920:Drupal远程代码执行漏洞分析及POC构造 &lt;a href=&quot;h
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>20170626安全动态</title>
@@ -757,44 +810,6 @@
       &lt;p&gt;####每日安全动态&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;关于验证码识别的一篇文章 &lt;a href=&quot;http://www.cnblogs.com/beer/p/5672678.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblo
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170606安全动态</title>
-    <link href="http://kevien.github.io/2017/06/06/20170606%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/06/06/20170606安全动态/</id>
-    <published>2017-06-06T05:46:29.000Z</published>
-    <updated>2017-06-06T13:50:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Printer Exploitation Toolkit 打印机漏洞利用工具 <a href="http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1" target="_blank" rel="external">http://www.kitploit.com/2017/06/pret-printer-exploitation-toolkit.html?m=1</a></li>
-<li><p>基于web的钓鱼框架 - Wiki to collect Red Team infrastructure hardening resources <a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing" target="_blank" rel="external">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki#easy-web-based-phishing</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个框架比较适合甲方安全部门内部搞红蓝对抗时使用 甲方的安全同学可以好好看看</div></pre></td></tr></table></figure>
-</li>
-<li><p>The Journey to Hijacking a Country’s TLD – The Hidden Risks of Domain Extensions <a href="https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html" target="_blank" rel="external">https://thehackerblog.com/the-journey-to-hijacking-a-countrys-tld-the-hidden-risks-of-domain-extensions/index.html</a></p>
-</li>
-<li>Parallels Desktop 虚拟机逃逸，共享文件夹功能存在缺陷，虚拟机可向宿主机中写入任意文件 <a href="https://www.exploit-db.com/exploits/42116/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42116/</a></li>
-<li>StarFighters- 基于 JavaScript 和 VBScript 的 Empire 攻击框架的进程 Launcher，无需启动 PowerShell.exe <a href="https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017" target="_blank" rel="external">https://github.com/Cn33liz/StarFighters#a-javascript-and-vbscript-based-empire-launcher---by-cn33liz-2017</a></li>
-<li>Lazydroid - 为评估 Android 应用程序提供方便的 Bash 脚本 <a href="https://github.com/nccgroup/LazyDroid" target="_blank" rel="external">https://github.com/nccgroup/LazyDroid</a></li>
-<li>windows-syscall-table - 从 WinXp sp0 到 Win10 rs2 1703  的 Windows 内核系统调用表收集 <a href="https://github.com/tinysec" target="_blank" rel="external">https://github.com/tinysec</a></li>
-<li>Joomla! Payage 2.05组件’aid’参数存在SQL注入 <a href="https://www.exploit-db.com/exploits/42113/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42113/</a></li>
-<li>通过xss能拿到shell的cms <a href="http://brutelogic.com.br/blog/compromising-cmses-xss/" target="_blank" rel="external">http://brutelogic.com.br/blog/compromising-cmses-xss/</a></li>
-<li>WordSteal-一个从远程盗取NTMl的漏洞POC脚本 <a href="https://github.com/0x09al/wordsteal" target="_blank" rel="external">https://github.com/0x09al/wordsteal</a></li>
-<li>使用JavaSnoop测试Java应用程序 <a href="http://bobao.360.cn/learning/detail/3939.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3939.html</a></li>
-<li>An interesting way of bypassing Windows Attachment Manager <a href="https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/An-interesting-way-of-bypassing-Windows-Attachment-Manager/</a></li>
-<li>警惕“永恒之蓝”抓鸡工具包里的后门 <a href="http://www.freebuf.com/articles/system/136361.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/136361.html</a></li>
-<li>GIT泄露漏洞综合利用的小工具 <a href="https://github.com/internetwache/GitTools" target="_blank" rel="external">https://github.com/internetwache/GitTools</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Printer Exploitation Toolkit 打印机漏洞利用工具 &lt;a href=&quot;
     
     </summary>
     
