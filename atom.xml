@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-27T05:41:39.000Z</updated>
+  <updated>2017-06-28T05:31:13.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170628</title>
+    <link href="http://kevien.github.io/2017/06/28/20170628/"/>
+    <id>http://kevien.github.io/2017/06/28/20170628/</id>
+    <published>2017-06-28T02:18:25.000Z</published>
+    <updated>2017-06-28T05:31:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####每日安全动态<br>*记一次对钓鱼邮件的实地反击 <a href="http://www.4hou.com/web/5800.html" target="_blank" rel="external">http://www.4hou.com/web/5800.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个有点儿6啊，2333</div></pre></td></tr></table></figure></p>
+<p><em>基于 Viper 的二进制软件自动分析框架 <a href="http://lockboxx.blogspot.com/2017/06/automated-binary-analysis-framework-for.html" target="_blank" rel="external">http://lockboxx.blogspot.com/2017/06/automated-binary-analysis-framework-for.html</a>
+</em>XSStrike - XSS 漏洞 Fuzz 工具，可绕过 WAF 防御 <a href="http://www.kitploit.com/2017/06/xsstrike-fuzz-and-bruteforce-parameters.htm" target="_blank" rel="external">http://www.kitploit.com/2017/06/xsstrike-fuzz-and-bruteforce-parameters.htm</a><br><em>恶意样本分析手册——反调试篇（下）<a href="http://blog.nsfocus.net/anti-test-articles2/" target="_blank" rel="external">http://blog.nsfocus.net/anti-test-articles2/</a>
+</em>伪装在系统PAM配置文件中的同形异义字后门<a href="http://www.freebuf.com/articles/system/138331.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/138331.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个也不错，值得关注研究</div></pre></td></tr></table></figure></p>
+<ul>
+<li>Netgear DGN2200 - dnslookup.cgi Command Injection (Metasploit)<a href="https://www.exploit-db.com/exploits/42257/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42257/</a></li>
+<li>Easy File Sharing Web Server 7.2 - GET HTTP Request (PassWD) Buffer Overflow (SEH) <a href="https://www.exploit-db.com/exploits/42261/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42261/</a></li>
+<li>FFmpeg安全问题讨论 <a href="http://blogs.360.cn/blog/ffmpegs_security_discussion/" target="_blank" rel="external">http://blogs.360.cn/blog/ffmpegs_security_discussion/</a></li>
+<li>Chromium 新的弹窗机制以及 HTML 的 <dialog> 元素<a href="https://segmentfault.com/a/1190000009954183" target="_blank" rel="external">https://segmentfault.com/a/1190000009954183</a><br><em>如何判断目标站点是否为 Django 开发 <a href="http://paper.seebug.org/336/" target="_blank" rel="external">http://paper.seebug.org/336/</a>
+</em>机器学习自主解决安全威胁离我们还有多远？<a href="http://www.freebuf.com/company-information/138541.html" target="_blank" rel="external">http://www.freebuf.com/company-information/138541.html</a><br><em>【技术分享】如何利用机器学习检测加密恶意流量<a href="http://bobao.360.cn/learning/detail/4035.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4035.html</a>
+</em>有关petya勒索病毒分析<a href="https://www.binarydefense.com/petya-ransomware-without-fluff/#.WVM3KSDJYNY.twitter" target="_blank" rel="external">https://www.binarydefense.com/petya-ransomware-without-fluff/#.WVM3KSDJYNY.twitter</a><br>*发现系统中的Shadow Admins账户 <a href="https://www.cyberark.com/threat-research-blog/shadow-admins-stealthy-accounts-fear/" target="_blank" rel="external">https://www.cyberark.com/threat-research-blog/shadow-admins-stealthy-accounts-fear/</a></dialog></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####每日安全动态&lt;br&gt;*记一次对钓鱼邮件的实地反击 &lt;a href=&quot;http://www.4hou.com/web/5800.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.4hou.com/web/5800.html
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>20170627安全动态</title>
@@ -38,7 +70,7 @@
 </ul>
 <p><em>无文件应用白名单绕过及 Powershell 混淆 <a href="http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW" target="_blank" rel="external">http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW</a>
 </em>Illuminate Js - JS 在线反混淆网站 <a href="https://www.illuminatejs.com/" target="_blank" rel="external">https://www.illuminatejs.com/</a><br><em>NTFS 文件格式的取证、恶意滥用与漏洞分析 <a href="https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view" target="_blank" rel="external">https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view</a>
-</em>GraphQL NoSQL Injection Through JSON Types <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#101;&#97;&#x73;&#x74;&#53;&#116;&#x68;&#x2f;&#103;&#x72;&#97;&#x70;&#104;&#113;&#108;&#x2d;&#110;&#x6f;&#x73;&#x71;&#108;&#45;&#105;&#x6e;&#106;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#116;&#104;&#x72;&#x6f;&#117;&#x67;&#x68;&#45;&#x6a;&#115;&#111;&#110;&#45;&#x74;&#121;&#x70;&#x65;&#115;&#x2d;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#x63;&#55;&#x35;&#x39;">&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#101;&#97;&#x73;&#x74;&#53;&#116;&#x68;&#x2f;&#103;&#x72;&#97;&#x70;&#104;&#113;&#108;&#x2d;&#110;&#x6f;&#x73;&#x71;&#108;&#45;&#105;&#x6e;&#106;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#116;&#104;&#x72;&#x6f;&#117;&#x67;&#x68;&#45;&#x6a;&#115;&#111;&#110;&#45;&#x74;&#121;&#x70;&#x65;&#115;&#x2d;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#x63;&#55;&#x35;&#x39;</a></p>
+</em>GraphQL NoSQL Injection Through JSON Types <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x65;&#x61;&#115;&#116;&#x35;&#116;&#x68;&#47;&#x67;&#114;&#x61;&#x70;&#x68;&#113;&#x6c;&#x2d;&#x6e;&#x6f;&#115;&#x71;&#108;&#x2d;&#105;&#x6e;&#x6a;&#x65;&#x63;&#x74;&#105;&#111;&#110;&#x2d;&#x74;&#104;&#114;&#111;&#117;&#x67;&#x68;&#45;&#106;&#115;&#x6f;&#110;&#45;&#x74;&#x79;&#112;&#101;&#115;&#x2d;&#97;&#x31;&#x61;&#x30;&#x61;&#x33;&#x31;&#x30;&#99;&#55;&#53;&#x39;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x65;&#x61;&#115;&#116;&#x35;&#116;&#x68;&#47;&#x67;&#114;&#x61;&#x70;&#x68;&#113;&#x6c;&#x2d;&#x6e;&#x6f;&#115;&#x71;&#108;&#x2d;&#105;&#x6e;&#x6a;&#x65;&#x63;&#x74;&#105;&#111;&#110;&#x2d;&#x74;&#104;&#114;&#111;&#117;&#x67;&#x68;&#45;&#106;&#115;&#x6f;&#110;&#45;&#x74;&#x79;&#112;&#101;&#115;&#x2d;&#97;&#x31;&#x61;&#x30;&#x61;&#x33;&#x31;&#x30;&#99;&#55;&#53;&#x39;</a></p>
 <ul>
 <li>ffmpeg的一个信息泄漏漏洞、项目、实例和paper <a href="https://hackerone.com/reports/243470" target="_blank" rel="external">https://hackerone.com/reports/243470</a></li>
 </ul>
@@ -768,48 +800,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;WannaLocker - 针对国内 Android 用户的 WannaCry 勒索软件仿制版本
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170607安全动态</title>
-    <link href="http://kevien.github.io/2017/06/07/20170607%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/06/07/20170607安全动态/</id>
-    <published>2017-06-07T02:39:06.000Z</published>
-    <updated>2017-06-07T08:18:17.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>####每日安全动态</p>
-<ul>
-<li>关于验证码识别的一篇文章 <a href="http://www.cnblogs.com/beer/p/5672678.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/5672678.html</a></li>
-<li>Mac OSX上检测rootkit <a href="http://macappstore.org/chkrootkit/" target="_blank" rel="external">http://macappstore.org/chkrootkit/</a>  mac上安装rkhunter <a href="http://macappstore.org/rkhunter/" target="_blank" rel="external">http://macappstore.org/rkhunter/</a></li>
-<li>Mac上取证分析工具以及rootkit分析工具 <a href="http://yelp.github.io/osxcollector/" target="_blank" rel="external">http://yelp.github.io/osxcollector/</a></li>
-<li><p>黑客入侵应急分析手工排查 <a href="https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1655.html?from=timeline&amp;isappinstalled=0</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还是比较全面的，攻击者可以学习思路，避免留下把柄，防御者全面分析安全事件</div></pre></td></tr></table></figure>
-</li>
-<li><p>检测windows存在的漏洞，需要先导出systeminfo信息 <a href="https://github.com/GDSSecurity/Windows-Exploit-Suggester/" target="_blank" rel="external">https://github.com/GDSSecurity/Windows-Exploit-Suggester/</a></p>
-</li>
-<li>samba CVE-2017-7497 EXP <a href="https://github.com/joxeankoret/CVE-2017-7494" target="_blank" rel="external">https://github.com/joxeankoret/CVE-2017-7494</a></li>
-<li>一个在线分析pcap数据包的网站 <a href="http://www.capanalysis.net/ca/" target="_blank" rel="external">http://www.capanalysis.net/ca/</a></li>
-<li>测试你通过msfvenom 生成shellcode的工具 <a href="https://github.com/emptymonkey/drinkme" target="_blank" rel="external">https://github.com/emptymonkey/drinkme</a></li>
-<li>使用 VirtualBox、INetSim 和 Burp 搭建自己的恶意软件分析平台 <a href="https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/" target="_blank" rel="external">https://blog.christophetd.fr/set-up-your-own-malware-analysis-lab-with-virtualbox-inetsim-and-burp/</a></li>
-<li>据说很厉害的windows提权工具 <a href="https://github.com/PowerShellMafia/PowerSploit" target="_blank" rel="external">https://github.com/PowerShellMafia/PowerSploit</a>  <a href="https://www.zero-day.io/metasploitwalkthrough/" target="_blank" rel="external">https://www.zero-day.io/metasploitwalkthrough/</a></li>
-<li>利用 dashboard 页面的一个 js 文件绕过认证 <a href="http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html" target="_blank" rel="external">http://c0rni3sm.blogspot.com/2017/06/from-js-to-another-js-files-lead-to.html</a></li>
-<li>三个案例看Nginx配置安全 <a href="https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/nginx-insecure-configuration.html</a></li>
-<li>一个故事告诉你比特币的原理及运作机制 <a href="http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html" target="_blank" rel="external">http://blog.codinglabs.org/articles/bitcoin-mechanism-make-easy.html</a></li>
-<li>渗透技巧——程序的降权启动 <a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%8A%80%E5%B7%A7-%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%99%8D%E6%9D%83%E5%90%AF%E5%8A%A8/</a></li>
-<li>二维码支付原理分析及安全性的探究 <a href="http://www.cnblogs.com/beer/p/6918180.html" target="_blank" rel="external">http://www.cnblogs.com/beer/p/6918180.html</a>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*  Web应用系统的小安全漏洞及相应的攻击方式 &lt;http://www.cnblogs.com/beer/p/4814587.html&gt;</div></pre></td></tr></table></figure></li>
-</ul>
-<p>这也是一种攻击方式，不知道你们注意过没<br>```</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;####每日安全动态&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;关于验证码识别的一篇文章 &lt;a href=&quot;http://www.cnblogs.com/beer/p/5672678.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblo
     
     </summary>
     
