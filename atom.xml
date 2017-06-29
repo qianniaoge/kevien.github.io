@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-06-28T05:31:13.000Z</updated>
+  <updated>2017-06-29T04:48:32.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20170629安全动态</title>
+    <link href="http://kevien.github.io/2017/06/29/20170629%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/06/29/20170629安全动态/</id>
+    <published>2017-06-29T03:16:18.000Z</published>
+    <updated>2017-06-29T04:48:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><p><em>mac 软件推荐<br>是否在用ss的全局翻墙的时候，有些应用不能用了，比如网易云音乐，老是切来切去，那么你需要proxifier，帮你实现自动切换。<br><img src="/2017/06/29/20170629安全动态/1.png" alt="">
+</em>有关python的面试题目 <a href="https://github.com/geniustesda/interview_python" target="_blank" rel="external">https://github.com/geniustesda/interview_python</a><br><em>利用 SSDP 协议生成 100 Gbps DDoS 流量 <a href="https://blog.cloudflare.com/ssdp-100gbps/" target="_blank" rel="external">https://blog.cloudflare.com/ssdp-100gbps/</a>
+</em>浅谈CTF中命令执行与绕过的小技巧 <a href="http://www.freebuf.com/articles/web/137923.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/137923.html</a><br><em>看我如何偷取别人的云储币（Siacoin） <a href="http://www.freebuf.com/articles/database/138188.html" target="_blank" rel="external">http://www.freebuf.com/articles/database/138188.html</a>
+</em>卡巴斯基反病毒文件服务器曝多个漏洞：CSRF到远程代码执行、本地权限提升、反射型XSS、目录遍历 <a href="https://www.exploit-db.com/exploits/42269" target="_blank" rel="external">https://www.exploit-db.com/exploits/42269</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">没有绝对的安全啊，安全厂商也不能保证没问题。</div></pre></td></tr></table></figure></p>
+<p>*Windows Keylogger Part 2: Defense against user-land <a href="https://eyeofrablog.wordpress.com/2017/06/27/windows-keylogger-part-2-defense-against-user-land/" target="_blank" rel="external">https://eyeofrablog.wordpress.com/2017/06/27/windows-keylogger-part-2-defense-against-user-land/</a></p>
+<ul>
+<li>你知道吗？有些网站在你点击“提交”按钮之前就已经开始收集数据了 <a href="http://www.freebuf.com/news/138304.html" target="_blank" rel="external">http://www.freebuf.com/news/138304.html</a></li>
+<li>蓝牙App漏洞系列分析之一CVE-2017-0601： <a href="http://paper.seebug.org/339/" target="_blank" rel="external">http://paper.seebug.org/339/</a> 蓝牙App漏洞系列分析之二CVE-2017-0639：<a href="http://paper.seebug.org/340/" target="_blank" rel="external">http://paper.seebug.org/340/</a> 蓝牙App漏洞系列分析之三CVE-2017-0645<a href="http://paper.seebug.org/341/" target="_blank" rel="external">http://paper.seebug.org/341/</a></li>
+<li>网络攻击后，联邦快递暂停其股票交易 <a href="https://www.darkreading.com/attacks-breaches/after-cyber-attack-fedex-temporarily-halts-trading-of-its-shares/d/d-id/1329244?_mc=RSS_DR_EDT" target="_blank" rel="external">https://www.darkreading.com/attacks-breaches/after-cyber-attack-fedex-temporarily-halts-trading-of-its-shares/d/d-id/1329244?_mc=RSS_DR_EDT</a></li>
+<li>RunShellcode:小巧的shellcode运行工具 <a href="https://github.com/zerosum0x0/RunShellcode" target="_blank" rel="external">https://github.com/zerosum0x0/RunShellcode</a></li>
+<li>【技术分享】CVE-2017-8514简析——SharePoint Follow功能存在XSS漏洞 <a href="http://bobao.360.cn/learning/detail/4040.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4040.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;p&gt;&lt;em&gt;mac 软件推荐&lt;br&gt;是否在用ss的全局翻墙的时候，有些应用不能用了，比如网易云音乐，老是切来切去
+    
+    </summary>
+    
+      <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170628</title>
     <link href="http://kevien.github.io/2017/06/28/20170628/"/>
     <id>http://kevien.github.io/2017/06/28/20170628/</id>
     <published>2017-06-28T02:18:25.000Z</published>
-    <updated>2017-06-28T05:31:13.000Z</updated>
+    <updated>2017-06-28T05:33:02.000Z</updated>
     
     <content type="html"><![CDATA[<p>####每日安全动态<br>*记一次对钓鱼邮件的实地反击 <a href="http://www.4hou.com/web/5800.html" target="_blank" rel="external">http://www.4hou.com/web/5800.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个有点儿6啊，2333</div></pre></td></tr></table></figure></p>
 <p><em>基于 Viper 的二进制软件自动分析框架 <a href="http://lockboxx.blogspot.com/2017/06/automated-binary-analysis-framework-for.html" target="_blank" rel="external">http://lockboxx.blogspot.com/2017/06/automated-binary-analysis-framework-for.html</a>
@@ -70,7 +102,7 @@
 </ul>
 <p><em>无文件应用白名单绕过及 Powershell 混淆 <a href="http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW" target="_blank" rel="external">http://blog.4n6ir.com/2017/06/fileless-application-whitelist-bypass.htmlhttp://t.cn/Rop5SbW</a>
 </em>Illuminate Js - JS 在线反混淆网站 <a href="https://www.illuminatejs.com/" target="_blank" rel="external">https://www.illuminatejs.com/</a><br><em>NTFS 文件格式的取证、恶意滥用与漏洞分析 <a href="https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view" target="_blank" rel="external">https://drive.google.com/file/d/0B3P18M-shbwrM1E2V24tTVFUU3M/view</a>
-</em>GraphQL NoSQL Injection Through JSON Types <a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x65;&#x61;&#115;&#116;&#53;&#116;&#x68;&#x2f;&#x67;&#x72;&#x61;&#112;&#x68;&#x71;&#x6c;&#45;&#x6e;&#111;&#x73;&#x71;&#x6c;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x74;&#104;&#x72;&#x6f;&#117;&#x67;&#104;&#x2d;&#106;&#115;&#x6f;&#110;&#x2d;&#x74;&#121;&#x70;&#101;&#x73;&#x2d;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#99;&#x37;&#53;&#x39;">&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x65;&#x61;&#115;&#116;&#53;&#116;&#x68;&#x2f;&#x67;&#x72;&#x61;&#112;&#x68;&#x71;&#x6c;&#45;&#x6e;&#111;&#x73;&#x71;&#x6c;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x74;&#104;&#x72;&#x6f;&#117;&#x67;&#104;&#x2d;&#106;&#115;&#x6f;&#110;&#x2d;&#x74;&#121;&#x70;&#101;&#x73;&#x2d;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#99;&#x37;&#53;&#x39;</a></p>
+</em>GraphQL NoSQL Injection Through JSON Types <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#101;&#97;&#x73;&#x74;&#53;&#x74;&#104;&#x2f;&#x67;&#114;&#97;&#112;&#104;&#x71;&#108;&#45;&#110;&#x6f;&#x73;&#113;&#108;&#45;&#x69;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#x6f;&#110;&#45;&#116;&#104;&#x72;&#x6f;&#x75;&#103;&#104;&#x2d;&#x6a;&#115;&#111;&#x6e;&#x2d;&#x74;&#121;&#x70;&#101;&#x73;&#45;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#x63;&#55;&#53;&#x39;">&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#101;&#97;&#x73;&#x74;&#53;&#x74;&#104;&#x2f;&#x67;&#114;&#97;&#112;&#104;&#x71;&#108;&#45;&#110;&#x6f;&#x73;&#113;&#108;&#45;&#x69;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#x6f;&#110;&#45;&#116;&#104;&#x72;&#x6f;&#x75;&#103;&#104;&#x2d;&#x6a;&#115;&#111;&#x6e;&#x2d;&#x74;&#121;&#x70;&#101;&#x73;&#45;&#97;&#49;&#x61;&#48;&#x61;&#x33;&#x31;&#48;&#x63;&#55;&#53;&#x39;</a></p>
 <ul>
 <li>ffmpeg的一个信息泄漏漏洞、项目、实例和paper <a href="https://hackerone.com/reports/243470" target="_blank" rel="external">https://hackerone.com/reports/243470</a></li>
 </ul>
@@ -771,35 +803,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Domain Hunter - 域名信誉对于攻击者从事钓鱼和 C&amp;amp;C 很重要，所以攻击者
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170608</title>
-    <link href="http://kevien.github.io/2017/06/08/20170608%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/06/08/20170608安全动态/</id>
-    <published>2017-06-08T11:07:07.000Z</published>
-    <updated>2017-06-08T11:41:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>WannaLocker - 针对国内 Android 用户的 WannaCry 勒索软件仿制版本出现了，当然只是勒索界面比较像 <a href="https://blog.avast.com/wannacry-wannabe-targeting-android-smartphones" target="_blank" rel="external">https://blog.avast.com/wannacry-wannabe-targeting-android-smartphones</a></li>
-<li>Cisco AnyConnect（Windows 版本）存在一个 DLL 加载本地 SYSTEM 提权漏洞（CVE-2017-6638） <a href="https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170607-anyconnect" target="_blank" rel="external">https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170607-anyconnect</a></li>
-<li>CI框架下column注入 <a href="http://www.wupco.cn/?p=3646" target="_blank" rel="external">http://www.wupco.cn/?p=3646</a></li>
-<li>利用应用程序验证器进行hook函数和持久化 <a href="http://blacksunhackers.club/2017/06/leveraging-application-verifier-for-function-hooking-and-persistence/" target="_blank" rel="external">http://blacksunhackers.club/2017/06/leveraging-application-verifier-for-function-hooking-and-persistence/</a></li>
-<li>关于现代无线鼠标和键盘的安全性报告 <a href="https://www.exploit-db.com/docs/42109.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/42109.pdf</a></li>
-<li>蜜罐技术  <a href="https://ipot.sec-wiki.com/" target="_blank" rel="external">https://ipot.sec-wiki.com/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自己对蜜罐技术比较感兴趣，有想法的小伙伴我们交流一下</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>*windows 和linux 提权的一些exp  <a href="https://github.com/SecWiki/windows-kernel-exploits" target="_blank" rel="external">https://github.com/SecWiki/windows-kernel-exploits</a> <a href="https://github.com/SecWiki/linux-kernel-exploits" target="_blank" rel="external">https://github.com/SecWiki/linux-kernel-exploits</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;WannaLocker - 针对国内 Android 用户的 WannaCry 勒索软件仿制版本
     
     </summary>
     
