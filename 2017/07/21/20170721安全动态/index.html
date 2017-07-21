@@ -103,19 +103,17 @@
 
 
 
-<meta name="description" content="每日安全动态 hackerone今年有趣的6个漏洞https://flexport.engineering/six-vulnerabilities-from-a-year-of-hackerone-808d8bfa0014 短小精干的Unix类后门Tiny shell的使用与分析 http://www.freebuf.com/sectool/138350.html fg和bg在mac上面的一个坑c">
+<meta name="description" content="每日安全动态 应急响应-开机启动知识梳理http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/ 反入侵之发现后门利用mount-bind将进程和端">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20170630安全动态">
-<meta property="og:url" content="http://kevien.github.io/2017/06/30/20170630安全动态/index.html">
+<meta property="og:title" content="20170721安全动态">
+<meta property="og:url" content="http://kevien.github.io/2017/07/21/20170721安全动态/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="每日安全动态 hackerone今年有趣的6个漏洞https://flexport.engineering/six-vulnerabilities-from-a-year-of-hackerone-808d8bfa0014 短小精干的Unix类后门Tiny shell的使用与分析 http://www.freebuf.com/sectool/138350.html fg和bg在mac上面的一个坑c">
-<meta property="og:image" content="http://kevien.github.io/2017/06/30/20170630安全动态/1.png">
-<meta property="og:updated_time" content="2017-07-16T13:52:15.000Z">
+<meta property="og:description" content="每日安全动态 应急响应-开机启动知识梳理http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/ 反入侵之发现后门利用mount-bind将进程和端">
+<meta property="og:updated_time" content="2017-07-21T10:47:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20170630安全动态">
-<meta name="twitter:description" content="每日安全动态 hackerone今年有趣的6个漏洞https://flexport.engineering/six-vulnerabilities-from-a-year-of-hackerone-808d8bfa0014 短小精干的Unix类后门Tiny shell的使用与分析 http://www.freebuf.com/sectool/138350.html fg和bg在mac上面的一个坑c">
-<meta name="twitter:image" content="http://kevien.github.io/2017/06/30/20170630安全动态/1.png">
+<meta name="twitter:title" content="20170721安全动态">
+<meta name="twitter:description" content="每日安全动态 应急响应-开机启动知识梳理http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/ 反入侵之发现后门利用mount-bind将进程和端">
 
 
 
@@ -143,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/2017/06/30/20170630安全动态/"/>
+  <link rel="canonical" href="http://kevien.github.io/2017/07/21/20170721安全动态/"/>
 
 
 
 
 
-  <title>20170630安全动态 | M0rk's Blog</title>
+  <title>20170721安全动态 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -278,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/30/20170630安全动态/">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/21/20170721安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="M0rk">
@@ -299,7 +297,7 @@
             
             
               
-                20170630安全动态
+                20170721安全动态
               
             
           </h1>
@@ -314,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T10:56:00+08:00">
-                2017-06-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T10:12:49+08:00">
+                2017-07-21
               </time>
             
 
@@ -372,31 +370,38 @@
 
       
         <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>hackerone今年有趣的6个漏洞<br><a href="https://flexport.engineering/six-vulnerabilities-from-a-year-of-hackerone-808d8bfa0014" target="_blank" rel="external">https://flexport.engineering/six-vulnerabilities-from-a-year-of-hackerone-808d8bfa0014</a></li>
-<li>短小精干的Unix类后门Tiny shell的使用与分析 <a href="http://www.freebuf.com/sectool/138350.html" target="_blank" rel="external">http://www.freebuf.com/sectool/138350.html</a></li>
-<li>fg和bg在mac上面的一个坑<br>ctrl+z 是暂停进行中的任务，可以通过jobs查看后台的任务，然后可以选择后台进行(bg)或者前台进行(fg),mac 的oh-my-zsh有问题，bash下面没问题。而在mac上面需要加个百分号%<br><a href="https://stackoverflow.com/questions/32614648/weird-jobs-behavior-within-zsh" target="_blank" rel="external">https://stackoverflow.com/questions/32614648/weird-jobs-behavior-within-zsh</a><br><a href="http://www.cnblogs.com/lwm-1988/archive/2011/08/20/2147299.html" target="_blank" rel="external">http://www.cnblogs.com/lwm-1988/archive/2011/08/20/2147299.html</a><br><img src="/2017/06/30/20170630安全动态/1.png" alt=""></li>
-<li>Python Meterpreter OSX Railgun<br><a href="https://github.com/rapid7/metasploit-framework/pull/8631" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8631</a></li>
-<li>找后台的方法<br><a href="https://www.secpulse.com/archives/59065.html" target="_blank" rel="external">https://www.secpulse.com/archives/59065.html</a></li>
-<li>PRMitM：一种可重置账号密码的中间人攻击，双因素认证也无效<br><a href="http://www.freebuf.com/news/138362.html" target="_blank" rel="external">http://www.freebuf.com/news/138362.html</a></li>
-<li>php代码审计学习<br><a href="http://phantom0301.cc/2017/06/06/codeaudit/" target="_blank" rel="external">http://phantom0301.cc/2017/06/06/codeaudit/</a></li>
-<li>【技术分享】我是如何破解价值8000美金的Uber漏洞<a href="http://bobao.360.cn/learning/detail/4042.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4042.html</a></li>
-<li>Apache ActiveMQ 5.x 上传 Web Shell 的 MSF 漏洞利用脚本<br><a href="https://packetstormsecurity.com/files/143191/apache_activemq_upload_jsp.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143191/apache_activemq_upload_jsp.rb.txt</a></li>
-<li>构造PPSX钓鱼文件<br><a href="https://evi1cg.me/archives/Create_PPSX.html" target="_blank" rel="external">https://evi1cg.me/archives/Create_PPSX.html</a></li>
-<li>Linux 爆重大安全漏洞，Systemd 和 Service Manager 在处理畸形 DNS 响应数据包时存在缓冲区溢出漏洞，这个漏洞可以直接远程利用实现代码执行（CVE-2017-9445）<br><a href="http://securityaffairs.co/wordpress/60520/hacking/linux-hacking-dns-response.html" target="_blank" rel="external">http://securityaffairs.co/wordpress/60520/hacking/linux-hacking-dns-response.html</a></li>
-<li>Google ssl_logger - 可以解密并记录进程的SSL流量 <a href="https://github.com/google/ssl_logger" target="_blank" rel="external">https://github.com/google/ssl_logger</a></li>
-<li>json-web-token-attacker - 针对 JavaScript 对象注册与加密的渗透测试助手<br><a href="https://portswigger.net/bappstore/bapps/details/f923cbf91698420890354c1d8958fee6" target="_blank" rel="external">https://portswigger.net/bappstore/bapps/details/f923cbf91698420890354c1d8958fee6</a></li>
-<li><p>什么是SSL预证书<br><a href="http://www.freebuf.com/articles/web/138062.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/138062.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">科普文</div></pre></td></tr></table></figure>
+<li>应急响应-开机启动知识梳理<br><a href="http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" target="_blank" rel="external">http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</a></li>
+<li>反入侵之发现后门利用mount-bind将进程和端口信息隐匿<br><a href="http://www.freebuf.com/articles/network/140535.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/140535.html</a></li>
+<li>一步一步学ROP之linux_x64 X86篇<br><a href="http://static.hx99.net/static/drops/papers-7551.html" target="_blank" rel="external">http://static.hx99.net/static/drops/papers-7551.html</a><br><a href="http://static.hx99.net/static/drops/tips-6597.html" target="_blank" rel="external">http://static.hx99.net/static/drops/tips-6597.html</a></li>
+<li>Linux 内核分析<br><a href="http://www.cnblogs.com/scoyer/p/6411414.html" target="_blank" rel="external">http://www.cnblogs.com/scoyer/p/6411414.html</a></li>
+<li>php弱类型实战<br><a href="http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/" target="_blank" rel="external">http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/</a></li>
+<li>Python 中的异步编程：Asyncio<br><a href="http://python.jobbole.com/87988/" target="_blank" rel="external">http://python.jobbole.com/87988/</a></li>
+<li>Linux PID 1 和 Systemd<br><a href="http://coolshell.cn/articles/17998.html" target="_blank" rel="external">http://coolshell.cn/articles/17998.html</a></li>
+<li>复原：一种防不胜防的USB攻击方式<br><a href="https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D</a></li>
+<li>如何在未root的手机上安装漏洞利用框架RouterSploit<br><a href="http://bobao.360.cn/learning/detail/4132.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4132.html</a></li>
+<li>企业安全丨Ngx_Lua &amp; Fail2ban实现主动诱捕<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd</a></li>
+<li>浅析PyCmd加密隐形木马<br><a href="http://www.freebuf.com/sectool/140421.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140421.html</a></li>
+<li>Some Ways To Create An Interactive Shell On Windows<br><a href="http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/</a></li>
+<li>使用CSP Auditor构建内容安全策略配置<br><a href="http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/" target="_blank" rel="external">http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/</a></li>
+<li>WinPayloads：一款可生成难以被检测到的payload之神奇工具<br><a href="http://www.freebuf.com/column/141024.html" target="_blank" rel="external">http://www.freebuf.com/column/141024.html</a></li>
+<li>LaZagne — 支持多个操作系统的凭证恢复工具<br><a href="https://github.com/AlessandroZ/LaZagne" target="_blank" rel="external">https://github.com/AlessandroZ/LaZagne</a></li>
+<li>MobSF：Mobile Security Framework<br><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="external">https://github.com/MobSF/Mobile-Security-Framework-MobSF</a></li>
+<li>BrowserBackdoor<br><a href="https://github.com/IMcPwn/browser-backdoo" target="_blank" rel="external">https://github.com/IMcPwn/browser-backdoo</a></li>
+<li>用户浏览器信息搜集 php版本<br><a href="https://n0where.net/info-gathering-via-user-browser/" target="_blank" rel="external">https://n0where.net/info-gathering-via-user-browser/</a></li>
+<li>ESET 对自2012年以来的一个极其隐蔽的大规模广告软件活动 - Stantinko 的分析<br><a href="https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012" target="_blank" rel="external">https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012</a></li>
+<li>TrustZone 中的降级攻击（Paper）<br><a href="https://arxiv.org/pdf/1707.05082.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1707.05082.pdf</a></li>
+<li>《DNS Queries over HTTPS》草案，来自 IETF<br><a href="https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00" target="_blank" rel="external">https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00</a></li>
+<li>Inject All the Things - DLL 注入的 7 种方法<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></li>
+<li>WordPress 漏洞扫描工具 wpscan 2.9.3发布<br><a href="https://github.com/wpscanteam/wpscan/releases/tag/2.9.3" target="_blank" rel="external">https://github.com/wpscanteam/wpscan/releases/tag/2.9.3</a></li>
+<li>NtLoadEnclaveData Windows 10 RS3 DSE bypass PoC，利用 NtLoadEnclaveData 系统调用绕过 Windows 10 的签名强制检查<br><a href="https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8" target="_blank" rel="external">https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8</a></li>
+<li>Windows 10 S 版本的 Device Guard 分析，来自 James Forshaw<br><a href="https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html" target="_blank" rel="external">https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html</a></li>
+<li><p>针对 Exchange 2003 邮件服务器的 EnglishmansDentist 漏洞利用分析<br><a href="https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/" target="_blank" rel="external">https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">跟踪了一段时间的安全动态，发现没有什么软件或者系统是没有漏洞的...</div></pre></td></tr></table></figure>
 </li>
-<li><p>scapy-ssl_tls - 基于 scapy 的 SSL / TLS 层交互式数据包操作工具<br><a href="https://github.com/tintinweb/scapy-ssl_tls" target="_blank" rel="external">https://github.com/tintinweb/scapy-ssl_tls</a></p>
+<li><p>了解 JavaScript 巨人所带来的风险，来自 ZDI 的一篇文章<br><a href="https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript</a></p>
 </li>
-<li>owasp-orizon - Owasp Orizon 是一款源代码静态分析工具，用于发现 Java 应用中的安全问题<br><a href="https://github.com/thesp0nge/owasp-orizon" target="_blank" rel="external">https://github.com/thesp0nge/owasp-orizon</a></li>
-<li>WikiLeaks 又公开了两个 CIA 的项目：OutlawCountry 和 Elsa，OutlawCountry 是一个针对 Linux 操作系统的攻击项目，被攻击机器的所有出局流量都会重定向到 CIA 的服务器。ELSA 项目用于攻击 WiFi 环境下的 Windows 笔记本用户，攻击后收集地理位置等各种信息<br><a href="https://wikileaks.org/vault7/#OutlawCountry" target="_blank" rel="external">https://wikileaks.org/vault7/#OutlawCountry</a></li>
-<li>Cisco IOS 与 IOS XE Software 存在 SNMP 远程代码执行漏洞<br><a href="https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170629-snmp" target="_blank" rel="external">https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170629-snmp</a></li>
-<li>开源 DNS 服务 BIND 昨天修复了一个高危远程漏洞（CVE-2017-3143），TSIG 认证处理过程中的错误导致可以接受未授权地动态更新<br><a href="https://deepthought.isc.org/article/AA-01503/" target="_blank" rel="external">https://deepthought.isc.org/article/AA-01503/</a></li>
-<li>PhantomJS图片渲染XSS漏洞升级为SSRF/Local-File Read<br><a href="http://buer.haus/2017/06/29/escalating-xss-in-phantomjs-image-rendering-to-ssrflocal-file-read/" target="_blank" rel="external">http://buer.haus/2017/06/29/escalating-xss-in-phantomjs-image-rendering-to-ssrflocal-file-read/</a></li>
-<li>可以在Linux和macos下结束TCP连接的小工具 <a href="https://github.com/google/tcp_killer" target="_blank" rel="external">https://github.com/google/tcp_killer</a></li>
-<li>【技术分享】使用CTS进行漏洞检测及原理浅析 <a href="http://bobao.360.cn/learning/detail/4046.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4046.html</a></li>
+<li>angularjs-csti-scanner - 用于自动化检测 AngularJS 客户端模板注入攻击的工具<br><a href="https://github.com/tijme/angularjs-csti-scanner" target="_blank" rel="external">https://github.com/tijme/angularjs-csti-scanner</a></li>
+<li>PandwaRF vs PandwaRF Rogue: 暴力破解攻击<br><a href="https://www.youtube.com/watch?v=zKXKO7Zsa4Y" target="_blank" rel="external">https://www.youtube.com/watch?v=zKXKO7Zsa4Y</a></li>
 </ul>
 
       
@@ -434,18 +439,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/05/20170705安全动态/" rel="next" title="20170705安全动态">
-                <i class="fa fa-chevron-left"></i> 20170705安全动态
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/29/20170629安全动态/" rel="prev" title="20170629安全动态">
-                20170629安全动态 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/20/linux系统服务/" rel="prev" title="linux系统服务">
+                linux系统服务 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
