@@ -103,18 +103,19 @@
 
 
 
-<meta name="description" content="记录下踩的坑吧开始的时候看的是这篇文章https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger但是在安装的时候报错，没有好的解决方法这个时候我发现了这个https://github.com/deivid-rodriguez/byeb">
+<meta name="description" content="记录下踩的坑吧 前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="metasploit调试">
+<meta property="og:title" content="metasploit调试以及ruby入门踩坑">
 <meta property="og:url" content="http://kevien.github.io/2017/07/26/metasploit调试/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="记录下踩的坑吧开始的时候看的是这篇文章https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger但是在安装的时候报错，没有好的解决方法这个时候我发现了这个https://github.com/deivid-rodriguez/byeb">
+<meta property="og:description" content="记录下踩的坑吧 前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说">
 <meta property="og:image" content="http://kevien.github.io/2017/07/26/metasploit调试/1.png">
-<meta property="og:updated_time" content="2017-07-27T03:27:45.000Z">
+<meta property="og:image" content="http://kevien.github.io/2017/07/26/metasploit调试/2.png">
+<meta property="og:updated_time" content="2017-07-27T10:13:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="metasploit调试">
-<meta name="twitter:description" content="记录下踩的坑吧开始的时候看的是这篇文章https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger但是在安装的时候报错，没有好的解决方法这个时候我发现了这个https://github.com/deivid-rodriguez/byeb">
+<meta name="twitter:title" content="metasploit调试以及ruby入门踩坑">
+<meta name="twitter:description" content="记录下踩的坑吧 前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说">
 <meta name="twitter:image" content="http://kevien.github.io/2017/07/26/metasploit调试/1.png">
 
 
@@ -149,7 +150,7 @@
 
 
 
-  <title>metasploit调试 | M0rk's Blog</title>
+  <title>metasploit调试以及ruby入门踩坑 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -299,7 +300,7 @@
             
             
               
-                metasploit调试
+                metasploit调试以及ruby入门踩坑
               
             
           </h1>
@@ -349,9 +350,23 @@
       
 
       
-        <p>记录下踩的坑吧<br>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是一个用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
-<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">http://blog.csdn.net/nixawk/article/details/43732835</a></p>
+        <p>记录下踩的坑吧</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
+<h4 id="Gem使用"><a href="#Gem使用" class="headerlink" title="Gem使用"></a>Gem使用</h4><p>Gem 是一个管理 Ruby 库和程序的标准包。Ruby gem 包的安装方式：<br>所有的 gem 包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了 Cache、doc、gems、specifications 等目录，cache 下放置下载的原生 gem 包，gems 下则放置的是解压过的 gem 包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> M0rk@hhh  ~/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0  ls</div><div class="line">bin            build_info     cache          doc            environment    extensions     gems           specifications wrappers</div></pre></td></tr></table></figure></p>
+<p>当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的 gem 包，然后重新运行 gem install [gemname] 命令即可。<br>Ruby Gem 命令详解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 更新Gem自身</div><div class="line"># 注意：在某些linux发行版中为了系统稳定性此命令禁止执行</div><div class="line">$ gem update --system</div><div class="line"></div><div class="line"># 从Gem源安装gem包</div><div class="line">$ gem install [gemname]</div><div class="line"></div><div class="line"># 从本机安装gem包</div><div class="line">$ gem install -l [gemname].gem</div><div class="line"></div><div class="line"># 安装指定版本的gem包</div><div class="line">$ gem install [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 更新所有已安装的gem包</div><div class="line">$ gem update</div><div class="line"></div><div class="line"># 更新指定的gem包</div><div class="line"># 注意：gem update [gemname]不会升级旧版本的包，此时你可以使用 gem install [gemname] --version=[ver]代替</div><div class="line">$ gem update [gemname]</div><div class="line"></div><div class="line"># 删除指定的gem包，注意此命令将删除所有已安装的版本</div><div class="line">$ gem uninstall [gemname]</div><div class="line"></div><div class="line"># 删除某指定版本gem</div><div class="line">$ gem uninstall [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 查看本机已安装的所有gem包</div><div class="line">$ gem list [--local]</div></pre></td></tr></table></figure>
+<h4 id="踩坑开始"><a href="#踩坑开始" class="headerlink" title="踩坑开始"></a>踩坑开始</h4><p>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是一个用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
+<p>0727更新：<br>今天又看了下资料，发现byebug还是不能用，搜索metasploit debug的资料也是很老的，但是在Stack Overflow发现了这个<a href="https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module" target="_blank" rel="external">https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module</a><br>就试了一下pry，果然可以和metasploit无缝使用。但是蛋疼的是pry没有step和next这种最基本的单步调试功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require ‘pry’ #需要pry库,否则binding.pry就不认识了</div><div class="line">g_a = 1</div><div class="line">g_b = 2</div><div class="line">binding.pry #运行到这句程序就停下来并打开pry让你调试</div></pre></td></tr></table></figure></p>
+<p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
+<p>常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
+<li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
+<li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
+<li><a href="https://github.com/pry/pry" target="_blank" rel="external">pry</a></li>
+<li><a href="http://www.jianshu.com/p/602db03b6b58" target="_blank" rel="external">如何单步调试ruby代码</a></li>
+</ol>
 
       
     </div>
@@ -596,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#其它"><span class="nav-number">1.</span> <span class="nav-text">其它</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem使用"><span class="nav-number">2.</span> <span class="nav-text">Gem使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#踩坑开始"><span class="nav-number">3.</span> <span class="nav-text">踩坑开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
