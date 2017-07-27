@@ -112,7 +112,7 @@
 <meta property="og:description" content="记录下踩的坑吧 前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说">
 <meta property="og:image" content="http://kevien.github.io/2017/07/26/metasploit调试/1.png">
 <meta property="og:image" content="http://kevien.github.io/2017/07/26/metasploit调试/2.png">
-<meta property="og:updated_time" content="2017-07-27T10:13:21.000Z">
+<meta property="og:updated_time" content="2017-07-27T10:15:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="metasploit调试以及ruby入门踩坑">
 <meta name="twitter:description" content="记录下踩的坑吧 前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说">
@@ -360,7 +360,7 @@
 <p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
 <p>常用命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。</p>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
 <li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
 <li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
@@ -611,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem使用"><span class="nav-number">2.</span> <span class="nav-text">Gem使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#踩坑开始"><span class="nav-number">3.</span> <span class="nav-text">踩坑开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gem使用"><span class="nav-number">2.</span> <span class="nav-text">Gem使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#踩坑开始"><span class="nav-number">3.</span> <span class="nav-text">踩坑开始</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
