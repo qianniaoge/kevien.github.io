@@ -110,7 +110,7 @@
 <meta property="og:url" content="http://kevien.github.io/2017/08/01/windows注册表/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注册表（Registry，台湾、港澳译作登录档，中国大陆译作注册表）是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成">
-<meta property="og:updated_time" content="2017-08-01T04:43:43.000Z">
+<meta property="og:updated_time" content="2017-08-01T04:53:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows注册表">
 <meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;注册表（Registry，台湾、港澳译作登录档，中国大陆译作注册表）是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成">
@@ -347,7 +347,43 @@
       
 
       
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;注册表（Registry，台湾、港澳译作登录档，中国大陆译作注册表）是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用至今。<br><strong>数据结构</strong>:<br>&nbsp;&nbsp;&nbsp;&nbsp;注册表由键（key，或称“项”）、子键（subkey，子项）和值项（value）构成。一个键就是树状数据结构中的一个节点，而子键就是这个节点的子节点，子键也是键。一个值项则是一个键的一条属性，由名称（name）、数据类型（datatype）以及数据（data）组成。一个键可以有一个或多个值，每个值的名称各不相同，如果一个值的名称为空，则该值为该键的默认值。<br><strong>数据类型</strong>:<br>注册表的数据类型主要有以下五种：<br>显示类型（在编辑器中） | 数据类型  |  说明<br>——— | ————-     | ————<br>REG_SZ | 字符串 | 文本字串<br>REG_BINARY | 二进制数 | 不定长度的二进制值，以十六进制显示<br>REG_DWORD | 双字 | 一个 32 位的二进制值，显示为 8 位的十六进制值<br>REG_MULTI_SZ | 多字符串 | 含有多个文本值的字符串，此名来源于字符串间用 nul 分隔、结尾两个 nul<br>REG_EXPAND_SZ |     可扩充字符串 | 含有环境变量的字符串</p>
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;注册表（Registry，台湾、港澳译作登录档，中国大陆译作注册表）是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用至今。<br><strong>数据结构</strong>:<br>&nbsp;&nbsp;&nbsp;&nbsp;注册表由键（key，或称“项”）、子键（subkey，子项）和值项（value）构成。一个键就是树状数据结构中的一个节点，而子键就是这个节点的子节点，子键也是键。一个值项则是一个键的一条属性，由名称（name）、数据类型（datatype）以及数据（data）组成。一个键可以有一个或多个值，每个值的名称各不相同，如果一个值的名称为空，则该值为该键的默认值。<br><strong>数据类型</strong>:<br>注册表的数据类型主要有以下五种：</p>
+<table>
+<thead>
+<tr>
+<th>显示类型</th>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REG_SZ</td>
+<td>字符串</td>
+<td>文本字串</td>
+</tr>
+<tr>
+<td>REG_BINARY</td>
+<td>二进制数</td>
+<td>不定长度的二进制值，以十六进制显示</td>
+</tr>
+<tr>
+<td>REG_DWORD</td>
+<td>双字</td>
+<td>一个 32 位的二进制值，显示为 8 位的十六进制值</td>
+</tr>
+<tr>
+<td>REG_MULTI_SZ</td>
+<td>多字符串</td>
+<td>含有多个文本值的字符串，此名来源于字符串间用 nul 分隔、结尾两个 nul</td>
+</tr>
+<tr>
+<td>REG_EXPAND_SZ</td>
+<td>可扩充字符串</td>
+<td>含有环境变量的字符串</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
