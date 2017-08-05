@@ -12,8 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('123456'){
+            if (prompt('请输入文章密码') !== '123456'){
                 alert('密码错误！');
                 history.back();
             }
@@ -103,14 +103,19 @@
 
 
 
+<meta name="description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="windows PE文件结构">
 <meta property="og:url" content="http://kevien.github.io/2017/08/03/windows-PE文件结构/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:updated_time" content="2017-08-03T01:43:57.000Z">
+<meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构">
+<meta property="og:image" content="http://kevien.github.io/2017/08/03/windows-PE文件结构/1.png">
+<meta property="og:updated_time" content="2017-08-05T10:38:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows PE文件结构">
+<meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构">
+<meta name="twitter:image" content="http://kevien.github.io/2017/08/03/windows-PE文件结构/1.png">
 
 
 
@@ -344,7 +349,8 @@
       
 
       
-        
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构<br><img src="/2017/08/03/windows-PE文件结构/1.png" alt=""></p>
+
       
     </div>
 
@@ -479,8 +485,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -569,6 +584,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
