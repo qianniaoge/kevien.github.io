@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-07T08:07:47.000Z</updated>
+  <updated>2017-08-08T05:32:20.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170808安全动态</title>
+    <link href="http://kevien.github.io/2017/08/08/20170808%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/08/20170808安全动态/</id>
+    <published>2017-08-08T01:26:09.000Z</published>
+    <updated>2017-08-08T05:32:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li><p>零C++基础，打造Windows事件钩子：对WMI的深入分析<br><a href="http://bobao.360.cn/learning/detail/4214.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4214.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">推荐阅读原版英文文章,安全客和freebuf翻译的文章，建议都还是看英文原版的文章。</div></pre></td></tr></table></figure>
+</li>
+<li><p>对 Twitter （Periscope）API 测试过程中遇到的有趣的问题<br><a href="http://bobao.360.cn/learning/detail/4207.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4207.html</a></p>
+</li>
+<li>Intrusion Detection Avoidance Payload Generator: NPS_Payload<br><a href="https://n0where.net/intrusion-detection-avoidance-payload-generator-nps_payload/" target="_blank" rel="external">https://n0where.net/intrusion-detection-avoidance-payload-generator-nps_payload/</a></li>
+<li><p>iOS macOS Remote Administration Tool: EggShell<br><a href="https://n0where.net/ios-macos-remote-administration-tool-eggshell/" target="_blank" rel="external">https://n0where.net/ios-macos-remote-administration-tool-eggshell/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">苹果系统的远控？</div></pre></td></tr></table></figure>
+</li>
+<li><p>MITM RDP connections: Seth 中间人攻击RDP<br><a href="https://n0where.net/mitm-rdp-connections-seth/" target="_blank" rel="external">https://n0where.net/mitm-rdp-connections-seth/</a></p>
+</li>
+<li>p0wnedShell-DarkVersion<br><a href="https://github.com/3gstudent/p0wnedShell-DarkVersion" target="_blank" rel="external">https://github.com/3gstudent/p0wnedShell-DarkVersion</a></li>
+<li>老毛桃PE盘工具木马：一款“通杀”浏览器的主页劫持大盗<br><a href="http://www.freebuf.com/articles/web/143462.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/143462.html</a></li>
+<li>libcrafter: 用于网络数据包嗅探和制作的高等级 C++ 库<br><a href="https://github.com/pellegre/libcrafter" target="_blank" rel="external">https://github.com/pellegre/libcrafter</a></li>
+<li>Early release Video! Elie Bursztein - How We Created the First SHA 1 Collision<br><a href="https://www.youtube.com/watch?v=NbHL0SYlrSQ&amp;feature=youtu.be" target="_blank" rel="external">https://www.youtube.com/watch?v=NbHL0SYlrSQ&amp;feature=youtu.be</a></li>
+<li><p>The Windows Malware Analysis Distribution: flare-vm<br><a href="https://n0where.net/the-windows-malware-analysis-distribution-flare-vm/" target="_blank" rel="external">https://n0where.net/the-windows-malware-analysis-distribution-flare-vm/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">好像很不错的样子？下一个试试？！</div></pre></td></tr></table></figure>
+</li>
+<li><p>Electron hack —— 跨平台 XSS<br><a href="https://mp.weixin.qq.com/s/DgjJ6uKtuUPFQhgztL69RQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/DgjJ6uKtuUPFQhgztL69RQ</a></p>
+</li>
+<li>给shellcode找块福地－ 通过VDSO绕过PXN<br><a href="https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw" target="_blank" rel="external">https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw</a></li>
+<li>腾讯安全反病毒实验室：揭秘“挂马”黑产最新态势<br><a href="http://www.freebuf.com/articles/system/143217.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143217.html</a></li>
+<li><p>PowerShell Obfuscation Detection Framework: Revoke-Obfuscation<br><a href="https://n0where.net/powershell-obfuscation-detection-framework-revoke-obfuscation/" target="_blank" rel="external">https://n0where.net/powershell-obfuscation-detection-framework-revoke-obfuscation/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">powershell 混淆检测框架</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 docker 对容器资源进行限制<br><a href="http://cizixs.com/2017/08/04/docker-resources-limit" target="_blank" rel="external">http://cizixs.com/2017/08/04/docker-resources-limit</a></p>
+</li>
+<li><p>Automated Privilege Escalation: portia<br><a href="https://n0where.net/automated-privilege-escalation-portia/" target="_blank" rel="external">https://n0where.net/automated-privilege-escalation-portia/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自动权限提升工具、?</div></pre></td></tr></table></figure>
+</li>
+<li><p>ProcInfo - Objective-See 开源的一款 macOS 系统进程信息查看工具<br><a href="https://github.com/objective-see/ProcInfo" target="_blank" rel="external">https://github.com/objective-see/ProcInfo</a></p>
+</li>
+<li>解锁更多姿势——手机锁屏安全研究<br><a href="https://security.tencent.com/index.php/blog/msg/118" target="_blank" rel="external">https://security.tencent.com/index.php/blog/msg/118</a></li>
+<li><p>Visual Studio 2017 新添加了一个警告框，打开网络上下载的自定义的 .sln 工程文件时，如果存在潜在的 RCE，VS2017 将会弹框警告<br><a href="https://twitter.com/fdfalcon/status/894713581811503104" target="_blank" rel="external">https://twitter.com/fdfalcon/status/894713581811503104</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个有意思</div></pre></td></tr></table></figure>
+</li>
+<li><p>给shellcode找块福地－ 通过VDSO绕过PXN<br><a href="https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw" target="_blank" rel="external">https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw</a></p>
+</li>
+<li>Python调用Win32 API实现截图<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjEyMDk0MA==&amp;mid=2649846681&amp;idx=1&amp;sn=90f94c17d2e7ed0efde11b45614f5ee0&amp;chksm=f3e41d1ac493940ccf25647e65d3bc8a155556a6272e5d9806e96e63c70c70f9a2b128f82fbe&amp;mpshare=1&amp;scene=23&amp;srcid=08076TlTqLIWCQxsRf38M7ML#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjEyMDk0MA==&amp;mid=2649846681&amp;idx=1&amp;sn=90f94c17d2e7ed0efde11b45614f5ee0&amp;chksm=f3e41d1ac493940ccf25647e65d3bc8a155556a6272e5d9806e96e63c70c70f9a2b128f82fbe&amp;mpshare=1&amp;scene=23&amp;srcid=08076TlTqLIWCQxsRf38M7ML#rd</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">最近在用cobalt strike，工具用起来不错，已经有人写好了相关的文章自己也就不写了，推荐几篇文章。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>1.<a href="https://evi1cg.me/archives/Cobalt_strike.html" target="_blank" rel="external">Cobalt strike3.0使用手册</a><br>2.<a href="https://evi1cg.me/archives/Cortana.html" target="_blank" rel="external">强化你的Cobalt strike之Cortana</a><br>3.<a href="http://www.freebuf.com/sectool/133369.html" target="_blank" rel="external">Cobalt Strike学习笔记</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;零C++基础，打造Windows事件钩子：对WMI的深入分析&lt;br&gt;&lt;a href=&quot;ht
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>博客推荐</title>
@@ -178,7 +240,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#104;&#x74;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#109;&#117;&#x65;&#108;&#x6c;&#x65;&#114;&#x62;&#101;&#114;&#x6e;&#x64;&#x74;&#x2f;&#x65;&#120;&#x70;&#x6c;&#111;&#105;&#x74;&#x69;&#x6e;&#103;&#x2d;&#115;&#x63;&#114;&#105;&#x70;&#x74;&#45;&#x69;&#x6e;&#106;&#x65;&#x63;&#x74;&#105;&#x6f;&#x6e;&#x2d;&#x66;&#108;&#97;&#x77;&#x73;&#45;&#105;&#x6e;&#x2d;&#114;&#x65;&#97;&#99;&#116;&#106;&#x73;&#x2d;&#x38;&#x38;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#51;&#x36;&#99;&#x31;">&#104;&#x74;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#109;&#117;&#x65;&#108;&#x6c;&#x65;&#114;&#x62;&#101;&#114;&#x6e;&#x64;&#x74;&#x2f;&#x65;&#120;&#x70;&#x6c;&#111;&#105;&#x74;&#x69;&#x6e;&#103;&#x2d;&#115;&#x63;&#114;&#105;&#x70;&#x74;&#45;&#x69;&#x6e;&#106;&#x65;&#x63;&#x74;&#105;&#x6f;&#x6e;&#x2d;&#x66;&#108;&#97;&#x77;&#x73;&#45;&#105;&#x6e;&#x2d;&#114;&#x65;&#97;&#99;&#116;&#106;&#x73;&#x2d;&#x38;&#x38;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#51;&#x36;&#99;&#x31;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#x6d;&#117;&#101;&#x6c;&#108;&#101;&#114;&#98;&#101;&#x72;&#110;&#100;&#x74;&#x2f;&#x65;&#x78;&#x70;&#x6c;&#111;&#x69;&#x74;&#105;&#110;&#103;&#x2d;&#115;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#x69;&#110;&#x6a;&#101;&#99;&#116;&#105;&#111;&#x6e;&#45;&#102;&#108;&#x61;&#119;&#x73;&#45;&#x69;&#110;&#x2d;&#114;&#101;&#x61;&#x63;&#116;&#x6a;&#115;&#x2d;&#x38;&#56;&#x33;&#x66;&#98;&#x31;&#102;&#101;&#x33;&#x36;&#x63;&#x31;">&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#x6d;&#117;&#101;&#x6c;&#108;&#101;&#114;&#98;&#101;&#x72;&#110;&#100;&#x74;&#x2f;&#x65;&#x78;&#x70;&#x6c;&#111;&#x69;&#x74;&#105;&#110;&#103;&#x2d;&#115;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#x69;&#110;&#x6a;&#101;&#99;&#116;&#105;&#111;&#x6e;&#45;&#102;&#108;&#x61;&#119;&#x73;&#45;&#x69;&#110;&#x2d;&#114;&#101;&#x61;&#x63;&#116;&#x6a;&#115;&#x2d;&#x38;&#56;&#x33;&#x66;&#98;&#x31;&#102;&#101;&#x33;&#x36;&#x63;&#x31;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -381,7 +443,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#x70;&#58;&#x2f;&#47;&#112;&#117;&#x72;&#x70;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#109;&#47;&#77;&#68;&#47;&#x32;&#x30;&#x31;&#x37;&#45;&#48;&#x36;&#x2d;&#50;&#56;&#x40;&#x48;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#111;&#101;&#115;&#x25;&#x32;&#x30;&#80;&#101;&#x74;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#112;&#114;&#x65;&#97;&#x64;&#x25;&#50;&#x30;&#105;&#x6e;&#37;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#104;&#x74;&#109;&#x6c;">&#x68;&#x74;&#116;&#x70;&#58;&#x2f;&#47;&#112;&#117;&#x72;&#x70;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#109;&#47;&#77;&#68;&#47;&#x32;&#x30;&#x31;&#x37;&#45;&#48;&#x36;&#x2d;&#50;&#56;&#x40;&#x48;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#111;&#101;&#115;&#x25;&#x32;&#x30;&#80;&#101;&#x74;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#112;&#114;&#x65;&#97;&#x64;&#x25;&#50;&#x30;&#105;&#x6e;&#37;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#104;&#x74;&#109;&#x6c;</a></li>
+<li>Petya 内网传播分析<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#112;&#x3a;&#x2f;&#x2f;&#112;&#x75;&#x72;&#x70;&#108;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#x6d;&#47;&#77;&#x44;&#x2f;&#50;&#48;&#x31;&#x37;&#45;&#48;&#54;&#45;&#x32;&#x38;&#64;&#72;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#111;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#x74;&#x79;&#x61;&#37;&#x32;&#x30;&#x73;&#x70;&#114;&#x65;&#x61;&#100;&#x25;&#x32;&#48;&#105;&#110;&#37;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#x68;&#x74;&#x6d;&#x6c;">&#x68;&#x74;&#116;&#112;&#x3a;&#x2f;&#x2f;&#112;&#x75;&#x72;&#x70;&#108;&#101;&#x72;&#111;&#99;&#46;&#99;&#111;&#x6d;&#47;&#77;&#x44;&#x2f;&#50;&#48;&#x31;&#x37;&#45;&#48;&#54;&#45;&#x32;&#x38;&#64;&#72;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#111;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#x74;&#x79;&#x61;&#37;&#x32;&#x30;&#x73;&#x70;&#114;&#x65;&#x61;&#100;&#x25;&#x32;&#48;&#105;&#110;&#37;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#x68;&#x74;&#x6d;&#x6c;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -578,7 +640,7 @@
     <link href="http://kevien.github.io/2017/07/26/20170726%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/07/26/20170726安全动态/</id>
     <published>2017-07-26T01:59:06.000Z</published>
-    <updated>2017-08-07T07:15:31.000Z</updated>
+    <updated>2017-08-08T05:10:30.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：NetFlow、 IPFIX、 sFLOW，可以通过外部脚本通知用户<br><a href="https://packages.debian.org/sid/fastnetmon" target="_blank" rel="external">https://packages.debian.org/sid/fastnetmon</a></li>
@@ -598,8 +660,10 @@
 <li><p>Metasploit 中新添加了针对 Windows 快捷方式 (.LNK) 代码执行漏洞（CVE-2017-8464）的利用代码<br><a href="https://github.com/rapid7/metasploit-framework/pull/8767" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8767</a><br><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注：在测试的时候，要把恶意payload放在优盘的根目录下</div><div class="line">更多信息：https://github.com/rapid7/metasploit-framework/tree/7ce813ae6e11f0336f51dc878e1aa40af6eabf9c/data/exploits/cve-2017-8464/src</div><div class="line">python 工具：</div><div class="line">https://www.exploit-db.com/exploits/42429/</div></pre></td></tr></table></figure>
 </li>
-<li><p>Metadata - 黑客的朋友，基础信息泄露的源头<br><a href="https://blog.sweepatic.com/metadata-hackers-best-friend/" target="_blank" rel="external">https://blog.sweepatic.com/metadata-hackers-best-friend/</a></p>
+<li><p>Windows 内核漏洞学习—空指针解引用<br><a href="http://www.freebuf.com/vuls/143575.html" target="_blank" rel="external">http://www.freebuf.com/vuls/143575.html</a></p>
 </li>
+<li>Metadata - 黑客的朋友，基础信息泄露的源头<br><a href="https://blog.sweepatic.com/metadata-hackers-best-friend/" target="_blank" rel="external">https://blog.sweepatic.com/metadata-hackers-best-friend/</a></li>
+<li>Java代码审计连载<br><a href="http://www.freebuf.com/column/143595.html" target="_blank" rel="external">http://www.freebuf.com/column/143595.html</a></li>
 <li>使用 LDAPSEARCH 导出 LAPS 明文密码<br><a href="https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/" target="_blank" rel="external">https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/</a></li>
 <li>macOS 安全和隐私指南<br><a href="https://github.com/drduh/macOS-Security-and-Privacy-Guide" target="_blank" rel="external">https://github.com/drduh/macOS-Security-and-Privacy-Guide</a></li>
 <li>Forcepoint 发现 URSNIF 变种通过收集鼠标移动轨迹判断是否处于沙盒以绕过查杀<br><a href="https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion" target="_blank" rel="external">https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion</a></li>
@@ -870,43 +934,6 @@
     </summary>
     
       <category term="每日安全动态" scheme="http://kevien.github.io/categories/%E6%AF%8F%E6%97%A5%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>linux系统服务</title>
-    <link href="http://kevien.github.io/2017/07/20/linux%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://kevien.github.io/2017/07/20/linux系统服务/</id>
-    <published>2017-07-20T07:59:48.000Z</published>
-    <updated>2017-07-20T10:01:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。</p>
-<h4 id="0x02-分类"><a href="#0x02-分类" class="headerlink" title="0x02 分类"></a>0x02 分类</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单的说，系统为了某些功能必须要提供一些服务 (不论是系统本身还是网络方面)，这个服务就称为 service 。 但是 service 的提供总是需要程序的运行吧！否则如何运行呢？所以达成这个 service 的程序我们就称呼他为 daemon 啰！ 举例来说，达成循环型例行性工作排程服务 (service) 的程序为 crond 这个 daemon 啦。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果依据 daemon 的启动与管理方式来区分，基本上，可以将 daemon 分为可独立启动的 stand alone ， 与透过一支 super daemon 来统一管理的服务这两大类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.stand_alone：此 daemon 可以自行单独启动服务</div><div class="line">就字面上的意思来说，stand alone 就是『独立的启动』的意思。这种类型的 daemon 可以自行启动而不必透过其他机制的管理； daemon 启动并加载到内存后就一直占用内存与系统资源。最大的优点就是：因为是一直存在内存内持续的提供服务， 因此对于发生客户端的要求时，stand alone 的 daemon 响应速度较快。常见的 stand alone daemon 有 WWW 的 daemon (httpd)、FTP 的 daemon (vsftpd) 等等。</div><div class="line">2.super daemon： 一支特殊的 daemon 来统一管理</div></pre></td></tr></table></figure>
-<p>如果以 daemon 提供服务的的工作状态来区分，又可以将 daemon 分为两大类，分别是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.signal-control</div><div class="line">这种 daemon 是透过讯号来管理的，只要有任何客户端的需求进来，他就会立即启动去处理！例如打印机的服务 (cupsd)。 </div><div class="line"></div><div class="line">2.interval-control</div><div class="line">这种 daemon 则主要是『每隔一段时间就主动的去运行某项工作』，所以，你要作的是在配置文件指定服务要进行的时间与工作， 该服务在指定的时间才会去完成工作。 atd 与 crond 就属于这种类型的 daemon  (每分钟侦测一次配置文件)</div></pre></td></tr></table></figure>
-<h4 id="0x03-端口与服务"><a href="#0x03-端口与服务" class="headerlink" title="0x03 端口与服务"></a>0x03 端口与服务</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了统一整个因特网的端口号对应服务的功能，好让所有的主机都能够使用相同的机制来提供服务与要求服务， 所以就有了『通讯协议』这玩意儿。也就是说，有些约定俗成的服务都放置在同一个埠号上面啦！举例来说， 网址列上面的 http 会让浏览器向 WWW 服务器的 80 埠号进行联机的要求！而 WWW 服务器也会将 httpd 这个软件激活在 port 80， 这样两者才能够达成联机的！</p>
-<p>嗯！那么想一想，系统上面有没有什么配置可以让服务与埠号对应在一起呢？那就是 /etc/services 啦！<br><img src="/2017/07/20/linux系统服务/1.png" alt=""><br>查找某个服务的端口<br><img src="/2017/07/20/linux系统服务/2.png" alt=""><br>像上面说的是，第一栏为 daemon 的名称、第二栏为该 daemon 所使用的端口号与网络数据封包协议， 封包协议主要为可靠联机的 TCP 封包以及较快速但为非面向连接的 UDP 封包。 举个例子说，那个远程联机机制使用的是 ssh 这个服务，而这个服务的使用的埠号为 22 ！就是这样啊！</p>
-<h4 id="0x04-Daemon的启动脚本与启动方式"><a href="#0x04-Daemon的启动脚本与启动方式" class="headerlink" title="0x04 Daemon的启动脚本与启动方式"></a>0x04 Daemon的启动脚本与启动方式</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提供某个服务的 daemon 虽然只是一支程序而已，但是这支 daemon 的启动还是需要运行档、配置文件、运行环境等等， 举例来说，你可以查阅一下 httpd 这个程序 (man httpd) ，里面可谈到不少的选项与参数呢！此外，为了管理上面的方便， 所以通常 distribution 都会记录每一支 daemon 启动后所取得程序的 PID 在 /var/run/ 这个目录下呢！ 还有还有，在启动这些服务之前，你可能也要自行处理一下 daemon 能够顺利运行的环境是否正确等等。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了解决上面谈到的问题，因此通常 distribution 会给我们一个简单的 shell script 来进行启动的功能。 该 script 可以进行环境的侦测、配置文件的分析、PID 文件的放置，以及相关重要交换文件案的锁住 (lock) 动作， 你只要运行该 script ，上述的动作就一口气连续的进行，最终就能够顺利且简单的启动这个 daemon。<br>OK！那么这些 daemon 的启动脚本 (shell script) 放在哪里啊？</p>
-<ul>
-<li>/etc/init.d/* ：启动脚本放置处<br>系统上几乎所有的服务启动脚本都放置在这里！事实上这是公认的目录，我们的 CentOS 实际上放置在 /etc/rc.d/init.d/ 啦！ 不过还是有配置连结档到 /etc/init.d/ 的！既然这是公认的目录，因此建议您记忆这个目录即可！</li>
-<li>/etc/sysconfig/* ：各服务的初始化环境配置文件<br>几乎所有的服务都会将初始化的一些选项配置写入到这个目录下，举例来说，登录档的 syslog 这支 daemon 的初始化配置就写入在 /etc/sysconfig/syslog 这里呢！而网络的配置则写在 /etc/sysconfig/network 这个文件中。 所以，这个目录内的文件也是挺重要的；</li>
-<li>/etc/xinetd.conf, /etc/xinetd.d/<em> ：super daemon 配置文件<br>super daemon 的主要配置文件 (其实是默认值) 为 /etc/xinetd.conf ，不过我们上面就谈到了， super daemon 只是一个统一管理的机制，他所管理的其他 daemon 的配置则写在 /etc/xinetd.d/</em> 里头</li>
-<li>/etc/* ：各服务各自的配置文件<br>配置文件都是放置在 /etc/ 底下的.</li>
-<li>/var/lib/* ：各服务产生的数据库<br>一些会产生数据的服务都会将他的数据写入到 /var/lib/ 目录中。举例来说，数据库管理系统 MySQL 的数据库默认就是写入 /var/lib/mysql/ 这个目录下</li>
-<li>/var/run/* ：各服务的程序之 PID 记录处<br>既然 daemon 是程序，所以当然也可以利用 kill 或 killall 来管理啦！不过为了担心管理时影响到其他的程序， 因此 daemon 通常会将自己的 PID 记录一份到 /var/run/ 当中！例如登录文件的 PID 就记录在 /var/run/syslogd.pid 这个文件中。如此一来， /etc/init.d/syslog 就能够简单的管理自己的程序啰。</li>
-<li>由于系统的环境都已经帮你制作妥当，所以利用 /etc/init.d/* 来启动、关闭与观察，就非常的简单！话虽如此， CentOS 还是有提供另外一支可以启动 stand alone 服务的脚本，那就是 service 这个程序。其实 service 仅是一支 script ，他可以分析你下达的 service 后面的参数，然后根据你的参数再到 /etc/init.d/ 去取得正确的服务来 start 或 stop<br><img src="/2017/07/20/linux系统服务/3.png" alt=""><h4 id="0x05-Reference"><a href="#0x05-Reference" class="headerlink" title="0x05 Reference"></a>0x05 Reference</h4></li>
-<li><a href="http://cn.linux.vbird.org/linux_basic/0560daemons.php" target="_blank" rel="external">http://cn.linux.vbird.org/linux_basic/0560daemons.php</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;0x01-前言&quot;&gt;&lt;a href=&quot;#0x01-前言&quot; class=&quot;headerlink&quot; title=&quot;0x01 前言&quot;&gt;&lt;/a&gt;0x01 前言&lt;/h4&gt;&lt;p&gt;虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。&lt;/p&gt;
-
-    
-    </summary>
     
     
   </entry>
