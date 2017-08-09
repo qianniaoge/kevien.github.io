@@ -103,21 +103,17 @@
 
 
 
-<meta name="description" content="0x01 前言虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。 0x02 分类&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单的说，系统为了某些功能必须要提供一些服务 (不论是系统本身还是网络方面)，这个服务就称为 service 。 但是 service 的提供总是需要程序的运行吧！否则如何运行呢？所以">
+<meta name="description" content="About这里推荐一下github上的一个项目Awesome-Hacking安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广. listAndroid安全：收集了各种Android工具、报告/研究/书籍、漏洞/利用代码等资源 应用安全：了解学习应用程序安全的资源列表 漏洞赏金：漏洞赏金计划集合和著名赏金猎人博客列表 Cheatsheets：常见的渗透测试/安全备忘录 CTF：CTF框">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux系统服务">
-<meta property="og:url" content="http://kevien.github.io/2017/07/20/linux系统服务/index.html">
+<meta property="og:title" content="Awosome Hacking系列">
+<meta property="og:url" content="http://kevien.github.io/2017/08/09/Awosome-Hacking系列/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="0x01 前言虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。 0x02 分类&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单的说，系统为了某些功能必须要提供一些服务 (不论是系统本身还是网络方面)，这个服务就称为 service 。 但是 service 的提供总是需要程序的运行吧！否则如何运行呢？所以">
-<meta property="og:image" content="http://kevien.github.io/2017/07/20/linux系统服务/1.png">
-<meta property="og:image" content="http://kevien.github.io/2017/07/20/linux系统服务/2.png">
-<meta property="og:image" content="http://kevien.github.io/2017/07/20/linux系统服务/3.png">
-<meta property="og:updated_time" content="2017-07-20T10:01:37.000Z">
+<meta property="og:description" content="About这里推荐一下github上的一个项目Awesome-Hacking安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广. listAndroid安全：收集了各种Android工具、报告/研究/书籍、漏洞/利用代码等资源 应用安全：了解学习应用程序安全的资源列表 漏洞赏金：漏洞赏金计划集合和著名赏金猎人博客列表 Cheatsheets：常见的渗透测试/安全备忘录 CTF：CTF框">
+<meta property="og:updated_time" content="2017-08-09T07:01:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux系统服务">
-<meta name="twitter:description" content="0x01 前言虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。 0x02 分类&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单的说，系统为了某些功能必须要提供一些服务 (不论是系统本身还是网络方面)，这个服务就称为 service 。 但是 service 的提供总是需要程序的运行吧！否则如何运行呢？所以">
-<meta name="twitter:image" content="http://kevien.github.io/2017/07/20/linux系统服务/1.png">
+<meta name="twitter:title" content="Awosome Hacking系列">
+<meta name="twitter:description" content="About这里推荐一下github上的一个项目Awesome-Hacking安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广. listAndroid安全：收集了各种Android工具、报告/研究/书籍、漏洞/利用代码等资源 应用安全：了解学习应用程序安全的资源列表 漏洞赏金：漏洞赏金计划集合和著名赏金猎人博客列表 Cheatsheets：常见的渗透测试/安全备忘录 CTF：CTF框">
 
 
 
@@ -145,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/2017/07/20/linux系统服务/"/>
+  <link rel="canonical" href="http://kevien.github.io/2017/08/09/Awosome-Hacking系列/"/>
 
 
 
 
 
-  <title>linux系统服务 | M0rk's Blog</title>
+  <title>Awosome Hacking系列 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/20/linux系统服务/">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/09/Awosome-Hacking系列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="M0rk">
@@ -301,7 +297,7 @@
             
             
               
-                linux系统服务
+                Awosome Hacking系列
               
             
           </h1>
@@ -316,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T15:59:48+08:00">
-                2017-07-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T14:56:42+08:00">
+                2017-08-09
               </time>
             
 
@@ -351,24 +347,67 @@
       
 
       
-        <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>虽然用过很长时间linux了，但是一些原理性的东西还是不是特别懂，这里就记录一下学习过程。</p>
-<h4 id="0x02-分类"><a href="#0x02-分类" class="headerlink" title="0x02 分类"></a>0x02 分类</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简单的说，系统为了某些功能必须要提供一些服务 (不论是系统本身还是网络方面)，这个服务就称为 service 。 但是 service 的提供总是需要程序的运行吧！否则如何运行呢？所以达成这个 service 的程序我们就称呼他为 daemon 啰！ 举例来说，达成循环型例行性工作排程服务 (service) 的程序为 crond 这个 daemon 啦。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果依据 daemon 的启动与管理方式来区分，基本上，可以将 daemon 分为可独立启动的 stand alone ， 与透过一支 super daemon 来统一管理的服务这两大类。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.stand_alone：此 daemon 可以自行单独启动服务</div><div class="line">就字面上的意思来说，stand alone 就是『独立的启动』的意思。这种类型的 daemon 可以自行启动而不必透过其他机制的管理； daemon 启动并加载到内存后就一直占用内存与系统资源。最大的优点就是：因为是一直存在内存内持续的提供服务， 因此对于发生客户端的要求时，stand alone 的 daemon 响应速度较快。常见的 stand alone daemon 有 WWW 的 daemon (httpd)、FTP 的 daemon (vsftpd) 等等。</div><div class="line">2.super daemon： 一支特殊的 daemon 来统一管理</div></pre></td></tr></table></figure>
-<p>如果以 daemon 提供服务的的工作状态来区分，又可以将 daemon 分为两大类，分别是：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">1.signal-control</div><div class="line">这种 daemon 是透过讯号来管理的，只要有任何客户端的需求进来，他就会立即启动去处理！例如打印机的服务 (cupsd)。 </div><div class="line"></div><div class="line">2.interval-control</div><div class="line">这种 daemon 则主要是『每隔一段时间就主动的去运行某项工作』，所以，你要作的是在配置文件指定服务要进行的时间与工作， 该服务在指定的时间才会去完成工作。 atd 与 crond 就属于这种类型的 daemon  (每分钟侦测一次配置文件)</div></pre></td></tr></table></figure>
-<h4 id="0x03-端口与服务"><a href="#0x03-端口与服务" class="headerlink" title="0x03 端口与服务"></a>0x03 端口与服务</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了统一整个因特网的端口号对应服务的功能，好让所有的主机都能够使用相同的机制来提供服务与要求服务， 所以就有了『通讯协议』这玩意儿。也就是说，有些约定俗成的服务都放置在同一个埠号上面啦！举例来说， 网址列上面的 http 会让浏览器向 WWW 服务器的 80 埠号进行联机的要求！而 WWW 服务器也会将 httpd 这个软件激活在 port 80， 这样两者才能够达成联机的！</p>
-<p>嗯！那么想一想，系统上面有没有什么配置可以让服务与埠号对应在一起呢？那就是 /etc/services 啦！<br><img src="/2017/07/20/linux系统服务/1.png" alt=""><br>查找某个服务的端口<br><img src="/2017/07/20/linux系统服务/2.png" alt=""><br>像上面说的是，第一栏为 daemon 的名称、第二栏为该 daemon 所使用的端口号与网络数据封包协议， 封包协议主要为可靠联机的 TCP 封包以及较快速但为非面向连接的 UDP 封包。 举个例子说，那个远程联机机制使用的是 ssh 这个服务，而这个服务的使用的埠号为 22 ！就是这样啊！</p>
-<h4 id="0x04-Daemon的启动脚本与启动方式"><a href="#0x04-Daemon的启动脚本与启动方式" class="headerlink" title="0x04 Daemon的启动脚本与启动方式"></a>0x04 Daemon的启动脚本与启动方式</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提供某个服务的 daemon 虽然只是一支程序而已，但是这支 daemon 的启动还是需要运行档、配置文件、运行环境等等， 举例来说，你可以查阅一下 httpd 这个程序 (man httpd) ，里面可谈到不少的选项与参数呢！此外，为了管理上面的方便， 所以通常 distribution 都会记录每一支 daemon 启动后所取得程序的 PID 在 /var/run/ 这个目录下呢！ 还有还有，在启动这些服务之前，你可能也要自行处理一下 daemon 能够顺利运行的环境是否正确等等。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了解决上面谈到的问题，因此通常 distribution 会给我们一个简单的 shell script 来进行启动的功能。 该 script 可以进行环境的侦测、配置文件的分析、PID 文件的放置，以及相关重要交换文件案的锁住 (lock) 动作， 你只要运行该 script ，上述的动作就一口气连续的进行，最终就能够顺利且简单的启动这个 daemon。<br>OK！那么这些 daemon 的启动脚本 (shell script) 放在哪里啊？</p>
-<ul>
-<li>/etc/init.d/* ：启动脚本放置处<br>系统上几乎所有的服务启动脚本都放置在这里！事实上这是公认的目录，我们的 CentOS 实际上放置在 /etc/rc.d/init.d/ 啦！ 不过还是有配置连结档到 /etc/init.d/ 的！既然这是公认的目录，因此建议您记忆这个目录即可！</li>
-<li>/etc/sysconfig/* ：各服务的初始化环境配置文件<br>几乎所有的服务都会将初始化的一些选项配置写入到这个目录下，举例来说，登录档的 syslog 这支 daemon 的初始化配置就写入在 /etc/sysconfig/syslog 这里呢！而网络的配置则写在 /etc/sysconfig/network 这个文件中。 所以，这个目录内的文件也是挺重要的；</li>
-<li>/etc/xinetd.conf, /etc/xinetd.d/<em> ：super daemon 配置文件<br>super daemon 的主要配置文件 (其实是默认值) 为 /etc/xinetd.conf ，不过我们上面就谈到了， super daemon 只是一个统一管理的机制，他所管理的其他 daemon 的配置则写在 /etc/xinetd.d/</em> 里头</li>
-<li>/etc/* ：各服务各自的配置文件<br>配置文件都是放置在 /etc/ 底下的.</li>
-<li>/var/lib/* ：各服务产生的数据库<br>一些会产生数据的服务都会将他的数据写入到 /var/lib/ 目录中。举例来说，数据库管理系统 MySQL 的数据库默认就是写入 /var/lib/mysql/ 这个目录下</li>
-<li>/var/run/* ：各服务的程序之 PID 记录处<br>既然 daemon 是程序，所以当然也可以利用 kill 或 killall 来管理啦！不过为了担心管理时影响到其他的程序， 因此 daemon 通常会将自己的 PID 记录一份到 /var/run/ 当中！例如登录文件的 PID 就记录在 /var/run/syslogd.pid 这个文件中。如此一来， /etc/init.d/syslog 就能够简单的管理自己的程序啰。</li>
-<li>由于系统的环境都已经帮你制作妥当，所以利用 /etc/init.d/* 来启动、关闭与观察，就非常的简单！话虽如此， CentOS 还是有提供另外一支可以启动 stand alone 服务的脚本，那就是 service 这个程序。其实 service 仅是一支 script ，他可以分析你下达的 service 后面的参数，然后根据你的参数再到 /etc/init.d/ 去取得正确的服务来 start 或 stop<br><img src="/2017/07/20/linux系统服务/3.png" alt=""><h4 id="0x05-Reference"><a href="#0x05-Reference" class="headerlink" title="0x05 Reference"></a>0x05 Reference</h4></li>
-<li><a href="http://cn.linux.vbird.org/linux_basic/0560daemons.php" target="_blank" rel="external">http://cn.linux.vbird.org/linux_basic/0560daemons.php</a></li>
-</ul>
+        <h4 id="About"><a href="#About" class="headerlink" title="About"></a>About</h4><p>这里推荐一下github上的一个项目<a href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="external">Awesome-Hacking</a><br>安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广.</p>
+<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>Android安全：收集了各种Android工具、报告/研究/书籍、漏洞/利用代码等资源</p>
+<p>应用安全：了解学习应用程序安全的资源列表</p>
+<p>漏洞赏金：漏洞赏金计划集合和著名赏金猎人博客列表</p>
+<p>Cheatsheets：常见的渗透测试/安全备忘录</p>
+<p>CTF：CTF框架、类库、资源、软件和教程清单</p>
+<p>网络攻击环境：可以合法地锻炼培养自己攻击技能的环境集合</p>
+<p>安全开发运维：devsecops.org社区贡献的权威devsecops工具列表</p>
+<p>Exploit开发：学习exploit开发的资源</p>
+<p>Fuzzing：各种fuzzing图书、课程、工具、教程和易受攻击应用集合</p>
+<p>Hacking：Awesome Hacking资源列表</p>
+<p>蜜罐：包括不同类型的蜜罐、蜜罐工具、蜜罐分析等</p>
+<p>事件响应：旨在帮助安全分析师和数字取证人员</p>
+<p>工控安全：包括工具、蜜罐、数据、警报和新闻、会议各种工控安全等</p>
+<p>信息安全：有各种信息安全公开课、培训信息</p>
+<p>IoT安全：聚合了大量IoT破解案例，如RFID、门铃、中控、可穿戴等</p>
+<p>恶意软件分析：包括恶意软件收集、开源威胁情报、检测、沙箱等</p>
+<p>开源情报：情报界的各种开源情报来源</p>
+<p>OS X和iOS安全：OS X和iOS安全工具集合</p>
+<p>Pcaptools：流量处理的命令集、捕获工具、分析检查、DNS配置等工具资源</p>
+<p>渗透测试：在线渗透测试资源、Shellcode开发、开源情报资源、社会工程资源等</p>
+<p>PHP安全：PHP生成安全随机数、加密数据、检查漏洞等类库</p>
+<p>逆向：关于逆向的图书、培训、实战、工具等</p>
+<p>安全演讲：收集了2013-2017年各类安全大会演讲视频</p>
+<p>SecLists：安全测试人员进行评估检查需要用到的技能</p>
+<p>Security：Awesome Security，一个社区驱动的知名安全资源分类集合</p>
+<p>社会工程学：仅供网络安全人员、渗透测试人员在受控环境用于教育用途</p>
+<p>静态分析：针对各种编程语言的静态分析工具、linters、代码质量检查等</p>
+<p>威胁情报：包括常见威胁情报来源、格式、架构、工具、研究标准书籍等</p>
+<p>车辆安全：关于车辆安全的学习资源、项目、软硬件、汽车黑客案例、Twitter follower列表等</p>
+<p>漏洞研究：相对偏学术方向，有不少书籍、会议、报告等推荐</p>
+<p>Web黑客：Web安全入门各种书籍、文档、工具</p>
+<p>Windows漏洞利用：Windows堆栈溢出、内核攻击、内存损坏、内存保护等内容资源</p>
+<p>WiFi兵工厂：针对802.11协议攻击的各类工具</p>
+<h4 id="可用知识库"><a href="#可用知识库" class="headerlink" title="可用知识库"></a>可用知识库</h4><p>API安全检查清单：当你设计、测试、发布API时，需要核对的安全细节清单</p>
+<p>APT Notes：2008年至今的所有APT行动披露报告汇总，中国出现了11次</p>
+<p>赏金漏洞披露列表：偏Web向的常见漏洞类型案例披露</p>
+<p>密码学：密码学的理论、工具、框架、资源等</p>
+<p>CFT工具：CTF从入门到了解各种工具</p>
+<p>CVE PoC库：博主从13年到现在收集的数十个CVE漏洞的PoC</p>
+<p>取证：数字取证的常见工具资源</p>
+<p>免费编程书：关于系统、数据库、IDE、编程语言等方面的免费书</p>
+<p>灰帽黑客资源：CTF、加密学、Linux Hacking、USB Hacking、漏洞等</p>
+<p>信息安全入门：包括信息安全博客、认证、课程、社区、播客、工具等</p>
+<p>安全资源：一个类似MITRE ATT&amp;C的框架</p>
+<p>IOC：常见IOC资源、工具</p>
+<p>Linux内核利用库：2005年至今的Linux内核利用技术演讲、漏洞、Writeups等</p>
+<p>网络安全领域的机器学习：相关研究的数据集、论文、书籍、演讲等</p>
+<p>恶意软件脚本：博主收集的二十几个脚本</p>
+<p>Payloads：一大波常见Web攻击Payloads</p>
+<p>Payloads集合：比上面这个更丰富的常见Web攻击Payloads</p>
+<p>五星级Cheatsheets：包括OS X命令行、PowerShell命令行、Google Dorks、Shodan、exploit开发、Java反序列化等最全备忘</p>
+<p>Pentest Wiki：博主收集的在线安全知识库，里边涵盖网络分析、Web应用、开源情报、漏洞分析、编程开发等多个领域</p>
+<p>字典：作者自称找了超过80GB密码库，从中总结出这个字典项目</p>
+<p>Resource List：零碎的GitHub安全项目汇总，涉及PWND、PowerShell、CTF、恶意软件等</p>
+<p>逆向工程：常见软件、类库、书籍、技术分析、开发等</p>
+<p>RF安全工具箱：国人@cn0xroot 聚合的各类射频资源集合，包括SDR、GSM、3G、4G LTE、NFC&amp;RFID、ZigBee等</p>
+<p>安全备忘录：收集了许多信息安全工具和主题</p>
+<p>安全清单：一大波详实的全系列安全资源</p>
+<p>Shell：一系列Shell命令行、工具、指南等</p>
+<p>威胁猎人攻略：帮助安全分析师利用Sysmon和Windows Events日志来进行事件分析，涉及Splunk、ELK、Sigma、GrayLog等工具</p>
 
       
     </div>
@@ -405,18 +444,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/21/20170721安全动态/" rel="next" title="20170721安全动态">
-                <i class="fa fa-chevron-left"></i> 20170721安全动态
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/20/20170720安全动态/" rel="prev" title="20170720安全动态">
-                20170720安全动态 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/09/20170809安全动态/" rel="prev" title="20170809安全动态">
+                20170809安全动态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -613,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x01-前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x02-分类"><span class="nav-number">2.</span> <span class="nav-text">0x02 分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x03-端口与服务"><span class="nav-number">3.</span> <span class="nav-text">0x03 端口与服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x04-Daemon的启动脚本与启动方式"><span class="nav-number">4.</span> <span class="nav-text">0x04 Daemon的启动脚本与启动方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x05-Reference"><span class="nav-number">5.</span> <span class="nav-text">0x05 Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#About"><span class="nav-number">1.</span> <span class="nav-text">About</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list"><span class="nav-number">2.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可用知识库"><span class="nav-number">3.</span> <span class="nav-text">可用知识库</span></a></li></ol></div>
             
 
           </div>
