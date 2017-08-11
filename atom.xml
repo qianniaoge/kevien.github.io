@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-10T07:32:51.000Z</updated>
+  <updated>2017-08-11T05:31:00.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170811安全动态</title>
+    <link href="http://kevien.github.io/2017/08/11/20170811%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/11/20170811安全动态/</id>
+    <published>2017-08-11T02:12:05.000Z</published>
+    <updated>2017-08-11T05:31:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>“灵隐”木马黑吃灰：绑架数十款游戏外挂实现恶意推广<br><a href="http://www.freebuf.com/articles/system/143461.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143461.html</a></li>
+<li>记一次对Discuz官方论坛的渗透检测<br><a href="https://www.t00ls.net/articles-21006.html" target="_blank" rel="external">https://www.t00ls.net/articles-21006.html</a></li>
+<li>使用Kerberoast破解Kerberos TGS Tickets - 利用Kerberos Compromise Active Directory域<br><a href="https://adsecurity.org/?p=2293" target="_blank" rel="external">https://adsecurity.org/?p=2293</a></li>
+<li>Plecost：Wordpress指纹识别工具（识别版本、插件，匹配已知漏洞）<br><a href="https://github.com/iniqua/plecost" target="_blank" rel="external">https://github.com/iniqua/plecost</a></li>
+<li>np1sec：分布式多方通讯加密协议<br><a href="https://github.com/equalitie/np1sec" target="_blank" rel="external">https://github.com/equalitie/np1sec</a></li>
+<li>解决遗忘linux登陆密码<br><a href="http://blog.nsfocus.net/resolve-forgotten-linux-login-password/" target="_blank" rel="external">http://blog.nsfocus.net/resolve-forgotten-linux-login-password/</a></li>
+<li>如何搭建一个 DNS Sinkhole 服务器，DNS Sinkhole 是指一种 DNS 响应欺骗技术，常被防御者用于发现受保护网络内的受感染机器，还有一份来自 Palo Alto 的文档参考<br><a href="http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf" target="_blank" rel="external">http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf</a></li>
+<li>利用 Adobe Flash 的沙箱逃逸漏洞，结合 UNC/file SMB 密钥转发的问题，泄露 Windows 用户的登陆密码(CVE-2017-3085)<br><a href="https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/" target="_blank" rel="external">https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/</a></li>
+<li>BeRoot - Windows 本地提权工具，寻找本地机器配置上的疏漏实现提权<br><a href="https://github.com/AlessandroZ/BeRoot" target="_blank" rel="external">https://github.com/AlessandroZ/BeRoot</a></li>
+<li>琢石成器之自动化去广告神器(Green Creator)<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;“灵隐”木马黑吃灰：绑架数十款游戏外挂实现恶意推广&lt;br&gt;&lt;a href=&quot;http://www
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20170810安全动态</title>
@@ -414,7 +445,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#109;&#x75;&#x65;&#x6c;&#108;&#101;&#114;&#x62;&#101;&#x72;&#x6e;&#x64;&#x74;&#x2f;&#x65;&#120;&#x70;&#x6c;&#x6f;&#x69;&#x74;&#105;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#99;&#116;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#119;&#x73;&#x2d;&#x69;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#x6a;&#x73;&#x2d;&#x38;&#x38;&#51;&#x66;&#x62;&#49;&#x66;&#101;&#51;&#x36;&#x63;&#49;">&#104;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#109;&#x75;&#x65;&#x6c;&#108;&#101;&#114;&#x62;&#101;&#x72;&#x6e;&#x64;&#x74;&#x2f;&#x65;&#120;&#x70;&#x6c;&#x6f;&#x69;&#x74;&#105;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#99;&#116;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#119;&#x73;&#x2d;&#x69;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#x6a;&#x73;&#x2d;&#x38;&#x38;&#51;&#x66;&#x62;&#49;&#x66;&#101;&#51;&#x36;&#x63;&#49;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#100;&#105;&#117;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#47;&#64;&#109;&#117;&#x65;&#108;&#x6c;&#101;&#114;&#98;&#x65;&#x72;&#x6e;&#x64;&#116;&#x2f;&#x65;&#x78;&#x70;&#108;&#x6f;&#105;&#x74;&#x69;&#110;&#x67;&#45;&#115;&#x63;&#x72;&#x69;&#112;&#x74;&#45;&#x69;&#110;&#x6a;&#x65;&#99;&#116;&#105;&#x6f;&#110;&#x2d;&#x66;&#108;&#97;&#x77;&#115;&#x2d;&#105;&#x6e;&#x2d;&#114;&#x65;&#x61;&#99;&#x74;&#x6a;&#x73;&#45;&#56;&#56;&#51;&#102;&#x62;&#49;&#x66;&#101;&#51;&#54;&#99;&#x31;">&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#100;&#105;&#117;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#47;&#64;&#109;&#117;&#x65;&#108;&#x6c;&#101;&#114;&#98;&#x65;&#x72;&#x6e;&#x64;&#116;&#x2f;&#x65;&#x78;&#x70;&#108;&#x6f;&#105;&#x74;&#x69;&#110;&#x67;&#45;&#115;&#x63;&#x72;&#x69;&#112;&#x74;&#45;&#x69;&#110;&#x6a;&#x65;&#99;&#116;&#105;&#x6f;&#110;&#x2d;&#x66;&#108;&#97;&#x77;&#115;&#x2d;&#105;&#x6e;&#x2d;&#114;&#x65;&#x61;&#99;&#x74;&#x6a;&#x73;&#45;&#56;&#56;&#51;&#102;&#x62;&#49;&#x66;&#101;&#51;&#54;&#99;&#x31;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -617,7 +648,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#104;&#116;&#116;&#x70;&#58;&#x2f;&#x2f;&#x70;&#117;&#x72;&#x70;&#x6c;&#101;&#114;&#111;&#99;&#46;&#99;&#111;&#x6d;&#x2f;&#x4d;&#68;&#x2f;&#50;&#48;&#x31;&#x37;&#x2d;&#x30;&#x36;&#45;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#x25;&#50;&#x30;&#x64;&#111;&#101;&#115;&#x25;&#50;&#48;&#x50;&#101;&#x74;&#121;&#97;&#x25;&#50;&#48;&#115;&#112;&#114;&#101;&#97;&#100;&#37;&#x32;&#48;&#x69;&#110;&#37;&#50;&#x30;&#76;&#x41;&#78;&#x2e;&#x68;&#116;&#x6d;&#108;">&#104;&#116;&#116;&#x70;&#58;&#x2f;&#x2f;&#x70;&#117;&#x72;&#x70;&#x6c;&#101;&#114;&#111;&#99;&#46;&#99;&#111;&#x6d;&#x2f;&#x4d;&#68;&#x2f;&#50;&#48;&#x31;&#x37;&#x2d;&#x30;&#x36;&#45;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#x25;&#50;&#x30;&#x64;&#111;&#101;&#115;&#x25;&#50;&#48;&#x50;&#101;&#x74;&#121;&#97;&#x25;&#50;&#48;&#115;&#112;&#114;&#101;&#97;&#100;&#37;&#x32;&#48;&#x69;&#110;&#37;&#50;&#x30;&#76;&#x41;&#78;&#x2e;&#x68;&#116;&#x6d;&#108;</a></li>
+<li>Petya 内网传播分析<br><a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#x68;&#116;&#x74;&#112;&#x3a;&#x2f;&#47;&#112;&#x75;&#114;&#112;&#x6c;&#101;&#114;&#111;&#99;&#x2e;&#x63;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#x30;&#49;&#x37;&#45;&#48;&#x36;&#45;&#x32;&#56;&#64;&#72;&#111;&#x77;&#x25;&#x32;&#x30;&#100;&#111;&#101;&#115;&#37;&#x32;&#x30;&#80;&#101;&#116;&#121;&#97;&#x25;&#x32;&#48;&#115;&#112;&#114;&#x65;&#x61;&#x64;&#x25;&#x32;&#48;&#105;&#x6e;&#x25;&#x32;&#x30;&#x4c;&#x41;&#x4e;&#x2e;&#x68;&#x74;&#x6d;&#108;">&#x68;&#116;&#x74;&#112;&#x3a;&#x2f;&#47;&#112;&#x75;&#114;&#112;&#x6c;&#101;&#114;&#111;&#99;&#x2e;&#x63;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#x30;&#49;&#x37;&#45;&#48;&#x36;&#45;&#x32;&#56;&#64;&#72;&#111;&#x77;&#x25;&#x32;&#x30;&#100;&#111;&#101;&#115;&#37;&#x32;&#x30;&#80;&#101;&#116;&#121;&#97;&#x25;&#x32;&#48;&#115;&#112;&#114;&#x65;&#x61;&#x64;&#x25;&#x32;&#48;&#105;&#x6e;&#x25;&#x32;&#x30;&#x4c;&#x41;&#x4e;&#x2e;&#x68;&#x74;&#x6d;&#108;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -852,58 +883,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：N
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170725安全动态</title>
-    <link href="http://kevien.github.io/2017/07/25/20170725%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/07/25/20170725安全动态/</id>
-    <published>2017-07-25T00:58:35.000Z</published>
-    <updated>2017-07-25T13:36:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>一个机器学习社区<br><a href="http://paper.kakapo.ml/" target="_blank" rel="external">http://paper.kakapo.ml/</a></li>
-<li>The ThreatHunter Playbook - 专注威胁检测一个 GitHub 项目<br><a href="https://github.com/Cyb3rWard0g/ThreatHunter-Playbook" target="_blank" rel="external">https://github.com/Cyb3rWard0g/ThreatHunter-Playbook</a></li>
-<li>精选 HackerOne 这一年 6 个有趣的安全漏洞<br><a href="http://paper.seebug.org/358/" target="_blank" rel="external">http://paper.seebug.org/358/</a></li>
-<li>目标信息信息搜集的一个工具<br><a href="https://github.com/UltimateHackers/ReconDog" target="_blank" rel="external">https://github.com/UltimateHackers/ReconDog</a></li>
-<li>获取来源IP地址的正确姿势<br><a href="http://www.freebuf.com/articles/web/140669.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/140669.html</a></li>
-<li>Web Sight社区版 – 企业攻击面枚举工具<br><a href="https://l.avala.mp/?p=209" target="_blank" rel="external">https://l.avala.mp/?p=209</a></li>
-<li><p>Little Trick<br><img src="/2017/07/25/20170725安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在渗透测试过程中，如果能够拿到mysql目录下的user.MYD文件，这个时候使用十六进制编辑工具，可以获取到mysql用户的账号和密码，然后去相关网站解密就可以了。</div></pre></td></tr></table></figure>
-</li>
-<li><p>二进制师傅们的博客<br><a href="http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2</a></p>
-</li>
-<li>没有绝对安全的系统：写在AES 256破解之后<br><a href="http://www.freebuf.com/column/141603.html" target="_blank" rel="external">http://www.freebuf.com/column/141603.html</a></li>
-<li><p>信任问题：利用TrustZone TEE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">project zero 出品，还没看懂:(</div></pre></td></tr></table></figure>
-</li>
-<li><p>Bright City: 针对国外一款市政相关APP的安全性分析<br><a href="https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/" target="_blank" rel="external">https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/</a></p>
-</li>
-<li>一款基于PHP的漏洞扫描器<br><a href="https://github.com/dermotblair/webvulscan" target="_blank" rel="external">https://github.com/dermotblair/webvulscan</a></li>
-<li>旧瓶新酒之ngx_lua &amp; fail2ban实现主动诱捕<br><a href="https://www.secpulse.com/archives/59444.html" target="_blank" rel="external">https://www.secpulse.com/archives/59444.html</a></li>
-<li>Flash漏洞利用之“喜闻乐见”<br><a href="http://www.freebuf.com/vuls/141405.html" target="_blank" rel="external">http://www.freebuf.com/vuls/141405.html</a></li>
-<li>无线键盘易被监听，不知不觉导致信息泄露<br><a href="http://www.freebuf.com/geek/140951.html" target="_blank" rel="external">http://www.freebuf.com/geek/140951.html</a></li>
-<li>逆向入门学习——看雪CTF2017第3题 爱琴海CrackMe bailianmen2017-07-25 首发专栏：百炼门<br>关注<br><a href="http://www.freebuf.com/column/141147.html" target="_blank" rel="external">http://www.freebuf.com/column/141147.html</a></li>
-<li>HTTPS真的就是安全的象征吗？HTTPS检查工具带来的安全威胁<br><a href="http://www.freebuf.com/news/136565.html" target="_blank" rel="external">http://www.freebuf.com/news/136565.html</a></li>
-<li><p>查看windows management framework 以及ps版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">更新之前</div><div class="line"> PS C:\Users\Brian&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">CLRVersion                     2.0.50727.5485</div><div class="line">BuildVersion                   6.1.7601.17514</div><div class="line">PSVersion                      2.0</div><div class="line">WSManStackVersion              2.0</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0&#125;</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line">PSRemotingProtocolVersion      2.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\Brian&gt; $PSVersionTable.WSManStackVersion.Major</div><div class="line">2</div><div class="line">PS C:\Users\Brian&gt;</div><div class="line">更新之后：</div><div class="line">PS C:\Users\chq&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">PSVersion                      5.0.10586.117</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;</div><div class="line">BuildVersion                   10.0.10586.117</div><div class="line">CLRVersion                     4.0.30319.42000</div><div class="line">WSManStackVersion              3.0</div><div class="line">PSRemotingProtocolVersion      2.3</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\chq&gt;</div><div class="line">下面是mac版的powershell：</div><div class="line">PS /usr/share&gt; $PSVersionTable                                                                                                                                                                           </div><div class="line"></div><div class="line">Name                           Value                                                                                                                                                                    </div><div class="line">----                           -----                                                                                                                                                                    </div><div class="line">PSVersion                      6.0.0-beta                                                                                                                                                               </div><div class="line">PSEdition                      Core                                                                                                                                                                     </div><div class="line">GitCommitId                    v6.0.0-beta.3                                                                                                                                                            </div><div class="line">OS                             Darwin 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64                                                           </div><div class="line">Platform                       Unix                                                                                                                                                                     </div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;                                                                                                                                                  </div><div class="line">PSRemotingProtocolVersion      2.3                                                                                                                                                                      </div><div class="line">SerializationVersion           1.1.0.1                                                                                                                                                                  </div><div class="line">WSManStackVersion              3.0                                                                                                                                                                      </div><div class="line"></div><div class="line"></div><div class="line">PS /usr/share&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>新版powershell 支持多种文件hash校验</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm MD5| Format-List</div><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List</div></pre></td></tr></table></figure>
-</li>
-<li><p>linux中usr/local下一般是你安装软件的目录，这个目录就相当于在windows下的programefiles这个目录  /opt这个目录是一些大型软件的安装目录，或者是一些服务程序的安装目录</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;一个机器学习社区&lt;br&gt;&lt;a href=&quot;http://paper.kakapo.ml/&quot; ta
     
     </summary>
     
