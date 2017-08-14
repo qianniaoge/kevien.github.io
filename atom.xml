@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-13T04:35:01.000Z</updated>
+  <updated>2017-08-14T15:54:48.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170814安全动态</title>
+    <link href="http://kevien.github.io/2017/08/14/20170814%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/14/20170814安全动态/</id>
+    <published>2017-08-14T14:16:07.000Z</published>
+    <updated>2017-08-14T15:54:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>更新的晚了点儿，今天去考科目二了，有惊无险，顺利通过，happy:)</p>
+<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li><p>知名终端模拟软件XSHELL多版本存在后门，或上传用户服务器账号密码！<br><a href="http://bobao.360.cn/news/detail/4263.html" target="_blank" rel="external">http://bobao.360.cn/news/detail/4263.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">今日头条</div></pre></td></tr></table></figure>
+</li>
+<li><p>如何通过 Atom 编辑器的插件攻破开发者的计算机<br><a href="http://blog.thinkst.com/2017/08/all-your-devs-are-belong-to-us-how-to.html" target="_blank" rel="external">http://blog.thinkst.com/2017/08/all-your-devs-are-belong-to-us-how-to.html</a></p>
+</li>
+<li>Google 公开的用于 Fuzz 的测试样本集<br><a href="https://github.com/google/fuzzer-test-suite" target="_blank" rel="external">https://github.com/google/fuzzer-test-suite</a></li>
+<li>Linux 内核 UFO/非UFO 路径切换内存破坏漏洞的 PoC(CVE-2017-1000112)<br><a href="https://github.com/xairy/kernel-exploits/tree/master/CVE-2017-1000112" target="_blank" rel="external">https://github.com/xairy/kernel-exploits/tree/master/CVE-2017-1000112</a></li>
+<li>上周推送了一款 macOS 平台的广告恶意软件 Mughthesec，另一位研究员写了一篇分析它的 Blog<br><a href="https://babyphd.net/2017/08/wtf-is-safefinderoperatormac-campaign" target="_blank" rel="external">https://babyphd.net/2017/08/wtf-is-safefinderoperatormac-campaign</a></li>
+<li><p>使用 Active Directory 的 Powershell 模块收集域信息<br><a href="https://adsecurity.org/?p=3719" target="_blank" rel="external">https://adsecurity.org/?p=3719</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">搞内网的童鞋可以学习一下</div></pre></td></tr></table></figure>
+</li>
+<li><p>攻击java反序列化<br><a href="https://nickbloor.co.uk/2017/08/13/attacking-java-deserialization/" target="_blank" rel="external">https://nickbloor.co.uk/2017/08/13/attacking-java-deserialization/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mark</div></pre></td></tr></table></figure>
+</li>
+<li><p>Python 字节码级别的逆向<br><a href="https://chriswarrick.com/blog/2017/08/03/gynvaels-mission-11-en-python-bytecode-reverse-engineering/" target="_blank" rel="external">https://chriswarrick.com/blog/2017/08/03/gynvaels-mission-11-en-python-bytecode-reverse-engineering/</a></p>
+</li>
+<li>tools - nullsecurity.net 团队收集的安全方向的工具、漏洞利用、POC、Shellcode 以及脚本<br><a href="https://github.com/nullsecuritynet/tools" target="_blank" rel="external">https://github.com/nullsecuritynet/tools</a></li>
+<li>GOSINT - 开源威胁情报收集与处理框架<br><a href="https://github.com/ciscocsirt/gosint" target="_blank" rel="external">https://github.com/ciscocsirt/gosint</a></li>
+<li>微软的 PowerShell 团队开发了一个 PowerShell Module Browser 工具，支持对安装的 PS 模块和工具进行搜索<br><a href="https://docs.microsoft.com/en-us/teamblog/announcing-unified-powershell-experience" target="_blank" rel="external">https://docs.microsoft.com/en-us/teamblog/announcing-unified-powershell-experience</a></li>
+<li>blackhat-arsenal-tools - BlackHat 会议”军火库”涉及到的工具<br><a href="https://github.com/toolswatch/blackhat-arsenal-tools" target="_blank" rel="external">https://github.com/toolswatch/blackhat-arsenal-tools</a></li>
+<li>ttyd 远程命令执行漏洞详情及POC<br><a href="https://www.nccgroup.trust/uk/our-research/technical-advisory-remote-shell-commands-execution-in-ttyd/?research=Technical" target="_blank" rel="external">https://www.nccgroup.trust/uk/our-research/technical-advisory-remote-shell-commands-execution-in-ttyd/?research=Technical</a></li>
+<li>Pwnhub 第一次线下沙龙竞赛Web题解析，来自 PHITHON’s blog<br><a href="https://www.leavesongs.com/PENETRATION/pwnhub-first-shalon-ctf-web-writeup.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/pwnhub-first-shalon-ctf-web-writeup.html</a></li>
+<li>免杀 MSF Windows Payload 的方法与实践<br><a href="https://mp.weixin.qq.com/s/OxgJIIPaXMXqrY5lPdukdA" target="_blank" rel="external">https://mp.weixin.qq.com/s/OxgJIIPaXMXqrY5lPdukdA</a></li>
+<li>NSA开发的工控ICS/SCADA态势感知开源工具Grassmarlin（附下载地址）<br><a href="http://www.freebuf.com/sectool/143106.html" target="_blank" rel="external">http://www.freebuf.com/sectool/143106.html</a></li>
+<li>ThinkPHP 5.0.10-3.2.3 缓存函数设计缺陷可导致 Getshell<br><a href="http://paper.seebug.org/374/" target="_blank" rel="external">http://paper.seebug.org/374/</a></li>
+<li>WinREPL - x86/x64 汇编实时解释执行的工具<br><a href="https://github.com/zerosum0x0/WinREPL" target="_blank" rel="external">https://github.com/zerosum0x0/WinREPL</a></li>
+<li>逆向恶意软件教程<br><a href="https://securedorg.github.io/RE102/" target="_blank" rel="external">https://securedorg.github.io/RE102/</a><br><a href="https://securedorg.github.io/RE101/" target="_blank" rel="external">https://securedorg.github.io/RE101/</a></li>
+<li>CVE-2017-8625：使用CHM bypass 设备防护UMCI<br><a href="https://msitpros.com/?p=3909" target="_blank" rel="external">https://msitpros.com/?p=3909</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;更新的晚了点儿，今天去考科目二了，有惊无险，顺利通过，happy:)&lt;/p&gt;
+&lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;知名终
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>macOS软件安全与逆向分析笔记</title>
@@ -480,7 +531,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x68;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#117;&#x65;&#108;&#108;&#101;&#x72;&#x62;&#101;&#x72;&#110;&#100;&#x74;&#x2f;&#x65;&#x78;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#103;&#45;&#x73;&#x63;&#x72;&#105;&#112;&#116;&#x2d;&#105;&#110;&#106;&#101;&#x63;&#116;&#105;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#x77;&#x73;&#x2d;&#x69;&#x6e;&#x2d;&#114;&#101;&#97;&#99;&#116;&#106;&#115;&#x2d;&#x38;&#x38;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#51;&#x36;&#99;&#x31;">&#x68;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#117;&#x65;&#108;&#108;&#101;&#x72;&#x62;&#101;&#x72;&#110;&#100;&#x74;&#x2f;&#x65;&#x78;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#103;&#45;&#x73;&#x63;&#x72;&#105;&#112;&#116;&#x2d;&#105;&#110;&#106;&#101;&#x63;&#116;&#105;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#x77;&#x73;&#x2d;&#x69;&#x6e;&#x2d;&#114;&#101;&#97;&#99;&#116;&#106;&#115;&#x2d;&#x38;&#x38;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#51;&#x36;&#99;&#x31;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#x75;&#101;&#108;&#x6c;&#101;&#x72;&#98;&#x65;&#114;&#110;&#100;&#x74;&#47;&#101;&#120;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#105;&#112;&#116;&#x2d;&#x69;&#x6e;&#106;&#x65;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x66;&#108;&#x61;&#x77;&#x73;&#45;&#105;&#x6e;&#45;&#x72;&#101;&#97;&#99;&#x74;&#x6a;&#x73;&#45;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#x65;&#51;&#54;&#x63;&#49;">&#104;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#x75;&#101;&#108;&#x6c;&#101;&#x72;&#98;&#x65;&#114;&#110;&#100;&#x74;&#47;&#101;&#120;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#105;&#112;&#116;&#x2d;&#x69;&#x6e;&#106;&#x65;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x66;&#108;&#x61;&#x77;&#x73;&#45;&#105;&#x6e;&#45;&#x72;&#101;&#97;&#99;&#x74;&#x6a;&#x73;&#45;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#x65;&#51;&#54;&#x63;&#49;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -684,7 +735,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#x70;&#x3a;&#47;&#47;&#x70;&#x75;&#x72;&#112;&#108;&#101;&#x72;&#111;&#99;&#46;&#x63;&#111;&#109;&#47;&#x4d;&#x44;&#47;&#x32;&#48;&#x31;&#55;&#x2d;&#48;&#54;&#45;&#50;&#56;&#64;&#x48;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#x6f;&#x65;&#x73;&#37;&#50;&#x30;&#80;&#x65;&#116;&#121;&#97;&#x25;&#x32;&#48;&#x73;&#x70;&#114;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#x6e;&#x25;&#x32;&#x30;&#x4c;&#65;&#78;&#x2e;&#104;&#x74;&#x6d;&#108;">&#x68;&#x74;&#x74;&#x70;&#x3a;&#47;&#47;&#x70;&#x75;&#x72;&#112;&#108;&#101;&#x72;&#111;&#99;&#46;&#x63;&#111;&#109;&#47;&#x4d;&#x44;&#47;&#x32;&#48;&#x31;&#55;&#x2d;&#48;&#54;&#45;&#50;&#56;&#64;&#x48;&#x6f;&#x77;&#37;&#50;&#x30;&#100;&#x6f;&#x65;&#x73;&#37;&#50;&#x30;&#80;&#x65;&#116;&#121;&#97;&#x25;&#x32;&#48;&#x73;&#x70;&#114;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#x6e;&#x25;&#x32;&#x30;&#x4c;&#65;&#78;&#x2e;&#104;&#x74;&#x6d;&#108;</a></li>
+<li>Petya 内网传播分析<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#x70;&#x3a;&#47;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#x65;&#x72;&#111;&#x63;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x4d;&#x44;&#47;&#x32;&#x30;&#49;&#x37;&#x2d;&#48;&#54;&#x2d;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#37;&#50;&#48;&#x64;&#x6f;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#116;&#121;&#x61;&#x25;&#50;&#x30;&#x73;&#112;&#x72;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#110;&#x25;&#50;&#48;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#x6c;">&#104;&#x74;&#x74;&#x70;&#x3a;&#47;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#x65;&#x72;&#111;&#x63;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x4d;&#x44;&#47;&#x32;&#x30;&#49;&#x37;&#x2d;&#48;&#54;&#x2d;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#37;&#50;&#48;&#x64;&#x6f;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#116;&#121;&#x61;&#x25;&#50;&#x30;&#x73;&#112;&#x72;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#110;&#x25;&#50;&#48;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#x6c;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -832,44 +883,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VM&lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>metasploit调试以及ruby入门踩坑</title>
-    <link href="http://kevien.github.io/2017/07/26/metasploit%E8%B0%83%E8%AF%95/"/>
-    <id>http://kevien.github.io/2017/07/26/metasploit调试/</id>
-    <published>2017-07-26T11:18:53.000Z</published>
-    <updated>2017-08-04T07:33:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>记录下踩的坑吧</p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
-<h4 id="Gem使用"><a href="#Gem使用" class="headerlink" title="Gem使用"></a>Gem使用</h4><p>Gem 是一个管理 Ruby 库和程序的标准包。Ruby gem 包的安装方式：<br>所有的 gem 包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了 Cache、doc、gems、specifications 等目录，cache 下放置下载的原生 gem 包，gems 下则放置的是解压过的 gem 包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> M0rk@hhh  ~/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0  ls</div><div class="line">bin            build_info     cache          doc            environment    extensions     gems           specifications wrappers</div></pre></td></tr></table></figure></p>
-<p>当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的 gem 包，然后重新运行 gem install [gemname] 命令即可。<br>Ruby Gem 命令详解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 更新Gem自身</div><div class="line"># 注意：在某些linux发行版中为了系统稳定性此命令禁止执行</div><div class="line">$ gem update --system</div><div class="line"></div><div class="line"># 从Gem源安装gem包</div><div class="line">$ gem install [gemname]</div><div class="line"></div><div class="line"># 从本机安装gem包</div><div class="line">$ gem install -l [gemname].gem</div><div class="line"></div><div class="line"># 安装指定版本的gem包</div><div class="line">$ gem install [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 更新所有已安装的gem包</div><div class="line">$ gem update</div><div class="line"></div><div class="line"># 更新指定的gem包</div><div class="line"># 注意：gem update [gemname]不会升级旧版本的包，此时你可以使用 gem install [gemname] --version=[ver]代替</div><div class="line">$ gem update [gemname]</div><div class="line"></div><div class="line"># 删除指定的gem包，注意此命令将删除所有已安装的版本</div><div class="line">$ gem uninstall [gemname]</div><div class="line"></div><div class="line"># 删除某指定版本gem</div><div class="line">$ gem uninstall [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 查看本机已安装的所有gem包</div><div class="line">$ gem list [--local]</div></pre></td></tr></table></figure>
-<h4 id="踩坑开始"><a href="#踩坑开始" class="headerlink" title="踩坑开始"></a>踩坑开始</h4><p>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是相同用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
-<p>0727更新：<br>今天又看了下资料，发现byebug还是不能用，搜索metasploit debug的资料也是很老的，但是在Stack Overflow发现了这个<a href="https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module" target="_blank" rel="external">https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module</a><br>就试了一下pry，果然可以和metasploit无缝使用。但是蛋疼的是pry没有step和next这种最基本的单步调试功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require ‘pry’ #需要pry库,否则binding.pry就不认识了</div><div class="line">g_a = 1</div><div class="line">g_b = 2</div><div class="line">binding.pry #运行到这句程序就停下来并打开pry让你调试</div></pre></td></tr></table></figure></p>
-<p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
-<p>pry常用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
-<p>rvm 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RVM是Ruby Version Manager的缩写，是一个命令行工具，它可以让你轻松地安装，管理和使用多个版本的Ruby.不同的rails项目使用等ruby和rails版本不一样的时候，可以使用RVM自由切换。</div><div class="line">1.rvm list 查看所有的ruby版本</div><div class="line">2.rvm current 查看当前的ruby版本</div><div class="line">3.rvm --default use 2.x.x  切换到到版本2.x.xs</div></pre></td></tr></table></figure></p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决，感觉应该是metasploit使用了自带的ruby以及gem的问题<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。（当你通过whereis找不到这个文件的时候，就很有可能是个文本文件，find找到，然后file命令看一下）<br>6.metasploit的ruby是自带的，可执行文件在这个目录下 /opt/metasploit-framework/embedded/bin</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
-<li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
-<li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
-<li><a href="https://github.com/pry/pry" target="_blank" rel="external">pry</a></li>
-<li><a href="http://www.jianshu.com/p/602db03b6b58" target="_blank" rel="external">如何单步调试ruby代码</a></li>
-<li><a href="http://drops.xmd5.com/static/drops/tips-14408.html" target="_blank" rel="external">乌云文章：Metasploit module开发入门篇</a></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录下踩的坑吧&lt;/p&gt;
-&lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语
     
     </summary>
     
