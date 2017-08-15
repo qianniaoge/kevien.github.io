@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-15T05:11:08.000Z</updated>
+  <updated>2017-08-15T11:15:59.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,10 +20,14 @@
     <link href="http://kevien.github.io/2017/08/15/20170815%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/08/15/20170815安全动态/</id>
     <published>2017-08-15T01:00:25.000Z</published>
-    <updated>2017-08-15T05:11:08.000Z</updated>
+    <updated>2017-08-15T11:15:59.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>新的恶意软件滥用 PPT 播放进行传播（CVE-2017-0199）<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/</a></li>
+<li><p>mac下的渗透测试框架<br><a href="http://buddhalabs.com/hackports/" target="_blank" rel="external">http://buddhalabs.com/hackports/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">没用过，看着不错的样子</div></pre></td></tr></table></figure>
+</li>
+<li><p>新的恶意软件滥用 PPT 播放进行传播（CVE-2017-0199）<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/</a></p>
+</li>
 <li>Piper - 基于 PowerShell 编写的利用命名管道做端口转发的工具<br><a href="https://github.com/p3nt4/Piper" target="_blank" rel="external">https://github.com/p3nt4/Piper</a></li>
 <li>Web 应用中将 LFI 漏洞转换为 RFI 漏洞的技巧<br><a href="https://l.avala.mp/?p=241" target="_blank" rel="external">https://l.avala.mp/?p=241</a></li>
 <li>利用 CHM 文件 Bypass Device Guard UMCI（CVE-2017-8625）<br><a href="https://msitpros.com/?p=3909" target="_blank" rel="external">https://msitpros.com/?p=3909</a></li>
@@ -32,13 +36,18 @@
 <li>浏览器安全 / Chrome XSS Auditor bypass<br><a href="http://paper.seebug.org/376/" target="_blank" rel="external">http://paper.seebug.org/376/</a></li>
 <li>在Active Directory中检测违规密码<br><a href="https://jacksonvd.com/checking-for-breached-passwords-in-active-directory/" target="_blank" rel="external">https://jacksonvd.com/checking-for-breached-passwords-in-active-directory/</a></li>
 <li>WMI_Forensics<br><a href="https://github.com/davidpany/WMI_Forensics" target="_blank" rel="external">https://github.com/davidpany/WMI_Forensics</a></li>
+<li>微信Netting-QRLJacking分析利用-扫我二维码获取你的账号权限<br><a href="http://www.freebuf.com/column/144276.html" target="_blank" rel="external">http://www.freebuf.com/column/144276.html</a></li>
+<li>如何利用HTA文件在IE/Edge浏览器中执行恶意代码<br><a href="http://bobao.360.cn/learning/detail/4248.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4248.html</a></li>
+<li>Dll注入<br><a href="http://www.freebuf.com/articles/system/143640.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143640.html</a></li>
+<li>powershell版的mimikaze<br><a href="https://github.com/clymb3r/PowerShell/blob/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1" target="_blank" rel="external">https://github.com/clymb3r/PowerShell/blob/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">1.png</div></pre></td></tr></table></figure>
+</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;新的恶意软件滥用 PPT 播放进行传播（CVE-2017-0199）&lt;br&gt;&lt;a href=&quot;h
+&lt;li&gt;&lt;p&gt;mac下的渗透测试框架&lt;br&gt;&lt;a href=&quot;http://buddhalabs.com
     
     </summary>
     
@@ -561,7 +570,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6d;&#117;&#x65;&#108;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#110;&#x64;&#116;&#47;&#101;&#120;&#x70;&#x6c;&#x6f;&#105;&#x74;&#105;&#x6e;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#105;&#x6e;&#x6a;&#x65;&#99;&#x74;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#x77;&#115;&#45;&#x69;&#x6e;&#45;&#114;&#x65;&#x61;&#99;&#116;&#x6a;&#115;&#45;&#56;&#x38;&#51;&#102;&#x62;&#49;&#102;&#x65;&#x33;&#x36;&#99;&#x31;">&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6d;&#117;&#x65;&#108;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#110;&#x64;&#116;&#47;&#101;&#120;&#x70;&#x6c;&#x6f;&#105;&#x74;&#105;&#x6e;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#105;&#x6e;&#x6a;&#x65;&#99;&#x74;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#x77;&#115;&#45;&#x69;&#x6e;&#45;&#114;&#x65;&#x61;&#99;&#116;&#x6a;&#115;&#45;&#56;&#x38;&#51;&#102;&#x62;&#49;&#102;&#x65;&#x33;&#x36;&#99;&#x31;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#64;&#109;&#x75;&#x65;&#108;&#x6c;&#x65;&#114;&#98;&#x65;&#114;&#x6e;&#x64;&#x74;&#47;&#101;&#x78;&#x70;&#108;&#111;&#105;&#x74;&#x69;&#x6e;&#103;&#x2d;&#115;&#99;&#x72;&#105;&#x70;&#x74;&#x2d;&#x69;&#110;&#106;&#101;&#x63;&#x74;&#105;&#111;&#x6e;&#x2d;&#x66;&#108;&#x61;&#119;&#115;&#45;&#105;&#x6e;&#x2d;&#x72;&#x65;&#97;&#x63;&#116;&#106;&#115;&#x2d;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#101;&#51;&#54;&#99;&#x31;">&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#64;&#109;&#x75;&#x65;&#108;&#x6c;&#x65;&#114;&#98;&#x65;&#114;&#x6e;&#x64;&#x74;&#47;&#101;&#x78;&#x70;&#108;&#111;&#105;&#x74;&#x69;&#x6e;&#103;&#x2d;&#115;&#99;&#x72;&#105;&#x70;&#x74;&#x2d;&#x69;&#110;&#106;&#101;&#x63;&#x74;&#105;&#111;&#x6e;&#x2d;&#x66;&#108;&#x61;&#119;&#115;&#45;&#105;&#x6e;&#x2d;&#x72;&#x65;&#97;&#x63;&#116;&#106;&#115;&#x2d;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#101;&#51;&#54;&#99;&#x31;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -765,7 +774,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#104;&#x74;&#x74;&#112;&#x3a;&#47;&#47;&#112;&#x75;&#114;&#x70;&#x6c;&#101;&#x72;&#x6f;&#x63;&#46;&#99;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#48;&#49;&#55;&#45;&#48;&#54;&#x2d;&#x32;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#x65;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#x74;&#121;&#x61;&#37;&#50;&#x30;&#115;&#x70;&#x72;&#x65;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#76;&#65;&#78;&#46;&#x68;&#x74;&#x6d;&#108;">&#104;&#x74;&#x74;&#112;&#x3a;&#47;&#47;&#112;&#x75;&#114;&#x70;&#x6c;&#101;&#x72;&#x6f;&#x63;&#46;&#99;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#48;&#49;&#55;&#45;&#48;&#54;&#x2d;&#x32;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#x65;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#x74;&#121;&#x61;&#37;&#50;&#x30;&#115;&#x70;&#x72;&#x65;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#76;&#65;&#78;&#46;&#x68;&#x74;&#x6d;&#108;</a></li>
+<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#104;&#x74;&#116;&#x70;&#x3a;&#x2f;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#101;&#114;&#111;&#99;&#46;&#99;&#111;&#109;&#x2f;&#x4d;&#x44;&#x2f;&#x32;&#x30;&#49;&#55;&#45;&#x30;&#x36;&#x2d;&#50;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#101;&#115;&#x25;&#50;&#48;&#80;&#101;&#116;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#x70;&#114;&#101;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#37;&#50;&#x30;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#108;">&#104;&#x74;&#116;&#x70;&#x3a;&#x2f;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#101;&#114;&#111;&#99;&#46;&#99;&#111;&#109;&#x2f;&#x4d;&#x44;&#x2f;&#x32;&#x30;&#49;&#55;&#45;&#x30;&#x36;&#x2d;&#50;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#101;&#115;&#x25;&#50;&#48;&#80;&#101;&#116;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#x70;&#114;&#101;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#37;&#50;&#x30;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#108;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
