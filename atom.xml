@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-14T15:54:48.000Z</updated>
+  <updated>2017-08-15T05:11:08.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,16 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20170815安全动态</title>
+    <link href="http://kevien.github.io/2017/08/15/20170815%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/15/20170815安全动态/</id>
+    <published>2017-08-15T01:00:25.000Z</published>
+    <updated>2017-08-15T05:11:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>新的恶意软件滥用 PPT 播放进行传播（CVE-2017-0199）<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/cve-2017-0199-new-malware-abuses-powerpoint-slide-show/</a></li>
+<li>Piper - 基于 PowerShell 编写的利用命名管道做端口转发的工具<br><a href="https://github.com/p3nt4/Piper" target="_blank" rel="external">https://github.com/p3nt4/Piper</a></li>
+<li>Web 应用中将 LFI 漏洞转换为 RFI 漏洞的技巧<br><a href="https://l.avala.mp/?p=241" target="_blank" rel="external">https://l.avala.mp/?p=241</a></li>
+<li>利用 CHM 文件 Bypass Device Guard UMCI（CVE-2017-8625）<br><a href="https://msitpros.com/?p=3909" target="_blank" rel="external">https://msitpros.com/?p=3909</a></li>
+<li>史上反侦察力最强木马“隐魂”：撑起色情播放器百万推广陷阱<br><a href="http://www.freebuf.com/articles/web/143912.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/143912.html</a></li>
+<li>恶意软件中的逃避技术，十八般武艺样样齐全<br><a href="https://mp.weixin.qq.com/s/TkVQNBeTN-5dgOC4r3oJBg" target="_blank" rel="external">https://mp.weixin.qq.com/s/TkVQNBeTN-5dgOC4r3oJBg</a></li>
+<li>浏览器安全 / Chrome XSS Auditor bypass<br><a href="http://paper.seebug.org/376/" target="_blank" rel="external">http://paper.seebug.org/376/</a></li>
+<li>在Active Directory中检测违规密码<br><a href="https://jacksonvd.com/checking-for-breached-passwords-in-active-directory/" target="_blank" rel="external">https://jacksonvd.com/checking-for-breached-passwords-in-active-directory/</a></li>
+<li>WMI_Forensics<br><a href="https://github.com/davidpany/WMI_Forensics" target="_blank" rel="external">https://github.com/davidpany/WMI_Forensics</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;新的恶意软件滥用 PPT 播放进行传播（CVE-2017-0199）&lt;br&gt;&lt;a href=&quot;h
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170814安全动态</title>
     <link href="http://kevien.github.io/2017/08/14/20170814%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/08/14/20170814安全动态/</id>
     <published>2017-08-14T14:16:07.000Z</published>
-    <updated>2017-08-14T15:54:48.000Z</updated>
+    <updated>2017-08-15T00:59:57.000Z</updated>
     
     <content type="html"><![CDATA[<p>更新的晚了点儿，今天去考科目二了，有惊无险，顺利通过，happy:)</p>
 <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li><p>知名终端模拟软件XSHELL多版本存在后门，或上传用户服务器账号密码！<br><a href="http://bobao.360.cn/news/detail/4263.html" target="_blank" rel="external">http://bobao.360.cn/news/detail/4263.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">今日头条</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">今日头条，我想说这个各种后门的时代，一些软件能不用的尽量不用，用就用官方的、相对权威的</div></pre></td></tr></table></figure>
 </li>
 <li><p>如何通过 Atom 编辑器的插件攻破开发者的计算机<br><a href="http://blog.thinkst.com/2017/08/all-your-devs-are-belong-to-us-how-to.html" target="_blank" rel="external">http://blog.thinkst.com/2017/08/all-your-devs-are-belong-to-us-how-to.html</a></p>
 </li>
@@ -531,7 +561,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#x75;&#101;&#108;&#x6c;&#101;&#x72;&#98;&#x65;&#114;&#110;&#100;&#x74;&#47;&#101;&#120;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#105;&#112;&#116;&#x2d;&#x69;&#x6e;&#106;&#x65;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x66;&#108;&#x61;&#x77;&#x73;&#45;&#105;&#x6e;&#45;&#x72;&#101;&#97;&#99;&#x74;&#x6a;&#x73;&#45;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#x65;&#51;&#54;&#x63;&#49;">&#104;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#x75;&#101;&#108;&#x6c;&#101;&#x72;&#98;&#x65;&#114;&#110;&#100;&#x74;&#47;&#101;&#120;&#112;&#x6c;&#x6f;&#105;&#116;&#x69;&#110;&#x67;&#x2d;&#x73;&#x63;&#114;&#105;&#112;&#116;&#x2d;&#x69;&#x6e;&#106;&#x65;&#x63;&#116;&#x69;&#111;&#110;&#x2d;&#x66;&#108;&#x61;&#x77;&#x73;&#45;&#105;&#x6e;&#45;&#x72;&#101;&#97;&#99;&#x74;&#x6a;&#x73;&#45;&#x38;&#x38;&#51;&#x66;&#98;&#x31;&#x66;&#x65;&#51;&#54;&#x63;&#49;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6d;&#117;&#x65;&#108;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#110;&#x64;&#116;&#47;&#101;&#120;&#x70;&#x6c;&#x6f;&#105;&#x74;&#105;&#x6e;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#105;&#x6e;&#x6a;&#x65;&#99;&#x74;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#x77;&#115;&#45;&#x69;&#x6e;&#45;&#114;&#x65;&#x61;&#99;&#116;&#x6a;&#115;&#45;&#56;&#x38;&#51;&#102;&#x62;&#49;&#102;&#x65;&#x33;&#x36;&#99;&#x31;">&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6d;&#117;&#x65;&#108;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#110;&#x64;&#116;&#47;&#101;&#120;&#x70;&#x6c;&#x6f;&#105;&#x74;&#105;&#x6e;&#x67;&#x2d;&#x73;&#x63;&#114;&#x69;&#112;&#x74;&#45;&#105;&#x6e;&#x6a;&#x65;&#99;&#x74;&#x69;&#x6f;&#110;&#x2d;&#102;&#108;&#x61;&#x77;&#115;&#45;&#x69;&#x6e;&#45;&#114;&#x65;&#x61;&#99;&#116;&#x6a;&#115;&#45;&#56;&#x38;&#51;&#102;&#x62;&#49;&#102;&#x65;&#x33;&#x36;&#99;&#x31;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -735,7 +765,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#x70;&#x3a;&#47;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#x65;&#x72;&#111;&#x63;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x4d;&#x44;&#47;&#x32;&#x30;&#49;&#x37;&#x2d;&#48;&#54;&#x2d;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#37;&#50;&#48;&#x64;&#x6f;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#116;&#121;&#x61;&#x25;&#50;&#x30;&#x73;&#112;&#x72;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#110;&#x25;&#50;&#48;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#x6c;">&#104;&#x74;&#x74;&#x70;&#x3a;&#47;&#x2f;&#112;&#117;&#x72;&#x70;&#108;&#x65;&#x72;&#111;&#x63;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x4d;&#x44;&#47;&#x32;&#x30;&#49;&#x37;&#x2d;&#48;&#54;&#x2d;&#50;&#56;&#64;&#x48;&#x6f;&#119;&#37;&#50;&#48;&#x64;&#x6f;&#101;&#115;&#x25;&#x32;&#48;&#80;&#x65;&#116;&#121;&#x61;&#x25;&#50;&#x30;&#x73;&#112;&#x72;&#x65;&#97;&#100;&#37;&#x32;&#x30;&#x69;&#110;&#x25;&#50;&#48;&#76;&#65;&#78;&#x2e;&#x68;&#116;&#109;&#x6c;</a></li>
+<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#104;&#x74;&#x74;&#112;&#x3a;&#47;&#47;&#112;&#x75;&#114;&#x70;&#x6c;&#101;&#x72;&#x6f;&#x63;&#46;&#99;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#48;&#49;&#55;&#45;&#48;&#54;&#x2d;&#x32;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#x65;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#x74;&#121;&#x61;&#37;&#50;&#x30;&#115;&#x70;&#x72;&#x65;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#76;&#65;&#78;&#46;&#x68;&#x74;&#x6d;&#108;">&#104;&#x74;&#x74;&#112;&#x3a;&#47;&#47;&#112;&#x75;&#114;&#x70;&#x6c;&#101;&#x72;&#x6f;&#x63;&#46;&#99;&#x6f;&#109;&#47;&#x4d;&#68;&#47;&#x32;&#48;&#49;&#55;&#45;&#48;&#54;&#x2d;&#x32;&#x38;&#x40;&#x48;&#x6f;&#119;&#x25;&#x32;&#48;&#100;&#111;&#x65;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#x74;&#121;&#x61;&#37;&#50;&#x30;&#115;&#x70;&#x72;&#x65;&#x61;&#x64;&#37;&#x32;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#76;&#65;&#78;&#46;&#x68;&#x74;&#x6d;&#108;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -837,52 +867,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;intellij idea远程调试jenkins&lt;br&gt;&lt;a href=&quot;http://b
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170727安全动态</title>
-    <link href="http://kevien.github.io/2017/07/27/20170727%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/07/27/20170727安全动态/</id>
-    <published>2017-07-27T01:59:39.000Z</published>
-    <updated>2017-07-27T09:45:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VM<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html</a></li>
-<li>绕过杀毒软件与主机入侵防御系统对流量的检测<br><a href="https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/" target="_blank" rel="external">https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/</a></li>
-<li>BinaryAlert - 一个含有实时追溯等特性的恶意软件检测工具<br><a href="https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90" target="_blank" rel="external">https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90</a></li>
-<li>Shadowsocks原理详解<br><a href="https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA" target="_blank" rel="external">https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA</a></li>
-<li>如何使用ldapsearch来dump域中的LAPS密码<br><a href="http://bobao.360.cn/learning/detail/4151.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4151.html</a></li>
-<li>域渗透之Exchange Server<br><a href="http://bobao.360.cn/learning/detail/4145.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4145.html</a></li>
-<li>一个利用“永恒之蓝”漏洞传播的挖矿程序分析<br><a href="http://www.freebuf.com/news/141011.html" target="_blank" rel="external">http://www.freebuf.com/news/141011.html</a></li>
-<li>SSD Advisory – Supervisor Authenticated Remote Code Execution<br><a href="https://blogs.securiteam.com/index.php/archives/3348" target="_blank" rel="external">https://blogs.securiteam.com/index.php/archives/3348</a></li>
-<li>nps_payload - 利用各种来源的公开技术，生成绕过基础入侵检测的 Payloads<br><a href="https://github.com/trustedsec/nps_payload" target="_blank" rel="external">https://github.com/trustedsec/nps_payload</a></li>
-<li><p>2017-NSCTF-PWN<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">周末学习一下</div></pre></td></tr></table></figure>
-</li>
-<li><p>WSSAT - Web 服务安全评估工具<br><a href="http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html" target="_blank" rel="external">http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html</a></p>
-</li>
-<li>DefCON 上将会公布一个 Windows SMB 内存耗尽拒绝服务0Day，不会蓝屏，连蓝屏需要的内存也不够了，需要建立大量连接<br><a href="http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/" target="_blank" rel="external">http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/</a></li>
-<li>ESET 在 GitHub 上分享的对一些样本逆向分析的辅助代码<br><a href="https://github.com/eset/malware-research" target="_blank" rel="external">https://github.com/eset/malware-research</a></li>
-<li>Awesome Vulnerability Research - 漏洞研究方面的资料整理<br><a href="https://github.com/re-pronin/Awesome-Vulnerability-Research" target="_blank" rel="external">https://github.com/re-pronin/Awesome-Vulnerability-Research</a></li>
-<li>Proxy Re-Encryption Playground in Python<br><a href="https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf" target="_blank" rel="external">https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf</a></li>
-<li>通过AI和Python生成密<br><a href="https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md" target="_blank" rel="external">https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md</a></li>
-<li>IaaS、PaaS、SaaS三者的比较<br><a href="http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each" target="_blank" rel="external">http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each</a></li>
-<li>Empire without PowerShell.exe（Empire：一款后渗透框架）<br><a href="https://bneg.io/2017/07/26/empire-without-powershell-exe/" target="_blank" rel="external">https://bneg.io/2017/07/26/empire-without-powershell-exe/</a></li>
-<li>Tomcat Security Constraint Bypass CVE-2017-5664 分析<br><a href="https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ</a></li>
-<li>SQLite手工注入Getshell技巧<br><a href="http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/" target="_blank" rel="external">http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/</a></li>
-<li>ubuntu安装metasploit<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall &amp;&amp; \</div><div class="line">  chmod 755 msfinstall &amp;&amp; \</div><div class="line">  ./msfinstall</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VM&lt;
     
     </summary>
     
