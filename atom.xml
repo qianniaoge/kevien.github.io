@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-18T10:07:16.000Z</updated>
+  <updated>2017-08-18T12:05:29.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="http://kevien.github.io/2017/08/18/IDA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
     <id>http://kevien.github.io/2017/08/18/IDA使用方法/</id>
     <published>2017-08-18T10:06:56.000Z</published>
-    <updated>2017-08-18T10:07:16.000Z</updated>
+    <updated>2017-08-18T12:05:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>IDA作用：<br>1.一般IDA是配合OD使用的，当od没有分析出函数名的时候，有时候通过IDA可以发现函数的名。</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;IDA作用：&lt;br&gt;1.一般IDA是配合OD使用的，当od没有分析出函数名的时候，有时候通过IDA可以发现函数的名。&lt;/p&gt;
+
     
     </summary>
     
@@ -34,7 +40,7 @@
     <link href="http://kevien.github.io/2017/08/18/20170818%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/08/18/20170818安全动态/</id>
     <published>2017-08-18T02:24:30.000Z</published>
-    <updated>2017-08-18T07:07:50.000Z</updated>
+    <updated>2017-08-18T10:44:33.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>漏洞根源在于人——知识深度篇<br><a href="http://www.freebuf.com/vuls/144705.html" target="_blank" rel="external">http://www.freebuf.com/vuls/144705.html</a></li>
@@ -44,7 +50,8 @@
 <li>结合 Blind SSRF 漏洞以及 HashiCorp Consul 的错误配置转换成高危的 RCE 漏洞<br><a href="http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html" target="_blank" rel="external">http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html</a></li>
 <li>Koadic：COM 命令控制框架（JScript RAT，类似Meterpreter、Empire）<br><a href="http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html" target="_blank" rel="external">http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html</a></li>
 <li>3个步骤实现简单语言解释器（自制简易编程语言）<br><a href="https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/" target="_blank" rel="external">https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/</a></li>
-<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""></http:></li>
+<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></http:></li>
+<li>反汇编的利器 IDA 和 Hopper 的基本使用<br><a href="https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/" target="_blank" rel="external">https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/</a></li>
 </ul>
 ]]></content>
     
@@ -719,7 +726,7 @@
 <li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
 <li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
 <li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#x6e;&#x64;&#116;&#47;&#x65;&#120;&#112;&#x6c;&#111;&#x69;&#116;&#x69;&#110;&#103;&#x2d;&#115;&#x63;&#114;&#105;&#x70;&#116;&#x2d;&#x69;&#110;&#106;&#x65;&#99;&#x74;&#105;&#x6f;&#x6e;&#45;&#102;&#108;&#97;&#x77;&#115;&#45;&#105;&#x6e;&#45;&#114;&#x65;&#97;&#x63;&#x74;&#x6a;&#115;&#x2d;&#x38;&#56;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#x33;&#54;&#99;&#x31;">&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#x65;&#x72;&#x62;&#x65;&#114;&#x6e;&#x64;&#116;&#47;&#x65;&#120;&#112;&#x6c;&#111;&#x69;&#116;&#x69;&#110;&#103;&#x2d;&#115;&#x63;&#114;&#105;&#x70;&#116;&#x2d;&#x69;&#110;&#106;&#x65;&#99;&#x74;&#105;&#x6f;&#x6e;&#45;&#102;&#108;&#97;&#x77;&#115;&#45;&#105;&#x6e;&#45;&#114;&#x65;&#97;&#x63;&#x74;&#x6a;&#115;&#x2d;&#x38;&#56;&#x33;&#x66;&#x62;&#49;&#102;&#101;&#x33;&#54;&#99;&#x31;</a></li>
+<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#101;&#x72;&#x62;&#101;&#114;&#110;&#100;&#x74;&#x2f;&#101;&#x78;&#112;&#x6c;&#111;&#105;&#116;&#x69;&#x6e;&#x67;&#x2d;&#115;&#99;&#114;&#105;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#119;&#x73;&#45;&#105;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#106;&#115;&#45;&#x38;&#x38;&#x33;&#102;&#98;&#x31;&#x66;&#101;&#x33;&#54;&#x63;&#x31;">&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#101;&#x72;&#x62;&#101;&#114;&#110;&#100;&#x74;&#x2f;&#101;&#x78;&#112;&#x6c;&#111;&#105;&#116;&#x69;&#x6e;&#x67;&#x2d;&#115;&#99;&#114;&#105;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#119;&#x73;&#45;&#105;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#106;&#115;&#45;&#x38;&#x38;&#x33;&#102;&#98;&#x31;&#x66;&#101;&#x33;&#54;&#x63;&#x31;</a></li>
 <li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
 <li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
 <li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
@@ -744,10 +751,10 @@
     <link href="http://kevien.github.io/2017/08/02/windows%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8/"/>
     <id>http://kevien.github.io/2017/08/02/windows逆向入门/</id>
     <published>2017-08-02T09:15:16.000Z</published>
-    <updated>2017-08-18T02:26:31.000Z</updated>
+    <updated>2017-08-18T12:40:53.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="概念知识点"><a href="#概念知识点" class="headerlink" title="概念知识点"></a>概念知识点</h4><ul>
-<li>在程序执行的过程中，cpu会不断处理数据，而cpu处理的数据通常来自3个地方<br>1.数据在指令中直接给出<br>2.数据在寄存器中<br>3.数据在内存中<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>在程序执行的过程中，cpu会不断处理数据，而cpu处理的数据通常来自3个地方<br>1.数据在指令中直接给出<br>2.数据在寄存器中<br>3.数据在内存中<h4 id="漏洞利用原理简介"><a href="#漏洞利用原理简介" class="headerlink" title="漏洞利用原理简介"></a>漏洞利用原理简介</h4>本次实例中的windows缓冲区溢出的原理还是比较简单的，首先使用jmp esp覆盖函数的返回地址，然后esp此时存放的正是shellcode的地址，那么shellcode本来是作为数据的结果被当做指令给执行了。感觉其实和sql注入啊，xss啥的都差不多，都是”数据”被当做代码或者指令给执行了 :)<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>主要是利用strcpy函数的复制，当name的内容大于buffer的大小时候，这个时候会产生异常，Exception code: C0000005 ACCESS_VIOLATION。</p>
