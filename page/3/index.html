@@ -273,6 +273,277 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/02/windows驱动入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/02/windows驱动入门/" itemprop="url">
+                  windows驱动入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T09:20:14+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><h4 id="Referenc"><a href="#Referenc" class="headerlink" title="Referenc"></a>Referenc</h4><p>1.(简单驱动开发及逆向之驱动板的helloworld)[<a href="http://www.weixianmanbu.com/article/748.html" target="_blank" rel="external">http://www.weixianmanbu.com/article/748.html</a>]</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/01/进程与线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/01/进程与线程/" itemprop="url">
+                  进程与线程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T16:54:10+08:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一般将进程定义成一个正在运行的程序的一个实例，它由以下两部分构成。</p>
+<ul>
+<li>一个内核对象，操作系统用它来管理进程。内核对象也是系统保存进程统计信息的地方。</li>
+<li>一个地址空间，其中包含所有可执行文件或DLL模块的代码和数据。此外，它还包含动态内存分配，比如线程堆栈和堆的分配。</li>
+</ul>
+<p>进程是有“惰性”的。进程要做任何事情，都必须让一个线程在它的上下文中运行。该线程负责执行进程地址空间包含的代码。事实上，一个进程可以有多个线程，所有线程都在进程的地址空间中“同时”执行代码。为此，每个线程都有它自己的一组CPU寄存器和它自己的堆栈。每个进程至少要有一个线程来执行进程地址空间包含的代码。当系统创建一个进程的时候，会自动为进程创建第一个线程，这称为主线程。然后，这个线程再创建更多的线程，后者再创建更多的线程。。。如果没有线程要执行进程地址空间包含的代码，进程就失去了继续存在的理由。这时，系统会自动销毁进程及其地址空间。</p>
+<p>对于所有要运行的线程，操作系统会轮流为每个线程调度一些CPU时间。它会采取循环（轮询或轮流）方式，为每个线程都分配时间片（称为“量程”），从而营造出所有线程都在“并发”运行的假象。</p>
+<p>如果计算机配备了多个CPU，操作系统会采用更复杂的算法为线程分配CPU时间。</p>
+<p>线程也有两个组成部分：</p>
+<ul>
+<li>一个是线程的内核对象，操作系统用它管理线程。系统还用内核对象来存放线程统计信息的地方。</li>
+<li>一个线程栈，用于维护线程执行时所需的所有函数参数和局部变量。</li>
+</ul>
+<p>进程从来不执行任何东西，它只是一个线程的容器。线程必然是在某个进程的上下文中创建的，而且会在这个进程内部“终其一生”。这意味着线程要在其进程的地址空间内执行代码和处理数据。所以，假如一个进程上下文中有两个以上的线程运行，这些线程将共享同一个地址空间。这些线程可以执行同样的代码，可以处理相同的数据。此外，这些线程还共享内核对象句柄，因为句柄表是针对每一个进程的，而不是针对每一个线程。</p>
+<p>可以看出，相较于线程，进程所使用的系统资源更多。其原因在于地址空间。为一个进程创建一个虚拟的地址空间需要大量系统资源。系统中会发生大量的记录活动，而这需要用到大量内存。而且，由于.exe和.dll文件要加载到一个地址空间，所以还需要用到文件资源。另一方面，线程使用的系统资源要少得多。事实上，线程只有一个内核对象和一个栈；几乎不涉及记录活动，所以不需要占用多少内存。</p>
+<p>每个线程都有一个上下文，后者保存在线程的内核对象中。这个上下文反映了线程上一次执行时CPU寄存器的状态。大约每隔20ms，Windows都会查看所有当前存在的线程内核对象。在这些对象中，只有一些被认为是可调度的。Windows在可调度的线程内核对象中选择一个，并将上次保存在线程上下文中的值载入CPU寄存器。这一操作被称为上下文切换。线程执行代码，并在进程的地址空间中操作数据。又过了大约20ms，Windows将CPU寄存器存回线程的上下文，线程不再运行。系统再次检查剩下的可调度线程内核对象，选择另一个线程的内核对象，将该线程的上下文载入CPU寄存器，然后继续。载入线程上下文、让线程运行、保存上下文并重复的操作在系统启动的时候就开始，然后这样的操作会不断重复，直至系统关闭。</p>
+<p>系统只调度可调度的线程，但是事实上，系统中大多数线程都不是可调度的。例如有些线程对象的挂起计数大于0，这意味着该线程已被挂起，不应该给它调度任何CPU时间。可以通过调用CreateProcess或者CreateThread函数并传入CREATE_SUSPENDED标志来创建一个被挂起的线程。</p>
+<p>除了被挂起的线程之外，还有其他很多线程无法调度，因为它们都在等待某种事件发生。例如，如果运行Notepad程序，但是并不输入任何东西，Notepad线程将什么都不做。系统不会给没有任务的线程分配任何CPU时间。当我们移动Notepad的窗口时，或者其窗口需要重绘内容时，或者我们在其中输入时，系统将自动使其线程变为可调度。这并不意味着Notepad线程将立即获得CPU时间。只不过Notepad线程有任务了，系统会在某个时刻抽时间调度它——当然，我们希望越快越好。<br>父进程结束不会使子进程结束，但是多线程中，主进程的退出，会使所有线程退出。</p>
+<h4 id="window进程与线程实例"><a href="#window进程与线程实例" class="headerlink" title="window进程与线程实例"></a>window进程与线程实例</h4><p>进程的创建主要函数是CreateProcess()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">#define EXEC_FILE &quot;c:\\windows\\system32\\notepad.exe&quot;</div><div class="line">#define EXEC_FILE1 &quot;c:\\windows\\system32\\calc.exe&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    PROCESS_INFORMATION pi = &#123; 0 &#125;;</div><div class="line">    STARTUPINFO si = &#123; 0 &#125;;</div><div class="line">    </div><div class="line">    si.cb = sizeof(STARTUPINFO);</div><div class="line">    </div><div class="line">    BOOL bRet = CreateProcess(EXEC_FILE,</div><div class="line">                        NULL, NULL, NULL, FALSE,</div><div class="line">                        NULL, NULL, NULL, &amp;si, &amp;pi);</div><div class="line"></div><div class="line">    BOOL bRet1 = CreateProcess(EXEC_FILE1,</div><div class="line">		NULL, NULL, NULL, FALSE,</div><div class="line">                        NULL, NULL, NULL, &amp;si, &amp;pi);</div><div class="line">    </div><div class="line">    if ( bRet == FALSE )</div><div class="line">    &#123;</div><div class="line">        printf(&quot;CreateProcess Error ! \r\n&quot;);</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    CloseHandle(pi.hThread);</div><div class="line">    CloseHandle(pi.hProcess);</div><div class="line">	Sleep(500000);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上面的代码，我们可以创建了两个子进程，运行这个可执行文件之后，通过Process Explorer查看进程树<br><img src="/2017/08/01/进程与线程/2.png" alt=""><br>如上图所示，可以看到calc.exe和notepad.exe是CreateProcessTest创建的两个子进程。当父进程结束的时候，两个子进程并没有结束。<br>线程的创建主要函数是CreateThread()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    printf(&quot;ThreadProc \r\n&quot;);</div><div class="line">	Sleep(500000);</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc1(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    printf(&quot;ThreadProc1 \r\n&quot;);</div><div class="line">	Sleep(500000);</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    HANDLE hThread = CreateThread(NULL, </div><div class="line">                        0, </div><div class="line">                        ThreadProc, </div><div class="line">                        NULL, </div><div class="line">                        0, </div><div class="line">                        NULL);</div><div class="line"></div><div class="line">	HANDLE hThread1 = CreateThread(NULL, </div><div class="line">		0, </div><div class="line">		ThreadProc1, </div><div class="line">		NULL, </div><div class="line">		0, </div><div class="line">                        NULL);</div><div class="line"></div><div class="line">    WaitForSingleObject(hThread, INFINITE);</div><div class="line">    WaitForSingleObject(hThread1, INFINITE);</div><div class="line"></div><div class="line">    printf(&quot;main \r\n&quot;);</div><div class="line"></div><div class="line">    CloseHandle(hThread);</div><div class="line">	CloseHandle(hThread1);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过上面的代码，我们创建了两个线程hThread和hThread1，通过pslist命令可以查看相应进程中的线程信息<br><img src="/2017/08/01/进程与线程/3.png" alt=""><br>如上图所示，CreateThreadTest进程id为6628，它产生了一个主线程和两个子线程，线程id分别为7996，1224和6452</p>
+<ul>
+<li>进程、进程中的DLL枚举以及进程的暂停与恢复</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div></pre></td><td class="code"><pre><div class="line">VOID CManageProcessDlg::InitProcessList()</div><div class="line">&#123;</div><div class="line">    m_ListProcess.SetExtendedStyle(</div><div class="line">        m_ListProcess.GetExtendedStyle()</div><div class="line">        | LVS_EX_FULLROWSELECT </div><div class="line">        | LVS_EX_GRIDLINES );</div><div class="line">    </div><div class="line">    m_ListProcess.InsertColumn(0, &quot;进程名&quot;);</div><div class="line">    m_ListProcess.InsertColumn(1, &quot;进程ID&quot;);</div><div class="line">    </div><div class="line">    m_ListProcess.SetColumnWidth(0, 150);</div><div class="line">    m_ListProcess.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    </div><div class="line">    m_ListModule.SetExtendedStyle(</div><div class="line">        m_ListModule.GetExtendedStyle()</div><div class="line">        | LVS_EX_FULLROWSELECT</div><div class="line">        | LVS_EX_GRIDLINES );</div><div class="line">    </div><div class="line">    m_ListModule.InsertColumn(0, &quot;DLL名&quot;);</div><div class="line">    m_ListModule.InsertColumn(1, &quot;DLL路径&quot;);</div><div class="line">    </div><div class="line">    m_ListModule.SetColumnWidth(0, 100);</div><div class="line">    m_ListModule.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CManageProcessDlg::ShowProcess()</div><div class="line">&#123;</div><div class="line">    // 清空列表框内容</div><div class="line">    m_ListProcess.DeleteAllItems();</div><div class="line">    </div><div class="line">    // 创建进程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);</div><div class="line">    </div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    PROCESSENTRY32 Pe32 = &#123; 0 &#125;;</div><div class="line">    Pe32.dwSize = sizeof(PROCESSENTRY32);</div><div class="line">    </div><div class="line">    BOOL bRet = Process32First(hSnap, &amp;Pe32);</div><div class="line">    int i = 0;</div><div class="line">    CString str;</div><div class="line"></div><div class="line">    // 循环获取进程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        m_ListProcess.InsertItem(i, Pe32.szExeFile);</div><div class="line">        str.Format(&quot;%d&quot;, Pe32.th32ProcessID);</div><div class="line">        m_ListProcess.SetItemText(i, 1, str);</div><div class="line"></div><div class="line">        i ++;</div><div class="line">        bRet = Process32Next(hSnap, &amp;Pe32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CManageProcessDlg::ShowModule()</div><div class="line">&#123;</div><div class="line">    // 清空列表框内容</div><div class="line">    m_ListModule.DeleteAllItems();</div><div class="line">    </div><div class="line">    // 获取选中的进程号</div><div class="line">    int nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    MODULEENTRY32 Me32 = &#123; 0 &#125;;</div><div class="line">    Me32.dwSize = sizeof(MODULEENTRY32);</div><div class="line">    </div><div class="line">    // 创建模块快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    BOOL bRet = Module32First(hSnap, &amp;Me32);</div><div class="line">    int i = 0;</div><div class="line">    CString str;</div><div class="line"></div><div class="line">    // 循环获取模块快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        m_ListModule.InsertItem(i, Me32.szModule);</div><div class="line">        m_ListModule.SetItemText(i, 1, Me32.szExePath);</div><div class="line">        i ++;</div><div class="line">        bRet = Module32Next(hSnap, &amp;Me32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int CManageProcessDlg::GetSelectPid()</div><div class="line">&#123;</div><div class="line">    int nPid = -1;</div><div class="line">    </div><div class="line">    POSITION Pos = m_ListProcess.GetFirstSelectedItemPosition();</div><div class="line">    int nSelect = -1;</div><div class="line">    while ( Pos )</div><div class="line">    &#123;</div><div class="line">        nSelect = m_ListProcess.GetNextSelectedItem(Pos);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ( -1 == nSelect )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请选中要显示DLL的进程&quot;);</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    char  szPid[10] = &#123; 0 &#125;;</div><div class="line">    m_ListProcess.GetItemText(nSelect, 1, szPid, 10);</div><div class="line">    nPid = atoi(szPid);</div><div class="line">    </div><div class="line">    return nPid;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnCreate() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnTerminate() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnStop() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">    int nPid = -1;</div><div class="line">    nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 创建线程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    THREADENTRY32 Te32 = &#123; 0 &#125;;</div><div class="line">    Te32.dwSize = sizeof(THREADENTRY32);</div><div class="line">    BOOL bRet = Thread32First(hSnap, &amp;Te32);</div><div class="line">    </div><div class="line">    // 循环获取线程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        // 得到属于选中进程的线程</div><div class="line">        if ( Te32.th32OwnerProcessID == nPid )</div><div class="line">        &#123;</div><div class="line">            // 打开线程</div><div class="line">            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS,</div><div class="line">                        FALSE, Te32.th32ThreadID);</div><div class="line">            </div><div class="line">            // 暂停线程</div><div class="line">            SuspendThread(hThread);</div><div class="line">            </div><div class="line">            CloseHandle(hThread);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        bRet = Thread32Next(hSnap, &amp;Te32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnResume() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">    </div><div class="line">    int nPid = -1;</div><div class="line">    nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 创建线程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    THREADENTRY32 Te32 = &#123; 0 &#125;;</div><div class="line">    Te32.dwSize = sizeof(THREADENTRY32);</div><div class="line">    BOOL bRet = Thread32First(hSnap, &amp;Te32);</div><div class="line"></div><div class="line">    // 循环获取线程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        // 得到属于选中进程的线程</div><div class="line">        if ( Te32.th32OwnerProcessID == nPid )</div><div class="line">        &#123;</div><div class="line">            // 打开线程</div><div class="line">            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, </div><div class="line">                        FALSE, Te32.th32ThreadID);</div><div class="line">            </div><div class="line">            // 暂停线程</div><div class="line">            ResumeThread(hThread);</div><div class="line">            </div><div class="line">            CloseHandle(hThread);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        bRet = Thread32Next(hSnap, &amp;Te32);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnShowmodule() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	ShowModule();</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnExit() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//调整权限使当前进程拥有&quot;SeDebugPrivilege&quot;权限</div><div class="line">VOID CManageProcessDlg::DebugPrivilege()</div><div class="line">&#123;</div><div class="line">    HANDLE hToken = NULL;</div><div class="line">    </div><div class="line">    BOOL bRet = OpenProcessToken(GetCurrentProcess(), </div><div class="line">                        TOKEN_ALL_ACCESS, &amp;hToken);</div><div class="line">    </div><div class="line">    if ( bRet == TRUE )</div><div class="line">    &#123;</div><div class="line">        TOKEN_PRIVILEGES tp;</div><div class="line">        tp.PrivilegeCount = 1;</div><div class="line">        LookupPrivilegeValue(NULL, </div><div class="line">                SE_DEBUG_NAME, </div><div class="line">                &amp;tp.Privileges[0].Luid);</div><div class="line">        tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;</div><div class="line">        AdjustTokenPrivileges(hToken, </div><div class="line">                FALSE, &amp;tp, sizeof(tp),</div><div class="line">                NULL, NULL);</div><div class="line">        </div><div class="line">        CloseHandle(hToken);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/08/01/进程与线程/1.png" alt=""></p>
+<ul>
+<li>多线程以及临界区</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int g_Num_One = 0;</div><div class="line">CRITICAL_SECTION g_cs;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    int nTmp = 0;</div><div class="line"></div><div class="line">    for ( int i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        // 进入临界区</div><div class="line">        EnterCriticalSection(&amp;g_cs);</div><div class="line"></div><div class="line">        nTmp = g_Num_One;</div><div class="line">        nTmp ++;</div><div class="line">        Sleep(1);</div><div class="line">        g_Num_One = nTmp;</div><div class="line"></div><div class="line">        // 离开临界区</div><div class="line">        LeaveCriticalSection(&amp;g_cs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    InitializeCriticalSection(&amp;g_cs);</div><div class="line"></div><div class="line">    HANDLE hThread[10] = &#123; 0 &#125;;</div><div class="line">    int i;</div><div class="line">    for ( i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        hThread[i] = CreateThread(NULL, 0, ThreadProc, NULL, 0, NULL);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    WaitForMultipleObjects(10, hThread, TRUE, INFINITE);</div><div class="line"></div><div class="line">    printf(&quot;g_Num_One = %d \r\n&quot;, g_Num_One);</div><div class="line"></div><div class="line">    for ( i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        CloseHandle(hThread[i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DeleteCriticalSection(&amp;g_cs);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="linux的进程和线程"><a href="#linux的进程和线程" class="headerlink" title="linux的进程和线程"></a>linux的进程和线程</h4><p>通过python可以轻易实现多线程和多进程的操作<br>通过pstree -p 命令查看父进程和子进程以及线程之前的关系<br><img src="/2017/08/01/进程与线程/4.png" alt=""><br><img src="/2017/08/01/进程与线程/5.png" alt=""></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>1.<a href="http://blog.csdn.net/super_chris/article/details/6556118" target="_blank" rel="external">Windows和Linux下进程、线程理解</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/01/20170801安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -500,7 +771,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x68;&#116;&#x74;&#112;&#58;&#47;&#47;&#112;&#x75;&#114;&#112;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#77;&#x44;&#x2f;&#x32;&#48;&#x31;&#x37;&#x2d;&#x30;&#54;&#45;&#x32;&#56;&#x40;&#72;&#x6f;&#x77;&#x25;&#50;&#x30;&#100;&#111;&#101;&#x73;&#x25;&#50;&#48;&#80;&#101;&#116;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#112;&#114;&#101;&#x61;&#x64;&#37;&#x32;&#x30;&#105;&#110;&#37;&#x32;&#x30;&#x4c;&#65;&#78;&#46;&#x68;&#116;&#109;&#x6c;">&#x68;&#116;&#x74;&#112;&#58;&#47;&#47;&#112;&#x75;&#114;&#112;&#x6c;&#101;&#x72;&#111;&#99;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#77;&#x44;&#x2f;&#x32;&#48;&#x31;&#x37;&#x2d;&#x30;&#54;&#45;&#x32;&#56;&#x40;&#72;&#x6f;&#x77;&#x25;&#50;&#x30;&#100;&#111;&#101;&#x73;&#x25;&#50;&#48;&#80;&#101;&#116;&#x79;&#x61;&#x25;&#x32;&#48;&#115;&#112;&#114;&#101;&#x61;&#x64;&#37;&#x32;&#x30;&#105;&#110;&#37;&#x32;&#x30;&#x4c;&#65;&#78;&#46;&#x68;&#116;&#109;&#x6c;</a></li>
+<li>Petya 内网传播分析<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#x74;&#116;&#112;&#x3a;&#47;&#47;&#112;&#117;&#x72;&#112;&#108;&#x65;&#114;&#111;&#99;&#x2e;&#x63;&#111;&#109;&#47;&#77;&#68;&#x2f;&#x32;&#x30;&#x31;&#55;&#45;&#x30;&#54;&#x2d;&#x32;&#x38;&#64;&#72;&#x6f;&#x77;&#x25;&#x32;&#48;&#100;&#111;&#101;&#115;&#x25;&#x32;&#x30;&#80;&#101;&#116;&#121;&#x61;&#x25;&#50;&#48;&#115;&#x70;&#x72;&#x65;&#x61;&#100;&#x25;&#50;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#x68;&#x74;&#109;&#x6c;">&#x68;&#x74;&#116;&#112;&#x3a;&#47;&#47;&#112;&#117;&#x72;&#112;&#108;&#x65;&#114;&#111;&#99;&#x2e;&#x63;&#111;&#109;&#47;&#77;&#68;&#x2f;&#x32;&#x30;&#x31;&#55;&#45;&#x30;&#54;&#x2d;&#x32;&#x38;&#64;&#72;&#x6f;&#x77;&#x25;&#x32;&#48;&#100;&#111;&#101;&#115;&#x25;&#x32;&#x30;&#80;&#101;&#116;&#121;&#x61;&#x25;&#50;&#48;&#115;&#x70;&#x72;&#x65;&#x61;&#100;&#x25;&#50;&#48;&#105;&#x6e;&#x25;&#50;&#48;&#x4c;&#65;&#78;&#x2e;&#x68;&#x74;&#109;&#x6c;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -1508,336 +1779,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/24/20170724安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/24/20170724安全动态/" itemprop="url">
-                  20170724安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T09:04:14+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>2017黑帽大会兵工厂工具列表<br><a href="http://www.freebuf.com/column/141333.html" target="_blank" rel="external">http://www.freebuf.com/column/141333.html</a></li>
-<li>Centos 6/Centos 7/Debian单网卡绑定多个IP的方法<br><a href="https://www.moerats.com/archives/217/" target="_blank" rel="external">https://www.moerats.com/archives/217/</a></li>
-<li>Cisco_WebEx_Browser_Extension_RCE漏洞(CVE–2017–6753)分析<br><a href="https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b" target="_blank" rel="external">https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b</a></li>
-<li>powershell 通过IE下载文件<br><a href="https://evi1cg.me/archives/Downloader_byIE.html" target="_blank" rel="external">https://evi1cg.me/archives/Downloader_byIE.html</a></li>
-<li>Vmware虚拟机逃逸漏洞（CVE-2017-4901）Exploit代码分析与利用<br><a href="http://www.freebuf.com/news/141442.html" target="_blank" rel="external">http://www.freebuf.com/news/141442.html</a></li>
-<li><p>基于 Neo4j 的 Windows 日志可视化分析<br><a href="https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html" target="_blank" rel="external">https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个好像不错，mark</div></pre></td></tr></table></figure>
-</li>
-<li><p>多种 DLL 注入技术原理介绍<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></p>
-</li>
-<li>在Android N上对Java方法做hook遇到的坑<br><a href="http://rk700.github.io/2017/06/30/hook-on-android-n/" target="_blank" rel="external">http://rk700.github.io/2017/06/30/hook-on-android-n/</a></li>
-<li>利用 COM 对象 Excel.Application 的 RegisterXLL() 方法加载并执行 DLL<br><a href="https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52" target="_blank" rel="external">https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52</a></li>
-<li>我是如何利用 Paypal 服务器的任意文件上传漏洞远程执行代码的<br><a href="http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/" target="_blank" rel="external">http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/</a></li>
-<li>路由器固件安全分析技术（二）<br><a href="https://www.vulbox.com/knowledge/detail/?id=42" target="_blank" rel="external">https://www.vulbox.com/knowledge/detail/?id=42</a></li>
-<li>BadUSB防御初探<br><a href="http://www.freebuf.com/articles/terminal/140619.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/140619.html</a></li>
-<li>CentOS安装aria2 + yaaw实现离线下载<br><a href="https://www.moerats.com/archives/219/" target="_blank" rel="external">https://www.moerats.com/archives/219/</a></li>
-<li>我是如何利用一个假的私钥欺骗 Symantec 的<br><a href="https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html" target="_blank" rel="external">https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html</a></li>
-<li>浅谈bash command substitution<br><a href="https://threathunter.org/topic/59748a779a9197870df2e989" target="_blank" rel="external">https://threathunter.org/topic/59748a779a9197870df2e989</a></li>
-<li>小米九号平衡车国际版Ninebot mini PRO存在严重安全漏洞可被攻击者远程控制<br><a href="http://www.freebuf.com/news/141341.html" target="_blank" rel="external">http://www.freebuf.com/news/141341.html</a></li>
-<li>浅析OGNL表达式求值（S2003/005/009跟踪调试记录）<br><a href="https://xianzhi.aliyun.com/forum/read/1902.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1902.html</a></li>
-<li>基于python的后门框架<br><a href="https://n0where.net/python-backdoor-framework-nxcrypt/" target="_blank" rel="external">https://n0where.net/python-backdoor-framework-nxcrypt/</a></li>
-<li><p>Cure53 对 Briar 项目应用与协议的渗透测试报告<br><a href="https://briarproject.org/raw/BRP-01-report.pdf" target="_blank" rel="external">https://briarproject.org/raw/BRP-01-report.pdf</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">是一个app安全的渗透测试报告，可以学习一下国外的app报告是怎么写的</div></pre></td></tr></table></figure>
-</li>
-<li><p>SmoothCriminal - 从光标移动速度的角度检测沙盒<br><a href="https://github.com/G4lB1t/SmoothCriminal" target="_blank" rel="external">https://github.com/G4lB1t/SmoothCriminal</a></p>
-</li>
-<li>开发安全的API所需要核对的清单<br><a href="https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md" target="_blank" rel="external">https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md</a></li>
-<li>CVE-2012-1889 个人漏洞分析报告<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D</a></li>
-<li>htcap：一款实用的递归型Web漏洞扫描工具<br><a href="http://www.freebuf.com/sectool/140873.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140873.html</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/21/20170721安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/21/20170721安全动态/" itemprop="url">
-                  20170721安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T10:12:49+08:00">
-                2017-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
-                    <span itemprop="name">每日安全动态</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>应急响应-开机启动知识梳理<br><a href="http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" target="_blank" rel="external">http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</a></li>
-<li><p>反入侵之发现后门利用mount-bind将进程和端口信息隐匿<br><a href="http://www.freebuf.com/articles/network/140535.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/140535.html</a><br><img src="/2017/07/21/20170721安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">测试了一下，效果还不错,此外还可以看看 mount --bind和硬链接的区别http://blog.csdn.net/shengxia1999/article/details/52060354</div></pre></td></tr></table></figure>
-</li>
-<li><p>一步一步学ROP之linux_x64 X86篇<br><a href="http://static.hx99.net/static/drops/papers-7551.html" target="_blank" rel="external">http://static.hx99.net/static/drops/papers-7551.html</a><br>最单纯的栈溢出<br><a href="http://wangzhixian.org/LinuxPwn/1.%E6%9C%80%E5%8D%95%E7%BA%AF%E7%9A%84%E6%A0%88%E6%BA%A2%E5%87%BA/article.html" target="_blank" rel="external">http://wangzhixian.org/LinuxPwn/1.%E6%9C%80%E5%8D%95%E7%BA%AF%E7%9A%84%E6%A0%88%E6%BA%A2%E5%87%BA/article.html</a><br><a href="http://static.hx99.net/static/drops/tips-6597.html" target="_blank" rel="external">http://static.hx99.net/static/drops/tips-6597.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcc -m32 在64位操作系统下编译生成32位的应用程序</div></pre></td></tr></table></figure>
-</li>
-<li><p>Linux 内核分析<br><a href="http://www.cnblogs.com/scoyer/p/6411414.html" target="_blank" rel="external">http://www.cnblogs.com/scoyer/p/6411414.html</a></p>
-</li>
-<li>php弱类型实战<br><a href="http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/" target="_blank" rel="external">http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/</a></li>
-<li>Python 中的异步编程：Asyncio<br><a href="http://python.jobbole.com/87988/" target="_blank" rel="external">http://python.jobbole.com/87988/</a></li>
-<li>Linux PID 1 和 Systemd<br><a href="http://coolshell.cn/articles/17998.html" target="_blank" rel="external">http://coolshell.cn/articles/17998.html</a></li>
-<li>复原：一种防不胜防的USB攻击方式<br><a href="https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D</a></li>
-<li>如何在未root的手机上安装漏洞利用框架RouterSploit<br><a href="http://bobao.360.cn/learning/detail/4132.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4132.html</a></li>
-<li>企业安全丨Ngx_Lua &amp; Fail2ban实现主动诱捕<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd</a></li>
-<li>浅析PyCmd加密隐形木马<br><a href="http://www.freebuf.com/sectool/140421.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140421.html</a></li>
-<li>Some Ways To Create An Interactive Shell On Windows<br><a href="http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/</a></li>
-<li>使用CSP Auditor构建内容安全策略配置<br><a href="http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/" target="_blank" rel="external">http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/</a></li>
-<li>WinPayloads：一款可生成难以被检测到的payload之神奇工具<br><a href="http://www.freebuf.com/column/141024.html" target="_blank" rel="external">http://www.freebuf.com/column/141024.html</a></li>
-<li>LaZagne — 支持多个操作系统的凭证恢复工具<br><a href="https://github.com/AlessandroZ/LaZagne" target="_blank" rel="external">https://github.com/AlessandroZ/LaZagne</a></li>
-<li>MobSF：Mobile Security Framework<br><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="external">https://github.com/MobSF/Mobile-Security-Framework-MobSF</a></li>
-<li>BrowserBackdoor<br><a href="https://github.com/IMcPwn/browser-backdoo" target="_blank" rel="external">https://github.com/IMcPwn/browser-backdoo</a></li>
-<li>用户浏览器信息搜集 php版本<br><a href="https://n0where.net/info-gathering-via-user-browser/" target="_blank" rel="external">https://n0where.net/info-gathering-via-user-browser/</a></li>
-<li>ESET 对自2012年以来的一个极其隐蔽的大规模广告软件活动 - Stantinko 的分析<br><a href="https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012" target="_blank" rel="external">https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012</a></li>
-<li>TrustZone 中的降级攻击（Paper）<br><a href="https://arxiv.org/pdf/1707.05082.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1707.05082.pdf</a></li>
-<li>《DNS Queries over HTTPS》草案，来自 IETF<br><a href="https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00" target="_blank" rel="external">https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00</a></li>
-<li>Inject All the Things - DLL 注入的 7 种方法<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></li>
-<li>WordPress 漏洞扫描工具 wpscan 2.9.3发布<br><a href="https://github.com/wpscanteam/wpscan/releases/tag/2.9.3" target="_blank" rel="external">https://github.com/wpscanteam/wpscan/releases/tag/2.9.3</a></li>
-<li>NtLoadEnclaveData Windows 10 RS3 DSE bypass PoC，利用 NtLoadEnclaveData 系统调用绕过 Windows 10 的签名强制检查<br><a href="https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8" target="_blank" rel="external">https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8</a></li>
-<li>Windows 10 S 版本的 Device Guard 分析，来自 James Forshaw<br><a href="https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html" target="_blank" rel="external">https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html</a></li>
-<li><p>针对 Exchange 2003 邮件服务器的 EnglishmansDentist 漏洞利用分析<br><a href="https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/" target="_blank" rel="external">https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">跟踪了一段时间的安全动态，发现没有什么软件或者系统是没有漏洞的...</div></pre></td></tr></table></figure>
-</li>
-<li><p>了解 JavaScript 巨人所带来的风险，来自 ZDI 的一篇文章<br><a href="https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript</a></p>
-</li>
-<li>angularjs-csti-scanner - 用于自动化检测 AngularJS 客户端模板注入攻击的工具<br><a href="https://github.com/tijme/angularjs-csti-scanner" target="_blank" rel="external">https://github.com/tijme/angularjs-csti-scanner</a></li>
-<li>PandwaRF vs PandwaRF Rogue: 暴力破解攻击<br><a href="https://www.youtube.com/watch?v=zKXKO7Zsa4Y" target="_blank" rel="external">https://www.youtube.com/watch?v=zKXKO7Zsa4Y</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1887,7 +1828,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">77</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
