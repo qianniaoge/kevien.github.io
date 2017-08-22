@@ -273,6 +273,293 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/26/metasploit调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/26/metasploit调试/" itemprop="url">
+                  metasploit调试以及ruby入门踩坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T19:18:53+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录下踩的坑吧</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
+<h4 id="Gem使用"><a href="#Gem使用" class="headerlink" title="Gem使用"></a>Gem使用</h4><p>Gem 是一个管理 Ruby 库和程序的标准包。Ruby gem 包的安装方式：<br>所有的 gem 包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了 Cache、doc、gems、specifications 等目录，cache 下放置下载的原生 gem 包，gems 下则放置的是解压过的 gem 包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> M0rk@hhh  ~/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0  ls</div><div class="line">bin            build_info     cache          doc            environment    extensions     gems           specifications wrappers</div></pre></td></tr></table></figure></p>
+<p>当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的 gem 包，然后重新运行 gem install [gemname] 命令即可。<br>Ruby Gem 命令详解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 更新Gem自身</div><div class="line"># 注意：在某些linux发行版中为了系统稳定性此命令禁止执行</div><div class="line">$ gem update --system</div><div class="line"></div><div class="line"># 从Gem源安装gem包</div><div class="line">$ gem install [gemname]</div><div class="line"></div><div class="line"># 从本机安装gem包</div><div class="line">$ gem install -l [gemname].gem</div><div class="line"></div><div class="line"># 安装指定版本的gem包</div><div class="line">$ gem install [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 更新所有已安装的gem包</div><div class="line">$ gem update</div><div class="line"></div><div class="line"># 更新指定的gem包</div><div class="line"># 注意：gem update [gemname]不会升级旧版本的包，此时你可以使用 gem install [gemname] --version=[ver]代替</div><div class="line">$ gem update [gemname]</div><div class="line"></div><div class="line"># 删除指定的gem包，注意此命令将删除所有已安装的版本</div><div class="line">$ gem uninstall [gemname]</div><div class="line"></div><div class="line"># 删除某指定版本gem</div><div class="line">$ gem uninstall [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 查看本机已安装的所有gem包</div><div class="line">$ gem list [--local]</div></pre></td></tr></table></figure>
+<h4 id="踩坑开始"><a href="#踩坑开始" class="headerlink" title="踩坑开始"></a>踩坑开始</h4><p>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是相同用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
+<p>0727更新：<br>今天又看了下资料，发现byebug还是不能用，搜索metasploit debug的资料也是很老的，但是在Stack Overflow发现了这个<a href="https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module" target="_blank" rel="external">https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module</a><br>就试了一下pry，果然可以和metasploit无缝使用。但是蛋疼的是pry没有step和next这种最基本的单步调试功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require ‘pry’ #需要pry库,否则binding.pry就不认识了</div><div class="line">g_a = 1</div><div class="line">g_b = 2</div><div class="line">binding.pry #运行到这句程序就停下来并打开pry让你调试</div></pre></td></tr></table></figure></p>
+<p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
+<p>pry常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
+<p>rvm 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RVM是Ruby Version Manager的缩写，是一个命令行工具，它可以让你轻松地安装，管理和使用多个版本的Ruby.不同的rails项目使用等ruby和rails版本不一样的时候，可以使用RVM自由切换。</div><div class="line">1.rvm list 查看所有的ruby版本</div><div class="line">2.rvm current 查看当前的ruby版本</div><div class="line">3.rvm --default use 2.x.x  切换到到版本2.x.xs</div></pre></td></tr></table></figure></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决，感觉应该是metasploit使用了自带的ruby以及gem的问题<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。（当你通过whereis找不到这个文件的时候，就很有可能是个文本文件，find找到，然后file命令看一下）<br>6.metasploit的ruby是自带的，可执行文件在这个目录下 /opt/metasploit-framework/embedded/bin</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
+<li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
+<li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
+<li><a href="https://github.com/pry/pry" target="_blank" rel="external">pry</a></li>
+<li><a href="http://www.jianshu.com/p/602db03b6b58" target="_blank" rel="external">如何单步调试ruby代码</a></li>
+<li><a href="http://drops.xmd5.com/static/drops/tips-14408.html" target="_blank" rel="external">乌云文章：Metasploit module开发入门篇</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/26/20170726安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/26/20170726安全动态/" itemprop="url">
+                  20170726安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T09:59:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：NetFlow、 IPFIX、 sFLOW，可以通过外部脚本通知用户<br><a href="https://packages.debian.org/sid/fastnetmon" target="_blank" rel="external">https://packages.debian.org/sid/fastnetmon</a></li>
+<li>JavaScript 反调试和混淆<br><a href="https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html" target="_blank" rel="external">https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html</a></li>
+<li>glibc malloc学习笔记之fastbin<br><a href="http://0x48.pw/2017/07/25/0x35/" target="_blank" rel="external">http://0x48.pw/2017/07/25/0x35/</a></li>
+<li>一个生成各种进制格式IP的小工具<br><a href="http://www.freebuf.com/sectool/140982.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140982.html</a></li>
+<li>通过 WebView 攻击 Android 应用<br><a href="https://zhuanlan.zhihu.com/p/28107901" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/28107901</a></li>
+<li>利用树莓派自制恶意充电宝实验<br><a href="http://bobao.360.cn/learning/detail/4153.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4153.html</a></li>
+<li>Openresty的开发闭环初探<br><a href="http://www.freebuf.com/company-information/141861.html" target="_blank" rel="external">http://www.freebuf.com/company-information/141861.html</a></li>
+<li>使用Windbg分析.NET恶意软件<br><a href="http://bobao.360.cn/learning/detail/4150.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4150.html</a></li>
+<li>picoCTF Write-up：通过格式化字符串漏洞绕过ASLR<br><a href="https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920" target="_blank" rel="external">https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920</a></li>
+<li>hackerone官博分享如何进行渗透测试前期的信息收集<br><a href="https://www.hackerone.com/blog/how-to-recon-and-content-discovery" target="_blank" rel="external">https://www.hackerone.com/blog/how-to-recon-and-content-discovery</a></li>
+<li>Open Sourcing JA3：用于恶意软件检测的SSL/TLS客户端指纹识别项目<br><a href="https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41" target="_blank" rel="external">https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41</a></li>
+<li>针对有双因子认证站点的钓鱼手段<br><a href="http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/" target="_blank" rel="external">http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/</a></li>
+<li>探索基于语音的身份认证系统命令注入<br><a href="https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG</a></li>
+<li>一道简单内核题入门内核利用<br><a href="http://bobao.360.cn/learning/detail/4148.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4148.html</a></li>
+<li><p>Metasploit 中新添加了针对 Windows 快捷方式 (.LNK) 代码执行漏洞（CVE-2017-8464）的利用代码<br><a href="https://github.com/rapid7/metasploit-framework/pull/8767" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8767</a><br><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注：在测试的时候，要把恶意payload放在优盘的根目录下</div><div class="line">更多信息：https://github.com/rapid7/metasploit-framework/tree/7ce813ae6e11f0336f51dc878e1aa40af6eabf9c/data/exploits/cve-2017-8464/src</div><div class="line">python 工具：</div><div class="line">https://www.exploit-db.com/exploits/42429/</div></pre></td></tr></table></figure>
+</li>
+<li><p>Windows 内核漏洞学习—空指针解引用<br><a href="http://www.freebuf.com/vuls/143575.html" target="_blank" rel="external">http://www.freebuf.com/vuls/143575.html</a></p>
+</li>
+<li>Metadata - 黑客的朋友，基础信息泄露的源头<br><a href="https://blog.sweepatic.com/metadata-hackers-best-friend/" target="_blank" rel="external">https://blog.sweepatic.com/metadata-hackers-best-friend/</a></li>
+<li>Java代码审计连载<br><a href="http://www.freebuf.com/column/143595.html" target="_blank" rel="external">http://www.freebuf.com/column/143595.html</a></li>
+<li>使用 LDAPSEARCH 导出 LAPS 明文密码<br><a href="https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/" target="_blank" rel="external">https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/</a></li>
+<li>macOS 安全和隐私指南<br><a href="https://github.com/drduh/macOS-Security-and-Privacy-Guide" target="_blank" rel="external">https://github.com/drduh/macOS-Security-and-Privacy-Guide</a></li>
+<li>Forcepoint 发现 URSNIF 变种通过收集鼠标移动轨迹判断是否处于沙盒以绕过查杀<br><a href="https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion" target="_blank" rel="external">https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion</a></li>
+<li>在oh-my-zsh中粉红是软连接、红色是可执行文件、蓝色是文件夹、白色是其它(比如压缩文件、图片、文本文件啥的，好像不同的shell规则也不一样，而且应该是可以修改的)</li>
+<li>chrome打开https网站的时候有时候会出现 您的连接不是私密连接 红色提示，导致我们打不开网站<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个是由于网站设置了HSTS的原因，HSTS是HTTP Strict Transport Security的缩写，即：“HTTP严格传输安全”。HSTS可以很大程度上解决SSL剥离攻击，因为只要浏览器曾经与服务器创建过一次安全连接，之后浏览器会强制使用HTTPS，即使链接被换成了HTTP。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/25/20170725安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1175,7 +1462,7 @@
 <li>一篇文章告诉你黑客是如何控制你的人体平衡车的？<br><a href="http://thehackernews.com/2017/07/segway-hoverboard-hacking.html" target="_blank" rel="external">http://thehackernews.com/2017/07/segway-hoverboard-hacking.html</a></li>
 <li>VMware Escape Exploit<br><a href="https://github.com/unamer/vmware_escape" target="_blank" rel="external">https://github.com/unamer/vmware_escape</a></li>
 <li>DropboxC2C：后渗透代理，使用Dropbox Infrastructure进行命令和控制操作<br><a href="https://github.com/0x09AL/DropboxC2C" target="_blank" rel="external">https://github.com/0x09AL/DropboxC2C</a></li>
-<li>postgresql 注入 渗透测试<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x70;&#x61;&#x6e;&#x61;&#x67;&#x69;&#x6f;&#116;&#105;&#115;&#x38;&#x34;&#x2f;&#97;&#45;&#x70;&#101;&#110;&#x65;&#x74;&#x72;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#45;&#x74;&#x65;&#115;&#116;&#x65;&#114;&#x73;&#x2d;&#103;&#117;&#105;&#100;&#x65;&#x2d;&#116;&#x6f;&#x2d;&#x70;&#111;&#x73;&#116;&#x67;&#x72;&#x65;&#x73;&#x71;&#x6c;&#45;&#x65;&#48;&#x65;&#x61;&#x66;&#x64;&#49;&#x61;&#x31;&#x30;&#x32;&#56;">&#104;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x70;&#x61;&#x6e;&#x61;&#x67;&#x69;&#x6f;&#116;&#105;&#115;&#x38;&#x34;&#x2f;&#97;&#45;&#x70;&#101;&#110;&#x65;&#x74;&#x72;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#45;&#x74;&#x65;&#115;&#116;&#x65;&#114;&#x73;&#x2d;&#103;&#117;&#105;&#100;&#x65;&#x2d;&#116;&#x6f;&#x2d;&#x70;&#111;&#x73;&#116;&#x67;&#x72;&#x65;&#x73;&#x71;&#x6c;&#45;&#x65;&#48;&#x65;&#x61;&#x66;&#x64;&#49;&#x61;&#x31;&#x30;&#x32;&#56;</a></li>
+<li>postgresql 注入 渗透测试<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#112;&#97;&#x6e;&#x61;&#103;&#x69;&#x6f;&#x74;&#105;&#x73;&#x38;&#52;&#x2f;&#x61;&#x2d;&#112;&#101;&#x6e;&#101;&#116;&#x72;&#97;&#x74;&#x69;&#111;&#110;&#45;&#116;&#x65;&#115;&#x74;&#x65;&#114;&#115;&#x2d;&#103;&#117;&#105;&#x64;&#x65;&#x2d;&#116;&#x6f;&#45;&#112;&#111;&#115;&#x74;&#103;&#x72;&#x65;&#115;&#x71;&#108;&#45;&#x65;&#x30;&#x65;&#x61;&#102;&#100;&#x31;&#x61;&#x31;&#48;&#50;&#x38;">&#x68;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#112;&#97;&#x6e;&#x61;&#103;&#x69;&#x6f;&#x74;&#105;&#x73;&#x38;&#52;&#x2f;&#x61;&#x2d;&#112;&#101;&#x6e;&#101;&#116;&#x72;&#97;&#x74;&#x69;&#111;&#110;&#45;&#116;&#x65;&#115;&#x74;&#x65;&#114;&#115;&#x2d;&#103;&#117;&#105;&#x64;&#x65;&#x2d;&#116;&#x6f;&#45;&#112;&#111;&#115;&#x74;&#103;&#x72;&#x65;&#115;&#x71;&#108;&#45;&#x65;&#x30;&#x65;&#x61;&#102;&#100;&#x31;&#x61;&#x31;&#48;&#50;&#x38;</a></li>
 <li><p>新手入门：如何使用Burp进行Web应用漏洞扫描<br><a href="http://www.hackingarticles.in/vulnerability-analysis-web-application-using-burp-scanner/" target="_blank" rel="external">http://www.hackingarticles.in/vulnerability-analysis-web-application-using-burp-scanner/</a></p>
 </li>
 <li><p>script 命令记录ssh操作</p>
@@ -1510,315 +1797,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/17/20170717安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/17/20170717安全动态/" itemprop="url">
-                  20170717安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T12:49:49+08:00">
-                2017-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
-                    <span itemprop="name">每日安全动态</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>利用Simhash做URL去重的实现方式<br><a href="http://www.noblexu.com/%E5%88%A9%E7%94%A8Simhash%E5%81%9AURL%E5%8E%BB%E9%87%8D%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/" target="_blank" rel="external">http://www.noblexu.com/%E5%88%A9%E7%94%A8Simhash%E5%81%9AURL%E5%8E%BB%E9%87%8D%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/</a></li>
-<li>Oauth 2.0之点我的链接就进入了你的账号<br><a href="http://ecma.io/764.html" target="_blank" rel="external">http://ecma.io/764.html</a></li>
-<li>从javascript脚本混淆说起<br><a href="http://www.freebuf.com/articles/system/140062.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/140062.html</a></li>
-<li>Splash SSRF到获取内网服务器ROOT权限<br><a href="https://mp.weixin.qq.com/s/Ssk8CKF4EdUjZ0AIvOXKxw" target="_blank" rel="external">https://mp.weixin.qq.com/s/Ssk8CKF4EdUjZ0AIvOXKxw</a></li>
-<li>apparatus - IoT 网络安全性分析与可视化工具<br><a href="https://github.com/Or3stis/apparatus" target="_blank" rel="external">https://github.com/Or3stis/apparatus</a></li>
-<li>SMAP - 一款 shellcode 分析工具 <a href="http://www.kitploit.com/2017/07/smap-shellcode-mapper.html" target="_blank" rel="external">http://www.kitploit.com/2017/07/smap-shellcode-mapper.html</a></li>
-<li>锁定注册表键有几种方法？防止其他用户或进程修改或者删除 <a href="https://tyranidslair.blogspot.com/2017/07/locking-your-registry-keys-for-fun-and.html" target="_blank" rel="external">https://tyranidslair.blogspot.com/2017/07/locking-your-registry-keys-for-fun-and.html</a></li>
-<li>如何利用 ETERNALROMANCE/SYNERGY 在 Windows Server 2016 上获取 Meterpreter Session<br><a href="https://www.exploit-db.com/docs/42329.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/42329.pdf</a></li>
-<li>基于 James Forshaw 的 Blog，PowerShell-Suite 套件中的一个 UAC Bypass PoC<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/UAC-TokenMagic.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/UAC-TokenMagic.ps1</a></li>
-<li>漏洞赏金猎人方法谈<br><a href="https://www.youtube.com/watch?v=C4ZHAdI8o1w" target="_blank" rel="external">https://www.youtube.com/watch?v=C4ZHAdI8o1w</a></li>
-<li>如何高效的进行子域名收集与筛选（以针对Yahoo! 的安全测试为例）<br><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x77;&#111;&#x6a;&#x5f;&#x63;&#x69;&#x65;&#x63;&#104;&#47;&#x68;&#111;&#x77;&#x2d;&#116;&#111;&#x2d;&#102;&#105;&#x6e;&#100;&#x2d;&#x69;&#110;&#x74;&#101;&#x72;&#110;&#x61;&#x6c;&#45;&#115;&#117;&#x62;&#x64;&#x6f;&#x6d;&#97;&#105;&#110;&#115;&#45;&#121;&#x71;&#x6c;&#45;&#x79;&#x61;&#104;&#111;&#x6f;&#45;&#97;&#110;&#100;&#45;&#98;&#x75;&#103;&#45;&#x62;&#x6f;&#117;&#110;&#116;&#x79;&#x2d;&#100;&#x37;&#x37;&#51;&#48;&#98;&#51;&#55;&#52;&#x64;&#x37;&#x37;">&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x77;&#111;&#x6a;&#x5f;&#x63;&#x69;&#x65;&#x63;&#104;&#47;&#x68;&#111;&#x77;&#x2d;&#116;&#111;&#x2d;&#102;&#105;&#x6e;&#100;&#x2d;&#x69;&#110;&#x74;&#101;&#x72;&#110;&#x61;&#x6c;&#45;&#115;&#117;&#x62;&#x64;&#x6f;&#x6d;&#97;&#105;&#110;&#115;&#45;&#121;&#x71;&#x6c;&#45;&#x79;&#x61;&#104;&#111;&#x6f;&#45;&#97;&#110;&#100;&#45;&#98;&#x75;&#103;&#45;&#x62;&#x6f;&#117;&#110;&#116;&#x79;&#x2d;&#100;&#x37;&#x37;&#51;&#48;&#98;&#51;&#55;&#52;&#x64;&#x37;&#x37;</a></li>
-<li>yams：模块化安全框架（集成了实用的安全测试脚本及流行的开源项目）<br><a href="https://github.com/leesoh/yams" target="_blank" rel="external">https://github.com/leesoh/yams</a></li>
-<li>一个免费SSL证书的网站<br><a href="https://www.moerats.com/archives/214/" target="_blank" rel="external">https://www.moerats.com/archives/214/</a></li>
-<li>dork-cli – Command-line Google Dork Tool<br><a href="https://www.darknet.org.uk/2017/07/dork-cli-command-line-google-dork-tool/" target="_blank" rel="external">https://www.darknet.org.uk/2017/07/dork-cli-command-line-google-dork-tool/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/16/机器学习资源收集/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/16/机器学习资源收集/" itemprop="url">
-                  机器学习资源收集
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T16:51:33+08:00">
-                2017-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具整理/" itemprop="url" rel="index">
-                    <span itemprop="name">工具整理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="工具集合"><a href="#工具集合" class="headerlink" title="工具集合"></a>工具集合</h4><ul>
-<li><a href="http://www.hackingtutorials.org/wifi-hacking-tutorials/bypass-mac-filtering-on-wireless-networks/" target="_blank" rel="external">http://www.hackingtutorials.org/wifi-hacking-tutorials/bypass-mac-filtering-on-wireless-networks/</a></li>
-<li>Metasploit for Machine Learning: Deep-Pwning<br><a href="https://n0where.net/metasploit-for-machine-learning-deep-pwning/" target="_blank" rel="external">https://n0where.net/metasploit-for-machine-learning-deep-pwning/</a></li>
-<li>机器学习识别xss<br><a href="https://www.cdxy.me/?p=773" target="_blank" rel="external">https://www.cdxy.me/?p=773</a></li>
-<li>利用神经网络进行密码破解<br><a href="https://0day.work/using-neural-networks-for-password-cracking/" target="_blank" rel="external">https://0day.work/using-neural-networks-for-password-cracking/</a><br><a href="http://www.ieeeconfpublishing.org/cpir/UploadedFiles/ver11.0.pdf" target="_blank" rel="external">http://www.ieeeconfpublishing.org/cpir/UploadedFiles/ver11.0.pdf</a><br><a href="http://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="external">http://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1863,7 +1846,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">82</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
