@@ -613,7 +613,8 @@
 <li>在跟踪调试的时候，我们关注的是每步执行过后寄存器的变化情况，这个时候观察寄存器的窗口，红色的表示是发生了变化的数据。<br><img src="/2017/08/22/OllyDbg使用入门/0.png" alt=""></li>
 <li>在进行动态分析的时候，最好完整的分析一个栈的出入过程，加上注释之后，对代码分析有好处</li>
 <li>刚开始调试的时候，容易跑飞，这个时候注意观察左上角的提示框，回显示你的module，不要进去了什么kernel模块</li>
-<li>注意由于基本上我们使用的系统上数据或者代码都是小端存储的，所以在看反汇编代码的时候看到机器码的时候，一定要倒过来看<br><img src="/2017/08/22/OllyDbg使用入门/2.png" alt=""><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
+<li>注意由于基本上我们使用的系统上数据或者代码都是小端存储的，所以在看反汇编代码的时候看到机器码的时候，一定要倒过来看<br><img src="/2017/08/22/OllyDbg使用入门/2.png" alt=""></li>
+<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
 </ul>
 
           
