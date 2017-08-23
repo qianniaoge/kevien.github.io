@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-22T02:57:21.000Z</updated>
+  <updated>2017-08-23T02:04:28.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20170823安全动态</title>
+    <link href="http://kevien.github.io/2017/08/23/20170823%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/08/23/20170823安全动态/</id>
+    <published>2017-08-23T02:04:28.000Z</published>
+    <updated>2017-08-23T02:04:28.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>OllyDbg使用入门</title>
@@ -757,59 +771,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;SMBLoris:Windows拒绝服务metasploit模块&lt;br&gt;&lt;a href=&quot;htt
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170804安全动态</title>
-    <link href="http://kevien.github.io/2017/08/04/20170804%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/04/20170804安全动态/</id>
-    <published>2017-08-04T01:39:37.000Z</published>
-    <updated>2017-08-05T11:20:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li><p>Little trick</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">公司的无线使用shadowsocks代理上不了网，有线是可以的，但是有时候又需要用到无线代理上网怎么办，这个时候将shadowsocks的端口改为443就可以了，80应该也可以，猜测是公司无线网有防火墙，对除了80，443都进行了拦截:P</div></pre></td></tr></table></figure>
-</li>
-<li><p>Linux VPS安装Stat Hub自建服务器监控<br><a href="https://www.xiaoz.me/archives/8449" target="_blank" rel="external">https://www.xiaoz.me/archives/8449</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">类似于zabbix</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用轻量级工具Sysmon监视你的系统<br><a href="http://www.freebuf.com/sectool/122779.html" target="_blank" rel="external">http://www.freebuf.com/sectool/122779.html</a></p>
-</li>
-<li>恶意文件常驻方法总结<br><a href="https://green-m.github.io/2017/06/12/malware-persistence-methods/" target="_blank" rel="external">https://green-m.github.io/2017/06/12/malware-persistence-methods/</a></li>
-<li>avet：杀软绕过工具使用教程<br><a href="http://bobao.360.cn/learning/detail/4196.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4196.html</a></li>
-<li>内核池溢出漏洞利用实战之Windows 7篇<br><a href="http://bobao.360.cn/learning/detail/4188.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4188.html</a></li>
-<li>第一只WiFi蠕虫的诞生：完整解析博通WiFi芯片Broadpwn漏洞（含EXP／POC）<br><a href="http://www.freebuf.com/vuls/142099.html" target="_blank" rel="external">http://www.freebuf.com/vuls/142099.html</a></li>
-<li>工具解析|杀毒引擎惨遭打脸，黑帽大会爆惊天免杀工具<br><a href="http://www.freebuf.com/news/142758.html" target="_blank" rel="external">http://www.freebuf.com/news/142758.html</a></li>
-<li>Supervisord远程命令执行漏洞（CVE-2017-11610）<br><a href="https://www.leavesongs.com/PENETRATION/supervisord-RCE-CVE-2017-11610.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/supervisord-RCE-CVE-2017-11610.html</a></li>
-<li>如何检测0day及无文件恶意软件<br><a href="https://community.rapid7.com/community/insightidr/blog/2017/07/26/how-do-you-identify-zero-days-and-fileless-malware-download-the-ram" target="_blank" rel="external">https://community.rapid7.com/community/insightidr/blog/2017/07/26/how-do-you-identify-zero-days-and-fileless-malware-download-the-ram</a></li>
-<li>Python化VMware后门<br><a href="https://www.zerodayinitiative.com/blog/2017/8/1/pythonizing-the-vmware-backdoor" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/8/1/pythonizing-the-vmware-backdoor</a></li>
-<li>CheckPlease:Payload-Agnostic Implant Security<br><a href="https://github.com/Arvanaghi/CheckPlease" target="_blank" rel="external">https://github.com/Arvanaghi/CheckPlease</a></li>
-<li>PowerShell混淆检测<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html</a></li>
-<li>dnstwist：域名排列引擎，检测域名拼字错误，用于检测网络钓鱼及企业间谍活动<br><a href="https://github.com/elceef/dnstwist" target="_blank" rel="external">https://github.com/elceef/dnstwist</a></li>
-<li>Windows Defender ATP机器学习：检测新异常行为<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/08/03/windows-defender-atp-machine-learning-detecting-new-and-unusual-breach-activity/" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/08/03/windows-defender-atp-machine-learning-detecting-new-and-unusual-breach-activity/</a></li>
-<li>利用 Gmail 作为 C&amp;C 通信机制的 Gcat/Gdog 后门介绍<br><a href="https://pentestlab.blog/2017/08/03/command-and-control-gmail/" target="_blank" rel="external">https://pentestlab.blog/2017/08/03/command-and-control-gmail/</a></li>
-<li>当代网络攻击中的隐写术介绍<br><a href="https://securelist.com/steganography-in-contemporary-cyberattacks/79276/" target="_blank" rel="external">https://securelist.com/steganography-in-contemporary-cyberattacks/79276/</a></li>
-<li>3亿6千万可免费下载的被黑密码使用方式介绍<br><a href="https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/" target="_blank" rel="external">https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/</a></li>
-<li>koadic - 基于 JScript 实现的 Windows Rootkit，适用于 Windows 全版本<br><a href="https://github.com/zerosum0x0/koadic" target="_blank" rel="external">https://github.com/zerosum0x0/koadic</a></li>
-<li>Linux端口转发特征总结<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3Mzk1MDk1NA==&amp;mid=2651903919&amp;idx=1&amp;sn=686cc53137aa9e8ec323dda1e54a2c23&amp;chksm=84e3442ab394cd3ccafd8006cbabdc3c0bf305a6543e0b55ea4aaa51c8768dc8eb5cfee2a0d4&amp;scene=0&amp;key=9ec4abb5f2e93c325c1038fbaa71d8eb9fddffb90e52fffa49b5d8b05cf5b23904d2a5e17141d9a3cbab135776fe639ca94af09c46a96e8a2d248b13ccf212c3013dc16d93b2868ba0c20a3d0bb1e5f8&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=3CZgTPuDZC%2Fe%2B%2FEt3khN%2BdmAeDRAMcfpu4ErOLdGNOY%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzA3Mzk1MDk1NA==&amp;mid=2651903919&amp;idx=1&amp;sn=686cc53137aa9e8ec323dda1e54a2c23&amp;chksm=84e3442ab394cd3ccafd8006cbabdc3c0bf305a6543e0b55ea4aaa51c8768dc8eb5cfee2a0d4&amp;scene=0&amp;key=9ec4abb5f2e93c325c1038fbaa71d8eb9fddffb90e52fffa49b5d8b05cf5b23904d2a5e17141d9a3cbab135776fe639ca94af09c46a96e8a2d248b13ccf212c3013dc16d93b2868ba0c20a3d0bb1e5f8&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=3CZgTPuDZC%2Fe%2B%2FEt3khN%2BdmAeDRAMcfpu4ErOLdGNOY%3D</a></li>
-<li>通过向 Windows Scripting Host (WSH) 已签名脚本中注入代码，绕过 Windows 对 WSH 文件签名才能执行的保护<br><a href="https://enigma0x3.net/2017/08/03/wsh-injection-a-case-study/" target="_blank" rel="external">https://enigma0x3.net/2017/08/03/wsh-injection-a-case-study/</a></li>
-<li>Learning PowerShell: basic programs<br><a href="https://blog.malwarebytes.com/101/2017/08/learning-powershell-basic-programs/" target="_blank" rel="external">https://blog.malwarebytes.com/101/2017/08/learning-powershell-basic-programs/</a></li>
-<li>踏雪无痕——对新型无文件后门 JS_POWMET 的简单分析<br><a href="http://www.4hou.com/info/observation/6997.html" target="_blank" rel="external">http://www.4hou.com/info/observation/6997.html</a></li>
-<li>从恶意软件获得的新姿势——通过rundll32.exe执行js原理详细分析<br><a href="http://bobao.360.cn/learning/detail/164.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/164.html</a></li>
-<li>Flarum: 极简论坛搭建教程<br><a href="https://liyuans.com/archives/Flarum.html" target="_blank" rel="external">https://liyuans.com/archives/Flarum.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">想做论坛的小伙伴儿可以关注下</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Little trick&lt;/p&gt;
-&lt;figure class=&quot;highlight pla
     
     </summary>
     
