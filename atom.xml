@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-08-24T05:38:40.000Z</updated>
+  <updated>2017-08-24T09:12:35.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux调试工具GDB入门</title>
+    <link href="http://kevien.github.io/2017/08/24/linux%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7GDB%E5%85%A5%E9%97%A8/"/>
+    <id>http://kevien.github.io/2017/08/24/linux调试工具GDB入门/</id>
+    <published>2017-08-24T09:11:37.000Z</published>
+    <updated>2017-08-24T09:12:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>linux 调试工具 GDB 使用教程<br><a href="http://bbs.pediy.com/thread-77746.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-77746.htm</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;linux 调试工具 GDB 使用教程&lt;br&gt;&lt;a href=&quot;http
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>window逆向基础</title>
+    <link href="http://kevien.github.io/2017/08/24/window%E9%80%86%E5%90%91%E5%9F%BA%E7%A1%80/"/>
+    <id>http://kevien.github.io/2017/08/24/window逆向基础/</id>
+    <published>2017-08-24T09:06:38.000Z</published>
+    <updated>2017-08-24T09:17:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>API 函数 －－ API 绝密档案系列之一<br><a href="http://bbs.pediy.com/user-22319-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-22319-1.htm</a></li>
+<li>Win32环境下函数调用的堆栈之研究<br><a href="http://bbs.pediy.com/thread-69909.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-69909.htm</a></li>
+<li>汇编的学习<br><a href="http://bbs.pediy.com/user-90551-1-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-90551-1-1.htm</a><br><a href="http://bbs.pediy.com/user-202613-0-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-202613-0-1.htm</a></li>
+<li>window线程<br><a href="http://bbs.pediy.com/thread-77556.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-77556.htm</a></li>
+<li>C++类虚函数逆向学习总结<br><a href="http://bbs.pediy.com/thread-60538.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-60538.htm</a></li>
+<li>MFC逆向初级研究<br><a href="http://bbs.pediy.com/thread-41087.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-41087.htm</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####&lt;/p&gt;
+&lt;h4 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;API 函数 －－ API 绝密档案系列之一&lt;b
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20170824安全动态</title>
@@ -32,12 +83,12 @@
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>Sysmon View：跟踪和可视化Sysmon日志<br><https: cybernext.org="" sysmon-view=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x6d;&#97;&#x6c;&#x63;&#x6f;&#109;&#x76;&#101;&#x74;&#116;&#101;&#x72;&#47;&#109;&#117;&#x6c;&#116;&#x69;&#x2d;&#112;&#108;&#x61;&#x74;&#102;&#111;&#x72;&#x6d;&#45;&#109;&#97;&#x63;&#x72;&#x6f;&#x2d;&#112;&#104;&#105;&#x73;&#104;&#105;&#x6e;&#103;&#45;&#x70;&#97;&#121;&#108;&#x6f;&#x61;&#x64;&#x73;&#45;&#51;&#98;&#54;&#x38;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#54;&#x38;">&#x68;&#116;&#x74;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x6d;&#97;&#x6c;&#x63;&#x6f;&#109;&#x76;&#101;&#x74;&#116;&#101;&#x72;&#47;&#109;&#117;&#x6c;&#116;&#x69;&#x2d;&#112;&#108;&#x61;&#x74;&#102;&#111;&#x72;&#x6d;&#45;&#109;&#97;&#x63;&#x72;&#x6f;&#x2d;&#112;&#104;&#105;&#x73;&#104;&#105;&#x6e;&#103;&#45;&#x70;&#97;&#121;&#108;&#x6f;&#x61;&#x64;&#x73;&#45;&#51;&#98;&#54;&#x38;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#54;&#x38;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#97;&#x6c;&#x63;&#111;&#109;&#118;&#101;&#116;&#116;&#101;&#114;&#47;&#x6d;&#117;&#x6c;&#x74;&#105;&#45;&#x70;&#108;&#x61;&#x74;&#102;&#111;&#x72;&#109;&#x2d;&#x6d;&#x61;&#x63;&#x72;&#111;&#x2d;&#x70;&#x68;&#105;&#115;&#104;&#105;&#x6e;&#103;&#45;&#x70;&#x61;&#x79;&#108;&#111;&#97;&#100;&#x73;&#45;&#x33;&#x62;&#x36;&#56;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#x36;&#56;">&#x68;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#97;&#x6c;&#x63;&#111;&#109;&#118;&#101;&#116;&#116;&#101;&#114;&#47;&#x6d;&#117;&#x6c;&#x74;&#105;&#45;&#x70;&#108;&#x61;&#x74;&#102;&#111;&#x72;&#109;&#x2d;&#x6d;&#x61;&#x63;&#x72;&#111;&#x2d;&#x70;&#x68;&#105;&#115;&#104;&#105;&#x6e;&#103;&#45;&#x70;&#x61;&#x79;&#108;&#111;&#97;&#100;&#x73;&#45;&#x33;&#x62;&#x36;&#56;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#x36;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x74;&#x68;&#101;&#x67;&#114;&#117;&#103;&#x71;&#x2f;&#x74;&#x68;&#x65;&#45;&#x7a;&#x65;&#x6e;&#45;&#111;&#x66;&#45;&#x70;&#103;&#112;&#x2d;&#x36;&#x66;&#x35;&#53;&#x64;&#x34;&#x34;&#x36;&#53;&#x37;&#100;&#x64;">&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x74;&#x68;&#101;&#x67;&#114;&#117;&#103;&#x71;&#x2f;&#x74;&#x68;&#x65;&#45;&#x7a;&#x65;&#x6e;&#45;&#111;&#x66;&#45;&#x70;&#103;&#112;&#x2d;&#x36;&#x66;&#x35;&#53;&#x64;&#x34;&#x34;&#x36;&#53;&#x37;&#100;&#x64;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#116;&#104;&#101;&#x67;&#x72;&#x75;&#103;&#x71;&#47;&#116;&#104;&#x65;&#45;&#x7a;&#101;&#x6e;&#45;&#x6f;&#x66;&#45;&#112;&#103;&#112;&#x2d;&#54;&#x66;&#x35;&#x35;&#x64;&#x34;&#x34;&#x36;&#x35;&#55;&#100;&#x64;">&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#116;&#104;&#101;&#x67;&#x72;&#x75;&#103;&#x71;&#47;&#116;&#104;&#x65;&#45;&#x7a;&#101;&#x6e;&#45;&#x6f;&#x66;&#45;&#112;&#103;&#112;&#x2d;&#54;&#x66;&#x35;&#x35;&#x64;&#x34;&#x34;&#x36;&#x35;&#55;&#100;&#x64;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -119,7 +170,7 @@
     <link href="http://kevien.github.io/2017/08/22/OllyDbg%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
     <id>http://kevien.github.io/2017/08/22/OllyDbg使用入门/</id>
     <published>2017-08-22T02:56:17.000Z</published>
-    <updated>2017-08-24T02:39:07.000Z</updated>
+    <updated>2017-08-24T09:03:08.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="一些常用的操作"><a href="#一些常用的操作" class="headerlink" title="一些常用的操作"></a>一些常用的操作</h4><ul>
 <li>可通过双击汇编窗口注释区或者右键给汇编代码添加注释，方便自己后续阅读，这里有一个小技巧，可以通过ida的静态分析方法进行静态分析加注释<br><img src="/2017/08/22/OllyDbg使用入门/1.png" alt=""><h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4></li>
@@ -129,7 +180,11 @@
 <li>在进行动态分析的时候，最好完整的分析一个栈的出入过程，加上注释之后，对代码分析有好处</li>
 <li>刚开始调试的时候，容易跑飞，这个时候注意观察左上角的提示框，回显示你的module，不要进去了什么kernel模块</li>
 <li>注意由于基本上我们使用的系统上数据或者代码都是小端存储的，所以在看反汇编代码的时候看到机器码的时候，一定要倒过来看<br><img src="/2017/08/22/OllyDbg使用入门/2.png" alt=""></li>
-<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
+<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>MFC逆向初级研究<br><a href="http://bbs.pediy.com/thread-41087.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-41087.htm</a></li>
+<li>C++类虚函数逆向学习总结<br><a href="http://bbs.pediy.com/thread-60538.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-60538.htm</a></li>
+<li>OllyDbg 入门系列<br><a href="http://bbs.pediy.com/user-24467-3-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-24467-3-1.htm</a></li>
+<li>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
 </ul>
 ]]></content>
     
@@ -677,120 +732,6 @@
     <summary type="html">
     
       &lt;h4 id=&quot;About&quot;&gt;&lt;a href=&quot;#About&quot; class=&quot;headerlink&quot; title=&quot;About&quot;&gt;&lt;/a&gt;About&lt;/h4&gt;&lt;p&gt;这里推荐一下github上的一个项目&lt;a href=&quot;https://github.com/Hack-with-Gi
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170809安全动态</title>
-    <link href="http://kevien.github.io/2017/08/09/20170809%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/09/20170809安全动态/</id>
-    <published>2017-08-09T01:14:53.000Z</published>
-    <updated>2017-08-09T13:10:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广<br><a href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="external">https://github.com/Hack-with-Github/Awesome-Hacking</a></li>
-<li>利用CLR实现一种无需管理员权限的后门<br><a href="http://www.4hou.com/technology/6863.html" target="_blank" rel="external">http://www.4hou.com/technology/6863.html</a></li>
-<li>渗透技巧——Windows日志的删除与绕过<br><a href="https://xianzhi.aliyun.com/forum/read/1814.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1814.html</a></li>
-<li><p>绕过杀毒软件与主机入侵防御系统对流量的检测<br><a href="http://www.freebuf.com/articles/network/142418.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/142418.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">待测试</div></pre></td></tr></table></figure>
-</li>
-<li><p>Chkrootkit Sourcecode Learning<br><a href="http://www.cnblogs.com/LittleHann/p/3918030.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3918030.html</a></p>
-</li>
-<li><p>看我如何对Apache进行模糊测试并挖到了一个价值1500刀的漏洞<br><a href="http://bobao.360.cn/learning/detail/4213.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4213.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个不错，mark</div></pre></td></tr></table></figure>
-</li>
-<li><p>Windows环境下的信息收集<br><a href="https://mp.weixin.qq.com/s/37xtTdjVetMg5P1WaJvYvA" target="_blank" rel="external">https://mp.weixin.qq.com/s/37xtTdjVetMg5P1WaJvYvA</a></p>
-</li>
-<li>Vuzzer自动漏洞挖掘工具简单分析附使用介绍<br><a href="http://www.freebuf.com/sectool/143123.html" target="_blank" rel="external">http://www.freebuf.com/sectool/143123.html</a></li>
-<li>追寻恶意 NPM 包<br><a href="http://www.freebuf.com/news/143003.html" target="_blank" rel="external">http://www.freebuf.com/news/143003.html</a><br><a href="https://duo.com/blog/hunting-malicious-npm-packages" target="_blank" rel="external">https://duo.com/blog/hunting-malicious-npm-packages</a></li>
-<li>check_all_apks - 检测已知的安卓恶意应用的脚本<br><a href="https://github.com/kudelskisecurity/check_all_apks" target="_blank" rel="external">https://github.com/kudelskisecurity/check_all_apks</a></li>
-<li>来自 Project Zero 的 Windows 漏洞利用技巧系列文章，如何将任意目录创建漏洞转化成任意文件读<br><a href="https://googleprojectzero.blogspot.com/2017/08/windows-exploitation-tricks-arbitrary.html" target="_blank" rel="external">https://googleprojectzero.blogspot.com/2017/08/windows-exploitation-tricks-arbitrary.html</a></li>
-<li><p>我在全球最大的同性社交平台那点事<br><a href="http://www.freebuf.com/column/143633.html" target="_blank" rel="external">http://www.freebuf.com/column/143633.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这里主要介绍了基于爬虫的数据攻击，虽然不能用作定向攻击，但是呢，危害还是有的</div></pre></td></tr></table></figure>
-</li>
-<li><p>看我如何从54G日志中溯源web应用攻击路径<br><a href="https://secvul.com/topics/715.html" target="_blank" rel="external">https://secvul.com/topics/715.html</a></p>
-</li>
-<li>osx-and-ios-security-awesome<br><a href="https://github.com/ashishb/osx-and-ios-security-awesome" target="_blank" rel="external">https://github.com/ashishb/osx-and-ios-security-awesome</a></li>
-<li><p>CVE-2017-8620：Windows Search远程代码执行漏洞<br><a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8620" target="_blank" rel="external">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8620</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">学习一下微软给的修复指南</div></pre></td></tr></table></figure>
-</li>
-<li><p>MAC osx、iOS常见安全工具汇总<br><a href="https://github.com/ashishb/osx-and-ios-security-awesome" target="_blank" rel="external">https://github.com/ashishb/osx-and-ios-security-awesome</a></p>
-</li>
-<li>BoopSuite：基于Python的无线审计、安全测试套件<br><a href="https://github.com/MisterBianco/BoopSuite" target="_blank" rel="external">https://github.com/MisterBianco/BoopSuite</a></li>
-<li>披着羊皮的狼：攻击者如何利用漏洞以特定图标伪装可执行文件<br><a href="http://www.freebuf.com/articles/system/143365.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143365.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用作欺骗攻击这个好像很6</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广&lt;br&gt;&lt;a href=&quot;http
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170808安全动态</title>
-    <link href="http://kevien.github.io/2017/08/08/20170808%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/08/20170808安全动态/</id>
-    <published>2017-08-08T01:26:09.000Z</published>
-    <updated>2017-08-08T05:32:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li><p>零C++基础，打造Windows事件钩子：对WMI的深入分析<br><a href="http://bobao.360.cn/learning/detail/4214.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4214.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">推荐阅读原版英文文章,安全客和freebuf翻译的文章，建议都还是看英文原版的文章。</div></pre></td></tr></table></figure>
-</li>
-<li><p>对 Twitter （Periscope）API 测试过程中遇到的有趣的问题<br><a href="http://bobao.360.cn/learning/detail/4207.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4207.html</a></p>
-</li>
-<li>Intrusion Detection Avoidance Payload Generator: NPS_Payload<br><a href="https://n0where.net/intrusion-detection-avoidance-payload-generator-nps_payload/" target="_blank" rel="external">https://n0where.net/intrusion-detection-avoidance-payload-generator-nps_payload/</a></li>
-<li><p>iOS macOS Remote Administration Tool: EggShell<br><a href="https://n0where.net/ios-macos-remote-administration-tool-eggshell/" target="_blank" rel="external">https://n0where.net/ios-macos-remote-administration-tool-eggshell/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">苹果系统的远控？</div></pre></td></tr></table></figure>
-</li>
-<li><p>MITM RDP connections: Seth 中间人攻击RDP<br><a href="https://n0where.net/mitm-rdp-connections-seth/" target="_blank" rel="external">https://n0where.net/mitm-rdp-connections-seth/</a></p>
-</li>
-<li>p0wnedShell-DarkVersion<br><a href="https://github.com/3gstudent/p0wnedShell-DarkVersion" target="_blank" rel="external">https://github.com/3gstudent/p0wnedShell-DarkVersion</a></li>
-<li>老毛桃PE盘工具木马：一款“通杀”浏览器的主页劫持大盗<br><a href="http://www.freebuf.com/articles/web/143462.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/143462.html</a></li>
-<li>libcrafter: 用于网络数据包嗅探和制作的高等级 C++ 库<br><a href="https://github.com/pellegre/libcrafter" target="_blank" rel="external">https://github.com/pellegre/libcrafter</a></li>
-<li>Early release Video! Elie Bursztein - How We Created the First SHA 1 Collision<br><a href="https://www.youtube.com/watch?v=NbHL0SYlrSQ&amp;feature=youtu.be" target="_blank" rel="external">https://www.youtube.com/watch?v=NbHL0SYlrSQ&amp;feature=youtu.be</a></li>
-<li><p>The Windows Malware Analysis Distribution: flare-vm<br><a href="https://n0where.net/the-windows-malware-analysis-distribution-flare-vm/" target="_blank" rel="external">https://n0where.net/the-windows-malware-analysis-distribution-flare-vm/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">好像很不错的样子？下一个试试？！</div></pre></td></tr></table></figure>
-</li>
-<li><p>Electron hack —— 跨平台 XSS<br><a href="https://mp.weixin.qq.com/s/DgjJ6uKtuUPFQhgztL69RQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/DgjJ6uKtuUPFQhgztL69RQ</a></p>
-</li>
-<li>给shellcode找块福地－ 通过VDSO绕过PXN<br><a href="https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw" target="_blank" rel="external">https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw</a></li>
-<li>腾讯安全反病毒实验室：揭秘“挂马”黑产最新态势<br><a href="http://www.freebuf.com/articles/system/143217.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143217.html</a></li>
-<li><p>PowerShell Obfuscation Detection Framework: Revoke-Obfuscation<br><a href="https://n0where.net/powershell-obfuscation-detection-framework-revoke-obfuscation/" target="_blank" rel="external">https://n0where.net/powershell-obfuscation-detection-framework-revoke-obfuscation/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">powershell 混淆检测框架</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用 docker 对容器资源进行限制<br><a href="http://cizixs.com/2017/08/04/docker-resources-limit" target="_blank" rel="external">http://cizixs.com/2017/08/04/docker-resources-limit</a></p>
-</li>
-<li><p>Automated Privilege Escalation: portia<br><a href="https://n0where.net/automated-privilege-escalation-portia/" target="_blank" rel="external">https://n0where.net/automated-privilege-escalation-portia/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">自动权限提升工具、?</div></pre></td></tr></table></figure>
-</li>
-<li><p>ProcInfo - Objective-See 开源的一款 macOS 系统进程信息查看工具<br><a href="https://github.com/objective-see/ProcInfo" target="_blank" rel="external">https://github.com/objective-see/ProcInfo</a></p>
-</li>
-<li>解锁更多姿势——手机锁屏安全研究<br><a href="https://security.tencent.com/index.php/blog/msg/118" target="_blank" rel="external">https://security.tencent.com/index.php/blog/msg/118</a></li>
-<li><p>Visual Studio 2017 新添加了一个警告框，打开网络上下载的自定义的 .sln 工程文件时，如果存在潜在的 RCE，VS2017 将会弹框警告<br><a href="https://twitter.com/fdfalcon/status/894713581811503104" target="_blank" rel="external">https://twitter.com/fdfalcon/status/894713581811503104</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个有意思</div></pre></td></tr></table></figure>
-</li>
-<li><p>给shellcode找块福地－ 通过VDSO绕过PXN<br><a href="https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw" target="_blank" rel="external">https://mp.weixin.qq.com/s/fVfk5aRO4bKgA4qfEX3Qlw</a></p>
-</li>
-<li>Python调用Win32 API实现截图<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjEyMDk0MA==&amp;mid=2649846681&amp;idx=1&amp;sn=90f94c17d2e7ed0efde11b45614f5ee0&amp;chksm=f3e41d1ac493940ccf25647e65d3bc8a155556a6272e5d9806e96e63c70c70f9a2b128f82fbe&amp;mpshare=1&amp;scene=23&amp;srcid=08076TlTqLIWCQxsRf38M7ML#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjEyMDk0MA==&amp;mid=2649846681&amp;idx=1&amp;sn=90f94c17d2e7ed0efde11b45614f5ee0&amp;chksm=f3e41d1ac493940ccf25647e65d3bc8a155556a6272e5d9806e96e63c70c70f9a2b128f82fbe&amp;mpshare=1&amp;scene=23&amp;srcid=08076TlTqLIWCQxsRf38M7ML#rd</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">最近在用cobalt strike，工具用起来不错，已经有人写好了相关的文章自己也就不写了，推荐几篇文章。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>1.<a href="https://evi1cg.me/archives/Cobalt_strike.html" target="_blank" rel="external">Cobalt strike3.0使用手册</a><br>2.<a href="https://evi1cg.me/archives/Cortana.html" target="_blank" rel="external">强化你的Cobalt strike之Cortana</a><br>3.<a href="http://www.freebuf.com/sectool/133369.html" target="_blank" rel="external">Cobalt Strike学习笔记</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;零C++基础，打造Windows事件钩子：对WMI的深入分析&lt;br&gt;&lt;a href=&quot;ht
     
     </summary>
     

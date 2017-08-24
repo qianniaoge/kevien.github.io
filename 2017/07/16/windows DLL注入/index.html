@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/07/16/windows%20DLL注入/3.png">
 <meta property="og:image" content="http://kevien.github.io/2017/07/16/windows%20DLL注入/4.png">
 <meta property="og:image" content="http://kevien.github.io/2017/07/16/windows%20DLL注入/5.png">
-<meta property="og:updated_time" content="2017-08-11T08:15:37.000Z">
+<meta property="og:updated_time" content="2017-08-24T08:50:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DLL注入">
 <meta name="twitter:description" content="概述DLL远程注入dll的注入和卸载关键性代码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091">
@@ -383,6 +383,7 @@
 <p>通过peid可以查看DLL的导出函数<br><img src="/2017/07/16/windows DLL注入/3.png" alt=""><br>还可以通过vc6自带的dependency Walker以及CFF Explorer<br><img src="/2017/07/16/windows DLL注入/4.png" alt=""><br><img src="/2017/07/16/windows DLL注入/5.png" alt=""></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式是直接把想要使用的API函数以及API函数所在的DLL文件都封装在一个结构体中，直接写入目标进程的空间中，最后调用CreateRemoteThread()函数即可将其运行。</p>
 <h4 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h4><p>通过windows自带工具运行DLL的两种方法<br>1.通过regsvr32.exe 调用  例如 regsvr32  /i  c:\test.dll<br>2.通过rundll32.exe 调用  例如 rundll32.exe  “c:\test.dll” ,RundllFunc FunParam</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>[神奇的马甲Dll By 海风月影(<a href="http://bbs.pediy.com/thread-66452.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-66452.htm</a>)</p>
 
       
     </div>
@@ -543,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">85</span>
+                <span class="site-state-item-count">87</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DLL远程注入"><span class="nav-number">2.</span> <span class="nav-text">DLL远程注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无DLL的代码注入"><span class="nav-number">3.</span> <span class="nav-text">无DLL的代码注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tips"><span class="nav-number">4.</span> <span class="nav-text">tips</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DLL远程注入"><span class="nav-number">2.</span> <span class="nav-text">DLL远程注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无DLL的代码注入"><span class="nav-number">3.</span> <span class="nav-text">无DLL的代码注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tips"><span class="nav-number">4.</span> <span class="nav-text">tips</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
