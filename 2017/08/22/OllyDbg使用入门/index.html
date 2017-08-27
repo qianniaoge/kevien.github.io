@@ -116,7 +116,9 @@
 <meta property="og:image" content="http://kevien.github.io/2017/08/22/OllyDbg使用入门/0.png">
 <meta property="og:image" content="http://kevien.github.io/2017/08/22/OllyDbg使用入门/2.png">
 <meta property="og:image" content="http://kevien.github.io/2017/08/22/OllyDbg使用入门/3.png">
-<meta property="og:updated_time" content="2017-08-24T09:03:08.000Z">
+<meta property="og:image" content="http://kevien.github.io/2017/08/22/OllyDbg使用入门/4.png">
+<meta property="og:image" content="http://kevien.github.io/2017/08/22/OllyDbg使用入门/5.png">
+<meta property="og:updated_time" content="2017-08-27T14:51:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OllyDbg使用入门">
 <meta name="twitter:description" content="一些常用的操作 可通过双击汇编窗口注释区或者右键给汇编代码添加注释，方便自己后续阅读，这里有一个小技巧，可以通过ida的静态分析方法进行静态分析加注释小技巧 有时候在调试的时候，一直在循环里，如果想要跳出循环，这个时候鼠标点到下一个命令的执行处，f4即可，即运行到当前代码处 在用vs较高版本编译程序测试溢出等的时候注意要关闭保护功能(如常见的dep以及aslr)，在项目菜单的属性里面设置 在跟踪调">
@@ -362,9 +364,11 @@
 <li>在进行动态分析的时候，最好完整的分析一个栈的出入过程，加上注释之后，对代码分析有好处</li>
 <li>刚开始调试的时候，容易跑飞，这个时候注意观察左上角的提示框，回显示你的module，不要进去了什么kernel模块</li>
 <li>注意由于基本上我们使用的系统上数据或者代码都是小端存储的，所以在看反汇编代码的时候看到机器码的时候，一定要倒过来看<br><img src="/2017/08/22/OllyDbg使用入门/2.png" alt=""></li>
-<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li>MFC逆向初级研究<br><a href="http://bbs.pediy.com/thread-41087.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-41087.htm</a></li>
-<li>C++类虚函数逆向学习总结<br><a href="http://bbs.pediy.com/thread-60538.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-60538.htm</a></li>
+<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。</li>
+<li>在vc6编译的程序中，函数返回之前会有一句call  _checkesp，这里会有一个checkesp函数的调用，来检查栈是否平衡，如果不平衡会出现如下的错误，我在这里做一个测试，在return语句之前加一条内联汇编push ebx，这样就破坏了栈平衡如下图所示<br><img src="/2017/08/22/OllyDbg使用入门/4.png" alt=""></li>
+<li>vc中函数的调用方式是cdecl，这种函数调用约定对参数的传递依靠栈内存，在调用函数前，将通过压栈操作将参数从右至左依次送入栈中，当函数返回的时候，需要将参数使用的空间回收，这里的回收指的是恢复esp寄存器的值到函数调用前的值，对于cdecl调用方式而言，平衡堆栈的操作是由函数调用方来做的，在这里也就是要由main()函数来做的，可以看到反汇编代码add esp，8就是用来平衡栈的。主要用于平衡上面的两个push操作。<br><img src="/2017/08/22/OllyDbg使用入门/5.png" alt=""></li>
+<li>函数返回值通常保存在eax寄存器中，在c语言中，main()函数的返回值为0，即return0，因此xor eax,eax 就是对eax进行了清零操作。</li>
+<li>windows系统下，对API函数的调用遵循约定是stdcall，对于stdcall而言，参数依然是从右向左依次入栈，而参数的平栈则是在api函数内部完成的，而不是在函数调用时候完成的。<br><a href="6.png"></a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li>OllyDbg 入门系列<br><a href="http://bbs.pediy.com/user-24467-3-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-24467-3-1.htm</a></li>
 <li>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
 </ul>
