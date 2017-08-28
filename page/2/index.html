@@ -273,6 +273,126 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/21/windbg使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/21/windbg使用/" itemprop="url">
+                  windbg使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T09:00:27+08:00">
+                2017-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://bbs.pediy.com/thread-94457.htm" target="_blank" rel="external">WinDbg学习笔记（一）–认识WinDbg</a><br><a href="http://bbs.pediy.com/thread-34379.htm" target="_blank" rel="external">从Ollydbg说起—–WinDbg用户态调试教程</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/21/20170821安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -495,7 +615,7 @@
         
           
             <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>IDA作用：<br>1.一般IDA是配合OD使用的，当od没有分析出函数名的时候，有时候通过IDA可以发现函数的名。</p>
-<h4 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h4><p>在介绍常见操作之前，先来看一下用ida加载一个文件的时候，默认的展示窗口有哪些<br><img src="/2017/08/18/IDA使用方法/2.png" alt=""></p>
+<h4 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h4><p>在介绍常见操作之前，先来看一下用ida加载一个文件的时候，默认的展示窗口有哪些<br><img src="/2017/08/18/IDA使用方法/2.png" alt=""><br>注意在反汇编代码的窗口可以输入空格切换到Graphic View，可以更清楚的看清流程</p>
 <ul>
 <li>跳转到指定内存地址 快捷键G，可以调到相应的地址</li>
 <li>寻找关键特征字符串，打开字符串参考窗口 shift+f12 ，类似于od中plugins中的中文搜索引擎中的智能搜索功能<br><img src="/2017/08/18/IDA使用方法/1.png" alt=""></li>
@@ -506,6 +626,7 @@
 <p>如上所示，是进入这个函数后的汇编代码，可以看到main函数在00401214位置处，启动函数从00401130地址处开始，期间调用了GetVersion()函数获得了系统版本号，调用__heap_init函数初始化了程序所使用的堆空间，调用了GetCommandLineA()函数获取了命令行参数,调用_crtGetEnvironmentStringsA()获取了环境变量字符串，在完成一系列启动所需的工作之后，终于在00401214处调用了main()函数。</p>
 <ul>
 <li>在调用printf时候的指令为call printf,而调用像是MessageBoxA时候的指令是call    ds:<strong>imp</strong>MessageBoxA@16 ; MessageBoxA(x,x,x,x)，printf函数在stdio.h头文件中，该函数是c语言的静态库，在链接的时候会将其代码接入到二进制文件中(静态包含)，而MessageBoxA的函数实现是在user32.dll这个动态链接库中，在代码中，这里只是留了进入MessageBoxA函数的一个地址，并没有具体的代码，MessageBoxA的具体地址存放在数据节区中，因此在反汇编代码中给出了提示，使用了前缀”ds”,<strong>imp</strong>表示导入函数，@16表示16个字节，16/4即函数又4个参数。注意 在od中汇编代码是这样call dword ptr ds:[&lt;&amp;USER32.MessageBoxA&gt;]，感觉没有ida的友好。</li>
+<li>switch case default结构的特征<br><img src="/2017/08/18/IDA使用方法/6.png" alt=""></li>
 </ul>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://www.pediy.com/kssd/pediy12/ida.html" target="_blank" rel="external">IDA简易教程</a></p>
 
@@ -1508,140 +1629,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/11/20170811安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/11/20170811安全动态/" itemprop="url">
-                  20170811安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T10:12:05+08:00">
-                2017-08-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>推荐一款windows方便查看文件的MD5/sha1值-HashTab给文件属性窗口添加校验值<br><a href="http://implbits.com/products/hashtab/" target="_blank" rel="external">http://implbits.com/products/hashtab/</a><br><img src="/2017/08/11/20170811安全动态/1.png" alt=""></li>
-<li>windows下的包管理工具<br><a href="https://chocolatey.org/docs" target="_blank" rel="external">https://chocolatey.org/docs</a></li>
-<li>Mac下的破解软件真的安全吗？<br><a href="https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;mid=2650591970&amp;idx=1&amp;sn=86cdb0e4c15112bd094754b5de16196d&amp;chksm=f0e41e95c79397833b1b758a366667990721e0eb7057b969dd160da0cf4ca05137d9529d38ff&amp;mpshare=1&amp;scene=1&amp;srcid=0811TnBRyB73qbz12FzqQwtQ&amp;key=f134dcd2fe72c7c615e2527bc29fa4ba60f1473b8171d2d3fde63708164b2471c92db9684ecb393ddeb1fa866016522291c6f4e8694f996b3b52f11aab7bbe2e48917fd59c3ca3c995bd629291052f2d&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;mid=2650591970&amp;idx=1&amp;sn=86cdb0e4c15112bd094754b5de16196d&amp;chksm=f0e41e95c79397833b1b758a366667990721e0eb7057b969dd160da0cf4ca05137d9529d38ff&amp;mpshare=1&amp;scene=1&amp;srcid=0811TnBRyB73qbz12FzqQwtQ&amp;key=f134dcd2fe72c7c615e2527bc29fa4ba60f1473b8171d2d3fde63708164b2471c92db9684ecb393ddeb1fa866016522291c6f4e8694f996b3b52f11aab7bbe2e48917fd59c3ca3c995bd629291052f2d&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D</a></li>
-<li>“灵隐”木马黑吃灰：绑架数十款游戏外挂实现恶意推广<br><a href="http://www.freebuf.com/articles/system/143461.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143461.html</a></li>
-<li>记一次对Discuz官方论坛的渗透检测<br><a href="https://www.t00ls.net/articles-21006.html" target="_blank" rel="external">https://www.t00ls.net/articles-21006.html</a></li>
-<li>使用Kerberoast破解Kerberos TGS Tickets - 利用Kerberos Compromise Active Directory域<br><a href="https://adsecurity.org/?p=2293" target="_blank" rel="external">https://adsecurity.org/?p=2293</a></li>
-<li>Plecost：Wordpress指纹识别工具（识别版本、插件，匹配已知漏洞）<br><a href="https://github.com/iniqua/plecost" target="_blank" rel="external">https://github.com/iniqua/plecost</a></li>
-<li>np1sec：分布式多方通讯加密协议<br><a href="https://github.com/equalitie/np1sec" target="_blank" rel="external">https://github.com/equalitie/np1sec</a></li>
-<li>解决遗忘linux登陆密码<br><a href="http://blog.nsfocus.net/resolve-forgotten-linux-login-password/" target="_blank" rel="external">http://blog.nsfocus.net/resolve-forgotten-linux-login-password/</a></li>
-<li>如何搭建一个 DNS Sinkhole 服务器，DNS Sinkhole 是指一种 DNS 响应欺骗技术，常被防御者用于发现受保护网络内的受感染机器，还有一份来自 Palo Alto 的文档参考<br><a href="http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf" target="_blank" rel="external">http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf</a></li>
-<li>利用 Adobe Flash 的沙箱逃逸漏洞，结合 UNC/file SMB 密钥转发的问题，泄露 Windows 用户的登陆密码(CVE-2017-3085)<br><a href="https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/" target="_blank" rel="external">https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/</a></li>
-<li>BeRoot - Windows 本地提权工具，寻找本地机器配置上的疏漏实现提权<br><a href="https://github.com/AlessandroZ/BeRoot" target="_blank" rel="external">https://github.com/AlessandroZ/BeRoot</a></li>
-<li>琢石成器之自动化去广告神器(Green Creator)<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://www.v2ex.com/t/84616" target="_blank" rel="external">简洁优雅的在Mac上安装软件-homebrew-cask命令行神器</a><br><a href="http://blog.csdn.net/hgy413/article/details/7799237" target="_blank" rel="external"> 0.ring3-DLL劫持技术详解(lpk.dll)</a><br><a href="https://bbs.ichunqiu.com/thread-15281-1-1.html" target="_blank" rel="external">常见的后门技术总结-小议权限维持技术</a><br>以下是DarkRay师傅的几篇文章<br><a href="https://www.blackh4t.org/archives/1870.html" target="_blank" rel="external">渗透师的powershell入门</a><br><a href="https://www.blackh4t.org/archives/99.html" target="_blank" rel="external">快速判断文件是否为病毒</a><br><a href="https://www.blackh4t.org/archives/62.html" target="_blank" rel="external">教你如何分析病毒的行为</a><br><a href="https://www.blackh4t.org/archives/1652.html" target="_blank" rel="external">mac的使用</a><br><a href="https://www.blackh4t.org/archives/1700.html" target="_blank" rel="external">内网渗透之隐私收集</a><br><a href="https://www.blackh4t.org/archives/1005.html" target="_blank" rel="external">Windows编程入门答学弟问</a><br><a href="https://www.blackh4t.org/archives/397.html" target="_blank" rel="external">一个HTTP类的实现</a><br><a href="https://www.blackh4t.org/archives/1372.html" target="_blank" rel="external">各种Payload免杀工具集</a><br><a href="https://www.blackh4t.org/archives/1000.html" target="_blank" rel="external">Ph4nt0m Webzine CheckList</a><br><a href="https://www.blackh4t.org/archives/576.html" target="_blank" rel="external">渗透师升级指南</a><br><a href="https://www.blackh4t.org/archives/394.html" target="_blank" rel="external">域内网渗透小结</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1691,7 +1678,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">89</span>
+                <span class="site-state-item-count">90</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
