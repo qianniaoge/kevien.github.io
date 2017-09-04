@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-09-04T08:32:51.000Z</updated>
+  <updated>2017-09-04T13:20:43.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>window消息钩取</title>
+    <link href="http://kevien.github.io/2017/09/04/window%E6%B6%88%E6%81%AF%E9%92%A9%E5%8F%96/"/>
+    <id>http://kevien.github.io/2017/09/04/window消息钩取/</id>
+    <published>2017-09-04T12:48:02.000Z</published>
+    <updated>2017-09-04T13:20:43.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h4><ul>
+<li>记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数<br><img src="/2017/09/04/window消息钩取/0.png" alt=""></li>
+<li>附加进程-&gt;勾选debugging options中的Break on new module(dll)-&gt;运行HookMain.exe-&gt;在notepad中键盘输入-&gt;此时就有如下<br><img src="/2017/09/04/window消息钩取/1.png" alt=""></li>
+<li>如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。<br><img src="/2017/09/04/window消息钩取/2.png" alt=""></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;实验记录&quot;&gt;&lt;a href=&quot;#实验记录&quot; class=&quot;headerlink&quot; title=&quot;实验记录&quot;&gt;&lt;/a&gt;实验记录&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数&lt;br&gt;&lt;img src
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20170904安全动态</title>
@@ -168,7 +192,7 @@
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#x6d;&#107;&#x68;&#105;&#122;&#101;&#114;&#106;&#x61;&#x76;&#x65;&#100;&#47;&#115;&#x71;&#x6c;&#x69;&#x2d;&#120;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#x6e;&#101;&#x72;&#x61;&#x62;&#x69;&#x6c;&#105;&#x74;&#105;&#101;&#x73;&#x2d;&#105;&#110;&#45;&#97;&#45;&#112;&#x6f;&#112;&#117;&#x6c;&#97;&#x72;&#45;&#97;&#x69;&#x72;&#108;&#105;&#110;&#x65;&#115;&#45;&#x77;&#x65;&#x62;&#x73;&#x69;&#116;&#x65;&#45;&#x62;&#117;&#x67;&#98;&#111;&#117;&#x6e;&#116;&#x79;&#45;&#112;&#x6f;&#x63;&#x2d;&#x35;&#99;&#48;&#x64;&#x37;&#x31;&#x66;&#57;&#51;&#x35;&#99;&#49;">&#x68;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#x6d;&#107;&#x68;&#105;&#122;&#101;&#114;&#106;&#x61;&#x76;&#x65;&#100;&#47;&#115;&#x71;&#x6c;&#x69;&#x2d;&#120;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#x6e;&#101;&#x72;&#x61;&#x62;&#x69;&#x6c;&#105;&#x74;&#105;&#101;&#x73;&#x2d;&#105;&#110;&#45;&#97;&#45;&#112;&#x6f;&#112;&#117;&#x6c;&#97;&#x72;&#45;&#97;&#x69;&#x72;&#108;&#105;&#110;&#x65;&#115;&#45;&#x77;&#x65;&#x62;&#x73;&#x69;&#116;&#x65;&#45;&#x62;&#117;&#x67;&#98;&#111;&#117;&#x6e;&#116;&#x79;&#45;&#112;&#x6f;&#x63;&#x2d;&#x35;&#99;&#48;&#x64;&#x37;&#x31;&#x66;&#57;&#51;&#x35;&#99;&#49;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#107;&#104;&#x69;&#x7a;&#x65;&#x72;&#106;&#x61;&#x76;&#x65;&#x64;&#x2f;&#x73;&#x71;&#108;&#105;&#x2d;&#120;&#x73;&#115;&#45;&#x76;&#x75;&#x6c;&#x6e;&#x65;&#114;&#x61;&#x62;&#x69;&#108;&#105;&#116;&#105;&#101;&#x73;&#x2d;&#x69;&#110;&#x2d;&#x61;&#45;&#x70;&#111;&#x70;&#117;&#x6c;&#97;&#x72;&#x2d;&#x61;&#105;&#x72;&#x6c;&#x69;&#x6e;&#101;&#115;&#45;&#x77;&#x65;&#98;&#x73;&#x69;&#x74;&#101;&#45;&#98;&#x75;&#x67;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#45;&#112;&#111;&#99;&#x2d;&#x35;&#99;&#x30;&#x64;&#x37;&#49;&#102;&#x39;&#51;&#53;&#x63;&#x31;">&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#107;&#104;&#x69;&#x7a;&#x65;&#x72;&#106;&#x61;&#x76;&#x65;&#x64;&#x2f;&#x73;&#x71;&#108;&#105;&#x2d;&#120;&#x73;&#115;&#45;&#x76;&#x75;&#x6c;&#x6e;&#x65;&#114;&#x61;&#x62;&#x69;&#108;&#105;&#116;&#105;&#101;&#x73;&#x2d;&#x69;&#110;&#x2d;&#x61;&#45;&#x70;&#111;&#x70;&#117;&#x6c;&#97;&#x72;&#x2d;&#x61;&#105;&#x72;&#x6c;&#x69;&#x6e;&#101;&#115;&#45;&#x77;&#x65;&#98;&#x73;&#x69;&#x74;&#101;&#45;&#98;&#x75;&#x67;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#45;&#112;&#111;&#99;&#x2d;&#x35;&#99;&#x30;&#x64;&#x37;&#49;&#102;&#x39;&#51;&#53;&#x63;&#x31;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -349,12 +373,12 @@
 <li>waf openstar<br><a href="https://github.com/starjun/openstar" target="_blank" rel="external">https://github.com/starjun/openstar</a></li>
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#116;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#x6d;&#x61;&#x6c;&#99;&#111;&#109;&#x76;&#x65;&#x74;&#x74;&#x65;&#x72;&#x2f;&#109;&#117;&#x6c;&#116;&#105;&#x2d;&#x70;&#x6c;&#x61;&#116;&#102;&#x6f;&#x72;&#109;&#45;&#109;&#97;&#99;&#x72;&#111;&#45;&#112;&#104;&#x69;&#115;&#104;&#105;&#x6e;&#103;&#x2d;&#x70;&#97;&#x79;&#108;&#111;&#x61;&#100;&#115;&#45;&#51;&#x62;&#54;&#56;&#x38;&#x65;&#x38;&#101;&#x66;&#102;&#54;&#x38;">&#104;&#116;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#x6d;&#x61;&#x6c;&#99;&#111;&#109;&#x76;&#x65;&#x74;&#x74;&#x65;&#x72;&#x2f;&#109;&#117;&#x6c;&#116;&#105;&#x2d;&#x70;&#x6c;&#x61;&#116;&#102;&#x6f;&#x72;&#109;&#45;&#109;&#97;&#99;&#x72;&#111;&#45;&#112;&#104;&#x69;&#115;&#104;&#105;&#x6e;&#103;&#x2d;&#x70;&#97;&#x79;&#108;&#111;&#x61;&#100;&#115;&#45;&#51;&#x62;&#54;&#56;&#x38;&#x65;&#x38;&#101;&#x66;&#102;&#54;&#x38;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#109;&#x61;&#108;&#99;&#x6f;&#109;&#x76;&#101;&#116;&#116;&#101;&#x72;&#x2f;&#109;&#117;&#108;&#x74;&#x69;&#45;&#112;&#108;&#97;&#116;&#x66;&#111;&#x72;&#109;&#x2d;&#x6d;&#97;&#99;&#x72;&#x6f;&#x2d;&#x70;&#104;&#105;&#x73;&#x68;&#x69;&#110;&#103;&#45;&#x70;&#97;&#x79;&#x6c;&#x6f;&#97;&#100;&#x73;&#x2d;&#x33;&#98;&#x36;&#56;&#56;&#x65;&#x38;&#x65;&#102;&#102;&#54;&#56;">&#104;&#x74;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#109;&#x61;&#108;&#99;&#x6f;&#109;&#x76;&#101;&#116;&#116;&#101;&#x72;&#x2f;&#109;&#117;&#108;&#x74;&#x69;&#45;&#112;&#108;&#97;&#116;&#x66;&#111;&#x72;&#109;&#x2d;&#x6d;&#97;&#99;&#x72;&#x6f;&#x2d;&#x70;&#104;&#105;&#x73;&#x68;&#x69;&#110;&#103;&#45;&#x70;&#97;&#x79;&#x6c;&#x6f;&#97;&#100;&#x73;&#x2d;&#x33;&#98;&#x36;&#56;&#56;&#x65;&#x38;&#x65;&#102;&#102;&#54;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#64;&#116;&#x68;&#x65;&#103;&#x72;&#117;&#x67;&#113;&#x2f;&#116;&#104;&#x65;&#45;&#122;&#101;&#110;&#45;&#111;&#x66;&#45;&#112;&#103;&#x70;&#45;&#54;&#102;&#x35;&#53;&#100;&#52;&#52;&#x36;&#53;&#x37;&#x64;&#x64;">&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#64;&#116;&#x68;&#x65;&#103;&#x72;&#117;&#x67;&#113;&#x2f;&#116;&#104;&#x65;&#45;&#122;&#101;&#110;&#45;&#111;&#x66;&#45;&#112;&#103;&#x70;&#45;&#54;&#102;&#x35;&#53;&#100;&#52;&#52;&#x36;&#53;&#x37;&#x64;&#x64;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#47;&#x40;&#116;&#104;&#x65;&#103;&#x72;&#x75;&#103;&#x71;&#47;&#116;&#x68;&#101;&#45;&#122;&#101;&#110;&#45;&#111;&#x66;&#45;&#x70;&#103;&#x70;&#x2d;&#54;&#102;&#x35;&#x35;&#x64;&#52;&#52;&#54;&#x35;&#55;&#x64;&#x64;">&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#47;&#x40;&#116;&#104;&#x65;&#103;&#x72;&#x75;&#103;&#x71;&#47;&#116;&#x68;&#101;&#45;&#122;&#101;&#110;&#45;&#111;&#x66;&#45;&#x70;&#103;&#x70;&#x2d;&#54;&#102;&#x35;&#x35;&#x64;&#52;&#52;&#54;&#x35;&#55;&#x64;&#x64;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -663,49 +687,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;漏洞发现之细节决定成败&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/c
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>linux栈溢出学习笔记</title>
-    <link href="http://kevien.github.io/2017/08/16/linux%E6%A0%88%E6%BA%A2%E5%87%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://kevien.github.io/2017/08/16/linux栈溢出学习笔记/</id>
-    <published>2017-08-16T10:53:23.000Z</published>
-    <updated>2017-08-19T04:28:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h4><p>gdb GNU Project Debugger<br>在linux下面调试程序必然会用到gdb，当然还有gdb的一个插件也是必须，那就是<a href="https://github.com/longld/peda" target="_blank" rel="external">peda</a><br>peda增强了gdb的功能，在调试过程中会显示反汇编的代码、寄存器、内存信息等</p>
-<ul>
-<li>aslr – 显示和设置GDB的aslr</li>
-<li>checksec – 显示多种安全机制的开关</li>
-<li>dumpargs – 当停到一个call 指令的时候，显示传递给函数的参数</li>
-<li>dumpprop – dump所有ROP gadgets 在一定的内存范围内</li>
-<li>elfheader – 获取被调试的ELF文件的头信息</li>
-<li>lefsymbol –获取非调试状态下的 符号信息</li>
-<li>lookup – 在一定地址范围内查找所有的地址以及引用</li>
-<li>patch – Patch memory start at an address with string/hexstring/int</li>
-<li>pattern – Generate, search, or write a cyclic pattern to memory</li>
-<li>procinfo – 从/proc/pid/显示不同的信息</li>
-<li>pshow – 显示peda的选项以及其它的设置</li>
-<li>pset – 设置peda的选项以及其它的设置</li>
-<li>readelf 获取ELF文件的头部信息</li>
-<li>ropgadget – Get common ROP gadgets of binary or library</li>
-<li>ropsearch – Search for ROP gadgets in memory</li>
-<li>searchmem|find – Search for a pattern in memory; support regex search</li>
-<li>shellcode – Generate or download common shellcodes.</li>
-<li>skeleton – Generate python exploit code template</li>
-<li>vmmap – Get virtual mapping address ranges of section(s) in debugged process</li>
-<li>xormem – XOR a memory region with a key</li>
-</ul>
-<p>在gdb中，常用的就是如下的命令<br>attach  附加某个进程进行调试<br>run 运行程序 ，会在断点处停下来<br>break或者b  xxx ，下断点<br>next 类似于od中的单步步过<br>step 类似于od中的单步步入</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://blog.csdn.net/21cnbao/article/details/7385161" target="_blank" rel="external">Linux gdb调试器用法全面解析</a><br><a href="http://drops.xmd5.com/static/drops/tips-6597.html" target="_blank" rel="external">一步一步学ROP之linux_x86篇</a><br><a href="https://exploit-exercises.com/" target="_blank" rel="external">linux溢出练习</a><br><a href="http://www.cnblogs.com/pannengzhi/p/5203467.html" target="_blank" rel="external">linux Hook笔记</a><br><a href="http://paper.seebug.org/271/" target="_blank" rel="external">手把手教你栈溢出</a><br><a href="https://github.com/smokeleeteveryday/CTF_WRITEUPS/tree/master/2015/DEFCONCTF/babysfirst/r0pbaby" target="_blank" rel="external">DEF CON CTF Quals 2015: r0pbaby</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;gdb使用&quot;&gt;&lt;a href=&quot;#gdb使用&quot; class=&quot;headerlink&quot; title=&quot;gdb使用&quot;&gt;&lt;/a&gt;gdb使用&lt;/h4&gt;&lt;p&gt;gdb GNU Project Debugger&lt;br&gt;在linux下面调试程序必然会用到gdb，当然还有gdb的一
     
     </summary>
     
