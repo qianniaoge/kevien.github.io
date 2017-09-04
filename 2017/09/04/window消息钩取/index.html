@@ -103,20 +103,21 @@
 
 
 
-<meta name="description" content="实验记录 记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数 附加进程-&amp;gt;勾选debugging options中的Break on new module(dll)-&amp;gt;运行HookMain.exe-&amp;gt;在notepad中键盘输入-&amp;gt;此时就有如下 如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。">
+<meta name="description" content="原理介绍主要是SetWindowsHookEx()这个API函数Hook  SetWindowsHookEx(    int idHook,   //hook type    HOOKPROC lpfn //hook procedure    HINSTANCE hMOd // hook Procedure 所属的DLL句柄    DWORD dwThreadId // 想要挂钩的线程ID)钩子过">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="window消息钩取">
 <meta property="og:url" content="http://kevien.github.io/2017/09/04/window消息钩取/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="实验记录 记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数 附加进程-&amp;gt;勾选debugging options中的Break on new module(dll)-&amp;gt;运行HookMain.exe-&amp;gt;在notepad中键盘输入-&amp;gt;此时就有如下 如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。">
+<meta property="og:description" content="原理介绍主要是SetWindowsHookEx()这个API函数Hook  SetWindowsHookEx(    int idHook,   //hook type    HOOKPROC lpfn //hook procedure    HINSTANCE hMOd // hook Procedure 所属的DLL句柄    DWORD dwThreadId // 想要挂钩的线程ID)钩子过">
 <meta property="og:image" content="http://kevien.github.io/2017/09/04/window消息钩取/0.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/04/window消息钩取/1.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/04/window消息钩取/2.png">
-<meta property="og:updated_time" content="2017-09-04T13:20:43.000Z">
+<meta property="og:image" content="http://kevien.github.io/2017/09/04/window消息钩取/3.png">
+<meta property="og:updated_time" content="2017-09-04T13:44:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="window消息钩取">
-<meta name="twitter:description" content="实验记录 记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数 附加进程-&amp;gt;勾选debugging options中的Break on new module(dll)-&amp;gt;运行HookMain.exe-&amp;gt;在notepad中键盘输入-&amp;gt;此时就有如下 如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。">
+<meta name="twitter:description" content="原理介绍主要是SetWindowsHookEx()这个API函数Hook  SetWindowsHookEx(    int idHook,   //hook type    HOOKPROC lpfn //hook procedure    HINSTANCE hMOd // hook Procedure 所属的DLL句柄    DWORD dwThreadId // 想要挂钩的线程ID)钩子过">
 <meta name="twitter:image" content="http://kevien.github.io/2017/09/04/window消息钩取/0.png">
 
 
@@ -351,10 +352,13 @@
       
 
       
-        <h4 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h4><ul>
+        <h4 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h4><p>主要是SetWindowsHookEx()这个API函数<br>Hook  SetWindowsHookEx(<br>    int idHook,   //hook type<br>    HOOKPROC lpfn //hook procedure<br>    HINSTANCE hMOd // hook Procedure 所属的DLL句柄<br>    DWORD dwThreadId // 想要挂钩的线程ID<br>)<br>钩子过程是由操作系统调用的回调函数，安装消息钩子的时候，钩子过程需要存在于某个DLL内部，且该DLL的实例句柄即是hMod.<br>这里要注意，当dwThreadId参数被设置为0时候，则安装的是全局钩子，他会影响到运行中的所有进程。<br>像是使用SetWindowsHookEx()设置好钩子之后，在某个进程中生成指定消息时，操作系统会将相关的DLL文件强制注入到相应进程，然后调用注册的钩子函数。</p>
+<h4 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h4><ul>
 <li>记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数<br><img src="/2017/09/04/window消息钩取/0.png" alt=""></li>
 <li>附加进程-&gt;勾选debugging options中的Break on new module(dll)-&gt;运行HookMain.exe-&gt;在notepad中键盘输入-&gt;此时就有如下<br><img src="/2017/09/04/window消息钩取/1.png" alt=""></li>
-<li>如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。<br><img src="/2017/09/04/window消息钩取/2.png" alt=""></li>
+<li>如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。<br><img src="/2017/09/04/window消息钩取/2.png" alt=""><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
+<li>我觉得这张图能很好的阐释windows钩子的原理<br><img src="/2017/09/04/window消息钩取/3.png" alt=""><br>spy++是一个功能十分强大的消息钩取程序，能够查看操作系统中来往的所有消息。</li>
+<li>在windows中SetWindowsHookEx()这个API可以轻松实现消息钩子。<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4>逆向工程核心原理</li>
 </ul>
 
       
@@ -596,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#实验记录"><span class="nav-number">1.</span> <span class="nav-text">实验记录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理介绍"><span class="nav-number">1.</span> <span class="nav-text">原理介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验记录"><span class="nav-number">2.</span> <span class="nav-text">实验记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
