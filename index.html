@@ -273,6 +273,125 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/05/20170905安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/05/20170905安全动态/" itemprop="url">
+                  20170905安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T10:20:28+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/04/window消息钩取/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,9 +468,9 @@
       
         
           
-            <h4 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h4><p>主要是SetWindowsHookEx()这个API函数<br>Hook  SetWindowsHookEx(<br>    int idHook,   //hook type<br>    HOOKPROC lpfn //hook procedure<br>    HINSTANCE hMOd // hook Procedure 所属的DLL句柄<br>    DWORD dwThreadId // 想要挂钩的线程ID<br>)<br>钩子过程是由操作系统调用的回调函数，安装消息钩子的时候，钩子过程需要存在于某个DLL内部，且该DLL的实例句柄即是hMod.<br>这里要注意，当dwThreadId参数被设置为0时候，则安装的是全局钩子，他会影响到运行中的所有进程。<br>像是使用SetWindowsHookEx()设置好钩子之后，在某个进程中生成指定消息时，操作系统会将相关的DLL文件强制注入到相应进程，然后调用注册的钩子函数。</p>
+            <h4 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h4><p>在操作系统中安装全局钩子以后，只要进程接收到可以发出钩子的消息后，全局钩子的DLL文件会被操作系统自动或者强行地加载到该进程中。<br>主要是SetWindowsHookEx()这个API函数<br>Hook  SetWindowsHookEx(<br>    int idHook,   //hook type<br>    HOOKPROC lpfn //hook procedure<br>    HINSTANCE hMOd // hook Procedure 所属的DLL句柄<br>    DWORD dwThreadId // 想要挂钩的线程ID<br>)<br>钩子过程是由操作系统调用的回调函数，安装消息钩子的时候，钩子过程需要存在于某个DLL内部，且该DLL的实例句柄即是hMod.<br>这里要注意，当dwThreadId参数被设置为0时候，则安装的是全局钩子，他会影响到运行中的所有进程。<br>像是使用SetWindowsHookEx()设置好钩子之后，在某个进程中生成指定消息时，操作系统会将相关的DLL文件强制注入到相应进程，然后调用注册的钩子函数。</p>
 <h4 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h4><ul>
-<li>记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数<br><img src="/2017/09/04/window消息钩取/0.png" alt=""></li>
+<li>这里练习一下WH_KEYBOARD 这个键盘钩子，记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数<br><img src="/2017/09/04/window消息钩取/0.png" alt=""></li>
 <li>附加进程-&gt;勾选debugging options中的Break on new module(dll)-&gt;运行HookMain.exe-&gt;在notepad中键盘输入-&gt;此时就有如下<br><img src="/2017/09/04/window消息钩取/1.png" alt=""></li>
 <li>如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。<br><img src="/2017/09/04/window消息钩取/2.png" alt=""><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
 <li>我觉得这张图能很好的阐释windows钩子的原理<br><img src="/2017/09/04/window消息钩取/3.png" alt=""><br>spy++是一个功能十分强大的消息钩取程序，能够查看操作系统中来往的所有消息。</li>
@@ -922,7 +1041,7 @@
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#x74;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#x6d;&#x6b;&#104;&#105;&#x7a;&#101;&#x72;&#x6a;&#97;&#x76;&#x65;&#x64;&#47;&#115;&#113;&#108;&#105;&#45;&#x78;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#110;&#x65;&#114;&#x61;&#x62;&#105;&#108;&#x69;&#116;&#x69;&#101;&#x73;&#45;&#x69;&#110;&#x2d;&#97;&#45;&#112;&#x6f;&#112;&#x75;&#108;&#x61;&#x72;&#x2d;&#97;&#105;&#x72;&#x6c;&#x69;&#x6e;&#101;&#x73;&#x2d;&#119;&#x65;&#x62;&#x73;&#105;&#116;&#101;&#45;&#98;&#117;&#103;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#x2d;&#x70;&#x6f;&#x63;&#45;&#53;&#x63;&#48;&#x64;&#55;&#x31;&#102;&#57;&#x33;&#x35;&#99;&#49;">&#104;&#116;&#x74;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#x6d;&#x6b;&#104;&#105;&#x7a;&#101;&#x72;&#x6a;&#97;&#x76;&#x65;&#x64;&#47;&#115;&#113;&#108;&#105;&#45;&#x78;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#110;&#x65;&#114;&#x61;&#x62;&#105;&#108;&#x69;&#116;&#x69;&#101;&#x73;&#45;&#x69;&#110;&#x2d;&#97;&#45;&#112;&#x6f;&#112;&#x75;&#108;&#x61;&#x72;&#x2d;&#97;&#105;&#x72;&#x6c;&#x69;&#x6e;&#101;&#x73;&#x2d;&#119;&#x65;&#x62;&#x73;&#105;&#116;&#101;&#45;&#98;&#117;&#103;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#x2d;&#x70;&#x6f;&#x63;&#45;&#53;&#x63;&#48;&#x64;&#55;&#x31;&#102;&#57;&#x33;&#x35;&#99;&#49;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#107;&#104;&#x69;&#x7a;&#101;&#x72;&#106;&#x61;&#118;&#x65;&#100;&#x2f;&#x73;&#113;&#108;&#105;&#x2d;&#120;&#x73;&#115;&#45;&#118;&#x75;&#108;&#110;&#101;&#x72;&#97;&#x62;&#x69;&#x6c;&#x69;&#116;&#x69;&#x65;&#x73;&#45;&#105;&#x6e;&#x2d;&#97;&#x2d;&#x70;&#111;&#112;&#117;&#x6c;&#x61;&#x72;&#45;&#x61;&#x69;&#x72;&#x6c;&#x69;&#x6e;&#101;&#115;&#45;&#119;&#101;&#x62;&#115;&#105;&#116;&#x65;&#x2d;&#98;&#117;&#103;&#x62;&#111;&#117;&#x6e;&#x74;&#x79;&#45;&#x70;&#x6f;&#99;&#x2d;&#x35;&#x63;&#48;&#x64;&#x37;&#49;&#x66;&#x39;&#51;&#x35;&#99;&#49;">&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#x6d;&#107;&#104;&#x69;&#x7a;&#101;&#x72;&#106;&#x61;&#118;&#x65;&#100;&#x2f;&#x73;&#113;&#108;&#105;&#x2d;&#120;&#x73;&#115;&#45;&#118;&#x75;&#108;&#110;&#101;&#x72;&#97;&#x62;&#x69;&#x6c;&#x69;&#116;&#x69;&#x65;&#x73;&#45;&#105;&#x6e;&#x2d;&#97;&#x2d;&#x70;&#111;&#112;&#117;&#x6c;&#x61;&#x72;&#45;&#x61;&#x69;&#x72;&#x6c;&#x69;&#x6e;&#101;&#115;&#45;&#119;&#101;&#x62;&#115;&#105;&#116;&#x65;&#x2d;&#98;&#117;&#103;&#x62;&#111;&#117;&#x6e;&#x74;&#x79;&#45;&#x70;&#x6f;&#99;&#x2d;&#x35;&#x63;&#48;&#x64;&#x37;&#49;&#x66;&#x39;&#51;&#x35;&#99;&#49;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -1501,134 +1620,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/24/window逆向基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/24/window逆向基础/" itemprop="url">
-                  window逆向基础
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T17:06:38+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="常见汇编指令助记"><a href="#常见汇编指令助记" class="headerlink" title="常见汇编指令助记"></a>常见汇编指令助记</h4><p>JG / JNLE：Jump when Greater / Jump when Not Less or Equal<br>JL / JNGE：Jump when Less / Jump when Not Greater or Equal<br>JGE / JNL：Jump when Greater or Equal / Jump when Not Less<br>JLE / JNG：Jump when Less or Equal / Jump when Not Greater<br>JE / JZ：Jump when Less / Jump when Zero</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>API 函数 －－ API 绝密档案系列之一<br><a href="http://bbs.pediy.com/user-22319-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-22319-1.htm</a></li>
-<li>Win32环境下函数调用的堆栈之研究<br><a href="http://bbs.pediy.com/thread-69909.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-69909.htm</a></li>
-<li>汇编的学习<br><a href="http://bbs.pediy.com/user-90551-1-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-90551-1-1.htm</a><br><a href="http://bbs.pediy.com/user-202613-0-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-202613-0-1.htm</a></li>
-<li>window线程<br><a href="http://bbs.pediy.com/thread-77556.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-77556.htm</a></li>
-<li>C++类虚函数逆向学习总结<br><a href="http://bbs.pediy.com/thread-60538.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-60538.htm</a></li>
-<li>MFC逆向初级研究<br><a href="http://bbs.pediy.com/thread-41087.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-41087.htm</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1678,7 +1669,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
