@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-09-06T11:37:31.000Z</updated>
+  <updated>2017-09-07T07:47:59.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,68 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>指针参数传递与数据安全</title>
+    <link href="http://kevien.github.io/2017/09/07/%E6%8C%87%E9%92%88%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/"/>
+    <id>http://kevien.github.io/2017/09/07/指针参数传递与数据安全/</id>
+    <published>2017-09-07T07:27:19.000Z</published>
+    <updated>2017-09-07T07:47:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="知识扫盲"><a href="#知识扫盲" class="headerlink" title="知识扫盲"></a>知识扫盲</h4><ul>
+<li>理解常值变量和符号常量的区别<br><br>在定义时用const修饰的普通变量称为常值变量.例如：<br><br>const int MaxLint = 1000;<br>const float Pi = 3.1415926;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &quot;iostream&quot;</div><div class="line">using namespace std;</div><div class="line">//void sp_to_dash(const char *s)</div><div class="line">//&#123;</div><div class="line">//	while(*s)</div><div class="line">//	&#123;</div><div class="line">//		if(*s == &apos; &apos;) *s = &apos;_&apos;;</div><div class="line">//		cout&lt;&lt; *s++;</div><div class="line">//	&#125;</div><div class="line">//&#125;</div><div class="line"></div><div class="line">void sp_to_dash(const char *s)</div><div class="line">&#123;</div><div class="line">	while(*s)</div><div class="line">	&#123;</div><div class="line">		if(*s == &apos; &apos;) cout&lt;&lt;&apos;_&apos;;</div><div class="line">		else cout&lt;&lt;*s;</div><div class="line">		s++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	sp_to_dash(&quot;hello !&quot;);</div><div class="line">	cout&lt;&lt;endl;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;知识扫盲&quot;&gt;&lt;a href=&quot;#知识扫盲&quot; class=&quot;headerlink&quot; title=&quot;知识扫盲&quot;&gt;&lt;/a&gt;知识扫盲&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;理解常值变量和符号常量的区别&lt;br&gt;&lt;br&gt;在定义时用const修饰的普通变量称为常值变量.例如：&lt;br&gt;&lt;br
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170907安全动态</title>
+    <link href="http://kevien.github.io/2017/09/07/20170907%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/09/07/20170907安全动态/</id>
+    <published>2017-09-07T02:21:37.000Z</published>
+    <updated>2017-09-07T03:59:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>数字签名攻击报告：正在摧毁软件身份“信用体系”的安全危机<br><a href="http://www.freebuf.com/articles/network/146274.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/146274.html</a></li>
+<li>Hunting With Active Directory Replication Metadata<br><a href="https://posts.specterops.io/hunting-with-active-directory-replication-metadata-1dab2f681b19" target="_blank" rel="external">https://posts.specterops.io/hunting-with-active-directory-replication-metadata-1dab2f681b19</a></li>
+<li>Syzygy - PE 文件的文件重写工具（Binary Rewriting），可以实现代码块分析和重构等功能<br><a href="http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/" target="_blank" rel="external">http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/</a></li>
+<li>InfoCON - 专门收集各大信息安全会议资料的网站<br><a href="https://infocon.org/cons/" target="_blank" rel="external">https://infocon.org/cons/</a></li>
+<li>FrauDroid - 一个精确的大规模自动化手机广告欺诈检测的方法<br><a href="https://arxiv.org/pdf/1709.01213.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1709.01213.pdf</a></li>
+<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#47;&#64;&#105;&#110;&#x73;&#x65;&#99;&#x75;&#x72;&#x69;&#116;&#121;&#x5f;&#x39;&#x32;&#x34;&#x37;&#55;&#47;&#x75;&#116;&#x69;&#108;&#105;&#x7a;&#x69;&#x6e;&#103;&#45;&#104;&#116;&#97;&#x63;&#99;&#x65;&#115;&#x73;&#45;&#x66;&#x6f;&#114;&#x2d;&#x65;&#x78;&#x70;&#108;&#111;&#105;&#x74;&#x61;&#116;&#x69;&#111;&#x6e;&#45;&#112;&#117;&#x72;&#x70;&#111;&#115;&#101;&#115;&#45;&#x70;&#x61;&#x72;&#116;&#45;&#x31;&#45;&#53;&#x37;&#51;&#x33;&#100;&#100;&#x37;&#x66;&#99;&#x38;&#101;&#98;">&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#47;&#64;&#105;&#110;&#x73;&#x65;&#99;&#x75;&#x72;&#x69;&#116;&#121;&#x5f;&#x39;&#x32;&#x34;&#x37;&#55;&#47;&#x75;&#116;&#x69;&#108;&#105;&#x7a;&#x69;&#x6e;&#103;&#45;&#104;&#116;&#97;&#x63;&#99;&#x65;&#115;&#x73;&#45;&#x66;&#x6f;&#114;&#x2d;&#x65;&#x78;&#x70;&#108;&#111;&#105;&#x74;&#x61;&#116;&#x69;&#111;&#x6e;&#45;&#112;&#117;&#x72;&#x70;&#111;&#115;&#101;&#115;&#45;&#x70;&#x61;&#x72;&#116;&#45;&#x31;&#45;&#53;&#x37;&#51;&#x33;&#100;&#100;&#x37;&#x66;&#99;&#x38;&#101;&#98;</a></li>
+<li>Wireless IP Camera (P2P) WIFICAM 无线摄像头的多个高危漏洞详情<br><a href="https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html</a></li>
+<li>黑客免费提供的Cobian RAT中暗藏后门<br><a href="http://thehackernews.com/2017/09/backdoored-hacking-tools.html" target="_blank" rel="external">http://thehackernews.com/2017/09/backdoored-hacking-tools.html</a></li>
+<li>如何制作基础认证钓鱼页面<br><a href="https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/" target="_blank" rel="external">https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/</a></li>
+<li>JavaScript WebSocket Backdoor: 浏览器后门<br><a href="https://n0where.net/javascript-websocket-backdoor-browserbackdoor/" target="_blank" rel="external">https://n0where.net/javascript-websocket-backdoor-browserbackdoor/</a></li>
+<li>Java-Deserialization-Cheat-Sheet  java反序列化<br><https: github.com="" grrrdog="" java-deserialization-cheat-sheet=""></https:></li>
+<li>IPTables工作原理分析<br><https: n0where.net="" how-does-it-work-iptables=""></https:></li>
+<li>Command and Control – DNS  DNS隧道<br><https: 2017="" pentestlab.blog="" 09="" 06="" command-and-control-dns=""></https:></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;数字签名攻击报告：正在摧毁软件身份“信用体系”的安全危机&lt;br&gt;&lt;a href=&quot;http://
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>yara使用说明</title>
     <link href="http://kevien.github.io/2017/09/06/yara%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
     <id>http://kevien.github.io/2017/09/06/yara使用说明/</id>
     <published>2017-09-06T08:55:40.000Z</published>
-    <updated>2017-09-06T11:37:31.000Z</updated>
+    <updated>2017-09-07T10:19:37.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
 <li>yara工具用来帮助安全研究人员鉴别和对恶意软件进行分类的工具。我们可以通过编写规则来进行恶意软件的识别。<h4 id="yara-规则"><a href="#yara-规则" class="headerlink" title="yara 规则"></a>yara 规则</h4><a href="http://yara.readthedocs.io/en/v3.6.3/index.html" target="_blank" rel="external">最新规则官方文档</a><br><br>规则示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">rule silent_banker : banker</div><div class="line">&#123;</div><div class="line">    meta:</div><div class="line">        description = &quot;This is just an example&quot;</div><div class="line">        thread_level = 3</div><div class="line">        in_the_wild = true</div><div class="line">    strings:</div><div class="line">        $a = &#123;6A 40 68 00 30 00 00 6A 14 8D 91&#125;</div><div class="line">        $b = &#123;8D 4D B0 2B C1 83 C0 27 99 6A 4E 59 F7 F9&#125;</div><div class="line">        $c = &quot;UVODFRYSIHLNWPEJXQZAKCBGMT&quot;</div><div class="line">    condition:</div><div class="line">        $a or $b or $c</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -62,7 +119,7 @@
 <li>文件大小<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> rule FileSizeExample</div><div class="line">&#123;</div><div class="line">    condition:</div><div class="line">       filesize &gt; 200KB</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>这个只能匹配文件，如果是运行着的程序的话，那么将永远不会匹配，因为之歌时候filesize没有意义。</p>
+<p>这个只能匹配文件，如果是运行着的程序的话，那么将永远不会匹配，因为这个时候filesize没有意义。</p>
 <ul>
 <li><p>特定位置的数据获取<br>PE文件的判断</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> rule IsPE</div><div class="line">&#123;</div><div class="line">  condition:</div><div class="line">     // MZ signature at offset 0 and ...</div><div class="line">     uint16(0) == 0x5A4D and</div><div class="line">     // ... PE signature at offset stored in MZ header at 0x3C</div><div class="line">     uint32(uint32(0x3C)) == 0x00004550</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -93,7 +150,11 @@ $c = &quot;dummy3&quot;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &quot;pe&quot;</div><div class="line"></div><div class="line">rule Test</div><div class="line">&#123;</div><div class="line">  strings:</div><div class="line">      $a = &quot;some string&quot;</div><div class="line"></div><div class="line">  condition:</div><div class="line">      $a and pe.entry_point == 0x1000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>文件包含</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;other.yar&quot;</div></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;other.yar&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>web<br><a href="https://github.com/Tigzy/yaraeditor" target="_blank" rel="external">https://github.com/Tigzy/yaraeditor</a></li>
 </ul>
 ]]></content>
     
@@ -112,7 +173,7 @@ $c = &quot;dummy3&quot;
     <link href="http://kevien.github.io/2017/09/06/20170906%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/06/20170906安全动态/</id>
     <published>2017-09-06T03:55:40.000Z</published>
-    <updated>2017-09-06T05:32:07.000Z</updated>
+    <updated>2017-09-07T06:36:09.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>Struts2 S2-052 RCE分析与利用<br><a href="https://paper.seebug.org/383/" target="_blank" rel="external">https://paper.seebug.org/383/</a></li>
@@ -131,6 +192,8 @@ $c = &quot;dummy3&quot;
 <li>滥用可写Windows服务<br><a href="https://blog.didierstevens.com/2017/09/05/abusing-a-writable-windows-service/" target="_blank" rel="external">https://blog.didierstevens.com/2017/09/05/abusing-a-writable-windows-service/</a></li>
 <li>通过静态分析检测Python Web应用程序中漏洞<br><a href="https://github.com/python-security/pyt" target="_blank" rel="external">https://github.com/python-security/pyt</a></li>
 <li>Re-enjoying the ActiveX (and others) Fun in Chinese Customized Browsers<br><a href="https://justhaifei1.blogspot.com/2017/09/re-enjoying-activex-and-others.html" target="_blank" rel="external">https://justhaifei1.blogspot.com/2017/09/re-enjoying-activex-and-others.html</a></li>
+<li>security things in Linux v4.13<br><a href="https://outflux.net/blog/archives/2017/09/05/security-things-in-linux-v4-13/" target="_blank" rel="external">https://outflux.net/blog/archives/2017/09/05/security-things-in-linux-v4-13/</a></li>
+<li>Remotely Dump Linux RAM: LiMEaide<br><a href="https://n0where.net/remotely-dump-linux-ram-limeaide/" target="_blank" rel="external">https://n0where.net/remotely-dump-linux-ram-limeaide/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4>macOS版微信竟可以这样消息防撤回<br><a href="http://www.jianshu.com/p/7f65287a2e7a" target="_blank" rel="external">http://www.jianshu.com/p/7f65287a2e7a</a></li>
 </ul>
 ]]></content>
     
@@ -149,7 +212,7 @@ $c = &quot;dummy3&quot;
     <link href="http://kevien.github.io/2017/09/05/20170905%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/05/20170905安全动态/</id>
     <published>2017-09-05T02:20:28.000Z</published>
-    <updated>2017-09-06T11:40:46.000Z</updated>
+    <updated>2017-09-06T11:42:26.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>Injecting missing methods at runtime<br><a href="https://www.hopperapp.com/blog/?p=219" target="_blank" rel="external">https://www.hopperapp.com/blog/?p=219</a></li>
@@ -354,7 +417,7 @@ $c = &quot;dummy3&quot;
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x6b;&#104;&#x69;&#122;&#101;&#x72;&#106;&#x61;&#118;&#x65;&#x64;&#x2f;&#115;&#x71;&#x6c;&#105;&#45;&#120;&#x73;&#115;&#x2d;&#x76;&#x75;&#x6c;&#x6e;&#101;&#x72;&#x61;&#x62;&#105;&#x6c;&#105;&#116;&#x69;&#x65;&#x73;&#45;&#105;&#110;&#x2d;&#97;&#x2d;&#x70;&#111;&#x70;&#x75;&#x6c;&#x61;&#x72;&#x2d;&#x61;&#105;&#x72;&#108;&#x69;&#110;&#x65;&#x73;&#x2d;&#119;&#x65;&#x62;&#x73;&#x69;&#116;&#x65;&#x2d;&#x62;&#117;&#x67;&#98;&#x6f;&#x75;&#110;&#x74;&#x79;&#45;&#x70;&#111;&#99;&#45;&#53;&#x63;&#48;&#x64;&#55;&#49;&#x66;&#x39;&#51;&#x35;&#x63;&#49;">&#x68;&#x74;&#x74;&#x70;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#x6d;&#47;&#x40;&#x6d;&#x6b;&#104;&#x69;&#122;&#101;&#x72;&#106;&#x61;&#118;&#x65;&#x64;&#x2f;&#115;&#x71;&#x6c;&#105;&#45;&#120;&#x73;&#115;&#x2d;&#x76;&#x75;&#x6c;&#x6e;&#101;&#x72;&#x61;&#x62;&#105;&#x6c;&#105;&#116;&#x69;&#x65;&#x73;&#45;&#105;&#110;&#x2d;&#97;&#x2d;&#x70;&#111;&#x70;&#x75;&#x6c;&#x61;&#x72;&#x2d;&#x61;&#105;&#x72;&#108;&#x69;&#110;&#x65;&#x73;&#x2d;&#119;&#x65;&#x62;&#x73;&#x69;&#116;&#x65;&#x2d;&#x62;&#117;&#x67;&#98;&#x6f;&#x75;&#110;&#x74;&#x79;&#45;&#x70;&#111;&#99;&#45;&#53;&#x63;&#48;&#x64;&#55;&#49;&#x66;&#x39;&#51;&#x35;&#x63;&#49;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#107;&#x68;&#x69;&#x7a;&#x65;&#x72;&#x6a;&#x61;&#118;&#x65;&#100;&#x2f;&#x73;&#113;&#108;&#x69;&#x2d;&#x78;&#x73;&#115;&#45;&#x76;&#117;&#108;&#x6e;&#x65;&#x72;&#97;&#x62;&#x69;&#x6c;&#x69;&#x74;&#x69;&#x65;&#115;&#x2d;&#105;&#110;&#x2d;&#97;&#45;&#112;&#111;&#x70;&#117;&#108;&#97;&#x72;&#45;&#x61;&#105;&#x72;&#108;&#x69;&#x6e;&#101;&#x73;&#45;&#119;&#101;&#x62;&#115;&#105;&#116;&#x65;&#x2d;&#98;&#x75;&#x67;&#x62;&#x6f;&#117;&#x6e;&#x74;&#121;&#x2d;&#112;&#x6f;&#x63;&#45;&#x35;&#99;&#x30;&#x64;&#55;&#x31;&#102;&#x39;&#51;&#x35;&#99;&#x31;">&#104;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#107;&#x68;&#x69;&#x7a;&#x65;&#x72;&#x6a;&#x61;&#118;&#x65;&#100;&#x2f;&#x73;&#113;&#108;&#x69;&#x2d;&#x78;&#x73;&#115;&#45;&#x76;&#117;&#108;&#x6e;&#x65;&#x72;&#97;&#x62;&#x69;&#x6c;&#x69;&#x74;&#x69;&#x65;&#115;&#x2d;&#105;&#110;&#x2d;&#97;&#45;&#112;&#111;&#x70;&#117;&#108;&#97;&#x72;&#45;&#x61;&#105;&#x72;&#108;&#x69;&#x6e;&#101;&#x73;&#45;&#119;&#101;&#x62;&#115;&#105;&#116;&#x65;&#x2d;&#98;&#x75;&#x67;&#x62;&#x6f;&#117;&#x6e;&#x74;&#121;&#x2d;&#112;&#x6f;&#x63;&#45;&#x35;&#99;&#x30;&#x64;&#55;&#x31;&#102;&#x39;&#51;&#x35;&#99;&#x31;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -535,12 +598,12 @@ $c = &quot;dummy3&quot;
 <li>waf openstar<br><a href="https://github.com/starjun/openstar" target="_blank" rel="external">https://github.com/starjun/openstar</a></li>
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x6d;&#x61;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#101;&#114;&#47;&#109;&#117;&#x6c;&#x74;&#x69;&#x2d;&#112;&#x6c;&#x61;&#x74;&#x66;&#111;&#114;&#x6d;&#x2d;&#109;&#97;&#x63;&#x72;&#x6f;&#x2d;&#112;&#104;&#105;&#115;&#x68;&#105;&#x6e;&#103;&#45;&#112;&#x61;&#121;&#108;&#x6f;&#97;&#100;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#x36;&#56;">&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x6d;&#x61;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#101;&#114;&#47;&#109;&#117;&#x6c;&#x74;&#x69;&#x2d;&#112;&#x6c;&#x61;&#x74;&#x66;&#111;&#114;&#x6d;&#x2d;&#109;&#97;&#x63;&#x72;&#x6f;&#x2d;&#112;&#104;&#105;&#115;&#x68;&#105;&#x6e;&#103;&#45;&#112;&#x61;&#121;&#108;&#x6f;&#97;&#100;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#x36;&#56;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#109;&#x61;&#x6c;&#x63;&#111;&#109;&#x76;&#x65;&#x74;&#x74;&#101;&#x72;&#x2f;&#109;&#117;&#x6c;&#116;&#x69;&#x2d;&#112;&#x6c;&#97;&#116;&#x66;&#x6f;&#114;&#109;&#45;&#109;&#97;&#x63;&#x72;&#111;&#45;&#112;&#104;&#105;&#x73;&#x68;&#x69;&#x6e;&#x67;&#x2d;&#112;&#x61;&#x79;&#x6c;&#111;&#x61;&#100;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#54;&#56;">&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#109;&#x61;&#x6c;&#x63;&#111;&#109;&#x76;&#x65;&#x74;&#x74;&#101;&#x72;&#x2f;&#109;&#117;&#x6c;&#116;&#x69;&#x2d;&#112;&#x6c;&#97;&#116;&#x66;&#x6f;&#114;&#109;&#45;&#109;&#97;&#x63;&#x72;&#111;&#45;&#112;&#104;&#105;&#x73;&#x68;&#x69;&#x6e;&#x67;&#x2d;&#112;&#x61;&#x79;&#x6c;&#111;&#x61;&#100;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#54;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#x40;&#116;&#x68;&#x65;&#103;&#x72;&#117;&#x67;&#x71;&#x2f;&#116;&#x68;&#101;&#45;&#x7a;&#101;&#110;&#45;&#x6f;&#102;&#45;&#x70;&#103;&#112;&#x2d;&#x36;&#102;&#x35;&#53;&#100;&#x34;&#52;&#x36;&#x35;&#55;&#100;&#x64;">&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#x40;&#116;&#x68;&#x65;&#103;&#x72;&#117;&#x67;&#x71;&#x2f;&#116;&#x68;&#101;&#45;&#x7a;&#101;&#110;&#45;&#x6f;&#102;&#45;&#x70;&#103;&#112;&#x2d;&#x36;&#102;&#x35;&#53;&#100;&#x34;&#52;&#x36;&#x35;&#55;&#100;&#x64;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#116;&#104;&#101;&#x67;&#x72;&#117;&#x67;&#113;&#47;&#x74;&#104;&#101;&#45;&#122;&#101;&#x6e;&#x2d;&#111;&#x66;&#x2d;&#x70;&#x67;&#x70;&#x2d;&#x36;&#x66;&#x35;&#x35;&#100;&#x34;&#52;&#54;&#53;&#55;&#100;&#x64;">&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#116;&#104;&#101;&#x67;&#x72;&#117;&#x67;&#113;&#47;&#x74;&#104;&#101;&#45;&#122;&#101;&#x6e;&#x2d;&#111;&#x66;&#x2d;&#x70;&#x67;&#x70;&#x2d;&#x36;&#x66;&#x35;&#x35;&#100;&#x34;&#52;&#54;&#53;&#55;&#100;&#x64;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -681,70 +744,6 @@ $c = &quot;dummy3&quot;
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;[渗透测试]Tunnel Manager - From RCE to Docker Escape
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>windbg使用</title>
-    <link href="http://kevien.github.io/2017/08/21/windbg%E4%BD%BF%E7%94%A8/"/>
-    <id>http://kevien.github.io/2017/08/21/windbg使用/</id>
-    <published>2017-08-21T01:00:27.000Z</published>
-    <updated>2017-08-31T07:43:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://bbs.pediy.com/thread-94457.htm" target="_blank" rel="external">WinDbg学习笔记（一）–认识WinDbg</a><br><a href="http://bbs.pediy.com/thread-34379.htm" target="_blank" rel="external">从Ollydbg说起—–WinDbg用户态调试教程</a><br><a href="http://bbs.pediy.com/thread-34958.htm" target="_blank" rel="external">Windbg基本调试技术</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://bbs.pediy.com/thread-94457
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170821安全动态</title>
-    <link href="http://kevien.github.io/2017/08/21/20170821%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/08/21/20170821安全动态/</id>
-    <published>2017-08-21T01:00:15.000Z</published>
-    <updated>2017-08-22T01:16:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li><p>dns日志记录方法<br><a href="https://green-m.github.io/2017/08/21/windows-dns-log/" target="_blank" rel="external">https://green-m.github.io/2017/08/21/windows-dns-log/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">亲测，可行</div></pre></td></tr></table></figure>
-</li>
-<li><p>vulscan - Nmap 的漏洞探测脚本，根据版本信息判断是否存在漏洞<br><a href="https://github.com/scipag/vulscan" target="_blank" rel="external">https://github.com/scipag/vulscan</a><br><img src="/2017/08/21/20170821安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">渗透的童鞋可以试下</div></pre></td></tr></table></figure>
-</li>
-<li><p>TURNING LFI INTO RFI<br><a href="https://l.avala.mp/?p=241" target="_blank" rel="external">https://l.avala.mp/?p=241</a></p>
-</li>
-<li><p>绕过极限证<br><a href="https://github.com/FanhuaandLuomu/geetest_break" target="_blank" rel="external">https://github.com/FanhuaandLuomu/geetest_break</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">攻防技术总是此消彼长的，有新的技术防御技术出现，对应的攻击技术也会出现</div></pre></td></tr></table></figure>
-</li>
-<li><p>udp2raw tunnel:通过raw socket给UDP包加上TCP或ICMP header，进而绕过UDP屏蔽或QoS，或在UDP不稳定的环境下提升稳定性。可以有效防止在使用kcptun或者finalspeed的情况下udp端口被运营商限速。<br><a href="https://github.com/wangyu-/udp2raw-tunnel" target="_blank" rel="external">https://github.com/wangyu-/udp2raw-tunnel</a></p>
-</li>
-<li>Honeywell Tuxedo 家用安保系统的逆向分析<br><a href="https://markclayton.github.io/reverse-engineering-my-home-security-system-decompiling-firmware-updates.html" target="_blank" rel="external">https://markclayton.github.io/reverse-engineering-my-home-security-system-decompiling-firmware-updates.html</a></li>
-<li>sniffMK - macOS 上的鼠标与键盘事件嗅探工具<br><a href="https://github.com/objective-see/sniffMK" target="_blank" rel="external">https://github.com/objective-see/sniffMK</a></li>
-<li>portia - 基于 Python 实现的自动化后渗透工具，拥有权限提升、横向渗透等功能：<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></li>
-<li>tornado - 一款 MITM 攻击工具<br><a href="https://github.com/rebellionil/tornado" target="_blank" rel="external">https://github.com/rebellionil/tornado</a></li>
-<li>劫持无线鼠标并攻击目标计算机<br><a href="https://www.toshellandback.com/2017/08/16/mousejack/" target="_blank" rel="external">https://www.toshellandback.com/2017/08/16/mousejack/</a></li>
-<li>IDA反汇编/反编译静态分析iOS模拟器程序 系列文章<br><a href="http://blog.csdn.net/column/details/ios-ida.html" target="_blank" rel="external">http://blog.csdn.net/column/details/ios-ida.html</a></li>
-<li>mac osx 中酷炫的命令行工具<br><a href="https://github.com/herrbischoff/awesome-osx-command-line" target="_blank" rel="external">https://github.com/herrbischoff/awesome-osx-command-line</a></li>
-<li>两篇绕杀软的文章<br><a href="https://www.linkedin.com/pulse/bypass-all-anti-viruses-encrypted-payloads-c-damon-mohammadbagher?trk=v-feed" target="_blank" rel="external">https://www.linkedin.com/pulse/bypass-all-anti-viruses-encrypted-payloads-c-damon-mohammadbagher?trk=v-feed</a><br><a href="https://www.linkedin.com/pulse/bypass-anti-virus-detection-encrypted-payloads-using-venom-james-ceh?trk=v-feed" target="_blank" rel="external">https://www.linkedin.com/pulse/bypass-anti-virus-detection-encrypted-payloads-using-venom-james-ceh?trk=v-feed</a></li>
-<li>dockerscan：docker安全分析工具<br><a href="https://github.com/cr0hn/dockerscan" target="_blank" rel="external">https://github.com/cr0hn/dockerscan</a></li>
-<li>沙盒攻击面分析工具v1.0.9<br><a href="https://github.com/google/sandbox-attacksurface-analysis-tools/releases/tag/v1.0.9" target="_blank" rel="external">https://github.com/google/sandbox-attacksurface-analysis-tools/releases/tag/v1.0.9</a></li>
-<li>使用代理扫描<br><a href="https://cybersyndicates.com/2015/12/nmap-and-proxychains-scanning-through-a-socks-piviot/" target="_blank" rel="external">https://cybersyndicates.com/2015/12/nmap-and-proxychains-scanning-through-a-socks-piviot/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;dns日志记录方法&lt;br&gt;&lt;a href=&quot;https://green-m.github.
     
     </summary>
     

@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="简介 yara工具用来帮助安全研究人员鉴别和对恶意软件进行分类的工具。我们可以通过编写规则来进行恶意软件的识别。yara 规则最新规则官方文档规则示例：12345678910111213rule silent_banker : banker&amp;#123;    meta:        description = &amp;quot;This is just an example&amp;quot;">
 <meta property="og:image" content="http://kevien.github.io/2017/09/06/yara使用说明/yarapython.png">
-<meta property="og:updated_time" content="2017-09-06T11:37:31.000Z">
+<meta property="og:updated_time" content="2017-09-07T10:19:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yara使用说明">
 <meta name="twitter:description" content="简介 yara工具用来帮助安全研究人员鉴别和对恶意软件进行分类的工具。我们可以通过编写规则来进行恶意软件的识别。yara 规则最新规则官方文档规则示例：12345678910111213rule silent_banker : banker&amp;#123;    meta:        description = &amp;quot;This is just an example&amp;quot;">
@@ -389,7 +389,7 @@
 <li>文件大小<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> rule FileSizeExample</div><div class="line">&#123;</div><div class="line">    condition:</div><div class="line">       filesize &gt; 200KB</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>这个只能匹配文件，如果是运行着的程序的话，那么将永远不会匹配，因为之歌时候filesize没有意义。</p>
+<p>这个只能匹配文件，如果是运行着的程序的话，那么将永远不会匹配，因为这个时候filesize没有意义。</p>
 <ul>
 <li><p>特定位置的数据获取<br>PE文件的判断</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> rule IsPE</div><div class="line">&#123;</div><div class="line">  condition:</div><div class="line">     // MZ signature at offset 0 and ...</div><div class="line">     uint16(0) == 0x5A4D and</div><div class="line">     // ... PE signature at offset stored in MZ header at 0x3C</div><div class="line">     uint32(uint32(0x3C)) == 0x00004550</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -420,7 +420,11 @@ $c = &quot;dummy3&quot;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &quot;pe&quot;</div><div class="line"></div><div class="line">rule Test</div><div class="line">&#123;</div><div class="line">  strings:</div><div class="line">      $a = &quot;some string&quot;</div><div class="line"></div><div class="line">  condition:</div><div class="line">      $a and pe.entry_point == 0x1000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>文件包含</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;other.yar&quot;</div></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;other.yar&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>web<br><a href="https://github.com/Tigzy/yaraeditor" target="_blank" rel="external">https://github.com/Tigzy/yaraeditor</a></li>
 </ul>
 
       
@@ -457,6 +461,10 @@ $c = &quot;dummy3&quot;
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/07/20170907安全动态/" rel="next" title="20170907安全动态">
+                <i class="fa fa-chevron-left"></i> 20170907安全动态
+              </a>
             
           </div>
 
@@ -578,7 +586,7 @@ $c = &quot;dummy3&quot;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">98</span>
+                <span class="site-state-item-count">100</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -662,7 +670,7 @@ $c = &quot;dummy3&quot;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yara-规则"><span class="nav-number">2.</span> <span class="nav-text">yara 规则</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yara-规则"><span class="nav-number">2.</span> <span class="nav-text">yara 规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它"><span class="nav-number">3.</span> <span class="nav-text">其它</span></a></li></ol></div>
             
 
           </div>
