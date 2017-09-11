@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-09-09T07:50:14.000Z</updated>
+  <updated>2017-09-11T15:51:27.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,54 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20170911安全动态</title>
+    <link href="http://kevien.github.io/2017/09/11/20170911%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/09/11/20170911安全动态/</id>
+    <published>2017-09-11T10:20:11.000Z</published>
+    <updated>2017-09-11T15:51:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>Pwning the Dlink 850L routers and abusing the MyDlink Cloud protocol，研究员公开了 Dlink 850L 路由器的多个 0Day<br><a href="https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html</a></li>
+<li>逆向 Aura 智能闹钟<br><a href="https://courk.fr/index.php/2017/09/10/reverse-engineering-exploitation-connected-clock/" target="_blank" rel="external">https://courk.fr/index.php/2017/09/10/reverse-engineering-exploitation-connected-clock/</a></li>
+<li>IOT 安全 – Part 2: IOT 攻击面<br><a href="http://payatu.com/iot-security-part-2-101-iot-attack-surface/" target="_blank" rel="external">http://payatu.com/iot-security-part-2-101-iot-attack-surface/</a></li>
+<li>struts-pwn_CVE-2017-9805: S2-052 漏洞利用脚本<br><a href="https://github.com/mazen160/struts-pwn_CVE-2017-9805" target="_blank" rel="external">https://github.com/mazen160/struts-pwn_CVE-2017-9805</a></li>
+<li>GreatSCT - 一款应用白名单绕过工具<br><a href="https://github.com/GreatSCT/GreatSCT" target="_blank" rel="external">https://github.com/GreatSCT/GreatSCT</a></li>
+<li>古老的 MS08-067 漏洞中 MSRPC NetPathCanonicalize 路径格式化函数在处理 “..” 时的栈破坏漏洞分析<br><a href="http://www.tiagoalexandre.com/security/exploit%20development/2017/09/08/MS08-067" target="_blank" rel="external">http://www.tiagoalexandre.com/security/exploit%20development/2017/09/08/MS08-067</a></li>
+<li>利用 ADS（Alternate Data Streams）Bypass UAC<br><a href="https://www.redcanary.com/blog/using-alternate-data-streams-bypass-user-account-controls/" target="_blank" rel="external">https://www.redcanary.com/blog/using-alternate-data-streams-bypass-user-account-controls/</a></li>
+<li>维基解密是如何遭到黑客攻击的<br><a href="https://zhuanlan.zhihu.com/p/29162387" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/29162387</a></li>
+<li>Web 安全方向上的资料整理<br><a href="https://github.com/CHYbeta/Web-Security-Learning" target="_blank" rel="external">https://github.com/CHYbeta/Web-Security-Learning</a></li>
+<li>虐待二进制执行分析框架 Triton，挑战它的控制流图还原功能<br><a href="https://blog.quarkslab.com/mistreating-triton.html" target="_blank" rel="external">https://blog.quarkslab.com/mistreating-triton.html</a></li>
+<li>软件供应链来源攻击分析报告<br><a href="https://mp.weixin.qq.com/s/I6cJ7xgT5mTESL0TXa1DBw" target="_blank" rel="external">https://mp.weixin.qq.com/s/I6cJ7xgT5mTESL0TXa1DBw</a></li>
+<li>西方红玫瑰和辣条先生黑产组织深度分析报告<br><a href="http://www.freebuf.com/articles/paper/145777.html" target="_blank" rel="external">http://www.freebuf.com/articles/paper/145777.html</a></li>
+<li>iOS也不安全？高危漏洞威胁近半果粉<br><a href="https://mp.weixin.qq.com/s/bwPwySM3ZjqLWyNN99a5ow" target="_blank" rel="external">https://mp.weixin.qq.com/s/bwPwySM3ZjqLWyNN99a5ow</a></li>
+<li>如何将Pastebin上的信息应用于安全分析和威胁情报领域<br><a href="https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/" target="_blank" rel="external">https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/</a></li>
+<li>DEDECMS 会员中心代码投稿缺陷可getshell<br><a href="https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg" target="_blank" rel="external">https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg</a></li>
+<li>Windows内核驱动漏洞利用代码开发简介（part-1） - 环境设置  Windows内核漏洞利用代码开发开发简介（part2）：如何利用堆缓冲区溢出漏洞到系统shell<br><a href="https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/" target="_blank" rel="external">https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/</a><br><https: glennmcgui.re="" introduction-to-windows-kernel-driver-exploitation-pt-2=""></https:></li>
+<li>苹果Touch ID安全性浅谈<br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#x66;&#115;&#116;&#105;&#101;&#104;&#x6c;&#x65;&#47;&#100;&#x65;&#x6d;&#x79;&#115;&#x74;&#x69;&#102;&#121;&#105;&#x6e;&#103;&#45;&#97;&#112;&#x70;&#x6c;&#x65;&#115;&#45;&#x74;&#111;&#x75;&#99;&#104;&#x2d;&#x69;&#x64;&#x2d;&#52;&#x38;&#56;&#x33;&#x64;&#x35;&#49;&#x32;&#x31;&#98;&#x37;&#55;">&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#x66;&#115;&#116;&#105;&#101;&#104;&#x6c;&#x65;&#47;&#100;&#x65;&#x6d;&#x79;&#115;&#x74;&#x69;&#102;&#121;&#105;&#x6e;&#103;&#45;&#97;&#112;&#x70;&#x6c;&#x65;&#115;&#45;&#x74;&#111;&#x75;&#99;&#104;&#x2d;&#x69;&#x64;&#x2d;&#52;&#x38;&#56;&#x33;&#x64;&#x35;&#49;&#x32;&#x31;&#98;&#x37;&#55;</a></li>
+<li>Vulners Python API wrapper<br><a href="https://github.com/vulnersCom/api" target="_blank" rel="external">https://github.com/vulnersCom/api</a></li>
+<li>手工逆 Chrome 扩展后门的一些思路<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51</a></li>
+<li>【技术分享】how2heap总结-上  堆溢出<br><a href="http://bobao.360.cn/learning/detail/4386.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4386.html</a></li>
+<li>python的多进程编程<br><a href="https://www.keakon.net/2017/09/09/Python%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B" target="_blank" rel="external">https://www.keakon.net/2017/09/09/Python%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">深入的讲解了一些原理性的东西</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Pwning the Dlink 850L routers and abusing the My
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170908安全动态</title>
     <link href="http://kevien.github.io/2017/09/08/20170908%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/08/20170908安全动态/</id>
     <published>2017-09-08T02:40:59.000Z</published>
-    <updated>2017-09-09T07:50:14.000Z</updated>
+    <updated>2017-09-10T09:35:26.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>Django debug page XSS漏洞（CVE-2017-12794）分析<br><a href="https://www.leavesongs.com/PENETRATION/django-debug-page-xss.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/django-debug-page-xss.html</a></li>
@@ -35,7 +78,12 @@
 <li>Hunting Pastebin with PasteHunter<br><a href="https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/" target="_blank" rel="external">https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/</a></li>
 <li>看我如何破解Dlink 850路由器然后滥用MyDlink Cloud协议<br><a href="https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html</a></li>
 <li>Abusing JavaScript frameworks to bypass XSS mitigations<br><a href="http://blog.portswigger.net/2017/09/abusing-javascript-frameworks-to-bypass.html" target="_blank" rel="external">http://blog.portswigger.net/2017/09/abusing-javascript-frameworks-to-bypass.html</a></li>
-<li>Using Alternate Data Streams to Bypass User Account Controls<br><https: www.redcanary.com="" blog="" using-alternate-data-streams-bypass-user-account-controls=""><br><a href="https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1" target="_blank" rel="external">https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></https:></li>
+<li>Using Alternate Data Streams to Bypass User Account Controls<br><https: www.redcanary.com="" blog="" using-alternate-data-streams-bypass-user-account-controls=""><br><a href="https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1" target="_blank" rel="external">https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1</a></https:></li>
+<li>渗透3389端口<br><a href="http://www.hackingarticles.in/penetration-testing-remote-desktop-port-3389/" target="_blank" rel="external">http://www.hackingarticles.in/penetration-testing-remote-desktop-port-3389/</a></li>
+<li>安全研究人员披露D-Link路由器漏洞<br><a href="http://www.securityweek.com/unpatched-d-link-router-vulnerabilities-disclosed" target="_blank" rel="external">http://www.securityweek.com/unpatched-d-link-router-vulnerabilities-disclosed</a></li>
+<li>机器学习对抗资源集合<br><a href="https://github.com/yenchenlin/awesome-adversarial-machine-learning" target="_blank" rel="external">https://github.com/yenchenlin/awesome-adversarial-machine-learning</a></li>
+<li>开源可定制远程管理工具（RAT）<br><a href="https://github.com/SySS-Research/outis" target="_blank" rel="external">https://github.com/SySS-Research/outis</a></li>
+<li>XML的花式利用<br><a href="https://blog.pragmatists.com/xml-be-cautious-69a981fdc56a?gi=38c5799a5aa4" target="_blank" rel="external">https://blog.pragmatists.com/xml-be-cautious-69a981fdc56a?gi=38c5799a5aa4</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
 <li>C/C++ 开源库及示例代码<br><a href="https://github.com/programthink/opensource/blob/master/libs/cpp.wiki" target="_blank" rel="external">https://github.com/programthink/opensource/blob/master/libs/cpp.wiki</a></li>
 <li>vc samples<br><a href="https://github.com/Microsoft/VCSamples" target="_blank" rel="external">https://github.com/Microsoft/VCSamples</a></li>
 <li>Automated malcode analysis system<br><a href="https://github.com/dzzie/SysAnalyzer" target="_blank" rel="external">https://github.com/dzzie/SysAnalyzer</a></li>
@@ -91,7 +139,7 @@
 <li>Syzygy - PE 文件的文件重写工具（Binary Rewriting），可以实现代码块分析和重构等功能<br><a href="http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/" target="_blank" rel="external">http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/</a></li>
 <li>InfoCON - 专门收集各大信息安全会议资料的网站<br><a href="https://infocon.org/cons/" target="_blank" rel="external">https://infocon.org/cons/</a></li>
 <li>FrauDroid - 一个精确的大规模自动化手机广告欺诈检测的方法<br><a href="https://arxiv.org/pdf/1709.01213.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1709.01213.pdf</a></li>
-<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#x69;&#x6e;&#115;&#101;&#99;&#117;&#114;&#105;&#x74;&#x79;&#x5f;&#57;&#x32;&#x34;&#55;&#55;&#47;&#x75;&#x74;&#105;&#x6c;&#105;&#x7a;&#105;&#x6e;&#103;&#45;&#104;&#116;&#97;&#x63;&#99;&#x65;&#x73;&#x73;&#x2d;&#x66;&#111;&#114;&#45;&#x65;&#x78;&#x70;&#108;&#111;&#x69;&#x74;&#x61;&#x74;&#x69;&#111;&#x6e;&#x2d;&#x70;&#117;&#x72;&#112;&#111;&#x73;&#x65;&#115;&#45;&#112;&#x61;&#x72;&#116;&#x2d;&#x31;&#45;&#53;&#55;&#51;&#51;&#100;&#x64;&#x37;&#102;&#99;&#x38;&#101;&#98;">&#104;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#x69;&#x6e;&#115;&#101;&#99;&#117;&#114;&#105;&#x74;&#x79;&#x5f;&#57;&#x32;&#x34;&#55;&#55;&#47;&#x75;&#x74;&#105;&#x6c;&#105;&#x7a;&#105;&#x6e;&#103;&#45;&#104;&#116;&#97;&#x63;&#99;&#x65;&#x73;&#x73;&#x2d;&#x66;&#111;&#114;&#45;&#x65;&#x78;&#x70;&#108;&#111;&#x69;&#x74;&#x61;&#x74;&#x69;&#111;&#x6e;&#x2d;&#x70;&#117;&#x72;&#112;&#111;&#x73;&#x65;&#115;&#45;&#112;&#x61;&#x72;&#116;&#x2d;&#x31;&#45;&#53;&#55;&#51;&#51;&#100;&#x64;&#x37;&#102;&#99;&#x38;&#101;&#98;</a></li>
+<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#64;&#x69;&#x6e;&#x73;&#101;&#99;&#x75;&#114;&#x69;&#x74;&#121;&#95;&#x39;&#x32;&#x34;&#55;&#55;&#x2f;&#117;&#116;&#x69;&#108;&#105;&#122;&#105;&#x6e;&#103;&#x2d;&#x68;&#x74;&#x61;&#x63;&#x63;&#x65;&#115;&#115;&#45;&#x66;&#111;&#x72;&#45;&#101;&#120;&#x70;&#108;&#111;&#x69;&#116;&#97;&#x74;&#x69;&#x6f;&#x6e;&#45;&#112;&#x75;&#x72;&#x70;&#111;&#115;&#101;&#x73;&#x2d;&#112;&#x61;&#114;&#x74;&#45;&#x31;&#45;&#53;&#55;&#x33;&#51;&#x64;&#x64;&#x37;&#102;&#x63;&#56;&#x65;&#x62;">&#104;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#64;&#x69;&#x6e;&#x73;&#101;&#99;&#x75;&#114;&#x69;&#x74;&#121;&#95;&#x39;&#x32;&#x34;&#55;&#55;&#x2f;&#117;&#116;&#x69;&#108;&#105;&#122;&#105;&#x6e;&#103;&#x2d;&#x68;&#x74;&#x61;&#x63;&#x63;&#x65;&#115;&#115;&#45;&#x66;&#111;&#x72;&#45;&#101;&#120;&#x70;&#108;&#111;&#x69;&#116;&#97;&#x74;&#x69;&#x6f;&#x6e;&#45;&#112;&#x75;&#x72;&#x70;&#111;&#115;&#101;&#x73;&#x2d;&#112;&#x61;&#114;&#x74;&#45;&#x31;&#45;&#53;&#55;&#x33;&#51;&#x64;&#x64;&#x37;&#102;&#x63;&#56;&#x65;&#x62;</a></li>
 <li>Wireless IP Camera (P2P) WIFICAM 无线摄像头的多个高危漏洞详情<br><a href="https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html</a></li>
 <li>黑客免费提供的Cobian RAT中暗藏后门<br><a href="http://thehackernews.com/2017/09/backdoored-hacking-tools.html" target="_blank" rel="external">http://thehackernews.com/2017/09/backdoored-hacking-tools.html</a></li>
 <li>如何制作基础认证钓鱼页面<br><a href="https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/" target="_blank" rel="external">https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/</a></li>
@@ -467,7 +515,7 @@ $c = &quot;dummy3&quot;
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x68;&#x74;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#47;&#x40;&#109;&#x6b;&#104;&#x69;&#122;&#x65;&#114;&#x6a;&#97;&#118;&#x65;&#x64;&#47;&#115;&#x71;&#108;&#105;&#45;&#x78;&#115;&#x73;&#45;&#118;&#x75;&#108;&#110;&#x65;&#114;&#x61;&#x62;&#x69;&#x6c;&#x69;&#116;&#105;&#x65;&#x73;&#x2d;&#105;&#x6e;&#45;&#97;&#45;&#x70;&#111;&#112;&#x75;&#x6c;&#x61;&#x72;&#45;&#97;&#x69;&#114;&#x6c;&#105;&#110;&#x65;&#x73;&#45;&#x77;&#101;&#x62;&#115;&#105;&#x74;&#x65;&#45;&#98;&#117;&#103;&#x62;&#x6f;&#117;&#x6e;&#116;&#x79;&#45;&#x70;&#111;&#99;&#x2d;&#53;&#x63;&#x30;&#100;&#55;&#x31;&#102;&#57;&#x33;&#x35;&#99;&#49;">&#x68;&#x74;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#47;&#x40;&#109;&#x6b;&#104;&#x69;&#122;&#x65;&#114;&#x6a;&#97;&#118;&#x65;&#x64;&#47;&#115;&#x71;&#108;&#105;&#45;&#x78;&#115;&#x73;&#45;&#118;&#x75;&#108;&#110;&#x65;&#114;&#x61;&#x62;&#x69;&#x6c;&#x69;&#116;&#105;&#x65;&#x73;&#x2d;&#105;&#x6e;&#45;&#97;&#45;&#x70;&#111;&#112;&#x75;&#x6c;&#x61;&#x72;&#45;&#97;&#x69;&#114;&#x6c;&#105;&#110;&#x65;&#x73;&#45;&#x77;&#101;&#x62;&#115;&#105;&#x74;&#x65;&#45;&#98;&#117;&#103;&#x62;&#x6f;&#117;&#x6e;&#116;&#x79;&#45;&#x70;&#111;&#99;&#x2d;&#53;&#x63;&#x30;&#100;&#55;&#x31;&#102;&#57;&#x33;&#x35;&#99;&#49;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#109;&#107;&#104;&#105;&#x7a;&#101;&#114;&#x6a;&#97;&#x76;&#x65;&#x64;&#47;&#x73;&#x71;&#x6c;&#x69;&#45;&#120;&#x73;&#115;&#45;&#118;&#117;&#x6c;&#110;&#101;&#114;&#x61;&#x62;&#x69;&#108;&#x69;&#116;&#105;&#101;&#x73;&#x2d;&#105;&#110;&#x2d;&#97;&#x2d;&#112;&#x6f;&#112;&#x75;&#108;&#x61;&#114;&#45;&#97;&#105;&#x72;&#x6c;&#105;&#110;&#101;&#x73;&#45;&#x77;&#x65;&#98;&#x73;&#105;&#x74;&#101;&#45;&#x62;&#117;&#x67;&#98;&#111;&#x75;&#110;&#x74;&#x79;&#45;&#x70;&#x6f;&#x63;&#x2d;&#53;&#99;&#x30;&#x64;&#55;&#49;&#x66;&#57;&#51;&#53;&#99;&#49;">&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#109;&#107;&#104;&#105;&#x7a;&#101;&#114;&#x6a;&#97;&#x76;&#x65;&#x64;&#47;&#x73;&#x71;&#x6c;&#x69;&#45;&#120;&#x73;&#115;&#45;&#118;&#117;&#x6c;&#110;&#101;&#114;&#x61;&#x62;&#x69;&#108;&#x69;&#116;&#105;&#101;&#x73;&#x2d;&#105;&#110;&#x2d;&#97;&#x2d;&#112;&#x6f;&#112;&#x75;&#108;&#x61;&#114;&#45;&#97;&#105;&#x72;&#x6c;&#105;&#110;&#101;&#x73;&#45;&#x77;&#x65;&#98;&#x73;&#105;&#x74;&#101;&#45;&#x62;&#117;&#x67;&#98;&#111;&#x75;&#110;&#x74;&#x79;&#45;&#x70;&#x6f;&#x63;&#x2d;&#53;&#99;&#x30;&#x64;&#55;&#49;&#x66;&#57;&#51;&#53;&#99;&#49;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -648,12 +696,12 @@ $c = &quot;dummy3&quot;
 <li>waf openstar<br><a href="https://github.com/starjun/openstar" target="_blank" rel="external">https://github.com/starjun/openstar</a></li>
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#58;&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x6d;&#x61;&#108;&#99;&#111;&#x6d;&#118;&#x65;&#x74;&#x74;&#x65;&#114;&#x2f;&#109;&#x75;&#108;&#116;&#x69;&#x2d;&#x70;&#108;&#97;&#116;&#102;&#x6f;&#x72;&#109;&#x2d;&#x6d;&#97;&#x63;&#114;&#x6f;&#45;&#112;&#x68;&#x69;&#x73;&#x68;&#x69;&#110;&#x67;&#x2d;&#x70;&#x61;&#121;&#x6c;&#111;&#97;&#100;&#115;&#45;&#x33;&#98;&#x36;&#x38;&#x38;&#x65;&#x38;&#x65;&#102;&#x66;&#x36;&#x38;">&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x6d;&#x61;&#108;&#99;&#111;&#x6d;&#118;&#x65;&#x74;&#x74;&#x65;&#114;&#x2f;&#109;&#x75;&#108;&#116;&#x69;&#x2d;&#x70;&#108;&#97;&#116;&#102;&#x6f;&#x72;&#109;&#x2d;&#x6d;&#97;&#x63;&#114;&#x6f;&#45;&#112;&#x68;&#x69;&#x73;&#x68;&#x69;&#110;&#x67;&#x2d;&#x70;&#x61;&#121;&#x6c;&#111;&#97;&#100;&#115;&#45;&#x33;&#98;&#x36;&#x38;&#x38;&#x65;&#x38;&#x65;&#102;&#x66;&#x36;&#x38;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#x65;&#x72;&#x2f;&#109;&#117;&#x6c;&#x74;&#105;&#45;&#112;&#x6c;&#97;&#x74;&#102;&#x6f;&#x72;&#109;&#45;&#x6d;&#x61;&#99;&#114;&#x6f;&#45;&#112;&#x68;&#x69;&#x73;&#104;&#x69;&#110;&#x67;&#45;&#x70;&#x61;&#121;&#x6c;&#111;&#97;&#x64;&#x73;&#x2d;&#x33;&#98;&#54;&#56;&#x38;&#x65;&#56;&#101;&#102;&#102;&#x36;&#56;">&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#x65;&#x72;&#x2f;&#109;&#117;&#x6c;&#x74;&#105;&#45;&#112;&#x6c;&#97;&#x74;&#102;&#x6f;&#x72;&#109;&#45;&#x6d;&#x61;&#99;&#114;&#x6f;&#45;&#112;&#x68;&#x69;&#x73;&#104;&#x69;&#110;&#x67;&#45;&#x70;&#x61;&#121;&#x6c;&#111;&#97;&#x64;&#x73;&#x2d;&#x33;&#98;&#54;&#56;&#x38;&#x65;&#56;&#101;&#102;&#102;&#x36;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#58;&#x68;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#116;&#104;&#101;&#103;&#x72;&#117;&#103;&#x71;&#47;&#116;&#x68;&#x65;&#45;&#122;&#x65;&#x6e;&#x2d;&#x6f;&#x66;&#45;&#x70;&#103;&#112;&#45;&#54;&#102;&#x35;&#x35;&#100;&#52;&#x34;&#x36;&#x35;&#55;&#100;&#100;">&#x68;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#116;&#104;&#101;&#103;&#x72;&#117;&#103;&#x71;&#47;&#116;&#x68;&#x65;&#45;&#122;&#x65;&#x6e;&#x2d;&#x6f;&#x66;&#45;&#x70;&#103;&#112;&#45;&#54;&#102;&#x35;&#x35;&#100;&#52;&#x34;&#x36;&#x35;&#55;&#100;&#100;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#x68;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#x74;&#x68;&#x65;&#103;&#x72;&#x75;&#x67;&#113;&#x2f;&#116;&#104;&#101;&#45;&#122;&#101;&#x6e;&#45;&#111;&#102;&#45;&#112;&#103;&#x70;&#x2d;&#54;&#x66;&#x35;&#53;&#x64;&#52;&#x34;&#54;&#53;&#55;&#x64;&#100;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#x74;&#x68;&#x65;&#103;&#x72;&#x75;&#x67;&#113;&#x2f;&#116;&#104;&#101;&#45;&#122;&#101;&#x6e;&#45;&#111;&#102;&#45;&#112;&#103;&#x70;&#x2d;&#54;&#x66;&#x35;&#53;&#x64;&#52;&#x34;&#54;&#53;&#55;&#x64;&#100;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -728,41 +776,6 @@ $c = &quot;dummy3&quot;
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;浏览器漏洞挖掘思路&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OllyDbg使用入门</title>
-    <link href="http://kevien.github.io/2017/08/22/OllyDbg%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
-    <id>http://kevien.github.io/2017/08/22/OllyDbg使用入门/</id>
-    <published>2017-08-22T02:56:17.000Z</published>
-    <updated>2017-09-01T10:44:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="一些常用的操作"><a href="#一些常用的操作" class="headerlink" title="一些常用的操作"></a>一些常用的操作</h4><ul>
-<li>可通过双击汇编窗口注释区或者右键给汇编代码添加注释，方便自己后续阅读，这里有一个小技巧，可以通过ida的静态分析方法进行静态分析加注释<br><img src="/2017/08/22/OllyDbg使用入门/1.png" alt=""><h4 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h4></li>
-<li>有时候在调试的时候，一直在循环里，如果想要跳出循环，这个时候鼠标点到下一个命令的执行处，f4即可，即运行到当前代码处</li>
-<li>在用vs较高版本编译程序测试溢出等的时候注意要关闭保护功能(如常见的dep以及aslr)，在项目菜单的属性里面设置<br><img src="/2017/08/22/OllyDbg使用入门/aslr.png" alt=""><br><img src="/2017/08/22/OllyDbg使用入门/sec.png" alt=""></li>
-<li>在跟踪调试的时候，我们关注的是每步执行过后寄存器的变化情况，这个时候观察寄存器的窗口，红色的表示是发生了变化的数据。<br><img src="/2017/08/22/OllyDbg使用入门/0.png" alt=""></li>
-<li>在进行动态分析的时候，最好完整的分析一个栈的出入过程，加上注释之后，对代码分析有好处</li>
-<li>刚开始调试的时候，容易跑飞，这个时候注意观察左上角的提示框，回显示你的module，不要进去了什么kernel模块</li>
-<li>注意由于基本上我们使用的系统上数据或者代码都是小端存储的，所以在看反汇编代码的时候看到机器码的时候，一定要倒过来看<br><img src="/2017/08/22/OllyDbg使用入门/2.png" alt=""></li>
-<li>通过菜单中的查看内存map，整个可执行文件结构在内存中的地址映射<br><img src="/2017/08/22/OllyDbg使用入门/3.png" alt=""><br>此外还有L可以查看log data信息，E查看可执行模块，B查看断点信息。</li>
-<li>在vc6编译的程序中，函数返回之前会有一句call  _checkesp，这里会有一个checkesp函数的调用，来检查栈是否平衡，如果不平衡会出现如下的错误，我在这里做一个测试，在return语句之前加一条内联汇编push ebx，这样就破坏了栈平衡如下图所示<br><img src="/2017/08/22/OllyDbg使用入门/4.png" alt=""></li>
-<li>vc中函数的调用方式是cdecl，这种函数调用约定对参数的传递依靠栈内存，在调用函数前，将通过压栈操作将参数从右至左依次送入栈中，当函数返回的时候，需要将参数使用的空间回收，这里的回收指的是恢复esp寄存器的值到函数调用前的值，对于cdecl调用方式而言，平衡堆栈的操作是由函数调用方来做的，在这里也就是要由main()函数来做的，可以看到反汇编代码add esp，8就是用来平衡栈的。主要用于平衡上面的两个push操作。<br><img src="/2017/08/22/OllyDbg使用入门/5.png" alt=""></li>
-<li>函数返回值通常保存在eax寄存器中，在c语言中，main()函数的返回值为0，即return0，因此xor eax,eax 就是对eax进行了清零操作。</li>
-<li>windows系统下，对API函数的调用遵循约定是stdcall，对于stdcall而言，参数依然是从右向左依次入栈，而参数的平栈则是在api函数内部完成的，而不是在函数调用时候完成的。<br><a href="6.png"></a><br>上图中可以看到在调用MessageBox()的时候,在retn指令后面加了一个10，10这里是十六进制，也就是十进制中的16，我们在为MessageBoxA传递参数的时候，每个参数是4字节，4*4=16个字节，因此retn 16除了有返回的作用外，还包含了add esp,10的作用。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li>OllyDbg 入门系列<br><a href="http://bbs.pediy.com/user-24467-3-1.htm" target="_blank" rel="external">http://bbs.pediy.com/user-24467-3-1.htm</a></li>
-<li>拿几个ctf的简单题目练习一下<br><a href="https://github.com/lcatro/SISE_Traning_CTF_RE" target="_blank" rel="external">https://github.com/lcatro/SISE_Traning_CTF_RE</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;一些常用的操作&quot;&gt;&lt;a href=&quot;#一些常用的操作&quot; class=&quot;headerlink&quot; title=&quot;一些常用的操作&quot;&gt;&lt;/a&gt;一些常用的操作&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;可通过双击汇编窗口注释区或者右键给汇编代码添加注释，方便自己后续阅读，这里有一个小技巧，
     
     </summary>
     
