@@ -103,17 +103,17 @@
 
 
 
-<meta name="description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;12345678910111213141516171819202122232425262728#include &amp;quot;iostream&amp;quot;using namespace std;//void">
+<meta name="description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;指针做函数参数时，参数的传递效率非常高，通过指针可以对指针所指内存进行读/写。在实际的编程中，若函数的形参为指针，则该函数只是读取指针所指内存的数据，则应将该指针用const修饰，以限制在函数体内对指针所">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="指针参数传递与数据安全">
 <meta property="og:url" content="http://kevien.github.io/2017/09/07/指针参数传递与数据安全/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;12345678910111213141516171819202122232425262728#include &amp;quot;iostream&amp;quot;using namespace std;//void">
-<meta property="og:updated_time" content="2017-09-07T16:50:04.000Z">
+<meta property="og:description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;指针做函数参数时，参数的传递效率非常高，通过指针可以对指针所指内存进行读/写。在实际的编程中，若函数的形参为指针，则该函数只是读取指针所指内存的数据，则应将该指针用const修饰，以限制在函数体内对指针所">
+<meta property="og:updated_time" content="2017-09-13T11:38:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="指针参数传递与数据安全">
-<meta name="twitter:description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;12345678910111213141516171819202122232425262728#include &amp;quot;iostream&amp;quot;using namespace std;//void">
+<meta name="twitter:description" content="知识扫盲 理解常值变量和符号常量的区别在定义时用const修饰的普通变量称为常值变量.例如：const int MaxLint = 1000;const float Pi = 3.1415926;指针做函数参数时，参数的传递效率非常高，通过指针可以对指针所指内存进行读/写。在实际的编程中，若函数的形参为指针，则该函数只是读取指针所指内存的数据，则应将该指针用const修饰，以限制在函数体内对指针所">
 
 
 
@@ -382,7 +382,7 @@
 
       
         <h4 id="知识扫盲"><a href="#知识扫盲" class="headerlink" title="知识扫盲"></a>知识扫盲</h4><ul>
-<li>理解常值变量和符号常量的区别<br><br>在定义时用const修饰的普通变量称为常值变量.例如：<br><br>const int MaxLint = 1000;<br>const float Pi = 3.1415926;<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &quot;iostream&quot;</div><div class="line">using namespace std;</div><div class="line">//void sp_to_dash(const char *s)</div><div class="line">//&#123;</div><div class="line">//	while(*s)</div><div class="line">//	&#123;</div><div class="line">//		if(*s == &apos; &apos;) *s = &apos;_&apos;;//添加const修饰，这里在修改指针所指变量的值时候，编译器会报错</div><div class="line">//		cout&lt;&lt; *s++;</div><div class="line">//	&#125;</div><div class="line">//&#125;</div><div class="line"></div><div class="line">void sp_to_dash(const char *s)</div><div class="line">&#123;</div><div class="line">	while(*s)</div><div class="line">	&#123;</div><div class="line">		if(*s == &apos; &apos;) cout&lt;&lt;&apos;_&apos;;</div><div class="line">		else cout&lt;&lt;*s;</div><div class="line">		s++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	sp_to_dash(&quot;hello !&quot;);</div><div class="line">	cout&lt;&lt;endl;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li>理解常值变量和符号常量的区别<br><br>在定义时用const修饰的普通变量称为常值变量.例如：<br><br>const int MaxLint = 1000;<br><br>const float Pi = 3.1415926;<br><br>指针做函数参数时，参数的传递效率非常高，通过指针可以对指针所指内存进行读/写。<br>在实际的编程中，若函数的形参为指针，则该函数只是读取指针所指内存的数据，则应将该指针用const修饰，以限制在函数体内对指针所指内存的修改。这样，即兼顾了指针参数的高效传递，又兼顾了指针所指数据的安全。如果函数的形参为引用，且该函数只是读取引用所关联的变量，则也应该采用相同的措施。<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &quot;iostream&quot;</div><div class="line">using namespace std;</div><div class="line">//void sp_to_dash(const char *s)</div><div class="line">//&#123;</div><div class="line">//	while(*s)</div><div class="line">//	&#123;</div><div class="line">//		if(*s == &apos; &apos;) *s = &apos;_&apos;;//添加const修饰，这里在修改指针所指变量的值时候，编译器会报错</div><div class="line">//		cout&lt;&lt; *s++;</div><div class="line">//	&#125;</div><div class="line">//&#125;</div><div class="line"></div><div class="line">void sp_to_dash(const char *s)</div><div class="line">&#123;</div><div class="line">	while(*s)</div><div class="line">	&#123;</div><div class="line">		if(*s == &apos; &apos;) cout&lt;&lt;&apos;_&apos;;</div><div class="line">		else cout&lt;&lt;*s;</div><div class="line">		s++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	sp_to_dash(&quot;hello !&quot;);</div><div class="line">	cout&lt;&lt;endl;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
@@ -545,7 +545,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">104</span>
+                <span class="site-state-item-count">105</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -629,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识扫盲"><span class="nav-number">1.</span> <span class="nav-text">知识扫盲</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识扫盲"><span class="nav-number">1.</span> <span class="nav-text">知识扫盲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码示例"><span class="nav-number">2.</span> <span class="nav-text">代码示例</span></a></li></ol></div>
             
 
           </div>
