@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="简述 还是直接看代码吧，我们直接使用如下的代码进行线程所加载模块的查看。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586">
 <meta property="og:image" content="http://kevien.github.io/2017/09/13/windows权限提升/pic.png">
-<meta property="og:updated_time" content="2017-09-13T14:21:47.000Z">
+<meta property="og:updated_time" content="2017-09-14T03:06:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows权限提升">
 <meta name="twitter:description" content="简述 还是直接看代码吧，我们直接使用如下的代码进行线程所加载模块的查看。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586">
@@ -389,7 +389,10 @@
 </li>
 <li><p>如下图所示<br><img src="/2017/09/13/windows权限提升/pic.png" alt=""><br>我们可以看到，当我们查看notepad.exe进程中的dll时是可以成功的，但是要查看svhost.exe(pid=4620)的时候，程序报错了( CreateToolhelp32Snapshot (of modules) failed with error 5 (?????)),即在查看进程所属的用户相同的时候是可以正常查看的，如果是所属不同用户的话就会失败。</p>
 </li>
+<li>这个时候我们添加如下的函数并调用它<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">VOID DebugPrivilege()</div><div class="line">&#123;</div><div class="line">	HANDLE hToken = NULL;</div><div class="line"></div><div class="line">	BOOL bRet = OpenProcessToken(GetCurrentProcess(),</div><div class="line">		TOKEN_ALL_ACCESS, &amp;hToken);</div><div class="line"></div><div class="line">	if (bRet == TRUE)</div><div class="line">	&#123;</div><div class="line">		TOKEN_PRIVILEGES tp;</div><div class="line">		tp.PrivilegeCount = 1;</div><div class="line">		LookupPrivilegeValue(NULL,</div><div class="line">			SE_DEBUG_NAME,</div><div class="line">			&amp;tp.Privileges[0].Luid);</div><div class="line">		tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;</div><div class="line">		AdjustTokenPrivileges(hToken,</div><div class="line">			FALSE, &amp;tp, sizeof(tp),</div><div class="line">			NULL, NULL);</div><div class="line"></div><div class="line">		CloseHandle(hToken);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>以上代码的作用是将运行的程序的权限提升至“SeDebugPrivilege“，拥有该权限以后，当前进程可以访问一些受限的系统资源。<br><br>调整进程权限的步骤如下：<br><br>1.使用OpenProcessToken函数打开当前进程的访问令牌。<br><br>2.使用LookupPrivilegeValue函数取得描述权限的LUID。<br><br>3.使用AdjustTokenPrivilege函数调整访问令牌的权限。<br></p>
 
       
     </div>
@@ -425,6 +428,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/14/20170914安全动态/" rel="next" title="20170914安全动态">
+                <i class="fa fa-chevron-left"></i> 20170914安全动态
+              </a>
             
           </div>
 
@@ -546,7 +553,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">105</span>
+                <span class="site-state-item-count">106</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
