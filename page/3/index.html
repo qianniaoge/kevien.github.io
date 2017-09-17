@@ -307,6 +307,136 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/28/20170828安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/28/20170828安全动态/" itemprop="url">
+                  20170828安全动态&&defcon-25-workshop代码解读
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T09:21:21+08:00">
+                2017-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>利用xwizard.exe加载dll<br><a href="http://www.4hou.com/technology/6969.html" target="_blank" rel="external">http://www.4hou.com/technology/6969.html</a></li>
+<li>安全研究人员警告：超过1700台IoT设备和相关的telnet凭据已被泄露并公开放在网上<br><a href="http://securityaffairs.co/wordpress/62365/iot/iot-devices-credentials-leaked.html" target="_blank" rel="external">http://securityaffairs.co/wordpress/62365/iot/iot-devices-credentials-leaked.html</a></li>
+<li>Apple iOS &lt;=10.3.1 - Kernel Exploit<br><a href="https://www.exploit-db.com/exploits/42555/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42555/</a></li>
+<li>大量服务器的登录凭证被PDF钓鱼泄露<br><a href="http://www.ringzerolabs.com/2017/08/large-victim-credential-server.html" target="_blank" rel="external">http://www.ringzerolabs.com/2017/08/large-victim-credential-server.html</a><br><a href="https://www.bilibili.com/video/av13897953/" target="_blank" rel="external">https://www.bilibili.com/video/av13897953/</a></li>
+<li>AVPASS：可绕过Android恶意软件检测系统的工具<br><a href="https://github.com/sslab-gatech/avpass/blob/master/docs/README.md" target="_blank" rel="external">https://github.com/sslab-gatech/avpass/blob/master/docs/README.md</a><h4 id="每日代码分享"><a href="#每日代码分享" class="headerlink" title="每日代码分享"></a>每日代码分享</h4>来源:<br><a href="https://github.com/zerosum0x0/defcon-25-workshop" target="_blank" rel="external">https://github.com/zerosum0x0/defcon-25-workshop</a><br>这里主要介绍了window后渗透以及恶意软件的开发中的一些trick，做免杀的童鞋可以重点关注一下<br>1.asynclog - basic keylogger using GetAsyncKeyState()<br>不同于使用钩子函数进行键盘的记录，这里使用了GetAsyncKeyState()做键盘记录，api函数在User32.dll中实现。<br>3.hooklog 挂钩WH_KEYBOARD_LL 事件  注意要区分WH_KEYBOARD  这里的LL是low level的缩写<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">区别如下：</div><div class="line">https://stackoverflow.com/questions/10718009/difference-between-wh-keyboard-and-wh-keyboard-ll</div><div class="line">简单来说就是一个需要dll一个不需要dll.</div><div class="line">这里可以通过代码了解windows的消息机制。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>4.IGO pre-main execution with C++ initialization<br>我理解的就是在main函数执行之前，会进行初始化的操作，通过编译链接运行代码，可以发现还可以在main函数之前执行我们的代码，确实和平常我们一贯的思路不一样。<br>5.tlscallback  pre-main execution with Thread Local Storage callback<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个还不是特别明白用途 tlscallback.h头文件中的魔法</div></pre></td></tr></table></figure></p>
+<p>6.importless - PE using WinAPI that has no imports<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还不太懂，感觉好像不用IAT就可以使用windows的api，这里以MessageBox函数为例。</div></pre></td></tr></table></figure></p>
+<p>7.printscreen - takes a screenshot by simulation of printscreen keypress<br>模拟按键printscreen键，过360<br>8.screenshot - takes a screenshot using device context and GDI+<br>还是屏幕截图，利用的是device contest和GDI+，也是过360的<br>9.reverseshell - basic reverse TCP shell<br>这里通过tasklist命令查找不到相应进程pid的映像名称，而网络连接中是可以看到的。<br>10.passfilter - password complexity filter DLL with logging<br>通过dll注入当密码改变的时候保存修改后的密码。<br>11.locklogger - injects into winlogon.exe and keylogs</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/26/可激活windows和office的KMS服务搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -922,12 +1052,12 @@
 <li>waf openstar<br><a href="https://github.com/starjun/openstar" target="_blank" rel="external">https://github.com/starjun/openstar</a></li>
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#x65;&#116;&#116;&#x65;&#x72;&#x2f;&#x6d;&#117;&#x6c;&#x74;&#x69;&#45;&#112;&#x6c;&#97;&#116;&#x66;&#x6f;&#114;&#x6d;&#45;&#x6d;&#x61;&#x63;&#114;&#111;&#45;&#112;&#104;&#x69;&#x73;&#x68;&#105;&#x6e;&#103;&#x2d;&#112;&#x61;&#121;&#108;&#x6f;&#x61;&#x64;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#x36;&#x38;">&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#x65;&#116;&#116;&#x65;&#x72;&#x2f;&#x6d;&#117;&#x6c;&#x74;&#x69;&#45;&#112;&#x6c;&#97;&#116;&#x66;&#x6f;&#114;&#x6d;&#45;&#x6d;&#x61;&#x63;&#114;&#111;&#45;&#112;&#104;&#x69;&#x73;&#x68;&#105;&#x6e;&#103;&#x2d;&#112;&#x61;&#121;&#108;&#x6f;&#x61;&#x64;&#115;&#45;&#51;&#x62;&#x36;&#x38;&#x38;&#101;&#x38;&#101;&#x66;&#102;&#x36;&#x38;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#x6d;&#97;&#108;&#99;&#x6f;&#109;&#118;&#101;&#x74;&#116;&#101;&#114;&#x2f;&#109;&#117;&#x6c;&#x74;&#105;&#x2d;&#112;&#108;&#x61;&#116;&#102;&#111;&#x72;&#109;&#45;&#x6d;&#97;&#99;&#x72;&#x6f;&#x2d;&#112;&#104;&#x69;&#x73;&#x68;&#x69;&#x6e;&#103;&#45;&#x70;&#97;&#121;&#x6c;&#111;&#97;&#100;&#x73;&#45;&#x33;&#98;&#54;&#56;&#x38;&#101;&#56;&#101;&#102;&#x66;&#54;&#56;">&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#x6d;&#97;&#108;&#99;&#x6f;&#109;&#118;&#101;&#x74;&#116;&#101;&#114;&#x2f;&#109;&#117;&#x6c;&#x74;&#105;&#x2d;&#112;&#108;&#x61;&#116;&#102;&#111;&#x72;&#109;&#45;&#x6d;&#97;&#99;&#x72;&#x6f;&#x2d;&#112;&#104;&#x69;&#x73;&#x68;&#x69;&#x6e;&#103;&#45;&#x70;&#97;&#121;&#x6c;&#111;&#97;&#100;&#x73;&#45;&#x33;&#98;&#54;&#56;&#x38;&#101;&#56;&#101;&#102;&#x66;&#54;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#116;&#104;&#x65;&#x67;&#114;&#x75;&#103;&#x71;&#x2f;&#x74;&#104;&#101;&#x2d;&#122;&#101;&#x6e;&#x2d;&#x6f;&#x66;&#x2d;&#x70;&#x67;&#112;&#x2d;&#x36;&#x66;&#x35;&#x35;&#100;&#x34;&#52;&#x36;&#53;&#55;&#100;&#x64;">&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#116;&#104;&#x65;&#x67;&#114;&#x75;&#103;&#x71;&#x2f;&#x74;&#104;&#101;&#x2d;&#122;&#101;&#x6e;&#x2d;&#x6f;&#x66;&#x2d;&#x70;&#x67;&#112;&#x2d;&#x36;&#x66;&#x35;&#x35;&#100;&#x34;&#52;&#x36;&#53;&#55;&#100;&#x64;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#116;&#x68;&#101;&#x67;&#114;&#117;&#103;&#x71;&#47;&#116;&#104;&#x65;&#45;&#x7a;&#x65;&#x6e;&#x2d;&#x6f;&#x66;&#45;&#112;&#103;&#x70;&#45;&#54;&#102;&#53;&#53;&#100;&#x34;&#52;&#x36;&#x35;&#x37;&#x64;&#100;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#116;&#x68;&#101;&#x67;&#114;&#117;&#103;&#x71;&#47;&#116;&#104;&#x65;&#45;&#x7a;&#x65;&#x6e;&#x2d;&#x6f;&#x66;&#45;&#112;&#103;&#x70;&#45;&#54;&#102;&#53;&#53;&#100;&#x34;&#52;&#x36;&#x35;&#x37;&#x64;&#100;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -1496,126 +1626,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/21/windbg使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/21/windbg使用/" itemprop="url">
-                  windbg使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T09:00:27+08:00">
-                2017-08-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://bbs.pediy.com/thread-94457.htm" target="_blank" rel="external">WinDbg学习笔记（一）–认识WinDbg</a><br><a href="http://bbs.pediy.com/thread-34379.htm" target="_blank" rel="external">从Ollydbg说起—–WinDbg用户态调试教程</a><br><a href="http://bbs.pediy.com/thread-34958.htm" target="_blank" rel="external">Windbg基本调试技术</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1665,7 +1675,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">110</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
