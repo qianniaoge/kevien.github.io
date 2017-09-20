@@ -12,8 +12,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <script>
     (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
+        if('123456'){
+            if (prompt('请输入文章密码') !== '123456'){
                 alert('密码错误！');
                 history.back();
             }
@@ -103,19 +103,14 @@
 
 
 
-<meta name="description" content="每日安全动态 推荐一款windows方便查看文件的MD5/sha1值-HashTab给文件属性窗口添加校验值http://implbits.com/products/hashtab/ windows下的包管理工具https://chocolatey.org/docs Mac下的破解软件真的安全吗？https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;a">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20170811安全动态">
-<meta property="og:url" content="http://kevien.github.io/2017/08/11/20170811安全动态/index.html">
+<meta property="og:title" content="windows认证机制以及常见密码获取工具分析">
+<meta property="og:url" content="http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="每日安全动态 推荐一款windows方便查看文件的MD5/sha1值-HashTab给文件属性窗口添加校验值http://implbits.com/products/hashtab/ windows下的包管理工具https://chocolatey.org/docs Mac下的破解软件真的安全吗？https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;a">
-<meta property="og:image" content="http://kevien.github.io/2017/08/11/20170811安全动态/1.png">
-<meta property="og:updated_time" content="2017-08-13T09:39:46.000Z">
+<meta property="og:updated_time" content="2017-09-20T07:22:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20170811安全动态">
-<meta name="twitter:description" content="每日安全动态 推荐一款windows方便查看文件的MD5/sha1值-HashTab给文件属性窗口添加校验值http://implbits.com/products/hashtab/ windows下的包管理工具https://chocolatey.org/docs Mac下的破解软件真的安全吗？https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;a">
-<meta name="twitter:image" content="http://kevien.github.io/2017/08/11/20170811安全动态/1.png">
+<meta name="twitter:title" content="windows认证机制以及常见密码获取工具分析">
 
 
 
@@ -143,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/2017/08/11/20170811安全动态/"/>
+  <link rel="canonical" href="http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/"/>
 
 
 
 
 
-  <title>20170811安全动态 | M0rk's Blog</title>
+  <title>windows认证机制以及常见密码获取工具分析 | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/11/20170811安全动态/">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="M0rk">
@@ -333,7 +328,7 @@
             
             
               
-                20170811安全动态
+                windows认证机制以及常见密码获取工具分析
               
             
           </h1>
@@ -348,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T10:12:05+08:00">
-                2017-08-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T15:22:16+08:00">
+                2017-09-20
               </time>
             
 
@@ -383,22 +378,7 @@
       
 
       
-        <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>推荐一款windows方便查看文件的MD5/sha1值-HashTab给文件属性窗口添加校验值<br><a href="http://implbits.com/products/hashtab/" target="_blank" rel="external">http://implbits.com/products/hashtab/</a><br><img src="/2017/08/11/20170811安全动态/1.png" alt=""></li>
-<li>windows下的包管理工具<br><a href="https://chocolatey.org/docs" target="_blank" rel="external">https://chocolatey.org/docs</a></li>
-<li>Mac下的破解软件真的安全吗？<br><a href="https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;mid=2650591970&amp;idx=1&amp;sn=86cdb0e4c15112bd094754b5de16196d&amp;chksm=f0e41e95c79397833b1b758a366667990721e0eb7057b969dd160da0cf4ca05137d9529d38ff&amp;mpshare=1&amp;scene=1&amp;srcid=0811TnBRyB73qbz12FzqQwtQ&amp;key=f134dcd2fe72c7c615e2527bc29fa4ba60f1473b8171d2d3fde63708164b2471c92db9684ecb393ddeb1fa866016522291c6f4e8694f996b3b52f11aab7bbe2e48917fd59c3ca3c995bd629291052f2d&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIzNTA5MzI3Mg==&amp;mid=2650591970&amp;idx=1&amp;sn=86cdb0e4c15112bd094754b5de16196d&amp;chksm=f0e41e95c79397833b1b758a366667990721e0eb7057b969dd160da0cf4ca05137d9529d38ff&amp;mpshare=1&amp;scene=1&amp;srcid=0811TnBRyB73qbz12FzqQwtQ&amp;key=f134dcd2fe72c7c615e2527bc29fa4ba60f1473b8171d2d3fde63708164b2471c92db9684ecb393ddeb1fa866016522291c6f4e8694f996b3b52f11aab7bbe2e48917fd59c3ca3c995bd629291052f2d&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D</a></li>
-<li>“灵隐”木马黑吃灰：绑架数十款游戏外挂实现恶意推广<br><a href="http://www.freebuf.com/articles/system/143461.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143461.html</a></li>
-<li>记一次对Discuz官方论坛的渗透检测<br><a href="https://www.t00ls.net/articles-21006.html" target="_blank" rel="external">https://www.t00ls.net/articles-21006.html</a></li>
-<li>使用Kerberoast破解Kerberos TGS Tickets - 利用Kerberos Compromise Active Directory域<br><a href="https://adsecurity.org/?p=2293" target="_blank" rel="external">https://adsecurity.org/?p=2293</a></li>
-<li>Plecost：Wordpress指纹识别工具（识别版本、插件，匹配已知漏洞）<br><a href="https://github.com/iniqua/plecost" target="_blank" rel="external">https://github.com/iniqua/plecost</a></li>
-<li>np1sec：分布式多方通讯加密协议<br><a href="https://github.com/equalitie/np1sec" target="_blank" rel="external">https://github.com/equalitie/np1sec</a></li>
-<li>解决遗忘linux登陆密码<br><a href="http://blog.nsfocus.net/resolve-forgotten-linux-login-password/" target="_blank" rel="external">http://blog.nsfocus.net/resolve-forgotten-linux-login-password/</a></li>
-<li>如何搭建一个 DNS Sinkhole 服务器，DNS Sinkhole 是指一种 DNS 响应欺骗技术，常被防御者用于发现受保护网络内的受感染机器，还有一份来自 Palo Alto 的文档参考<br><a href="http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf" target="_blank" rel="external">http://handlers.sans.org/gbruneau/docs/DNS_Sinkhole_setup.pdf</a></li>
-<li>利用 Adobe Flash 的沙箱逃逸漏洞，结合 UNC/file SMB 密钥转发的问题，泄露 Windows 用户的登陆密码(CVE-2017-3085)<br><a href="https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/" target="_blank" rel="external">https://blog.bjornweb.nl/2017/08/flash-remote-sandbox-escape-windows-user-credentials-leak/</a></li>
-<li>BeRoot - Windows 本地提权工具，寻找本地机器配置上的疏漏实现提权<br><a href="https://github.com/AlessandroZ/BeRoot" target="_blank" rel="external">https://github.com/AlessandroZ/BeRoot</a></li>
-<li>琢石成器之自动化去广告神器(Green Creator)<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5Mjc3MDM2Mw==&amp;mid=2651132861&amp;idx=1&amp;sn=488f6ca6706527f037da88801dde4d71&amp;chksm=bd5083e98a270aff38c4afcac207a682cc1260936bf18422510dde78d52ae55e685ad4278240&amp;scene=0&amp;key=05d58d453d781a663f27a7bce0a851b4a18fc79d8c1ec2966f2538c19846f47804c2d5e0ace080c46915c5db458da9ee43c94e057b3fdffbda16bcb06800727f568dab3453aacf9a9bea47d176c4ec5e&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.6+build(16G29)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=LzFJ3x2GZA06fhxalMi3NMX9Vd0tMSj7gZSKMtcv8%2Bs%3D</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://www.v2ex.com/t/84616" target="_blank" rel="external">简洁优雅的在Mac上安装软件-homebrew-cask命令行神器</a><br><a href="http://blog.csdn.net/hgy413/article/details/7799237" target="_blank" rel="external"> 0.ring3-DLL劫持技术详解(lpk.dll)</a><br><a href="https://bbs.ichunqiu.com/thread-15281-1-1.html" target="_blank" rel="external">常见的后门技术总结-小议权限维持技术</a><br>以下是DarkRay师傅的几篇文章<br><a href="https://www.blackh4t.org/archives/1870.html" target="_blank" rel="external">渗透师的powershell入门</a><br><a href="https://www.blackh4t.org/archives/99.html" target="_blank" rel="external">快速判断文件是否为病毒</a><br><a href="https://www.blackh4t.org/archives/62.html" target="_blank" rel="external">教你如何分析病毒的行为</a><br><a href="https://www.blackh4t.org/archives/1652.html" target="_blank" rel="external">mac的使用</a><br><a href="https://www.blackh4t.org/archives/1700.html" target="_blank" rel="external">内网渗透之隐私收集</a><br><a href="https://www.blackh4t.org/archives/1005.html" target="_blank" rel="external">Windows编程入门答学弟问</a><br><a href="https://www.blackh4t.org/archives/397.html" target="_blank" rel="external">一个HTTP类的实现</a><br><a href="https://www.blackh4t.org/archives/1372.html" target="_blank" rel="external">各种Payload免杀工具集</a><br><a href="https://www.blackh4t.org/archives/1000.html" target="_blank" rel="external">Ph4nt0m Webzine CheckList</a><br><a href="https://www.blackh4t.org/archives/576.html" target="_blank" rel="external">渗透师升级指南</a><br><a href="https://www.blackh4t.org/archives/394.html" target="_blank" rel="external">域内网渗透小结</a></li>
-</ul>
-
+        
       
     </div>
 
@@ -434,18 +414,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/13/macOS软件安全与逆向分析笔记/" rel="next" title="macOS软件安全与逆向分析笔记">
-                <i class="fa fa-chevron-left"></i> macOS软件安全与逆向分析笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/10/20170810安全动态/" rel="prev" title="20170810安全动态">
-                20170810安全动态 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/20/20170920安全动态/" rel="prev" title="20170920安全动态">
+                20170920安全动态 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -533,17 +509,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -632,22 +599,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日安全动态"><span class="nav-number">1.</span> <span class="nav-text">每日安全动态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其它"><span class="nav-number">2.</span> <span class="nav-text">其它</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
