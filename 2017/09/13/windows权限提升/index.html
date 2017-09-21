@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="简述 还是直接看代码吧，我们直接使用如下的代码进行线程所加载模块的查看。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586">
 <meta property="og:image" content="http://kevien.github.io/2017/09/13/windows权限提升/pic.png">
-<meta property="og:updated_time" content="2017-09-14T05:29:51.000Z">
+<meta property="og:updated_time" content="2017-09-21T06:40:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows权限提升">
 <meta name="twitter:description" content="简述 还是直接看代码吧，我们直接使用如下的代码进行线程所加载模块的查看。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586">
@@ -393,6 +393,9 @@
 </li>
 </ul>
 <p>以上代码的作用是将运行的程序的权限提升至“SeDebugPrivilege“，拥有该权限以后，当前进程可以访问一些受限的系统资源。<br><br>调整进程权限的步骤如下：<br><br>1.使用OpenProcessToken函数打开当前进程的访问令牌。<br><br>2.使用LookupPrivilegeValue函数取得描述权限的LUID。<br><br>3.使用AdjustTokenPrivilege函数调整访问令牌的权限。<br></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debug-privilege" target="_blank" rel="external">https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debug-privilege</a></li>
+</ul>
 
       
     </div>
@@ -553,7 +556,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">115</span>
+                <span class="site-state-item-count">116</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -637,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
