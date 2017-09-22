@@ -307,6 +307,280 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/18/IDA使用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/18/IDA使用方法/" itemprop="url">
+                  IDA使用方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T18:06:56+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>IDA作用：<br>1.一般IDA是配合OD使用的，当od没有分析出函数名的时候，有时候通过IDA可以发现函数的名。</p>
+<h4 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h4><p>在介绍常见操作之前，先来看一下用ida加载一个文件的时候，默认的展示窗口有哪些<br><img src="/2017/08/18/IDA使用方法/2.png" alt=""><br>注意在反汇编代码的窗口可以输入空格切换到Graphic View，可以更清楚的看清流程</p>
+<ul>
+<li>跳转到指定内存地址 快捷键G，可以调到相应的地址</li>
+<li>寻找关键特征字符串，打开字符串参考窗口 shift+f12 ，类似于od中plugins中的中文搜索引擎中的智能搜索功能<br><img src="/2017/08/18/IDA使用方法/1.png" alt=""></li>
+<li>函数的收缩和展开功能<br><img src="/2017/08/18/IDA使用方法/3.png" alt=""></li>
+<li>在vc6中main()不是程序运行的第一个函数，而是程序员编写程序的第一个函数，main()函数是由启动函数来调用的，vc6中入口点是_mainCRTStartup()函数，如下图所示<br><img src="/2017/08/18/IDA使用方法/4.png" alt=""><br>双击即可到达这个函数的位置，<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">.text:00401130                 push    ebp</div><div class="line">.text:00401131                 mov     ebp, esp</div><div class="line">.text:00401133                 push    0FFFFFFFFh</div><div class="line">.text:00401135                 push    offset stru_422130</div><div class="line">.text:0040113A                 push    offset __except_handler3</div><div class="line">.text:0040113F                 mov     eax, large fs:0</div><div class="line">.text:00401145                 push    eax</div><div class="line">.text:00401146                 mov     large fs:0, esp</div><div class="line">.text:0040114D                 add     esp, 0FFFFFFF0h</div><div class="line">.text:00401150                 push    ebx</div><div class="line">.text:00401151                 push    esi</div><div class="line">.text:00401152                 push    edi</div><div class="line">.text:00401153                 mov     [ebp+ms_exc.old_esp], esp</div><div class="line">.text:00401156                 call    ds:__imp__GetVersion@0 ; GetVersion()</div><div class="line">.text:0040115C                 mov     __osver, eax</div><div class="line">.text:00401161                 mov     eax, __osver</div><div class="line">.text:00401166                 shr     eax, 8</div><div class="line">.text:00401169                 and     eax, 0FFh</div><div class="line">.text:0040116E                 mov     __winminor, eax</div><div class="line">.text:00401173                 mov     ecx, __osver</div><div class="line">.text:00401179                 and     ecx, 0FFh</div><div class="line">.text:0040117F                 mov     __winmajor, ecx</div><div class="line">.text:00401185                 mov     edx, __winmajor</div><div class="line">.text:0040118B                 shl     edx, 8</div><div class="line">.text:0040118E                 add     edx, __winminor</div><div class="line">.text:00401194                 mov     __winver, edx</div><div class="line">.text:0040119A                 mov     eax, __osver</div><div class="line">.text:0040119F                 shr     eax, 10h</div><div class="line">.text:004011A2                 and     eax, 0FFFFh</div><div class="line">.text:004011A7                 mov     __osver, eax</div><div class="line">.text:004011AC                 push    0</div><div class="line">.text:004011AE                 call    __heap_init</div><div class="line">.text:004011B3                 add     esp, 4</div><div class="line">.text:004011B6                 test    eax, eax</div><div class="line">.text:004011B8                 jnz     short loc_4011C4</div><div class="line">.text:004011BA                 push    1Ch</div><div class="line">.text:004011BC                 call    fast_error_exit</div><div class="line">.text:004011C1 ; ---------------------------------------------------------------------------</div><div class="line">.text:004011C1                 add     esp, 4</div><div class="line">.text:004011C4</div><div class="line">.text:004011C4 loc_4011C4:                             ; CODE XREF: _mainCRTStartup+88j</div><div class="line">.text:004011C4                 mov     [ebp+ms_exc.registration.TryLevel], 0</div><div class="line">.text:004011CB                 call    __ioinit</div><div class="line">.text:004011D0                 call    ds:__imp__GetCommandLineA@0 ; GetCommandLineA()</div><div class="line">.text:004011D6                 mov     __acmdln, eax</div><div class="line">.text:004011DB                 call    ___crtGetEnvironmentStringsA</div><div class="line">.text:004011E0                 mov     __aenvptr, eax</div><div class="line">.text:004011E5                 call    __setargv</div><div class="line">.text:004011EA                 call    __setenvp</div><div class="line">.text:004011EF                 call    __cinit</div><div class="line">.text:004011F4                 mov     ecx, __environ</div><div class="line">.text:004011FA                 mov     ___initenv, ecx</div><div class="line">.text:00401200                 mov     edx, __environ</div><div class="line">.text:00401206                 push    edx             ; envp</div><div class="line">.text:00401207                 mov     eax, ___argv</div><div class="line">.text:0040120C                 push    eax             ; argv</div><div class="line">.text:0040120D                 mov     ecx, ___argc</div><div class="line">.text:00401213                 push    ecx             ; argc</div><div class="line">.text:00401214                 call    _main_0</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如上所示，是进入这个函数后的汇编代码，可以看到main函数在00401214位置处，启动函数从00401130地址处开始，期间调用了GetVersion()函数获得了系统版本号，调用__heap_init函数初始化了程序所使用的堆空间，调用了GetCommandLineA()函数获取了命令行参数,调用_crtGetEnvironmentStringsA()获取了环境变量字符串，在完成一系列启动所需的工作之后，终于在00401214处调用了main()函数。</p>
+<ul>
+<li>在调用printf时候的指令为call printf,而调用像是MessageBoxA时候的指令是call    ds:<strong>imp</strong>MessageBoxA@16 ; MessageBoxA(x,x,x,x)，printf函数在stdio.h头文件中，该函数是c语言的静态库，在链接的时候会将其代码接入到二进制文件中(静态包含)，而MessageBoxA的函数实现是在user32.dll这个动态链接库中，在代码中，这里只是留了进入MessageBoxA函数的一个地址，并没有具体的代码，MessageBoxA的具体地址存放在数据节区中，因此在反汇编代码中给出了提示，使用了前缀”ds”,<strong>imp</strong>表示导入函数，@16表示16个字节，16/4即函数又4个参数。注意 在od中汇编代码是这样call dword ptr ds:[&lt;&amp;USER32.MessageBoxA&gt;]，感觉没有ida的友好。</li>
+<li>switch case default结构的特征<br><img src="/2017/08/18/IDA使用方法/6.png" alt=""></li>
+<li><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="http://www.pediy.com/kssd/pediy12/ida.html" target="_blank" rel="external">IDA简易教程</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/18/20170818安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/18/20170818安全动态/" itemprop="url">
+                  20170818安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T10:24:30+08:00">
+                2017-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>漏洞根源在于人——知识深度篇<br><a href="http://www.freebuf.com/vuls/144705.html" target="_blank" rel="external">http://www.freebuf.com/vuls/144705.html</a></li>
+<li>safari本地文件读取漏洞之扩展攻击面<br><a href="http://www.wupco.cn/?p=4134" target="_blank" rel="external">http://www.wupco.cn/?p=4134</a></li>
+<li>Bypass 360主机卫士SQL注入防御<br><a href="http://www.cnblogs.com/xiaozi/p/7275134.html" target="_blank" rel="external">http://www.cnblogs.com/xiaozi/p/7275134.html</a></li>
+<li>node-postgres code execution vulnerability<br><a href="https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability" target="_blank" rel="external">https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability</a></li>
+<li>msdtc后门的实现思路<br><a href="http://www.4hou.com/system/6890.html" target="_blank" rel="external">http://www.4hou.com/system/6890.html</a></li>
+<li>#164224 Urgent: Server side template injection via Smarty template allows for RCE<br><a href="https://hackerone.com/reports/164224" target="_blank" rel="external">https://hackerone.com/reports/164224</a></li>
+<li>Using get_defined_functions To Hidden A PHP Backdoor<br><a href="http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/</a></li>
+<li>内网发现技巧补充<br><a href="https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A" target="_blank" rel="external">https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A</a></li>
+<li>ssh如何方向代理稳定穿透内网<br><a href="http://bobao.360.cn/learning/detail/4234.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4234.html</a></li>
+<li>ZDI 公开了两个 Foxit Reader 的 0Day，分别是 JavaScript API 触发的命令执行（CVE-2017-10951）和文件写漏洞（CVE-2017-10952），由于触发漏洞需要绕过 Safe Reading Mode，所以官方拒绝修复<br><a href="https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader</a></li>
+<li>mod0Umleitung - Windows 上的 DNS 转发服务器，可中途对 DNS 请求进行篡改以及返回自定义的 DNS 解析结果<br><a href="https://modzero.github.io/mod0Umleitung/" target="_blank" rel="external">https://modzero.github.io/mod0Umleitung/</a></li>
+<li>结合 Blind SSRF 漏洞以及 HashiCorp Consul 的错误配置转换成高危的 RCE 漏洞<br><a href="http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html" target="_blank" rel="external">http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html</a></li>
+<li>Koadic：COM 命令控制框架（JScript RAT，类似Meterpreter、Empire）<br><a href="http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html" target="_blank" rel="external">http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html</a></li>
+<li>3个步骤实现简单语言解释器（自制简易编程语言）<br><a href="https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/" target="_blank" rel="external">https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/</a></li>
+<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""></http:></li>
+<li>burpsuite插件开发被动式扫描<br><a href="http://www.itwzw.cn/burpsuite-ext-passivescan/" target="_blank" rel="external">http://www.itwzw.cn/burpsuite-ext-passivescan/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>如何知道程序的运行时间<br>time xxx  ,time python demo.py</li>
+<li>一次基于zio编写pwn的exp的尝试<br><a href="http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/" target="_blank" rel="external">http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/</a></li>
+<li>反汇编的利器 IDA 和 Hopper 的基本使用<br><a href="https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/" target="_blank" rel="external">https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/17/20170817安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1401,338 +1675,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/09/Awosome-Hacking系列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/Awosome-Hacking系列/" itemprop="url">
-                  Awosome Hacking系列
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T14:56:42+08:00">
-                2017-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="About"><a href="#About" class="headerlink" title="About"></a>About</h4><p>这里推荐一下github上的一个项目<a href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="external">Awesome-Hacking</a><br>安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广.</p>
-<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>Android安全：收集了各种Android工具、报告/研究/书籍、漏洞/利用代码等资源</p>
-<p>应用安全：了解学习应用程序安全的资源列表</p>
-<p>漏洞赏金：漏洞赏金计划集合和著名赏金猎人博客列表</p>
-<p>Cheatsheets：常见的渗透测试/安全备忘录</p>
-<p>CTF：CTF框架、类库、资源、软件和教程清单</p>
-<p>网络攻击环境：可以合法地锻炼培养自己攻击技能的环境集合</p>
-<p>安全开发运维：devsecops.org社区贡献的权威devsecops工具列表</p>
-<p>Exploit开发：学习exploit开发的资源</p>
-<p>Fuzzing：各种fuzzing图书、课程、工具、教程和易受攻击应用集合</p>
-<p>Hacking：Awesome Hacking资源列表</p>
-<p>蜜罐：包括不同类型的蜜罐、蜜罐工具、蜜罐分析等</p>
-<p>事件响应：旨在帮助安全分析师和数字取证人员</p>
-<p>工控安全：包括工具、蜜罐、数据、警报和新闻、会议各种工控安全等</p>
-<p>信息安全：有各种信息安全公开课、培训信息</p>
-<p>IoT安全：聚合了大量IoT破解案例，如RFID、门铃、中控、可穿戴等</p>
-<p>恶意软件分析：包括恶意软件收集、开源威胁情报、检测、沙箱等</p>
-<p>开源情报：情报界的各种开源情报来源</p>
-<p>OS X和iOS安全：OS X和iOS安全工具集合</p>
-<p>Pcaptools：流量处理的命令集、捕获工具、分析检查、DNS配置等工具资源</p>
-<p>渗透测试：在线渗透测试资源、Shellcode开发、开源情报资源、社会工程资源等</p>
-<p>PHP安全：PHP生成安全随机数、加密数据、检查漏洞等类库</p>
-<p>逆向：关于逆向的图书、培训、实战、工具等</p>
-<p>安全演讲：收集了2013-2017年各类安全大会演讲视频</p>
-<p>SecLists：安全测试人员进行评估检查需要用到的技能</p>
-<p>Security：Awesome Security，一个社区驱动的知名安全资源分类集合</p>
-<p>社会工程学：仅供网络安全人员、渗透测试人员在受控环境用于教育用途</p>
-<p>静态分析：针对各种编程语言的静态分析工具、linters、代码质量检查等</p>
-<p>威胁情报：包括常见威胁情报来源、格式、架构、工具、研究标准书籍等</p>
-<p>车辆安全：关于车辆安全的学习资源、项目、软硬件、汽车黑客案例、Twitter follower列表等</p>
-<p>漏洞研究：相对偏学术方向，有不少书籍、会议、报告等推荐</p>
-<p>Web黑客：Web安全入门各种书籍、文档、工具</p>
-<p>Windows漏洞利用：Windows堆栈溢出、内核攻击、内存损坏、内存保护等内容资源</p>
-<p>WiFi兵工厂：针对802.11协议攻击的各类工具</p>
-<h4 id="可用知识库"><a href="#可用知识库" class="headerlink" title="可用知识库"></a>可用知识库</h4><p>API安全检查清单：当你设计、测试、发布API时，需要核对的安全细节清单</p>
-<p>APT Notes：2008年至今的所有APT行动披露报告汇总，中国出现了11次</p>
-<p>赏金漏洞披露列表：偏Web向的常见漏洞类型案例披露</p>
-<p>密码学：密码学的理论、工具、框架、资源等</p>
-<p>CFT工具：CTF从入门到了解各种工具</p>
-<p>CVE PoC库：博主从13年到现在收集的数十个CVE漏洞的PoC</p>
-<p>取证：数字取证的常见工具资源</p>
-<p>免费编程书：关于系统、数据库、IDE、编程语言等方面的免费书</p>
-<p>灰帽黑客资源：CTF、加密学、Linux Hacking、USB Hacking、漏洞等</p>
-<p>信息安全入门：包括信息安全博客、认证、课程、社区、播客、工具等</p>
-<p>安全资源：一个类似MITRE ATT&amp;C的框架</p>
-<p>IOC：常见IOC资源、工具</p>
-<p>Linux内核利用库：2005年至今的Linux内核利用技术演讲、漏洞、Writeups等</p>
-<p>网络安全领域的机器学习：相关研究的数据集、论文、书籍、演讲等</p>
-<p>恶意软件脚本：博主收集的二十几个脚本</p>
-<p>Payloads：一大波常见Web攻击Payloads</p>
-<p>Payloads集合：比上面这个更丰富的常见Web攻击Payloads</p>
-<p>五星级Cheatsheets：包括OS X命令行、PowerShell命令行、Google Dorks、Shodan、exploit开发、Java反序列化等最全备忘</p>
-<p>Pentest Wiki：博主收集的在线安全知识库，里边涵盖网络分析、Web应用、开源情报、漏洞分析、编程开发等多个领域</p>
-<p>字典：作者自称找了超过80GB密码库，从中总结出这个字典项目</p>
-<p>Resource List：零碎的GitHub安全项目汇总，涉及PWND、PowerShell、CTF、恶意软件等</p>
-<p>逆向工程：常见软件、类库、书籍、技术分析、开发等</p>
-<p>RF安全工具箱：国人@cn0xroot 聚合的各类射频资源集合，包括SDR、GSM、3G、4G LTE、NFC&amp;RFID、ZigBee等</p>
-<p>安全备忘录：收集了许多信息安全工具和主题</p>
-<p>安全清单：一大波详实的全系列安全资源</p>
-<p>Shell：一系列Shell命令行、工具、指南等</p>
-<p>威胁猎人攻略：帮助安全分析师利用Sysmon和Windows Events日志来进行事件分析，涉及Splunk、ELK、Sigma、GrayLog等工具</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/09/20170809安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/09/20170809安全动态/" itemprop="url">
-                  20170809安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-09T09:14:53+08:00">
-                2017-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>安全研究方向的一些参考资源，质量还是不错的,涵盖的方面比较的广<br><a href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="external">https://github.com/Hack-with-Github/Awesome-Hacking</a></li>
-<li>利用CLR实现一种无需管理员权限的后门<br><a href="http://www.4hou.com/technology/6863.html" target="_blank" rel="external">http://www.4hou.com/technology/6863.html</a></li>
-<li>渗透技巧——Windows日志的删除与绕过<br><a href="https://xianzhi.aliyun.com/forum/read/1814.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1814.html</a></li>
-<li><p>绕过杀毒软件与主机入侵防御系统对流量的检测<br><a href="http://www.freebuf.com/articles/network/142418.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/142418.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">待测试</div></pre></td></tr></table></figure>
-</li>
-<li><p>Chkrootkit Sourcecode Learning<br><a href="http://www.cnblogs.com/LittleHann/p/3918030.html" target="_blank" rel="external">http://www.cnblogs.com/LittleHann/p/3918030.html</a></p>
-</li>
-<li><p>看我如何对Apache进行模糊测试并挖到了一个价值1500刀的漏洞<br><a href="http://bobao.360.cn/learning/detail/4213.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4213.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个不错，mark</div></pre></td></tr></table></figure>
-</li>
-<li><p>Windows环境下的信息收集<br><a href="https://mp.weixin.qq.com/s/37xtTdjVetMg5P1WaJvYvA" target="_blank" rel="external">https://mp.weixin.qq.com/s/37xtTdjVetMg5P1WaJvYvA</a></p>
-</li>
-<li>Vuzzer自动漏洞挖掘工具简单分析附使用介绍<br><a href="http://www.freebuf.com/sectool/143123.html" target="_blank" rel="external">http://www.freebuf.com/sectool/143123.html</a></li>
-<li>追寻恶意 NPM 包<br><a href="http://www.freebuf.com/news/143003.html" target="_blank" rel="external">http://www.freebuf.com/news/143003.html</a><br><a href="https://duo.com/blog/hunting-malicious-npm-packages" target="_blank" rel="external">https://duo.com/blog/hunting-malicious-npm-packages</a></li>
-<li>check_all_apks - 检测已知的安卓恶意应用的脚本<br><a href="https://github.com/kudelskisecurity/check_all_apks" target="_blank" rel="external">https://github.com/kudelskisecurity/check_all_apks</a></li>
-<li>来自 Project Zero 的 Windows 漏洞利用技巧系列文章，如何将任意目录创建漏洞转化成任意文件读<br><a href="https://googleprojectzero.blogspot.com/2017/08/windows-exploitation-tricks-arbitrary.html" target="_blank" rel="external">https://googleprojectzero.blogspot.com/2017/08/windows-exploitation-tricks-arbitrary.html</a></li>
-<li><p>我在全球最大的同性社交平台那点事<br><a href="http://www.freebuf.com/column/143633.html" target="_blank" rel="external">http://www.freebuf.com/column/143633.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这里主要介绍了基于爬虫的数据攻击，虽然不能用作定向攻击，但是呢，危害还是有的</div></pre></td></tr></table></figure>
-</li>
-<li><p>看我如何从54G日志中溯源web应用攻击路径<br><a href="https://secvul.com/topics/715.html" target="_blank" rel="external">https://secvul.com/topics/715.html</a></p>
-</li>
-<li>osx-and-ios-security-awesome<br><a href="https://github.com/ashishb/osx-and-ios-security-awesome" target="_blank" rel="external">https://github.com/ashishb/osx-and-ios-security-awesome</a></li>
-<li><p>CVE-2017-8620：Windows Search远程代码执行漏洞<br><a href="https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8620" target="_blank" rel="external">https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2017-8620</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">学习一下微软给的修复指南</div></pre></td></tr></table></figure>
-</li>
-<li><p>MAC osx、iOS常见安全工具汇总<br><a href="https://github.com/ashishb/osx-and-ios-security-awesome" target="_blank" rel="external">https://github.com/ashishb/osx-and-ios-security-awesome</a></p>
-</li>
-<li>BoopSuite：基于Python的无线审计、安全测试套件<br><a href="https://github.com/MisterBianco/BoopSuite" target="_blank" rel="external">https://github.com/MisterBianco/BoopSuite</a></li>
-<li>披着羊皮的狼：攻击者如何利用漏洞以特定图标伪装可执行文件<br><a href="http://www.freebuf.com/articles/system/143365.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/143365.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用作欺骗攻击这个好像很6</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1782,7 +1724,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

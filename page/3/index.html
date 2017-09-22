@@ -307,6 +307,344 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/06/yara使用说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/06/yara使用说明/" itemprop="url">
+                  yara使用说明
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T16:55:40+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li>yara工具用来帮助安全研究人员鉴别和对恶意软件进行分类的工具。我们可以通过编写规则来进行恶意软件的识别。<h4 id="yara-规则"><a href="#yara-规则" class="headerlink" title="yara 规则"></a>yara 规则</h4><a href="http://yara.readthedocs.io/en/v3.6.3/index.html" target="_blank" rel="external">最新规则官方文档V3.6.3</a><br><br>规则示例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">rule silent_banker : banker</div><div class="line">&#123;</div><div class="line">    meta:</div><div class="line">        description = &quot;This is just an example&quot;</div><div class="line">        thread_level = 3</div><div class="line">        in_the_wild = true</div><div class="line">    strings:</div><div class="line">        $a = &#123;6A 40 68 00 30 00 00 6A 14 8D 91&#125;</div><div class="line">        $b = &#123;8D 4D B0 2B C1 83 C0 27 99 6A 4E 59 F7 F9&#125;</div><div class="line">        $c = &quot;UVODFRYSIHLNWPEJXQZAKCBGMT&quot;</div><div class="line">    condition:</div><div class="line">        $a or $b or $c</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这个就是一个名为rule silent_banker的规则，其中banker是规则的tag字段(可以有多个tag)，meta字段是规则的描述信息，strings是规则字段，condition则是条件判断的字段，这个规则的意思就是只要满足了字符串或a或b或c就会命中规则。<br>这里只是一个简单的规则，规则的创建可以使用通配符、大小写非敏感的字符串、正则表达式、特殊的操作符号等其它的特征。<br>通过python使用yara<br><img src="/2017/09/06/yara使用说明/yarapython.png" alt=""><br><img src="/2017/09/06/yara使用说明/help.png" alt=""><br>yara语法<br><br>silent-_banker叫做identifiers，是大小写敏感的且不能超过128个字符，且不能用以下的关键词，因为这些是yara的关键词<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">all	and	any	ascii	at	condition	contains</div><div class="line">entrypoint	false	filesize	fullword	for	global	in</div><div class="line">import	include	int8	int16	int32	int8be	int16be</div><div class="line">int32be	matches	meta	nocase	not	or	of</div><div class="line">private	rule	strings	them	true	uint8	uint16</div><div class="line">uint32	uint8be	uint16be	uint32be	wide</div></pre></td></tr></table></figure></p>
+<p>字符串可以是文本字符串也可以是十六进制，ascii类型的使用双引号包裹，十六进制字符串使用大括号包裹。<br><br>注释语法和c语言相同。<br></p>
+<p>* 三种string；<br><br>1.文本类型字符串<br><br>2.十六进制字符串<br><br>3.正则表达式</p>
+<ul>
+<li>十六进制Example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rule AlternativesExample1</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">       $hex_string = &#123; F4 23 ( 62 B4 | 56 ) 45 &#125;</div><div class="line"></div><div class="line">    condition:</div><div class="line">       $hex_string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>valid<br>F42362B445或者F4235645</p>
+<ul>
+<li>字符串Example<br><br>默认是敏感的,但是可以通过nocase关键字设置成不敏感的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rule CaseInsensitiveTextExample</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $text_string = &quot;foobar&quot; nocase</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $text_string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这样Foobar, FOOBAR, and fOoBaR都会被匹配到。</p>
+<ul>
+<li><p>宽字节的匹配<br><br>一个字符占两个字节</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">rule WideCharTextExample1</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $wide_string = &quot;Borland&quot; wide</div><div class="line"></div><div class="line">    condition:</div><div class="line">       $wide_string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>fullword关键词<br><br>rule WideCharTextExample1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $fullword_string = &quot;domain&quot; fullword</div><div class="line"></div><div class="line">    condition:</div><div class="line">       $fullword_string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>www.mydomain.com  www.my-domain.com www.domain.com</p>
+<ul>
+<li><p>正则表达式<br><br>使用斜线包裹，而非双引号或者大括号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> rule RegExpExample1</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $re1 = /md5: [0-9a-fA-F]&#123;32&#125;/</div><div class="line">        $re2 = /state: (on|off)/</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $re1 and $re2</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>条件判断语句Conditions<br><br>可以没有特征strings但是不能没有strings字段<br><br>可以设定特征出现的次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> rule CountExample</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $a = &quot;dummy1&quot;</div><div class="line">        $b = &quot;dummy2&quot;</div><div class="line"></div><div class="line">    condition:</div><div class="line">        #a == 6 and #b &gt; 10</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>偏移地址offset</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">rule InExample</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $a = &quot;dummy1&quot;</div><div class="line">        $b = &quot;dummy2&quot;</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $a in (0..100) and $b in (100..filesize)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>特征a出现在0-0x100偏移且特征b出现在0x100之后。</p>
+<ul>
+<li>文件大小<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> rule FileSizeExample</div><div class="line">&#123;</div><div class="line">    condition:</div><div class="line">       filesize &gt; 200KB</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这个只能匹配文件，如果是运行着的程序的话，那么将永远不会匹配，因为这个时候filesize没有意义。</p>
+<ul>
+<li>特定位置的数据获取<br>PE文件的判断<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> rule IsPE</div><div class="line">&#123;</div><div class="line">  condition:</div><div class="line">     // MZ signature at offset 0 and ...</div><div class="line">     uint16(0) == 0x5A4D and</div><div class="line">     // ... PE signature at offset stored in MZ header at 0x3C</div><div class="line">     uint32(uint32(0x3C)) == 0x00004550</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>PE文件结构中的前两个字节是DOS签名5A4D,即“MZ”。</p>
+<ul>
+<li><p>特征集合<br>rule OfExample1<br>{<br>strings:</p>
+<pre><code>$a = &quot;dummy1&quot;
+$b = &quot;dummy2&quot;
+$c = &quot;dummy3&quot;
+</code></pre><p>condition:</p>
+<pre><code>2 of ($a,$b,$c)
+</code></pre><p>}<br>满足两个特征即可</p>
+</li>
+</ul>
+</li>
+<li><p>引用其他规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">rule Rule1</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $a = &quot;dummy1&quot;</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $a</div><div class="line">&#125;</div><div class="line"></div><div class="line">rule Rule2</div><div class="line">&#123;</div><div class="line">    strings:</div><div class="line">        $a = &quot;dummy2&quot;</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $a and Rule1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>全局规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">global rule SizeLimit</div><div class="line">&#123;</div><div class="line">    condition:</div><div class="line">        filesize &lt; 2MB</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>规则标签<br>方便对输出的信息进行归类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">rule TagsExample1 : Foo Bar Baz</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">rule TagsExample2 : Bar</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Metadata</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">rule MetadataExample</div><div class="line">&#123;</div><div class="line">    meta:</div><div class="line">        my_identifier_1 = &quot;Some string data&quot;</div><div class="line">        my_identifier_2 = 24</div><div class="line">        my_identifier_3 = true</div><div class="line"></div><div class="line">    strings:</div><div class="line">        $my_text_string = &quot;text here&quot;</div><div class="line">        $my_hex_string = &#123; E2 34 A1 C8 23 FB &#125;</div><div class="line"></div><div class="line">    condition:</div><div class="line">        $my_text_string or $my_hex_string</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>模块引用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import &quot;pe&quot;</div><div class="line"></div><div class="line">rule Test</div><div class="line">&#123;</div><div class="line">  strings:</div><div class="line">      $a = &quot;some string&quot;</div><div class="line"></div><div class="line">  condition:</div><div class="line">      $a and pe.entry_point == 0x1000</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>文件包含</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">include &quot;other.yar&quot;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>容易踩坑的点<br>当扫描的是某个进程文件时候，这个时候是没有filesize属性的，也就永远不会满足的。此外还有通过文件偏移来判断PE也是不可行的。</li>
+<li>web<br><a href="https://github.com/Tigzy/yaraeditor" target="_blank" rel="external">https://github.com/Tigzy/yaraeditor</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="http://www.freebuf.com/articles/system/26373.html" target="_blank" rel="external">恶意软件模式匹配利器 – YARA</a><br><a href="http://www.freebuf.com/articles/96903.html" target="_blank" rel="external">YARA：抗击恶意代码的神兵利器</a><br><a href="https://www.aldeid.com/wiki/Pescanner" target="_blank" rel="external">PEScanner</a><br><a href="https://github.com/Neo23x0/yarGen" target="_blank" rel="external">yara规则自动生成</a><br><a href="https://countuponsecurity.com/tag/pescanner-py/" target="_blank" rel="external">UNLEASHING YARA – PART 2</a><br><a href="http://www.freebuf.com/sectool/92399.html" target="_blank" rel="external">教你构建自己的yara数据库</a><br><a href="https://github.com/Neo23x0/yarAnalyzer" target="_blank" rel="external">yarAnalyzer</a><br><a href="http://www.aptno1.com/YC/249.html" target="_blank" rel="external">yara简介及API解析</a><br><a href="http://blog.csdn.net/wowolook/article/details/44307283" target="_blank" rel="external">两个开源恶意代码的查杀引擎 clamav yara</a><br><a href="http://bruteforcelab.com/yara-a-beginners-guide.html" target="_blank" rel="external">http://bruteforcelab.com/yara-a-beginners-guide.html</a><br><a href="https://blog.malwarebytes.com/threat-analysis/2013/10/using-yara-to-attribute-malware/" target="_blank" rel="external">https://blog.malwarebytes.com/threat-analysis/2013/10/using-yara-to-attribute-malware/</a><br><a href="https://securityintelligence.com/signature-based-detection-with-yara/" target="_blank" rel="external">https://securityintelligence.com/signature-based-detection-with-yara/</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/06/20170906安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/06/20170906安全动态/" itemprop="url">
+                  20170906安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-06T11:55:40+08:00">
+                2017-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>Struts2 S2-052 RCE分析与利用<br><a href="https://paper.seebug.org/383/" target="_blank" rel="external">https://paper.seebug.org/383/</a></li>
+<li>使用 QL 寻找 Apache Struts 中的远程代码执行漏洞(CVE-2017-9805)<br><a href="https://lgtm.com/blog/apache_struts_CVE-2017-9805" target="_blank" rel="external">https://lgtm.com/blog/apache_struts_CVE-2017-9805</a><br><a href="https://xianzhi.aliyun.com/forum/read/2067.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/2067.html</a></li>
+<li>CSS-in-JS 打破了 JS 和 CSS 之间的边界，为 CSS 注入提供了新的攻击界面<br><a href="https://reactarmory.com/answers/how-can-i-use-css-in-js-securely" target="_blank" rel="external">https://reactarmory.com/answers/how-can-i-use-css-in-js-securely</a></li>
+<li>HEVD Stack Overflow 漏洞的利用，包括对 GS stack cookies 特性的绕过<br><a href="https://reactarmory.com/answers/how-can-i-use-css-in-js-securely" target="_blank" rel="external">https://reactarmory.com/answers/how-can-i-use-css-in-js-securely</a></li>
+<li>联想笔记本（还有其他品牌）的 Synaptics 触控板驱动存在一个 Bug，每秒钟会扫描一次系统<br><a href="https://randomascii.wordpress.com/2017/09/05/hey-synaptics-can-you-please-stop-polling" target="_blank" rel="external">https://randomascii.wordpress.com/2017/09/05/hey-synaptics-can-you-please-stop-polling</a></li>
+<li>如何 Dump 一个 Flash 芯片，来自 quarkslab<br><a href="https://blog.quarkslab.com/flash-dumping-part-i.html" target="_blank" rel="external">https://blog.quarkslab.com/flash-dumping-part-i.html</a></li>
+<li>恶意的 Chrome 扩展程序窃取 Roblox 游戏币，通过 Discord 发送窃取的 Cookie<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/malicous-chrome-extensions-stealing-roblox-game-currency-sending-cookies-via-discord/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/malicous-chrome-extensions-stealing-roblox-game-currency-sending-cookies-via-discord/</a></li>
+<li>ypass macOS 10.13 内核新加的 “Secure Kernel Extension Loading” 内核模块加载保护特性<br><a href="https://objective-see.com/blog/blog_0x21.html" target="_blank" rel="external">https://objective-see.com/blog/blog_0x21.html</a></li>
+<li>MTuner - 一个可用于 Windows, PS4, PS3 上的 memory profiler、内存泄漏分析工具<br><a href="https://github.com/milostosic/MTuner" target="_blank" rel="external">https://github.com/milostosic/MTuner</a></li>
+<li>domain_analyzer - 一个可以搜寻域名的各类信息并分析安全问题的工具<br><a href="https://github.com/eldraco/domain_analyzer" target="_blank" rel="external">https://github.com/eldraco/domain_analyzer</a></li>
+<li>Linux(x86)栈溢出exploit开发技巧“return-to-libc”<br><a href="https://mp.weixin.qq.com/s/W1lUMJHVT_6_7GYNsxWdWA" target="_blank" rel="external">https://mp.weixin.qq.com/s/W1lUMJHVT_6_7GYNsxWdWA</a></li>
+<li>DIY监控程序: 滥用Apple的Call Relay协议<br><a href="http://www.martinvigo.com/diy-spy-program-abusing-apple-call-relay-protocol/" target="_blank" rel="external">http://www.martinvigo.com/diy-spy-program-abusing-apple-call-relay-protocol/</a></li>
+<li>Mastercard互联网网关服务：Hashing设计缺陷<br><a href="http://tinyhack.com/2017/09/05/mastercard-internet-gateway-service-hashing-design-flaw/" target="_blank" rel="external">http://tinyhack.com/2017/09/05/mastercard-internet-gateway-service-hashing-design-flaw/</a></li>
+<li>滥用可写Windows服务<br><a href="https://blog.didierstevens.com/2017/09/05/abusing-a-writable-windows-service/" target="_blank" rel="external">https://blog.didierstevens.com/2017/09/05/abusing-a-writable-windows-service/</a></li>
+<li>通过静态分析检测Python Web应用程序中漏洞<br><a href="https://github.com/python-security/pyt" target="_blank" rel="external">https://github.com/python-security/pyt</a></li>
+<li>Re-enjoying the ActiveX (and others) Fun in Chinese Customized Browsers<br><a href="https://justhaifei1.blogspot.com/2017/09/re-enjoying-activex-and-others.html" target="_blank" rel="external">https://justhaifei1.blogspot.com/2017/09/re-enjoying-activex-and-others.html</a></li>
+<li>security things in Linux v4.13<br><a href="https://outflux.net/blog/archives/2017/09/05/security-things-in-linux-v4-13/" target="_blank" rel="external">https://outflux.net/blog/archives/2017/09/05/security-things-in-linux-v4-13/</a></li>
+<li>Remotely Dump Linux RAM: LiMEaide<br><a href="https://n0where.net/remotely-dump-linux-ram-limeaide/" target="_blank" rel="external">https://n0where.net/remotely-dump-linux-ram-limeaide/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4>macOS版微信竟可以这样消息防撤回<br><a href="http://www.jianshu.com/p/7f65287a2e7a" target="_blank" rel="external">http://www.jianshu.com/p/7f65287a2e7a</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/05/20170905安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1087,7 +1425,7 @@
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#x6b;&#104;&#x69;&#122;&#x65;&#114;&#106;&#x61;&#x76;&#101;&#x64;&#47;&#x73;&#113;&#108;&#105;&#x2d;&#x78;&#x73;&#115;&#45;&#x76;&#117;&#108;&#110;&#101;&#x72;&#97;&#98;&#105;&#x6c;&#105;&#x74;&#105;&#x65;&#115;&#45;&#105;&#x6e;&#x2d;&#x61;&#45;&#112;&#x6f;&#x70;&#x75;&#x6c;&#x61;&#x72;&#45;&#x61;&#x69;&#x72;&#x6c;&#105;&#x6e;&#x65;&#115;&#x2d;&#119;&#101;&#98;&#115;&#105;&#116;&#x65;&#45;&#x62;&#117;&#x67;&#98;&#111;&#117;&#x6e;&#116;&#x79;&#45;&#x70;&#x6f;&#x63;&#x2d;&#53;&#x63;&#x30;&#100;&#x37;&#x31;&#102;&#x39;&#x33;&#53;&#x63;&#x31;">&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#x6b;&#104;&#x69;&#122;&#x65;&#114;&#106;&#x61;&#x76;&#101;&#x64;&#47;&#x73;&#113;&#108;&#105;&#x2d;&#x78;&#x73;&#115;&#45;&#x76;&#117;&#108;&#110;&#101;&#x72;&#97;&#98;&#105;&#x6c;&#105;&#x74;&#105;&#x65;&#115;&#45;&#105;&#x6e;&#x2d;&#x61;&#45;&#112;&#x6f;&#x70;&#x75;&#x6c;&#x61;&#x72;&#45;&#x61;&#x69;&#x72;&#x6c;&#105;&#x6e;&#x65;&#115;&#x2d;&#119;&#101;&#98;&#115;&#105;&#116;&#x65;&#45;&#x62;&#117;&#x67;&#98;&#111;&#117;&#x6e;&#116;&#x79;&#45;&#x70;&#x6f;&#x63;&#x2d;&#53;&#x63;&#x30;&#100;&#x37;&#x31;&#102;&#x39;&#x33;&#53;&#x63;&#x31;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#109;&#107;&#x68;&#x69;&#x7a;&#101;&#x72;&#106;&#x61;&#x76;&#101;&#x64;&#x2f;&#x73;&#113;&#108;&#x69;&#45;&#x78;&#x73;&#115;&#x2d;&#118;&#x75;&#108;&#110;&#x65;&#114;&#97;&#98;&#x69;&#x6c;&#x69;&#116;&#105;&#101;&#115;&#x2d;&#105;&#x6e;&#45;&#x61;&#45;&#x70;&#111;&#x70;&#117;&#x6c;&#x61;&#114;&#45;&#97;&#x69;&#x72;&#108;&#105;&#110;&#101;&#115;&#x2d;&#119;&#101;&#x62;&#115;&#x69;&#x74;&#x65;&#x2d;&#98;&#117;&#x67;&#98;&#x6f;&#117;&#x6e;&#x74;&#121;&#x2d;&#x70;&#111;&#x63;&#45;&#x35;&#99;&#x30;&#x64;&#55;&#49;&#102;&#x39;&#x33;&#x35;&#x63;&#49;">&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#109;&#107;&#x68;&#x69;&#x7a;&#101;&#x72;&#106;&#x61;&#x76;&#101;&#x64;&#x2f;&#x73;&#113;&#108;&#x69;&#45;&#x78;&#x73;&#115;&#x2d;&#118;&#x75;&#108;&#110;&#x65;&#114;&#97;&#98;&#x69;&#x6c;&#x69;&#116;&#105;&#101;&#115;&#x2d;&#105;&#x6e;&#45;&#x61;&#45;&#x70;&#111;&#x70;&#117;&#x6c;&#x61;&#114;&#45;&#97;&#x69;&#x72;&#108;&#105;&#110;&#101;&#115;&#x2d;&#119;&#101;&#x62;&#115;&#x69;&#x74;&#x65;&#x2d;&#98;&#117;&#x67;&#98;&#x6f;&#117;&#x6e;&#x74;&#121;&#x2d;&#x70;&#111;&#x63;&#45;&#x35;&#99;&#x30;&#x64;&#55;&#49;&#102;&#x39;&#x33;&#x35;&#x63;&#49;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -1414,258 +1752,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/25/20170825安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/25/20170825安全动态/" itemprop="url">
-                  20170825安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-25T10:15:19+08:00">
-                2017-08-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>利用xwizard.exe加载dll<br><a href="http://www.4hou.com/technology/6969.html" target="_blank" rel="external">http://www.4hou.com/technology/6969.html</a></li>
-<li>NativePayload_DNS - 通过 DNS 流量传输后门载荷以绕过反病毒软件的 C# 代码示例<br><a href="https://github.com/DamonMohammadbagher/NativePayload_DNS" target="_blank" rel="external">https://github.com/DamonMohammadbagher/NativePayload_DNS</a></li>
-<li>物联网中的 ARM 漏洞利用<br><a href="https://mp.weixin.qq.com/s/VSWhMKjhq2Ge4bNvd7YBiA" target="_blank" rel="external">https://mp.weixin.qq.com/s/VSWhMKjhq2Ge4bNvd7YBiA</a></li>
-<li>由正则引起的Wecenter拒绝服务漏洞<br><a href="http://www.0aa.me/index.php/archives/139/" target="_blank" rel="external">http://www.0aa.me/index.php/archives/139/</a></li>
-<li>Salamandra：封闭环境中检测和定位spy microphones的工具<br><a href="https://github.com/eldraco/Salamandra" target="_blank" rel="external">https://github.com/eldraco/Salamandra</a></li>
-<li>pentest-tools：渗透测试常用脚本收集<br><a href="https://github.com/gwen001/pentest-tools" target="_blank" rel="external">https://github.com/gwen001/pentest-tools</a></li>
-<li>DPAT：域密码导出可用于Hashcat破解<br><a href="http://bobao.360.cn/learning/detail/4313.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4313.html</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>如何设置域名的 SPF 记录<br><a href="https://wzyboy.im/post/865.html" target="_blank" rel="external">https://wzyboy.im/post/865.html</a></li>
-<li>pe装载器<br><a href="http://bbs.pediy.com/thread-106310.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-106310.htm</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/24/linux调试工具GDB入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/24/linux调试工具GDB入门/" itemprop="url">
-                  linux调试工具GDB入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T17:11:37+08:00">
-                2017-08-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>linux 调试工具 GDB 使用教程<br><a href="http://bbs.pediy.com/thread-77746.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-77746.htm</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1715,7 +1801,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-count">118</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
