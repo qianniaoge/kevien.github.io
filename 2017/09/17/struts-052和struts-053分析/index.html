@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/09/17/struts-052和struts-053分析/s2rest.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/17/struts-052和struts-053分析/exp.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/17/struts-052和struts-053分析/s2-053.png">
-<meta property="og:updated_time" content="2017-09-24T15:00:38.000Z">
+<meta property="og:updated_time" content="2017-09-25T06:03:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="struts-052和struts-053分析">
 <meta name="twitter:description" content="前言漏洞爆发的那几天有事(主要还是懒)没有及时的跟进漏洞，这两天跟一下漏洞。 s2-052官方通告在分析这个漏洞之前，先补补基础知识。了解一下xstream这个包，看一下官方的一句话介绍，XStream is a simple library to serialize objects to XML and back again.就是一个序列化java对象为xml以及将xml反序列化为java对象。">
@@ -399,7 +399,8 @@
 <p><img src="/2017/09/17/struts-052和struts-053分析/exp.png" alt=""></p>
 <ul>
 <li>补丁对比<br><a href="https://github.com/apache/struts/commit/19494718865f2fb7da5ea363de3822f87fbda264" target="_blank" rel="external">补丁代码</a><h4 id="S2-053"><a href="#S2-053" class="headerlink" title="S2-053"></a>S2-053</h4></li>
-<li>关于s2-053的漏洞问题是安全编码和习惯的问题,而非struts2通杀漏洞。<br><br><a href="http://struts.apache.org/docs/s2-053.html" target="_blank" rel="external">官方通告</a><br><img src="/2017/09/17/struts-052和struts-053分析/s2-053.png" alt=""><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>关于s2-053的漏洞问题是安全编码和习惯的问题,而非struts2通杀漏洞。<br><br><a href="http://struts.apache.org/docs/s2-053.html" target="_blank" rel="external">官方通告</a><br><img src="/2017/09/17/struts-052和struts-053分析/s2-053.png" alt=""></li>
+<li>较s2-052，s2-053漏洞更简单和直接。<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
 <li><del>我还是喜欢用eclipse分析java漏洞。</del>，还是好像还是idea比较好用啊，只是从eclipse切换过来略蛋疼。切换过来之后，你会发现你的ide好像都要是JetBrains这个公司的了。</li>
 <li>基础还是不够牢固，给自己定个小计划，后面有时间把所有的s2漏洞分析一下。总结一下思路。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li>Standard way to serialize and deserialize Objects with XStream<br><a href="http://blog.sodhanalibrary.com/2013/12/standard-way-to-serialize-and.html#.Wb6sFdMjE0o" target="_blank" rel="external">http://blog.sodhanalibrary.com/2013/12/standard-way-to-serialize-and.html#.Wb6sFdMjE0o</a></li>
@@ -412,6 +413,8 @@
 <li>Struts2-052漏洞分析<br><a href="https://yaofeifly.github.io/2017/09/08/Struts2-052/" target="_blank" rel="external">https://yaofeifly.github.io/2017/09/08/Struts2-052/</a></li>
 <li>Apache Struts2 Remote Code Execution (S2-053)<br><a href="http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/</a></li>
 <li>S2-053 复现分析过程(附POC)<br><a href="https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA" target="_blank" rel="external">https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA</a></li>
+<li>Struts 2 S2-053漏洞分析（附POC）<br><a href="http://www.freebuf.com/vuls/147735.html" target="_blank" rel="external">http://www.freebuf.com/vuls/147735.html</a></li>
+<li>来自McAfee对s2-052的分析<br><a href="https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/" target="_blank" rel="external">https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/</a></li>
 </ul>
 
       
@@ -573,7 +576,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">118</span>
+                <span class="site-state-item-count">120</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
