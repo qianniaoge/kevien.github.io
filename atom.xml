@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-09-26T03:14:11.000Z</updated>
+  <updated>2017-09-28T02:50:26.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,13 +16,97 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Cmake使用笔记</title>
+    <link href="http://kevien.github.io/2017/09/28/Cmake%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://kevien.github.io/2017/09/28/Cmake使用笔记/</id>
+    <published>2017-09-28T02:40:33.000Z</published>
+    <updated>2017-09-28T02:50:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li><p><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></p>
+</li>
+<li><p><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.wikiwand.com/en/CMake&quot; target=&quot;_blank&quot; r
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20170927安全动态(以后每2天更新)</title>
+    <link href="http://kevien.github.io/2017/09/27/20170927%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81-%E4%BB%A5%E5%90%8E%E6%AF%8F2%E5%A4%A9%E6%9B%B4%E6%96%B0/"/>
+    <id>http://kevien.github.io/2017/09/27/20170927安全动态-以后每2天更新/</id>
+    <published>2017-09-27T10:38:36.000Z</published>
+    <updated>2017-09-28T04:58:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
+<li><p>通过数据包端口号进行数据渗出：PacketKnockOut<br><a href="https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/" target="_blank" rel="external">https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">搞apt的可以研究一下</div></pre></td></tr></table></figure>
+</li>
+<li><p>BlobRunner - 在恶意软件分析过程中快速调试 ShellCode 的工具<br><a href="https://github.com/OALabs/BlobRunner" target="_blank" rel="external">https://github.com/OALabs/BlobRunner</a></p>
+</li>
+<li>Awesome-MitM - GitHub 上一些不错的网络中间人攻击框架收集<br><a href="https://github.com/Chan9390/Awesome-MitM" target="_blank" rel="external">https://github.com/Chan9390/Awesome-MitM</a></li>
+<li>使用 IDA 调试 iOS 程序的步骤<br><a href="http://blog.csdn.net/proteas/article/details/78083512" target="_blank" rel="external">http://blog.csdn.net/proteas/article/details/78083512</a></li>
+<li>JEB2插件教程之一<br><a href="https://blog.flanker017.me/writing-jeb2-plugin/" target="_blank" rel="external">https://blog.flanker017.me/writing-jeb2-plugin/</a></li>
+<li>一个介绍主流漏洞悬赏平台、安全书籍、常见安全工具及漏洞类型的CheatSheet<br><a href="https://github.com/EdOverflow/bugbounty-cheatsheet" target="_blank" rel="external">https://github.com/EdOverflow/bugbounty-cheatsheet</a></li>
+<li>BypassD盾IIS防火墙SQL注入防御（多姿势）<br><https: xianzhi.aliyun.com="" forum="" read="" 2173.html=""></https:></li>
+<li>开源无效流量检测项目<br><a href="http://nameles.org/" target="_blank" rel="external">http://nameles.org/</a></li>
+<li>参数特定XSS的故事<br><a href="http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html" target="_blank" rel="external">http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html</a></li>
+<li>各种应用加密加固<br><a href="https://bettercrypto.org/static/applied-crypto-hardening.pdf" target="_blank" rel="external">https://bettercrypto.org/static/applied-crypto-hardening.pdf</a></li>
+</ul>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>在 linux 下使用 CMake 构建应用程序<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;通过数据包端口号进行数据渗出：PacketKnockOut&lt;br&gt;&lt;a href=&quot;https://n0w
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20170926安全动态</title>
     <link href="http://kevien.github.io/2017/09/26/20170926%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/26/20170926安全动态/</id>
     <published>2017-09-26T03:14:11.000Z</published>
-    <updated>2017-09-26T03:14:11.000Z</updated>
+    <updated>2017-09-27T03:25:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>ROP介绍<br><a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#105;&#115;&#101;&#x65;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#x6f;&#x2d;&#116;&#111;&#x2d;&#x72;&#x6f;&#112;&#45;&#114;&#x6f;&#112;&#x2d;&#101;&#x6d;&#x70;&#111;&#114;&#105;&#117;&#109;&#45;&#115;&#112;&#108;&#105;&#x74;&#45;&#57;&#98;&#50;&#x65;&#x63;&#54;&#100;&#x34;&#x64;&#x62;&#48;&#x38;">&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#105;&#115;&#101;&#x65;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#x6f;&#x2d;&#116;&#111;&#x2d;&#x72;&#x6f;&#112;&#45;&#114;&#x6f;&#112;&#x2d;&#101;&#x6d;&#x70;&#111;&#114;&#105;&#117;&#109;&#45;&#115;&#112;&#108;&#105;&#x74;&#45;&#57;&#98;&#50;&#x65;&#x63;&#54;&#100;&#x34;&#x64;&#x62;&#48;&#x38;</a></li>
+<li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
+<li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
+<li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
+<li>寻找内存驻留的恶意软件<br><a href="http://www.irongeek.com/i.php?page=videos/derbycon7/s21-hunting-for-memory-resident-malware-joe-desimone" target="_blank" rel="external">http://www.irongeek.com/i.php?page=videos/derbycon7/s21-hunting-for-memory-resident-malware-joe-desimone</a></li>
+<li>SSL/TLS layers for scapy the interactive packet manipulation tool<br><a href="https://github.com/tintinweb/scapy-ssl_tls" target="_blank" rel="external">https://github.com/tintinweb/scapy-ssl_tls</a></li>
+<li>BaRMIe - Java RMI枚举和攻击工具<br><a href="https://github.com/NickstaDB/BaRMIe" target="_blank" rel="external">https://github.com/NickstaDB/BaRMIe</a></li>
+<li>BLE – 一款 BLE 扫描器<br><a href="https://github.com/evilsocket/bleah" target="_blank" rel="external">https://github.com/evilsocket/bleah</a></li>
+<li>PyMLProjects: Python 机器学习项目<br><a href="https://github.com/k3170makan/PyMLProjects" target="_blank" rel="external">https://github.com/k3170makan/PyMLProjects</a></li>
+<li>redsails - 一个基于 Python 的后渗透项目，旨在绕过基于主机的安全监控与日志记录<br><a href="https://github.com/BeetleChunks/redsails" target="_blank" rel="external">https://github.com/BeetleChunks/redsails</a></li>
+<li>从核心概念和技术层面着眼，系统化认识RPC<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2650997997&amp;idx=1&amp;sn=cdcd04fb6c5f2e6deb4b0ae89102ddf8&amp;amp" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5MDE0Mjc4MA==&amp;mid=2650997997&amp;idx=1&amp;sn=cdcd04fb6c5f2e6deb4b0ae89102ddf8&amp;amp</a></li>
+<li>Sysmon v6.10 VS WMI Persistence<br><a href="https://rawsec.lu/blog/posts/2017/Sep/19/sysmon-v610-vs-wmi-persistence/" target="_blank" rel="external">https://rawsec.lu/blog/posts/2017/Sep/19/sysmon-v610-vs-wmi-persistence/</a></li>
+<li>NodeJS Debugger 命令注入<br><a href="https://packetstormsecurity.com/files/144333" target="_blank" rel="external">https://packetstormsecurity.com/files/144333</a></li>
+<li>谷歌测试5款主流浏览器  Safari最不安全<br><https: www.bleepingcomputer.com="" news="" security="" google-experiment-tests-top-5-browsers-finds-safari-riddled-with-security-bugs=""></https:></li>
+<li>Don’t Google ‘PowerShell Hunting’<br><a href="https://www.youtube.com/watch?v=1mfVPLPxKTc" target="_blank" rel="external">https://www.youtube.com/watch?v=1mfVPLPxKTc</a></li>
+</ul>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#x69;&amp;#x6c;&amp;#116;
     
     </summary>
     
@@ -34,7 +118,7 @@
     <link href="http://kevien.github.io/2017/09/25/20170925%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/25/20170925安全动态/</id>
     <published>2017-09-25T02:05:27.000Z</published>
-    <updated>2017-09-25T05:58:34.000Z</updated>
+    <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>使用Kerberoast破解Kerberos TGS票据：利用Kerberos突破活动目录域<br><a href="http://bobao.360.cn/learning/detail/4256.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4256.html</a></li>
@@ -47,6 +131,12 @@
 <li>FinFisher 正在 ISP 级别发起中间人劫持攻击，用木马感染文件下载<br><a href="https://www.welivesecurity.com/2017/09/21/new-finfisher-surveillance-campaigns/" target="_blank" rel="external">https://www.welivesecurity.com/2017/09/21/new-finfisher-surveillance-campaigns/</a></li>
 <li>Blaze’s Security Blog 对一个恶意广告点击网络的分析<br><a href="https://bartblaze.blogspot.fr/2017/09/malicious-adclick-networks-common-or.html" target="_blank" rel="external">https://bartblaze.blogspot.fr/2017/09/malicious-adclick-networks-common-or.html</a></li>
 <li>过期的域名在渗透测试团队手里有大用处<br><a href="http://threatexpress.com/2017/03/leveraging-expired-domains-for-red-team-engagements/" target="_blank" rel="external">http://threatexpress.com/2017/03/leveraging-expired-domains-for-red-team-engagements/</a></li>
+<li>在 Windows Shellcode 中对 32 位和 64 位架构的判断<br><a href="https://osandamalith.com/2017/09/24/detecting-architecture-in-windows/" target="_blank" rel="external">https://osandamalith.com/2017/09/24/detecting-architecture-in-windows/</a></li>
+<li>Batch, attach and patch: using windbg’s local kernel debugger to execute code in windows kernel。 利用 WinDbg 的本地内核调试器在 Windows 内核中执行代码<br><a href="https://vallejo.cc/2015/06/07/batch-attach-and-patch-using-windbgs-local-kernel-debugger-to-execute-code-in-windows-kernel/" target="_blank" rel="external">https://vallejo.cc/2015/06/07/batch-attach-and-patch-using-windbgs-local-kernel-debugger-to-execute-code-in-windows-kernel/</a></li>
+<li>不是安全边界，Bypass UAC<br><a href="https://www.slideshare.net/enigma0x3/not-a-security-boundary-bypassing-user-account-control" target="_blank" rel="external">https://www.slideshare.net/enigma0x3/not-a-security-boundary-bypassing-user-account-control</a></li>
+<li>来自 DerbyCon 会议的演讲《Beyond xp_cmdshell: Owning the Empire through SQL Server 》<br><a href="https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server" target="_blank" rel="external">https://www.slideshare.net/nullbind/beyond-xpcmdshell-owning-the-empire-through-sql-server</a></li>
+<li>Derbycon 2017 会议的演讲 《Windows Rootkit 开发 - 从 Python 原型实现到内核态的 C&amp;C》<br><a href="http://www.irongeek.com/i.php?page=videos/derbycon7/t310-windows-rootkit-development-python-prototyping-to-kernel-level-c2-rj-mcdown" target="_blank" rel="external">http://www.irongeek.com/i.php?page=videos/derbycon7/t310-windows-rootkit-development-python-prototyping-to-kernel-level-c2-rj-mcdown</a></li>
+<li>来自 DerbyCon 会议的演讲《Here Be Dragons: The Unexplored Land of Active Directory ACLs》<br><a href="https://www.slideshare.net/AndyRobbins3/here-be-dragons-the-unexplored-land-of-active-directory-acls" target="_blank" rel="external">https://www.slideshare.net/AndyRobbins3/here-be-dragons-the-unexplored-land-of-active-directory-acls</a></li>
 </ul>
 ]]></content>
     
@@ -246,7 +336,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#110;&#101;&#116;&#119;&#111;&#x72;&#107;&#x73;&#x65;&#x63;&#117;&#114;&#105;&#116;&#121;&#47;&#x72;&#x64;&#x70;&#45;&#104;&#105;&#x6a;&#97;&#x63;&#x6b;&#105;&#110;&#x67;&#45;&#104;&#111;&#119;&#45;&#116;&#111;&#x2d;&#x68;&#x69;&#106;&#97;&#99;&#107;&#x2d;&#x72;&#x64;&#115;&#45;&#97;&#x6e;&#100;&#45;&#x72;&#x65;&#x6d;&#111;&#116;&#101;&#97;&#x70;&#112;&#45;&#115;&#x65;&#115;&#115;&#x69;&#x6f;&#x6e;&#x73;&#x2d;&#x74;&#x72;&#97;&#x6e;&#115;&#x70;&#x61;&#x72;&#x65;&#x6e;&#116;&#x6c;&#121;&#45;&#x74;&#111;&#45;&#109;&#111;&#118;&#101;&#x2d;&#x74;&#x68;&#114;&#x6f;&#117;&#103;&#x68;&#x2d;&#x61;&#110;&#x2d;&#100;&#97;&#x32;&#x61;&#49;&#101;&#55;&#51;&#97;&#x35;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#x63;&#x65;&#x3d;&#x6c;&#x69;&#x6e;&#107;&#x53;&#x68;&#x61;&#x72;&#x65;&#45;&#x37;&#100;&#x62;&#x36;&#x64;&#x32;&#100;&#102;&#52;&#x32;&#97;&#54;&#x2d;&#x31;&#53;&#48;&#53;&#54;&#56;&#54;&#49;&#x35;&#x32;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#110;&#101;&#116;&#119;&#111;&#x72;&#107;&#x73;&#x65;&#x63;&#117;&#114;&#105;&#116;&#121;&#47;&#x72;&#x64;&#x70;&#45;&#104;&#105;&#x6a;&#97;&#x63;&#x6b;&#105;&#110;&#x67;&#45;&#104;&#111;&#119;&#45;&#116;&#111;&#x2d;&#x68;&#x69;&#106;&#97;&#99;&#107;&#x2d;&#x72;&#x64;&#115;&#45;&#97;&#x6e;&#100;&#45;&#x72;&#x65;&#x6d;&#111;&#116;&#101;&#97;&#x70;&#112;&#45;&#115;&#x65;&#115;&#115;&#x69;&#x6f;&#x6e;&#x73;&#x2d;&#x74;&#x72;&#97;&#x6e;&#115;&#x70;&#x61;&#x72;&#x65;&#x6e;&#116;&#x6c;&#121;&#45;&#x74;&#111;&#45;&#109;&#111;&#118;&#101;&#x2d;&#x74;&#x68;&#114;&#x6f;&#117;&#103;&#x68;&#x2d;&#x61;&#110;&#x2d;&#100;&#97;&#x32;&#x61;&#49;&#101;&#55;&#51;&#97;&#x35;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#x63;&#x65;&#x3d;&#x6c;&#x69;&#x6e;&#107;&#x53;&#x68;&#x61;&#x72;&#x65;&#45;&#x37;&#100;&#x62;&#x36;&#x64;&#x32;&#100;&#102;&#52;&#x32;&#97;&#54;&#x2d;&#x31;&#53;&#48;&#53;&#54;&#56;&#54;&#49;&#x35;&#x32;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#58;&#104;&#x74;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#110;&#101;&#x74;&#119;&#x6f;&#x72;&#107;&#x73;&#101;&#x63;&#117;&#x72;&#105;&#x74;&#x79;&#47;&#114;&#100;&#x70;&#x2d;&#104;&#x69;&#106;&#97;&#99;&#x6b;&#x69;&#110;&#103;&#x2d;&#x68;&#111;&#x77;&#45;&#x74;&#x6f;&#45;&#104;&#x69;&#106;&#x61;&#x63;&#x6b;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#x64;&#45;&#114;&#101;&#109;&#x6f;&#116;&#101;&#x61;&#x70;&#112;&#x2d;&#115;&#x65;&#x73;&#115;&#105;&#x6f;&#x6e;&#x73;&#45;&#116;&#x72;&#97;&#x6e;&#115;&#x70;&#97;&#x72;&#101;&#x6e;&#116;&#x6c;&#x79;&#x2d;&#x74;&#111;&#x2d;&#x6d;&#x6f;&#118;&#x65;&#45;&#x74;&#104;&#114;&#111;&#117;&#103;&#104;&#x2d;&#97;&#110;&#45;&#100;&#97;&#x32;&#x61;&#x31;&#x65;&#x37;&#51;&#x61;&#x35;&#102;&#54;&#x3f;&#x73;&#x6f;&#x75;&#114;&#99;&#x65;&#61;&#x6c;&#105;&#110;&#x6b;&#x53;&#x68;&#97;&#114;&#101;&#45;&#55;&#x64;&#x62;&#x36;&#100;&#50;&#100;&#102;&#x34;&#x32;&#x61;&#54;&#x2d;&#49;&#x35;&#x30;&#53;&#x36;&#56;&#x36;&#49;&#53;&#50;">&#104;&#x74;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#110;&#101;&#x74;&#119;&#x6f;&#x72;&#107;&#x73;&#101;&#x63;&#117;&#x72;&#105;&#x74;&#x79;&#47;&#114;&#100;&#x70;&#x2d;&#104;&#x69;&#106;&#97;&#99;&#x6b;&#x69;&#110;&#103;&#x2d;&#x68;&#111;&#x77;&#45;&#x74;&#x6f;&#45;&#104;&#x69;&#106;&#x61;&#x63;&#x6b;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#x64;&#45;&#114;&#101;&#109;&#x6f;&#116;&#101;&#x61;&#x70;&#112;&#x2d;&#115;&#x65;&#x73;&#115;&#105;&#x6f;&#x6e;&#x73;&#45;&#116;&#x72;&#97;&#x6e;&#115;&#x70;&#97;&#x72;&#101;&#x6e;&#116;&#x6c;&#x79;&#x2d;&#x74;&#111;&#x2d;&#x6d;&#x6f;&#118;&#x65;&#45;&#x74;&#104;&#114;&#111;&#117;&#103;&#104;&#x2d;&#97;&#110;&#45;&#100;&#97;&#x32;&#x61;&#x31;&#x65;&#x37;&#51;&#x61;&#x35;&#102;&#54;&#x3f;&#x73;&#x6f;&#x75;&#114;&#99;&#x65;&#61;&#x6c;&#105;&#110;&#x6b;&#x53;&#x68;&#97;&#114;&#101;&#45;&#55;&#x64;&#x62;&#x36;&#100;&#50;&#100;&#102;&#x34;&#x32;&#x61;&#54;&#x2d;&#49;&#x35;&#x30;&#53;&#x36;&#56;&#x36;&#49;&#53;&#50;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
@@ -320,7 +410,7 @@
     <link href="http://kevien.github.io/2017/09/17/struts-052%E5%92%8Cstruts-053%E5%88%86%E6%9E%90/"/>
     <id>http://kevien.github.io/2017/09/17/struts-052和struts-053分析/</id>
     <published>2017-09-17T09:07:22.000Z</published>
-    <updated>2017-09-25T06:03:44.000Z</updated>
+    <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>漏洞爆发的那几天有事(主要还是懒)没有及时的跟进漏洞，这两天跟一下漏洞。</p>
 <h4 id="s2-052"><a href="#s2-052" class="headerlink" title="s2-052"></a>s2-052</h4><p><a href="https://cwiki.apache.org/confluence/display/WW/S2-052" target="_blank" rel="external">官方通告</a><br>在分析这个漏洞之前，先补补基础知识。<br><br>了解一下xstream这个包，看一下官方的一句话介绍，XStream is a simple library to serialize objects to XML and back again.就是一个序列化java对象为xml以及将xml反序列化为java对象。<br><br>我之前分析过json序列化和反序列化时常用的几种方法，今天我也学习一下xml序列化和反序列化的方法，目前来说有两种，一种是XMLDecoder，另外一下是使用xstream，xstream使用的比较早的多，然后这次的s2-052就是利用的xstream。<br><br><br>xstream反序列化的问题由来已久，早在四年前，老外就在defcon中讲述了这个问题<a href="https://www.youtube.com/watch?v=L6gXSiGtoqg" target="_blank" rel="external">link</a>，而且之前jenkins的反序列化漏洞也是和xstream有关。<br><br><img src="/2017/09/17/struts-052和struts-053分析/xmlGenMain.png" alt=""><br>我们可以看到，通过XMLGenerator.generateXML的方法就进行了序列化，而通过XMLGenerator.generateTOfromXML就进行了反序列化。这个XMLGenerator类的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">import com.thoughtworks.xstream.XStream;</div><div class="line">import com.thoughtworks.xstream.io.xml.DomDriver;</div><div class="line"></div><div class="line">public final class XMLGenerator &#123;</div><div class="line">/*</div><div class="line"> * this class is for generating XML </div><div class="line"> */</div><div class="line"> </div><div class="line"> /*</div><div class="line">  * initialization of XStream class </div><div class="line">  */</div><div class="line"> private static XStream xstream = new XStream(new DomDriver())</div><div class="line"> &#123;&#123;</div><div class="line">  processAnnotations(Square.class);</div><div class="line">  processAnnotations(Rectangle.class);</div><div class="line"> &#125;&#125;;</div><div class="line"> </div><div class="line"> /*</div><div class="line">  * This class is for generating XML from MODEL class</div><div class="line">  * @param Object</div><div class="line">  * @return String </div><div class="line">  */</div><div class="line"> public static String generateXML(Object to) &#123;</div><div class="line">  return null == to ? &quot;&quot; : xstream.toXML(to);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> /*</div><div class="line">  * Generates the transfer object from the given XML using XStream.</div><div class="line">  * </div><div class="line">  * @param String</div><div class="line">  * @return transfer object</div><div class="line">  */</div><div class="line"> public static Object generateTOfromXML(String xml) &#123;</div><div class="line">  return xstream.fromXML(xml);</div><div class="line"> &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -348,6 +438,7 @@
 <li>S2-053 复现分析过程(附POC)<br><a href="https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA" target="_blank" rel="external">https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA</a></li>
 <li>Struts 2 S2-053漏洞分析（附POC）<br><a href="http://www.freebuf.com/vuls/147735.html" target="_blank" rel="external">http://www.freebuf.com/vuls/147735.html</a></li>
 <li>来自McAfee对s2-052的分析<br><a href="https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/" target="_blank" rel="external">https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/</a></li>
+<li>GCC 合并了我写的代码，从编译器开始解决安全问题。来自嘶吼，作者为吴潍浠<br><a href="http://www.4hou.com/binary/7688.html" target="_blank" rel="external">http://www.4hou.com/binary/7688.html</a></li>
 </ul>
 ]]></content>
     
@@ -558,7 +649,7 @@
 <li>【干货分享】手把手教你Android Logcat组件安全<br><a href="http://blog.nsfocus.net/android-logcat-security/" target="_blank" rel="external">http://blog.nsfocus.net/android-logcat-security/</a></li>
 <li>逆向 OBi200 谷歌语音设备<br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/</a><br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/</a></li>
 <li>[ IoTDevice ]  ARM exploitation for IoT - part 2<br><a href="https://quequero.org/2017/09/arm-exploitation-iot-episode-2" target="_blank" rel="external">https://quequero.org/2017/09/arm-exploitation-iot-episode-2</a></li>
-<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#x70;&#97;&#108;&#97;&#x6e;&#116;&#x69;&#x72;&#x2f;&#119;&#x69;&#x6e;&#100;&#x6f;&#x77;&#x73;&#45;&#101;&#118;&#101;&#110;&#116;&#x2d;&#x66;&#x6f;&#114;&#x77;&#x61;&#x72;&#100;&#x69;&#x6e;&#103;&#45;&#102;&#x6f;&#114;&#x2d;&#x6e;&#101;&#116;&#119;&#x6f;&#114;&#107;&#x2d;&#x64;&#101;&#102;&#x65;&#x6e;&#x73;&#101;&#45;&#99;&#x62;&#50;&#x30;&#x38;&#x64;&#x35;&#x66;&#x66;&#56;&#x36;&#x66;">&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#x70;&#97;&#108;&#97;&#x6e;&#116;&#x69;&#x72;&#x2f;&#119;&#x69;&#x6e;&#100;&#x6f;&#x77;&#x73;&#45;&#101;&#118;&#101;&#110;&#116;&#x2d;&#x66;&#x6f;&#114;&#x77;&#x61;&#x72;&#100;&#x69;&#x6e;&#103;&#45;&#102;&#x6f;&#114;&#x2d;&#x6e;&#101;&#116;&#119;&#x6f;&#114;&#107;&#x2d;&#x64;&#101;&#102;&#x65;&#x6e;&#x73;&#101;&#45;&#99;&#x62;&#50;&#x30;&#x38;&#x64;&#x35;&#x66;&#x66;&#56;&#x36;&#x66;</a></li>
+<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#97;&#x6c;&#97;&#x6e;&#x74;&#x69;&#x72;&#47;&#119;&#105;&#x6e;&#x64;&#111;&#x77;&#x73;&#45;&#101;&#118;&#101;&#x6e;&#x74;&#45;&#x66;&#x6f;&#114;&#x77;&#x61;&#114;&#100;&#x69;&#x6e;&#x67;&#45;&#x66;&#x6f;&#x72;&#x2d;&#110;&#101;&#x74;&#119;&#111;&#114;&#107;&#45;&#100;&#101;&#x66;&#x65;&#x6e;&#115;&#101;&#x2d;&#x63;&#98;&#x32;&#48;&#56;&#x64;&#53;&#102;&#x66;&#56;&#54;&#x66;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#97;&#x6c;&#97;&#x6e;&#x74;&#x69;&#x72;&#47;&#119;&#105;&#x6e;&#x64;&#111;&#x77;&#x73;&#45;&#101;&#118;&#101;&#x6e;&#x74;&#45;&#x66;&#x6f;&#114;&#x77;&#x61;&#114;&#100;&#x69;&#x6e;&#x67;&#45;&#x66;&#x6f;&#x72;&#x2d;&#110;&#101;&#x74;&#119;&#111;&#114;&#107;&#45;&#100;&#101;&#x66;&#x65;&#x6e;&#115;&#101;&#x2d;&#x63;&#98;&#x32;&#48;&#56;&#x64;&#53;&#102;&#x66;&#56;&#54;&#x66;</a></li>
 <li>ZDI 对补丁日的总结<br><a href="https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review" target="_blank" rel="external">https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review</a></li>
 <li>[ Industry News ]  Kromtech 安全中心的人发现 超过 4000 个 ElasticSearch 服务器托管着 PoS 恶意软件(AlinaPOS、 JackPOS)<br><a href="https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/</a></li>
 <li>Strust2漏洞影响多个Cisco产品<br><a href="http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html" target="_blank" rel="external">http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html</a></li>
@@ -612,93 +703,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;被黑掉的 WordPress 服务器分析&lt;br&gt;&lt;a href=&quot;https://www.cod
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170911安全动态</title>
-    <link href="http://kevien.github.io/2017/09/11/20170911%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/11/20170911安全动态/</id>
-    <published>2017-09-11T10:20:11.000Z</published>
-    <updated>2017-09-11T15:51:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Pwning the Dlink 850L routers and abusing the MyDlink Cloud protocol，研究员公开了 Dlink 850L 路由器的多个 0Day<br><a href="https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html</a></li>
-<li>逆向 Aura 智能闹钟<br><a href="https://courk.fr/index.php/2017/09/10/reverse-engineering-exploitation-connected-clock/" target="_blank" rel="external">https://courk.fr/index.php/2017/09/10/reverse-engineering-exploitation-connected-clock/</a></li>
-<li>IOT 安全 – Part 2: IOT 攻击面<br><a href="http://payatu.com/iot-security-part-2-101-iot-attack-surface/" target="_blank" rel="external">http://payatu.com/iot-security-part-2-101-iot-attack-surface/</a></li>
-<li>struts-pwn_CVE-2017-9805: S2-052 漏洞利用脚本<br><a href="https://github.com/mazen160/struts-pwn_CVE-2017-9805" target="_blank" rel="external">https://github.com/mazen160/struts-pwn_CVE-2017-9805</a></li>
-<li>GreatSCT - 一款应用白名单绕过工具<br><a href="https://github.com/GreatSCT/GreatSCT" target="_blank" rel="external">https://github.com/GreatSCT/GreatSCT</a></li>
-<li>古老的 MS08-067 漏洞中 MSRPC NetPathCanonicalize 路径格式化函数在处理 “..” 时的栈破坏漏洞分析<br><a href="http://www.tiagoalexandre.com/security/exploit%20development/2017/09/08/MS08-067" target="_blank" rel="external">http://www.tiagoalexandre.com/security/exploit%20development/2017/09/08/MS08-067</a></li>
-<li>利用 ADS（Alternate Data Streams）Bypass UAC<br><a href="https://www.redcanary.com/blog/using-alternate-data-streams-bypass-user-account-controls/" target="_blank" rel="external">https://www.redcanary.com/blog/using-alternate-data-streams-bypass-user-account-controls/</a></li>
-<li>维基解密是如何遭到黑客攻击的<br><a href="https://zhuanlan.zhihu.com/p/29162387" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/29162387</a></li>
-<li>Web 安全方向上的资料整理<br><a href="https://github.com/CHYbeta/Web-Security-Learning" target="_blank" rel="external">https://github.com/CHYbeta/Web-Security-Learning</a></li>
-<li>虐待二进制执行分析框架 Triton，挑战它的控制流图还原功能<br><a href="https://blog.quarkslab.com/mistreating-triton.html" target="_blank" rel="external">https://blog.quarkslab.com/mistreating-triton.html</a></li>
-<li>软件供应链来源攻击分析报告<br><a href="https://mp.weixin.qq.com/s/I6cJ7xgT5mTESL0TXa1DBw" target="_blank" rel="external">https://mp.weixin.qq.com/s/I6cJ7xgT5mTESL0TXa1DBw</a></li>
-<li>西方红玫瑰和辣条先生黑产组织深度分析报告<br><a href="http://www.freebuf.com/articles/paper/145777.html" target="_blank" rel="external">http://www.freebuf.com/articles/paper/145777.html</a></li>
-<li>iOS也不安全？高危漏洞威胁近半果粉<br><a href="https://mp.weixin.qq.com/s/bwPwySM3ZjqLWyNN99a5ow" target="_blank" rel="external">https://mp.weixin.qq.com/s/bwPwySM3ZjqLWyNN99a5ow</a></li>
-<li>如何将Pastebin上的信息应用于安全分析和威胁情报领域<br><a href="https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/" target="_blank" rel="external">https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/</a></li>
-<li>DEDECMS 会员中心代码投稿缺陷可getshell<br><a href="https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg" target="_blank" rel="external">https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg</a></li>
-<li>Windows内核驱动漏洞利用代码开发简介（part-1） - 环境设置  Windows内核漏洞利用代码开发开发简介（part2）：如何利用堆缓冲区溢出漏洞到系统shell<br><a href="https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/" target="_blank" rel="external">https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/</a><br><https: glennmcgui.re="" introduction-to-windows-kernel-driver-exploitation-pt-2=""></https:></li>
-<li>苹果Touch ID安全性浅谈<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#102;&#115;&#116;&#105;&#101;&#x68;&#x6c;&#101;&#x2f;&#100;&#x65;&#109;&#121;&#115;&#116;&#105;&#102;&#121;&#105;&#110;&#x67;&#x2d;&#x61;&#x70;&#112;&#x6c;&#x65;&#115;&#x2d;&#116;&#x6f;&#x75;&#x63;&#104;&#x2d;&#x69;&#100;&#45;&#x34;&#56;&#x38;&#x33;&#100;&#x35;&#49;&#x32;&#x31;&#x62;&#x37;&#55;">&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#102;&#115;&#116;&#105;&#101;&#x68;&#x6c;&#101;&#x2f;&#100;&#x65;&#109;&#121;&#115;&#116;&#105;&#102;&#121;&#105;&#110;&#x67;&#x2d;&#x61;&#x70;&#112;&#x6c;&#x65;&#115;&#x2d;&#116;&#x6f;&#x75;&#x63;&#104;&#x2d;&#x69;&#100;&#45;&#x34;&#56;&#x38;&#x33;&#100;&#x35;&#49;&#x32;&#x31;&#x62;&#x37;&#55;</a></li>
-<li>Vulners Python API wrapper<br><a href="https://github.com/vulnersCom/api" target="_blank" rel="external">https://github.com/vulnersCom/api</a></li>
-<li>手工逆 Chrome 扩展后门的一些思路<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51</a></li>
-<li>【技术分享】how2heap总结-上  堆溢出<br><a href="http://bobao.360.cn/learning/detail/4386.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4386.html</a></li>
-<li>python的多进程编程<br><a href="https://www.keakon.net/2017/09/09/Python%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B" target="_blank" rel="external">https://www.keakon.net/2017/09/09/Python%E7%9A%84%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%BC%96%E7%A8%8B</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">深入的讲解了一些原理性的东西</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Pwning the Dlink 850L routers and abusing the My
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170908安全动态</title>
-    <link href="http://kevien.github.io/2017/09/08/20170908%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/08/20170908安全动态/</id>
-    <published>2017-09-08T02:40:59.000Z</published>
-    <updated>2017-09-10T09:35:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Django debug page XSS漏洞（CVE-2017-12794）分析<br><a href="https://www.leavesongs.com/PENETRATION/django-debug-page-xss.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/django-debug-page-xss.html</a></li>
-<li>Python 反序列化漏洞利用<br><a href="https://crowdshield.com/blog.php?name=exploiting-python-deserialization-vulnerabilities" target="_blank" rel="external">https://crowdshield.com/blog.php?name=exploiting-python-deserialization-vulnerabilities</a></li>
-<li>攻击嵌入式设备与网络协议，来自 zer0con 大会<br><a href="https://pierrekim.github.io/advisories/z0-Owning_embedded_devices_and_network_protocols-redacted.pdf" target="_blank" rel="external">https://pierrekim.github.io/advisories/z0-Owning_embedded_devices_and_network_protocols-redacted.pdf</a></li>
-<li>Source for macOS 10.12.5 and 10.12.6  macOS源码<br><a href="https://opensource.apple.com/release/macos-10125.html" target="_blank" rel="external">https://opensource.apple.com/release/macos-10125.html</a><br><a href="https://opensource.apple.com/release/macos-10126.html" target="_blank" rel="external">https://opensource.apple.com/release/macos-10126.html</a></li>
-<li>SymGDB - 一款基于 Triton 的 GDB 符号执行插件<br><a href="https://github.com/SQLab/symgdbhttps://hitcon.org/2017/CMT/slide-files/d2_s1_r0.pdf" target="_blank" rel="external">https://github.com/SQLab/symgdbhttps://hitcon.org/2017/CMT/slide-files/d2_s1_r0.pdf</a></li>
-<li>DKMC - 将 Payload 放到图片中实现免杀效果的工具<br><a href="https://github.com/Mr-Un1k0d3r/DKMC" target="_blank" rel="external">https://github.com/Mr-Un1k0d3r/DKMC</a></li>
-<li>Windows 内核驱动漏洞利用系列 Part 1<br><a href="https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/" target="_blank" rel="external">https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/</a></li>
-<li>Linux进程间代码注入<br><a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html</a></li>
-<li>PiFinger：检测当前网络中是否存在Wifi- Pineapple，并评估当前wifi网络的安全性<br><a href="https://github.com/besimaltnok/PiFinger" target="_blank" rel="external">https://github.com/besimaltnok/PiFinger</a></li>
-<li>Hunting Pastebin with PasteHunter<br><a href="https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/" target="_blank" rel="external">https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/</a></li>
-<li>看我如何破解Dlink 850路由器然后滥用MyDlink Cloud协议<br><a href="https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-09-08-dlink-850l-mydlink-cloud-0days-vulnerabilities.html</a></li>
-<li>Abusing JavaScript frameworks to bypass XSS mitigations<br><a href="http://blog.portswigger.net/2017/09/abusing-javascript-frameworks-to-bypass.html" target="_blank" rel="external">http://blog.portswigger.net/2017/09/abusing-javascript-frameworks-to-bypass.html</a></li>
-<li>Using Alternate Data Streams to Bypass User Account Controls<br><https: www.redcanary.com="" blog="" using-alternate-data-streams-bypass-user-account-controls=""><br><a href="https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1" target="_blank" rel="external">https://github.com/enigma0x3/Misc-PowerShell-Stuff/blob/master/Invoke-WScriptBypassUAC.ps1</a></https:></li>
-<li>渗透3389端口<br><a href="http://www.hackingarticles.in/penetration-testing-remote-desktop-port-3389/" target="_blank" rel="external">http://www.hackingarticles.in/penetration-testing-remote-desktop-port-3389/</a></li>
-<li>安全研究人员披露D-Link路由器漏洞<br><a href="http://www.securityweek.com/unpatched-d-link-router-vulnerabilities-disclosed" target="_blank" rel="external">http://www.securityweek.com/unpatched-d-link-router-vulnerabilities-disclosed</a></li>
-<li>机器学习对抗资源集合<br><a href="https://github.com/yenchenlin/awesome-adversarial-machine-learning" target="_blank" rel="external">https://github.com/yenchenlin/awesome-adversarial-machine-learning</a></li>
-<li>开源可定制远程管理工具（RAT）<br><a href="https://github.com/SySS-Research/outis" target="_blank" rel="external">https://github.com/SySS-Research/outis</a></li>
-<li>XML的花式利用<br><a href="https://blog.pragmatists.com/xml-be-cautious-69a981fdc56a?gi=38c5799a5aa4" target="_blank" rel="external">https://blog.pragmatists.com/xml-be-cautious-69a981fdc56a?gi=38c5799a5aa4</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>C/C++ 开源库及示例代码<br><a href="https://github.com/programthink/opensource/blob/master/libs/cpp.wiki" target="_blank" rel="external">https://github.com/programthink/opensource/blob/master/libs/cpp.wiki</a></li>
-<li>vc samples<br><a href="https://github.com/Microsoft/VCSamples" target="_blank" rel="external">https://github.com/Microsoft/VCSamples</a></li>
-<li>Automated malcode analysis system<br><a href="https://github.com/dzzie/SysAnalyzer" target="_blank" rel="external">https://github.com/dzzie/SysAnalyzer</a></li>
-<li>一个基于命令行的翻译工具<br><a href="https://github.com/soimort/translate-shell" target="_blank" rel="external">https://github.com/soimort/translate-shell</a><br><img src="/2017/09/08/20170908安全动态/trans.png" alt=""></li>
-<li>python生成验证码<br><a href="https://lizonghang.github.io/2016/07/30/Python%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81/" target="_blank" rel="external">https://lizonghang.github.io/2016/07/30/Python%E7%94%9F%E6%88%90%E9%AA%8C%E8%AF%81%E7%A0%81/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Django debug page XSS漏洞（CVE-2017-12794）分析&lt;br&gt;&lt;a 
     
     </summary>
     
