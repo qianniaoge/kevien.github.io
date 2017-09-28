@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-09-28T02:50:26.000Z</updated>
+  <updated>2017-09-28T06:41:16.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,17 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>windows域安全</title>
+    <link href="http://kevien.github.io/2017/09/28/windows%E5%9F%9F%E5%AE%89%E5%85%A8/"/>
+    <id>http://kevien.github.io/2017/09/28/windows域安全/</id>
+    <published>2017-09-28T06:40:42.000Z</published>
+    <updated>2017-09-28T06:41:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>####</p>
+<ul>
+<li>总之：Active Directory = LDAP服务器＋LDAP应用（Windows域控）<br>就是Active Directory先实现一个LDAP服务器，然后自己先用这个LDAP服务器实现了自己的一个具体应用（域控）。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;####&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;总之：Active Directory = LDAP服务器＋LDAP应用（Windows域控）&lt;br&gt;就
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Cmake使用笔记</title>
     <link href="http://kevien.github.io/2017/09/28/Cmake%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>http://kevien.github.io/2017/09/28/Cmake使用笔记/</id>
     <published>2017-09-28T02:40:33.000Z</published>
-    <updated>2017-09-28T02:50:26.000Z</updated>
+    <updated>2017-09-28T07:47:18.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
 <li><p><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></p>
 </li>
 <li><p><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</p>
 </li>
+</ul>
+<h4 id="windows下使用"><a href="#windows下使用" class="headerlink" title="windows下使用"></a>windows下使用</h4><ul>
+<li>Gui界面使用<br>!()[cmake.png]<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a></li>
 </ul>
 ]]></content>
     
@@ -45,14 +72,15 @@
     <link href="http://kevien.github.io/2017/09/27/20170927%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81-%E4%BB%A5%E5%90%8E%E6%AF%8F2%E5%A4%A9%E6%9B%B4%E6%96%B0/"/>
     <id>http://kevien.github.io/2017/09/27/20170927安全动态-以后每2天更新/</id>
     <published>2017-09-27T10:38:36.000Z</published>
-    <updated>2017-09-28T04:58:07.000Z</updated>
+    <updated>2017-09-28T11:00:36.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li><p>通过数据包端口号进行数据渗出：PacketKnockOut<br><a href="https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/" target="_blank" rel="external">https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">搞apt的可以研究一下</div></pre></td></tr></table></figure>
 </li>
-<li><p>BlobRunner - 在恶意软件分析过程中快速调试 ShellCode 的工具<br><a href="https://github.com/OALabs/BlobRunner" target="_blank" rel="external">https://github.com/OALabs/BlobRunner</a></p>
+<li><p>一款智能家居设备的远程命令执行漏洞分析<br><a href="https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/" target="_blank" rel="external">https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/</a></p>
 </li>
+<li>BlobRunner - 在恶意软件分析过程中快速调试 ShellCode 的工具<br><a href="https://github.com/OALabs/BlobRunner" target="_blank" rel="external">https://github.com/OALabs/BlobRunner</a></li>
 <li>Awesome-MitM - GitHub 上一些不错的网络中间人攻击框架收集<br><a href="https://github.com/Chan9390/Awesome-MitM" target="_blank" rel="external">https://github.com/Chan9390/Awesome-MitM</a></li>
 <li>使用 IDA 调试 iOS 程序的步骤<br><a href="http://blog.csdn.net/proteas/article/details/78083512" target="_blank" rel="external">http://blog.csdn.net/proteas/article/details/78083512</a></li>
 <li>JEB2插件教程之一<br><a href="https://blog.flanker017.me/writing-jeb2-plugin/" target="_blank" rel="external">https://blog.flanker017.me/writing-jeb2-plugin/</a></li>
@@ -61,9 +89,9 @@
 <li>开源无效流量检测项目<br><a href="http://nameles.org/" target="_blank" rel="external">http://nameles.org/</a></li>
 <li>参数特定XSS的故事<br><a href="http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html" target="_blank" rel="external">http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html</a></li>
 <li>各种应用加密加固<br><a href="https://bettercrypto.org/static/applied-crypto-hardening.pdf" target="_blank" rel="external">https://bettercrypto.org/static/applied-crypto-hardening.pdf</a></li>
-</ul>
-<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>基于 Windows ETW（事件日志）的入侵检测，来自微软研究员在 DerbyCon 2017 会议的演讲。之前推送过他在微软 Blog 上写过的两篇相关文章<br><a href="https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf" target="_blank" rel="external">https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
 <li>在 linux 下使用 CMake 构建应用程序<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/</a></li>
+<li>查看lib是32位还是64位的<br>“C:\Program Files\Microsoft Visual Studio\VC98\Bin\DUMPBIN.EXE”  C:\boost_1_65_0\lib32-msvc-14.0\boost_atomic-vc140-mt-1_65.lib  /headers<br>*.lib | findstr machine<br><img src="/2017/09/27/20170927安全动态-以后每2天更新/dumplib.png" alt=""></li>
 </ul>
 ]]></content>
     
@@ -85,7 +113,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#105;&#115;&#x65;&#101;&#x74;&#104;&#105;&#101;&#118;&#101;&#x73;&#x2f;&#x69;&#110;&#x74;&#114;&#x6f;&#x2d;&#116;&#111;&#x2d;&#114;&#111;&#112;&#45;&#x72;&#111;&#112;&#45;&#101;&#x6d;&#112;&#111;&#x72;&#105;&#117;&#109;&#45;&#x73;&#x70;&#108;&#x69;&#116;&#x2d;&#57;&#x62;&#x32;&#101;&#99;&#54;&#100;&#52;&#100;&#x62;&#x30;&#x38;">&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#105;&#115;&#x65;&#101;&#x74;&#104;&#105;&#101;&#118;&#101;&#x73;&#x2f;&#x69;&#110;&#x74;&#114;&#x6f;&#x2d;&#116;&#111;&#x2d;&#114;&#111;&#112;&#45;&#x72;&#111;&#112;&#45;&#101;&#x6d;&#112;&#111;&#x72;&#105;&#117;&#109;&#45;&#x73;&#x70;&#108;&#x69;&#116;&#x2d;&#57;&#x62;&#x32;&#101;&#99;&#54;&#100;&#52;&#100;&#x62;&#x30;&#x38;</a></li>
+<li>ROP介绍<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#105;&#x73;&#x65;&#101;&#116;&#x68;&#105;&#x65;&#118;&#101;&#x73;&#47;&#105;&#x6e;&#116;&#114;&#x6f;&#x2d;&#x74;&#x6f;&#45;&#x72;&#x6f;&#x70;&#45;&#x72;&#x6f;&#112;&#45;&#101;&#x6d;&#112;&#111;&#114;&#105;&#x75;&#109;&#45;&#115;&#x70;&#x6c;&#105;&#116;&#x2d;&#x39;&#98;&#50;&#101;&#99;&#x36;&#100;&#52;&#100;&#x62;&#x30;&#x38;">&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#105;&#x73;&#x65;&#101;&#116;&#x68;&#105;&#x65;&#118;&#101;&#x73;&#47;&#105;&#x6e;&#116;&#114;&#x6f;&#x2d;&#x74;&#x6f;&#45;&#x72;&#x6f;&#x70;&#45;&#x72;&#x6f;&#112;&#45;&#101;&#x6d;&#112;&#111;&#114;&#105;&#x75;&#109;&#45;&#115;&#x70;&#x6c;&#105;&#116;&#x2d;&#x39;&#98;&#50;&#101;&#99;&#x36;&#100;&#52;&#100;&#x62;&#x30;&#x38;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -106,7 +134,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#108;&amp;#116;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#x74;
     
     </summary>
     
@@ -336,7 +364,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#107;&#115;&#101;&#x63;&#117;&#114;&#x69;&#116;&#121;&#47;&#x72;&#100;&#x70;&#x2d;&#x68;&#x69;&#106;&#x61;&#x63;&#x6b;&#x69;&#110;&#103;&#x2d;&#104;&#x6f;&#x77;&#45;&#x74;&#111;&#x2d;&#104;&#x69;&#106;&#x61;&#99;&#x6b;&#45;&#x72;&#100;&#x73;&#45;&#97;&#110;&#x64;&#45;&#114;&#x65;&#109;&#x6f;&#116;&#x65;&#97;&#112;&#112;&#45;&#x73;&#x65;&#x73;&#x73;&#105;&#x6f;&#x6e;&#x73;&#x2d;&#x74;&#114;&#97;&#x6e;&#115;&#112;&#97;&#114;&#101;&#110;&#116;&#108;&#x79;&#45;&#116;&#x6f;&#x2d;&#109;&#111;&#x76;&#x65;&#45;&#116;&#x68;&#x72;&#111;&#x75;&#x67;&#104;&#x2d;&#97;&#x6e;&#x2d;&#100;&#x61;&#50;&#x61;&#49;&#101;&#55;&#51;&#97;&#53;&#102;&#54;&#x3f;&#x73;&#x6f;&#117;&#114;&#99;&#x65;&#x3d;&#x6c;&#105;&#x6e;&#x6b;&#x53;&#x68;&#97;&#x72;&#x65;&#x2d;&#x37;&#x64;&#x62;&#x36;&#x64;&#50;&#x64;&#x66;&#x34;&#50;&#97;&#x36;&#45;&#49;&#x35;&#48;&#53;&#x36;&#56;&#x36;&#x31;&#53;&#50;">&#x68;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#107;&#115;&#101;&#x63;&#117;&#114;&#x69;&#116;&#121;&#47;&#x72;&#100;&#x70;&#x2d;&#x68;&#x69;&#106;&#x61;&#x63;&#x6b;&#x69;&#110;&#103;&#x2d;&#104;&#x6f;&#x77;&#45;&#x74;&#111;&#x2d;&#104;&#x69;&#106;&#x61;&#99;&#x6b;&#45;&#x72;&#100;&#x73;&#45;&#97;&#110;&#x64;&#45;&#114;&#x65;&#109;&#x6f;&#116;&#x65;&#97;&#112;&#112;&#45;&#x73;&#x65;&#x73;&#x73;&#105;&#x6f;&#x6e;&#x73;&#x2d;&#x74;&#114;&#97;&#x6e;&#115;&#112;&#97;&#114;&#101;&#110;&#116;&#108;&#x79;&#45;&#116;&#x6f;&#x2d;&#109;&#111;&#x76;&#x65;&#45;&#116;&#x68;&#x72;&#111;&#x75;&#x67;&#104;&#x2d;&#97;&#x6e;&#x2d;&#100;&#x61;&#50;&#x61;&#49;&#101;&#55;&#51;&#97;&#53;&#102;&#54;&#x3f;&#x73;&#x6f;&#117;&#114;&#99;&#x65;&#x3d;&#x6c;&#105;&#x6e;&#x6b;&#x53;&#x68;&#97;&#x72;&#x65;&#x2d;&#x37;&#x64;&#x62;&#x36;&#x64;&#50;&#x64;&#x66;&#x34;&#50;&#97;&#x36;&#45;&#49;&#x35;&#48;&#53;&#x36;&#56;&#x36;&#x31;&#53;&#50;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#x65;&#x74;&#x77;&#111;&#114;&#x6b;&#115;&#x65;&#x63;&#x75;&#114;&#x69;&#116;&#x79;&#x2f;&#x72;&#x64;&#112;&#x2d;&#x68;&#105;&#106;&#x61;&#x63;&#107;&#x69;&#x6e;&#103;&#x2d;&#x68;&#x6f;&#x77;&#x2d;&#x74;&#111;&#45;&#x68;&#x69;&#106;&#x61;&#99;&#107;&#45;&#114;&#100;&#115;&#x2d;&#97;&#x6e;&#100;&#45;&#x72;&#x65;&#x6d;&#x6f;&#x74;&#x65;&#97;&#x70;&#x70;&#45;&#x73;&#x65;&#x73;&#115;&#x69;&#x6f;&#110;&#x73;&#45;&#116;&#114;&#x61;&#110;&#115;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#108;&#x79;&#x2d;&#116;&#111;&#x2d;&#x6d;&#x6f;&#x76;&#101;&#45;&#x74;&#104;&#x72;&#x6f;&#x75;&#103;&#104;&#45;&#x61;&#110;&#45;&#100;&#x61;&#x32;&#x61;&#x31;&#101;&#x37;&#51;&#97;&#53;&#x66;&#54;&#x3f;&#x73;&#111;&#x75;&#114;&#99;&#101;&#x3d;&#x6c;&#x69;&#110;&#x6b;&#x53;&#104;&#97;&#114;&#x65;&#x2d;&#x37;&#x64;&#98;&#x36;&#100;&#50;&#100;&#102;&#52;&#x32;&#97;&#x36;&#45;&#x31;&#53;&#x30;&#x35;&#54;&#x38;&#x36;&#49;&#53;&#x32;">&#x68;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#x65;&#x74;&#x77;&#111;&#114;&#x6b;&#115;&#x65;&#x63;&#x75;&#114;&#x69;&#116;&#x79;&#x2f;&#x72;&#x64;&#112;&#x2d;&#x68;&#105;&#106;&#x61;&#x63;&#107;&#x69;&#x6e;&#103;&#x2d;&#x68;&#x6f;&#x77;&#x2d;&#x74;&#111;&#45;&#x68;&#x69;&#106;&#x61;&#99;&#107;&#45;&#114;&#100;&#115;&#x2d;&#97;&#x6e;&#100;&#45;&#x72;&#x65;&#x6d;&#x6f;&#x74;&#x65;&#97;&#x70;&#x70;&#45;&#x73;&#x65;&#x73;&#115;&#x69;&#x6f;&#110;&#x73;&#45;&#116;&#114;&#x61;&#110;&#115;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#108;&#x79;&#x2d;&#116;&#111;&#x2d;&#x6d;&#x6f;&#x76;&#101;&#45;&#x74;&#104;&#x72;&#x6f;&#x75;&#103;&#104;&#45;&#x61;&#110;&#45;&#100;&#x61;&#x32;&#x61;&#x31;&#101;&#x37;&#51;&#97;&#53;&#x66;&#54;&#x3f;&#x73;&#111;&#x75;&#114;&#99;&#101;&#x3d;&#x6c;&#x69;&#110;&#x6b;&#x53;&#104;&#97;&#114;&#x65;&#x2d;&#x37;&#x64;&#98;&#x36;&#100;&#50;&#100;&#102;&#52;&#x32;&#97;&#x36;&#45;&#x31;&#53;&#x30;&#x35;&#54;&#x38;&#x36;&#49;&#53;&#x32;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
@@ -649,7 +677,7 @@
 <li>【干货分享】手把手教你Android Logcat组件安全<br><a href="http://blog.nsfocus.net/android-logcat-security/" target="_blank" rel="external">http://blog.nsfocus.net/android-logcat-security/</a></li>
 <li>逆向 OBi200 谷歌语音设备<br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/</a><br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/</a></li>
 <li>[ IoTDevice ]  ARM exploitation for IoT - part 2<br><a href="https://quequero.org/2017/09/arm-exploitation-iot-episode-2" target="_blank" rel="external">https://quequero.org/2017/09/arm-exploitation-iot-episode-2</a></li>
-<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#97;&#x6c;&#x61;&#110;&#116;&#105;&#114;&#47;&#x77;&#105;&#x6e;&#x64;&#x6f;&#119;&#x73;&#x2d;&#x65;&#x76;&#101;&#110;&#x74;&#45;&#102;&#111;&#x72;&#119;&#x61;&#x72;&#100;&#x69;&#x6e;&#103;&#x2d;&#102;&#111;&#114;&#45;&#110;&#101;&#116;&#119;&#111;&#114;&#x6b;&#45;&#x64;&#101;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#x63;&#98;&#x32;&#48;&#56;&#x64;&#x35;&#x66;&#102;&#56;&#54;&#x66;">&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#97;&#x6c;&#x61;&#110;&#116;&#105;&#114;&#47;&#x77;&#105;&#x6e;&#x64;&#x6f;&#119;&#x73;&#x2d;&#x65;&#x76;&#101;&#110;&#x74;&#45;&#102;&#111;&#x72;&#119;&#x61;&#x72;&#100;&#x69;&#x6e;&#103;&#x2d;&#102;&#111;&#114;&#45;&#110;&#101;&#116;&#119;&#111;&#114;&#x6b;&#45;&#x64;&#101;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#x63;&#98;&#x32;&#48;&#56;&#x64;&#x35;&#x66;&#102;&#56;&#54;&#x66;</a></li>
+<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#105;&#x72;&#x2f;&#119;&#x69;&#110;&#100;&#111;&#x77;&#x73;&#x2d;&#x65;&#x76;&#101;&#110;&#x74;&#x2d;&#102;&#x6f;&#x72;&#x77;&#x61;&#114;&#x64;&#105;&#110;&#x67;&#x2d;&#102;&#111;&#114;&#45;&#110;&#101;&#116;&#119;&#x6f;&#114;&#x6b;&#45;&#100;&#101;&#102;&#101;&#110;&#115;&#x65;&#45;&#99;&#x62;&#x32;&#48;&#x38;&#100;&#53;&#102;&#102;&#56;&#54;&#102;">&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#105;&#x72;&#x2f;&#119;&#x69;&#110;&#100;&#111;&#x77;&#x73;&#x2d;&#x65;&#x76;&#101;&#110;&#x74;&#x2d;&#102;&#x6f;&#x72;&#x77;&#x61;&#114;&#x64;&#105;&#110;&#x67;&#x2d;&#102;&#111;&#114;&#45;&#110;&#101;&#116;&#119;&#x6f;&#114;&#x6b;&#45;&#100;&#101;&#102;&#101;&#110;&#115;&#x65;&#45;&#99;&#x62;&#x32;&#48;&#x38;&#100;&#53;&#102;&#102;&#56;&#54;&#102;</a></li>
 <li>ZDI 对补丁日的总结<br><a href="https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review" target="_blank" rel="external">https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review</a></li>
 <li>[ Industry News ]  Kromtech 安全中心的人发现 超过 4000 个 ElasticSearch 服务器托管着 PoS 恶意软件(AlinaPOS、 JackPOS)<br><a href="https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/</a></li>
 <li>Strust2漏洞影响多个Cisco产品<br><a href="http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html" target="_blank" rel="external">http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html</a></li>
@@ -665,44 +693,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;CVE-2016-10190 FFmpeg Http协议 heap buffer overflo
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170912安全动态</title>
-    <link href="http://kevien.github.io/2017/09/12/20170912%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/12/20170912安全动态/</id>
-    <published>2017-09-12T13:47:54.000Z</published>
-    <updated>2017-09-12T16:17:55.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>被黑掉的 WordPress 服务器分析<br><a href="https://www.codemetrix.net/examining-a-hacked-php-server/" target="_blank" rel="external">https://www.codemetrix.net/examining-a-hacked-php-server/</a></li>
-<li>通过 DNS 响应欺骗来绕过域控制验证<br><a href="https://labs.detectify.com/2017/09/11/guest-blog-bypassing-domain-control-verification-with-dns-response-spoofing/" target="_blank" rel="external">https://labs.detectify.com/2017/09/11/guest-blog-bypassing-domain-control-verification-with-dns-response-spoofing/</a></li>
-<li>使用 Excel.Application 和 DCOM 进行横向渗透<br><a href="https://posts.specterops.io/lateral-movement-using-excel-application-and-dcom-enigma0x3-on-wordpress-com-d11d56e504dc" target="_blank" rel="external">https://posts.specterops.io/lateral-movement-using-excel-application-and-dcom-enigma0x3-on-wordpress-com-d11d56e504dc</a></li>
-<li>Siofra - DLL 劫持漏洞扫描器、PE 感染工具<br><a href="https://github.com/falexorr/Siofra" target="_blank" rel="external">https://github.com/falexorr/Siofra</a></li>
-<li>基于 Windows Event Forwarding 机制的网络防御措施，之前也推送过一篇微软的《基于 Windows Event Forwarding 的入侵检测》<br><https: medium.com="" @palantir="" windows-event-forwarding-for-network-defense-cb208d5ff86f="" https:="" docs.microsoft.com="" en-us="" windows="" threat-protection="" use-windows-event-forwarding-to-assist-in-instrusion-detection=""></https:></li>
-<li>Cuckoo Sandbox 分析框架更新 2.0.4 版本<br><a href="https://cuckoosandbox.org/blog/cuckoo-sandbox-204" target="_blank" rel="external">https://cuckoosandbox.org/blog/cuckoo-sandbox-204</a></li>
-<li>The Road To HSTS<br><a href="https://engineeringblog.yelp.com/2017/09/the-road-to-hsts.html" target="_blank" rel="external">https://engineeringblog.yelp.com/2017/09/the-road-to-hsts.html</a></li>
-<li>PaX/Grsecurity 新手教程   Grsecurity 是一套增强 Linux 内核安全的内核补丁集，能够轻松应对各种严重安全威胁。<br><a href="https://github.com/hardenedlinux/grsecurity-101-tutorials" target="_blank" rel="external">https://github.com/hardenedlinux/grsecurity-101-tutorials</a></li>
-<li>据 Check Point 安全人员说 Windows 10 内置的 Linux Shell 可以被利用来隐藏恶意软件<br><a href="https://motherboard.vice.com/en_us/article/xwwexa/windows-10s-built-in-linux-shell-could-be-abused-to-hide-malware-researchers-say" target="_blank" rel="external">https://motherboard.vice.com/en_us/article/xwwexa/windows-10s-built-in-linux-shell-could-be-abused-to-hide-malware-researchers-say</a></li>
-<li>Docker Daemon - Unprotected TCP Socket (Metasploit)<br><a href="https://www.exploit-db.com/exploits/42650/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42650/</a></li>
-<li>idb: 用于简化iOS渗透测试及研究的工具<br><a href="https://github.com/dmayer/idb" target="_blank" rel="external">https://github.com/dmayer/idb</a></li>
-<li>【技术分享】在细节中捕捉恶魔 ：提升Cuckoo沙箱捕获恶意Office样本行为的能力<br><a href="http://bobao.360.cn/learning/detail/4409.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4409.html</a></li>
-<li>[用 Java 写一个 JVM] （一）刚好够运行 HelloWorld<br><a href="https://www.v2ex.com/t/390110#reply16" target="_blank" rel="external">https://www.v2ex.com/t/390110#reply16</a></li>
-<li>安息吧 REST API，GraphQL 长存<br><a href="https://segmentfault.com/a/1190000011109222" target="_blank" rel="external">https://segmentfault.com/a/1190000011109222</a></li>
-<li>【技术分享】见招拆招：详谈COM接口函数Hook技术<br><a href="http://bobao.360.cn/learning/detail/4405.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4405.html</a></li>
-<li>聊聊CVE漏洞编号和正式公开那些事<br><a href="http://blog.nsfocus.net/cve-vulnerability-numbers-officially-disclose/" target="_blank" rel="external">http://blog.nsfocus.net/cve-vulnerability-numbers-officially-disclose/</a></li>
-<li>Chrome Unsafe-inline CSP Bypass<br><a href="https://www.math1as.com/index.php/archives/507/" target="_blank" rel="external">https://www.math1as.com/index.php/archives/507/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;被黑掉的 WordPress 服务器分析&lt;br&gt;&lt;a href=&quot;https://www.cod
     
     </summary>
     
