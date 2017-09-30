@@ -71,26 +71,37 @@
     <link href="http://kevien.github.io/2017/09/29/20170929%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/09/29/20170929安全动态/</id>
     <published>2017-09-29T02:00:47.000Z</published>
-    <updated>2017-09-29T05:07:47.000Z</updated>
+    <updated>2017-09-30T09:59:15.000Z</updated>
     
-    <content type="html"><![CDATA[<p>####</p>
-<ul>
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
 <li>浏览器中的僵尸网络：了解恶意浏览器扩展引起的威胁(Paper)<br><a href="https://arxiv.org/pdf/1709.09577.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1709.09577.pdf</a></li>
 <li>Mac OS X 10.12 Quarantine Bypass - macOS 的 rhtmlPlayer.html 存在一个 DOM XSS，攻击者可以利用 rhtmlPlayer.html 实现在无限制的上下文中实现 JavaScript 任意命令执行，譬如直接读 /etc/passwd<br><https: 3449="" blogs.securiteam.com="" index.php="" archives=""></https:></li>
 <li>CyberArk Lab 研究员发现 Windows Defender 在扫描 SMB 共享的文件时存在比较奇怪的行为，利用这个可以 Bypass Windows Defender 的检测<br><a href="https://www.cyberark.com/threat-research-blog/illusion-gap-antivirus-bypass-part-1/" target="_blank" rel="external">https://www.cyberark.com/threat-research-blog/illusion-gap-antivirus-bypass-part-1/</a></li>
 <li>黑帽SEO剖析之手法篇<br><a href="https://thief.one/2017/09/28/1/" target="_blank" rel="external">https://thief.one/2017/09/28/1/</a></li>
 <li>针对NFS服务的渗透测试指南<br><a href="https://pentestacademy.wordpress.com/2017/09/20/nfs/" target="_blank" rel="external">https://pentestacademy.wordpress.com/2017/09/20/nfs/</a></li>
 <li>这个Spring高危漏洞，你修补了吗？<br><a href="https://mp.weixin.qq.com/s/uTiWDsPKEjTkN6z9QNLtSA" target="_blank" rel="external">https://mp.weixin.qq.com/s/uTiWDsPKEjTkN6z9QNLtSA</a></li>
-<li>借用Microsoft代码签名证书<br><a href="https://blog.conscioushacker.io/index.php/2017/09/27/borrowing-microsoft-code-signing-certificates/" target="_blank" rel="external">https://blog.conscioushacker.io/index.php/2017/09/27/borrowing-microsoft-code-signing-certificates/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>借用Microsoft代码签名证书<br><a href="https://blog.conscioushacker.io/index.php/2017/09/27/borrowing-microsoft-code-signing-certificates/" target="_blank" rel="external">https://blog.conscioushacker.io/index.php/2017/09/27/borrowing-microsoft-code-signing-certificates/</a></li>
+<li>堆利用——UAF之殇<br><a href="http://bobao.360.cn/learning/detail/4476.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4476.html</a></li>
+<li>Exploiting JSON CSRF<br><a href="https://www.secpulse.com/archives/61297.html" target="_blank" rel="external">https://www.secpulse.com/archives/61297.html</a></li>
+<li>对SUID可提权Root Shell的探究<br><a href="http://www.freebuf.com/articles/system/149118.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/149118.html</a></li>
+<li>企业环境里该如何管理 PowerShell 的使用，降低因误用带来的风险<br><a href="https://www.nccgroup.trust/uk/our-research/managing-powershell-in-a-modern-corporate-environment/" target="_blank" rel="external">https://www.nccgroup.trust/uk/our-research/managing-powershell-in-a-modern-corporate-environment/</a></li>
+<li>来自 subTee 分享的 COM Hijacking 示例代码<br><a href="https://gist.github.com/subTee/91861699acaa1bd0da493c8a79035eb9" target="_blank" rel="external">https://gist.github.com/subTee/91861699acaa1bd0da493c8a79035eb9</a></li>
+<li>Mac固件安全研究<br><a href="https://duo.com/blog/the-apple-of-your-efi-mac-firmware-security-research" target="_blank" rel="external">https://duo.com/blog/the-apple-of-your-efi-mac-firmware-security-research</a></li>
+<li><p>安全圈关系可视化分析【安全圈也许就这么大续集】<br><http: mp.weixin.qq.com="" s="" liosv5jos9vvicsnf_gbaq=""></http:></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个挺有意思的</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用Flash漏洞传播的小马样本分析（含样本下载）<br><a href="http://bobao.360.cn/learning/detail/4502.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4502.html</a></p>
+</li>
+<li>写给十九大安保应急的兄弟们 来看看DDOS攻击应急预案<br><a href="http://blog.nsfocus.net/ddos-attack-plan/" target="_blank" rel="external">http://blog.nsfocus.net/ddos-attack-plan/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
 <li>腾讯哈勃沙箱<br><a href="https://github.com/Tencent/HaboMalHunter" target="_blank" rel="external">https://github.com/Tencent/HaboMalHunter</a></li>
+<li></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;####&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;浏览器中的僵尸网络：了解恶意浏览器扩展引起的威胁(Paper)&lt;br&gt;&lt;a href=&quot;https://arxiv.org/pdf/1709.09577.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https:
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;浏览器中的僵尸网络：了解恶意浏览器扩展引起的威胁(Paper)&lt;br&gt;&lt;a href=&quot;http
     
     </summary>
     
@@ -102,19 +113,17 @@
     <link href="http://kevien.github.io/2017/09/28/windows%E5%9F%9F%E5%AE%89%E5%85%A8/"/>
     <id>http://kevien.github.io/2017/09/28/windows域安全/</id>
     <published>2017-09-28T06:40:42.000Z</published>
-    <updated>2017-09-28T06:41:16.000Z</updated>
+    <updated>2017-09-30T09:59:59.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>####</p>
-<ul>
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
 <li>总之：Active Directory = LDAP服务器＋LDAP应用（Windows域控）<br>就是Active Directory先实现一个LDAP服务器，然后自己先用这个LDAP服务器实现了自己的一个具体应用（域控）。</li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;####&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;总之：Active Directory = LDAP服务器＋LDAP应用（Windows域控）&lt;br&gt;就
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;总之：Active Directory = LDAP服务器＋LDAP应用（Windows域控）&lt;br&gt;就是Active Dire
     
     </summary>
     
@@ -196,7 +205,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x69;&#115;&#x65;&#101;&#116;&#104;&#105;&#101;&#x76;&#x65;&#115;&#x2f;&#105;&#x6e;&#116;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#114;&#x6f;&#112;&#x2d;&#x72;&#x6f;&#x70;&#x2d;&#x65;&#109;&#x70;&#111;&#114;&#105;&#x75;&#109;&#45;&#115;&#x70;&#x6c;&#105;&#116;&#x2d;&#x39;&#x62;&#x32;&#x65;&#99;&#54;&#x64;&#x34;&#x64;&#98;&#x30;&#x38;">&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x69;&#115;&#x65;&#101;&#116;&#104;&#105;&#101;&#x76;&#x65;&#115;&#x2f;&#105;&#x6e;&#116;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#114;&#x6f;&#112;&#x2d;&#x72;&#x6f;&#x70;&#x2d;&#x65;&#109;&#x70;&#111;&#114;&#105;&#x75;&#109;&#45;&#115;&#x70;&#x6c;&#105;&#116;&#x2d;&#x39;&#x62;&#x32;&#x65;&#99;&#54;&#x64;&#x34;&#x64;&#98;&#x30;&#x38;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#105;&#x73;&#x65;&#101;&#116;&#104;&#105;&#101;&#x76;&#101;&#115;&#x2f;&#x69;&#x6e;&#116;&#114;&#111;&#45;&#116;&#111;&#x2d;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#x2d;&#101;&#x6d;&#112;&#x6f;&#114;&#x69;&#117;&#x6d;&#x2d;&#x73;&#x70;&#108;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#101;&#99;&#54;&#100;&#52;&#x64;&#98;&#x30;&#56;">&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#105;&#x73;&#x65;&#101;&#116;&#104;&#105;&#101;&#x76;&#101;&#115;&#x2f;&#x69;&#x6e;&#116;&#114;&#111;&#45;&#116;&#111;&#x2d;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#x2d;&#101;&#x6d;&#112;&#x6f;&#114;&#x69;&#117;&#x6d;&#x2d;&#x73;&#x70;&#108;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#101;&#99;&#54;&#100;&#52;&#x64;&#98;&#x30;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -217,7 +226,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#x74;&amp;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#x6c;&amp;#x74;&amp;
     
     </summary>
     
@@ -447,7 +456,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#x68;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#101;&#x74;&#119;&#111;&#114;&#107;&#115;&#x65;&#99;&#117;&#x72;&#105;&#116;&#x79;&#x2f;&#x72;&#x64;&#112;&#45;&#x68;&#x69;&#x6a;&#97;&#x63;&#107;&#x69;&#110;&#103;&#45;&#x68;&#x6f;&#x77;&#45;&#116;&#x6f;&#45;&#104;&#105;&#106;&#97;&#x63;&#107;&#x2d;&#x72;&#x64;&#115;&#45;&#97;&#110;&#100;&#45;&#114;&#x65;&#109;&#x6f;&#x74;&#101;&#x61;&#112;&#x70;&#x2d;&#x73;&#x65;&#115;&#115;&#x69;&#111;&#110;&#x73;&#45;&#x74;&#114;&#97;&#x6e;&#x73;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#x6c;&#x79;&#45;&#116;&#x6f;&#x2d;&#109;&#x6f;&#118;&#101;&#45;&#116;&#x68;&#114;&#111;&#x75;&#103;&#x68;&#x2d;&#x61;&#x6e;&#x2d;&#x64;&#x61;&#x32;&#97;&#49;&#101;&#55;&#x33;&#x61;&#x35;&#102;&#x36;&#x3f;&#x73;&#x6f;&#117;&#x72;&#x63;&#x65;&#61;&#x6c;&#105;&#x6e;&#x6b;&#83;&#104;&#x61;&#114;&#x65;&#x2d;&#55;&#x64;&#98;&#x36;&#x64;&#50;&#100;&#102;&#52;&#x32;&#x61;&#54;&#x2d;&#49;&#x35;&#x30;&#x35;&#x36;&#56;&#54;&#49;&#53;&#x32;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#101;&#x74;&#119;&#111;&#114;&#107;&#115;&#x65;&#99;&#117;&#x72;&#105;&#116;&#x79;&#x2f;&#x72;&#x64;&#112;&#45;&#x68;&#x69;&#x6a;&#97;&#x63;&#107;&#x69;&#110;&#103;&#45;&#x68;&#x6f;&#x77;&#45;&#116;&#x6f;&#45;&#104;&#105;&#106;&#97;&#x63;&#107;&#x2d;&#x72;&#x64;&#115;&#45;&#97;&#110;&#100;&#45;&#114;&#x65;&#109;&#x6f;&#x74;&#101;&#x61;&#112;&#x70;&#x2d;&#x73;&#x65;&#115;&#115;&#x69;&#111;&#110;&#x73;&#45;&#x74;&#114;&#97;&#x6e;&#x73;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#x6c;&#x79;&#45;&#116;&#x6f;&#x2d;&#109;&#x6f;&#118;&#101;&#45;&#116;&#x68;&#114;&#111;&#x75;&#103;&#x68;&#x2d;&#x61;&#x6e;&#x2d;&#x64;&#x61;&#x32;&#97;&#49;&#101;&#55;&#x33;&#x61;&#x35;&#102;&#x36;&#x3f;&#x73;&#x6f;&#117;&#x72;&#x63;&#x65;&#61;&#x6c;&#105;&#x6e;&#x6b;&#83;&#104;&#x61;&#114;&#x65;&#x2d;&#55;&#x64;&#98;&#x36;&#x64;&#50;&#100;&#102;&#52;&#x32;&#x61;&#54;&#x2d;&#49;&#x35;&#x30;&#x35;&#x36;&#56;&#54;&#49;&#53;&#x32;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#x6e;&#x65;&#x74;&#x77;&#x6f;&#114;&#107;&#x73;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#121;&#x2f;&#114;&#x64;&#x70;&#x2d;&#104;&#x69;&#x6a;&#x61;&#99;&#107;&#x69;&#x6e;&#x67;&#45;&#104;&#111;&#x77;&#45;&#x74;&#x6f;&#x2d;&#104;&#105;&#106;&#x61;&#99;&#x6b;&#x2d;&#114;&#100;&#115;&#45;&#x61;&#x6e;&#100;&#45;&#114;&#101;&#109;&#111;&#x74;&#x65;&#97;&#112;&#x70;&#x2d;&#x73;&#101;&#x73;&#x73;&#105;&#111;&#x6e;&#x73;&#x2d;&#116;&#x72;&#x61;&#110;&#x73;&#112;&#x61;&#114;&#x65;&#x6e;&#116;&#108;&#121;&#45;&#x74;&#x6f;&#x2d;&#x6d;&#111;&#118;&#x65;&#x2d;&#x74;&#x68;&#x72;&#x6f;&#x75;&#103;&#104;&#45;&#97;&#110;&#x2d;&#100;&#x61;&#x32;&#97;&#49;&#101;&#55;&#x33;&#97;&#53;&#x66;&#x36;&#x3f;&#x73;&#x6f;&#x75;&#114;&#x63;&#x65;&#x3d;&#x6c;&#105;&#110;&#107;&#83;&#x68;&#x61;&#x72;&#101;&#x2d;&#55;&#x64;&#x62;&#x36;&#100;&#x32;&#x64;&#102;&#x34;&#50;&#x61;&#x36;&#x2d;&#x31;&#53;&#48;&#x35;&#54;&#56;&#54;&#49;&#x35;&#x32;">&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#x6e;&#x65;&#x74;&#x77;&#x6f;&#114;&#107;&#x73;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#121;&#x2f;&#114;&#x64;&#x70;&#x2d;&#104;&#x69;&#x6a;&#x61;&#99;&#107;&#x69;&#x6e;&#x67;&#45;&#104;&#111;&#x77;&#45;&#x74;&#x6f;&#x2d;&#104;&#105;&#106;&#x61;&#99;&#x6b;&#x2d;&#114;&#100;&#115;&#45;&#x61;&#x6e;&#100;&#45;&#114;&#101;&#109;&#111;&#x74;&#x65;&#97;&#112;&#x70;&#x2d;&#x73;&#101;&#x73;&#x73;&#105;&#111;&#x6e;&#x73;&#x2d;&#116;&#x72;&#x61;&#110;&#x73;&#112;&#x61;&#114;&#x65;&#x6e;&#116;&#108;&#121;&#45;&#x74;&#x6f;&#x2d;&#x6d;&#111;&#118;&#x65;&#x2d;&#x74;&#x68;&#x72;&#x6f;&#x75;&#103;&#104;&#45;&#97;&#110;&#x2d;&#100;&#x61;&#x32;&#97;&#49;&#101;&#55;&#x33;&#97;&#53;&#x66;&#x36;&#x3f;&#x73;&#x6f;&#x75;&#114;&#x63;&#x65;&#x3d;&#x6c;&#105;&#110;&#107;&#83;&#x68;&#x61;&#x72;&#101;&#x2d;&#55;&#x64;&#x62;&#x36;&#100;&#x32;&#x64;&#102;&#x34;&#50;&#x61;&#x36;&#x2d;&#x31;&#53;&#48;&#x35;&#54;&#56;&#54;&#49;&#x35;&#x32;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
