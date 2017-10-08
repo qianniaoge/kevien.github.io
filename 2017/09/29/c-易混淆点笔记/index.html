@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/gcc.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/cpStandard.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/cStandard.png">
-<meta property="og:updated_time" content="2017-10-07T08:37:06.000Z">
+<meta property="og:updated_time" content="2017-10-08T10:05:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++易混淆点笔记">
 <meta name="twitter:description" content="简介 主要记录一些容易忽略和忘记的知识点，原因是有些知识点刚看过之后觉的懂了，但是过段时间可能又忘记了的情况。记录 指针类型和引用类型 构造函数初始化数据成员的方式，除了在函数体中使用复制和赋值等方法外，还可以使用初始化表，初始化表位于参数表和函数体之间，以：开头，由一个或多个初始化项构成，多个初始化项以逗号相分隔，一般的形式为：:数据成员1（表达式1），。。。，数据成员n（表达式n）常值数据成员">
@@ -404,7 +404,8 @@
 <li>还有一个编译器不得不说，那就是clang，他一个C、C++、Objective-C和Objective-C++编程语言的编译器前端。他的出现目的是替代GCC，是在苹果公司的赞助支持下开发的。<br><br>测试证明Clang编译Objective-C代码时速度为GCC的3倍[4]，还能针对用户发生的编译错误准确地给出建议.</li>
 <li>类类型与结构体类型相似，结构体类型也可以有函数成员，主要区别在于，类类型的默认访问权限是private，结构体类型的缺省访问权限是public。类的数据成员和函数成员分别描述该类实体的属性和行为。即这个实体有什么属性，它有什么样的行为。对象也是一种变量，是一种类类型的变量。对于已声明的类，可以使用它来定义变量。在建立对象时，只为对象分配用于保存数据成员的内存空间，而类中定义的成员函数的代码被放在计算机内存的一个公共区中，并供该类的所有对象共享，这是c++实现对象的一种方法。逻辑上，仍将每一个对象理解为由独立的数据成员和各自的成员函数组成。</li>
 <li>：：在c++中是作用域符号。</li>
-<li>c和c++ 不同的标准<br><img src="/2017/09/29/c-易混淆点笔记/cpStandard.png" alt=""><br><img src="/2017/09/29/c-易混淆点笔记/cStandard.png" alt=""><br>可见，c++的标准有c++98，c++11,c++14,c++17,c++后面对应的数字是年份的意思<br><br>c语言的标准有c90，c99，以及c11，可见最新的c标准是c11.<br>关于他们之前的差异。<br><br><a href="https://www.wikiwand.com/en/C11_(C_standard_revision" target="_blank" rel="external">关于c11和c99的区别</a>)<br><a href="https://www.wikiwand.com/zh-hans/C%2B%2B14" target="_blank" rel="external">关于c++各个版本之前的区别</a><br><a href="https://www.gitbook.com/book/changkun/cpp1x-tutorial/details" target="_blank" rel="external">高速上手 C++ 11/14</a><br><a href="http://www.cnblogs.com/zhwl/archive/2012/04/19/2456565.html" target="_blank" rel="external">vc6.0与标准C++</a><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>c和c++ 不同的标准<br><img src="/2017/09/29/c-易混淆点笔记/cpStandard.png" alt=""><br><img src="/2017/09/29/c-易混淆点笔记/cStandard.png" alt=""><br>可见，c++的标准有c++98，c++11,c++14,c++17,c++后面对应的数字是年份的意思<br><br>c语言的标准有c90，c99，以及c11，可见最新的c标准是c11.<br>关于他们之前的差异。<br><br><a href="https://www.wikiwand.com/en/C11_(C_standard_revision" target="_blank" rel="external">关于c11和c99的区别</a>)<br><a href="https://www.wikiwand.com/zh-hans/C%2B%2B14" target="_blank" rel="external">关于c++各个版本之前的区别</a><br><a href="https://www.gitbook.com/book/changkun/cpp1x-tutorial/details" target="_blank" rel="external">高速上手 C++ 11/14</a><br><a href="http://www.cnblogs.com/zhwl/archive/2012/04/19/2456565.html" target="_blank" rel="external">vc6.0与标准C++</a><br><a href="https://isocpp.org/" target="_blank" rel="external">ISO cpp</a></li>
+<li>c++ 第三方库<br><a href="https://github.com/boostorg/boost" target="_blank" rel="external">c++准标准库boost</a><br><a href="https://abseil.io/" target="_blank" rel="external">google 的c++基础库 abseil</a><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
 <li>相对于其它脚本语言python、php啥的，c++的语法稍有些复杂，尤其是在windows下进行c++开发的时候，一开始一大堆的宏定义就小白们搞懵了。如果要写c++入门建议还是学linux下的c++，等学差不多了，再切换windows相对来说就容易一些了。</li>
 <li>c++较写脚本语言开发感觉还是会慢一点，脚本语言不用编译，c++每次修改一点儿，都要重新编译和链接，而且工程越大，时间就越长。</li>
 </ul>
