@@ -103,17 +103,17 @@
 
 
 
-<meta name="description" content="第一章Referencd http://www.cnblogs.com/52php/p/5681701.html">
+<meta name="description" content="第一章 系统调用和库函数，应用程序既可以调用系统调用也可以调用库函数，很多库函数则会调用系统调用。系统调用通常提供一种最小接口，而库函数通常提供比较复杂的功能。注意区别不带缓冲的IO和标准IO，标准IO函数提供了一个带缓冲的接口，使用标准IO函数无需担心如何选取最佳的缓冲区大小。第二章 UNIX标准及实现 本章主要介绍了UNIX的标准。知道ISO c从c99到c11的转变就行了。linux、mac">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="unix环境高级编程笔记">
 <meta property="og:url" content="http://kevien.github.io/2017/07/05/unix环境高级编程笔记/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="第一章Referencd http://www.cnblogs.com/52php/p/5681701.html">
-<meta property="og:updated_time" content="2017-09-30T10:58:36.000Z">
+<meta property="og:description" content="第一章 系统调用和库函数，应用程序既可以调用系统调用也可以调用库函数，很多库函数则会调用系统调用。系统调用通常提供一种最小接口，而库函数通常提供比较复杂的功能。注意区别不带缓冲的IO和标准IO，标准IO函数提供了一个带缓冲的接口，使用标准IO函数无需担心如何选取最佳的缓冲区大小。第二章 UNIX标准及实现 本章主要介绍了UNIX的标准。知道ISO c从c99到c11的转变就行了。linux、mac">
+<meta property="og:updated_time" content="2017-10-07T10:39:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="unix环境高级编程笔记">
-<meta name="twitter:description" content="第一章Referencd http://www.cnblogs.com/52php/p/5681701.html">
+<meta name="twitter:description" content="第一章 系统调用和库函数，应用程序既可以调用系统调用也可以调用库函数，很多库函数则会调用系统调用。系统调用通常提供一种最小接口，而库函数通常提供比较复杂的功能。注意区别不带缓冲的IO和标准IO，标准IO函数提供了一个带缓冲的接口，使用标准IO函数无需担心如何选取最佳的缓冲区大小。第二章 UNIX标准及实现 本章主要介绍了UNIX的标准。知道ISO c从c99到c11的转变就行了。linux、mac">
 
 
 
@@ -381,7 +381,23 @@
       
 
       
-        <h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><h4 id="Referencd"><a href="#Referencd" class="headerlink" title="Referencd"></a>Referencd</h4><ul>
+        <h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul>
+<li>系统调用和库函数，应用程序既可以调用系统调用也可以调用库函数，很多库函数则会调用系统调用。系统调用通常提供一种最小接口，而库函数通常提供比较复杂的功能。<br><br>注意区别不带缓冲的IO和标准IO，标准IO函数提供了一个带缓冲的接口，使用标准IO函数无需担心如何选取最佳的缓冲区大小。<h4 id="第二章-UNIX标准及实现"><a href="#第二章-UNIX标准及实现" class="headerlink" title="第二章 UNIX标准及实现"></a>第二章 UNIX标准及实现</h4></li>
+<li>本章主要介绍了UNIX的标准。知道ISO c从c99到c11的转变就行了。linux、macos、aix等这些都属于unix的分支。当然这其中就要有各种复杂的兼容性的问题了。<h4 id="第三章-文件I-O"><a href="#第三章-文件I-O" class="headerlink" title="第三章 文件I/O"></a>第三章 文件I/O</h4></li>
+<li>理解文件描述符<br>当打开一个现有文件或者创建一个新文件时候，内核向进程返回一个文件描述符，按照惯例，UNIX系统shell把文件描述符0与进程的标准输入关联，文件描述符1与标准输出关联，文件描述符2与标准错误惯例。</li>
+<li>理解当前文件偏移量 lseek</li>
+<li>学会使用linux的od命令 od - dump files in octal and other formats<br>还要理解磁盘块<br>~暂时还不太理解~</li>
+<li>文件共享<br>unix支持在不同进程间共享打开文件<h4 id="第四章-文件和目录"><a href="#第四章-文件和目录" class="headerlink" title="第四章 文件和目录"></a>第四章 文件和目录</h4></li>
+<li>unix文件类型有以下几种</li>
+<li>1.普通文件</li>
+<li>2.目录文件</li>
+<li>3.块特殊文件</li>
+<li>4.字符特殊文件</li>
+<li>5.FIFO </li>
+<li>6.套接字</li>
+<li>7.符号链接<h4 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h4></li>
+<li>研究原理unix权限的原理，可以使用c语言编写一个类似chmod的命令，对unix的权限问题就有一个比较深入的理解了。</li>
+<li>其实研究unix底层相关的东西还是挺有意思的一件事情<h4 id="Referencd"><a href="#Referencd" class="headerlink" title="Referencd"></a>Referencd</h4></li>
 <li><a href="http://www.cnblogs.com/52php/p/5681701.html" target="_blank" rel="external">http://www.cnblogs.com/52php/p/5681701.html</a></li>
 </ul>
 
@@ -544,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">127</span>
+                <span class="site-state-item-count">128</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -628,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Referencd"><span class="nav-number">2.</span> <span class="nav-text">Referencd</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二章-UNIX标准及实现"><span class="nav-number">2.</span> <span class="nav-text">第二章 UNIX标准及实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三章-文件I-O"><span class="nav-number">3.</span> <span class="nav-text">第三章 文件I/O</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四章-文件和目录"><span class="nav-number">4.</span> <span class="nav-text">第四章 文件和目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#感想"><span class="nav-number">5.</span> <span class="nav-text">感想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Referencd"><span class="nav-number">6.</span> <span class="nav-text">Referencd</span></a></li></ol></div>
             
 
           </div>
