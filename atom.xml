@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-10-08T07:48:18.000Z</updated>
+  <updated>2017-10-09T17:36:42.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20171009安全动态</title>
+    <link href="http://kevien.github.io/2017/10/09/20171009%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/10/09/20171009安全动态/</id>
+    <published>2017-10-09T07:17:17.000Z</published>
+    <updated>2017-10-09T17:36:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>Google 团队对 DNS、DHCP 服务器软件 Dnsmasq 的安全审计报告<br><https: 10="" 2017="" security.googleblog.com="" behind-masq-yet-more-dns-and-dhcp.html=""></https:></li>
+<li>所有关于 hash 扩展攻击你所需要知道事<br><a href="https://blog.skullsecurity.org/2012/everything-you-need-to-know-about-hash-length-extension-attacks" target="_blank" rel="external">https://blog.skullsecurity.org/2012/everything-you-need-to-know-about-hash-length-extension-attacks</a></li>
+<li>Hiding Your Process from Sysinternals<br><a href="https://riscybusiness.wordpress.com/2017/10/07/hiding-your-process-from-sysinternals/" target="_blank" rel="external">https://riscybusiness.wordpress.com/2017/10/07/hiding-your-process-from-sysinternals/</a></li>
+<li>Use CLR to bypass UAC，来自 3gstudent’s blog<br><a href="https://3gstudent.github.io/3gstudent.github.io/Use-CLR-to-bypass-UAC/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Use-CLR-to-bypass-UAC/</a></li>
+<li>域渗透——利用DCOM在远程系统执行程序，来自 3gstudent’s blog<br><a href="https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-%E5%88%A9%E7%94%A8DCOM%E5%9C%A8%E8%BF%9C%E7%A8%8B%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E5%9F%9F%E6%B8%97%E9%80%8F-%E5%88%A9%E7%94%A8DCOM%E5%9C%A8%E8%BF%9C%E7%A8%8B%E7%B3%BB%E7%BB%9F%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/</a></li>
+<li>XSLT服务端注入攻击<br><https: www.contextis.com="" blog="" xslt-server-side-injection-attacks=""></https:></li>
+<li>代码审计的常规方法介绍<br><https: pentesterlab.com="" exercises="" codereview="" course=""><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></https:></li>
+<li>一个前端监控框架<br><a href="https://github.com/sensu/uchiwa" target="_blank" rel="external">https://github.com/sensu/uchiwa</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Google 团队对 DNS、DHCP 服务器软件 Dnsmasq 的安全审计报告&lt;br&gt;&lt;ht
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>ELF文件学习</title>
@@ -111,12 +140,13 @@
     <link href="http://kevien.github.io/2017/09/29/c-%E6%98%93%E6%B7%B7%E6%B7%86%E7%82%B9%E7%AC%94%E8%AE%B0/"/>
     <id>http://kevien.github.io/2017/09/29/c-易混淆点笔记/</id>
     <published>2017-09-29T04:45:39.000Z</published>
-    <updated>2017-10-08T10:05:25.000Z</updated>
+    <updated>2017-10-09T16:41:23.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
 <li>主要记录一些容易忽略和忘记的知识点，原因是有些知识点刚看过之后觉的懂了，但是过段时间可能又忘记了的情况。<h4 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h4></li>
 <li>指针类型和引用类型</li>
 <li>构造函数初始化数据成员的方式，除了在函数体中使用复制和赋值等方法外，还可以使用初始化表，初始化表位于参数表和函数体之间，以：开头，由一个或多个初始化项构成，多个初始化项以逗号相分隔，一般的形式为：<br><br>:数据成员1（表达式1），。。。，数据成员n（表达式n）<br><br>常值数据成员、对象成员和从基类继承来的数据成员等特殊成员的初始化，必须采用初始化表<br><br>(不得不说语法真是复杂，还是必须。。)</li>
+<li>函数指针和回调函数<br><a href="http://www.runoob.com/cprogramming/c-fun-pointer-callback.html" target="_blank" rel="external">参考</a></li>
 <li>内联函数<br>可以这么理解，调用函数的时候，系统需要做一系列的辅助工作(例如保护现场，为函数所用变量分配内存，实参赋值给形参等)，然后转去执行被调用函数的函数体，当执行完成后，还要做一系列的辅助工作，再接着执行函数调用之后的语句。这个过程时候时间开销的，为了节省时间，c++允许定义内联函数，就是函数在编译的时候会把你的调用处的函数替换成函数体。虽然代码存储空间可能变大了，但是整个程序的执行时间变小了。<br><br>此外，在类体内定义的成员函数默认为内联的，而要在类体外定义内联的成员函数，则需要用关键字inline进行声明。</li>
 <li>函数重载<br>函数重载是指多个函数使用相同的函数名。函数重载是多态性的体现，即用同一个函数名实现多种函数调用。函数重载一般是函数的参数个数或者参数类型不同，这个时候，编译器会根据这个差别来进行差别性编译。</li>
 <li>虚函数和纯虚函数<br>虚函数其实就是虚拟函数的意思，virtual function，感觉翻译成虚拟函数就挺好的，不知道为啥翻译到国内就是叫虚函数，感觉怪怪的。这个虚拟函数和函数重载的概念有点儿相似，在派生类中可以通过重写虚拟函数来实现对基类虚拟函数的覆盖。（感觉像是java里面的接口），这也是多态性的体现（注意这里是运行时的多态性，不同于函数重载编译时的多态性）。<a href="http://www.runoob.com/cplusplus/cpp-interfaces.html" target="_blank" rel="external">c++接口(抽象类)</a></li>
@@ -289,7 +319,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#105;&#x73;&#101;&#101;&#x74;&#104;&#x69;&#101;&#x76;&#101;&#115;&#47;&#105;&#110;&#116;&#x72;&#x6f;&#45;&#x74;&#x6f;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#x72;&#111;&#112;&#x2d;&#x65;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#109;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#x2d;&#57;&#98;&#50;&#101;&#x63;&#x36;&#100;&#52;&#100;&#98;&#48;&#x38;">&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#105;&#x73;&#101;&#101;&#x74;&#104;&#x69;&#101;&#x76;&#101;&#115;&#47;&#105;&#110;&#116;&#x72;&#x6f;&#45;&#x74;&#x6f;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#x72;&#111;&#112;&#x2d;&#x65;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#109;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#x2d;&#57;&#98;&#50;&#101;&#x63;&#x36;&#100;&#52;&#100;&#98;&#48;&#x38;</a></li>
+<li>ROP介绍<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#105;&#115;&#101;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#x73;&#47;&#105;&#110;&#116;&#x72;&#111;&#x2d;&#116;&#111;&#x2d;&#114;&#x6f;&#112;&#x2d;&#x72;&#x6f;&#x70;&#x2d;&#x65;&#x6d;&#112;&#x6f;&#x72;&#105;&#117;&#109;&#x2d;&#115;&#x70;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#101;&#99;&#x36;&#x64;&#x34;&#100;&#98;&#48;&#56;">&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#105;&#115;&#101;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#x73;&#47;&#105;&#110;&#116;&#x72;&#111;&#x2d;&#116;&#111;&#x2d;&#114;&#x6f;&#112;&#x2d;&#x72;&#x6f;&#x70;&#x2d;&#x65;&#x6d;&#112;&#x6f;&#x72;&#105;&#117;&#109;&#x2d;&#115;&#x70;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#101;&#99;&#x36;&#x64;&#x34;&#100;&#98;&#48;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -310,7 +340,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#x6c;&amp;#x74;&amp;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;
     
     </summary>
     
@@ -473,12 +503,12 @@
     <link href="http://kevien.github.io/2017/09/20/windows%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6%E4%BB%A5%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%AF%86%E7%A0%81%E8%8E%B7%E5%8F%96%E5%B7%A5%E5%85%B7%E5%88%86%E6%9E%90/"/>
     <id>http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/</id>
     <published>2017-09-20T07:22:16.000Z</published>
-    <updated>2017-09-29T14:05:35.000Z</updated>
+    <updated>2017-10-09T06:41:51.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ul>
 <li>先来了解一下lsass进程。<br>Local Security Authority Subsystem Service (LSASS) is a process in Microsoft Windows operating systems that is responsible for enforcing the security policy on the system. It verifies users logging on to a Windows computer or server, handles password changes, and creates access tokens.<a href="https://www.wikiwand.com/en/Local_Security_Authority_Subsystem_Service" target="_blank" rel="external">link</a></li>
 <li>NTLM</li>
-<li>Kerberos<h4 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a>mimikatz</h4></li>
+<li>Kerberos<h4 id="Crack"><a href="#Crack" class="headerlink" title="Crack"></a>Crack</h4><a href="http://smartechverse.blogspot.com/2015/06/crack-windows-admin-password-and-sam.html" target="_blank" rel="external">Crack windows Admin Password and Sam Files</a><br><a href="http://davenport.sourceforge.net/ntlm.html" target="_blank" rel="external">The NTLM Authentication Protocol and Security Support Provider</a><h4 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a>mimikatz</h4></li>
 <li>内存导出<br><img src="/2017/09/20/windows认证机制以及常见密码获取工具分析/procdump.png" alt=""></li>
 <li>从本地获取密码<br><img src="/2017/09/20/windows认证机制以及常见密码获取工具分析/mimikatzdmp.png" alt=""><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee663293(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ee663293(v=vs.85).aspx</a></li>
@@ -540,7 +570,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#110;&#101;&#116;&#x77;&#111;&#x72;&#x6b;&#x73;&#x65;&#99;&#117;&#114;&#105;&#x74;&#121;&#x2f;&#x72;&#x64;&#112;&#45;&#x68;&#105;&#106;&#97;&#x63;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#x77;&#x2d;&#x74;&#x6f;&#45;&#104;&#105;&#x6a;&#97;&#x63;&#x6b;&#x2d;&#114;&#x64;&#x73;&#45;&#97;&#110;&#x64;&#x2d;&#x72;&#x65;&#x6d;&#111;&#116;&#101;&#x61;&#112;&#x70;&#x2d;&#115;&#x65;&#115;&#x73;&#x69;&#x6f;&#110;&#115;&#x2d;&#x74;&#114;&#x61;&#110;&#x73;&#112;&#97;&#114;&#101;&#110;&#x74;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#x76;&#101;&#x2d;&#x74;&#104;&#x72;&#x6f;&#x75;&#103;&#x68;&#45;&#x61;&#110;&#x2d;&#100;&#97;&#50;&#x61;&#49;&#x65;&#x37;&#x33;&#x61;&#53;&#x66;&#x36;&#63;&#115;&#x6f;&#x75;&#x72;&#99;&#x65;&#x3d;&#x6c;&#x69;&#110;&#107;&#83;&#104;&#x61;&#114;&#x65;&#x2d;&#55;&#100;&#98;&#x36;&#x64;&#x32;&#100;&#x66;&#52;&#x32;&#x61;&#x36;&#45;&#49;&#x35;&#48;&#53;&#x36;&#x38;&#54;&#49;&#x35;&#x32;">&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#110;&#101;&#116;&#x77;&#111;&#x72;&#x6b;&#x73;&#x65;&#99;&#117;&#114;&#105;&#x74;&#121;&#x2f;&#x72;&#x64;&#112;&#45;&#x68;&#105;&#106;&#97;&#x63;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#x77;&#x2d;&#x74;&#x6f;&#45;&#104;&#105;&#x6a;&#97;&#x63;&#x6b;&#x2d;&#114;&#x64;&#x73;&#45;&#97;&#110;&#x64;&#x2d;&#x72;&#x65;&#x6d;&#111;&#116;&#101;&#x61;&#112;&#x70;&#x2d;&#115;&#x65;&#115;&#x73;&#x69;&#x6f;&#110;&#115;&#x2d;&#x74;&#114;&#x61;&#110;&#x73;&#112;&#97;&#114;&#101;&#110;&#x74;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#x76;&#101;&#x2d;&#x74;&#104;&#x72;&#x6f;&#x75;&#103;&#x68;&#45;&#x61;&#110;&#x2d;&#100;&#97;&#50;&#x61;&#49;&#x65;&#x37;&#x33;&#x61;&#53;&#x66;&#x36;&#63;&#115;&#x6f;&#x75;&#x72;&#99;&#x65;&#x3d;&#x6c;&#x69;&#110;&#107;&#83;&#104;&#x61;&#114;&#x65;&#x2d;&#55;&#100;&#98;&#x36;&#x64;&#x32;&#100;&#x66;&#52;&#x32;&#x61;&#x36;&#45;&#49;&#x35;&#48;&#53;&#x36;&#x38;&#54;&#49;&#x35;&#x32;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#47;&#64;&#x6e;&#x65;&#116;&#119;&#x6f;&#x72;&#x6b;&#115;&#x65;&#x63;&#x75;&#x72;&#105;&#x74;&#121;&#x2f;&#114;&#x64;&#x70;&#45;&#x68;&#x69;&#x6a;&#x61;&#99;&#107;&#x69;&#x6e;&#103;&#x2d;&#104;&#111;&#x77;&#45;&#x74;&#111;&#45;&#104;&#x69;&#x6a;&#97;&#x63;&#x6b;&#x2d;&#114;&#x64;&#x73;&#x2d;&#x61;&#x6e;&#100;&#x2d;&#114;&#x65;&#109;&#111;&#116;&#x65;&#97;&#112;&#112;&#x2d;&#x73;&#101;&#x73;&#115;&#x69;&#111;&#110;&#x73;&#x2d;&#x74;&#x72;&#x61;&#x6e;&#115;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#x6c;&#x79;&#x2d;&#116;&#111;&#45;&#109;&#111;&#118;&#x65;&#45;&#x74;&#x68;&#114;&#111;&#x75;&#103;&#104;&#x2d;&#x61;&#110;&#x2d;&#x64;&#x61;&#50;&#x61;&#49;&#101;&#x37;&#51;&#97;&#x35;&#x66;&#54;&#63;&#x73;&#x6f;&#x75;&#x72;&#x63;&#101;&#61;&#x6c;&#105;&#x6e;&#107;&#x53;&#x68;&#x61;&#114;&#x65;&#45;&#55;&#100;&#98;&#54;&#100;&#x32;&#100;&#102;&#52;&#x32;&#97;&#54;&#45;&#49;&#53;&#48;&#x35;&#x36;&#56;&#54;&#49;&#53;&#x32;">&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#47;&#64;&#x6e;&#x65;&#116;&#119;&#x6f;&#x72;&#x6b;&#115;&#x65;&#x63;&#x75;&#x72;&#105;&#x74;&#121;&#x2f;&#114;&#x64;&#x70;&#45;&#x68;&#x69;&#x6a;&#x61;&#99;&#107;&#x69;&#x6e;&#103;&#x2d;&#104;&#111;&#x77;&#45;&#x74;&#111;&#45;&#104;&#x69;&#x6a;&#97;&#x63;&#x6b;&#x2d;&#114;&#x64;&#x73;&#x2d;&#x61;&#x6e;&#100;&#x2d;&#114;&#x65;&#109;&#111;&#116;&#x65;&#97;&#112;&#112;&#x2d;&#x73;&#101;&#x73;&#115;&#x69;&#111;&#110;&#x73;&#x2d;&#x74;&#x72;&#x61;&#x6e;&#115;&#x70;&#97;&#x72;&#x65;&#x6e;&#116;&#x6c;&#x79;&#x2d;&#116;&#111;&#45;&#109;&#111;&#118;&#x65;&#45;&#x74;&#x68;&#114;&#111;&#x75;&#103;&#104;&#x2d;&#x61;&#110;&#x2d;&#x64;&#x61;&#50;&#x61;&#49;&#101;&#x37;&#51;&#97;&#x35;&#x66;&#54;&#63;&#x73;&#x6f;&#x75;&#x72;&#x63;&#101;&#61;&#x6c;&#105;&#x6e;&#107;&#x53;&#x68;&#x61;&#114;&#x65;&#45;&#55;&#100;&#98;&#54;&#100;&#x32;&#100;&#102;&#52;&#x32;&#97;&#54;&#45;&#49;&#53;&#48;&#x35;&#x36;&#56;&#54;&#49;&#53;&#x32;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
@@ -685,54 +715,6 @@
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;逆向英雄联盟客户端&lt;br&gt;&lt;a href=&quot;https://nickcano.com/rever
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170915安全动态</title>
-    <link href="http://kevien.github.io/2017/09/15/20170915%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/15/20170915安全动态/</id>
-    <published>2017-09-15T02:19:51.000Z</published>
-    <updated>2017-09-15T10:25:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Windows for Linux Nerds<br><a href="https://blog.jessfraz.com/post/windows-for-linux-nerds/" target="_blank" rel="external">https://blog.jessfraz.com/post/windows-for-linux-nerds/</a></li>
-<li>30 个有趣的 Linux Shell 命令<br><a href="https://www.lopezferrando.com/30-interesting-shell-commands/" target="_blank" rel="external">https://www.lopezferrando.com/30-interesting-shell-commands/</a></li>
-<li>【干货分享】XSS攻击进阶篇——那些年我们看不懂的XSS<br><a href="http://blog.nsfocus.net/xss-advance/" target="_blank" rel="external">http://blog.nsfocus.net/xss-advance/</a></li>
-<li>Radare 2之旅：通过crackme实例讲解Radare 2在逆向中的应用（上）<br><a href="http://bobao.360.cn/learning/detail/4400.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4400.html</a></li>
-<li>妙用JavaScript绕过XSS过滤<br><a href="http://bobao.360.cn/learning/detail/4414.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4414.html</a></li>
-<li><p>从SQL注入到管理员权限<br><a href="https://www.notsosecure.com/anatomy-of-a-hack-sqli-to-enterprise-admin/" target="_blank" rel="external">https://www.notsosecure.com/anatomy-of-a-hack-sqli-to-enterprise-admin/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">感觉渗透外国人的思路还是不错</div></pre></td></tr></table></figure>
-</li>
-<li><p>Windbg-Cheat-Sheet<br><a href="https://github.com/bulentrahimkazanci/Windbg-Cheat-Sheet" target="_blank" rel="external">https://github.com/bulentrahimkazanci/Windbg-Cheat-Sheet</a></p>
-</li>
-<li>free open-source macOS firewall<br><a href="https://github.com/objective-see/LuLu" target="_blank" rel="external">https://github.com/objective-see/LuLu</a></li>
-<li>CVE-2017-0213: Windows COM权限提升漏洞<br><a href="https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213" target="_blank" rel="external">https://github.com/WindowsExploits/Exploits/tree/master/CVE-2017-0213</a></li>
-<li>REST API Security Testing with Acunetix<br><https: www.acunetix.com="" blog="" articles="" rest-api-security-testing-acunetix=""></https:></li>
-<li>又一个web扫描器  Spaghetti<br><a href="https://github.com/m4ll0k/Spaghetti" target="_blank" rel="external">https://github.com/m4ll0k/Spaghetti</a></li>
-<li>Ansible Vault、Tablib YAML解析器原创代码执行漏洞<br><a href="http://blog.talosintelligence.com/2017/09/vulnerability-spotlight-yaml-remote.html" target="_blank" rel="external">http://blog.talosintelligence.com/2017/09/vulnerability-spotlight-yaml-remote.html</a></li>
-<li>小心Bashware：恶意软件绕过杀软的新思路,这种方法利用 Windows 10 新支持的 WSL（Linux 子系统）特性可以 Bypass 现有杀软的检测防护体系<br><a href="https://research.checkpoint.com/beware-bashware-new-method-malware-bypass-security-solutions/" target="_blank" rel="external">https://research.checkpoint.com/beware-bashware-new-method-malware-bypass-security-solutions/</a></li>
-<li>Luckystrike：恶意office文档生成器<br><a href="https://www.shellntel.com/blog/2016/9/13/luckystrike-a-database-backed-evil-macro-generator" target="_blank" rel="external">https://www.shellntel.com/blog/2016/9/13/luckystrike-a-database-backed-evil-macro-generator</a></li>
-<li>使用D-Link路由器构建僵尸网络<br><a href="https://embedi.com/blog/enlarge-your-botnet-top-d-link-routers-dir8xx-d-link-routers-cruisin-bruisin" target="_blank" rel="external">https://embedi.com/blog/enlarge-your-botnet-top-d-link-routers-dir8xx-d-link-routers-cruisin-bruisin</a></li>
-<li><p>InjectProc - 进程注入工具<br><a href="https://github.com/secrary/InjectProc" target="_blank" rel="external">https://github.com/secrary/InjectProc</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">好像没什么新奇的，还是基于CreateRemoteThread()函数的。</div></pre></td></tr></table></figure>
-</li>
-<li><p>ThunderShell - 基于 Powershell 实现的后门<br><a href="https://github.com/Mr-Un1k0d3r/ThunderShell" target="_blank" rel="external">https://github.com/Mr-Un1k0d3r/ThunderShell</a></p>
-</li>
-<li>Apache Struts2 Remote Code Execution (S2-053)<br><a href="http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/</a></li>
-<li>MIPS 初探<br><a href="https://mp.weixin.qq.com/s?__biz=MzIxNjU3ODMyOQ==&amp;mid=2247483677&amp;idx=1&amp;sn=a6df6660510f610aa57bc1127457f9d0" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIxNjU3ODMyOQ==&amp;mid=2247483677&amp;idx=1&amp;sn=a6df6660510f610aa57bc1127457f9d0</a></li>
-<li>Xposed知多少？<br><a href="http://www.freebuf.com/column/147856.html" target="_blank" rel="external">http://www.freebuf.com/column/147856.html</a></li>
-<li>PHP漏洞挖掘——进阶篇<br><a href="http://blog.nsfocus.net/php-vulnerability-mining/" target="_blank" rel="external">http://blog.nsfocus.net/php-vulnerability-mining/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Windows for Linux Nerds&lt;br&gt;&lt;a href=&quot;https://blog
     
     </summary>
     
