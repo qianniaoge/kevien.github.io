@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/gcc.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/cpStandard.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/29/c-易混淆点笔记/cStandard.png">
-<meta property="og:updated_time" content="2017-10-10T07:01:32.000Z">
+<meta property="og:updated_time" content="2017-10-11T04:04:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++易混淆点笔记">
 <meta name="twitter:description" content="简介 主要记录一些容易忽略和忘记的知识点，原因是有些知识点刚看过之后觉的懂了，但是过段时间可能又忘记了的情况。记录 指针类型和引用类型 构造函数初始化数据成员的方式，除了在函数体中使用复制和赋值等方法外，还可以使用初始化表，初始化表位于参数表和函数体之间，以：开头，由一个或多个初始化项构成，多个初始化项以逗号相分隔，一般的形式为：:数据成员1（表达式1），。。。，数据成员n（表达式n）常值数据成员">
@@ -407,7 +407,8 @@
 <li>：：在c++中是作用域符号。</li>
 <li>c和c++ 不同的标准<br><img src="/2017/09/29/c-易混淆点笔记/cpStandard.png" alt=""><br><img src="/2017/09/29/c-易混淆点笔记/cStandard.png" alt=""><br>可见，c++的标准有c++98，c++11,c++14,c++17,c++后面对应的数字是年份的意思<br><br>c语言的标准有c90，c99，以及c11，可见最新的c标准是c11.<br>关于他们之前的差异。<br><br><a href="https://www.wikiwand.com/en/C11_(C_standard_revision" target="_blank" rel="external">关于c11和c99的区别</a>)<br><a href="https://www.wikiwand.com/zh-hans/C%2B%2B14" target="_blank" rel="external">关于c++各个版本之前的区别</a><br><a href="https://www.gitbook.com/book/changkun/cpp1x-tutorial/details" target="_blank" rel="external">高速上手 C++ 11/14</a><br><a href="http://www.cnblogs.com/zhwl/archive/2012/04/19/2456565.html" target="_blank" rel="external">vc6.0与标准C++</a><br><a href="https://isocpp.org/" target="_blank" rel="external">ISO cpp</a></li>
 <li>c++ 第三方库<br><a href="https://github.com/boostorg/boost" target="_blank" rel="external">c++准标准库boost</a><br><a href="https://abseil.io/" target="_blank" rel="external">google 的c++基础库 abseil</a></li>
-<li>多线程c程序<br><a href="https://msdn.microsoft.com/zh-cn/library/esszf9hw.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/esszf9hw.aspx</a><br><a href="http://zh.highscore.de/cpp/boost/multithreading.html" target="_blank" rel="external">http://zh.highscore.de/cpp/boost/multithreading.html</a><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>多线程c程序<br><a href="https://msdn.microsoft.com/zh-cn/library/esszf9hw.aspx" target="_blank" rel="external">https://msdn.microsoft.com/zh-cn/library/esszf9hw.aspx</a><br><a href="http://zh.highscore.de/cpp/boost/multithreading.html" target="_blank" rel="external">http://zh.highscore.de/cpp/boost/multithreading.html</a></li>
+<li>c语言的json操作库<br><a href="https://github.com/akheron/jansson" target="_blank" rel="external">https://github.com/akheron/jansson</a><br><a href="http://zenol.fr/blog/boost-property-tree/en.html" target="_blank" rel="external">使用boost操作json</a><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
 <li>相对于其它脚本语言python、php啥的，c++的语法稍有些复杂，尤其是在windows下进行c++开发的时候，一开始一大堆的宏定义就小白们搞懵了。如果要写c++入门建议还是学linux下的c++，等学差不多了，再切换windows相对来说就容易一些了。</li>
 <li>c++较写脚本语言开发感觉还是会慢一点，脚本语言不用编译，c++每次修改一点儿，都要重新编译和链接，而且工程越大，时间就越长。</li>
 </ul>
