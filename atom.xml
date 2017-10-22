@@ -403,27 +403,26 @@
   </entry>
   
   <entry>
-    <title>Cmake使用笔记</title>
+    <title>Cmake VS Autotools</title>
     <link href="http://kevien.github.io/2017/09/28/Cmake%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
     <id>http://kevien.github.io/2017/09/28/Cmake使用笔记/</id>
     <published>2017-09-28T02:40:33.000Z</published>
-    <updated>2017-09-30T13:07:35.000Z</updated>
+    <updated>2017-10-22T08:16:53.000Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
-<li><p><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></p>
-</li>
-<li><p><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</p>
-</li>
-</ul>
-<h4 id="windows下使用"><a href="#windows下使用" class="headerlink" title="windows下使用"></a>windows下使用</h4><ul>
-<li>Gui界面使用<br><img src="/2017/09/28/Cmake使用笔记/cmake.png" alt=""><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a></li>
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>最近的项目中遇到了cmake和autotools的转换的问题，这两个东西以前接触的很少，所以需要对cmake和autotools进行一番系统学习。<br></p>
+<h4 id="Cmake使用"><a href="#Cmake使用" class="headerlink" title="Cmake使用"></a>Cmake使用</h4><ul>
+<li><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></li>
+<li><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</li>
+<li><a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="external">CMake 入门实战</a></li>
+<li>windows下使用<br><img src="/2017/09/28/Cmake使用笔记/cmake.png" alt=""><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
+<li><a href="https://geesun.github.io/posts/2015/02/autotool.html" target="_blank" rel="external">使用autotools生成Makefile学习笔记</a></li>
+<li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.wikiwand.com/en/CMake&quot; target=&quot;_blank&quot; r
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;最近的项目中遇到了cmake和autotools的转换的问题，这两个东西以前接触的很少，所以需要对cmake和autotools进行一番系统
     
     </summary>
     
@@ -477,7 +476,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#105;&#x73;&#101;&#101;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#x6f;&#x2d;&#116;&#x6f;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#114;&#x6f;&#x70;&#45;&#x65;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#109;&#x2d;&#115;&#112;&#108;&#105;&#116;&#x2d;&#x39;&#98;&#x32;&#x65;&#99;&#x36;&#100;&#x34;&#x64;&#98;&#48;&#56;">&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#105;&#x73;&#101;&#101;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#x6f;&#x2d;&#116;&#x6f;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#114;&#x6f;&#x70;&#45;&#x65;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#109;&#x2d;&#115;&#112;&#108;&#105;&#116;&#x2d;&#x39;&#98;&#x32;&#x65;&#99;&#x36;&#100;&#x34;&#x64;&#98;&#48;&#56;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x69;&#115;&#x65;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#115;&#x2f;&#105;&#x6e;&#x74;&#x72;&#x6f;&#45;&#x74;&#111;&#45;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#45;&#101;&#109;&#x70;&#x6f;&#x72;&#105;&#x75;&#109;&#x2d;&#x73;&#112;&#x6c;&#x69;&#116;&#x2d;&#x39;&#x62;&#x32;&#101;&#x63;&#54;&#x64;&#x34;&#100;&#98;&#48;&#56;">&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x69;&#115;&#x65;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#115;&#x2f;&#105;&#x6e;&#x74;&#x72;&#x6f;&#45;&#x74;&#111;&#45;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#45;&#101;&#109;&#x70;&#x6f;&#x72;&#105;&#x75;&#109;&#x2d;&#x73;&#112;&#x6c;&#x69;&#116;&#x2d;&#x39;&#x62;&#x32;&#101;&#x63;&#54;&#x64;&#x34;&#100;&#98;&#48;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -498,7 +497,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#x74;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#108;&amp;#116;
     
     </summary>
     
