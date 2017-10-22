@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-10-22T09:10:33.000Z</updated>
+  <updated>2017-10-22T11:27:49.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://kevien.github.io/2017/10/21/20171021%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/10/21/20171021安全动态/</id>
     <published>2017-10-21T05:11:27.000Z</published>
-    <updated>2017-10-22T09:10:33.000Z</updated>
+    <updated>2017-10-22T11:27:49.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
+<li>OSX平台Proton后门恶意软件——供应链攻击<br><https: 10="" 2017="" blog.malwarebytes.com="" cybercrime="" mac-malware-osx-proton-strikes-again=""></https:></li>
 <li>Blockchains（区块链）是什么<br><a href="https://unwttng.com/what-is-a-blockchain" target="_blank" rel="external">https://unwttng.com/what-is-a-blockchain</a></li>
 <li>地下暗流：揭秘控制百万肉鸡的GhostFramework<br><a href="http://www.freebuf.com/articles/terminal/150360.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/150360.html</a></li>
 <li>【开发利器】中国国内可用API合集<br><a href="https://microzz.com/2017/02/03/API/" target="_blank" rel="external">https://microzz.com/2017/02/03/API/</a></li>
@@ -30,13 +31,30 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#104;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#104;&#x33;&#103;&#51;&#110;&#116;&#51;&#108;&#x2f;&#104;&#x6f;&#x77;&#45;&#x69;&#45;&#x66;&#111;&#117;&#x6e;&#100;&#45;&#x61;&#110;&#45;&#115;&#115;&#x72;&#102;&#45;&#105;&#x6e;&#x2d;&#x79;&#97;&#x68;&#111;&#x6f;&#45;&#x67;&#x75;&#x65;&#x73;&#x74;&#x68;&#111;&#x75;&#115;&#x65;&#45;&#x72;&#x65;&#x63;&#111;&#110;&#x2d;&#x77;&#105;&#x6e;&#115;&#x2d;&#56;&#x37;&#50;&#x32;&#x36;&#x37;&#x32;&#x65;&#x34;&#49;&#100;&#52;">&#104;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#104;&#x33;&#103;&#51;&#110;&#116;&#51;&#108;&#x2f;&#104;&#x6f;&#x77;&#45;&#x69;&#45;&#x66;&#111;&#117;&#x6e;&#100;&#45;&#x61;&#110;&#45;&#115;&#115;&#x72;&#102;&#45;&#105;&#x6e;&#x2d;&#x79;&#97;&#x68;&#111;&#x6f;&#45;&#x67;&#x75;&#x65;&#x73;&#x74;&#x68;&#111;&#x75;&#115;&#x65;&#45;&#x72;&#x65;&#x63;&#111;&#110;&#x2d;&#x77;&#105;&#x6e;&#115;&#x2d;&#56;&#x37;&#50;&#x32;&#x36;&#x37;&#x32;&#x65;&#x34;&#49;&#100;&#52;</a></li>
+<li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
+</li>
+<li><p>BaRMIe - Java RMI Enumeration And Attack Tool<br><a href="http://www.kitploit.com/2017/10/barmie-java-rmi-enumeration-and-attack.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/barmie-java-rmi-enumeration-and-attack.html</a></p>
+</li>
+<li>Blazy ——登录爆破工具（同时可检测CSRF, Clickjacking, Cloudflare and WAF）<br><a href="http://www.kitploit.com/2017/10/blazy-modern-login-bruteforcer-which.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/blazy-modern-login-bruteforcer-which.html</a></li>
+<li><p><a href="https://github.com/ak1t4/open-redirect-scanner" target="_blank" rel="external">https://github.com/ak1t4/open-redirect-scanner</a><br><a href="https://github.com/ak1t4/open-redirect-scanner" target="_blank" rel="external">https://github.com/ak1t4/open-redirect-scanner</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个用来测试url跳转漏洞不错</div></pre></td></tr></table></figure>
+</li>
+<li><p>加拿大间谍机构发布其网络防御工具<br><a href="https://www.hackread.com/canadas-spy-agency-releases-its-cyber-defense-tool-for-public/" target="_blank" rel="external">https://www.hackread.com/canadas-spy-agency-releases-its-cyber-defense-tool-for-public/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">好像都是python的？</div></pre></td></tr></table></figure>
+</li>
+<li><p>如何通过USB完全接管系统<br><a href="http://blog.ptsecurity.com/2017/10/how-to-obtaining-full-system-access-via.html" target="_blank" rel="external">http://blog.ptsecurity.com/2017/10/how-to-obtaining-full-system-access-via.html</a></p>
+</li>
+<li>看我如何一步一步发现TP-Link路由器的远程代码执行(CVE-2017-13772)<br><a href="https://www.fidusinfosec.com/tp-link-remote-code-execution-cve-2017-13772/" target="_blank" rel="external">https://www.fidusinfosec.com/tp-link-remote-code-execution-cve-2017-13772/</a></li>
+<li>Seccubus：简易自动漏洞扫描、报告、分析工具（可结合Nessus、OpenVAS、Nikto、NMap等）<br><a href="http://www.kitploit.com/2017/10/seccubus-easy-automated-vulnerability.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/seccubus-easy-automated-vulnerability.html</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="http://www.hahack.com/work/my-2-years-at-pingan/" target="_blank" rel="external">我在平安的两年</a><br><a href="http://j4s0nh4ck.iteye.com/blog/2171149" target="_blank" rel="external">使用Volatility从memory dump获得密码</a><br><a href="http://www.restran.net/2017/08/10/memory-forensics-tool-volatility%20-%20%E5%89%AF%E6%9C%AC/" target="_blank" rel="external">内存取证工具 volatility 使用说明</a><br><a href="http://vinc.top/2017/08/14/ssdeep%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">ssdeep检测webshell并通过OSSEC告警</a></li>
 </ul>
 ]]></content>
     
     <summary type="html">
     
       &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Blockchains（区块链）是什么&lt;br&gt;&lt;a href=&quot;https://unwttng.com/what
+&lt;li&gt;OSX平台Proton后门恶意软件——供应链攻击&lt;br&gt;&lt;https: 10=&quot;&quot; 2017=&quot;&quot; blog.m
     
     </summary>
     
@@ -410,8 +428,8 @@
   
   <entry>
     <title>Cmake VS Autotools</title>
-    <link href="http://kevien.github.io/2017/09/28/Cmake%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>http://kevien.github.io/2017/09/28/Cmake使用笔记/</id>
+    <link href="http://kevien.github.io/2017/09/28/CmakeVSautotools/"/>
+    <id>http://kevien.github.io/2017/09/28/CmakeVSautotools/</id>
     <published>2017-09-28T02:40:33.000Z</published>
     <updated>2017-10-22T08:16:53.000Z</updated>
     
@@ -420,7 +438,7 @@
 <li><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></li>
 <li><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</li>
 <li><a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="external">CMake 入门实战</a></li>
-<li>windows下使用<br><img src="/2017/09/28/Cmake使用笔记/cmake.png" alt=""><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
+<li>windows下使用<br><img src="/2017/09/28/CmakeVSautotools/cmake.png" alt=""><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
 <li><a href="https://geesun.github.io/posts/2015/02/autotool.html" target="_blank" rel="external">使用autotools生成Makefile学习笔记</a></li>
 <li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
 </ul>
@@ -482,7 +500,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#109;&#47;&#64;&#x69;&#x73;&#101;&#x65;&#x74;&#x68;&#x69;&#x65;&#118;&#101;&#x73;&#x2f;&#x69;&#110;&#116;&#114;&#111;&#45;&#x74;&#x6f;&#45;&#114;&#x6f;&#x70;&#x2d;&#114;&#111;&#x70;&#45;&#x65;&#109;&#112;&#x6f;&#x72;&#105;&#x75;&#x6d;&#45;&#115;&#x70;&#x6c;&#x69;&#x74;&#45;&#57;&#98;&#x32;&#x65;&#x63;&#x36;&#x64;&#52;&#100;&#x62;&#x30;&#56;">&#104;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#109;&#47;&#64;&#x69;&#x73;&#101;&#x65;&#x74;&#x68;&#x69;&#x65;&#118;&#101;&#x73;&#x2f;&#x69;&#110;&#116;&#114;&#111;&#45;&#x74;&#x6f;&#45;&#114;&#x6f;&#x70;&#x2d;&#114;&#111;&#x70;&#45;&#x65;&#109;&#112;&#x6f;&#x72;&#105;&#x75;&#x6d;&#45;&#115;&#x70;&#x6c;&#x69;&#x74;&#45;&#57;&#98;&#x32;&#x65;&#x63;&#x36;&#x64;&#52;&#100;&#x62;&#x30;&#56;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#104;&#x74;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#64;&#105;&#115;&#101;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#x73;&#47;&#105;&#110;&#x74;&#x72;&#111;&#x2d;&#116;&#111;&#45;&#x72;&#x6f;&#112;&#45;&#x72;&#111;&#x70;&#45;&#x65;&#x6d;&#x70;&#111;&#x72;&#x69;&#x75;&#109;&#45;&#x73;&#x70;&#x6c;&#105;&#x74;&#45;&#57;&#98;&#50;&#101;&#99;&#x36;&#100;&#52;&#100;&#x62;&#x30;&#56;">&#104;&#x74;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#64;&#105;&#115;&#101;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#x73;&#47;&#105;&#110;&#x74;&#x72;&#111;&#x2d;&#116;&#111;&#45;&#x72;&#x6f;&#112;&#45;&#x72;&#111;&#x70;&#45;&#x65;&#x6d;&#x70;&#111;&#x72;&#x69;&#x75;&#109;&#45;&#x73;&#x70;&#x6c;&#105;&#x74;&#45;&#57;&#98;&#50;&#101;&#99;&#x36;&#100;&#52;&#100;&#x62;&#x30;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -503,7 +521,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#x74;&amp;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#97;&amp;#x69;&amp;#108;&amp;#116;&amp;
     
     </summary>
     
