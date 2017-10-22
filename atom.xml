@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-10-22T11:27:49.000Z</updated>
+  <updated>2017-10-22T15:27:17.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>amazon云扩容</title>
+    <link href="http://kevien.github.io/2017/10/22/amazon%E4%BA%91%E6%89%A9%E5%AE%B9/"/>
+    <id>http://kevien.github.io/2017/10/22/amazon云扩容/</id>
+    <published>2017-10-22T15:20:53.000Z</published>
+    <updated>2017-10-22T15:27:17.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>用了亚马逊的云，但是呢，最近8G的存储不够了。看了一下，好像有没有什么可删除的东西了。然后查了一下，原来亚马逊云是可以扩容的，暂时还不知道扩容收不收费。。为什么要记录一下呢，因为这里有一个小坑<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">按照参考1中的方法，前面几个步骤没有问题，但是最后就是报错，大概是找不到快照中的对应的目录，原来是在挂载卷的时候，目录选错了，设置成这个就可以了。/dev/sda1(见参考2).</div><div class="line">参考：</div><div class="line">1.http://naonao.blog.51cto.com/1135983/1557994</div><div class="line">2.https://stackoverflow.com/questions/6151695/ec2-instance-on-amazon-and-i-am-greeted-with-no-space-left-on-the-disk</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;用了亚马逊的云，但是呢，最近8G的存储不够了。看了一下，好像有没有什么可删除的东西了。然后查了一下，原来亚马逊云是可以扩容的，暂
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20171021安全动态</title>
@@ -31,7 +54,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#104;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#108;&#x2f;&#104;&#111;&#x77;&#x2d;&#105;&#x2d;&#102;&#111;&#117;&#110;&#x64;&#45;&#97;&#110;&#45;&#x73;&#115;&#x72;&#x66;&#x2d;&#x69;&#110;&#x2d;&#121;&#97;&#x68;&#111;&#x6f;&#45;&#103;&#117;&#101;&#x73;&#x74;&#104;&#111;&#x75;&#x73;&#x65;&#x2d;&#114;&#101;&#99;&#111;&#110;&#45;&#x77;&#105;&#110;&#115;&#x2d;&#56;&#55;&#x32;&#50;&#x36;&#x37;&#50;&#x65;&#52;&#49;&#x64;&#x34;">&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#104;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#108;&#x2f;&#104;&#111;&#x77;&#x2d;&#105;&#x2d;&#102;&#111;&#117;&#110;&#x64;&#45;&#97;&#110;&#45;&#x73;&#115;&#x72;&#x66;&#x2d;&#x69;&#110;&#x2d;&#121;&#97;&#x68;&#111;&#x6f;&#45;&#103;&#117;&#101;&#x73;&#x74;&#104;&#111;&#x75;&#x73;&#x65;&#x2d;&#114;&#101;&#99;&#111;&#110;&#45;&#x77;&#105;&#110;&#115;&#x2d;&#56;&#55;&#x32;&#50;&#x36;&#x37;&#50;&#x65;&#52;&#49;&#x64;&#x34;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#116;&#104;&#51;&#x67;&#x33;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#x6f;&#119;&#x2d;&#105;&#x2d;&#x66;&#111;&#117;&#110;&#x64;&#45;&#x61;&#110;&#45;&#115;&#x73;&#114;&#102;&#45;&#105;&#x6e;&#x2d;&#121;&#97;&#104;&#111;&#111;&#x2d;&#x67;&#x75;&#101;&#115;&#116;&#104;&#x6f;&#117;&#115;&#x65;&#x2d;&#x72;&#x65;&#x63;&#111;&#x6e;&#45;&#119;&#105;&#110;&#x73;&#x2d;&#x38;&#55;&#x32;&#50;&#54;&#55;&#x32;&#x65;&#x34;&#49;&#100;&#52;">&#104;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#116;&#104;&#51;&#x67;&#x33;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#x6f;&#119;&#x2d;&#105;&#x2d;&#x66;&#111;&#117;&#110;&#x64;&#45;&#x61;&#110;&#45;&#115;&#x73;&#114;&#102;&#45;&#105;&#x6e;&#x2d;&#121;&#97;&#104;&#111;&#111;&#x2d;&#x67;&#x75;&#101;&#115;&#116;&#104;&#x6f;&#117;&#115;&#x65;&#x2d;&#x72;&#x65;&#x63;&#111;&#x6e;&#45;&#119;&#105;&#110;&#x73;&#x2d;&#x38;&#55;&#x32;&#50;&#54;&#55;&#x32;&#x65;&#x34;&#49;&#100;&#52;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -500,7 +523,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#104;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#47;&#64;&#x69;&#x73;&#101;&#x65;&#x74;&#104;&#105;&#x65;&#118;&#x65;&#115;&#x2f;&#105;&#110;&#x74;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#114;&#x6f;&#112;&#x2d;&#114;&#x6f;&#x70;&#x2d;&#101;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#x6d;&#45;&#x73;&#x70;&#108;&#x69;&#x74;&#45;&#x39;&#98;&#x32;&#101;&#x63;&#x36;&#100;&#x34;&#x64;&#98;&#x30;&#56;">&#104;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#47;&#64;&#x69;&#x73;&#101;&#x65;&#x74;&#104;&#105;&#x65;&#118;&#x65;&#115;&#x2f;&#105;&#110;&#x74;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#114;&#x6f;&#112;&#x2d;&#114;&#x6f;&#x70;&#x2d;&#101;&#109;&#112;&#x6f;&#x72;&#x69;&#117;&#x6d;&#45;&#x73;&#x70;&#108;&#x69;&#x74;&#45;&#x39;&#98;&#x32;&#101;&#x63;&#x36;&#100;&#x34;&#x64;&#98;&#x30;&#56;</a></li>
+<li>ROP介绍<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#105;&#115;&#101;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#115;&#47;&#105;&#x6e;&#x74;&#114;&#111;&#45;&#116;&#x6f;&#45;&#114;&#x6f;&#x70;&#x2d;&#x72;&#x6f;&#x70;&#45;&#101;&#x6d;&#x70;&#111;&#114;&#x69;&#x75;&#x6d;&#45;&#x73;&#112;&#x6c;&#105;&#x74;&#45;&#57;&#x62;&#x32;&#101;&#99;&#x36;&#100;&#52;&#x64;&#98;&#48;&#x38;">&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#105;&#115;&#101;&#101;&#x74;&#x68;&#x69;&#101;&#x76;&#x65;&#115;&#47;&#105;&#x6e;&#x74;&#114;&#111;&#45;&#116;&#x6f;&#45;&#114;&#x6f;&#x70;&#x2d;&#x72;&#x6f;&#x70;&#45;&#101;&#x6d;&#x70;&#111;&#114;&#x69;&#x75;&#x6d;&#45;&#x73;&#112;&#x6c;&#105;&#x74;&#45;&#57;&#x62;&#x32;&#101;&#99;&#x36;&#100;&#52;&#x64;&#98;&#48;&#x38;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -521,7 +544,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#108;&amp;#116;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#108;&amp;#x74;&amp;
     
     </summary>
     
@@ -705,35 +728,6 @@
     
       &lt;h4 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;先来了解一下lsass进程。&lt;br&gt;Local Security Authority Subsystem Service (LS
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170920安全动态</title>
-    <link href="http://kevien.github.io/2017/09/20/20170920%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/20/20170920安全动态/</id>
-    <published>2017-09-20T02:43:00.000Z</published>
-    <updated>2017-09-24T16:30:27.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>我如何使用Cloud Fuzzing挖到了一个Tcpdump漏洞<br><a href="http://www.freebuf.com/articles/network/147955.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/147955.html</a></li>
-<li>Introducing pywintrace: A Python Wrapper for ETW<br><a href="https://www.fireeye.com/blog/threat-research/2017/09/pywintrace-python-wrapper-for-etw.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/09/pywintrace-python-wrapper-for-etw.html</a></li>
-<li>如何搭建一个便携式蜂窝网络<br><https: mbro95.github.io="" portablecellnetwork=""></https:></li>
-<li>如何设计一个系统，能够抵抗住 Apache Struts S2-045（CVE-2017-5638）漏洞攻击<br><https: 18="" 2017="" alexgaynor.net="" sep="" surviving-struts-cve=""></https:></li>
-<li>如何搭建一个分布式 Web 爬虫系统<br><a href="https://benbernardblog.com/the-tale-of-creating-a-distributed-web-crawler/" target="_blank" rel="external">https://benbernardblog.com/the-tale-of-creating-a-distributed-web-crawler/</a></li>
-<li>smbmap：用于SMB枚举的工具<br><a href="https://github.com/ShawnDEvans/smbmap" target="_blank" rel="external">https://github.com/ShawnDEvans/smbmap</a></li>
-<li>Detecting debuggers by abusing a bad assumption within Windows<br><a href="http://www.triplefault.io/2017/08/detecting-debuggers-by-abusing-bad.html" target="_blank" rel="external">http://www.triplefault.io/2017/08/detecting-debuggers-by-abusing-bad.html</a></li>
-<li>5 tips for enterprises to ensure their SMB partners don’t cause a data breach<br><a href="http://www.techrepublic.com/article/5-tips-for-enterprises-to-ensure-their-smb-partners-dont-cause-a-data-breach/" target="_blank" rel="external">http://www.techrepublic.com/article/5-tips-for-enterprises-to-ensure-their-smb-partners-dont-cause-a-data-breach/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;我如何使用Cloud Fuzzing挖到了一个Tcpdump漏洞&lt;br&gt;&lt;a href=&quot;htt
     
     </summary>
     
