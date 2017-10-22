@@ -908,7 +908,7 @@ $c = &quot;dummy3&quot;
     // Popup Window;
     var isfetched = false;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     }
@@ -1094,7 +1094,7 @@ $c = &quot;dummy3&quot;
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('1');
+                  var upperBound = parseInt('');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
@@ -1161,7 +1161,7 @@ $c = &quot;dummy3&quot;
             }
           }
 
-          if ('auto' === 'auto') {
+          if ('auto' === '') {
             input.addEventListener('input', inputEventFunction);
           } else {
             $('.search-icon').click(inputEventFunction);
