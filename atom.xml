@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-10-21T05:12:10.000Z</updated>
+  <updated>2017-10-22T09:10:33.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,10 +20,16 @@
     <link href="http://kevien.github.io/2017/10/21/20171021%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/10/21/20171021安全动态/</id>
     <published>2017-10-21T05:11:27.000Z</published>
-    <updated>2017-10-21T05:12:10.000Z</updated>
+    <updated>2017-10-22T09:10:33.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>Blockchains（区块链）是什么<br><a href="https://unwttng.com/what-is-a-blockchain" target="_blank" rel="external">https://unwttng.com/what-is-a-blockchain</a></li>
+<li>地下暗流：揭秘控制百万肉鸡的GhostFramework<br><a href="http://www.freebuf.com/articles/terminal/150360.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/150360.html</a></li>
+<li>【开发利器】中国国内可用API合集<br><a href="https://microzz.com/2017/02/03/API/" target="_blank" rel="external">https://microzz.com/2017/02/03/API/</a></li>
+<li>windows命令执行漏洞不会玩？ 看我！<br><a href="https://evi1cg.me/archives/remote_exec.html" target="_blank" rel="external">https://evi1cg.me/archives/remote_exec.html</a></li>
+<li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
+<li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
+<li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
 </ul>
 ]]></content>
     
@@ -476,7 +482,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#104;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x69;&#x73;&#101;&#x65;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#47;&#x69;&#110;&#116;&#x72;&#111;&#45;&#116;&#111;&#x2d;&#x72;&#x6f;&#112;&#45;&#114;&#111;&#x70;&#x2d;&#x65;&#109;&#x70;&#111;&#114;&#105;&#117;&#x6d;&#x2d;&#x73;&#x70;&#x6c;&#x69;&#116;&#45;&#57;&#98;&#50;&#101;&#x63;&#54;&#100;&#x34;&#100;&#98;&#x30;&#x38;">&#104;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x69;&#x73;&#101;&#x65;&#116;&#x68;&#105;&#101;&#118;&#x65;&#115;&#47;&#x69;&#110;&#116;&#x72;&#111;&#45;&#116;&#111;&#x2d;&#x72;&#x6f;&#112;&#45;&#114;&#111;&#x70;&#x2d;&#x65;&#109;&#x70;&#111;&#114;&#105;&#117;&#x6d;&#x2d;&#x73;&#x70;&#x6c;&#x69;&#116;&#45;&#57;&#98;&#50;&#101;&#x63;&#54;&#100;&#x34;&#100;&#98;&#x30;&#x38;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#x69;&#x73;&#101;&#101;&#116;&#x68;&#105;&#x65;&#118;&#x65;&#115;&#47;&#x69;&#x6e;&#x74;&#x72;&#111;&#45;&#x74;&#x6f;&#45;&#114;&#x6f;&#112;&#x2d;&#x72;&#111;&#x70;&#x2d;&#101;&#109;&#x70;&#111;&#114;&#x69;&#117;&#109;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#x65;&#x63;&#54;&#x64;&#x34;&#100;&#98;&#48;&#56;">&#104;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#x69;&#x73;&#101;&#101;&#116;&#x68;&#105;&#x65;&#118;&#x65;&#115;&#47;&#x69;&#x6e;&#x74;&#x72;&#111;&#45;&#x74;&#x6f;&#45;&#114;&#x6f;&#112;&#x2d;&#x72;&#111;&#x70;&#x2d;&#101;&#109;&#x70;&#111;&#114;&#x69;&#117;&#109;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#x65;&#x63;&#54;&#x64;&#x34;&#100;&#98;&#48;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
