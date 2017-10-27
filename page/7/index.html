@@ -307,150 +307,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/16/linux栈溢出学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/16/linux栈溢出学习笔记/" itemprop="url">
-                  linux栈溢出学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-16T18:53:23+08:00">
-                2017-08-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="gdb使用"><a href="#gdb使用" class="headerlink" title="gdb使用"></a>gdb使用</h4><p>gdb GNU Project Debugger<br>在linux下面调试程序必然会用到gdb，当然还有gdb的一个插件也是必须，那就是<a href="https://github.com/longld/peda" target="_blank" rel="external">peda</a><br>peda增强了gdb的功能，在调试过程中会显示反汇编的代码、寄存器、内存信息等</p>
-<ul>
-<li>aslr – 显示和设置GDB的aslr</li>
-<li>checksec – 显示多种安全机制的开关</li>
-<li>dumpargs – 当停到一个call 指令的时候，显示传递给函数的参数</li>
-<li>dumpprop – dump所有ROP gadgets 在一定的内存范围内</li>
-<li>elfheader – 获取被调试的ELF文件的头信息</li>
-<li>lefsymbol –获取非调试状态下的 符号信息</li>
-<li>lookup – 在一定地址范围内查找所有的地址以及引用</li>
-<li>patch – Patch memory start at an address with string/hexstring/int</li>
-<li>pattern – Generate, search, or write a cyclic pattern to memory</li>
-<li>procinfo – 从/proc/pid/显示不同的信息</li>
-<li>pshow – 显示peda的选项以及其它的设置</li>
-<li>pset – 设置peda的选项以及其它的设置</li>
-<li>readelf 获取ELF文件的头部信息</li>
-<li>ropgadget – Get common ROP gadgets of binary or library</li>
-<li>ropsearch – Search for ROP gadgets in memory</li>
-<li>searchmem|find – Search for a pattern in memory; support regex search</li>
-<li>shellcode – Generate or download common shellcodes.</li>
-<li>skeleton – Generate python exploit code template</li>
-<li>vmmap – Get virtual mapping address ranges of section(s) in debugged process</li>
-<li>xormem – XOR a memory region with a key</li>
-</ul>
-<p>在gdb中，常用的就是如下的命令<br>attach  附加某个进程进行调试<br>run 运行程序 ，会在断点处停下来<br>break或者b  xxx ，下断点<br>next 类似于od中的单步步过<br>step 类似于od中的单步步入</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://blog.csdn.net/21cnbao/article/details/7385161" target="_blank" rel="external">Linux gdb调试器用法全面解析</a><br><a href="http://drops.xmd5.com/static/drops/tips-6597.html" target="_blank" rel="external">一步一步学ROP之linux_x86篇</a><br><a href="https://exploit-exercises.com/" target="_blank" rel="external">linux溢出练习</a><br><a href="http://www.cnblogs.com/pannengzhi/p/5203467.html" target="_blank" rel="external">linux Hook笔记</a><br><a href="http://paper.seebug.org/271/" target="_blank" rel="external">手把手教你栈溢出</a><br><a href="https://github.com/smokeleeteveryday/CTF_WRITEUPS/tree/master/2015/DEFCONCTF/babysfirst/r0pbaby" target="_blank" rel="external">DEF CON CTF Quals 2015: r0pbaby</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/16/20170816安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1731,6 +1587,137 @@
 </li>
 </ul>
 <p>1.<a href="https://evi1cg.me/archives/Cobalt_strike.html" target="_blank" rel="external">Cobalt strike3.0使用手册</a><br>2.<a href="https://evi1cg.me/archives/Cortana.html" target="_blank" rel="external">强化你的Cobalt strike之Cortana</a><br>3.<a href="http://www.freebuf.com/sectool/133369.html" target="_blank" rel="external">Cobalt Strike学习笔记</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/07/博客推荐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/07/博客推荐/" itemprop="url">
+                  博客推荐
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T15:00:09+08:00">
+                2017-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="web安全"><a href="#web安全" class="headerlink" title="web安全"></a>web安全</h4><ul>
+<li><a href="https://github.com/CHYbeta/Web-Security-Learning" target="_blank" rel="external">https://github.com/CHYbeta/Web-Security-Learning</a><h4 id="windows系统安全"><a href="#windows系统安全" class="headerlink" title="windows系统安全"></a>windows系统安全</h4></li>
+<li><a href="https://3gstudent.github.io/3gstudent.github.io/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/</a></li>
+<li><a href="https://www.blackh4t.org/" target="_blank" rel="external">https://www.blackh4t.org/</a><h4 id="macOS以及ios安全"><a href="#macOS以及ios安全" class="headerlink" title="macOS以及ios安全"></a>macOS以及ios安全</h4></li>
+<li><a href="https://sskaje.me/" target="_blank" rel="external">https://sskaje.me/</a></li>
+<li><a href="https://github.com/buginux" target="_blank" rel="external">https://github.com/buginux</a></li>
+<li><a href="https://github.com/TKkk-iOSer/" target="_blank" rel="external">https://github.com/TKkk-iOSer/</a><h4 id="FullStack？-amp-pwn"><a href="#FullStack？-amp-pwn" class="headerlink" title="FullStack？&amp; pwn"></a>FullStack？&amp; pwn</h4></li>
+<li><a href="http://3xp10it.cc/index2.html" target="_blank" rel="external">http://3xp10it.cc/index2.html</a></li>
+<li><a href="http://blog.csdn.net/freexploit/article/details/2038442" target="_blank" rel="external">http://blog.csdn.net/freexploit/article/details/2038442</a></li>
+<li><a href="https://github.com/CHYbeta/Software-Security-Learning" target="_blank" rel="external">https://github.com/CHYbeta/Software-Security-Learning</a><h4 id="linux安全"><a href="#linux安全" class="headerlink" title="linux安全"></a>linux安全</h4></li>
+<li><a href="http://pwn4.fun/" target="_blank" rel="external">http://pwn4.fun/</a></li>
+</ul>
 
           
         
