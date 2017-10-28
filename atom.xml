@@ -68,6 +68,25 @@
   </entry>
   
   <entry>
+    <title>堆溢出利用笔记</title>
+    <link href="http://kevien.github.io/2017/10/28/%E5%A0%86%E6%BA%A2%E5%87%BA%E5%88%A9%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://kevien.github.io/2017/10/28/堆溢出利用笔记/</id>
+    <published>2017-10-28T03:18:28.000Z</published>
+    <updated>2017-10-28T04:02:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>####reference<br><a href="http://www.freebuf.com/articles/system/151407.html" target="_blank" rel="external">Dance In Heap（二）：一些堆利用的方法（上） </a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;####reference&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/system/151407.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dance In Heap（二）：一些堆利用的方法（上）
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20171025安全动态</title>
     <link href="http://kevien.github.io/2017/10/25/20171025%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2017/10/25/20171025安全动态/</id>
@@ -155,7 +174,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#116;&#x68;&#51;&#103;&#x33;&#x6e;&#116;&#51;&#x6c;&#47;&#104;&#x6f;&#x77;&#x2d;&#x69;&#x2d;&#x66;&#111;&#117;&#110;&#100;&#x2d;&#97;&#110;&#45;&#x73;&#115;&#114;&#x66;&#x2d;&#x69;&#110;&#45;&#121;&#97;&#104;&#111;&#111;&#45;&#103;&#x75;&#x65;&#115;&#x74;&#x68;&#x6f;&#117;&#115;&#x65;&#45;&#114;&#x65;&#x63;&#111;&#110;&#x2d;&#x77;&#x69;&#110;&#115;&#45;&#56;&#55;&#x32;&#50;&#x36;&#55;&#50;&#x65;&#52;&#x31;&#100;&#52;">&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#116;&#x68;&#51;&#103;&#x33;&#x6e;&#116;&#51;&#x6c;&#47;&#104;&#x6f;&#x77;&#x2d;&#x69;&#x2d;&#x66;&#111;&#117;&#110;&#100;&#x2d;&#97;&#110;&#45;&#x73;&#115;&#114;&#x66;&#x2d;&#x69;&#110;&#45;&#121;&#97;&#104;&#111;&#111;&#45;&#103;&#x75;&#x65;&#115;&#x74;&#x68;&#x6f;&#117;&#115;&#x65;&#45;&#114;&#x65;&#x63;&#111;&#110;&#x2d;&#x77;&#x69;&#110;&#115;&#45;&#56;&#55;&#x32;&#50;&#x36;&#55;&#50;&#x65;&#52;&#x31;&#100;&#52;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#104;&#x74;&#116;&#112;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#116;&#x68;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#108;&#x2f;&#104;&#111;&#119;&#x2d;&#x69;&#45;&#x66;&#111;&#x75;&#x6e;&#100;&#45;&#x61;&#110;&#45;&#x73;&#115;&#x72;&#102;&#x2d;&#x69;&#x6e;&#x2d;&#x79;&#97;&#x68;&#111;&#111;&#x2d;&#x67;&#117;&#101;&#115;&#x74;&#104;&#x6f;&#117;&#115;&#101;&#45;&#x72;&#101;&#99;&#111;&#110;&#x2d;&#x77;&#105;&#x6e;&#x73;&#x2d;&#56;&#x37;&#x32;&#x32;&#54;&#x37;&#50;&#x65;&#x34;&#49;&#x64;&#x34;">&#104;&#x74;&#116;&#112;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#116;&#x68;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#108;&#x2f;&#104;&#111;&#119;&#x2d;&#x69;&#45;&#x66;&#111;&#x75;&#x6e;&#100;&#45;&#x61;&#110;&#45;&#x73;&#115;&#x72;&#102;&#x2d;&#x69;&#x6e;&#x2d;&#x79;&#97;&#x68;&#111;&#111;&#x2d;&#x67;&#117;&#101;&#115;&#x74;&#104;&#x6f;&#117;&#115;&#101;&#45;&#x72;&#101;&#99;&#111;&#110;&#x2d;&#x77;&#105;&#x6e;&#x73;&#x2d;&#56;&#x37;&#x32;&#x32;&#54;&#x37;&#50;&#x65;&#x34;&#49;&#x64;&#x34;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -579,7 +598,7 @@
     <updated>2017-09-27T03:25:14.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#x69;&#115;&#x65;&#x65;&#116;&#x68;&#105;&#x65;&#x76;&#x65;&#x73;&#47;&#105;&#110;&#x74;&#x72;&#x6f;&#45;&#x74;&#111;&#x2d;&#x72;&#111;&#112;&#45;&#x72;&#x6f;&#112;&#45;&#x65;&#x6d;&#x70;&#111;&#114;&#x69;&#x75;&#x6d;&#45;&#115;&#x70;&#108;&#x69;&#116;&#x2d;&#57;&#98;&#x32;&#101;&#x63;&#x36;&#100;&#x34;&#100;&#98;&#x30;&#56;">&#x68;&#x74;&#116;&#x70;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#x69;&#115;&#x65;&#x65;&#116;&#x68;&#105;&#x65;&#x76;&#x65;&#x73;&#47;&#105;&#110;&#x74;&#x72;&#x6f;&#45;&#x74;&#111;&#x2d;&#x72;&#111;&#112;&#45;&#x72;&#x6f;&#112;&#45;&#x65;&#x6d;&#x70;&#111;&#114;&#x69;&#x75;&#x6d;&#45;&#115;&#x70;&#108;&#x69;&#116;&#x2d;&#57;&#98;&#x32;&#101;&#x63;&#x36;&#100;&#x34;&#100;&#98;&#x30;&#56;</a></li>
+<li>ROP介绍<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#58;&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#105;&#x73;&#x65;&#101;&#x74;&#104;&#105;&#x65;&#118;&#x65;&#x73;&#x2f;&#105;&#x6e;&#x74;&#114;&#111;&#x2d;&#116;&#x6f;&#45;&#x72;&#111;&#112;&#45;&#114;&#x6f;&#x70;&#45;&#x65;&#109;&#112;&#111;&#x72;&#105;&#x75;&#x6d;&#45;&#x73;&#x70;&#108;&#x69;&#116;&#45;&#57;&#x62;&#50;&#101;&#99;&#54;&#100;&#52;&#x64;&#x62;&#x30;&#x38;">&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#105;&#x73;&#x65;&#101;&#x74;&#104;&#105;&#x65;&#118;&#x65;&#x73;&#x2f;&#105;&#x6e;&#x74;&#114;&#111;&#x2d;&#116;&#x6f;&#45;&#x72;&#111;&#112;&#45;&#114;&#x6f;&#x70;&#45;&#x65;&#109;&#112;&#111;&#x72;&#105;&#x75;&#x6d;&#45;&#x73;&#x70;&#108;&#x69;&#116;&#45;&#57;&#x62;&#50;&#101;&#99;&#54;&#100;&#52;&#x64;&#x62;&#x30;&#x38;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -600,7 +619,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;
+&lt;li&gt;ROP介绍&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;
     
     </summary>
     
@@ -712,46 +731,6 @@
     
       &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;h4 id=&quot;复现&quot;&gt;&lt;a href=&quot;#复现&quot; class=&quot;headerlink&quot; title=&quot;复现&quot;&gt;&lt;/a&gt;复现&lt;/h4&gt;&lt;ul&gt;
 &lt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170921安全动态</title>
-    <link href="http://kevien.github.io/2017/09/21/20170921%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/09/21/20170921安全动态/</id>
-    <published>2017-09-21T02:32:52.000Z</published>
-    <updated>2017-09-21T10:26:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>针对 NFS 的渗透测试<br><a href="https://pentestacademy.wordpress.com/2017/09/20/nfs/" target="_blank" rel="external">https://pentestacademy.wordpress.com/2017/09/20/nfs/</a></li>
-<li>Joomla! &lt;= 3.7.5 LDAP 注入漏洞详情（CVE-2017-14596）<br><a href="https://blog.ripstech.com/2017/joomla-takeover-in-20-seconds-with-ldap-injection-cve-2017-14596/" target="_blank" rel="external">https://blog.ripstech.com/2017/joomla-takeover-in-20-seconds-with-ldap-injection-cve-2017-14596/</a></li>
-<li>retire.js - 一款用于检测 JavaScript 库是否存在已知漏洞的工具<br><a href="https://github.com/RetireJS/retire.js" target="_blank" rel="external">https://github.com/RetireJS/retire.js</a></li>
-<li><p>racer - 一键式应用，可用于测试条件竞争<br><a href="https://github.com/sakurity/racer" target="_blank" rel="external">https://github.com/sakurity/racer</a><br><a href="https://github.com/insp3ctre/race-the-web" target="_blank" rel="external">https://github.com/insp3ctre/race-the-web</a><br><a href="http://racetheweb.io/bank" target="_blank" rel="external">http://racetheweb.io/bank</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个不错值得研究一下。</div></pre></td></tr></table></figure>
-</li>
-<li><p>滥用 DLL 延迟加载实现远程代码注入<br><a href="http://hatriot.github.io/blog/2017/09/19/abusing-delay-load-dll/" target="_blank" rel="external">http://hatriot.github.io/blog/2017/09/19/abusing-delay-load-dll/</a></p>
-</li>
-<li>Tomcat 远程代码执行漏洞分析（CVE-2017-12615）及补丁 Bypass，来自腾讯云鼎实验室的分析<br><a href="http://www.freebuf.com/vuls/148283.html" target="_blank" rel="external">http://www.freebuf.com/vuls/148283.html</a></li>
-<li>蓝牙协议 Android 信息泄露漏洞 (CVE-2017-0785/Blueborne) 的 PoC<br><a href="https://github.com/ojasookert/CVE-2017-0785" target="_blank" rel="external">https://github.com/ojasookert/CVE-2017-0785</a></li>
-<li>CVE-2016-10191 FFmpeg RTMP Heap Buffer Overflow 漏洞分析及利用，来自 蚂蚁金服巴斯光年安全实验室<br><a href="http://jaq.alibaba.com/community/art/show?articleid=1074" target="_blank" rel="external">http://jaq.alibaba.com/community/art/show?articleid=1074</a></li>
-<li>Burp Suite被曝存在远程代码执行漏洞<br><a href="http://bobao.360.cn/news/detail/4334.html" target="_blank" rel="external">http://bobao.360.cn/news/detail/4334.html</a></li>
-<li>Windows内核池喷射的乐趣<br><a href="http://bobao.360.cn/learning/detail/4439.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4439.html</a></li>
-<li>java反序列化的漏洞<br><a href="https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/" target="_blank" rel="external">https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/</a></li>
-<li>DenyAll WAF远程代码执行漏洞<br><a href="https://pentest.blog/advisory-denyall-web-application-firewall-unauthenticated-remote-code-execution/" target="_blank" rel="external">https://pentest.blog/advisory-denyall-web-application-firewall-unauthenticated-remote-code-execution/</a></li>
-<li>打破Windows环境的限制<br><a href="https://weirdgirlweb.wordpress.com/" target="_blank" rel="external">https://weirdgirlweb.wordpress.com/</a></li>
-<li>应急响应案例分析与经验分享<br><a href="http://blog.nsfocus.net/emergency-response-case-study/" target="_blank" rel="external">http://blog.nsfocus.net/emergency-response-case-study/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>vscode的evernote插件<br><a href="https://github.com/michalyao/evermonkey" target="_blank" rel="external">https://github.com/michalyao/evermonkey</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">现在的evernote的开发者token暂时不能用了:(</div></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;针对 NFS 的渗透测试&lt;br&gt;&lt;a href=&quot;https://pentestacademy.
     
     </summary>
     
