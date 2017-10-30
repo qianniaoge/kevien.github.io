@@ -307,6 +307,130 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/08/ELF文件学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/08/ELF文件学习/" itemprop="url">
+                  ELF文件学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T15:32:54+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>ELF(Executable and Linkable Format)可执行和可链接格式。<h4 id="动态链接库"><a href="#动态链接库" class="headerlink" title="动态链接库"></a>动态链接库</h4></li>
+<li>类似于dumpbin，可以使用ldd(print shared object dependencies)命令查看<br><a href="http://www.cnblogs.com/jiqingwu/p/linux_dynamic_lib_create.html" target="_blank" rel="external">参考</a><br><img src="/2017/10/08/ELF文件学习/ldd.png" alt=""><br>这样我们可以看的到， hello的运行用到了我们编写的libmyhello.so这个动态链接库，还用到了libc.so.6这个c语言的标准库。<h4 id="ELF文件格式"><a href="#ELF文件格式" class="headerlink" title="ELF文件格式"></a>ELF文件格式</h4></li>
+<li>readelf命令<br>这个命令应该是最常用的到的，-a 它会显示ELF文件的所有信息。<br><img src="/2017/10/08/ELF文件学习/readelf.png" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/06/20171006安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -922,7 +1046,7 @@
 <li><a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="external">CMake 入门实战</a></li>
 <li>windows下使用<br><img src="/2017/09/28/CmakeVSautotools/cmake.png" alt=""><h4 id="Cmake-语法简单介绍"><a href="#Cmake-语法简单介绍" class="headerlink" title="Cmake 语法简单介绍"></a>Cmake 语法简单介绍</h4>可以把cmake理解为一种简单的语言，它也有着它的语法和变量。它的语法规则很简单<br><br>1.变量使用${}方式取值<br><br>2.指令（参数1 参数2 。。。）<br><br>3.指令是大小写无关的，参数和变量是大小写敏感的，例如set 和SET 作为指令都是可以的，但是建议全部使用大写的指令。<br><br>4.cmake的语法还是比较灵活且考虑到了各种情况，比如SET(SOURCES_FILES main.c)也可以写成SET(SOURCES_FILES “main.c”)，但是假设一个源文件中的文件名是fu nc.c（中间有了空格），这个时候就有必要加上双引号了。<br><br>5.清理工程，跟经典的autotools系列工具一样，make clean可以对构建结果进行清理。<br><br>6.内部构建和外部构建。内部构建就是直接在根目录下面构建(会在工程目录下产生很多文件，使工程看起来比较乱)，而使用外部构建比如在工程目录下面创建一个build的目录，然后进入build目录下，进行cmake .. 这样生成的文件都在build目录下。推荐是有外部构建，所以一般的构建命令就是进入 build 目录下面，然后 cmake ..  make<br>7.注意cmake 是构建项目的过程,是产生Makefile的过程，也就是生成编译指令的过程，这个过程不会包编译的错误。make才是编译和链接的过程，如果你的代码有问题，或者你的编译指令有有问题(比如未包含动态或者静态的lib)这是时候会产生错误。<br><br>8.ADD_LIBRARY()用来生成动态或者静态链接库的。INCLUDE_DIRECTORY()是用来向工程添加多个特定的头文件搜索路径的，路径之间用空格分开，如果路径中包含了空格，可以使用双引号将它括起来。默认的行为是追加到当前的头文件搜索路径的后面。LINK_DIRECTORIES()添加非标准的共享库搜索路径，TARGET_LINK_LIBRARIES(target  library1 library2),这个指令可以用来为target添加需要连接的共享库.<br><br><img src="/2017/09/28/CmakeVSautotools/makeparam.png" alt=""><br><br><img src="/2017/09/28/CmakeVSautotools/linklib.png" alt=""><br><a href="https://github.com/kevien/cmakesample" target="_blank" rel="external">测试代码见github</a><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
 <li><a href="https://geesun.github.io/posts/2015/02/autotool.html" target="_blank" rel="external">使用autotools生成Makefile学习笔记</a></li>
-<li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><br><a href="http://thebigdoc.readthedocs.io/en/latest/auto-make-conf.html" target="_blank" rel="external">automake 和 autoconf 使用简明教程</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
+<li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="使用libtool创建库"><a href="#使用libtool创建库" class="headerlink" title="使用libtool创建库"></a>使用libtool创建库</h4><a href="https://www.ibm.com/developerworks/cn/aix/library/1007_wuxh_libtool/index.html" target="_blank" rel="external">使用libtool创建库</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><br><a href="http://thebigdoc.readthedocs.io/en/latest/auto-make-conf.html" target="_blank" rel="external">automake 和 autoconf 使用简明教程</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
 </ul>
 
           
@@ -1183,7 +1307,7 @@
         
           
             <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#105;&#115;&#x65;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#x73;&#47;&#x69;&#110;&#116;&#x72;&#x6f;&#x2d;&#x74;&#x6f;&#45;&#x72;&#x6f;&#x70;&#45;&#114;&#111;&#x70;&#x2d;&#x65;&#109;&#112;&#111;&#114;&#105;&#x75;&#x6d;&#45;&#115;&#112;&#x6c;&#105;&#116;&#x2d;&#57;&#x62;&#x32;&#101;&#x63;&#x36;&#x64;&#52;&#100;&#98;&#x30;&#56;">&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#105;&#115;&#x65;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#x73;&#47;&#x69;&#110;&#116;&#x72;&#x6f;&#x2d;&#x74;&#x6f;&#45;&#x72;&#x6f;&#x70;&#45;&#114;&#111;&#x70;&#x2d;&#x65;&#109;&#112;&#111;&#114;&#105;&#x75;&#x6d;&#45;&#115;&#112;&#x6c;&#105;&#116;&#x2d;&#57;&#x62;&#x32;&#101;&#x63;&#x36;&#x64;&#52;&#100;&#98;&#x30;&#56;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#x6d;&#46;&#99;&#111;&#109;&#47;&#64;&#x69;&#115;&#101;&#x65;&#x74;&#104;&#105;&#101;&#x76;&#x65;&#115;&#47;&#105;&#x6e;&#116;&#114;&#x6f;&#x2d;&#x74;&#111;&#45;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#x2d;&#101;&#109;&#112;&#x6f;&#114;&#105;&#117;&#x6d;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#x65;&#99;&#x36;&#x64;&#52;&#x64;&#98;&#x30;&#56;">&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#x6d;&#46;&#99;&#111;&#109;&#47;&#64;&#x69;&#115;&#101;&#x65;&#x74;&#104;&#105;&#101;&#x76;&#x65;&#115;&#47;&#105;&#x6e;&#116;&#114;&#x6f;&#x2d;&#x74;&#111;&#45;&#114;&#x6f;&#112;&#45;&#114;&#111;&#112;&#x2d;&#101;&#109;&#112;&#x6f;&#114;&#105;&#117;&#x6d;&#45;&#x73;&#112;&#x6c;&#x69;&#x74;&#45;&#57;&#x62;&#50;&#x65;&#99;&#x36;&#x64;&#52;&#x64;&#98;&#x30;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -1514,136 +1638,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/" itemprop="url">
-                  Tomcat 远程代码执行漏洞(CVE-2017-12615)以及信息泄露漏洞(CVE-2017-12616)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T15:20:42+08:00">
-                2017-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><h4 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h4><ul>
-<li>测试环境<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/tomcatversion.png" alt=""></li>
-<li>首先修改conf/web.xml文件，如下<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/config.png" alt=""><br><br>修改完成之后重启tomcat服务器</li>
-<li>put上传文件<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/put.png" alt=""></li>
-<li>测试<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/result.png" alt=""><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4></li>
-<li>待更<h4 id="CVE-2017-12616-​信息泄露漏洞"><a href="#CVE-2017-12616-​信息泄露漏洞" class="headerlink" title="CVE-2017-12616 ​信息泄露漏洞"></a>CVE-2017-12616 ​信息泄露漏洞</h4><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
-<li>说实话，没事儿去修改readonly为false的应该不多，所以漏洞影响有限。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&amp;mid=2247483659&amp;idx=1&amp;sn=c23b3a3b3b43d70999bdbe644e79f7e5&amp;chksm=ea3f3dd9dd48b4cf1db66e70662126cf1eb45f60eb8205b3391d20f66564e6a789b158c0efe5&amp;mpshare=1&amp;scene=23&amp;srcid=0921nOtxiMml2bGoVXM9jKMS#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&amp;mid=2247483659&amp;idx=1&amp;sn=c23b3a3b3b43d70999bdbe644e79f7e5&amp;chksm=ea3f3dd9dd48b4cf1db66e70662126cf1eb45f60eb8205b3391d20f66564e6a789b158c0efe5&amp;mpshare=1&amp;scene=23&amp;srcid=0921nOtxiMml2bGoVXM9jKMS#rd</a></li>
-<li><a href="http://www.freebuf.com/vuls/148283.html" target="_blank" rel="external">http://www.freebuf.com/vuls/148283.html</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483712&amp;idx=1&amp;sn=c92d1abc41c6a8293c83ff4913b214a4&amp;chksm=ecb11db0dbc694a62d5d073054d0bf41b2ab5680807f19a3357a82fcb4ba72883cf97e9b4321&amp;mpshare=1&amp;scene=23&amp;srcid=0921koVmEUnPZyCRatqKTka3#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483712&amp;idx=1&amp;sn=c92d1abc41c6a8293c83ff4913b214a4&amp;chksm=ecb11db0dbc694a62d5d073054d0bf41b2ab5680807f19a3357a82fcb4ba72883cf97e9b4321&amp;mpshare=1&amp;scene=23&amp;srcid=0921koVmEUnPZyCRatqKTka3#rd</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1693,7 +1687,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">137</span>
+                <span class="site-state-item-count">138</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
