@@ -307,6 +307,129 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/07/指针参数传递与数据安全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/07/指针参数传递与数据安全/" itemprop="url">
+                  指针参数传递与数据安全
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T15:27:19+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="知识扫盲"><a href="#知识扫盲" class="headerlink" title="知识扫盲"></a>知识扫盲</h4><ul>
+<li>理解常值变量和符号常量的区别<br><br>在定义时用const修饰的普通变量称为常值变量.例如：<br><br>const int MaxLint = 1000;<br><br>const float Pi = 3.1415926;<br><br>指针做函数参数时，参数的传递效率非常高，通过指针可以对指针所指内存进行读/写。<br>在实际的编程中，若函数的形参为指针，则该函数只是读取指针所指内存的数据，则应将该指针用const修饰，以限制在函数体内对指针所指内存的修改。这样，即兼顾了指针参数的高效传递，又兼顾了指针所指数据的安全。如果函数的形参为引用，且该函数只是读取引用所关联的变量，则也应该采用相同的措施。<h4 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &quot;iostream&quot;</div><div class="line">using namespace std;</div><div class="line">//void sp_to_dash(const char *s)</div><div class="line">//&#123;</div><div class="line">//	while(*s)</div><div class="line">//	&#123;</div><div class="line">//		if(*s == &apos; &apos;) *s = &apos;_&apos;;//添加const修饰，这里在修改指针所指变量的值时候，编译器会报错</div><div class="line">//		cout&lt;&lt; *s++;</div><div class="line">//	&#125;</div><div class="line">//&#125;</div><div class="line"></div><div class="line">void sp_to_dash(const char *s)</div><div class="line">&#123;</div><div class="line">	while(*s)</div><div class="line">	&#123;</div><div class="line">		if(*s == &apos; &apos;) cout&lt;&lt;&apos;_&apos;;</div><div class="line">		else cout&lt;&lt;*s;</div><div class="line">		s++;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	sp_to_dash(&quot;hello !&quot;);</div><div class="line">	cout&lt;&lt;endl;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/07/20170907安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +513,7 @@
 <li>Syzygy - PE 文件的文件重写工具（Binary Rewriting），可以实现代码块分析和重构等功能<br><a href="http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/" target="_blank" rel="external">http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/</a></li>
 <li>InfoCON - 专门收集各大信息安全会议资料的网站<br><a href="https://infocon.org/cons/" target="_blank" rel="external">https://infocon.org/cons/</a></li>
 <li>FrauDroid - 一个精确的大规模自动化手机广告欺诈检测的方法<br><a href="https://arxiv.org/pdf/1709.01213.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1709.01213.pdf</a></li>
-<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x69;&#x6e;&#115;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#x79;&#x5f;&#57;&#x32;&#52;&#x37;&#55;&#x2f;&#117;&#116;&#105;&#108;&#105;&#122;&#x69;&#x6e;&#103;&#45;&#x68;&#x74;&#97;&#99;&#x63;&#x65;&#x73;&#x73;&#x2d;&#102;&#x6f;&#x72;&#45;&#x65;&#x78;&#x70;&#108;&#x6f;&#x69;&#116;&#97;&#x74;&#105;&#x6f;&#110;&#45;&#112;&#x75;&#x72;&#x70;&#x6f;&#x73;&#x65;&#115;&#x2d;&#x70;&#x61;&#x72;&#x74;&#45;&#49;&#x2d;&#53;&#55;&#51;&#51;&#x64;&#x64;&#x37;&#102;&#x63;&#56;&#x65;&#x62;">&#104;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x69;&#x6e;&#115;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#x79;&#x5f;&#57;&#x32;&#52;&#x37;&#55;&#x2f;&#117;&#116;&#105;&#108;&#105;&#122;&#x69;&#x6e;&#103;&#45;&#x68;&#x74;&#97;&#99;&#x63;&#x65;&#x73;&#x73;&#x2d;&#102;&#x6f;&#x72;&#45;&#x65;&#x78;&#x70;&#108;&#x6f;&#x69;&#116;&#97;&#x74;&#105;&#x6f;&#110;&#45;&#112;&#x75;&#x72;&#x70;&#x6f;&#x73;&#x65;&#115;&#x2d;&#x70;&#x61;&#x72;&#x74;&#45;&#49;&#x2d;&#53;&#55;&#51;&#51;&#x64;&#x64;&#x37;&#102;&#x63;&#56;&#x65;&#x62;</a></li>
+<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#105;&#110;&#x73;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#121;&#x5f;&#57;&#50;&#52;&#55;&#x37;&#x2f;&#117;&#116;&#x69;&#108;&#x69;&#122;&#x69;&#x6e;&#x67;&#x2d;&#104;&#116;&#97;&#99;&#99;&#101;&#x73;&#x73;&#45;&#102;&#111;&#114;&#x2d;&#101;&#x78;&#x70;&#108;&#x6f;&#105;&#116;&#97;&#x74;&#x69;&#x6f;&#110;&#x2d;&#x70;&#x75;&#x72;&#112;&#111;&#x73;&#101;&#x73;&#x2d;&#112;&#x61;&#114;&#116;&#45;&#x31;&#x2d;&#53;&#x37;&#x33;&#51;&#100;&#x64;&#x37;&#102;&#x63;&#x38;&#101;&#x62;">&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#105;&#110;&#x73;&#101;&#x63;&#x75;&#x72;&#x69;&#116;&#121;&#x5f;&#57;&#50;&#52;&#55;&#x37;&#x2f;&#117;&#116;&#x69;&#108;&#x69;&#122;&#x69;&#x6e;&#x67;&#x2d;&#104;&#116;&#97;&#99;&#99;&#101;&#x73;&#x73;&#45;&#102;&#111;&#114;&#x2d;&#101;&#x78;&#x70;&#108;&#x6f;&#105;&#116;&#97;&#x74;&#x69;&#x6f;&#110;&#x2d;&#x70;&#x75;&#x72;&#112;&#111;&#x73;&#101;&#x73;&#x2d;&#112;&#x61;&#114;&#116;&#45;&#x31;&#x2d;&#53;&#x37;&#x33;&#51;&#100;&#x64;&#x37;&#102;&#x63;&#x38;&#101;&#x62;</a></li>
 <li>Wireless IP Camera (P2P) WIFICAM 无线摄像头的多个高危漏洞详情<br><a href="https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html</a></li>
 <li>黑客免费提供的Cobian RAT中暗藏后门<br><a href="http://thehackernews.com/2017/09/backdoored-hacking-tools.html" target="_blank" rel="external">http://thehackernews.com/2017/09/backdoored-hacking-tools.html</a></li>
 <li>如何制作基础认证钓鱼页面<br><a href="https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/" target="_blank" rel="external">https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/</a></li>
@@ -1402,7 +1525,8 @@ $c = &quot;dummy3&quot;
       
         
           
-            <ul>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个项目还是比较有意义的，里面会有一些值得借鉴的函数，比网上现找的质量好些。</div></pre></td></tr></table></figure>
+<ul>
 <li><p>11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录<br>dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程<br><a href="http://blog.csdn.net/suppercoder/article/details/17167537" target="_blank" rel="external">关于win7的session0隔离的总结</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">使用OutputDebugStringA()函数可以将调试信息输出，然后用debugview工具进行查看。</div><div class="line">ANSI的ASCII字符集及其派生字符集（也称多字节字符集）比较旧，Unicode字符集比较新，固定以双字节表示一个字。</div><div class="line">操作字符串的API在声明时，会指定字符集。每个含有字符串的API同时有两个版本：即ANSI，Unicode。尾部带A的API是ANSI版本，带W的API是Unicode版本。例如：SetWindowTextA，是ANSI函数；而SetWindowTextW，是Unicode函数.</div><div class="line">_tmain()是unicode版本的的main()</div><div class="line">VS注释与取消注释快捷键</div><div class="line">CTRL + K , CTRL + C(注释)</div><div class="line">CTRL + K , CTRL + U(取消注释)</div></pre></td></tr></table></figure>
 </li>
@@ -1419,8 +1543,7 @@ $c = &quot;dummy3&quot;
 <li>16.combrowser - using IE COM object to make web requests<br>使用IE COM对象发送web请求</li>
 <li>17.httpbrowser - using HTTP API to make web requests<br>自己实现了一个http发包的方法。</li>
 <li>18.toxicserpent - log all network traffic, poison, port knock C2<br>流量日志</li>
-<li><p>19.RunShellcode - run shellcode from .NET</p>
-</li>
+<li>19.RunShellcode - run shellcode from .NET<br>一个run shellcode的GUI小工具 c#写的</li>
 <li><p>20.offsetfix - converting static analysis offsets with ASLR</p>
 </li>
 <li><p>21.rawhook - simple example showing function prologue hooking</p>
@@ -1572,7 +1695,7 @@ $c = &quot;dummy3&quot;
 <li>Decoding malware via simple statistical analysis<br><a href="https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/" target="_blank" rel="external">https://blog.nviso.be/2017/08/30/decoding-malware-via-simple-statistical-analysis/</a></li>
 <li>Pharos Binary Static Analysis Tools Released on Github Pharos二进制静态分析工具<br><a href="https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html" target="_blank" rel="external">https://insights.sei.cmu.edu/sei_blog/2017/08/pharos-binary-static-analysis-tools-released-on-github.html</a></li>
 <li>How To Chain Commands in Linux<br><a href="https://n0where.net/how-to-chain-commands-in-linux/" target="_blank" rel="external">https://n0where.net/how-to-chain-commands-in-linux/</a></li>
-<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#x6b;&#x68;&#x69;&#122;&#101;&#114;&#x6a;&#97;&#x76;&#101;&#x64;&#x2f;&#x73;&#x71;&#108;&#105;&#45;&#x78;&#x73;&#x73;&#45;&#118;&#117;&#108;&#110;&#101;&#114;&#97;&#98;&#x69;&#x6c;&#x69;&#x74;&#x69;&#101;&#115;&#45;&#x69;&#x6e;&#x2d;&#97;&#45;&#x70;&#x6f;&#112;&#x75;&#x6c;&#x61;&#114;&#x2d;&#x61;&#x69;&#x72;&#108;&#105;&#110;&#101;&#x73;&#45;&#x77;&#x65;&#98;&#x73;&#x69;&#116;&#101;&#45;&#98;&#x75;&#x67;&#x62;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#112;&#111;&#99;&#45;&#53;&#x63;&#x30;&#100;&#55;&#49;&#x66;&#57;&#x33;&#x35;&#x63;&#x31;">&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#109;&#x6b;&#x68;&#x69;&#122;&#101;&#114;&#x6a;&#97;&#x76;&#101;&#x64;&#x2f;&#x73;&#x71;&#108;&#105;&#45;&#x78;&#x73;&#x73;&#45;&#118;&#117;&#108;&#110;&#101;&#114;&#97;&#98;&#x69;&#x6c;&#x69;&#x74;&#x69;&#101;&#115;&#45;&#x69;&#x6e;&#x2d;&#97;&#45;&#x70;&#x6f;&#112;&#x75;&#x6c;&#x61;&#114;&#x2d;&#x61;&#x69;&#x72;&#108;&#105;&#110;&#101;&#x73;&#45;&#x77;&#x65;&#98;&#x73;&#x69;&#116;&#101;&#45;&#98;&#x75;&#x67;&#x62;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#112;&#111;&#99;&#45;&#53;&#x63;&#x30;&#100;&#55;&#49;&#x66;&#57;&#x33;&#x35;&#x63;&#x31;</a></li>
+<li>Bug Bounty：热门航空网站上的SQLi和XSS漏洞<br><a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#x6d;&#107;&#104;&#x69;&#122;&#101;&#114;&#106;&#97;&#x76;&#101;&#x64;&#47;&#x73;&#113;&#108;&#105;&#45;&#120;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#x6e;&#x65;&#114;&#97;&#x62;&#105;&#x6c;&#105;&#x74;&#x69;&#x65;&#x73;&#45;&#105;&#x6e;&#45;&#97;&#x2d;&#x70;&#x6f;&#112;&#117;&#x6c;&#x61;&#114;&#45;&#97;&#105;&#x72;&#108;&#105;&#x6e;&#x65;&#x73;&#x2d;&#x77;&#101;&#98;&#115;&#x69;&#116;&#101;&#x2d;&#98;&#117;&#x67;&#98;&#x6f;&#x75;&#110;&#116;&#x79;&#45;&#x70;&#x6f;&#99;&#x2d;&#53;&#99;&#x30;&#100;&#x37;&#49;&#x66;&#x39;&#x33;&#x35;&#99;&#49;">&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#x6d;&#107;&#104;&#x69;&#122;&#101;&#114;&#106;&#97;&#x76;&#101;&#x64;&#47;&#x73;&#113;&#108;&#105;&#45;&#120;&#115;&#115;&#45;&#118;&#x75;&#x6c;&#x6e;&#x65;&#114;&#97;&#x62;&#105;&#x6c;&#105;&#x74;&#x69;&#x65;&#x73;&#45;&#105;&#x6e;&#45;&#97;&#x2d;&#x70;&#x6f;&#112;&#117;&#x6c;&#x61;&#114;&#45;&#97;&#105;&#x72;&#108;&#105;&#x6e;&#x65;&#x73;&#x2d;&#x77;&#101;&#98;&#115;&#x69;&#116;&#101;&#x2d;&#98;&#117;&#x67;&#98;&#x6f;&#x75;&#110;&#116;&#x79;&#45;&#x70;&#x6f;&#99;&#x2d;&#53;&#99;&#x30;&#100;&#x37;&#49;&#x66;&#x39;&#x33;&#x35;&#99;&#49;</a></li>
 <li>Understanding Log Analysis of Web Server<br><a href="http://www.hackingarticles.in/understanding-log-analysis-web-server/" target="_blank" rel="external">http://www.hackingarticles.in/understanding-log-analysis-web-server/</a></li>
 <li>[BBP系列二] Uber XSS via Cookie<br><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank" rel="external">http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/</a></li>
 <li>Malicious GIT HTTP Server<br><a href="https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143965/git_submodule_command_exec.rb.txt</a></li>
@@ -1619,141 +1742,11 @@ $c = &quot;dummy3&quot;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/28/20170828安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/28/20170828安全动态/" itemprop="url">
-                  20170828安全动态&&defcon-25-workshop代码解读
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-28T09:21:21+08:00">
-                2017-08-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>利用xwizard.exe加载dll<br><a href="http://www.4hou.com/technology/6969.html" target="_blank" rel="external">http://www.4hou.com/technology/6969.html</a></li>
-<li>安全研究人员警告：超过1700台IoT设备和相关的telnet凭据已被泄露并公开放在网上<br><a href="http://securityaffairs.co/wordpress/62365/iot/iot-devices-credentials-leaked.html" target="_blank" rel="external">http://securityaffairs.co/wordpress/62365/iot/iot-devices-credentials-leaked.html</a></li>
-<li>Apple iOS &lt;=10.3.1 - Kernel Exploit<br><a href="https://www.exploit-db.com/exploits/42555/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42555/</a></li>
-<li>大量服务器的登录凭证被PDF钓鱼泄露<br><a href="http://www.ringzerolabs.com/2017/08/large-victim-credential-server.html" target="_blank" rel="external">http://www.ringzerolabs.com/2017/08/large-victim-credential-server.html</a><br><a href="https://www.bilibili.com/video/av13897953/" target="_blank" rel="external">https://www.bilibili.com/video/av13897953/</a></li>
-<li>AVPASS：可绕过Android恶意软件检测系统的工具<br><a href="https://github.com/sslab-gatech/avpass/blob/master/docs/README.md" target="_blank" rel="external">https://github.com/sslab-gatech/avpass/blob/master/docs/README.md</a><h4 id="每日代码分享"><a href="#每日代码分享" class="headerlink" title="每日代码分享"></a>每日代码分享</h4>来源:<br><a href="https://github.com/zerosum0x0/defcon-25-workshop" target="_blank" rel="external">https://github.com/zerosum0x0/defcon-25-workshop</a><br>这里主要介绍了window后渗透以及恶意软件的开发中的一些trick，做免杀的童鞋可以重点关注一下<br>1.asynclog - basic keylogger using GetAsyncKeyState()<br>不同于使用钩子函数进行键盘的记录，这里使用了GetAsyncKeyState()做键盘记录，api函数在User32.dll中实现。<br>3.hooklog 挂钩WH_KEYBOARD_LL 事件  注意要区分WH_KEYBOARD  这里的LL是low level的缩写<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">区别如下：</div><div class="line">https://stackoverflow.com/questions/10718009/difference-between-wh-keyboard-and-wh-keyboard-ll</div><div class="line">简单来说就是一个需要dll一个不需要dll.</div><div class="line">这里可以通过代码了解windows的消息机制。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>4.IGO pre-main execution with C++ initialization<br>我理解的就是在main函数执行之前，会进行初始化的操作，通过编译链接运行代码，可以发现还可以在main函数之前执行我们的代码，确实和平常我们一贯的思路不一样。<br>5.tlscallback  pre-main execution with Thread Local Storage callback<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个还不是特别明白用途 tlscallback.h头文件中的魔法</div></pre></td></tr></table></figure></p>
-<p>6.importless - PE using WinAPI that has no imports<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">windows的api的“隐式”调用，这里以MessageBox函数为例。</div></pre></td></tr></table></figure></p>
-<p>7.printscreen - takes a screenshot by simulation of printscreen keypress<br>屏幕截屏，过360<br>8.screenshot - takes a screenshot using device context and GDI+<br>还是屏幕截图，利用的是device contest和GDI+，也是过360的<br>9.reverseshell - basic reverse TCP shell<br>反连shell<br>10.passfilter - password complexity filter DLL with logging<br>通过dll注入当密码改变的时候保存修改后的密码。<br>11.locklogger - injects into winlogon.exe and keylogs</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1798,7 +1791,7 @@ $c = &quot;dummy3&quot;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">141</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

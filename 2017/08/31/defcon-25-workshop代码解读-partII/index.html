@@ -103,18 +103,18 @@
 
 
 
-<meta name="description" content="11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDebugStringA()函数可以将调试信息输出，然后用debugview工具进行查">
+<meta name="description" content="1这个项目还是比较有意义的，里面会有一些值得借鉴的函数，比网上现找的质量好些。  11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDeb">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="defcon-25-workshop代码解读 partII">
 <meta property="og:url" content="http://kevien.github.io/2017/08/31/defcon-25-workshop代码解读-partII/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDebugStringA()函数可以将调试信息输出，然后用debugview工具进行查">
+<meta property="og:description" content="1这个项目还是比较有意义的，里面会有一些值得借鉴的函数，比网上现找的质量好些。  11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDeb">
 <meta property="og:image" content="http://kevien.github.io/2017/08/31/defcon-25-workshop代码解读-partII/1.png">
-<meta property="og:updated_time" content="2017-11-20T12:44:59.745Z">
+<meta property="og:updated_time" content="2017-11-20T13:05:17.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="defcon-25-workshop代码解读 partII">
-<meta name="twitter:description" content="11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDebugStringA()函数可以将调试信息输出，然后用debugview工具进行查">
+<meta name="twitter:description" content="1这个项目还是比较有意义的，里面会有一些值得借鉴的函数，比网上现找的质量好些。  11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程关于win7的session0隔离的总结 1234567使用OutputDeb">
 <meta name="twitter:image" content="http://kevien.github.io/2017/08/31/defcon-25-workshop代码解读-partII/1.png">
 
 
@@ -383,7 +383,8 @@
       
 
       
-        <ul>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个项目还是比较有意义的，里面会有一些值得借鉴的函数，比网上现找的质量好些。</div></pre></td></tr></table></figure>
+<ul>
 <li><p>11.locklogger - injects into winlogon.exe and keylogs  注入winlogon.exe以及键盘记录<br>dll注入winlogon并进行键盘记录，这里的关键点应该是dll注入winlogon进程<br><a href="http://blog.csdn.net/suppercoder/article/details/17167537" target="_blank" rel="external">关于win7的session0隔离的总结</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">使用OutputDebugStringA()函数可以将调试信息输出，然后用debugview工具进行查看。</div><div class="line">ANSI的ASCII字符集及其派生字符集（也称多字节字符集）比较旧，Unicode字符集比较新，固定以双字节表示一个字。</div><div class="line">操作字符串的API在声明时，会指定字符集。每个含有字符串的API同时有两个版本：即ANSI，Unicode。尾部带A的API是ANSI版本，带W的API是Unicode版本。例如：SetWindowTextA，是ANSI函数；而SetWindowTextW，是Unicode函数.</div><div class="line">_tmain()是unicode版本的的main()</div><div class="line">VS注释与取消注释快捷键</div><div class="line">CTRL + K , CTRL + C(注释)</div><div class="line">CTRL + K , CTRL + U(取消注释)</div></pre></td></tr></table></figure>
 </li>
@@ -400,8 +401,7 @@
 <li>16.combrowser - using IE COM object to make web requests<br>使用IE COM对象发送web请求</li>
 <li>17.httpbrowser - using HTTP API to make web requests<br>自己实现了一个http发包的方法。</li>
 <li>18.toxicserpent - log all network traffic, poison, port knock C2<br>流量日志</li>
-<li><p>19.RunShellcode - run shellcode from .NET</p>
-</li>
+<li>19.RunShellcode - run shellcode from .NET<br>一个run shellcode的GUI小工具 c#写的</li>
 <li><p>20.offsetfix - converting static analysis offsets with ASLR</p>
 </li>
 <li><p>21.rawhook - simple example showing function prologue hooking</p>
@@ -560,7 +560,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">140</span>
+                <span class="site-state-item-count">141</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
