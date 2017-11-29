@@ -307,6 +307,336 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/25/ssh蜜罐搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/25/ssh蜜罐搭建/" itemprop="url">
+                  ssh蜜罐搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-25T10:21:34+08:00">
+                2017-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/日常分享/" itemprop="url" rel="index">
+                    <span itemprop="name">日常分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;本来觉得应该不是一件很复杂的事，结果搞了三个小时才搞定(可能是我太菜吧)，里面有几个坑，记录一下。<br>一直以来想去做蜜罐这么个东西，ssh is only the begining!<br>ssh secure shell，就是安全的shell，至于为什么安全呢？怎么就安全了呢？</p>
+<ol>
+<li>较rlogin、rsh等这些不加密的协议，ssh传输是加密的，历史上ssh协议的实现有openssh和ossh，前者是主流，后面非特殊情况涉及到的ssh实现均指的是openssh。</li>
+<li>ssh协议有两个版本SSH-1 and SSH-2。ssh提供了两种方式的认证，一种是密码登录方式的认证，另外一种是基于秘钥的认证。第一种就是提供的默认加密算法是椭圆曲线加密算法ecdsa-sha2-nistp256，第二种是将rsa的公钥写到服务器的authorized_keys中实现免密码登录。<h4 id="0x02-具体安装步骤"><a href="#0x02-具体安装步骤" class="headerlink" title="0x02 具体安装步骤"></a>0x02 具体安装步骤</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">本次测试是在ubuntu14.04X64环境下测试</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>1.首先git clone这两个资源<a href="https://github.com/openssh/openssh-portable" target="_blank" rel="external">https://github.com/openssh/openssh-portable</a><br><a href="https://github.com/w8rbt/sshlog" target="_blank" rel="external">https://github.com/w8rbt/sshlog</a><br>2.’打补丁’。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ patch --dry-run &lt; sshlog.patch</div><div class="line">$ patch &lt; sshlog.patch</div></pre></td></tr></table></figure></p>
+<p>运行上面两条命令，其实就是在auth-passwd.c中加上几行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">struct ssh *ssh = active_state;</div><div class="line"></div><div class="line">       if(authctxt-&gt;user &amp;&amp; password &amp;&amp; ssh) &#123;</div><div class="line">	logit(&quot;sshlog: %.100s %s %.200s %lu&quot;, </div><div class="line">		authctxt-&gt;user, </div><div class="line">		password, </div><div class="line">		ssh_remote_ipaddr(ssh),</div><div class="line">		(unsigned long)time(NULL));</div><div class="line">&#125;</div><div class="line"></div><div class="line">       else &#123;</div><div class="line">	logit(&quot;sshlog: unable to log attempt&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.安装前检查<br>发现源码中没有configure文件，原来是需要自己运行autoreconf这个来生成configure文件,参考官方说明：<a href="http://www.openssh.com/portable.html" target="_blank" rel="external">http://www.openssh.com/portable.html</a><br>4.编译<br>编译的时候需要安装依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get install libz-dev</div><div class="line">$ sudo apt-get install libssl-dev</div></pre></td></tr></table></figure>
+<p>5.链接和安装<br>这个时候又会报一个错<br>Privilege separation user sshd does not exist<br>这个时候需要在/etc/passwd文件中加入 ： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div></pre></td></tr></table></figure>
+<p>6.Done!<br><img src="/2017/06/25/ssh蜜罐搭建/1.png" alt=""><br><img src="/2017/06/25/ssh蜜罐搭建/2.png" alt=""></p>
+<h4 id="0x03-待续"><a href="#0x03-待续" class="headerlink" title="0x03 待续"></a>0x03 待续</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">图形化界面实时展示ssh被爆破记录</div></pre></td></tr></table></figure>
+<h4 id="0x04-reference"><a href="#0x04-reference" class="headerlink" title="0x04 reference"></a>0x04 reference</h4><p>1.<a href="https://www.wikiwand.com/en/Secure_Shell" target="_blank" rel="external">https://www.wikiwand.com/en/Secure_Shell</a><br>2.<a href="https://www.wikiwand.com/en/Elliptic_curve_cryptography" target="_blank" rel="external">https://www.wikiwand.com/en/Elliptic_curve_cryptography</a><br>3.<a href="https://my.oschina.net/realfighter/blog/388486" target="_blank" rel="external">https://my.oschina.net/realfighter/blog/388486</a><br>4.<a href="https://m14.cc/magic-behind-compiling-software/" target="_blank" rel="external">https://m14.cc/magic-behind-compiling-software/</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/23/20170623安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/23/20170623安全动态/" itemprop="url">
+                  20170623安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T10:57:54+08:00">
+                2017-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
+                    <span itemprop="name">每日安全动态</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>发现一个不错的社区 v2ex V2EX 是创意工作者们的社区。这里目前汇聚了超过 110,000 名主要来自互联网行业、游戏行业和媒体行业的创意工作者<br><a href="https://www.v2ex.com/" target="_blank" rel="external">https://www.v2ex.com/</a></li>
+<li>内网渗透之PC控制及完美过杀毒!!!<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5MDkwNjA2Nw==&amp;mid=2650374095&amp;idx=1&amp;sn=5d0fdb1efdba018f36a55aaa40c9aa7a&amp;chksm=beb07c7389c7f5650d3f1d26e0d5d5f230a5e569498f23dbb4cac925c34a133bf256a826f0b1&amp;mpshare=1&amp;scene=23&amp;srcid=0624DcbNkIfgyn9BrpMG68gC#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5MDkwNjA2Nw==&amp;mid=2650374095&amp;idx=1&amp;sn=5d0fdb1efdba018f36a55aaa40c9aa7a&amp;chksm=beb07c7389c7f5650d3f1d26e0d5d5f230a5e569498f23dbb4cac925c34a133bf256a826f0b1&amp;mpshare=1&amp;scene=23&amp;srcid=0624DcbNkIfgyn9BrpMG68gC#rd</a></li>
+<li>Firefox 56 现已开始支持 headless 模式 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1355150" target="_blank" rel="external">https://bugzilla.mozilla.org/show_bug.cgi?id=1355150</a></li>
+<li>收集 npm 弱凭据的三种方法<br><a href="https://github.com/ChALkeR/notes/blob/master/Gathering-weak-npm-credentials.md" target="_blank" rel="external">https://github.com/ChALkeR/notes/blob/master/Gathering-weak-npm-credentials.md</a></li>
+<li><p>bt2 - 使用 Python 编写的一款利用 Telegram 通信平台作为 C&amp;C 服务的后门工具<br><a href="https://github.com/blazeinfosec/bt2" target="_blank" rel="external">https://github.com/blazeinfosec/bt2</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">思路够猥琐</div></pre></td></tr></table></figure>
+</li>
+<li><p>yarGen - YARA 规则生成器<br><a href="https://github.com/Neo23x0/yarGen" target="_blank" rel="external">https://github.com/Neo23x0/yarGen</a></p>
+</li>
+<li>使用 Burp Infiltrator 进行漏洞挖掘<br><a href="http://blog.portswigger.net/2017/06/behind-enemy-lines-bug-hunting-with.html" target="_blank" rel="external">http://blog.portswigger.net/2017/06/behind-enemy-lines-bug-hunting-with.html</a></li>
+<li>sharkPy - 使用 Wireshark 和 libpcap 来解析、分析与交互操作网络数据包的的 Python 工具<br><a href="http://www.kitploit.com/2017/06/sharkpy-nsa-tool-to-dissect-analyze-and.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/sharkpy-nsa-tool-to-dissect-analyze-and.html</a></li>
+<li>Web 中的跨域 Json 劫持<br><a href="http://blog.portswigger.net/2016/11/json-hijacking-for-modern-web.html" target="_blank" rel="external">http://blog.portswigger.net/2016/11/json-hijacking-for-modern-web.html</a></li>
+<li>通过盗窃OAuth令牌绕过Airbnb认证<br><a href="https://www.arneswinnen.net/2017/06/authentication-bypass-on-airbnb-via-oauth-tokens-theft/" target="_blank" rel="external">https://www.arneswinnen.net/2017/06/authentication-bypass-on-airbnb-via-oauth-tokens-theft/</a></li>
+<li>hooking新技术:GhostHook-可以绕过安全内核和基于钩子的处理器追踪<br><a href="https://www.cyberark.com/threat-research-blog/ghosthook-bypassing-patchguard-processor-trace-based-hooking/" target="_blank" rel="external">https://www.cyberark.com/threat-research-blog/ghosthook-bypassing-patchguard-processor-trace-based-hooking/</a></li>
+<li>另类的Javascript伪协议<br><a href="http://brutelogic.com.br/blog/alternative-javascript-pseudo-protocol/" target="_blank" rel="external">http://brutelogic.com.br/blog/alternative-javascript-pseudo-protocol/</a></li>
+<li>MVVM 框架安全<br><a href="https://speakerdeck.com/oritz/mvvm-framework-security" target="_blank" rel="external">https://speakerdeck.com/oritz/mvvm-framework-security</a></li>
+<li>TheFatRat – Massive Exploitation Tool <a href="https://www.darknet.org.uk/2017/06/thefatrat-massive-exploitation-tool/" target="_blank" rel="external">https://www.darknet.org.uk/2017/06/thefatrat-massive-exploitation-tool/</a></li>
+<li>Fuzzing Apache httpd server with American Fuzzy Lop + persistent mode<br><a href="https://sensepost.com/blog/2017/fuzzing-apache-httpd-server-with-american-fuzzy-lop-%2B-persistent-mode/" target="_blank" rel="external">https://sensepost.com/blog/2017/fuzzing-apache-httpd-server-with-american-fuzzy-lop-%2B-persistent-mode/</a></li>
+<li>ShellStack - A PHP Based Tool That Helps You To Manage All Your Backdoored Websites Efficiently<br><a href="http://www.kitploit.com/2017/06/shellstack-php-based-tool-that-helps.html" target="_blank" rel="external">http://www.kitploit.com/2017/06/shellstack-php-based-tool-that-helps.html</a></li>
+<li>IDA series, part 2: debugging a .NET executable<br><a href="https://qmemcpy.github.io/post/ida-series-2-debugging-net" target="_blank" rel="external">https://qmemcpy.github.io/post/ida-series-2-debugging-net</a></li>
+<li>How I Built An XSS Worm On Atmail<br><a href="https://www.bishopfox.com/blog/2017/06/how-i-built-an-xss-worm-on-atmail/" target="_blank" rel="external">https://www.bishopfox.com/blog/2017/06/how-i-built-an-xss-worm-on-atmail/</a></li>
+<li>Microsoft says ‘no known ransomware’ runs on Windows 10 S – so we tried to hack it <a href="http://www.zdnet.com/article/microsoft-no-known-ransomware-windows-we-tried-to-hack-it/#ftag=RSSbaffb68" target="_blank" rel="external">http://www.zdnet.com/article/microsoft-no-known-ransomware-windows-we-tried-to-hack-it/#ftag=RSSbaffb68</a></li>
+<li><p>IFi - the interactive firewall<br><a href="https://howucan.gr/scripts-tools/2396-ifi-the-interactive-firewall" target="_blank" rel="external">https://howucan.gr/scripts-tools/2396-ifi-the-interactive-firewall</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mark</div></pre></td></tr></table></figure>
+</li>
+<li><p>Practical waterholing through DNS typosquatting<br><a href="https://blog.0day.rocks/practical-waterholing-through-dns-typosquatting-e252e6a2f99e" target="_blank" rel="external">https://blog.0day.rocks/practical-waterholing-through-dns-typosquatting-e252e6a2f99e</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">学习思路</div></pre></td></tr></table></figure>
+</li>
+<li><p>移动安全|APP签名伪造任意账号密码修改<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3ODI1MjA1NA==&amp;mid=2655064009&amp;idx=1&amp;sn=b13c0328f3b14cc99b826f61f97a3ab7&amp;chksm=84f03eb0b387b7a6b1b031419321cfe5adeff3beea7c550b8b1b71eba325bee5f069b88897aa&amp;mpshare=1&amp;scene=23&amp;srcid=0624I40MWk0HEKQ3lBjgrmgY#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzA3ODI1MjA1NA==&amp;mid=2655064009&amp;idx=1&amp;sn=b13c0328f3b14cc99b826f61f97a3ab7&amp;chksm=84f03eb0b387b7a6b1b031419321cfe5adeff3beea7c550b8b1b71eba325bee5f069b88897aa&amp;mpshare=1&amp;scene=23&amp;srcid=0624I40MWk0HEKQ3lBjgrmgY#rd</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/22/20170622安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1578,326 +1908,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/13/20170613安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/13/20170613安全动态/" itemprop="url">
-                  20170613安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T12:50:57+08:00">
-                2017-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
-                    <span itemprop="name">每日安全动态</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>执行下面的命令可在windows 10、8.1以及7上获取保存的 #Wi-Fi# 明文密码：<blockquote>
-<p>netsh wlan show profiles<br>netsh wlan show profile name=<profile> key=clear<br><a href="http://blog.digital-forensics.it/2015/01/happy-dpapi.html?m=1" target="_blank" rel="external">http://blog.digital-forensics.it/2015/01/happy-dpapi.html?m=1</a></profile></p>
-</blockquote>
-</li>
-<li>一键自动化域渗透工具（含演示视频）<br><a href="http://www.freebuf.com/sectool/136224.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136224.html</a></li>
-<li>mazda_getInfo - 攻击马自达汽车娱乐信息系统 USB 端口的 PoC<br><a href="https://github.com/shipcod3/mazda_getInfo" target="_blank" rel="external">https://github.com/shipcod3/mazda_getInfo</a></li>
-<li>MacSpy: OS X RAT as a Service，MacSpy 被认为是 macOS 系统中目前最为复杂的间谍软件<br><a href="https://www.alienvault.com/blogs/labs-research/macspy-os-x-rat-as-a-service" target="_blank" rel="external">https://www.alienvault.com/blogs/labs-research/macspy-os-x-rat-as-a-service</a></li>
-<li>ShutIt - 一款终端环境的 Shell 自动化框架，基于 expect 库，可以同时管理多个服务器 shell 会话<br><a href="https://learnxinyminutes.com/docs/shutit/" target="_blank" rel="external">https://learnxinyminutes.com/docs/shutit/</a></li>
-<li>PowerLessShell - 在不调用 PowerShell.exe 的情况下执行 PowerShell 脚本 <a href="https://github.com/Mr-Un1k0d3r/PowerLessShell" target="_blank" rel="external">https://github.com/Mr-Un1k0d3r/PowerLessShell</a></li>
-<li>利用 Waitfor.exe 实现后门机制<br><a href="https://3gstudent.github.io/3gstudent.github.io/Use-Waitfor.exe-to-maintain-persistence/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Use-Waitfor.exe-to-maintain-persistence/</a> </li>
-<li>初识 Fuzzing 工具 WinAFL<br><a href="http://paper.seebug.org/323/" target="_blank" rel="external">http://paper.seebug.org/323/</a></li>
-<li>【经典好文】- 攻击JavaWeb应用 [1]<br><a href="https://threathunter.org/topic/593ea6b1a5edfd44628f5b34" target="_blank" rel="external">https://threathunter.org/topic/593ea6b1a5edfd44628f5b34</a></li>
-<li>Windows 日志攻防之攻击篇<br><a href="https://threathunter.org/topic/593eb1bbb33ad233198afcfa" target="_blank" rel="external">https://threathunter.org/topic/593eb1bbb33ad233198afcfa</a></li>
-<li>shell在手分析服务器日志不愁<br><a href="https://segmentfault.com/a/1190000009745139" target="_blank" rel="external">https://segmentfault.com/a/1190000009745139</a></li>
-<li>SSRF/XXE/XSS 扫描工具<br><a href="https://github.com/jobertabma/ground-control" target="_blank" rel="external">https://github.com/jobertabma/ground-control</a></li>
-<li>MAC 下wifi密码破解工具<br><a href="http://www.freebuf.com/sectool/136664.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136664.html</a></li>
-<li>手工搭建伪基站监控系统<br><a href="http://www.freebuf.com/sectool/136738.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136738.html</a></li>
-<li>FlaskJinja2 开发中遇到的的服务端注入问题研究 II<br><a href="http://www.freebuf.com/articles/web/136180.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/136180.html</a></li>
-<li>利用powershell进行端口扫描<br><a href="http://bobao.360.cn/learning/detail/3961.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3961.html</a></li>
-<li>Belati is tool for Collecting Public Data &amp; Public Document from Website and other service for OSINT purpose<br><a href="https://github.com/aancw/Belati" target="_blank" rel="external">https://github.com/aancw/Belati</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/12/20170612安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/12/20170612安全动态/" itemprop="url">
-                  20170612安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T20:15:27+08:00">
-                2017-06-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
-                    <span itemprop="name">每日安全动态</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>Apple FSEvents（文件系统事件）相关的取证问题总结 &lt; <a href="http://nicoleibrahim.com/apple-fsevents-forensics/&gt;" target="_blank" rel="external">http://nicoleibrahim.com/apple-fsevents-forensics/&gt;</a></li>
-<li>macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017-2533） <a href="https://www.exploit-db.com/exploits/42146/" target="_blank" rel="external">https://www.exploit-db.com/exploits/42146/</a></li>
-<li>kwetza - 向 Android 应用中注入 Meterpreter payload 的 Python 脚本 <a href="https://github.com/sensepost/kwetza" target="_blank" rel="external">https://github.com/sensepost/kwetza</a></li>
-<li>如何通过WiFi热点实施网络钓鱼<br><a href="http://xeushack.com/phishing-with-a-rogue-wifi-access-point" target="_blank" rel="external">http://xeushack.com/phishing-with-a-rogue-wifi-access-point</a></li>
-<li>渗透测试实验环境搭建：通过Proxmox VE构建域环境 <https: 2017="" sethsec.blogspot.tw="" 06="" pentest-home-lab-0x2-building-your-ad.html=""></https:></li>
-<li>psad - Intrusion Detection with iptables Logs<br><a href="https://github.com/mrash/psad/blob/master/README.md" target="_blank" rel="external">https://github.com/mrash/psad/blob/master/README.md</a></li>
-<li>Linux之DNS服务器搭建及常见DNS攻击和防御<br><a href="https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484468&amp;idx=1&amp;sn=1c30bd929c57b438a8a75003d2f0fd94&amp;chksm=eb668137dc1108217a1c8594b5d1ebf0f3a6c5c9f048ddbe0a9d01cd0d73e098720bbe0387c2&amp;mpshare=1&amp;scene=23&amp;srcid=0611T0yATydptfUoJpaq3G2i#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI3NzMzNzE5Ng==&amp;mid=2247484468&amp;idx=1&amp;sn=1c30bd929c57b438a8a75003d2f0fd94&amp;chksm=eb668137dc1108217a1c8594b5d1ebf0f3a6c5c9f048ddbe0a9d01cd0d73e098720bbe0387c2&amp;mpshare=1&amp;scene=23&amp;srcid=0611T0yATydptfUoJpaq3G2i#rd</a></li>
-<li>一个sizeof引发的血案<br><a href="https://zhuanlan.zhihu.com/p/26815897" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/26815897</a></li>
-<li>前端跨域请求原理及实践<br><a href="https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=2651552250&amp;idx=1&amp;sn=f168cb8272e61ccd30b216db73bb6ae3&amp;chksm=8025ae3bb752272dd59c47d89faaada6e82c20c2e84c188a2bd5c1efd566d23dcda32cd37019&amp;mpshare=1&amp;scene=23&amp;srcid=0611bAo4MuFZR3LhkUxTYOy7#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&amp;mid=2651552250&amp;idx=1&amp;sn=f168cb8272e61ccd30b216db73bb6ae3&amp;chksm=8025ae3bb752272dd59c47d89faaada6e82c20c2e84c188a2bd5c1efd566d23dcda32cd37019&amp;mpshare=1&amp;scene=23&amp;srcid=0611bAo4MuFZR3LhkUxTYOy7#rd</a></li>
-<li>如何通过公开的漏洞披露信息，完成开源程序漏洞的环境构建与验证<br><a href="http://bobao.360.cn/learning/detail/3966.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3966.html</a></li>
-<li>蓝牙App漏洞系列分析之二CVE-2017-0639<br><a href="https://xianzhi.aliyun.com/forum/read/1713.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1713.html</a></li>
-<li>Windows 10下MS16-098 RGNOBJ整数溢出漏洞分析及利用<br><a href="https://security.tencent.com/index.php/blog/msg/117" target="_blank" rel="external">https://security.tencent.com/index.php/blog/msg/117</a></li>
-<li>“同形异义字”钓鱼攻击，钉钉中招<br><a href="http://www.freebuf.com/articles/web/136729.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/136729.html</a></li>
-<li>逢敌必亮剑——如何有效地开展应急响应工作<br><a href="http://blog.nsfocus.net/effectively-carry-emergency-response-work/" target="_blank" rel="external">http://blog.nsfocus.net/effectively-carry-emergency-response-work/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1947,7 +1957,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">141</span>
+                <span class="site-state-item-count">143</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-11-26T11:33:04.547Z</updated>
+  <updated>2017-11-29T11:34:13.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NuGet实践</title>
+    <link href="http://kevien.github.io/2017/11/29/NuGet%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://kevien.github.io/2017/11/29/NuGet实践/</id>
+    <published>2017-11-29T10:56:16.000Z</published>
+    <updated>2017-11-29T11:34:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="S-R"><a href="#S-R" class="headerlink" title="S;R"></a>S;R</h4><p>工作中接触到了yara，yara在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者<a href="https://github.com/plusvic" target="_blank" rel="external">Victor M. Alvarez</a>用的是nuget进行三方库管理的，感觉这个解决方案还不错，比自己去下载源码编译lib要方便一点儿，所以记录一下。</p>
+<h4 id="vs-Solution实际测试"><a href="#vs-Solution实际测试" class="headerlink" title="vs Solution实际测试"></a>vs Solution实际测试</h4><ul>
+<li><p>首先需要在项目的根目录下创建一个NuGet.Config 的文件,这个应该是方便vs进行索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line">  &lt;packageSources&gt;</div><div class="line">    &lt;add key=&quot;YARA.OpenSSL&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/openssl-oaib8n7lvvtp&quot; /&gt;</div><div class="line">    &lt;add key=&quot;YARA.Jansson&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/jansson-41we82mn284d&quot; /&gt;</div><div class="line">  &lt;/packageSources&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>vs的默认项目会带一个界面，可以直观的去下载，如下图。<br><img src="/2017/11/29/NuGet实践/projectwithui.png" alt=""><br><img src="/2017/11/29/NuGet实践/ui.png" alt=""><br><img src="/2017/11/29/NuGet实践/out.png" alt=""><br>然后在项目中添加一下头文件的路径以及静态链接库的路径就可以使用了。<br><img src="/2017/11/29/NuGet实践/1.png" alt=""><br><img src="/2017/11/29/NuGet实践/2.png" alt=""><br><img src="/2017/11/29/NuGet实践/3.png" alt=""></p>
+</li>
+<li>vs的cmake项目<br>vs的cmake项目稍微有些不同，就是他没有图形界面，这个时候可以使用Package Manager Console来进行查找和下载第三方库。<br><a href="https://docs.microsoft.com/en-us/nuget/tools/package-manager-console" target="_blank" rel="external">官方说明</a><br><img src="/2017/11/29/NuGet实践/4.png" alt=""><br><img src="/2017/11/29/NuGet实践/5.png" alt=""><br>效果是一样的，都会在项目的主目录的下面创建一个packages的目录并就对应的库下载到其中。这个时候就可以通过CmakeLists.txt进行头文件的include以及静态链接库的包含就可以使用了<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
+<li>还是比较方便的。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;S-R&quot;&gt;&lt;a href=&quot;#S-R&quot; class=&quot;headerlink&quot; title=&quot;S;R&quot;&gt;&lt;/a&gt;S;R&lt;/h4&gt;&lt;p&gt;工作中接触到了yara，yara在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20171127安全动态(以后每个星期更了)</title>
+    <link href="http://kevien.github.io/2017/11/27/20171127%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2017/11/27/20171127安全动态/</id>
+    <published>2017-11-27T05:50:43.000Z</published>
+    <updated>2017-11-28T05:45:19.335Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>RECon 2017 会议的演讲视频公开了<br><a href="https://recon.cx/2017/montreal/recordings/" target="_blank" rel="external">https://recon.cx/2017/montreal/recordings/</a></li>
+<li>Linux x64 系统中的 Egg Hunting（搜寻长的 Shellcode 并执行）技巧<br><a href="https://pentesterslife.blog/2017/11/24/x64-egg-hunting-in-linux-systems/" target="_blank" rel="external">https://pentesterslife.blog/2017/11/24/x64-egg-hunting-in-linux-systems/</a></li>
+<li>自动化动态恶意软件分析中的逃逸与反逃逸技术调查（Paper）<br><a href="https://github.com/bulaza/Publications/blob/master/ROOTS2017/A%20Survey%20On%20Automated%20Dynamic%20Malware%20Analysis%20Evasion%20and%20Counter-Evasion.pdf" target="_blank" rel="external">https://github.com/bulaza/Publications/blob/master/ROOTS2017/A%20Survey%20On%20Automated%20Dynamic%20Malware%20Analysis%20Evasion%20and%20Counter-Evasion.pdf</a></li>
+<li>TLS-Redirection - TLS 重定向攻击介绍文档<br><a href="https://github.com/GrrrDog/TLS-Redirection" target="_blank" rel="external">https://github.com/GrrrDog/TLS-Redirection</a></li>
+<li>Apache Guacamole - 一款开源的远程桌面网关，支持通过浏览器访问你远程的服务器,thanks html5<br><a href="https://guacamole.apache.org/" target="_blank" rel="external">https://guacamole.apache.org/</a></li>
+<li>CryKeX - Linux内存加密密钥提取工具<br><a href="https://github.com/cryptolok/CryKeX" target="_blank" rel="external">https://github.com/cryptolok/CryKeX</a></li>
+<li>RamFuzz - 基于深度神经网络、自动化生成单元测试用例的 C++ 代码 Fuzzing<br><a href="https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md" target="_blank" rel="external">https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md</a></li>
+<li>linux-explorer - 用于 Linux 现场取证的工具箱<br><a href="https://github.com/intezer/linux-explorer" target="_blank" rel="external">https://github.com/intezer/linux-explorer</a></li>
+<li>OpenATS续篇：搭建自己的卫星地球站<br><a href="http://www.freebuf.com/articles/wireless/153793.html" target="_blank" rel="external">http://www.freebuf.com/articles/wireless/153793.html</a></li>
+<li>玄武的每日安全动态 上放了好多ipv6的研究文章<br><a href="https://weibo.com/ttarticle/p/show?id=2309404179032190099080" target="_blank" rel="external">https://weibo.com/ttarticle/p/show?id=2309404179032190099080</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;RECon 2017 会议的演讲视频公开了&lt;br&gt;&lt;a href=&quot;https://recon.
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20171121安全动态</title>
@@ -73,7 +132,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#x61;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#47;&#x6f;&#115;&#113;&#x75;&#x65;&#114;&#x79;&#45;&#97;&#x63;&#x72;&#x6f;&#x73;&#x73;&#x2d;&#x74;&#104;&#x65;&#x2d;&#101;&#x6e;&#116;&#101;&#114;&#x70;&#x72;&#105;&#115;&#101;&#x2d;&#51;&#x63;&#x33;&#x63;&#57;&#x64;&#x31;&#x33;&#101;&#x63;&#53;&#53;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#x61;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#47;&#x6f;&#115;&#113;&#x75;&#x65;&#114;&#x79;&#45;&#97;&#x63;&#x72;&#x6f;&#x73;&#x73;&#x2d;&#x74;&#104;&#x65;&#x2d;&#101;&#x6e;&#116;&#101;&#114;&#x70;&#x72;&#105;&#115;&#101;&#x2d;&#51;&#x63;&#x33;&#x63;&#57;&#x64;&#x31;&#x33;&#101;&#x63;&#53;&#53;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x70;&#x61;&#x6c;&#97;&#110;&#x74;&#105;&#114;&#47;&#x6f;&#115;&#x71;&#x75;&#101;&#x72;&#x79;&#45;&#x61;&#99;&#x72;&#x6f;&#115;&#x73;&#45;&#x74;&#x68;&#x65;&#x2d;&#x65;&#110;&#116;&#x65;&#114;&#x70;&#114;&#105;&#x73;&#x65;&#45;&#x33;&#99;&#x33;&#x63;&#57;&#100;&#x31;&#51;&#x65;&#99;&#x35;&#x35;">&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x70;&#x61;&#x6c;&#97;&#110;&#x74;&#105;&#114;&#47;&#x6f;&#115;&#x71;&#x75;&#101;&#x72;&#x79;&#45;&#x61;&#99;&#x72;&#x6f;&#115;&#x73;&#45;&#x74;&#x68;&#x65;&#x2d;&#x65;&#110;&#116;&#x65;&#114;&#x70;&#114;&#105;&#x73;&#x65;&#45;&#x33;&#99;&#x33;&#x63;&#57;&#100;&#x31;&#51;&#x65;&#99;&#x35;&#x35;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -143,7 +202,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x74;&#x6f;&#109;&#x65;&#x72;&#x73;&#104;&#101;&#x6d;&#101;&#115;&#x68;&#47;&#x72;&#x65;&#118;&#x65;&#114;&#x73;&#x65;&#x2d;&#101;&#110;&#103;&#x69;&#x6e;&#101;&#101;&#x72;&#x69;&#110;&#x67;&#45;&#x74;&#x68;&#101;&#45;&#x64;&#x72;&#x65;&#120;&#x65;&#108;&#x2d;&#x6f;&#110;&#101;&#45;&#x61;&#x70;&#x69;&#x2d;&#x33;&#x37;&#x30;&#x61;&#x35;&#x36;&#x30;&#97;&#102;&#x65;&#100;&#102;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x74;&#x6f;&#109;&#x65;&#x72;&#x73;&#104;&#101;&#x6d;&#101;&#115;&#x68;&#47;&#x72;&#x65;&#118;&#x65;&#114;&#x73;&#x65;&#x2d;&#101;&#110;&#103;&#x69;&#x6e;&#101;&#101;&#x72;&#x69;&#110;&#x67;&#45;&#x74;&#x68;&#101;&#45;&#x64;&#x72;&#x65;&#120;&#x65;&#108;&#x2d;&#x6f;&#110;&#101;&#45;&#x61;&#x70;&#x69;&#x2d;&#x33;&#x37;&#x30;&#x61;&#x35;&#x36;&#x30;&#97;&#102;&#x65;&#100;&#102;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x74;&#x6f;&#109;&#x65;&#114;&#115;&#x68;&#x65;&#x6d;&#101;&#x73;&#104;&#x2f;&#114;&#x65;&#x76;&#x65;&#x72;&#115;&#x65;&#x2d;&#x65;&#x6e;&#x67;&#x69;&#110;&#101;&#101;&#x72;&#x69;&#x6e;&#103;&#45;&#x74;&#x68;&#101;&#x2d;&#100;&#114;&#x65;&#x78;&#x65;&#108;&#45;&#x6f;&#110;&#x65;&#45;&#x61;&#x70;&#105;&#x2d;&#51;&#55;&#48;&#97;&#53;&#54;&#x30;&#x61;&#x66;&#x65;&#x64;&#102;">&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x74;&#x6f;&#109;&#x65;&#114;&#115;&#x68;&#x65;&#x6d;&#101;&#x73;&#104;&#x2f;&#114;&#x65;&#x76;&#x65;&#x72;&#115;&#x65;&#x2d;&#x65;&#x6e;&#x67;&#x69;&#110;&#101;&#101;&#x72;&#x69;&#x6e;&#103;&#45;&#x74;&#x68;&#101;&#x2d;&#100;&#114;&#x65;&#x78;&#x65;&#108;&#45;&#x6f;&#110;&#x65;&#45;&#x61;&#x70;&#105;&#x2d;&#51;&#55;&#48;&#97;&#53;&#54;&#x30;&#x61;&#x66;&#x65;&#x64;&#102;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -151,7 +210,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x68;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#106;&#x76;&#x6f;&#x73;&#x73;&#50;&#57;&#x39;&#47;&#97;&#x66;&#x6c;&#x2d;&#117;&#110;&#x69;&#x63;&#111;&#114;&#110;&#x2d;&#x66;&#117;&#x7a;&#x7a;&#105;&#110;&#103;&#45;&#x61;&#114;&#x62;&#x69;&#x74;&#114;&#x61;&#x72;&#121;&#x2d;&#98;&#105;&#110;&#97;&#114;&#121;&#x2d;&#x63;&#x6f;&#x64;&#x65;&#x2d;&#53;&#54;&#51;&#x63;&#97;&#x32;&#x38;&#x39;&#x33;&#x36;&#x62;&#102;">&#x68;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#106;&#x76;&#x6f;&#x73;&#x73;&#50;&#57;&#x39;&#47;&#97;&#x66;&#x6c;&#x2d;&#117;&#110;&#x69;&#x63;&#111;&#114;&#110;&#x2d;&#x66;&#117;&#x7a;&#x7a;&#105;&#110;&#103;&#45;&#x61;&#114;&#x62;&#x69;&#x74;&#114;&#x61;&#x72;&#121;&#x2d;&#98;&#105;&#110;&#97;&#114;&#121;&#x2d;&#x63;&#x6f;&#x64;&#x65;&#x2d;&#53;&#54;&#51;&#x63;&#97;&#x32;&#x38;&#x39;&#x33;&#x36;&#x62;&#102;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#58;&#104;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#x76;&#111;&#x73;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#x66;&#108;&#x2d;&#x75;&#110;&#105;&#99;&#111;&#x72;&#110;&#x2d;&#102;&#117;&#122;&#122;&#105;&#110;&#x67;&#45;&#x61;&#114;&#x62;&#x69;&#116;&#x72;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#97;&#x72;&#121;&#x2d;&#99;&#111;&#x64;&#101;&#45;&#x35;&#x36;&#x33;&#99;&#97;&#x32;&#56;&#x39;&#x33;&#54;&#98;&#102;">&#104;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#x76;&#111;&#x73;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#x66;&#108;&#x2d;&#x75;&#110;&#105;&#99;&#111;&#x72;&#110;&#x2d;&#102;&#117;&#122;&#122;&#105;&#110;&#x67;&#45;&#x61;&#114;&#x62;&#x69;&#116;&#x72;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#97;&#x72;&#121;&#x2d;&#99;&#111;&#x64;&#101;&#45;&#x35;&#x36;&#x33;&#99;&#97;&#x32;&#56;&#x39;&#x33;&#54;&#98;&#102;</a></li>
 </ul>
 ]]></content>
     
@@ -191,7 +250,7 @@
 <li>hack with github 编选的 10 月份 Top 5 安全工具<br><a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="external">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
 <li>把一个恶意样本 PE 文件头部的 “This program cannot be run in DOS mode” 中的 “This” 改为 “That”，可以 Bypass 11 款杀软<br><a href="https://twitter.com/zerosum0x0/status/925486850399019009/photo/1" target="_blank" rel="external">https://twitter.com/zerosum0x0/status/925486850399019009/photo/1</a></li>
 <li>揭秘：两张A4纸破解虹膜、人脸识别，百度安全技术小哥怎么做到的？<br><a href="https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA" target="_blank" rel="external">https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA</a></li>
-<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#46;&#x62;&#x69;&#114;&#115;&#x61;&#x6e;&#x2f;&#x6d;&#x65;&#x73;&#115;&#x69;&#x6e;&#103;&#45;&#119;&#x69;&#x74;&#104;&#x2d;&#116;&#x68;&#x65;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#101;&#45;&#x62;&#117;&#103;&#97;&#x6e;&#105;&#122;&#x65;&#x72;&#x2d;&#x73;&#121;&#115;&#x74;&#101;&#109;&#45;&#x66;&#111;&#114;&#x2d;&#x31;&#x35;&#x2d;&#x36;&#48;&#x30;&#x2d;&#105;&#x6e;&#45;&#98;&#111;&#117;&#110;&#116;&#x69;&#101;&#115;&#45;&#x35;&#56;&#x66;&#56;&#x36;&#99;&#99;&#57;&#x66;&#57;&#x61;&#x35;">&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#46;&#x62;&#x69;&#114;&#115;&#x61;&#x6e;&#x2f;&#x6d;&#x65;&#x73;&#115;&#x69;&#x6e;&#103;&#45;&#119;&#x69;&#x74;&#104;&#x2d;&#116;&#x68;&#x65;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#101;&#45;&#x62;&#117;&#103;&#97;&#x6e;&#105;&#122;&#x65;&#x72;&#x2d;&#x73;&#121;&#115;&#x74;&#101;&#109;&#45;&#x66;&#111;&#114;&#x2d;&#x31;&#x35;&#x2d;&#x36;&#48;&#x30;&#x2d;&#105;&#x6e;&#45;&#98;&#111;&#117;&#110;&#116;&#x69;&#101;&#115;&#45;&#x35;&#56;&#x66;&#56;&#x36;&#99;&#99;&#57;&#x66;&#57;&#x61;&#x35;</a></li>
+<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x68;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#97;&#x6c;&#x65;&#120;&#x2e;&#98;&#x69;&#x72;&#115;&#97;&#x6e;&#x2f;&#x6d;&#x65;&#115;&#115;&#105;&#x6e;&#103;&#x2d;&#119;&#105;&#116;&#x68;&#x2d;&#116;&#104;&#101;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#x65;&#45;&#98;&#117;&#x67;&#x61;&#110;&#x69;&#x7a;&#101;&#x72;&#45;&#x73;&#x79;&#115;&#116;&#101;&#109;&#45;&#x66;&#111;&#x72;&#45;&#x31;&#53;&#x2d;&#x36;&#48;&#48;&#45;&#x69;&#110;&#x2d;&#98;&#111;&#117;&#x6e;&#x74;&#105;&#101;&#115;&#45;&#53;&#x38;&#x66;&#56;&#54;&#x63;&#99;&#57;&#x66;&#57;&#97;&#53;">&#x68;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#101;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#97;&#x6c;&#x65;&#120;&#x2e;&#98;&#x69;&#x72;&#115;&#97;&#x6e;&#x2f;&#x6d;&#x65;&#115;&#115;&#105;&#x6e;&#103;&#x2d;&#119;&#105;&#116;&#x68;&#x2d;&#116;&#104;&#101;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#x65;&#45;&#98;&#117;&#x67;&#x61;&#110;&#x69;&#x7a;&#101;&#x72;&#45;&#x73;&#x79;&#115;&#116;&#101;&#109;&#45;&#x66;&#111;&#x72;&#45;&#x31;&#53;&#x2d;&#x36;&#48;&#48;&#45;&#x69;&#110;&#x2d;&#98;&#111;&#117;&#x6e;&#x74;&#105;&#101;&#115;&#45;&#53;&#x38;&#x66;&#56;&#54;&#x63;&#99;&#57;&#x66;&#57;&#97;&#53;</a></li>
 <li>Office-DDE-Payloads - 生成嵌入 DDE 的 恶意 Office 文档的脚本<br><a href="https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads" target="_blank" rel="external">https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads</a></li>
 <li>Ironsquirrel - 以加密的方式将浏览器漏洞利用代码发往受害者浏览器的工具<br><a href="https://github.com/MRGEffitas/Ironsquirrel" target="_blank" rel="external">https://github.com/MRGEffitas/Ironsquirrel</a></li>
 <li>LIEF - 之前推送过这个工具，QuarksLab 开源的一个跨平台可执行文件格式（PE/ELF/MachO）的解析、修改、抽象库，QuarksLab 昨天更新了一篇介绍 LIEF 库用法的 Blog<br><a href="https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html" target="_blank" rel="external">https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html</a></li>
@@ -371,7 +430,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#99;&#111;&#x6d;&#47;&#64;&#x74;&#104;&#51;&#103;&#x33;&#110;&#116;&#x33;&#x6c;&#x2f;&#x68;&#111;&#119;&#45;&#x69;&#x2d;&#x66;&#x6f;&#x75;&#x6e;&#100;&#45;&#97;&#x6e;&#x2d;&#115;&#x73;&#114;&#102;&#x2d;&#105;&#x6e;&#x2d;&#121;&#x61;&#x68;&#x6f;&#x6f;&#45;&#103;&#x75;&#101;&#115;&#x74;&#104;&#111;&#x75;&#115;&#x65;&#x2d;&#x72;&#101;&#x63;&#111;&#110;&#x2d;&#x77;&#x69;&#x6e;&#115;&#45;&#x38;&#x37;&#50;&#x32;&#x36;&#x37;&#x32;&#101;&#52;&#x31;&#100;&#x34;">&#x68;&#x74;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#99;&#111;&#x6d;&#47;&#64;&#x74;&#104;&#51;&#103;&#x33;&#110;&#116;&#x33;&#x6c;&#x2f;&#x68;&#111;&#119;&#45;&#x69;&#x2d;&#x66;&#x6f;&#x75;&#x6e;&#100;&#45;&#97;&#x6e;&#x2d;&#115;&#x73;&#114;&#102;&#x2d;&#105;&#x6e;&#x2d;&#121;&#x61;&#x68;&#x6f;&#x6f;&#45;&#103;&#x75;&#101;&#115;&#x74;&#104;&#111;&#x75;&#115;&#x65;&#x2d;&#x72;&#101;&#x63;&#111;&#110;&#x2d;&#x77;&#x69;&#x6e;&#115;&#45;&#x38;&#x37;&#50;&#x32;&#x36;&#x37;&#x32;&#101;&#52;&#x31;&#100;&#x34;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#x74;&#x68;&#51;&#x67;&#x33;&#x6e;&#x74;&#x33;&#x6c;&#x2f;&#x68;&#111;&#119;&#x2d;&#x69;&#x2d;&#102;&#x6f;&#117;&#110;&#x64;&#45;&#97;&#110;&#45;&#x73;&#x73;&#114;&#x66;&#x2d;&#105;&#110;&#45;&#121;&#97;&#x68;&#x6f;&#x6f;&#45;&#x67;&#117;&#x65;&#x73;&#116;&#104;&#x6f;&#x75;&#x73;&#x65;&#45;&#x72;&#101;&#99;&#x6f;&#110;&#45;&#x77;&#x69;&#110;&#115;&#45;&#56;&#55;&#50;&#50;&#x36;&#x37;&#x32;&#x65;&#x34;&#x31;&#100;&#x34;">&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#x40;&#x74;&#x68;&#51;&#x67;&#x33;&#x6e;&#x74;&#x33;&#x6c;&#x2f;&#x68;&#111;&#119;&#x2d;&#x69;&#x2d;&#102;&#x6f;&#117;&#110;&#x64;&#45;&#97;&#110;&#45;&#x73;&#x73;&#114;&#x66;&#x2d;&#105;&#110;&#45;&#121;&#97;&#x68;&#x6f;&#x6f;&#45;&#x67;&#117;&#x65;&#x73;&#116;&#104;&#x6f;&#x75;&#x73;&#x65;&#45;&#x72;&#101;&#99;&#x6f;&#110;&#45;&#x77;&#x69;&#110;&#115;&#45;&#56;&#55;&#50;&#50;&#x36;&#x37;&#x32;&#x65;&#x34;&#x31;&#100;&#x34;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -569,12 +628,13 @@
     <link href="http://kevien.github.io/2017/10/08/ELF%E6%96%87%E4%BB%B6%E5%AD%A6%E4%B9%A0/"/>
     <id>http://kevien.github.io/2017/10/08/ELF文件学习/</id>
     <published>2017-10-08T07:32:54.000Z</published>
-    <updated>2017-11-09T15:16:38.000Z</updated>
+    <updated>2017-11-29T08:45:53.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
 <li>ELF(Executable and Linkable Format)可执行和可链接格式。<h4 id="动态链接库"><a href="#动态链接库" class="headerlink" title="动态链接库"></a>动态链接库</h4></li>
 <li>类似于dumpbin，可以使用ldd(print shared object dependencies)命令查看<br><a href="http://www.cnblogs.com/jiqingwu/p/linux_dynamic_lib_create.html" target="_blank" rel="external">参考</a><br><img src="/2017/10/08/ELF文件学习/ldd.png" alt=""><br>这样我们可以看的到， hello的运行用到了我们编写的libmyhello.so这个动态链接库，还用到了libc.so.6这个c语言的标准库。<h4 id="ELF文件格式"><a href="#ELF文件格式" class="headerlink" title="ELF文件格式"></a>ELF文件格式</h4></li>
-<li>readelf命令<br>这个命令应该是最常用的到的，-a 它会显示ELF文件的所有信息。<br><img src="/2017/10/08/ELF文件学习/readelf.png" alt=""><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><a href="https://www.slideshare.net/AngelBoy1/play-with-file-structure-yet-another-binary-exploit-technique" target="_blank" rel="external">二进制中的奥妙：文件结构</a></li>
+<li>readelf命令<br>这个命令应该是最常用的到的，-a 它会显示ELF文件的所有信息。<br><img src="/2017/10/08/ELF文件学习/readelf.png" alt=""><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><a href="https://www.slideshare.net/AngelBoy1/play-with-file-structure-yet-another-binary-exploit-technique" target="_blank" rel="external">二进制中的奥妙：文件结构</a><br>[工具elfparser]<br>(<a href="https://github.com/jacob-baines/elfparser" target="_blank" rel="external">https://github.com/jacob-baines/elfparser</a>)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">老外两年前写的，差距好大</div></pre></td></tr></table></figure>
+</li>
 </ul>
 ]]></content>
     
@@ -715,73 +775,6 @@
     
       &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Active Directory = LDAP服务器＋LDAP应用（Windows域控）&lt;br&gt;就是Active Directo
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Cmake VS Autotools</title>
-    <link href="http://kevien.github.io/2017/09/28/CmakeVSautotools/"/>
-    <id>http://kevien.github.io/2017/09/28/CmakeVSautotools/</id>
-    <published>2017-09-28T02:40:33.000Z</published>
-    <updated>2017-10-29T17:49:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>最近的项目中遇到了cmake和autotools的转换的问题，这两个东西以前接触的很少，所以需要对cmake和autotools进行一番系统学习。<br></p>
-<h4 id="Cmake使用"><a href="#Cmake使用" class="headerlink" title="Cmake使用"></a>Cmake使用</h4><ul>
-<li><a href="https://www.wikiwand.com/en/CMake" target="_blank" rel="external">wiki关于cmake介绍</a></li>
-<li><a href="https://cmake.org/documentation/" target="_blank" rel="external">官方文档</a> 熟悉某种技术的最好最快的方法还是要通过阅读官方文档:P</li>
-<li><a href="https://www.gitbook.com/book/tuannguyen68/learning-cmake-a-beginner-s-guide/details" target="_blank" rel="external">learning-cmake-a-beginner-s-guide/details</a></li>
-<li><a href="http://www.hahack.com/codes/cmake/" target="_blank" rel="external">CMake 入门实战</a></li>
-<li>windows下使用<br><img src="/2017/09/28/CmakeVSautotools/cmake.png" alt=""><h4 id="Cmake-语法简单介绍"><a href="#Cmake-语法简单介绍" class="headerlink" title="Cmake 语法简单介绍"></a>Cmake 语法简单介绍</h4>可以把cmake理解为一种简单的语言，它也有着它的语法和变量。它的语法规则很简单<br><br>1.变量使用${}方式取值<br><br>2.指令（参数1 参数2 。。。）<br><br>3.指令是大小写无关的，参数和变量是大小写敏感的，例如set 和SET 作为指令都是可以的，但是建议全部使用大写的指令。<br><br>4.cmake的语法还是比较灵活且考虑到了各种情况，比如SET(SOURCES_FILES main.c)也可以写成SET(SOURCES_FILES “main.c”)，但是假设一个源文件中的文件名是fu nc.c（中间有了空格），这个时候就有必要加上双引号了。<br><br>5.清理工程，跟经典的autotools系列工具一样，make clean可以对构建结果进行清理。<br><br>6.内部构建和外部构建。内部构建就是直接在根目录下面构建(会在工程目录下产生很多文件，使工程看起来比较乱)，而使用外部构建比如在工程目录下面创建一个build的目录，然后进入build目录下，进行cmake .. 这样生成的文件都在build目录下。推荐是有外部构建，所以一般的构建命令就是进入 build 目录下面，然后 cmake ..  make<br>7.注意cmake 是构建项目的过程,是产生Makefile的过程，也就是生成编译指令的过程，这个过程不会包编译的错误。make才是编译和链接的过程，如果你的代码有问题，或者你的编译指令有有问题(比如未包含动态或者静态的lib)这是时候会产生错误。<br><br>8.ADD_LIBRARY()用来生成动态或者静态链接库的。INCLUDE_DIRECTORY()是用来向工程添加多个特定的头文件搜索路径的，路径之间用空格分开，如果路径中包含了空格，可以使用双引号将它括起来。默认的行为是追加到当前的头文件搜索路径的后面。LINK_DIRECTORIES()添加非标准的共享库搜索路径，TARGET_LINK_LIBRARIES(target  library1 library2),这个指令可以用来为target添加需要连接的共享库.<br><br><img src="/2017/09/28/CmakeVSautotools/makeparam.png" alt=""><br><br><img src="/2017/09/28/CmakeVSautotools/linklib.png" alt=""><br><a href="https://github.com/kevien/cmakesample" target="_blank" rel="external">测试代码见github</a><h4 id="autotools使用"><a href="#autotools使用" class="headerlink" title="autotools使用"></a>autotools使用</h4></li>
-<li><a href="https://geesun.github.io/posts/2015/02/autotool.html" target="_blank" rel="external">使用autotools生成Makefile学习笔记</a></li>
-<li><a href="http://leolovenet.com/downloads/files/autotools.pdf" target="_blank" rel="external">autotools入门</a><h4 id="使用libtool创建库"><a href="#使用libtool创建库" class="headerlink" title="使用libtool创建库"></a>使用libtool创建库</h4><a href="https://www.ibm.com/developerworks/cn/aix/library/1007_wuxh_libtool/index.html" target="_blank" rel="external">使用libtool创建库</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="https://github.com/darx0r/SC-A-Make" target="_blank" rel="external">cmake导致的命令执行问题</a><br><a href="http://thebigdoc.readthedocs.io/en/latest/auto-make-conf.html" target="_blank" rel="external">automake 和 autoconf 使用简明教程</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" target="_blank" rel="external">https://www.youtube.com/watch?v=gYmgbqGfv-8</a><br><a href="https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake" target="_blank" rel="external">https://stackoverflow.com/questions/7132862/tutorial-for-converting-autotools-to-cmake</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;最近的项目中遇到了cmake和autotools的转换的问题，这两个东西以前接触的很少，所以需要对cmake和autotools进行一番系统
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20170927安全动态(以后每2天更新)</title>
-    <link href="http://kevien.github.io/2017/09/27/20170927%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81-%E4%BB%A5%E5%90%8E%E6%AF%8F2%E5%A4%A9%E6%9B%B4%E6%96%B0/"/>
-    <id>http://kevien.github.io/2017/09/27/20170927安全动态-以后每2天更新/</id>
-    <published>2017-09-27T10:38:36.000Z</published>
-    <updated>2017-09-28T11:28:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
-<li><p>通过数据包端口号进行数据渗出：PacketKnockOut<br><a href="https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/" target="_blank" rel="external">https://n0where.net/data-exfiltration-via-packet-port-numbers-packetknockout/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">搞apt的可以研究一下</div></pre></td></tr></table></figure>
-</li>
-<li><p>一款智能家居设备的远程命令执行漏洞分析<br><a href="https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/" target="_blank" rel="external">https://forsec.nl/2017/09/smart-home-remote-command-execution-rce/</a></p>
-</li>
-<li>BlobRunner - 在恶意软件分析过程中快速调试 ShellCode 的工具<br><a href="https://github.com/OALabs/BlobRunner" target="_blank" rel="external">https://github.com/OALabs/BlobRunner</a></li>
-<li>Awesome-MitM - GitHub 上一些不错的网络中间人攻击框架收集<br><a href="https://github.com/Chan9390/Awesome-MitM" target="_blank" rel="external">https://github.com/Chan9390/Awesome-MitM</a></li>
-<li>使用 IDA 调试 iOS 程序的步骤<br><a href="http://blog.csdn.net/proteas/article/details/78083512" target="_blank" rel="external">http://blog.csdn.net/proteas/article/details/78083512</a></li>
-<li>JEB2插件教程之一<br><a href="https://blog.flanker017.me/writing-jeb2-plugin/" target="_blank" rel="external">https://blog.flanker017.me/writing-jeb2-plugin/</a></li>
-<li>一个介绍主流漏洞悬赏平台、安全书籍、常见安全工具及漏洞类型的CheatSheet<br><a href="https://github.com/EdOverflow/bugbounty-cheatsheet" target="_blank" rel="external">https://github.com/EdOverflow/bugbounty-cheatsheet</a></li>
-<li>BypassD盾IIS防火墙SQL注入防御（多姿势）<br><https: xianzhi.aliyun.com="" forum="" read="" 2173.html=""></https:></li>
-<li>开源无效流量检测项目<br><a href="http://nameles.org/" target="_blank" rel="external">http://nameles.org/</a></li>
-<li>参数特定XSS的故事<br><a href="http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html" target="_blank" rel="external">http://www.noob.ninja/2017/09/story-of-parameter-specific-xss.html</a></li>
-<li>各种应用加密加固<br><a href="https://bettercrypto.org/static/applied-crypto-hardening.pdf" target="_blank" rel="external">https://bettercrypto.org/static/applied-crypto-hardening.pdf</a></li>
-<li>基于 Windows ETW（事件日志）的入侵检测，来自微软研究员在 DerbyCon 2017 会议的演讲。之前推送过他在微软 Blog 上写过的两篇相关文章<br><a href="https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf" target="_blank" rel="external">https://github.com/zacbrown/hiddentreasure-etw-demo/blob/master/zbrown-HiddenTreasureETW-DerbyCon7.pdf</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>在 linux 下使用 CMake 构建应用程序<br><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-cmake/</a></li>
-<li>64-bit version of Boost for 64-bit windows<br><a href="https://stackoverflow.com/questions/2322255/64-bit-version-of-boost-for-64-bit-windows" target="_blank" rel="external">https://stackoverflow.com/questions/2322255/64-bit-version-of-boost-for-64-bit-windows</a></li>
-<li>查看lib是32位还是64位的<br>“C:\Program Files\Microsoft Visual Studio\VC98\Bin\DUMPBIN.EXE”  C:\boost_1_65_0\lib32-msvc-14.0\boost_atomic-vc140-mt-1_65.lib  /headers<br>*.lib | findstr machine<br><img src="/2017/09/27/20170927安全动态-以后每2天更新/dumplib.png" alt=""></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;通过数据包端口号进行数据渗出：PacketKnockOut&lt;br&gt;&lt;a href=&quot;https://n0w
     
     </summary>
     
