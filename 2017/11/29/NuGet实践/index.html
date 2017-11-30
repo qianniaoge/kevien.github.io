@@ -103,13 +103,13 @@
 
 
 
-<meta name="description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 首先需要在项目的根目录下创建一个NuGet.Config 的文件">
+<meta name="description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 下面就以openssl库为例进行一下测试。 首先需要在项目的根目">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NuGet实践">
 <meta property="og:url" content="http://kevien.github.io/2017/11/29/NuGet实践/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 首先需要在项目的根目录下创建一个NuGet.Config 的文件">
+<meta property="og:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 下面就以openssl库为例进行一下测试。 首先需要在项目的根目">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/projectwithui.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/ui.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/out.png">
@@ -118,10 +118,14 @@
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/3.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/4.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/5.png">
-<meta property="og:updated_time" content="2017-11-29T13:15:22.000Z">
+<meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/6.png">
+<meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/7.png">
+<meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/8.png">
+<meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/9.png">
+<meta property="og:updated_time" content="2017-11-30T09:19:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NuGet实践">
-<meta name="twitter:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 首先需要在项目的根目录下创建一个NuGet.Config 的文件">
+<meta name="twitter:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 下面就以openssl库为例进行一下测试。 首先需要在项目的根目">
 <meta name="twitter:image" content="http://kevien.github.io/2017/11/29/NuGet实践/projectwithui.png">
 
 
@@ -392,6 +396,7 @@
       
         <h4 id="S-R"><a href="#S-R" class="headerlink" title="S;R"></a>S;R</h4><p>工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者<a href="https://github.com/plusvic" target="_blank" rel="external">Victor M. Alvarez</a>用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。</p>
 <h4 id="vs-Solution实际测试"><a href="#vs-Solution实际测试" class="headerlink" title="vs Solution实际测试"></a>vs Solution实际测试</h4><ul>
+<li>下面就以openssl库为例进行一下测试。</li>
 <li><p>首先需要在项目的根目录下创建一个NuGet.Config 的文件,这个应该是方便vs的NuGet进行索引</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line">  &lt;packageSources&gt;</div><div class="line">    &lt;add key=&quot;YARA.OpenSSL&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/openssl-oaib8n7lvvtp&quot; /&gt;</div><div class="line">    &lt;add key=&quot;YARA.Jansson&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/jansson-41we82mn284d&quot; /&gt;</div><div class="line">  &lt;/packageSources&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
 </li>
@@ -401,7 +406,12 @@
 </li>
 </ul>
 <p>测试通过。<br>代码已上传至Github<br><a href="https://github.com/kevien/democode" target="_blank" rel="external">https://github.com/kevien/democode</a></p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<h4 id="打包自己的package"><a href="#打包自己的package" class="headerlink" title="打包自己的package"></a>打包自己的package</h4><ul>
+<li>yara项目中openssl库是作者自己打包到appveyor上的，那是如何上传自己打的包呢</li>
+<li>nuget包的制作可以通过 NuGetPackageExplorer <a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer" target="_blank" rel="external">link</a><br>这个工具还是挺方便的。<br><img src="/2017/11/29/NuGet实践/6.png" alt=""></li>
+<li>而且这个工具还可以进行上传，如下图所示<br><img src="/2017/11/29/NuGet实践/7.png" alt=""></li>
+<li>当然也可以直接使用nuget工具进行上传<br><img src="/2017/11/29/NuGet实践/8.png" alt=""></li>
+<li>这样我们就完成了自定义包的上传。<br><img src="/2017/11/29/NuGet实践/9.png" alt=""><br>(现在的方式还是需要进行验证的，也就是需要输入appveyor的用户名和密码，public的方式暂时还没找到方法)<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
 <li>用NuGet进行第三方库的操作还是比较方便的。</li>
 </ul>
 
@@ -644,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#S-R"><span class="nav-number">1.</span> <span class="nav-text">S;R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vs-Solution实际测试"><span class="nav-number">2.</span> <span class="nav-text">vs Solution实际测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#S-R"><span class="nav-number">1.</span> <span class="nav-text">S;R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vs-Solution实际测试"><span class="nav-number">2.</span> <span class="nav-text">vs Solution实际测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包自己的package"><span class="nav-number">3.</span> <span class="nav-text">打包自己的package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
