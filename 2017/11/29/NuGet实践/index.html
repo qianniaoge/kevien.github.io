@@ -15,11 +15,12 @@
         if(''){
             if (prompt('请输入文章密码') !== ''){
                 alert('密码错误！');
-                history.back();
+                <!--history.back();-->
+                window.location.href='index.html';
             }
         }
     })();
-</script>hexo
+</script>
 
 
 
@@ -122,7 +123,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/7.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/8.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/9.png">
-<meta property="og:updated_time" content="2017-11-30T09:19:33.000Z">
+<meta property="og:updated_time" content="2017-12-01T09:49:04.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NuGet实践">
 <meta name="twitter:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 下面就以openssl库为例进行一下测试。 首先需要在项目的根目">
@@ -411,7 +412,10 @@
 <li>nuget包的制作可以通过 NuGetPackageExplorer <a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer" target="_blank" rel="external">link</a><br>这个工具还是挺方便的。<br><img src="/2017/11/29/NuGet实践/6.png" alt=""></li>
 <li>而且这个工具还可以进行上传，如下图所示<br><img src="/2017/11/29/NuGet实践/7.png" alt=""></li>
 <li>当然也可以直接使用nuget工具进行上传<br><img src="/2017/11/29/NuGet实践/8.png" alt=""></li>
-<li>这样我们就完成了自定义包的上传。<br><img src="/2017/11/29/NuGet实践/9.png" alt=""><br>(现在的方式还是需要进行验证的，也就是需要输入appveyor的用户名和密码，public的方式暂时还没找到方法)<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
+<li>这样我们就完成了自定义包的上传。<br><img src="/2017/11/29/NuGet实践/9.png" alt=""><br>(现在的方式还是需要进行验证的，也就是需要输入appveyor的用户名和密码，public的方式暂时还没找到方法)<h4 id="利用travis进行持续化集成"><a href="#利用travis进行持续化集成" class="headerlink" title="利用travis进行持续化集成"></a>利用travis进行持续化集成</h4></li>
+<li>首先在github创建一个token，并赋予适当的权限。可参考如下链接<br><a href="https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/" target="_blank" rel="external">https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/</a></li>
+<li>然后在github的项目当中添加.travish.yml 文件，可参考<br><a href="https://docs.travis-ci.com/user/deployment/releases/" target="_blank" rel="external">https://docs.travis-ci.com/user/deployment/releases/</a></li>
+<li>测试项目<br><a href="https://github.com/kevien/travisTest/" target="_blank" rel="external">https://github.com/kevien/travisTest/</a><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
 <li>用NuGet进行第三方库的操作还是比较方便的。</li>
 </ul>
 
@@ -654,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#S-R"><span class="nav-number">1.</span> <span class="nav-text">S;R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vs-Solution实际测试"><span class="nav-number">2.</span> <span class="nav-text">vs Solution实际测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包自己的package"><span class="nav-number">3.</span> <span class="nav-text">打包自己的package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#S-R"><span class="nav-number">1.</span> <span class="nav-text">S;R</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vs-Solution实际测试"><span class="nav-number">2.</span> <span class="nav-text">vs Solution实际测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#打包自己的package"><span class="nav-number">3.</span> <span class="nav-text">打包自己的package</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用travis进行持续化集成"><span class="nav-number">4.</span> <span class="nav-text">利用travis进行持续化集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
