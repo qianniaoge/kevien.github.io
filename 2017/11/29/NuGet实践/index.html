@@ -124,7 +124,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/8.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/9.png">
 <meta property="og:image" content="http://kevien.github.io/2017/11/29/NuGet实践/10.png">
-<meta property="og:updated_time" content="2017-12-02T09:15:41.000Z">
+<meta property="og:updated_time" content="2017-12-02T09:16:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NuGet实践">
 <meta name="twitter:description" content="S;R工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者Victor M. Alvarez用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。 vs Solution实际测试 下面就以openssl库为例进行一下测试。 首先需要在项目的根目">
@@ -416,7 +416,7 @@
 <li>这样我们就完成了自定义包的上传。<br><img src="/2017/11/29/NuGet实践/9.png" alt=""><br>(现在的方式还是需要进行验证的，也就是需要输入appveyor的用户名和密码，public的方式暂时还没找到方法)<h4 id="利用travis进行持续化集成"><a href="#利用travis进行持续化集成" class="headerlink" title="利用travis进行持续化集成"></a>利用travis进行持续化集成</h4></li>
 <li>首先在github创建一个token，并赋予适当的权限。可参考如下链接<br><a href="https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/" target="_blank" rel="external">https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/</a><br><a href="https://docs.travis-ci.com/user/github-oauth-scopes/" target="_blank" rel="external">https://docs.travis-ci.com/user/github-oauth-scopes/</a></li>
 <li>然后在github的项目当中添加.travish.yml 文件，可参考<br><a href="https://docs.travis-ci.com/user/deployment/releases/" target="_blank" rel="external">https://docs.travis-ci.com/user/deployment/releases/</a></li>
-<li>测试项目<br><a href="https://github.com/kevien/travisTest/" target="_blank" rel="external">https://github.com/kevien/travisTest/</a><br><img src="/2017/11/29/NuGet实践/10.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">部署的时候有几个坑(MDZZ)，一个是file 的位置，这个会在travis的job log的展开中看到。</div><div class="line">第二个就是要在deploy项下加上键值 skip_cleanup: true</div></pre></td></tr></table></figure>
+<li>测试项目<br><a href="https://github.com/kevien/travisTest/" target="_blank" rel="external">https://github.com/kevien/travisTest/</a><br><img src="/2017/11/29/NuGet实践/10.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">部署的时候有几个坑(MDZZ)，一个是file 的位置，这个会在travis的job log的展开中看到(看log、看log、看log)。</div><div class="line">第二个就是要在deploy项下加上键值 skip_cleanup: true</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
