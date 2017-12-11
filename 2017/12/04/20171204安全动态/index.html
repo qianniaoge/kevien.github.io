@@ -111,7 +111,7 @@
 <meta property="og:url" content="http://kevien.github.io/2017/12/04/20171204安全动态/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="编写简单 Linux 内核模块的实例https://blog.sourcerer.io/writing-a-simple-linux-kernel-module-d9dc3762c234 XXE OOB extracting via HTTP+FTP using single opened porthttps://skavans.ru/en/2017/12/02/xxe-oob-extracti">
-<meta property="og:updated_time" content="2017-12-04T16:19:25.000Z">
+<meta property="og:updated_time" content="2017-12-06T03:01:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20171204安全动态">
 <meta name="twitter:description" content="编写简单 Linux 内核模块的实例https://blog.sourcerer.io/writing-a-simple-linux-kernel-module-d9dc3762c234 XXE OOB extracting via HTTP+FTP using single opened porthttps://skavans.ru/en/2017/12/02/xxe-oob-extracti">
@@ -387,7 +387,16 @@
 <li>XXE OOB extracting via HTTP+FTP using single opened port<br><a href="https://skavans.ru/en/2017/12/02/xxe-oob-extracting-via-httpftp-using-single-opened-port/" target="_blank" rel="external">https://skavans.ru/en/2017/12/02/xxe-oob-extracting-via-httpftp-using-single-opened-port/</a></li>
 <li>ProcessIsolator - Hook SSDT 将控制权交给用户态程序实现访问控制（允许/拒绝）的工具<br><a href="https://github.com/int0/ProcessIsolator" target="_blank" rel="external">https://github.com/int0/ProcessIsolator</a></li>
 <li>钓鱼邮件威胁检测实战及典型样本分析<br><a href="https://www.anquanke.com/post/id/88145" target="_blank" rel="external">https://www.anquanke.com/post/id/88145</a></li>
-<li>由结构体对齐所引发的对C++类对象内存模型的思考<br><a href="https://bbs.pediy.com/thread-222967.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222967.htm</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Nice</div></pre></td></tr></table></figure>
+<li><p>由结构体对齐所引发的对C++类对象内存模型的思考<br><a href="https://bbs.pediy.com/thread-222967.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222967.htm</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Nice</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过在函数 Prologue 部分检测 0xE9 (opcode JMP) 实现对 Inline Hook 的检测<br><a href="https://userpc.net/2017/12/03/understanding-detecting-inline-hooks-winapi-hooks-ring3/" target="_blank" rel="external">https://userpc.net/2017/12/03/understanding-detecting-inline-hooks-winapi-hooks-ring3/</a></p>
+</li>
+<li>Windows Defender ATP 利用机器学习和 AMSI 接口对抗基于脚本的攻击<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/12/04/windows-defender-atp-machine-learning-and-amsi-unearthing-script-based-attacks-that-live-off-the-land/?platform=hootsuite" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/12/04/windows-defender-atp-machine-learning-and-amsi-unearthing-script-based-attacks-that-live-off-the-land/?platform=hootsuite</a></li>
+<li>微软关于 Windows 特权访问防护的手册，其中介绍了不同的登陆类型（console、RUNAS、Remote Desktop、Net use * \SERVER 等等）及其限制<br><https: docs.microsoft.com="" en-us="" windows-server="" identity="" securing-privileged-access="" securing-privileged-access-reference-material#atlt_bm=""></https:></li>
+<li>逆向工程师一直受到汇编垃圾代码（Junk Code）的折磨，FireEye 这篇 Blog 介绍如何识别 Junk Code<br><a href="https://www.fireeye.com/blog/threat-research/2017/12/recognizing-and-avoiding-disassembled-junk.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/12/recognizing-and-avoiding-disassembled-junk.html</a></li>
+<li>堆利用之单字节溢出（off-by-one）<br><a href="https://www.anquanke.com/post/id/88961" target="_blank" rel="external">https://www.anquanke.com/post/id/88961</a></li>
+<li>警惕Ubuntu APT源污染<br><a href="https://paper.seebug.org/270/" target="_blank" rel="external">https://paper.seebug.org/270/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">像是yum brew apt nuget pip 等这些安装依赖的工具，进行攻击作为研究角度</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
