@@ -1186,7 +1186,7 @@
 <ul>
 <li>在调用printf时候的指令为call printf,而调用像是MessageBoxA时候的指令是call    ds:<strong>imp</strong>MessageBoxA@16 ; MessageBoxA(x,x,x,x)，printf函数在stdio.h头文件中，该函数是c语言的静态库，在链接的时候会将其代码接入到二进制文件中(静态包含)，而MessageBoxA的函数实现是在user32.dll这个动态链接库中，在代码中，这里只是留了进入MessageBoxA函数的一个地址，并没有具体的代码，MessageBoxA的具体地址存放在数据节区中，因此在反汇编代码中给出了提示，使用了前缀”ds”,<strong>imp</strong>表示导入函数，@16表示16个字节，16/4即函数又4个参数。注意 在od中汇编代码是这样call dword ptr ds:[&lt;&amp;USER32.MessageBoxA&gt;]，感觉没有ida的友好。</li>
 <li>switch case default结构的特征<br><img src="/2017/08/18/IDA使用方法/6.png" alt=""></li>
-<li><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="http://www.pediy.com/kssd/pediy12/ida.html" target="_blank" rel="external">IDA简易教程</a></li>
+<li>名称与命名<br>在进行样本分析时，ID A识别出来的函数名都是sub_xxxxxx，这种命名方式不适合我们阅读和分析，在我们进行分析后，知道函数或者变量的意义，那么我们可以对其进行重命名。方法是鼠标点击函数名或者变量，然后按下键盘上的N键，在弹出的窗口中写入新的名字即可。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="http://www.pediy.com/kssd/pediy12/ida.html" target="_blank" rel="external">IDA简易教程</a></li>
 </ul>
 
           

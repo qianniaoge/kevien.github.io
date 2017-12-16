@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构 概念扫盲 IATimport address table 导入地址表,由于导入函数就是被程序调用但其执行代码又不在程序中的函数，这些函数的代码位于一个或者多个DLL 中.当PE 文件被装入内存的时候，Windows 装载器才将DLL 装入，并将调用导入函数的指令和函数实际所处">
 <meta property="og:image" content="http://kevien.github.io/2017/08/03/windows-PE文件结构/1.png">
-<meta property="og:updated_time" content="2017-11-27T09:40:05.000Z">
+<meta property="og:updated_time" content="2017-12-15T11:40:28.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows PE文件结构">
 <meta name="twitter:description" content="前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在来分析PE文件结构之前我们先通过file命令来看看文件大致有哪些结构 概念扫盲 IATimport address table 导入地址表,由于导入函数就是被程序调用但其执行代码又不在程序中的函数，这些函数的代码位于一个或者多个DLL 中.当PE 文件被装入内存的时候，Windows 装载器才将DLL 装入，并将调用导入函数的指令和函数实际所处">
@@ -388,7 +388,9 @@
 <h4 id="概念扫盲"><a href="#概念扫盲" class="headerlink" title="概念扫盲"></a>概念扫盲</h4><ul>
 <li>IAT<br>import address table 导入地址表,由于导入函数就是被程序调用但其执行代码又不在程序中的函数，这些函数的代码位于一个或者多个DLL 中.当PE 文件被装入内存的时候，Windows 装载器才将DLL 装入，并将调用导入函数的指令和函数实际所处的地址联系起来(动态连接)，这操作就需要导入表完成.其中导入地址表就指示函数实际地址。</li>
 <li>节区<br>pe文件中的code(代码)、data(数据)、resource(资源)等按照属性分类存储在不同节区。不同节区的权限不同，code节区可执行，可读写，data和resource是只能有读取权限，没有执行的权限。</li>
-<li>函数调用约定<br>cdecl是c语言中使用的方式，调用者负责处理栈<br>stdcall方式用于win32 api，该方式由调用者清理栈<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>函数调用约定<br>cdecl是c语言中使用的方式，调用者负责处理栈<br>stdcall方式用于win32 api，该方式由调用者清理栈</li>
+<li>windows重要API<br>常见的内存操作函数  跨进程的内存读取和写入的函数ReadProcessMemory（）和WriteProcessMemory（），还有一个就是修改内存的页面属性的函数VirtualProtectEx（）</li>
+<li>线程上下文 也称线程环境块 TEB的结构体<br><a href="teb.png"></a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li>windows PE文件结构及其加载机制<br><a href="http://blog.csdn.net/liuyez123/article/details/51281905" target="_blank" rel="external">http://blog.csdn.net/liuyez123/article/details/51281905</a></li>
 <li>一种保护应用程序的方法 模拟Windows PE加载器，从内存资源中加载DLL<br><a href="http://bbs.pediy.com/thread-149326.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-149326.htm</a></li>
 <li>winnt.h 头文件中有对pe文件结构的定义<br><a href="https://sourceforge.net/p/mingw/mingw-org-wsl/ci/b6761db45b70f7def58ec55186574a084836450e/tree/include/winnt.h#l2923" target="_blank" rel="external">https://sourceforge.net/p/mingw/mingw-org-wsl/ci/b6761db45b70f7def58ec55186574a084836450e/tree/include/winnt.h#l2923</a></li>
