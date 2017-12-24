@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2017-12-20T11:41:54.000Z</updated>
+  <updated>2017-12-24T16:38:38.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>由CVE-2017-17562引发的一些探索</title>
+    <link href="http://kevien.github.io/2017/12/24/%E7%94%B1CVE-2017-17562%E5%BC%95%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8E%A2%E7%B4%A2/"/>
+    <id>http://kevien.github.io/2017/12/24/由CVE-2017-17562引发的一些探索/</id>
+    <published>2017-12-24T08:10:00.000Z</published>
+    <updated>2017-12-24T16:38:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>前两天看到这个漏洞的时候感觉还是挺有意思的，让我想起了之前分析的nginx提权漏洞(CVE-2016-1247)以及shellshock漏洞(CVE-2014-6271),前两天只是简单的看了一下，今天有时间就整理一下，留个备忘。</li>
+<li>简单来说，goAHead是一个使用c语言实现的一个简单web服务器，主要用在嵌入式设备上，官方给出的一句话描述也是simple，secure Embedded web server，官方说有亿万的设备在使用(夸张了吧？)，其中有像是hp、oracle、西门子、摩托罗拉等等。详细可以看向这里<a href="https://embedthis.com/goahead/" target="_blank" rel="external">https://embedthis.com/goahead/</a><h4 id="CVE-2016-1247简单介绍"><a href="#CVE-2016-1247简单介绍" class="headerlink" title="CVE-2016-1247简单介绍"></a>CVE-2016-1247简单介绍</h4></li>
+<li>这个漏洞可以导致GoAhead web服务器在小于3.6.5版本远程代码执行。攻击者通过发送一个恶意的http请求，利用开启了CGI功能的GoAhead的服务器，从而进行远程代码执行。其中exp是利用到了向新的进程中注入任意的环境变量这种比较基本的攻击方式。<br></li>
+<li>具体需要的条件主要有如下：<br><br>1.GoAhead开启CGI功能，即有cgi的处理页面(关于goAhead cgi的使用可以看向这里<a href="https://embedthis.com/goahead/doc/users/cgi.html" target="_blank" rel="external">https://embedthis.com/goahead/doc/users/cgi.html</a>)<br>2.需要GoAhead版本低于3.6.5<br>3.需要动态链接glibc库(默认是动态链接的)<h4 id="具体"><a href="#具体" class="headerlink" title="具体"></a>具体</h4></li>
+<li>在英文原版文章中作者已经分析了glibc是如何加载和处理环境变量、goAhead如何处理cgi以及linux的procfs的符号链接如何指向输入描述符等，我这里就不细分析了。下面只是放几张测试的图片。<br><img src="/2017/12/24/由CVE-2017-17562引发的一些探索/origin.png" alt=""><br><img src="/2017/12/24/由CVE-2017-17562引发的一些探索/poc.png" alt=""><br><img src="/2017/12/24/由CVE-2017-17562引发的一些探索/afterpoc.png" alt=""><br>可以看到，打过payload之后，页面返回的环境变量多了一个LD_PRELOAD=/proc/self/fd/0的键值对。<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>这个漏洞利用的难点在于怎么将动态链接库注入到远程服务器，作者这里提供了一个很好的思路就是利用到了/proc/self/fd/0（它对应了文件的stdin文件描述符）这个文件就链接到了我们上传的文件</li>
+<li>就像英文原版文章的标题一样，这个漏洞的精髓就是利用ld_preload来进行exploit，这个思路是一个创新，后面可能会有其它的漏洞利用到这个利用思路和方法。：）<h4 id="探索1-有关nginx提权"><a href="#探索1-有关nginx提权" class="headerlink" title="探索1-有关nginx提权"></a>探索1-有关nginx提权</h4></li>
+<li>漏洞分析文章见这里<br><a href="https://legalhackers.com/advisories/Nginx-Exploit-Deb-Root-PrivEsc-CVE-2016-1247.html" target="_blank" rel="external">Nginx-Exploit-Deb-Root-PrivEsc-CVE-2016-1247</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">作者的poc shell脚本写的很不错</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><a href="http://blog.knownsec.com/2016/11/nginx-exploit-deb-root-privesc-cve-2016-1247/" target="_blank" rel="external">Nginx权限提升漏洞(CVE-2016-1247) 分析</a></p>
+<ul>
+<li>之前简单研究过nginx的提权漏洞，和这次的漏洞有一些像，也用到了环境变量，nginx的这个漏洞用到了写入恶意动态链接库路径到/etc/ld.so.preload。<h4 id="探索2-有关shellshock"><a href="#探索2-有关shellshock" class="headerlink" title="探索2-有关shellshock"></a>探索2-有关shellshock</h4></li>
+<li>对比shellshock，这个漏洞要需要的条件苛刻很多，shellshock简单粗暴，而且shellshock的影响范围也更广。<br><a href="http://www.vuln.cn/6476" target="_blank" rel="external">Shellshock漏洞回顾与分析测试 - Debug_Orz</a><h4 id="探索3-其它"><a href="#探索3-其它" class="headerlink" title="探索3-其它"></a>探索3-其它</h4></li>
+<li>在github上看这个项目的一些cve issue<a href="https://github.com/embedthis/goahead/issues?page=1&amp;q=label%3Acve+is%3Aclosed" target="_blank" rel="external">https://github.com/embedthis/goahead/issues?page=1&amp;q=label%3Acve+is%3Aclosed</a>还是有很多东西值得学习的(基本上可以看到写一个web服务器可能会遇到的安全问题）比如这个issue <a href="https://github.com/embedthis/goahead/issues/241" target="_blank" rel="external">https://github.com/embedthis/goahead/issues/241</a>中，某位安全研究员提的报告<a href="https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html</a></li>
+<li>As I’m a fan of looking at the source    –author  向作者学习，安全有个好处就是我们可以透过现象看本质，研究原理很有意思。</li>
+<li>有关patch，原文中作者也说了，漏洞的修复只是过滤了几个特殊的参数名，有可能会被绕过，直觉告诉我应该可以绕过：P<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.elttam.com.au/blog/goahead/" target="_blank" rel="external">REMOTE LD_PRELOAD EXPLOITATION</a><br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTE0MjQyMg==&amp;mid=2650459263&amp;idx=1&amp;sn=ba875fb1f323be78892b1f59b76411c0&amp;chksm=bef362068984eb10dc6e0de8cbbb559f1b5158f566717046c46bc4803b496e313fc540c0d276&amp;mpshare=1&amp;scene=23&amp;srcid=1224JQ2IyeAfXgPGngafdRUt%23rd" target="_blank" rel="external">干货分享 | GoAhead服务器 远程命令执行漏洞（CVE-2017-17562） 分析报告</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;TL-DR&quot;&gt;&lt;a href=&quot;#TL-DR&quot; class=&quot;headerlink&quot; title=&quot;TL;DR&quot;&gt;&lt;/a&gt;TL;DR&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;前两天看到这个漏洞的时候感觉还是挺有意思的，让我想起了之前分析的nginx提权漏洞(CVE-2016-1
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20171218安全动态</title>
@@ -285,7 +323,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#x61;&#x69;&#108;&#116;&#x6f;&#x3a;&#x68;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#112;&#x61;&#108;&#97;&#110;&#x74;&#105;&#114;&#47;&#111;&#x73;&#113;&#x75;&#101;&#114;&#x79;&#45;&#97;&#x63;&#x72;&#111;&#115;&#x73;&#x2d;&#116;&#104;&#101;&#45;&#x65;&#x6e;&#x74;&#x65;&#114;&#x70;&#x72;&#105;&#115;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#x39;&#x64;&#x31;&#51;&#x65;&#x63;&#x35;&#x35;">&#x68;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#112;&#x61;&#108;&#97;&#110;&#x74;&#105;&#114;&#47;&#111;&#x73;&#113;&#x75;&#101;&#114;&#x79;&#45;&#97;&#x63;&#x72;&#111;&#115;&#x73;&#x2d;&#116;&#104;&#101;&#45;&#x65;&#x6e;&#x74;&#x65;&#114;&#x70;&#x72;&#105;&#115;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#x39;&#x64;&#x31;&#51;&#x65;&#x63;&#x35;&#x35;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#x68;&#116;&#x74;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#97;&#x6c;&#x61;&#x6e;&#x74;&#105;&#114;&#47;&#x6f;&#115;&#113;&#x75;&#101;&#114;&#121;&#45;&#97;&#99;&#114;&#x6f;&#x73;&#x73;&#x2d;&#116;&#104;&#x65;&#x2d;&#101;&#x6e;&#116;&#101;&#114;&#112;&#114;&#x69;&#x73;&#101;&#45;&#x33;&#99;&#x33;&#x63;&#x39;&#100;&#x31;&#x33;&#101;&#99;&#x35;&#53;">&#x68;&#116;&#x74;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#97;&#x6c;&#x61;&#x6e;&#x74;&#105;&#114;&#47;&#x6f;&#115;&#113;&#x75;&#101;&#114;&#121;&#45;&#97;&#99;&#114;&#x6f;&#x73;&#x73;&#x2d;&#116;&#104;&#x65;&#x2d;&#101;&#x6e;&#116;&#101;&#114;&#112;&#114;&#x69;&#x73;&#101;&#45;&#x33;&#99;&#x33;&#x63;&#x39;&#100;&#x31;&#x33;&#101;&#99;&#x35;&#53;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -355,7 +393,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x74;&#x6f;&#109;&#101;&#x72;&#x73;&#104;&#101;&#109;&#x65;&#115;&#x68;&#47;&#114;&#x65;&#x76;&#101;&#x72;&#115;&#x65;&#45;&#x65;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#114;&#x69;&#110;&#103;&#x2d;&#x74;&#104;&#x65;&#x2d;&#100;&#114;&#x65;&#x78;&#x65;&#x6c;&#x2d;&#111;&#110;&#x65;&#x2d;&#97;&#112;&#x69;&#45;&#51;&#x37;&#x30;&#x61;&#53;&#x36;&#48;&#x61;&#x66;&#x65;&#x64;&#x66;">&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#x40;&#x74;&#x6f;&#109;&#101;&#x72;&#x73;&#104;&#101;&#109;&#x65;&#115;&#x68;&#47;&#114;&#x65;&#x76;&#101;&#x72;&#115;&#x65;&#45;&#x65;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#114;&#x69;&#110;&#103;&#x2d;&#x74;&#104;&#x65;&#x2d;&#100;&#114;&#x65;&#x78;&#x65;&#x6c;&#x2d;&#111;&#110;&#x65;&#x2d;&#97;&#112;&#x69;&#45;&#51;&#x37;&#x30;&#x61;&#53;&#x36;&#48;&#x61;&#x66;&#x65;&#x64;&#x66;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#58;&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#x74;&#111;&#109;&#x65;&#x72;&#x73;&#104;&#x65;&#x6d;&#101;&#115;&#104;&#x2f;&#x72;&#x65;&#x76;&#101;&#114;&#x73;&#101;&#45;&#101;&#x6e;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#105;&#110;&#103;&#45;&#116;&#104;&#101;&#x2d;&#100;&#x72;&#101;&#x78;&#101;&#x6c;&#x2d;&#111;&#x6e;&#x65;&#x2d;&#x61;&#112;&#x69;&#45;&#51;&#55;&#48;&#97;&#x35;&#54;&#48;&#x61;&#x66;&#101;&#x64;&#x66;">&#104;&#116;&#116;&#112;&#x73;&#58;&#47;&#47;&#109;&#101;&#x64;&#105;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#x74;&#111;&#109;&#x65;&#x72;&#x73;&#104;&#x65;&#x6d;&#101;&#115;&#104;&#x2f;&#x72;&#x65;&#x76;&#101;&#114;&#x73;&#101;&#45;&#101;&#x6e;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#105;&#110;&#103;&#45;&#116;&#104;&#101;&#x2d;&#100;&#x72;&#101;&#x78;&#101;&#x6c;&#x2d;&#111;&#x6e;&#x65;&#x2d;&#x61;&#112;&#x69;&#45;&#51;&#55;&#48;&#97;&#x35;&#54;&#48;&#x61;&#x66;&#101;&#x64;&#x66;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -363,7 +401,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#110;&#106;&#118;&#111;&#x73;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#x66;&#x6c;&#x2d;&#x75;&#x6e;&#x69;&#99;&#x6f;&#x72;&#x6e;&#x2d;&#x66;&#117;&#122;&#x7a;&#105;&#x6e;&#x67;&#x2d;&#x61;&#114;&#x62;&#105;&#x74;&#114;&#97;&#114;&#121;&#45;&#x62;&#x69;&#x6e;&#x61;&#x72;&#121;&#x2d;&#x63;&#111;&#100;&#x65;&#x2d;&#x35;&#x36;&#x33;&#x63;&#97;&#x32;&#x38;&#57;&#x33;&#54;&#x62;&#x66;">&#104;&#116;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#110;&#106;&#118;&#111;&#x73;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#x66;&#x6c;&#x2d;&#x75;&#x6e;&#x69;&#99;&#x6f;&#x72;&#x6e;&#x2d;&#x66;&#117;&#122;&#x7a;&#105;&#x6e;&#x67;&#x2d;&#x61;&#114;&#x62;&#105;&#x74;&#114;&#97;&#114;&#121;&#45;&#x62;&#x69;&#x6e;&#x61;&#x72;&#121;&#x2d;&#x63;&#111;&#100;&#x65;&#x2d;&#x35;&#x36;&#x33;&#x63;&#97;&#x32;&#x38;&#57;&#x33;&#54;&#x62;&#x66;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6e;&#x6a;&#118;&#x6f;&#115;&#x73;&#50;&#57;&#x39;&#x2f;&#97;&#x66;&#x6c;&#x2d;&#x75;&#x6e;&#105;&#x63;&#x6f;&#114;&#110;&#45;&#102;&#x75;&#x7a;&#122;&#105;&#x6e;&#103;&#45;&#x61;&#x72;&#x62;&#105;&#x74;&#x72;&#x61;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#x61;&#x72;&#x79;&#45;&#x63;&#x6f;&#x64;&#101;&#x2d;&#53;&#54;&#51;&#x63;&#x61;&#x32;&#x38;&#x39;&#x33;&#x36;&#x62;&#102;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6e;&#x6a;&#118;&#x6f;&#115;&#x73;&#50;&#57;&#x39;&#x2f;&#97;&#x66;&#x6c;&#x2d;&#x75;&#x6e;&#105;&#x63;&#x6f;&#114;&#110;&#45;&#102;&#x75;&#x7a;&#122;&#105;&#x6e;&#103;&#45;&#x61;&#x72;&#x62;&#105;&#x74;&#x72;&#x61;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#x61;&#x72;&#x79;&#45;&#x63;&#x6f;&#x64;&#101;&#x2d;&#53;&#54;&#51;&#x63;&#x61;&#x32;&#x38;&#x39;&#x33;&#x36;&#x62;&#102;</a></li>
 </ul>
 ]]></content>
     
@@ -403,7 +441,7 @@
 <li>hack with github 编选的 10 月份 Top 5 安全工具<br><a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="external">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
 <li>把一个恶意样本 PE 文件头部的 “This program cannot be run in DOS mode” 中的 “This” 改为 “That”，可以 Bypass 11 款杀软<br><a href="https://twitter.com/zerosum0x0/status/925486850399019009/photo/1" target="_blank" rel="external">https://twitter.com/zerosum0x0/status/925486850399019009/photo/1</a></li>
 <li>揭秘：两张A4纸破解虹膜、人脸识别，百度安全技术小哥怎么做到的？<br><a href="https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA" target="_blank" rel="external">https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA</a></li>
-<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#64;&#97;&#108;&#101;&#x78;&#x2e;&#98;&#x69;&#x72;&#x73;&#97;&#110;&#x2f;&#109;&#x65;&#x73;&#x73;&#x69;&#110;&#x67;&#45;&#x77;&#x69;&#x74;&#104;&#x2d;&#116;&#104;&#101;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#101;&#x2d;&#98;&#x75;&#x67;&#97;&#x6e;&#x69;&#x7a;&#101;&#x72;&#x2d;&#115;&#121;&#x73;&#x74;&#x65;&#x6d;&#x2d;&#x66;&#x6f;&#x72;&#45;&#49;&#x35;&#45;&#54;&#48;&#x30;&#45;&#105;&#110;&#45;&#98;&#x6f;&#117;&#x6e;&#x74;&#x69;&#101;&#115;&#x2d;&#x35;&#x38;&#102;&#x38;&#x36;&#99;&#x63;&#x39;&#102;&#x39;&#97;&#53;">&#104;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#111;&#x6d;&#47;&#64;&#97;&#108;&#101;&#x78;&#x2e;&#98;&#x69;&#x72;&#x73;&#97;&#110;&#x2f;&#109;&#x65;&#x73;&#x73;&#x69;&#110;&#x67;&#45;&#x77;&#x69;&#x74;&#104;&#x2d;&#116;&#104;&#101;&#x2d;&#x67;&#111;&#111;&#103;&#x6c;&#101;&#x2d;&#98;&#x75;&#x67;&#97;&#x6e;&#x69;&#x7a;&#101;&#x72;&#x2d;&#115;&#121;&#x73;&#x74;&#x65;&#x6d;&#x2d;&#x66;&#x6f;&#x72;&#45;&#49;&#x35;&#45;&#54;&#48;&#x30;&#45;&#105;&#110;&#45;&#98;&#x6f;&#117;&#x6e;&#x74;&#x69;&#101;&#115;&#x2d;&#x35;&#x38;&#102;&#x38;&#x36;&#99;&#x63;&#x39;&#102;&#x39;&#97;&#53;</a></li>
+<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#x2e;&#98;&#x69;&#x72;&#115;&#x61;&#x6e;&#47;&#x6d;&#x65;&#115;&#x73;&#x69;&#x6e;&#103;&#x2d;&#x77;&#x69;&#116;&#x68;&#45;&#x74;&#x68;&#x65;&#x2d;&#103;&#x6f;&#x6f;&#x67;&#x6c;&#101;&#45;&#98;&#x75;&#x67;&#97;&#110;&#105;&#x7a;&#101;&#x72;&#45;&#115;&#x79;&#115;&#116;&#101;&#109;&#45;&#x66;&#111;&#x72;&#45;&#49;&#x35;&#45;&#x36;&#48;&#x30;&#45;&#x69;&#110;&#45;&#x62;&#111;&#x75;&#110;&#116;&#105;&#x65;&#115;&#x2d;&#53;&#56;&#102;&#56;&#x36;&#x63;&#99;&#x39;&#102;&#x39;&#x61;&#x35;">&#x68;&#116;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#x2e;&#98;&#x69;&#x72;&#115;&#x61;&#x6e;&#47;&#x6d;&#x65;&#115;&#x73;&#x69;&#x6e;&#103;&#x2d;&#x77;&#x69;&#116;&#x68;&#45;&#x74;&#x68;&#x65;&#x2d;&#103;&#x6f;&#x6f;&#x67;&#x6c;&#101;&#45;&#98;&#x75;&#x67;&#97;&#110;&#105;&#x7a;&#101;&#x72;&#45;&#115;&#x79;&#115;&#116;&#101;&#109;&#45;&#x66;&#111;&#x72;&#45;&#49;&#x35;&#45;&#x36;&#48;&#x30;&#45;&#x69;&#110;&#45;&#x62;&#111;&#x75;&#110;&#116;&#105;&#x65;&#115;&#x2d;&#53;&#56;&#102;&#56;&#x36;&#x63;&#99;&#x39;&#102;&#x39;&#x61;&#x35;</a></li>
 <li>Office-DDE-Payloads - 生成嵌入 DDE 的 恶意 Office 文档的脚本<br><a href="https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads" target="_blank" rel="external">https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads</a></li>
 <li>Ironsquirrel - 以加密的方式将浏览器漏洞利用代码发往受害者浏览器的工具<br><a href="https://github.com/MRGEffitas/Ironsquirrel" target="_blank" rel="external">https://github.com/MRGEffitas/Ironsquirrel</a></li>
 <li>LIEF - 之前推送过这个工具，QuarksLab 开源的一个跨平台可执行文件格式（PE/ELF/MachO）的解析、修改、抽象库，QuarksLab 昨天更新了一篇介绍 LIEF 库用法的 Blog<br><a href="https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html" target="_blank" rel="external">https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html</a></li>
@@ -583,7 +621,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#116;&#x68;&#51;&#x67;&#x33;&#x6e;&#x74;&#x33;&#x6c;&#47;&#104;&#x6f;&#119;&#45;&#105;&#x2d;&#x66;&#x6f;&#x75;&#x6e;&#x64;&#x2d;&#x61;&#x6e;&#x2d;&#x73;&#115;&#114;&#102;&#45;&#105;&#110;&#x2d;&#121;&#97;&#104;&#x6f;&#111;&#x2d;&#103;&#x75;&#101;&#x73;&#116;&#104;&#x6f;&#x75;&#x73;&#101;&#45;&#114;&#101;&#x63;&#x6f;&#110;&#45;&#x77;&#105;&#110;&#115;&#x2d;&#x38;&#55;&#50;&#x32;&#54;&#x37;&#x32;&#101;&#x34;&#x31;&#100;&#52;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#116;&#x68;&#51;&#x67;&#x33;&#x6e;&#x74;&#x33;&#x6c;&#47;&#104;&#x6f;&#119;&#45;&#105;&#x2d;&#x66;&#x6f;&#x75;&#x6e;&#x64;&#x2d;&#x61;&#x6e;&#x2d;&#x73;&#115;&#114;&#102;&#45;&#105;&#110;&#x2d;&#121;&#97;&#104;&#x6f;&#111;&#x2d;&#103;&#x75;&#101;&#x73;&#116;&#104;&#x6f;&#x75;&#x73;&#101;&#45;&#114;&#101;&#x63;&#x6f;&#110;&#45;&#x77;&#105;&#110;&#115;&#x2d;&#x38;&#55;&#50;&#x32;&#54;&#x37;&#x32;&#101;&#x34;&#x31;&#100;&#52;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#104;&#x33;&#x67;&#x33;&#110;&#116;&#x33;&#x6c;&#47;&#x68;&#x6f;&#x77;&#x2d;&#x69;&#x2d;&#102;&#111;&#117;&#110;&#x64;&#x2d;&#97;&#x6e;&#45;&#x73;&#x73;&#x72;&#102;&#45;&#x69;&#x6e;&#45;&#121;&#97;&#104;&#111;&#x6f;&#x2d;&#103;&#117;&#x65;&#x73;&#116;&#104;&#x6f;&#117;&#115;&#101;&#x2d;&#114;&#101;&#x63;&#111;&#110;&#x2d;&#119;&#x69;&#110;&#115;&#45;&#x38;&#x37;&#x32;&#50;&#54;&#55;&#50;&#101;&#x34;&#x31;&#100;&#x34;">&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#104;&#x33;&#x67;&#x33;&#110;&#116;&#x33;&#x6c;&#47;&#x68;&#x6f;&#x77;&#x2d;&#x69;&#x2d;&#102;&#111;&#117;&#110;&#x64;&#x2d;&#97;&#x6e;&#45;&#x73;&#x73;&#x72;&#102;&#45;&#x69;&#x6e;&#45;&#121;&#97;&#104;&#111;&#x6f;&#x2d;&#103;&#117;&#x65;&#x73;&#116;&#104;&#x6f;&#117;&#115;&#101;&#x2d;&#114;&#101;&#x63;&#111;&#110;&#x2d;&#119;&#x69;&#110;&#115;&#45;&#x38;&#x37;&#x32;&#50;&#54;&#55;&#50;&#101;&#x34;&#x31;&#100;&#x34;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -795,48 +833,6 @@
     
       &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;ELF(Executable and Linkable Format)可执行和可链接格式。&lt;h4 id=&quot;动态链接库&quot;&gt;&lt;a h
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171006安全动态</title>
-    <link href="http://kevien.github.io/2017/10/06/20171006%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/10/06/20171006安全动态/</id>
-    <published>2017-10-06T02:52:19.000Z</published>
-    <updated>2017-10-08T12:10:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><p>都在过十一，好久没更新了。</p>
-<ul>
-<li>雅虎承认其30亿用户信息全部被黑<br><a href="http://www.freebuf.com/news/149894.html" target="_blank" rel="external">http://www.freebuf.com/news/149894.html</a></li>
-<li>注册机音乐随记<br><a href="http://veritas501.space/2017/10/05/%E6%B3%A8%E5%86%8C%E6%9C%BA%E9%9F%B3%E4%B9%90%E9%9A%8F%E8%AE%B0/" target="_blank" rel="external">http://veritas501.space/2017/10/05/%E6%B3%A8%E5%86%8C%E6%9C%BA%E9%9F%B3%E4%B9%90%E9%9A%8F%E8%AE%B0/</a></li>
-<li>Playing with Dynamic symbolic execution<br><a href="http://www.miasm.re/blog/2017/10/05/playing_with_dynamic_symbolic_execution.html" target="_blank" rel="external">http://www.miasm.re/blog/2017/10/05/playing_with_dynamic_symbolic_execution.html</a></li>
-<li>黑帽SEO剖析之手法篇<br><a href="http://www.freebuf.com/articles/web/149438.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/149438.html</a></li>
-<li>黑帽SEO剖析之工具篇<br><a href="http://www.freebuf.com/sectool/149427.html" target="_blank" rel="external">http://www.freebuf.com/sectool/149427.html</a></li>
-<li>HITB CTF 2017 Pwn题研究<br><a href="http://0x48.pw/2017/08/29/0x39/" target="_blank" rel="external">http://0x48.pw/2017/08/29/0x39/</a></li>
-<li>Pwnhub 2013的国庆 writeup<br><a href="http://0x48.pw/2017/10/04/0x3A/" target="_blank" rel="external">http://0x48.pw/2017/10/04/0x3A/</a></li>
-<li>代码审计之60度cms<br><a href="http://foreversong.cn/archives/697" target="_blank" rel="external">http://foreversong.cn/archives/697</a></li>
-<li>Apache server security: 10 tips to secure installation<br><a href="https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/" target="_blank" rel="external">https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/</a></li>
-<li>BackdoorCTF 2017-Extends Me-writeup<br><a href="https://chybeta.github.io/2017/09/28/BackdoorCTF-2017-Extends-Me-writeup/" target="_blank" rel="external">https://chybeta.github.io/2017/09/28/BackdoorCTF-2017-Extends-Me-writeup/</a></li>
-<li>Mac OS X 10.12 Quarantine Bypass<br><a href="https://blogs.securiteam.com/index.php/archives/3449" target="_blank" rel="external">https://blogs.securiteam.com/index.php/archives/3449</a></li>
-<li>从试玩某SF游戏 到修改游戏数据<br><a href="https://bbs.ichunqiu.com/thread-27502-1-1.html" target="_blank" rel="external">https://bbs.ichunqiu.com/thread-27502-1-1.html</a></li>
-<li>覆盖虚表方式利用栈溢出漏洞<br><a href="http://docs.ioin.in/writeup/blog.csdn.net/_niexinming_article_details_78144301/index.html" target="_blank" rel="external">http://docs.ioin.in/writeup/blog.csdn.net/_niexinming_article_details_78144301/index.html</a></li>
-<li>从心脏出血到量子安全，OpenSSL到底是怎样的存在？<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651073710&amp;idx=1&amp;sn=cc41779bbe09ce4dc31ed8c61e53dc56&amp;chksm=bd149c7d8a63156b0a1fdac683260ab14dcb118f0f87cddddf46db8dbcd3da788b1fd5e40c99&amp;mpshare=1&amp;scene=23&amp;srcid=1006stEiNm1t7uBRYG6S6E6M#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651073710&amp;idx=1&amp;sn=cc41779bbe09ce4dc31ed8c61e53dc56&amp;chksm=bd149c7d8a63156b0a1fdac683260ab14dcb118f0f87cddddf46db8dbcd3da788b1fd5e40c99&amp;mpshare=1&amp;scene=23&amp;srcid=1006stEiNm1t7uBRYG6S6E6M#rd</a></li>
-<li>Powershell安全最佳实践<br><a href="http://www.4hou.com/data/7849.html" target="_blank" rel="external">http://www.4hou.com/data/7849.html</a></li>
-<li>探索C++虚函数在内存中的表现形式及运行机制<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458285608&amp;idx=1&amp;sn=44f34a321ae9819f81b77c8ce0c79b23&amp;chksm=b18146a286f6cfb44139e14dbbc73a51be2b645e8e068d8748be7ca0c830c4f5471aa5916cbf&amp;mpshare=1&amp;scene=23&amp;srcid=1005io6TGKJHY9upwuJJn7AI#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458285608&amp;idx=1&amp;sn=44f34a321ae9819f81b77c8ce0c79b23&amp;chksm=b18146a286f6cfb44139e14dbbc73a51be2b645e8e068d8748be7ca0c830c4f5471aa5916cbf&amp;mpshare=1&amp;scene=23&amp;srcid=1005io6TGKJHY9upwuJJn7AI#rd</a></li>
-<li>一个内存取证框架<br><a href="http://www.rekall-forensic.com" target="_blank" rel="external">http://www.rekall-forensic.com</a></li>
-<li>PopUnder 研究：Javascript逆向与反逆向<br><a href="http://www.jianshu.com/p/9148d215c119" target="_blank" rel="external">http://www.jianshu.com/p/9148d215c119</a></li>
-<li>绕过DKIM验证，伪造钓鱼邮件<br><a href="http://www.4hou.com/web/7857.html" target="_blank" rel="external">http://www.4hou.com/web/7857.html</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;p&gt;都在过十一，好久没更新了。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;雅虎承认其30亿用户信息全部被黑&lt;br&gt;&lt;a href
     
     </summary>
     
