@@ -104,17 +104,16 @@
 
 
 
-<meta name="description" content="每日安全动态 CVE-2016-10190 FFmpeg Http协议 heap buffer overflow漏洞分析及利用http://www.freebuf.com/column/147585.html Catfish—缓存漏洞&amp;amp;&amp;amp;配合CSRF到Getshellhttps://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;amp;mid=">
-<meta name="keywords">
-<meta property="og:type" content="article">
-<meta property="og:title" content="20170913安全动态">
-<meta property="og:url" content="http://kevien.github.io/2017/09/13/20170913安全动态/index.html">
+<meta name="description" content="正在打开，请稍候……       var _0 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   var _1 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   function is_weixin() {     if (/MicroMessenger/i.test(nav">
+<meta property="og:type" content="website">
+<meta property="og:title" content="M0rk's Blog">
+<meta property="og:url" content="http://kevien.github.io/alipay/alipay.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="每日安全动态 CVE-2016-10190 FFmpeg Http协议 heap buffer overflow漏洞分析及利用http://www.freebuf.com/column/147585.html Catfish—缓存漏洞&amp;amp;&amp;amp;配合CSRF到Getshellhttps://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;amp;mid=">
-<meta property="og:updated_time" content="2017-09-18T09:20:16.000Z">
+<meta property="og:description" content="正在打开，请稍候……       var _0 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   var _1 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   function is_weixin() {     if (/MicroMessenger/i.test(nav">
+<meta property="og:updated_time" content="2018-01-06T16:25:50.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20170913安全动态">
-<meta name="twitter:description" content="每日安全动态 CVE-2016-10190 FFmpeg Http协议 heap buffer overflow漏洞分析及利用http://www.freebuf.com/column/147585.html Catfish—缓存漏洞&amp;amp;&amp;amp;配合CSRF到Getshellhttps://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;amp;mid=">
+<meta name="twitter:title" content="M0rk's Blog">
+<meta name="twitter:description" content="正在打开，请稍候……       var _0 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   var _1 = &quot;https://qr.alipay.com/c1x02780d0akssbcm86ti77&quot;;   function is_weixin() {     if (/MicroMessenger/i.test(nav">
 
 
 
@@ -142,13 +141,13 @@
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/2017/09/13/20170913安全动态/"/>
+  <link rel="canonical" href="http://kevien.github.io/alipay/alipay.html"/>
 
 
 
 
 
-  <title>20170913安全动态 | M0rk's Blog</title>
+  <title> | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -173,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -302,204 +301,97 @@
             
 
   <div id="posts" class="posts-expand">
-    
+  <header class="post-header">
 
-  
+	<h1 class="post-title" itemprop="name headline"></h1>
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/13/20170913安全动态/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
+</header>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                20170913安全动态
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T10:13:04+08:00">
-                2017-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
     
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>CVE-2016-10190 FFmpeg Http协议 heap buffer overflow漏洞分析及利用<br><a href="http://www.freebuf.com/column/147585.html" target="_blank" rel="external">http://www.freebuf.com/column/147585.html</a></li>
-<li>Catfish—缓存漏洞&amp;&amp;配合CSRF到Getshell<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247484120&amp;idx=1&amp;sn=aaeec3238102fdf88a22ffb1b9f30a47" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247484120&amp;idx=1&amp;sn=aaeec3238102fdf88a22ffb1b9f30a47</a></li>
-<li>【干货分享】手把手教你Android Logcat组件安全<br><a href="http://blog.nsfocus.net/android-logcat-security/" target="_blank" rel="external">http://blog.nsfocus.net/android-logcat-security/</a></li>
-<li>逆向 OBi200 谷歌语音设备<br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/</a><br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/</a></li>
-<li>[ IoTDevice ]  ARM exploitation for IoT - part 2<br><a href="https://quequero.org/2017/09/arm-exploitation-iot-episode-2" target="_blank" rel="external">https://quequero.org/2017/09/arm-exploitation-iot-episode-2</a></li>
-<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#47;&#x40;&#x70;&#97;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#47;&#x77;&#105;&#110;&#x64;&#x6f;&#119;&#115;&#x2d;&#101;&#x76;&#x65;&#x6e;&#x74;&#x2d;&#x66;&#111;&#x72;&#x77;&#x61;&#114;&#100;&#x69;&#110;&#103;&#x2d;&#102;&#111;&#114;&#45;&#110;&#x65;&#x74;&#x77;&#111;&#x72;&#107;&#45;&#x64;&#101;&#x66;&#101;&#110;&#115;&#101;&#45;&#x63;&#98;&#50;&#48;&#56;&#x64;&#53;&#102;&#102;&#x38;&#x36;&#102;">&#x68;&#x74;&#116;&#112;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#47;&#x40;&#x70;&#97;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#47;&#x77;&#105;&#110;&#x64;&#x6f;&#119;&#115;&#x2d;&#101;&#x76;&#x65;&#x6e;&#x74;&#x2d;&#x66;&#111;&#x72;&#x77;&#x61;&#114;&#100;&#x69;&#110;&#103;&#x2d;&#102;&#111;&#114;&#45;&#110;&#x65;&#x74;&#x77;&#111;&#x72;&#107;&#45;&#x64;&#101;&#x66;&#101;&#110;&#115;&#101;&#45;&#x63;&#98;&#50;&#48;&#56;&#x64;&#53;&#102;&#102;&#x38;&#x36;&#102;</a></li>
-<li>ZDI 对补丁日的总结<br><a href="https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review" target="_blank" rel="external">https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review</a></li>
-<li>[ Industry News ]  Kromtech 安全中心的人发现 超过 4000 个 ElasticSearch 服务器托管着 PoS 恶意软件(AlinaPOS、 JackPOS)<br><a href="https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/</a></li>
-<li>Strust2漏洞影响多个Cisco产品<br><a href="http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html" target="_blank" rel="external">http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html</a></li>
-<li>CURL会有后门吗？<br><a href="https://daniel.haxx.se/blog/2017/09/12/the-backdoor-threat/" target="_blank" rel="external">https://daniel.haxx.se/blog/2017/09/12/the-backdoor-threat/</a></li>
-<li>最近挖src一些小套路总结<br><a href="http://www.cuijianxiong.top/?p=148" target="_blank" rel="external">http://www.cuijianxiong.top/?p=148</a></li>
-<li>工控蜜罐Conpot部署和入门指南<br><a href="http://www.freebuf.com/column/147545.html" target="_blank" rel="external">http://www.freebuf.com/column/147545.html</a></li>
-<li>fuel UX 前端框架 bootstrap的扩展<br><a href="http://getfuelux.com/" target="_blank" rel="external">http://getfuelux.com/</a></li>
-<li>Linux Rootkit系列一：LKM的基础编写及隐藏<br><a href="http://www.freebuf.com/articles/system/54263.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/54263.html</a></li>
-</ul>
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/09/13/windows权限提升/" rel="next" title="windows权限提升">
-                <i class="fa fa-chevron-left"></i> windows权限提升
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/12/20170912安全动态/" rel="prev" title="20170912安全动态">
-                20170912安全动态 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-        
-  <div class="bdsharebuttonbox">
-    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
-    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
-    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-    <a href="#" class="bds_more" data-cmd="more"></a>
-    <a class="bds_count" data-cmd="count"></a>
-  </div>
-  <script>
-    window._bd_share_config = {
-      "common": {
-        "bdText": "",
-        "bdMini": "2",
-        "bdMiniList": false,
-        "bdPic": ""
-      },
-      "share": {
-        "bdSize": "16",
-        "bdStyle": "0"
-      },
-      "image": {
-        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
-        "viewText": "分享到：",
-        "viewSize": "16"
-      }
+      <!DOCTYPE html>
+<html lang="zh-cmn-hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+<title>正在打开，请稍候……</title>
+</head>
+<body>
+</body>
+</html>
+<script> 
+var _0 = "https://qr.alipay.com/c1x02780d0akssbcm86ti77";  
+var _1 = "https://qr.alipay.com/c1x02780d0akssbcm86ti77";  
+function is_weixin() {
+    if (/MicroMessenger/i.test(navigator.userAgent)) {
+        return true
+    } else {
+        return false
     }
-  </script>
-
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//kevien.github.io/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+}
+function is_android() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/(Android|SymbianOS)/i)) {
+        return true
+    } else {
+        return false
+    }
+}
+function is_ios() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (/iphone|ipad|ipod/.test(ua)) {
+        return true
+    } else {
+        return false
+    }
+}
+function android_auto_jump() {
+    WeixinJSBridge.invoke("jumpToInstallUrl", {},
+    function(e) {});
+    window.close();
+    WeixinJSBridge.call("closeWindow")
+}
+function ios_auto_jump() {
+    if (_0 != "") {
+        location.href = _0
+    } else {
+        window.close();
+        WeixinJSBridge.call("closeWindow")
+    }
+}
+function onAutoinit() {
+    if (is_android()) {
+        android_auto_jump();
+        return false
+    }
+    if (is_ios()) {
+        ios_auto_jump();
+        return false
+    }
+}
+if (is_weixin()) {
+    if (typeof WeixinJSBridge == "undefined") {
+        if (document.addEventListener) {
+            document.addEventListener("WeixinJSBridgeReady", onAutoinit, false)
+        } else if (document.attachEvent) {
+            document.attachEvent("WeixinJSBridgeReady", onAutoinit);
+            document.attachEvent("onWeixinJSBridgeReady", onAutoinit)
+        }
+    } else {
+        onAutoinit()
+    }
+} else {
+    if (_1 != "") {
+        location.href = _1
+    } else {
+        window.close()
+    }
+}
 </script>
-
-      
-    </div>
+    
   </div>
 
 
@@ -533,17 +425,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -632,22 +515,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#每日安全动态"><span class="nav-number">1.</span> <span class="nav-text">每日安全动态</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -793,10 +660,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
-
-
 
   
 
