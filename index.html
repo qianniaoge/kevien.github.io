@@ -392,7 +392,8 @@
 </li>
 <li><p>这里是通过file.read()方法直接读文件，然后直接显示在页面上的。但是如何实现命令执行反弹shell呢?</p>
 </li>
-<li>通过列举当前object下的子类可以发现有subprocess的Popen类，大家应该知道Popen是直接可以执行命令的，要索引类Popen，使用index不行（原因不明），但也可以通过笨方法自己索引<br><img src="/2018/01/16/从一道pentesterlab的题目说起/indexpopen.png" alt=""><br><img src="/2018/01/16/从一道pentesterlab的题目说起/subprocess.png" alt=""></li>
+<li>通过列举当前object下的子类可以发现有subprocess的Popen类，大家应该知道Popen是直接可以执行命令的，要索引类Popen，使用index不行（原因不明），但也可以通过笨方法自己索引<br><img src="/2018/01/16/从一道pentesterlab的题目说起/subprocess.png" alt=""></li>
+<li><img src="/2018/01/16/从一道pentesterlab的题目说起/indexpopen.png" alt=""></li>
 <li>索引233，后面就可以执行命令了，但是不能回显，所以可以把我们的命令执行后写入到文件，然后再通过读文件读出来。<br><img src="/2018/01/16/从一道pentesterlab的题目说起/writecommand.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; &apos;&apos;.__class__.__mro__[2].__subclasses__()[233](&quot;id &gt;/tmp/M0rk.txt&quot;,shell=True) &#125;&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
