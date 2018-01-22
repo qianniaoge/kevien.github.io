@@ -308,132 +308,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/22/amazon云扩容/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/22/amazon云扩容/" itemprop="url">
-                  amazon云扩容
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T23:20:53+08:00">
-                2017-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
-<li>用了亚马逊的云，但是最近8G的存储不够了。看了一下，好像有没有什么可删除的东西了。然后查了一下，原来亚马逊云是可以扩容的，暂时还不知道扩容收不收费。。为什么要记录一下呢，因为这里有一个小坑<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">按照参考1中的方法，前面几个步骤没有问题，但是最后就是报错，大概是找不到快照中的对应的目录，原来是在挂载卷的时候，目录选错了，设置成这个就可以了。/dev/sda1(见参考2).</div><div class="line">参考：</div><div class="line">1.http://naonao.blog.51cto.com/1135983/1557994</div><div class="line">2.https://stackoverflow.com/questions/6151695/ec2-instance-on-amazon-and-i-am-greeted-with-no-space-left-on-the-disk</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><ul>
-<li>国内的文章真是坑啊，参考1的步骤是有问题的，建议还是用第二个参考链接，参考1的方法，没有先deteach掉volume就创建快照了，这种方法会导致后面启动实例失败，按照参考2的步骤来就没有问题。<br><img src="/2017/10/22/amazon云扩容/upgrade.png" alt=""></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/21/20171021安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -519,7 +393,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#104;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#116;&#104;&#51;&#x67;&#51;&#x6e;&#116;&#51;&#108;&#x2f;&#104;&#x6f;&#119;&#45;&#x69;&#x2d;&#x66;&#111;&#x75;&#x6e;&#x64;&#x2d;&#97;&#x6e;&#45;&#115;&#115;&#114;&#102;&#x2d;&#105;&#110;&#45;&#x79;&#x61;&#104;&#x6f;&#111;&#45;&#x67;&#117;&#101;&#115;&#116;&#x68;&#x6f;&#x75;&#x73;&#x65;&#x2d;&#x72;&#101;&#x63;&#111;&#x6e;&#x2d;&#119;&#105;&#x6e;&#x73;&#45;&#56;&#55;&#50;&#x32;&#54;&#55;&#50;&#101;&#52;&#x31;&#x64;&#52;">&#104;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#116;&#104;&#51;&#x67;&#51;&#x6e;&#116;&#51;&#108;&#x2f;&#104;&#x6f;&#119;&#45;&#x69;&#x2d;&#x66;&#111;&#x75;&#x6e;&#x64;&#x2d;&#97;&#x6e;&#45;&#115;&#115;&#114;&#102;&#x2d;&#105;&#110;&#45;&#x79;&#x61;&#104;&#x6f;&#111;&#45;&#x67;&#117;&#101;&#115;&#116;&#x68;&#x6f;&#x75;&#x73;&#x65;&#x2d;&#x72;&#101;&#x63;&#111;&#x6e;&#x2d;&#119;&#105;&#x6e;&#x73;&#45;&#56;&#55;&#50;&#x32;&#54;&#55;&#50;&#101;&#52;&#x31;&#x64;&#52;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#116;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#x40;&#x74;&#x68;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#x6c;&#x2f;&#104;&#x6f;&#x77;&#45;&#x69;&#45;&#x66;&#111;&#x75;&#x6e;&#100;&#45;&#x61;&#110;&#x2d;&#x73;&#x73;&#x72;&#x66;&#x2d;&#105;&#110;&#x2d;&#x79;&#x61;&#104;&#111;&#x6f;&#x2d;&#x67;&#x75;&#x65;&#x73;&#116;&#104;&#111;&#117;&#x73;&#x65;&#x2d;&#x72;&#x65;&#99;&#x6f;&#x6e;&#45;&#x77;&#105;&#x6e;&#115;&#45;&#x38;&#55;&#x32;&#x32;&#54;&#x37;&#x32;&#101;&#52;&#49;&#100;&#x34;">&#x68;&#116;&#x74;&#x70;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#x40;&#x74;&#x68;&#51;&#103;&#51;&#x6e;&#x74;&#51;&#x6c;&#x2f;&#104;&#x6f;&#x77;&#45;&#x69;&#45;&#x66;&#111;&#x75;&#x6e;&#100;&#45;&#x61;&#110;&#x2d;&#x73;&#x73;&#x72;&#x66;&#x2d;&#105;&#110;&#x2d;&#x79;&#x61;&#104;&#111;&#x6f;&#x2d;&#x67;&#x75;&#x65;&#x73;&#116;&#104;&#111;&#117;&#x73;&#x65;&#x2d;&#x72;&#x65;&#99;&#x6f;&#x6e;&#45;&#x77;&#105;&#x6e;&#115;&#45;&#x38;&#55;&#x32;&#x32;&#54;&#x37;&#x32;&#101;&#52;&#49;&#100;&#x34;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -1669,6 +1543,128 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/28/windows域安全/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/28/windows域安全/" itemprop="url">
+                  windows域安全
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T14:40:42+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>Active Directory = LDAP服务器＋LDAP应用（Windows域控）<br>就是Active Directory先实现一个LDAP服务器，然后自己先用这个LDAP服务器实现了自己的一个具体应用（域控）。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1718,7 +1714,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">154</span>
+                <span class="site-state-item-count">153</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
