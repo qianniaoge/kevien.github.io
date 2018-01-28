@@ -104,18 +104,18 @@
 
 
 
-<meta name="description" content="123译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我们的代码，但是如何向一个已在运行的进程中注入代码呢?这篇文章我将介绍如何去操作其它进程内存的一些基本技巧…">
+<meta name="description" content="12345译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097第一篇翻译的文章，如有不当，那也没有什么办法0.0主要是在工作中遇到了一个需要注入的场景就学习了一下。 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux进程注入">
+<meta property="og:title" content="linux进程注入(-)">
 <meta property="og:url" content="http://kevien.github.io/2018/01/28/linux进程注入/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="123译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我们的代码，但是如何向一个已在运行的进程中注入代码呢?这篇文章我将介绍如何去操作其它进程内存的一些基本技巧…">
+<meta property="og:description" content="12345译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097第一篇翻译的文章，如有不当，那也没有什么办法0.0主要是在工作中遇到了一个需要注入的场景就学习了一下。 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我">
 <meta property="og:image" content="http://kevien.github.io/2018/01/28/linux进程注入/testinject.png">
-<meta property="og:updated_time" content="2018-01-28T09:20:56.000Z">
+<meta property="og:updated_time" content="2018-01-28T10:01:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux进程注入">
-<meta name="twitter:description" content="123译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我们的代码，但是如何向一个已在运行的进程中注入代码呢?这篇文章我将介绍如何去操作其它进程内存的一些基本技巧…">
+<meta name="twitter:title" content="linux进程注入(-)">
+<meta name="twitter:description" content="12345译文声明本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097第一篇翻译的文章，如有不当，那也没有什么办法0.0主要是在工作中遇到了一个需要注入的场景就学习了一下。 前言 我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我">
 <meta name="twitter:image" content="http://kevien.github.io/2018/01/28/linux进程注入/testinject.png">
 
 
@@ -150,7 +150,7 @@
 
 
 
-  <title>linux进程注入 | M0rk's Blog</title>
+  <title>linux进程注入(-) | M0rk's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -334,7 +334,7 @@
             
             
               
-                linux进程注入
+                linux进程注入(-)
               
             
           </h1>
@@ -384,7 +384,7 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">译文声明</div><div class="line">本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org</div><div class="line">原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">译文声明</div><div class="line">本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org</div><div class="line">原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097</div><div class="line">第一篇翻译的文章，如有不当，那也没有什么办法0.0</div><div class="line">主要是在工作中遇到了一个需要注入的场景就学习了一下。</div></pre></td></tr></table></figure>
 <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
 <li>我们已经知道了如何向一个二进制文件注入代码让程序在下次执行的时候执行我们的代码，但是如何向一个已在运行的进程中注入代码呢?这篇文章我将介绍如何去操作其它进程内存的一些基本技巧…换句话说，就是教你如何去写一个属于你自己的调试器。<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4></li>
 <li>在去介绍技术细节之前，让我先来介绍几个需要注入代码到运行中进程的场景。</li>
