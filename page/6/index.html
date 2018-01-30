@@ -308,6 +308,138 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/13/windows权限提升/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/13/windows权限提升/" itemprop="url">
+                  windows权限提升
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T20:22:48+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><ul>
+<li><p>还是直接看代码吧，我们直接使用如下的代码进行线程所加载模块的查看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line">//powershell 获取进程所加载的dll方法  https://stackoverflow.com/questions/9041062/retrieving-dll-path-of-a-running-process</div><div class="line"></div><div class="line">//</div><div class="line"></div><div class="line">#include &lt;windows.h&gt; </div><div class="line">#include &lt;tlhelp32.h&gt; </div><div class="line">#include &lt;tchar.h&gt; </div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">//  Forward declarations: </div><div class="line">BOOL ListProcessModules(DWORD dwPID);</div><div class="line">void printError(TCHAR* msg);</div><div class="line"></div><div class="line">int _tmain(int argc, TCHAR* argv[])</div><div class="line">&#123;</div><div class="line">	if (argc != 2)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;\n Usage  : GetProcessDll.exe &lt;processid&gt; \n\n&quot;);</div><div class="line">		return 1;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//ListProcessModules(GetCurrentProcessId());</div><div class="line">	DWORD pid = wcstod(argv[1], _T(&apos;\0&apos;));</div><div class="line">	ListProcessModules(pid);</div><div class="line">	return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">BOOL ListProcessModules(DWORD dwPID)</div><div class="line">&#123;</div><div class="line">	HANDLE hModuleSnap = INVALID_HANDLE_VALUE;</div><div class="line">	MODULEENTRY32 me32;</div><div class="line"></div><div class="line">	//  Take a snapshot of all modules in the specified process. </div><div class="line">	hModuleSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, dwPID);</div><div class="line">	if (hModuleSnap == INVALID_HANDLE_VALUE)</div><div class="line">	&#123;</div><div class="line">		printError(TEXT(&quot;CreateToolhelp32Snapshot (of modules)&quot;));</div><div class="line">		return(FALSE);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//  Set the size of the structure before using it. </div><div class="line">	me32.dwSize = sizeof(MODULEENTRY32);</div><div class="line"></div><div class="line">	//  Retrieve information about the first module, </div><div class="line">	//  and exit if unsuccessful </div><div class="line">	if (!Module32First(hModuleSnap, &amp;me32))</div><div class="line">	&#123;</div><div class="line">		printError(TEXT(&quot;Module32First&quot;));  // Show cause of failure </div><div class="line">		CloseHandle(hModuleSnap);     // Must clean up the snapshot object! </div><div class="line">		return(FALSE);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	//  Now walk the module list of the process, </div><div class="line">	//  and display information about each module </div><div class="line">	do</div><div class="line">	&#123;</div><div class="line">		_tprintf(TEXT(&quot;\n\n     MODULE NAME:     %s&quot;), me32.szModule);</div><div class="line">		_tprintf(TEXT(&quot;\n     executable     = %s&quot;), me32.szExePath);</div><div class="line">		_tprintf(TEXT(&quot;\n     process ID     = 0x%08X&quot;), me32.th32ProcessID);</div><div class="line">		_tprintf(TEXT(&quot;\n     ref count (g)  =     0x%04X&quot;), me32.GlblcntUsage);</div><div class="line">		_tprintf(TEXT(&quot;\n     ref count (p)  =     0x%04X&quot;), me32.ProccntUsage);</div><div class="line">		_tprintf(TEXT(&quot;\n     base address   = 0x%08X&quot;), (DWORD)me32.modBaseAddr);</div><div class="line">		_tprintf(TEXT(&quot;\n     base size      = %d&quot;), me32.modBaseSize);</div><div class="line"></div><div class="line">	&#125; while (Module32Next(hModuleSnap, &amp;me32));</div><div class="line"></div><div class="line">	_tprintf(TEXT(&quot;\n&quot;));</div><div class="line"></div><div class="line">	//  Do not forget to clean up the snapshot object. </div><div class="line">	CloseHandle(hModuleSnap);</div><div class="line">	return(TRUE);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void printError(TCHAR* msg)</div><div class="line">&#123;</div><div class="line">	DWORD eNum;</div><div class="line">	TCHAR sysMsg[256];</div><div class="line">	TCHAR* p;</div><div class="line"></div><div class="line">	eNum = GetLastError();</div><div class="line">	FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,</div><div class="line">		NULL, eNum,</div><div class="line">		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language</div><div class="line">		sysMsg, 256, NULL);</div><div class="line"></div><div class="line">	// Trim the end of the line and terminate it with a null</div><div class="line">	p = sysMsg;</div><div class="line">	while ((*p &gt; 31) || (*p == 9))</div><div class="line">		++p;</div><div class="line">	do &#123; *p-- = 0; &#125; while ((p &gt;= sysMsg) &amp;&amp;</div><div class="line">		((*p == &apos;.&apos;) || (*p &lt; 33)));</div><div class="line"></div><div class="line">	// Display the message</div><div class="line">	_tprintf(TEXT(&quot;\n  WARNING: %s failed with error %d (%s)&quot;), msg, eNum, sysMsg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如下图所示<br><img src="/2017/09/13/windows权限提升/pic.png" alt=""><br>我们可以看到，当我们查看notepad.exe进程中的dll时是可以成功的，但是要查看svhost.exe(pid=4620)的时候，程序报错了( CreateToolhelp32Snapshot (of modules) failed with error 5 (?????)),即在查看进程所属的用户相同的时候是可以正常查看的，如果是所属不同用户的话就会失败。</p>
+</li>
+<li>这个时候我们添加如下的函数并调用它<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">VOID DebugPrivilege()</div><div class="line">&#123;</div><div class="line">	HANDLE hToken = NULL;</div><div class="line"></div><div class="line">	BOOL bRet = OpenProcessToken(GetCurrentProcess(),</div><div class="line">		TOKEN_ALL_ACCESS, &amp;hToken);</div><div class="line"></div><div class="line">	if (bRet == TRUE)</div><div class="line">	&#123;</div><div class="line">		TOKEN_PRIVILEGES tp;</div><div class="line">		tp.PrivilegeCount = 1;</div><div class="line">		LookupPrivilegeValue(NULL,</div><div class="line">			SE_DEBUG_NAME,</div><div class="line">			&amp;tp.Privileges[0].Luid);</div><div class="line">		tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;</div><div class="line">		AdjustTokenPrivileges(hToken,</div><div class="line">			FALSE, &amp;tp, sizeof(tp),</div><div class="line">			NULL, NULL);</div><div class="line"></div><div class="line">		CloseHandle(hToken);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上代码的作用是将运行的程序的权限提升至“SeDebugPrivilege“，拥有该权限以后，当前进程可以访问一些受限的系统资源。<br><br>调整进程权限的步骤如下：<br><br>1.使用OpenProcessToken函数打开当前进程的访问令牌。<br><br>2.使用LookupPrivilegeValue函数取得描述权限的LUID。<br><br>3.使用AdjustTokenPrivilege函数调整访问令牌的权限。<br></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li><a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debug-privilege" target="_blank" rel="external">https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debug-privilege</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/13/20170913安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +522,7 @@
 <li>【干货分享】手把手教你Android Logcat组件安全<br><a href="http://blog.nsfocus.net/android-logcat-security/" target="_blank" rel="external">http://blog.nsfocus.net/android-logcat-security/</a></li>
 <li>逆向 OBi200 谷歌语音设备<br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/</a><br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/</a></li>
 <li>[ IoTDevice ]  ARM exploitation for IoT - part 2<br><a href="https://quequero.org/2017/09/arm-exploitation-iot-episode-2" target="_blank" rel="external">https://quequero.org/2017/09/arm-exploitation-iot-episode-2</a></li>
-<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#x61;&#108;&#97;&#110;&#116;&#105;&#114;&#47;&#x77;&#x69;&#110;&#x64;&#111;&#119;&#x73;&#45;&#x65;&#118;&#x65;&#x6e;&#116;&#45;&#102;&#111;&#114;&#x77;&#97;&#114;&#x64;&#x69;&#x6e;&#103;&#x2d;&#102;&#x6f;&#x72;&#x2d;&#x6e;&#x65;&#116;&#x77;&#x6f;&#114;&#107;&#45;&#x64;&#101;&#x66;&#x65;&#110;&#115;&#x65;&#x2d;&#x63;&#x62;&#50;&#48;&#56;&#x64;&#53;&#102;&#102;&#56;&#x36;&#x66;">&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#x64;&#105;&#x75;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#x61;&#108;&#97;&#110;&#116;&#105;&#114;&#47;&#x77;&#x69;&#110;&#x64;&#111;&#119;&#x73;&#45;&#x65;&#118;&#x65;&#x6e;&#116;&#45;&#102;&#111;&#114;&#x77;&#97;&#114;&#x64;&#x69;&#x6e;&#103;&#x2d;&#102;&#x6f;&#x72;&#x2d;&#x6e;&#x65;&#116;&#x77;&#x6f;&#114;&#107;&#45;&#x64;&#101;&#x66;&#x65;&#110;&#115;&#x65;&#x2d;&#x63;&#x62;&#50;&#48;&#56;&#x64;&#53;&#102;&#102;&#56;&#x36;&#x66;</a></li>
+<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#116;&#x74;&#x70;&#x73;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x70;&#97;&#x6c;&#97;&#110;&#116;&#x69;&#114;&#47;&#119;&#x69;&#x6e;&#x64;&#x6f;&#119;&#115;&#45;&#101;&#x76;&#101;&#110;&#116;&#x2d;&#x66;&#x6f;&#114;&#119;&#97;&#114;&#100;&#x69;&#110;&#x67;&#x2d;&#102;&#x6f;&#x72;&#x2d;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#x6b;&#x2d;&#100;&#x65;&#x66;&#x65;&#110;&#x73;&#101;&#x2d;&#99;&#98;&#x32;&#48;&#x38;&#x64;&#x35;&#x66;&#102;&#x38;&#54;&#102;">&#x68;&#116;&#x74;&#x70;&#x73;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#x2f;&#64;&#x70;&#97;&#x6c;&#97;&#110;&#116;&#x69;&#114;&#47;&#119;&#x69;&#x6e;&#x64;&#x6f;&#119;&#115;&#45;&#101;&#x76;&#101;&#110;&#116;&#x2d;&#x66;&#x6f;&#114;&#119;&#97;&#114;&#100;&#x69;&#110;&#x67;&#x2d;&#102;&#x6f;&#x72;&#x2d;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#x6b;&#x2d;&#100;&#x65;&#x66;&#x65;&#110;&#x73;&#101;&#x2d;&#99;&#98;&#x32;&#48;&#x38;&#x64;&#x35;&#x66;&#102;&#x38;&#54;&#102;</a></li>
 <li>ZDI 对补丁日的总结<br><a href="https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review" target="_blank" rel="external">https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review</a></li>
 <li>[ Industry News ]  Kromtech 安全中心的人发现 超过 4000 个 ElasticSearch 服务器托管着 PoS 恶意软件(AlinaPOS、 JackPOS)<br><a href="https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/</a></li>
 <li>Strust2漏洞影响多个Cisco产品<br><a href="http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html" target="_blank" rel="external">http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html</a></li>
@@ -674,7 +806,7 @@
 <li>如何将Pastebin上的信息应用于安全分析和威胁情报领域<br><a href="https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/" target="_blank" rel="external">https://techanarchy.net/2017/09/hunting-pastebin-with-pastehunter/</a></li>
 <li>DEDECMS 会员中心代码投稿缺陷可getshell<br><a href="https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg" target="_blank" rel="external">https://mp.weixin.qq.com/s/_t6h7PosyVGsSAChqDQRfg</a></li>
 <li>Windows内核驱动漏洞利用代码开发简介（part-1） - 环境设置  Windows内核漏洞利用代码开发开发简介（part2）：如何利用堆缓冲区溢出漏洞到系统shell<br><a href="https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/" target="_blank" rel="external">https://glennmcgui.re/introduction-to-windows-kernel-exploitation-pt-1/</a><br><https: glennmcgui.re="" introduction-to-windows-kernel-driver-exploitation-pt-2=""></https:></li>
-<li>苹果Touch ID安全性浅谈<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#x66;&#115;&#x74;&#105;&#101;&#104;&#108;&#101;&#47;&#x64;&#101;&#x6d;&#x79;&#115;&#x74;&#105;&#102;&#121;&#105;&#110;&#x67;&#x2d;&#97;&#112;&#112;&#108;&#x65;&#115;&#45;&#116;&#x6f;&#117;&#x63;&#104;&#x2d;&#105;&#100;&#45;&#x34;&#x38;&#56;&#x33;&#x64;&#x35;&#49;&#x32;&#49;&#98;&#x37;&#x37;">&#104;&#x74;&#116;&#x70;&#x73;&#58;&#47;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#x66;&#115;&#x74;&#105;&#101;&#104;&#108;&#101;&#47;&#x64;&#101;&#x6d;&#x79;&#115;&#x74;&#105;&#102;&#121;&#105;&#110;&#x67;&#x2d;&#97;&#112;&#112;&#108;&#x65;&#115;&#45;&#116;&#x6f;&#117;&#x63;&#104;&#x2d;&#105;&#100;&#45;&#x34;&#x38;&#56;&#x33;&#x64;&#x35;&#49;&#x32;&#49;&#98;&#x37;&#x37;</a></li>
+<li>苹果Touch ID安全性浅谈<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#100;&#105;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x66;&#x73;&#x74;&#105;&#101;&#104;&#x6c;&#101;&#x2f;&#x64;&#x65;&#x6d;&#121;&#x73;&#116;&#105;&#102;&#x79;&#x69;&#x6e;&#x67;&#x2d;&#x61;&#x70;&#112;&#x6c;&#x65;&#x73;&#45;&#116;&#111;&#x75;&#x63;&#x68;&#x2d;&#105;&#x64;&#x2d;&#x34;&#x38;&#x38;&#x33;&#x64;&#x35;&#49;&#x32;&#x31;&#x62;&#x37;&#55;">&#104;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#100;&#105;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x66;&#x73;&#x74;&#105;&#101;&#104;&#x6c;&#101;&#x2f;&#x64;&#x65;&#x6d;&#121;&#x73;&#116;&#105;&#102;&#x79;&#x69;&#x6e;&#x67;&#x2d;&#x61;&#x70;&#112;&#x6c;&#x65;&#x73;&#45;&#116;&#111;&#x75;&#x63;&#x68;&#x2d;&#105;&#x64;&#x2d;&#x34;&#x38;&#x38;&#x33;&#x64;&#x35;&#49;&#x32;&#x31;&#x62;&#x37;&#55;</a></li>
 <li>Vulners Python API wrapper<br><a href="https://github.com/vulnersCom/api" target="_blank" rel="external">https://github.com/vulnersCom/api</a></li>
 <li>手工逆 Chrome 扩展后门的一些思路<br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzA3NTEzMTUwNA==&amp;mid=2651081304&amp;idx=1&amp;sn=8f63e1cfd3261763ff8d982c045d0c51</a></li>
 <li>【技术分享】how2heap总结-上  堆溢出<br><a href="http://bobao.360.cn/learning/detail/4386.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4386.html</a></li>
@@ -1074,7 +1206,7 @@
 <li>Syzygy - PE 文件的文件重写工具（Binary Rewriting），可以实现代码块分析和重构等功能<br><a href="http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/" target="_blank" rel="external">http://doar-e.github.io/blog/2017/08/05/binary-rewriting-with-syzygy/</a></li>
 <li>InfoCON - 专门收集各大信息安全会议资料的网站<br><a href="https://infocon.org/cons/" target="_blank" rel="external">https://infocon.org/cons/</a></li>
 <li>FrauDroid - 一个精确的大规模自动化手机广告欺诈检测的方法<br><a href="https://arxiv.org/pdf/1709.01213.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1709.01213.pdf</a></li>
-<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#x69;&#110;&#115;&#x65;&#99;&#117;&#114;&#105;&#116;&#121;&#x5f;&#x39;&#x32;&#52;&#55;&#55;&#47;&#117;&#x74;&#105;&#x6c;&#105;&#122;&#x69;&#x6e;&#x67;&#45;&#x68;&#116;&#x61;&#99;&#99;&#x65;&#115;&#x73;&#x2d;&#102;&#111;&#x72;&#45;&#101;&#x78;&#x70;&#108;&#x6f;&#x69;&#x74;&#97;&#x74;&#x69;&#x6f;&#x6e;&#45;&#x70;&#117;&#114;&#x70;&#x6f;&#x73;&#101;&#115;&#x2d;&#112;&#97;&#x72;&#x74;&#x2d;&#x31;&#x2d;&#x35;&#x37;&#51;&#x33;&#x64;&#x64;&#55;&#102;&#x63;&#56;&#101;&#98;">&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#x40;&#x69;&#110;&#115;&#x65;&#99;&#117;&#114;&#105;&#116;&#121;&#x5f;&#x39;&#x32;&#52;&#55;&#55;&#47;&#117;&#x74;&#105;&#x6c;&#105;&#122;&#x69;&#x6e;&#x67;&#45;&#x68;&#116;&#x61;&#99;&#99;&#x65;&#115;&#x73;&#x2d;&#102;&#111;&#x72;&#45;&#101;&#x78;&#x70;&#108;&#x6f;&#x69;&#x74;&#97;&#x74;&#x69;&#x6f;&#x6e;&#45;&#x70;&#117;&#114;&#x70;&#x6f;&#x73;&#101;&#115;&#x2d;&#112;&#97;&#x72;&#x74;&#x2d;&#x31;&#x2d;&#x35;&#x37;&#51;&#x33;&#x64;&#x64;&#55;&#102;&#x63;&#56;&#101;&#98;</a></li>
+<li>滥用 .htaccess 实现 Web 漏洞的利用<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#105;&#110;&#115;&#x65;&#99;&#117;&#x72;&#x69;&#x74;&#121;&#95;&#57;&#x32;&#52;&#55;&#55;&#47;&#117;&#x74;&#105;&#x6c;&#x69;&#122;&#105;&#110;&#x67;&#x2d;&#x68;&#x74;&#x61;&#99;&#x63;&#x65;&#x73;&#x73;&#x2d;&#102;&#111;&#114;&#45;&#101;&#x78;&#112;&#108;&#111;&#105;&#116;&#97;&#x74;&#105;&#111;&#110;&#x2d;&#112;&#117;&#x72;&#112;&#x6f;&#x73;&#101;&#x73;&#x2d;&#x70;&#97;&#114;&#116;&#x2d;&#x31;&#x2d;&#x35;&#55;&#51;&#51;&#x64;&#100;&#x37;&#102;&#x63;&#56;&#101;&#x62;">&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#64;&#105;&#110;&#115;&#x65;&#99;&#117;&#x72;&#x69;&#x74;&#121;&#95;&#57;&#x32;&#52;&#55;&#55;&#47;&#117;&#x74;&#105;&#x6c;&#x69;&#122;&#105;&#110;&#x67;&#x2d;&#x68;&#x74;&#x61;&#99;&#x63;&#x65;&#x73;&#x73;&#x2d;&#102;&#111;&#114;&#45;&#101;&#x78;&#112;&#108;&#111;&#105;&#116;&#97;&#x74;&#105;&#111;&#110;&#x2d;&#112;&#117;&#x72;&#112;&#x6f;&#x73;&#101;&#x73;&#x2d;&#x70;&#97;&#114;&#116;&#x2d;&#x31;&#x2d;&#x35;&#55;&#51;&#51;&#x64;&#100;&#x37;&#102;&#x63;&#56;&#101;&#x62;</a></li>
 <li>Wireless IP Camera (P2P) WIFICAM 无线摄像头的多个高危漏洞详情<br><a href="https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html" target="_blank" rel="external">https://pierrekim.github.io/blog/2017-03-08-camera-goahead-0day.html</a></li>
 <li>黑客免费提供的Cobian RAT中暗藏后门<br><a href="http://thehackernews.com/2017/09/backdoored-hacking-tools.html" target="_blank" rel="external">http://thehackernews.com/2017/09/backdoored-hacking-tools.html</a></li>
 <li>如何制作基础认证钓鱼页面<br><a href="https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/" target="_blank" rel="external">https://securitycafe.ro/2017/09/06/phishy-basic-authentication-prompts/</a></li>
@@ -1593,133 +1725,6 @@ $c = &quot;dummy3&quot;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/04/window消息钩取/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/04/window消息钩取/" itemprop="url">
-                  window消息钩取
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T20:48:02+08:00">
-                2017-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h4><p>在操作系统中安装全局钩子以后，只要进程接收到可以发出钩子的消息后，全局钩子的DLL文件会被操作系统自动或者强行地加载到该进程中。<br>主要是SetWindowsHookEx()这个API函数<br>Hook  SetWindowsHookEx(<br>    int idHook,   //hook type<br>    HOOKPROC lpfn //hook procedure<br>    HINSTANCE hMOd // hook Procedure 所属的DLL句柄<br>    DWORD dwThreadId // 想要挂钩的线程ID<br>)<br>钩子过程是由操作系统调用的回调函数，安装消息钩子的时候，钩子过程需要存在于某个DLL内部，且该DLL的实例句柄即是hMod.<br>这里要注意，当dwThreadId参数被设置为0时候，则安装的是全局钩子，他会影响到运行中的所有进程。<br>像是使用SetWindowsHookEx()设置好钩子之后，在某个进程中生成指定消息时，操作系统会将相关的DLL文件强制注入到相应进程，然后调用注册的钩子函数。</p>
-<h4 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a>实验记录</h4><ul>
-<li>这里练习一下WH_KEYBOARD 这个键盘钩子，记录下钩子过程的地址后面用的到,为10046f00，其实就是keyboardProc函数<br><img src="/2017/09/04/window消息钩取/0.png" alt=""></li>
-<li>附加进程-&gt;勾选debugging options中的Break on new module(dll)-&gt;运行HookMain.exe-&gt;在notepad中键盘输入-&gt;此时就有如下<br><img src="/2017/09/04/window消息钩取/1.png" alt=""></li>
-<li>如下图所示，每当notepad.exe发生键盘输入事件的时候，调试就会停在此处。<br><img src="/2017/09/04/window消息钩取/2.png" alt=""><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4></li>
-<li>我觉得这张图能很好的阐释windows钩子的原理<br><img src="/2017/09/04/window消息钩取/3.png" alt=""><br>spy++是一个功能十分强大的消息钩取程序，能够查看操作系统中来往的所有消息。</li>
-<li>在windows中SetWindowsHookEx()这个API可以轻松实现消息钩子。<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4>逆向工程核心原理</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1769,7 +1774,7 @@ $c = &quot;dummy3&quot;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">156</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

