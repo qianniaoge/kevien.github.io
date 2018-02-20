@@ -308,6 +308,272 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/08/ELF文件学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/08/ELF文件学习/" itemprop="url">
+                  ELF文件学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-08T15:32:54+08:00">
+                2017-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>ELF(Executable and Linkable Format)可执行和可链接格式。<h4 id="动态链接库"><a href="#动态链接库" class="headerlink" title="动态链接库"></a>动态链接库</h4></li>
+<li>类似于dumpbin，可以使用ldd(print shared object dependencies)命令查看<br><a href="http://www.cnblogs.com/jiqingwu/p/linux_dynamic_lib_create.html" target="_blank" rel="external">参考</a><br><img src="/2017/10/08/ELF文件学习/ldd.png" alt=""><br>这样我们可以看的到， hello的运行用到了我们编写的libmyhello.so这个动态链接库，还用到了libc.so.6这个c语言的标准库。<h4 id="ELF文件格式"><a href="#ELF文件格式" class="headerlink" title="ELF文件格式"></a>ELF文件格式</h4></li>
+<li>readelf命令<br>这个命令应该是最常用的到的，-a 它会显示ELF文件的所有信息。<br><img src="/2017/10/08/ELF文件学习/readelf.png" alt=""><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><a href="https://www.slideshare.net/AngelBoy1/play-with-file-structure-yet-another-binary-exploit-technique" target="_blank" rel="external">二进制中的奥妙：文件结构</a><br>[工具elfparser]<br>(<a href="https://github.com/jacob-baines/elfparser" target="_blank" rel="external">https://github.com/jacob-baines/elfparser</a>)<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">老外两年前写的，差距好大</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/06/20171006安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/06/20171006安全动态/" itemprop="url">
+                  20171006安全动态
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-06T10:52:19+08:00">
+                2017-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><p>都在过十一，好久没更新了。</p>
+<ul>
+<li>雅虎承认其30亿用户信息全部被黑<br><a href="http://www.freebuf.com/news/149894.html" target="_blank" rel="external">http://www.freebuf.com/news/149894.html</a></li>
+<li>注册机音乐随记<br><a href="http://veritas501.space/2017/10/05/%E6%B3%A8%E5%86%8C%E6%9C%BA%E9%9F%B3%E4%B9%90%E9%9A%8F%E8%AE%B0/" target="_blank" rel="external">http://veritas501.space/2017/10/05/%E6%B3%A8%E5%86%8C%E6%9C%BA%E9%9F%B3%E4%B9%90%E9%9A%8F%E8%AE%B0/</a></li>
+<li>Playing with Dynamic symbolic execution<br><a href="http://www.miasm.re/blog/2017/10/05/playing_with_dynamic_symbolic_execution.html" target="_blank" rel="external">http://www.miasm.re/blog/2017/10/05/playing_with_dynamic_symbolic_execution.html</a></li>
+<li>黑帽SEO剖析之手法篇<br><a href="http://www.freebuf.com/articles/web/149438.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/149438.html</a></li>
+<li>黑帽SEO剖析之工具篇<br><a href="http://www.freebuf.com/sectool/149427.html" target="_blank" rel="external">http://www.freebuf.com/sectool/149427.html</a></li>
+<li>HITB CTF 2017 Pwn题研究<br><a href="http://0x48.pw/2017/08/29/0x39/" target="_blank" rel="external">http://0x48.pw/2017/08/29/0x39/</a></li>
+<li>Pwnhub 2013的国庆 writeup<br><a href="http://0x48.pw/2017/10/04/0x3A/" target="_blank" rel="external">http://0x48.pw/2017/10/04/0x3A/</a></li>
+<li>代码审计之60度cms<br><a href="http://foreversong.cn/archives/697" target="_blank" rel="external">http://foreversong.cn/archives/697</a></li>
+<li>Apache server security: 10 tips to secure installation<br><a href="https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/" target="_blank" rel="external">https://www.acunetix.com/blog/articles/10-tips-secure-apache-installation/</a></li>
+<li>BackdoorCTF 2017-Extends Me-writeup<br><a href="https://chybeta.github.io/2017/09/28/BackdoorCTF-2017-Extends-Me-writeup/" target="_blank" rel="external">https://chybeta.github.io/2017/09/28/BackdoorCTF-2017-Extends-Me-writeup/</a></li>
+<li>Mac OS X 10.12 Quarantine Bypass<br><a href="https://blogs.securiteam.com/index.php/archives/3449" target="_blank" rel="external">https://blogs.securiteam.com/index.php/archives/3449</a></li>
+<li>从试玩某SF游戏 到修改游戏数据<br><a href="https://bbs.ichunqiu.com/thread-27502-1-1.html" target="_blank" rel="external">https://bbs.ichunqiu.com/thread-27502-1-1.html</a></li>
+<li>覆盖虚表方式利用栈溢出漏洞<br><a href="http://docs.ioin.in/writeup/blog.csdn.net/_niexinming_article_details_78144301/index.html" target="_blank" rel="external">http://docs.ioin.in/writeup/blog.csdn.net/_niexinming_article_details_78144301/index.html</a></li>
+<li>从心脏出血到量子安全，OpenSSL到底是怎样的存在？<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651073710&amp;idx=1&amp;sn=cc41779bbe09ce4dc31ed8c61e53dc56&amp;chksm=bd149c7d8a63156b0a1fdac683260ab14dcb118f0f87cddddf46db8dbcd3da788b1fd5e40c99&amp;mpshare=1&amp;scene=23&amp;srcid=1006stEiNm1t7uBRYG6S6E6M#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651073710&amp;idx=1&amp;sn=cc41779bbe09ce4dc31ed8c61e53dc56&amp;chksm=bd149c7d8a63156b0a1fdac683260ab14dcb118f0f87cddddf46db8dbcd3da788b1fd5e40c99&amp;mpshare=1&amp;scene=23&amp;srcid=1006stEiNm1t7uBRYG6S6E6M#rd</a></li>
+<li>Powershell安全最佳实践<br><a href="http://www.4hou.com/data/7849.html" target="_blank" rel="external">http://www.4hou.com/data/7849.html</a></li>
+<li>探索C++虚函数在内存中的表现形式及运行机制<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458285608&amp;idx=1&amp;sn=44f34a321ae9819f81b77c8ce0c79b23&amp;chksm=b18146a286f6cfb44139e14dbbc73a51be2b645e8e068d8748be7ca0c830c4f5471aa5916cbf&amp;mpshare=1&amp;scene=23&amp;srcid=1005io6TGKJHY9upwuJJn7AI#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458285608&amp;idx=1&amp;sn=44f34a321ae9819f81b77c8ce0c79b23&amp;chksm=b18146a286f6cfb44139e14dbbc73a51be2b645e8e068d8748be7ca0c830c4f5471aa5916cbf&amp;mpshare=1&amp;scene=23&amp;srcid=1005io6TGKJHY9upwuJJn7AI#rd</a></li>
+<li>一个内存取证框架<br><a href="http://www.rekall-forensic.com" target="_blank" rel="external">http://www.rekall-forensic.com</a></li>
+<li>PopUnder 研究：Javascript逆向与反逆向<br><a href="http://www.jianshu.com/p/9148d215c119" target="_blank" rel="external">http://www.jianshu.com/p/9148d215c119</a></li>
+<li>绕过DKIM验证，伪造钓鱼邮件<br><a href="http://www.4hou.com/web/7857.html" target="_blank" rel="external">http://www.4hou.com/web/7857.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/29/GTest测试框架/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1044,7 +1310,7 @@
         
           
             <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>ROP介绍<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#x69;&#115;&#101;&#101;&#116;&#x68;&#105;&#x65;&#x76;&#x65;&#x73;&#47;&#105;&#x6e;&#116;&#x72;&#x6f;&#x2d;&#x74;&#x6f;&#x2d;&#x72;&#111;&#112;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#x65;&#x6d;&#112;&#111;&#x72;&#105;&#x75;&#109;&#x2d;&#x73;&#112;&#x6c;&#x69;&#116;&#x2d;&#57;&#98;&#x32;&#x65;&#x63;&#54;&#100;&#52;&#100;&#98;&#48;&#x38;">&#x68;&#x74;&#116;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#64;&#x69;&#115;&#101;&#101;&#116;&#x68;&#105;&#x65;&#x76;&#x65;&#x73;&#47;&#105;&#x6e;&#116;&#x72;&#x6f;&#x2d;&#x74;&#x6f;&#x2d;&#x72;&#111;&#112;&#x2d;&#x72;&#x6f;&#112;&#x2d;&#x65;&#x6d;&#112;&#111;&#x72;&#105;&#x75;&#109;&#x2d;&#x73;&#112;&#x6c;&#x69;&#116;&#x2d;&#57;&#98;&#x32;&#x65;&#x63;&#54;&#100;&#52;&#100;&#98;&#48;&#x38;</a></li>
+<li>ROP介绍<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#x40;&#105;&#115;&#x65;&#101;&#x74;&#x68;&#x69;&#101;&#118;&#101;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#111;&#x2d;&#116;&#x6f;&#45;&#x72;&#111;&#112;&#x2d;&#x72;&#x6f;&#x70;&#45;&#x65;&#109;&#x70;&#x6f;&#114;&#x69;&#x75;&#109;&#x2d;&#115;&#112;&#x6c;&#x69;&#116;&#45;&#x39;&#98;&#50;&#x65;&#x63;&#54;&#x64;&#x34;&#100;&#x62;&#48;&#56;">&#104;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#x40;&#105;&#115;&#x65;&#101;&#x74;&#x68;&#x69;&#101;&#118;&#101;&#115;&#x2f;&#x69;&#110;&#x74;&#x72;&#111;&#x2d;&#116;&#x6f;&#45;&#x72;&#111;&#112;&#x2d;&#x72;&#x6f;&#x70;&#45;&#x65;&#109;&#x70;&#x6f;&#114;&#x69;&#x75;&#109;&#x2d;&#115;&#112;&#x6c;&#x69;&#116;&#45;&#x39;&#98;&#50;&#x65;&#x63;&#54;&#x64;&#x34;&#100;&#x62;&#48;&#56;</a></li>
 <li>Biting the Apple that feeds you（咬一口嘴边的苹果） - macOS 内核的 Fuzzing，来自 MWR Labs 在 44CON 会议的演讲<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/mwri-44con-biting-the-apple-that-feeds-you-2017-09-25.pdf</a></li>
 <li>High Sierra macOS 系统中，未签名的程序通过编程可以导出 keychain 中的明文密码<br><a href="https://twitter.com/i/web/status/912254053849079808" target="_blank" rel="external">https://twitter.com/i/web/status/912254053849079808</a></li>
 <li>macOS High Sierra 10.13 安全更新内容<br><a href="https://support.apple.com/en-us/HT208144" target="_blank" rel="external">https://support.apple.com/en-us/HT208144</a></li>
@@ -1375,276 +1641,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/" itemprop="url">
-                  Tomcat 远程代码执行漏洞(CVE-2017-12615)以及信息泄露漏洞(CVE-2017-12616)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T15:20:42+08:00">
-                2017-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><h4 id="复现"><a href="#复现" class="headerlink" title="复现"></a>复现</h4><ul>
-<li>测试环境<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/tomcatversion.png" alt=""></li>
-<li>首先修改conf/web.xml文件，如下<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/config.png" alt=""><br><br>修改完成之后重启tomcat服务器</li>
-<li>put上传文件<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/put.png" alt=""></li>
-<li>测试<br><img src="/2017/09/21/Tomcat-远程代码执行漏洞-CVE-2017-12615-以及信息泄露漏洞-CVE-2017-12616/result.png" alt=""><h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4></li>
-<li>待更<h4 id="CVE-2017-12616-​信息泄露漏洞"><a href="#CVE-2017-12616-​信息泄露漏洞" class="headerlink" title="CVE-2017-12616 ​信息泄露漏洞"></a>CVE-2017-12616 ​信息泄露漏洞</h4><h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
-<li>说实话，没事儿去修改readonly为false的应该不多，所以漏洞影响有限。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&amp;mid=2247483659&amp;idx=1&amp;sn=c23b3a3b3b43d70999bdbe644e79f7e5&amp;chksm=ea3f3dd9dd48b4cf1db66e70662126cf1eb45f60eb8205b3391d20f66564e6a789b158c0efe5&amp;mpshare=1&amp;scene=23&amp;srcid=0921nOtxiMml2bGoVXM9jKMS#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI1NDg4MTIxMw==&amp;mid=2247483659&amp;idx=1&amp;sn=c23b3a3b3b43d70999bdbe644e79f7e5&amp;chksm=ea3f3dd9dd48b4cf1db66e70662126cf1eb45f60eb8205b3391d20f66564e6a789b158c0efe5&amp;mpshare=1&amp;scene=23&amp;srcid=0921nOtxiMml2bGoVXM9jKMS#rd</a></li>
-<li><a href="http://www.freebuf.com/vuls/148283.html" target="_blank" rel="external">http://www.freebuf.com/vuls/148283.html</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483712&amp;idx=1&amp;sn=c92d1abc41c6a8293c83ff4913b214a4&amp;chksm=ecb11db0dbc694a62d5d073054d0bf41b2ab5680807f19a3357a82fcb4ba72883cf97e9b4321&amp;mpshare=1&amp;scene=23&amp;srcid=0921koVmEUnPZyCRatqKTka3#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5Nzc0OTkxOQ==&amp;mid=2247483712&amp;idx=1&amp;sn=c92d1abc41c6a8293c83ff4913b214a4&amp;chksm=ecb11db0dbc694a62d5d073054d0bf41b2ab5680807f19a3357a82fcb4ba72883cf97e9b4321&amp;mpshare=1&amp;scene=23&amp;srcid=0921koVmEUnPZyCRatqKTka3#rd</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/21/20170921安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/21/20170921安全动态/" itemprop="url">
-                  20170921安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T10:32:52+08:00">
-                2017-09-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>针对 NFS 的渗透测试<br><a href="https://pentestacademy.wordpress.com/2017/09/20/nfs/" target="_blank" rel="external">https://pentestacademy.wordpress.com/2017/09/20/nfs/</a></li>
-<li>Joomla! &lt;= 3.7.5 LDAP 注入漏洞详情（CVE-2017-14596）<br><a href="https://blog.ripstech.com/2017/joomla-takeover-in-20-seconds-with-ldap-injection-cve-2017-14596/" target="_blank" rel="external">https://blog.ripstech.com/2017/joomla-takeover-in-20-seconds-with-ldap-injection-cve-2017-14596/</a></li>
-<li>retire.js - 一款用于检测 JavaScript 库是否存在已知漏洞的工具<br><a href="https://github.com/RetireJS/retire.js" target="_blank" rel="external">https://github.com/RetireJS/retire.js</a></li>
-<li><p>racer - 一键式应用，可用于测试条件竞争<br><a href="https://github.com/sakurity/racer" target="_blank" rel="external">https://github.com/sakurity/racer</a><br><a href="https://github.com/insp3ctre/race-the-web" target="_blank" rel="external">https://github.com/insp3ctre/race-the-web</a><br><a href="http://racetheweb.io/bank" target="_blank" rel="external">http://racetheweb.io/bank</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个不错值得研究一下。</div></pre></td></tr></table></figure>
-</li>
-<li><p>滥用 DLL 延迟加载实现远程代码注入<br><a href="http://hatriot.github.io/blog/2017/09/19/abusing-delay-load-dll/" target="_blank" rel="external">http://hatriot.github.io/blog/2017/09/19/abusing-delay-load-dll/</a></p>
-</li>
-<li>Tomcat 远程代码执行漏洞分析（CVE-2017-12615）及补丁 Bypass，来自腾讯云鼎实验室的分析<br><a href="http://www.freebuf.com/vuls/148283.html" target="_blank" rel="external">http://www.freebuf.com/vuls/148283.html</a></li>
-<li>蓝牙协议 Android 信息泄露漏洞 (CVE-2017-0785/Blueborne) 的 PoC<br><a href="https://github.com/ojasookert/CVE-2017-0785" target="_blank" rel="external">https://github.com/ojasookert/CVE-2017-0785</a></li>
-<li>CVE-2016-10191 FFmpeg RTMP Heap Buffer Overflow 漏洞分析及利用，来自 蚂蚁金服巴斯光年安全实验室<br><a href="http://jaq.alibaba.com/community/art/show?articleid=1074" target="_blank" rel="external">http://jaq.alibaba.com/community/art/show?articleid=1074</a></li>
-<li>Burp Suite被曝存在远程代码执行漏洞<br><a href="http://bobao.360.cn/news/detail/4334.html" target="_blank" rel="external">http://bobao.360.cn/news/detail/4334.html</a></li>
-<li>Windows内核池喷射的乐趣<br><a href="http://bobao.360.cn/learning/detail/4439.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4439.html</a></li>
-<li>java反序列化的漏洞<br><a href="https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/" target="_blank" rel="external">https://diablohorn.com/2017/09/09/understanding-practicing-java-deserialization-exploits/</a></li>
-<li>DenyAll WAF远程代码执行漏洞<br><a href="https://pentest.blog/advisory-denyall-web-application-firewall-unauthenticated-remote-code-execution/" target="_blank" rel="external">https://pentest.blog/advisory-denyall-web-application-firewall-unauthenticated-remote-code-execution/</a></li>
-<li>打破Windows环境的限制<br><a href="https://weirdgirlweb.wordpress.com/" target="_blank" rel="external">https://weirdgirlweb.wordpress.com/</a></li>
-<li>应急响应案例分析与经验分享<br><a href="http://blog.nsfocus.net/emergency-response-case-study/" target="_blank" rel="external">http://blog.nsfocus.net/emergency-response-case-study/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>vscode的evernote插件<br><a href="https://github.com/michalyao/evermonkey" target="_blank" rel="external">https://github.com/michalyao/evermonkey</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">现在的evernote的开发者token暂时不能用了:(</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1694,7 +1690,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">156</span>
+                <span class="site-state-item-count">158</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

