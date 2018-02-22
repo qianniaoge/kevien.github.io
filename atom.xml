@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-02-20T04:06:52.000Z</updated>
+  <updated>2018-02-20T04:08:28.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://kevien.github.io/2018/02/20/linux%E4%B8%80%E7%A7%8D%E6%97%A0%E6%96%87%E4%BB%B6%E5%90%8E%E9%97%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/</id>
     <published>2018-02-20T03:51:50.000Z</published>
-    <updated>2018-02-20T04:06:52.000Z</updated>
+    <updated>2018-02-20T04:08:28.000Z</updated>
     
     <content type="html"><![CDATA[<h4 id="TD-DR"><a href="#TD-DR" class="headerlink" title="TD;DR"></a>TD;DR</h4><ul>
 <li><p>几周之前我看了这篇<a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">文章</a>,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里<a href="https://kevien.github.io/2018/01/28/linux进程注入/">linux进程注入</a>)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话</p>
@@ -91,7 +91,7 @@
 </li>
 </ul>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>读完这篇文章，你应该了解了我们之前提到的open/memfdcreate/sendfile/fexecve这几个函数。</li>
+<li>读完这篇文章，你应该了解了之前提到的open/memfdcreate/sendfile/fexecve这几个函数。</li>
 <li>这篇文章中作者是以打开xeye程序为示例，还有其它猥琐的利用场景,你想到了吗？<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li><a href="https://0x00sec.org/t/super-stealthy-droppers/3715" target="_blank" rel="external">Super-Stealthy Droppers</a></li>
 </ul>
@@ -856,7 +856,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#64;&#112;&#x61;&#108;&#x61;&#110;&#x74;&#105;&#x72;&#x2f;&#111;&#115;&#x71;&#x75;&#x65;&#114;&#x79;&#45;&#x61;&#x63;&#x72;&#x6f;&#x73;&#115;&#x2d;&#x74;&#x68;&#x65;&#45;&#101;&#110;&#116;&#101;&#114;&#112;&#114;&#105;&#115;&#x65;&#45;&#51;&#99;&#51;&#x63;&#57;&#100;&#49;&#51;&#101;&#99;&#53;&#x35;">&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#64;&#112;&#x61;&#108;&#x61;&#110;&#x74;&#105;&#x72;&#x2f;&#111;&#115;&#x71;&#x75;&#x65;&#114;&#x79;&#45;&#x61;&#x63;&#x72;&#x6f;&#x73;&#115;&#x2d;&#x74;&#x68;&#x65;&#45;&#101;&#110;&#116;&#101;&#114;&#112;&#114;&#105;&#115;&#x65;&#45;&#51;&#99;&#51;&#x63;&#57;&#100;&#49;&#51;&#101;&#99;&#53;&#x35;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x61;&#108;&#x61;&#x6e;&#x74;&#x69;&#x72;&#47;&#111;&#115;&#x71;&#x75;&#101;&#114;&#121;&#x2d;&#x61;&#x63;&#x72;&#111;&#x73;&#115;&#x2d;&#x74;&#x68;&#101;&#x2d;&#101;&#110;&#116;&#x65;&#114;&#112;&#x72;&#x69;&#x73;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#x39;&#100;&#x31;&#x33;&#101;&#99;&#53;&#53;">&#104;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x61;&#108;&#x61;&#x6e;&#x74;&#x69;&#x72;&#47;&#111;&#115;&#x71;&#x75;&#101;&#114;&#121;&#x2d;&#x61;&#x63;&#x72;&#111;&#x73;&#115;&#x2d;&#x74;&#x68;&#101;&#x2d;&#101;&#110;&#116;&#x65;&#114;&#112;&#x72;&#x69;&#x73;&#x65;&#x2d;&#51;&#x63;&#x33;&#99;&#x39;&#100;&#x31;&#x33;&#101;&#99;&#53;&#53;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -926,7 +926,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#116;&#111;&#109;&#101;&#114;&#115;&#x68;&#x65;&#109;&#101;&#115;&#x68;&#x2f;&#114;&#x65;&#x76;&#x65;&#x72;&#115;&#101;&#45;&#101;&#x6e;&#x67;&#105;&#110;&#x65;&#x65;&#x72;&#x69;&#x6e;&#103;&#x2d;&#116;&#x68;&#x65;&#x2d;&#100;&#x72;&#x65;&#x78;&#x65;&#108;&#x2d;&#x6f;&#110;&#x65;&#x2d;&#x61;&#x70;&#x69;&#x2d;&#51;&#x37;&#x30;&#97;&#x35;&#54;&#48;&#97;&#102;&#x65;&#100;&#x66;">&#104;&#116;&#x74;&#x70;&#115;&#58;&#47;&#47;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#116;&#111;&#109;&#101;&#114;&#115;&#x68;&#x65;&#109;&#101;&#115;&#x68;&#x2f;&#114;&#x65;&#x76;&#x65;&#x72;&#115;&#101;&#45;&#101;&#x6e;&#x67;&#105;&#110;&#x65;&#x65;&#x72;&#x69;&#x6e;&#103;&#x2d;&#116;&#x68;&#x65;&#x2d;&#100;&#x72;&#x65;&#x78;&#x65;&#108;&#x2d;&#x6f;&#110;&#x65;&#x2d;&#x61;&#x70;&#x69;&#x2d;&#51;&#x37;&#x30;&#97;&#x35;&#54;&#48;&#97;&#102;&#x65;&#100;&#x66;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#104;&#116;&#116;&#112;&#115;&#58;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#116;&#x6f;&#109;&#x65;&#114;&#115;&#104;&#101;&#109;&#101;&#x73;&#x68;&#x2f;&#114;&#101;&#x76;&#101;&#x72;&#115;&#101;&#x2d;&#101;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#x69;&#x6e;&#x67;&#45;&#116;&#x68;&#x65;&#x2d;&#100;&#114;&#x65;&#120;&#101;&#108;&#x2d;&#111;&#110;&#x65;&#45;&#97;&#x70;&#x69;&#45;&#x33;&#x37;&#48;&#x61;&#x35;&#x36;&#x30;&#97;&#102;&#x65;&#100;&#102;">&#104;&#116;&#116;&#112;&#115;&#58;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#116;&#x6f;&#109;&#x65;&#114;&#115;&#104;&#101;&#109;&#101;&#x73;&#x68;&#x2f;&#114;&#101;&#x76;&#101;&#x72;&#115;&#101;&#x2d;&#101;&#110;&#103;&#105;&#x6e;&#101;&#x65;&#x72;&#x69;&#x6e;&#x67;&#45;&#116;&#x68;&#x65;&#x2d;&#100;&#114;&#x65;&#120;&#101;&#108;&#x2d;&#111;&#110;&#x65;&#45;&#97;&#x70;&#x69;&#45;&#x33;&#x37;&#48;&#x61;&#x35;&#x36;&#x30;&#97;&#102;&#x65;&#100;&#102;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -934,7 +934,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#58;&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#110;&#x6a;&#x76;&#111;&#115;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#102;&#108;&#x2d;&#x75;&#110;&#105;&#99;&#x6f;&#114;&#110;&#x2d;&#x66;&#x75;&#x7a;&#122;&#105;&#110;&#x67;&#x2d;&#97;&#114;&#x62;&#105;&#x74;&#x72;&#x61;&#x72;&#121;&#x2d;&#98;&#x69;&#110;&#x61;&#x72;&#x79;&#x2d;&#99;&#111;&#x64;&#101;&#x2d;&#53;&#x36;&#x33;&#x63;&#97;&#x32;&#x38;&#57;&#x33;&#54;&#x62;&#102;">&#x68;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#110;&#x6a;&#x76;&#111;&#115;&#x73;&#x32;&#57;&#x39;&#47;&#x61;&#102;&#108;&#x2d;&#x75;&#110;&#105;&#99;&#x6f;&#114;&#110;&#x2d;&#x66;&#x75;&#x7a;&#122;&#105;&#110;&#x67;&#x2d;&#97;&#114;&#x62;&#105;&#x74;&#x72;&#x61;&#x72;&#121;&#x2d;&#98;&#x69;&#110;&#x61;&#x72;&#x79;&#x2d;&#99;&#111;&#x64;&#101;&#x2d;&#53;&#x36;&#x33;&#x63;&#97;&#x32;&#x38;&#57;&#x33;&#54;&#x62;&#102;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#110;&#x6a;&#118;&#111;&#x73;&#x73;&#x32;&#x39;&#x39;&#47;&#97;&#102;&#108;&#45;&#117;&#110;&#105;&#x63;&#x6f;&#114;&#x6e;&#x2d;&#102;&#117;&#x7a;&#122;&#105;&#110;&#103;&#x2d;&#x61;&#114;&#98;&#105;&#x74;&#114;&#97;&#x72;&#121;&#45;&#98;&#105;&#110;&#97;&#114;&#121;&#45;&#99;&#x6f;&#x64;&#x65;&#x2d;&#53;&#54;&#51;&#99;&#x61;&#x32;&#x38;&#x39;&#51;&#x36;&#98;&#102;">&#104;&#116;&#116;&#112;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#110;&#x6a;&#118;&#111;&#x73;&#x73;&#x32;&#x39;&#x39;&#47;&#97;&#102;&#108;&#45;&#117;&#110;&#105;&#x63;&#x6f;&#114;&#x6e;&#x2d;&#102;&#117;&#x7a;&#122;&#105;&#110;&#103;&#x2d;&#x61;&#114;&#98;&#105;&#x74;&#114;&#97;&#x72;&#121;&#45;&#98;&#105;&#110;&#97;&#114;&#121;&#45;&#99;&#x6f;&#x64;&#x65;&#x2d;&#53;&#54;&#51;&#99;&#x61;&#x32;&#x38;&#x39;&#51;&#x36;&#98;&#102;</a></li>
 </ul>
 ]]></content>
     
