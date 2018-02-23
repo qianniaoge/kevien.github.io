@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-02-20T04:08:28.000Z</updated>
+  <updated>2018-02-23T09:23:41.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -16,11 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>20180223安全动态</title>
+    <link href="http://kevien.github.io/2018/02/23/20180223%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2018/02/23/20180223安全动态/</id>
+    <published>2018-02-23T05:54:25.000Z</published>
+    <updated>2018-02-23T09:23:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x68;&#116;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#112;&#114;&#x61;&#x74;&#x65;&#x65;&#107;&#95;&#48;&#x34;&#57;&#x30;&#47;&#x62;&#117;&#103;&#45;&#98;&#111;&#117;&#x6e;&#x74;&#x79;&#45;&#116;&#x69;&#112;&#115;&#x2d;&#x74;&#x72;&#105;&#99;&#107;&#115;&#45;&#106;&#115;&#45;&#106;&#97;&#x76;&#97;&#115;&#x63;&#114;&#x69;&#x70;&#x74;&#45;&#102;&#x69;&#108;&#x65;&#x73;&#45;&#x62;&#100;&#x64;&#101;&#52;&#x31;&#50;&#x65;&#97;&#x34;&#x39;&#x64;">&#x68;&#116;&#x74;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#x40;&#112;&#114;&#x61;&#x74;&#x65;&#x65;&#107;&#95;&#48;&#x34;&#57;&#x30;&#47;&#x62;&#117;&#103;&#45;&#98;&#111;&#117;&#x6e;&#x74;&#x79;&#45;&#116;&#x69;&#112;&#115;&#x2d;&#x74;&#x72;&#105;&#99;&#107;&#115;&#45;&#106;&#115;&#45;&#106;&#97;&#x76;&#97;&#115;&#x63;&#114;&#x69;&#x70;&#x74;&#45;&#102;&#x69;&#108;&#x65;&#x73;&#45;&#x62;&#100;&#x64;&#101;&#52;&#x31;&#50;&#x65;&#97;&#x34;&#x39;&#x64;</a></li>
+<li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
+<li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
+<li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Bug Bounty Web 漏洞挖掘的几个小 Tips&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>linux一种无文件后门技巧</title>
     <link href="http://kevien.github.io/2018/02/20/linux%E4%B8%80%E7%A7%8D%E6%97%A0%E6%96%87%E4%BB%B6%E5%90%8E%E9%97%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/</id>
     <published>2018-02-20T03:51:50.000Z</published>
-    <updated>2018-02-20T04:08:28.000Z</updated>
+    <updated>2018-02-23T06:44:16.614Z</updated>
     
     <content type="html"><![CDATA[<h4 id="TD-DR"><a href="#TD-DR" class="headerlink" title="TD;DR"></a>TD;DR</h4><ul>
 <li><p>几周之前我看了这篇<a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">文章</a>,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里<a href="https://kevien.github.io/2018/01/28/linux进程注入/">linux进程注入</a>)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话</p>
@@ -62,14 +87,14 @@
 <li><p>在控制台我们运行下面的命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat /usr/bin/xeyes | nc -l $((0x1111))</div></pre></td></tr></table></figure>
 </li>
-<li><p>你可以选择任意你喜欢的二进制文件，我这里用的是eyes（一个小眼睛会跟踪鼠标的移动）这个linux自带的小程序。在另外的一个命令行界面我们运行我们的dropper，这个时候xeyes会弹出来。<br><img src="/2018/02/20/linux一种无文件后门技巧/xeye.png" alt=""></p>
+<li><p>你可以选择任意你喜欢的二进制文件，我这里用的是xeyes（一个小眼睛会跟踪鼠标的移动）这个linux自带的小程序。在另外的一个命令行界面我们运行我们的dropper，这个时候xeyes会弹出来。<br><img src="/2018/02/20/linux一种无文件后门技巧/xeye.png" alt=""></p>
 <h4 id="检测这个dropper"><a href="#检测这个dropper" class="headerlink" title="检测这个dropper"></a>检测这个dropper</h4></li>
 <li><p>查找这个进程比较困难，因为我们给这个进程起了一个kworker/u!0这样的名字，注意！在这里只是为了快速的去发现它，当然在实际情况中，你可以使用一个具有迷惑性的名字，比如说什么so的进程名来让它看起来像是个内核的合法进程，让我们来看一下ps的输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ps axe</div><div class="line">(...)</div><div class="line"> 2126 ?        S      0:00 [kworker/0:0]</div><div class="line"> 2214 pts/0    S+     0:00 [kworker/u!0]</div><div class="line">(...)</div></pre></td></tr></table></figure>
 </li>
 <li><p>你可以看到上面的一行中是一个合法的kworker进程，下面的就是我们的看似合法的进程。</p>
 <h4 id="看不见的文件"><a href="#看不见的文件" class="headerlink" title="看不见的文件"></a>看不见的文件</h4></li>
-<li>我们之前提到的memfd_create 将会在RAM文件系统中创建文件且不会映射到一般的文件系统，至少，如果映射了，我是没找到，所以现在看来这的确是相当猥琐的。</li>
+<li>我们之前提到的memfd_create 将会在RAM文件系统中创建文件且不会映射到一般的文件系统，至少，如果映射了，我是没找到，所以现在看来这的确是相当隐蔽的。</li>
 <li>然而，事实上，如果一个文件存在，那么我们还是可以去发现它的，谁会去调用这个文件呢，没错，我们可以通过lsof(list of file)去查找：）到它<br><img src="/2018/02/20/linux一种无文件后门技巧/lsof.png" alt=""></li>
 <li>注意lsof同样可以会显示出进程id，所以我们之前用的伪装的进程名在这个时候也就没有用了。<h4 id="如果系统中没有memfd-open不存在呢"><a href="#如果系统中没有memfd-open不存在呢" class="headerlink" title="如果系统中没有memfd_open不存在呢"></a>如果系统中没有memfd_open不存在呢</h4></li>
 <li>我之前提到过memfd_open只是存在于内核在3.17或者更高的版本中，那在其它的版本中该怎么办，这种情况下我们可以使用另外一种没那么猥琐但是可以达到同样效果的方法。</li>
@@ -92,7 +117,7 @@
 </ul>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
 <li>读完这篇文章，你应该了解了之前提到的open/memfdcreate/sendfile/fexecve这几个函数。</li>
-<li>这篇文章中作者是以打开xeye程序为示例，还有其它猥琐的利用场景,你想到了吗？<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>这篇文章中作者是以打开xeye程序为示例，还有其它猥琐的利用场景吗？<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li><a href="https://0x00sec.org/t/super-stealthy-droppers/3715" target="_blank" rel="external">Super-Stealthy Droppers</a></li>
 </ul>
 ]]></content>
@@ -856,7 +881,7 @@
     <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#x2f;&#x6f;&#115;&#113;&#x75;&#x65;&#x72;&#121;&#x2d;&#x61;&#99;&#114;&#111;&#x73;&#x73;&#x2d;&#x74;&#104;&#101;&#45;&#101;&#x6e;&#116;&#x65;&#x72;&#112;&#114;&#x69;&#115;&#101;&#x2d;&#51;&#99;&#51;&#x63;&#x39;&#x64;&#x31;&#x33;&#x65;&#99;&#x35;&#x35;">&#x68;&#116;&#116;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#97;&#x6c;&#97;&#x6e;&#116;&#x69;&#114;&#x2f;&#x6f;&#115;&#113;&#x75;&#x65;&#x72;&#121;&#x2d;&#x61;&#99;&#114;&#111;&#x73;&#x73;&#x2d;&#x74;&#104;&#101;&#45;&#101;&#x6e;&#116;&#x65;&#x72;&#112;&#114;&#x69;&#115;&#101;&#x2d;&#51;&#99;&#51;&#x63;&#x39;&#x64;&#x31;&#x33;&#x65;&#99;&#x35;&#x35;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x70;&#97;&#108;&#x61;&#110;&#116;&#105;&#x72;&#47;&#111;&#115;&#x71;&#117;&#x65;&#x72;&#121;&#45;&#97;&#99;&#114;&#111;&#x73;&#115;&#x2d;&#116;&#x68;&#101;&#x2d;&#101;&#110;&#x74;&#x65;&#x72;&#112;&#x72;&#x69;&#115;&#x65;&#45;&#51;&#99;&#x33;&#99;&#57;&#x64;&#x31;&#x33;&#101;&#99;&#x35;&#53;">&#x68;&#x74;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x70;&#97;&#108;&#x61;&#110;&#116;&#105;&#x72;&#47;&#111;&#115;&#x71;&#117;&#x65;&#x72;&#121;&#45;&#97;&#99;&#114;&#111;&#x73;&#115;&#x2d;&#116;&#x68;&#101;&#x2d;&#101;&#110;&#x74;&#x65;&#x72;&#112;&#x72;&#x69;&#115;&#x65;&#45;&#51;&#99;&#x33;&#99;&#57;&#x64;&#x31;&#x33;&#101;&#99;&#x35;&#53;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -886,62 +911,6 @@
     
       &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit&lt;br&gt;&lt;a href=&quot;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171106安全动态</title>
-    <link href="http://kevien.github.io/2017/11/06/20171106%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/11/06/20171106安全动态/</id>
-    <published>2017-11-06T02:23:46.000Z</published>
-    <updated>2017-11-11T03:19:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
-<li>PROPagate - 基于 SetWindowSubclass API 的代码注入新技巧<br><a href="http://www.hexacorn.com/blog/2017/10/26/propagate-a-new-code-injection-trick/" target="_blank" rel="external">http://www.hexacorn.com/blog/2017/10/26/propagate-a-new-code-injection-trick/</a></li>
-<li>构建一个神经网络，从原始字节序列的角度检测恶意软件<br><a href="https://arxiv.org/abs/1710.09435" target="_blank" rel="external">https://arxiv.org/abs/1710.09435</a></li>
-<li><p>利用BDF向EXE和DLL文件植入后门<br><a href="https://3gstudent.github.io/3gstudent.github.io/利用BDF向EXE文件植入后门/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/利用BDF向EXE文件植入后门/</a><br><a href="https://3gstudent.github.io/3gstudent.github.io/%E5%88%A9%E7%94%A8BDF%E5%90%91DLL%E6%96%87%E4%BB%B6%E6%A4%8D%E5%85%A5%E5%90%8E%E9%97%A8/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E5%88%A9%E7%94%A8BDF%E5%90%91DLL%E6%96%87%E4%BB%B6%E6%A4%8D%E5%85%A5%E5%90%8E%E9%97%A8/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">也就是说往正规软件中植入后门成本还是很低的，都可以工具化了的、</div></pre></td></tr></table></figure>
-</li>
-<li><p>DriverMon - 监控驱动活动的工具，最近更新的版本可以记录 DeviceIoControl 和 IRP Data<br><a href="https://github.com/zodiacon/DriverMon" target="_blank" rel="external">https://github.com/zodiacon/DriverMon</a></p>
-</li>
-<li>node.js + postgres 从注入到Getshell<br><a href="https://www.leavesongs.com/PENETRATION/node-postgres-code-execution-vulnerability.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/node-postgres-code-execution-vulnerability.html</a></li>
-<li>SafeBreach Labs 研究员开源了一个恶意软件 Two-Stage Dropper 生成器<br><a href="http://www.ikotler.org/MalwaresFromThinBits.pdf" target="_blank" rel="external">http://www.ikotler.org/MalwaresFromThinBits.pdf</a></li>
-<li>从汇编代码中看 Windows 64 位的 SEH（Structured Exception Handling）实现<br><a href="https://www.codeproject.com/Articles/1212332/bit-Structured-Exception-Handling-SEH-in-ASM" target="_blank" rel="external">https://www.codeproject.com/Articles/1212332/bit-Structured-Exception-Handling-SEH-in-ASM</a></li>
-<li>任天堂 Switch 逆向工程<br><a href="https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering" target="_blank" rel="external">https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering</a></li>
-<li>恶意子域名接管工具Subjack<br><a href="https://github.com/haccer/subjack" target="_blank" rel="external">https://github.com/haccer/subjack</a></li>
-<li>绕过现代的进程检测机制<br><a href="http://riscy.business/2017/11/bypassing-modern-process-hollowing-detection/" target="_blank" rel="external">http://riscy.business/2017/11/bypassing-modern-process-hollowing-detection/</a></li>
-<li>接管Instagram账户<br><a href="https://stefanovettorazzi.com/taking_over_instagram_accounts/" target="_blank" rel="external">https://stefanovettorazzi.com/taking_over_instagram_accounts/</a></li>
-<li>AppLocker绕过列表<br><a href="https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/README.md" target="_blank" rel="external">https://github.com/api0cradle/UltimateAppLockerByPassList/blob/master/README.md</a></li>
-<li>Windows 平台多个 Crypter 恶意软件样本的收集<br><a href="https://github.com/malwares/Crypter" target="_blank" rel="external">https://github.com/malwares/Crypter</a></li>
-<li>利用 FwCplLua COM 接口和 mscfile 注册表键劫持的方法 Bypass UAC，来自 hfiref0x 分享的 PoC 代码<br><a href="https://gist.github.com/hfiref0x/a044cb0ad425488e38556408b179cb61" target="_blank" rel="external">https://gist.github.com/hfiref0x/a044cb0ad425488e38556408b179cb61</a></li>
-<li>通过像素颜色值编码数据以实现渗透测试中的数据回传<br><a href="https://www.pentestpartners.com/security-blog/exfiltration-by-encoding-data-in-pixel-colour-values/" target="_blank" rel="external">https://www.pentestpartners.com/security-blog/exfiltration-by-encoding-data-in-pixel-colour-values/</a></li>
-<li>建立活动目录中的密罐账户<br><a href="https://jordanpotti.com/2017/11/06/honey-accounts/" target="_blank" rel="external">https://jordanpotti.com/2017/11/06/honey-accounts/</a></li>
-<li>Striker - 信息收集与漏洞扫描工具<br><a href="https://github.com/UltimateHackers/Striker" target="_blank" rel="external">https://github.com/UltimateHackers/Striker</a></li>
-<li>深渊背后的真相之薅羊毛产业报告<br><a href="http://www.freebuf.com/news/152525.html" target="_blank" rel="external">http://www.freebuf.com/news/152525.html</a></li>
-<li>Node.js CVE-2017-14849 漏洞分析<br><a href="https://security.tencent.com/index.php/blog/msg/121" target="_blank" rel="external">https://security.tencent.com/index.php/blog/msg/121</a></li>
-<li>ctf中 可执行文件patch技术<br><a href="https://bbs.pediy.com/thread-222623.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222623.htm</a></li>
-<li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
-<li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
-<li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#x6f;&#x6d;&#101;&#114;&#x73;&#104;&#x65;&#109;&#x65;&#x73;&#x68;&#x2f;&#x72;&#101;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#101;&#110;&#x67;&#105;&#x6e;&#101;&#x65;&#114;&#105;&#x6e;&#x67;&#45;&#116;&#x68;&#101;&#x2d;&#x64;&#x72;&#x65;&#x78;&#101;&#108;&#x2d;&#111;&#x6e;&#x65;&#x2d;&#97;&#x70;&#x69;&#x2d;&#x33;&#x37;&#x30;&#x61;&#x35;&#54;&#48;&#x61;&#102;&#101;&#100;&#x66;">&#104;&#116;&#x74;&#x70;&#115;&#x3a;&#x2f;&#47;&#109;&#x65;&#x64;&#105;&#117;&#109;&#46;&#x63;&#111;&#x6d;&#47;&#x40;&#116;&#x6f;&#x6d;&#101;&#114;&#x73;&#104;&#x65;&#109;&#x65;&#x73;&#x68;&#x2f;&#x72;&#101;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#101;&#110;&#x67;&#105;&#x6e;&#101;&#x65;&#114;&#105;&#x6e;&#x67;&#45;&#116;&#x68;&#101;&#x2d;&#x64;&#x72;&#x65;&#x78;&#101;&#108;&#x2d;&#111;&#x6e;&#x65;&#x2d;&#97;&#x70;&#x69;&#x2d;&#x33;&#x37;&#x30;&#x61;&#x35;&#54;&#48;&#x61;&#102;&#101;&#100;&#x66;</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
-</li>
-<li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
-</li>
-<li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
-<li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
-<li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x6e;&#106;&#118;&#111;&#115;&#115;&#50;&#x39;&#x39;&#47;&#x61;&#x66;&#x6c;&#x2d;&#x75;&#110;&#x69;&#99;&#x6f;&#114;&#x6e;&#x2d;&#x66;&#117;&#122;&#122;&#x69;&#x6e;&#x67;&#45;&#97;&#114;&#98;&#105;&#x74;&#114;&#97;&#114;&#121;&#x2d;&#98;&#105;&#x6e;&#x61;&#x72;&#121;&#x2d;&#99;&#x6f;&#x64;&#x65;&#45;&#53;&#54;&#x33;&#99;&#97;&#x32;&#x38;&#x39;&#51;&#x36;&#x62;&#102;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#109;&#101;&#x64;&#105;&#117;&#x6d;&#46;&#x63;&#111;&#x6d;&#47;&#64;&#x6e;&#106;&#118;&#111;&#115;&#115;&#50;&#x39;&#x39;&#47;&#x61;&#x66;&#x6c;&#x2d;&#x75;&#110;&#x69;&#99;&#x6f;&#114;&#x6e;&#x2d;&#x66;&#117;&#122;&#122;&#x69;&#x6e;&#x67;&#45;&#97;&#114;&#98;&#105;&#x74;&#114;&#97;&#114;&#121;&#x2d;&#98;&#105;&#x6e;&#x61;&#x72;&#121;&#x2d;&#99;&#x6f;&#x64;&#x65;&#45;&#53;&#54;&#x33;&#99;&#97;&#x32;&#x38;&#x39;&#51;&#x36;&#x62;&#102;</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;安全动态&quot;&gt;&lt;a href=&quot;#安全动态&quot; class=&quot;headerlink&quot; title=&quot;安全动态&quot;&gt;&lt;/a&gt;安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;PROPagate - 基于 SetWindowSubclass API 的代码注入新技巧&lt;br&gt;&lt;a href
     
     </summary>
     

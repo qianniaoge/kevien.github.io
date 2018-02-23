@@ -113,7 +113,7 @@
 <meta property="og:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/xeye.png">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/lsof.png">
-<meta property="og:updated_time" content="2018-02-20T04:08:28.000Z">
+<meta property="og:updated_time" content="2018-02-23T06:44:16.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux一种无文件后门技巧">
 <meta name="twitter:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
@@ -425,14 +425,14 @@
 <li><p>在控制台我们运行下面的命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat /usr/bin/xeyes | nc -l $((0x1111))</div></pre></td></tr></table></figure>
 </li>
-<li><p>你可以选择任意你喜欢的二进制文件，我这里用的是eyes（一个小眼睛会跟踪鼠标的移动）这个linux自带的小程序。在另外的一个命令行界面我们运行我们的dropper，这个时候xeyes会弹出来。<br><img src="/2018/02/20/linux一种无文件后门技巧/xeye.png" alt=""></p>
+<li><p>你可以选择任意你喜欢的二进制文件，我这里用的是xeyes（一个小眼睛会跟踪鼠标的移动）这个linux自带的小程序。在另外的一个命令行界面我们运行我们的dropper，这个时候xeyes会弹出来。<br><img src="/2018/02/20/linux一种无文件后门技巧/xeye.png" alt=""></p>
 <h4 id="检测这个dropper"><a href="#检测这个dropper" class="headerlink" title="检测这个dropper"></a>检测这个dropper</h4></li>
 <li><p>查找这个进程比较困难，因为我们给这个进程起了一个kworker/u!0这样的名字，注意！在这里只是为了快速的去发现它，当然在实际情况中，你可以使用一个具有迷惑性的名字，比如说什么so的进程名来让它看起来像是个内核的合法进程，让我们来看一下ps的输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ps axe</div><div class="line">(...)</div><div class="line"> 2126 ?        S      0:00 [kworker/0:0]</div><div class="line"> 2214 pts/0    S+     0:00 [kworker/u!0]</div><div class="line">(...)</div></pre></td></tr></table></figure>
 </li>
 <li><p>你可以看到上面的一行中是一个合法的kworker进程，下面的就是我们的看似合法的进程。</p>
 <h4 id="看不见的文件"><a href="#看不见的文件" class="headerlink" title="看不见的文件"></a>看不见的文件</h4></li>
-<li>我们之前提到的memfd_create 将会在RAM文件系统中创建文件且不会映射到一般的文件系统，至少，如果映射了，我是没找到，所以现在看来这的确是相当猥琐的。</li>
+<li>我们之前提到的memfd_create 将会在RAM文件系统中创建文件且不会映射到一般的文件系统，至少，如果映射了，我是没找到，所以现在看来这的确是相当隐蔽的。</li>
 <li>然而，事实上，如果一个文件存在，那么我们还是可以去发现它的，谁会去调用这个文件呢，没错，我们可以通过lsof(list of file)去查找：）到它<br><img src="/2018/02/20/linux一种无文件后门技巧/lsof.png" alt=""></li>
 <li>注意lsof同样可以会显示出进程id，所以我们之前用的伪装的进程名在这个时候也就没有用了。<h4 id="如果系统中没有memfd-open不存在呢"><a href="#如果系统中没有memfd-open不存在呢" class="headerlink" title="如果系统中没有memfd_open不存在呢"></a>如果系统中没有memfd_open不存在呢</h4></li>
 <li>我之前提到过memfd_open只是存在于内核在3.17或者更高的版本中，那在其它的版本中该怎么办，这种情况下我们可以使用另外一种没那么猥琐但是可以达到同样效果的方法。</li>
@@ -455,7 +455,7 @@
 </ul>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
 <li>读完这篇文章，你应该了解了之前提到的open/memfdcreate/sendfile/fexecve这几个函数。</li>
-<li>这篇文章中作者是以打开xeye程序为示例，还有其它猥琐的利用场景,你想到了吗？<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>这篇文章中作者是以打开xeye程序为示例，还有其它猥琐的利用场景吗？<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li><a href="https://0x00sec.org/t/super-stealthy-droppers/3715" target="_blank" rel="external">Super-Stealthy Droppers</a></li>
 </ul>
 
@@ -493,6 +493,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/23/20180223安全动态/" rel="next" title="20180223安全动态">
+                <i class="fa fa-chevron-left"></i> 20180223安全动态
+              </a>
             
           </div>
 
@@ -614,7 +618,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">158</span>
+                <span class="site-state-item-count">159</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
