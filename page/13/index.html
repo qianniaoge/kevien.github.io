@@ -308,6 +308,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/16/windows DLL注入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/16/windows DLL注入/" itemprop="url">
+                  DLL注入
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T10:13:25+08:00">
+                2017-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows安全/" itemprop="url" rel="index">
+                    <span itemprop="name">windows安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><h4 id="DLL远程注入"><a href="#DLL远程注入" class="headerlink" title="DLL远程注入"></a>DLL远程注入</h4><p>dll的注入和卸载<br><img src="/2017/07/16/windows DLL注入/1.png" alt=""><br>关键性代码如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line">VOID CInjectDllDlg::InjectDll(DWORD dwPid, char *szDllName)</div><div class="line">&#123;</div><div class="line">    if ( dwPid == 0 || lstrlen(szDllName) == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    char *pFunName = &quot;LoadLibraryA&quot;;</div><div class="line"></div><div class="line">    // 打开目标进程</div><div class="line">    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, </div><div class="line">                                  FALSE, dwPid);</div><div class="line"></div><div class="line">    if ( hProcess == NULL )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 计算欲注入DLL文件完整路径的长度</div><div class="line">    int nDllLen = lstrlen(szDllName) + sizeof(char);</div><div class="line"></div><div class="line">    // 在目标进程申请一块长度为nDllLen大小的内存空间</div><div class="line">    PVOID pDllAddr = VirtualAllocEx(hProcess,</div><div class="line">                                    NULL, nDllLen,</div><div class="line">                                    MEM_COMMIT,</div><div class="line">                                    PAGE_READWRITE);</div><div class="line"></div><div class="line">    if ( pDllAddr == NULL )</div><div class="line">    &#123;</div><div class="line">        CloseHandle(hProcess);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DWORD dwWriteNum = 0;</div><div class="line"></div><div class="line">    // 将欲注入DLL文件的完整路径写入在目标进程中申请的空间内</div><div class="line">    WriteProcessMemory(hProcess, pDllAddr, szDllName, </div><div class="line">                       nDllLen, &amp;dwWriteNum);</div><div class="line"></div><div class="line">    // 获得LoadLibraryA()函数的地址</div><div class="line">    FARPROC pFunAddr = GetProcAddress(GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                      pFunName);</div><div class="line"></div><div class="line">    // 创建远程线程</div><div class="line">    HANDLE hThread = CreateRemoteThread(hProcess,</div><div class="line">                         NULL, 0,</div><div class="line">                         (LPTHREAD_START_ROUTINE)pFunAddr,</div><div class="line">                         pDllAddr, 0, NULL);</div><div class="line">    WaitForSingleObject(hThread, INFINITE);</div><div class="line"></div><div class="line">    CloseHandle(hThread);</div><div class="line">    CloseHandle(hProcess);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CInjectDllDlg::OnBtnUninject() </div><div class="line">&#123;</div><div class="line">    // TODO: Add your control notification handler code here</div><div class="line">    char szDllName[MAX_PATH] = &#123; 0 &#125;;</div><div class="line">    char szProcessName[MAXBYTE] = &#123; 0 &#125;;</div><div class="line">    DWORD dwPid = 0;</div><div class="line">    </div><div class="line">    GetDlgItemText(IDC_EDIT_DLLFILE, szDllName, MAX_PATH);</div><div class="line">    GetDlgItemText(IDC_EDIT_PROCESSNAME, szProcessName, MAXBYTE);</div><div class="line">    </div><div class="line">    // 由进程名获得PID</div><div class="line">    dwPid = GetProcId(szProcessName);</div><div class="line">    </div><div class="line">    // 注入szDllName到dwPid</div><div class="line">    UnInjectDll(dwPid, szDllName);</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CInjectDllDlg::UnInjectDll(DWORD dwPid, char *szDllName)</div><div class="line">&#123;</div><div class="line">    if ( dwPid == 0 || lstrlen(szDllName) == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(</div><div class="line">                            TH32CS_SNAPMODULE, </div><div class="line">                            dwPid);</div><div class="line"></div><div class="line">    MODULEENTRY32 me32;</div><div class="line">    me32.dwSize = sizeof(me32);</div><div class="line"></div><div class="line">    // 查找匹配的进程名称</div><div class="line">    BOOL bRet = Module32First(hSnap, &amp;me32);</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        if ( lstrcmp(strupr(me32.szExePath), </div><div class="line">                     strupr(szDllName)) == 0 )</div><div class="line">        &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        bRet = Module32Next(hSnap, &amp;me32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line"></div><div class="line">    char *pFunName = &quot;FreeLibrary&quot;;</div><div class="line"></div><div class="line">    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, </div><div class="line">                                  FALSE, dwPid);</div><div class="line">    if ( hProcess == NULL )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    FARPROC pFunAddr = GetProcAddress(GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                      pFunName);</div><div class="line"></div><div class="line">    HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0, </div><div class="line">                                        (LPTHREAD_START_ROUTINE)pFunAddr,</div><div class="line">                                        me32.hModule, 0, NULL);</div><div class="line">    WaitForSingleObject(hThread, INFINITE);</div><div class="line"></div><div class="line">    CloseHandle(hThread);</div><div class="line">    CloseHandle(hProcess);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 整个注入与卸载的过程其实就是让远程线程执行一次LoadLibrary()函数或FreeLibrary()函数。</p>
+<h4 id="无DLL的代码注入"><a href="#无DLL的代码注入" class="headerlink" title="无DLL的代码注入"></a>无DLL的代码注入</h4><p>  <img src="/2017/07/16/windows DLL注入/2.png" alt=""><br>关键性代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">typedef struct _DATA</div><div class="line">&#123;</div><div class="line">    DWORD dwLoadLibrary;</div><div class="line">    DWORD dwGetProcAddress;</div><div class="line">    DWORD dwGetModuleHandle;</div><div class="line">    DWORD dwGetModuleFileName;</div><div class="line"></div><div class="line">    char User32Dll[STRLEN];</div><div class="line">    char MessageBox[STRLEN];</div><div class="line">    char Str[STRLEN];</div><div class="line">&#125;DATA, *PDATA;</div><div class="line"></div><div class="line">DWORD WINAPI RemoteThreadProc(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    PDATA pData = (PDATA)lpParam;</div><div class="line"></div><div class="line">    // 定义API函数原型</div><div class="line">    HMODULE (__stdcall *MyLoadLibrary)(LPCTSTR);</div><div class="line">    FARPROC (__stdcall *MyGetProcAddress)(HMODULE, LPCSTR);</div><div class="line">    HMODULE (__stdcall *MyGetModuleHandle)(LPCTSTR);</div><div class="line">    int (__stdcall *MyMessageBox)(HWND, LPCTSTR, LPCTSTR, UINT);</div><div class="line">    DWORD (__stdcall *MyGetModuleFileName)(HMODULE, LPTSTR, DWORD);</div><div class="line"></div><div class="line">    MyLoadLibrary = (HMODULE (__stdcall *)(LPCTSTR))</div><div class="line">                                            pData-&gt;dwLoadLibrary;</div><div class="line">    MyGetProcAddress = (FARPROC (__stdcall *)(HMODULE, LPCSTR))</div><div class="line">                                            pData-&gt;dwGetProcAddress;</div><div class="line">    MyGetModuleHandle = (HMODULE (__stdcall *)(LPCSTR))</div><div class="line">                                            pData-&gt;dwGetModuleHandle;</div><div class="line">    MyGetModuleFileName = (DWORD (__stdcall *)(HMODULE, LPTSTR, DWORD))</div><div class="line">                                            pData-&gt;dwGetModuleFileName;</div><div class="line"></div><div class="line">    HMODULE hModule = MyLoadLibrary(pData-&gt;User32Dll);</div><div class="line">    MyMessageBox = (int (__stdcall *)(HWND, LPCTSTR, LPCTSTR, UINT))</div><div class="line">                                  MyGetProcAddress(hModule, pData-&gt;MessageBox);</div><div class="line"></div><div class="line">    char szModuleFileName[MAX_PATH] = &#123; 0 &#125;;</div><div class="line">    MyGetModuleFileName(NULL, szModuleFileName, MAX_PATH);</div><div class="line"></div><div class="line">    MyMessageBox(NULL, pData-&gt;Str, szModuleFileName, MB_OK);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CNoDllInjectDlg::InjectCode(DWORD dwPid)</div><div class="line">&#123;</div><div class="line">    // 打开进程并获取进程句柄</div><div class="line">    HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, </div><div class="line">                                  FALSE, dwPid);</div><div class="line"></div><div class="line">    if ( hProcess == NULL )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DATA Data = &#123; 0 &#125;;</div><div class="line"></div><div class="line">    // 获取kernel32.dll中相关的导出函数</div><div class="line">    Data.dwLoadLibrary = (DWORD)GetProcAddress(</div><div class="line">                                    GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                    &quot;LoadLibraryA&quot;);</div><div class="line">    Data.dwGetProcAddress = (DWORD)GetProcAddress(</div><div class="line">                                    GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                    &quot;GetProcAddress&quot;);</div><div class="line">    Data.dwGetModuleHandle = (DWORD)GetProcAddress(</div><div class="line">                                    GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                    &quot;GetModuleHandleA&quot;);</div><div class="line">    Data.dwGetModuleFileName = (DWORD)GetProcAddress(</div><div class="line">                                    GetModuleHandle(&quot;kernel32.dll&quot;),</div><div class="line">                                    &quot;GetModuleFileNameA&quot;);</div><div class="line"></div><div class="line">    // 需要的其他DLL和导出函数</div><div class="line">    lstrcpy(Data.User32Dll, &quot;user32.dll&quot;);</div><div class="line">    lstrcpy(Data.MessageBox, &quot;MessageBoxA&quot;);</div><div class="line">    // MessageBoxA()弹出的字符串</div><div class="line">    lstrcpy(Data.Str, &quot;Inject Code !!!&quot;);</div><div class="line"></div><div class="line">    // 在目标进程申请空间</div><div class="line">    LPVOID lpData = VirtualAllocEx(hProcess, NULL, sizeof(Data),</div><div class="line">                                   MEM_COMMIT | MEM_RESERVE,</div><div class="line">                                   PAGE_READWRITE);</div><div class="line"></div><div class="line">    DWORD dwWriteNum = 0;</div><div class="line">    WriteProcessMemory(hProcess, lpData, &amp;Data, </div><div class="line">                       sizeof(Data), &amp;dwWriteNum);</div><div class="line"></div><div class="line">    // 在目标进程空间申请的用于保存代码的长度</div><div class="line">    DWORD dwFunSize = 0x1000;</div><div class="line">    LPVOID lpCode = VirtualAllocEx(hProcess, NULL, dwFunSize,</div><div class="line">                                   MEM_COMMIT, </div><div class="line">                                   PAGE_EXECUTE_READWRITE);</div><div class="line"></div><div class="line">    BOOL bRet = WriteProcessMemory(hProcess, lpCode, &amp;RemoteThreadProc, </div><div class="line">                       dwFunSize, &amp;dwWriteNum);</div><div class="line"></div><div class="line">    if ( bRet == FALSE )</div><div class="line">    &#123;</div><div class="line">        int n = GetLastError();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    HANDLE hThread = CreateRemoteThread(hProcess, NULL, 0,</div><div class="line">                                        (LPTHREAD_START_ROUTINE)lpCode,</div><div class="line">                                        lpData, 0, NULL);</div><div class="line">    WaitForSingleObject(hThread, INFINITE);</div><div class="line"></div><div class="line">    CloseHandle(hThread);</div><div class="line">    CloseHandle(hProcess);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过peid可以查看DLL的导出函数<br><img src="/2017/07/16/windows DLL注入/3.png" alt=""><br>还可以通过vc6自带的dependency Walker以及CFF Explorer<br><img src="/2017/07/16/windows DLL注入/4.png" alt=""><br><img src="/2017/07/16/windows DLL注入/5.png" alt=""></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;这种方式是直接把想要使用的API函数以及API函数所在的DLL文件都封装在一个结构体中，直接写入目标进程的空间中，最后调用CreateRemoteThread()函数即可将其运行。</p>
+<h4 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h4><p>通过windows自带工具运行DLL的两种方法<br>1.通过regsvr32.exe 调用  例如 regsvr32  /i  c:\test.dll<br>2.通过rundll32.exe 调用  例如 rundll32.exe  “c:\test.dll” ,RundllFunc FunParam<br>3.通过Dependency Walker工具查看应用程序所使用到的动态链接库文件,此外还可以使用dumpbin工具<br><img src="/2017/07/16/windows DLL注入/dependency.png" alt=""><br><img src="/2017/07/16/windows DLL注入/dumpbin.png" alt=""></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="http://bbs.pediy.com/thread-66452.htm" target="_blank" rel="external">神奇的马甲Dll By 海风月影</a><br><a href="http://www.freebuf.com/articles/system/94693.html" target="_blank" rel="external">DLL注入的几种姿势（二）：CreateRemoteThread And More</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/14/20170714安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -570,7 +720,7 @@
 <li>Windows NTLM协议存在高危漏洞<br><a href="http://thehackernews.com/2017/07/windows-ntlm-security-flaw.html" target="_blank" rel="external">http://thehackernews.com/2017/07/windows-ntlm-security-flaw.html</a></li>
 <li>构建Python BITS服务器<br><a href="https://safebreach.com/Post/Building-a-Python-BITS-Server" target="_blank" rel="external">https://safebreach.com/Post/Building-a-Python-BITS-Server</a><https: github.com="" safebreach-labs="" simplebitsserver=""></https:></li>
 <li>看着电影电脑怎么就被黑了？给你技术细节分析<br><a href="http://www.4hou.com/info/news/6201.html" target="_blank" rel="external">http://www.4hou.com/info/news/6201.html</a></li>
-<li>解析HaaS（蜜罐即服务）<br><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#58;&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x66;&#x6f;&#111;&#x73;&#112;&#105;&#100;&#121;&#47;&#x6d;&#x79;&#45;&#115;&#x65;&#x72;&#x76;&#x65;&#x72;&#108;&#101;&#x73;&#115;&#45;&#102;&#114;&#x61;&#x6e;&#x6b;&#x65;&#110;&#x73;&#x74;&#x65;&#105;&#110;&#x2d;&#x66;&#x6f;&#x72;&#45;&#x68;&#111;&#110;&#101;&#121;&#x70;&#111;&#116;&#x73;&#45;&#101;&#52;&#x34;&#x39;&#x62;&#x36;&#51;&#x61;&#x62;&#48;&#x65;&#x64;">&#104;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#47;&#109;&#101;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#x66;&#x6f;&#111;&#x73;&#112;&#105;&#100;&#121;&#47;&#x6d;&#x79;&#45;&#115;&#x65;&#x72;&#x76;&#x65;&#x72;&#108;&#101;&#x73;&#115;&#45;&#102;&#114;&#x61;&#x6e;&#x6b;&#x65;&#110;&#x73;&#x74;&#x65;&#105;&#110;&#x2d;&#x66;&#x6f;&#x72;&#45;&#x68;&#111;&#110;&#101;&#121;&#x70;&#111;&#116;&#x73;&#45;&#101;&#52;&#x34;&#x39;&#x62;&#x36;&#51;&#x61;&#x62;&#48;&#x65;&#x64;</a></li>
+<li>解析HaaS（蜜罐即服务）<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#47;&#64;&#x66;&#x6f;&#111;&#x73;&#x70;&#105;&#100;&#121;&#47;&#109;&#121;&#x2d;&#115;&#101;&#x72;&#x76;&#x65;&#114;&#x6c;&#101;&#115;&#115;&#45;&#x66;&#114;&#x61;&#x6e;&#107;&#x65;&#x6e;&#115;&#x74;&#x65;&#x69;&#110;&#x2d;&#102;&#111;&#x72;&#45;&#x68;&#x6f;&#110;&#x65;&#121;&#112;&#x6f;&#116;&#115;&#45;&#101;&#x34;&#x34;&#x39;&#98;&#x36;&#51;&#x61;&#x62;&#48;&#x65;&#100;">&#x68;&#116;&#116;&#x70;&#115;&#58;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#x2e;&#99;&#x6f;&#x6d;&#47;&#64;&#x66;&#x6f;&#111;&#x73;&#x70;&#105;&#100;&#121;&#47;&#109;&#121;&#x2d;&#115;&#101;&#x72;&#x76;&#x65;&#114;&#x6c;&#101;&#115;&#115;&#45;&#x66;&#114;&#x61;&#x6e;&#107;&#x65;&#x6e;&#115;&#x74;&#x65;&#x69;&#110;&#x2d;&#102;&#111;&#x72;&#45;&#x68;&#x6f;&#110;&#x65;&#121;&#112;&#x6f;&#116;&#115;&#45;&#101;&#x34;&#x34;&#x39;&#98;&#x36;&#51;&#x61;&#x62;&#48;&#x65;&#100;</a></li>
 <li>htcap：Web应用扫描器<br><a href="https://n0where.net/recursive-web-application-scanner/" target="_blank" rel="external">https://n0where.net/recursive-web-application-scanner/</a></li>
 <li>从hash传递攻击谈相关Windows安全机制<br><a href="http://bobao.360.cn/learning/detail/3793.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3793.html</a></li>
 <li>WebSocket漏洞与防护详解<br><a href="http://bobao.360.cn/learning/detail/3795.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3795.html</a></li>
@@ -743,7 +893,7 @@
 <li>Django源码浅析<br><a href="http://blog.nsfocus.net/%E3%80%90django-source-analyses%E3%80%91-django-command-module/" target="_blank" rel="external">http://blog.nsfocus.net/%E3%80%90django-source-analyses%E3%80%91-django-command-module/</a></li>
 <li>Avanti Markets自动售货机泄露用户数据：使用生物识别的IoT设备离安全有多远？<br><a href="http://www.freebuf.com/news/139948.html" target="_blank" rel="external">http://www.freebuf.com/news/139948.html</a></li>
 <li>你不知道的Chrome开发者工具新功能<br><a href="http://www.freebuf.com/news/139720.html" target="_blank" rel="external">http://www.freebuf.com/news/139720.html</a></li>
-<li>MongoDB 多实例运行在同一主机的安全隐患<br><a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x61;&#x6c;&#x65;&#120;&#98;&#x79;&#x6b;&#x2f;&#x6d;&#111;&#x6e;&#x67;&#x6f;&#x64;&#x62;&#45;&#x61;&#x74;&#x2d;&#x73;&#x68;&#x61;&#114;&#x65;&#x64;&#45;&#104;&#x6f;&#115;&#116;&#105;&#x6e;&#103;&#x2d;&#x73;&#101;&#99;&#x75;&#x72;&#x69;&#x74;&#x79;&#x2d;&#x73;&#117;&#x72;&#112;&#x72;&#x69;&#115;&#101;&#115;&#x2d;&#99;&#52;&#x34;&#x31;&#x65;&#99;&#x62;&#x38;&#52;&#x62;&#x35;&#x34;">&#104;&#x74;&#x74;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#x75;&#109;&#46;&#x63;&#111;&#109;&#47;&#x40;&#x61;&#x6c;&#x65;&#120;&#98;&#x79;&#x6b;&#x2f;&#x6d;&#111;&#x6e;&#x67;&#x6f;&#x64;&#x62;&#45;&#x61;&#x74;&#x2d;&#x73;&#x68;&#x61;&#114;&#x65;&#x64;&#45;&#104;&#x6f;&#115;&#116;&#105;&#x6e;&#103;&#x2d;&#x73;&#101;&#99;&#x75;&#x72;&#x69;&#x74;&#x79;&#x2d;&#x73;&#117;&#x72;&#112;&#x72;&#x69;&#115;&#101;&#115;&#x2d;&#99;&#52;&#x34;&#x31;&#x65;&#99;&#x62;&#x38;&#52;&#x62;&#x35;&#x34;</a></li>
+<li>MongoDB 多实例运行在同一主机的安全隐患<br><a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#98;&#121;&#107;&#x2f;&#x6d;&#111;&#x6e;&#103;&#111;&#x64;&#98;&#x2d;&#97;&#x74;&#x2d;&#x73;&#104;&#97;&#x72;&#x65;&#100;&#45;&#x68;&#x6f;&#115;&#x74;&#105;&#x6e;&#103;&#x2d;&#115;&#101;&#x63;&#117;&#x72;&#x69;&#116;&#121;&#x2d;&#x73;&#x75;&#114;&#112;&#x72;&#x69;&#115;&#x65;&#x73;&#x2d;&#x63;&#x34;&#x34;&#49;&#x65;&#x63;&#98;&#56;&#x34;&#98;&#53;&#x34;">&#x68;&#x74;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#x40;&#97;&#x6c;&#101;&#120;&#98;&#121;&#107;&#x2f;&#x6d;&#111;&#x6e;&#103;&#111;&#x64;&#98;&#x2d;&#97;&#x74;&#x2d;&#x73;&#104;&#97;&#x72;&#x65;&#100;&#45;&#x68;&#x6f;&#115;&#x74;&#105;&#x6e;&#103;&#x2d;&#115;&#101;&#x63;&#117;&#x72;&#x69;&#116;&#121;&#x2d;&#x73;&#x75;&#114;&#112;&#x72;&#x69;&#115;&#x65;&#x73;&#x2d;&#x63;&#x34;&#x34;&#49;&#x65;&#x63;&#98;&#56;&#x34;&#98;&#53;&#x34;</a></li>
 <li>新版本 C++ 语言（C++ 17/14/11）的新特性整理 <a href="https://github.com/AnthonyCalandra/modern-cpp-features" target="_blank" rel="external">https://github.com/AnthonyCalandra/modern-cpp-features</a></li>
 <li>SlackShell - 基于 Slack API 的 PowerShell 版本 C&amp;C 命令控制实现<br><a href="https://github.com/bkup/SlackShell" target="_blank" rel="external">https://github.com/bkup/SlackShell</a></li>
 <li>Social Engineering Toolkit (SET) v7.7 发布 <a href="https://github.com/trustedsec/social-engineer-toolkit/releases/tag/7.7" target="_blank" rel="external">https://github.com/trustedsec/social-engineer-toolkit/releases/tag/7.7</a></li>
@@ -1391,7 +1541,7 @@
 <li>Apache CVE-2017-7659漏洞重现及利用分析<br><a href="http://www.freebuf.com/vuls/139042.html" target="_blank" rel="external">http://www.freebuf.com/vuls/139042.html</a></li>
 <li>pdf的一些技巧<br><a href="https://github.com/corkami/docs/blob/master/PDF/PDF.md" target="_blank" rel="external">https://github.com/corkami/docs/blob/master/PDF/PDF.md</a></li>
 <li>wmi攻击篇<br><a href="https://threathunter.org/topic/593fe0e39c58e020408a79d1" target="_blank" rel="external">https://threathunter.org/topic/593fe0e39c58e020408a79d1</a></li>
-<li>careers.twitter.com的一个绕过CSP的XSS <a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x68;&#x74;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#116;&#98;&#109;&#110;&#117;&#x6c;&#x6c;&#47;&#x6d;&#x61;&#107;&#x69;&#x6e;&#103;&#x2d;&#x61;&#110;&#x2d;&#x78;&#x73;&#x73;&#45;&#x74;&#x72;&#105;&#x67;&#x67;&#x65;&#x72;&#x65;&#x64;&#x2d;&#x62;&#x79;&#x2d;&#99;&#x73;&#112;&#45;&#98;&#121;&#x70;&#x61;&#x73;&#x73;&#45;&#x6f;&#110;&#x2d;&#116;&#x77;&#x69;&#116;&#x74;&#101;&#x72;&#x2d;&#53;&#54;&#x31;&#x66;&#x31;&#x30;&#x37;&#98;&#x65;&#51;&#x65;&#x35;">&#x68;&#x74;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#116;&#98;&#109;&#110;&#117;&#x6c;&#x6c;&#47;&#x6d;&#x61;&#107;&#x69;&#x6e;&#103;&#x2d;&#x61;&#110;&#x2d;&#x78;&#x73;&#x73;&#45;&#x74;&#x72;&#105;&#x67;&#x67;&#x65;&#x72;&#x65;&#x64;&#x2d;&#x62;&#x79;&#x2d;&#99;&#x73;&#112;&#45;&#98;&#121;&#x70;&#x61;&#x73;&#x73;&#45;&#x6f;&#110;&#x2d;&#116;&#x77;&#x69;&#116;&#x74;&#101;&#x72;&#x2d;&#53;&#54;&#x31;&#x66;&#x31;&#x30;&#x37;&#98;&#x65;&#51;&#x65;&#x35;</a></li>
+<li>careers.twitter.com的一个绕过CSP的XSS <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#116;&#x62;&#x6d;&#x6e;&#117;&#x6c;&#108;&#47;&#x6d;&#97;&#x6b;&#x69;&#110;&#x67;&#45;&#97;&#110;&#45;&#x78;&#115;&#115;&#x2d;&#116;&#114;&#x69;&#103;&#x67;&#x65;&#x72;&#101;&#100;&#x2d;&#x62;&#x79;&#45;&#99;&#115;&#112;&#45;&#x62;&#x79;&#112;&#97;&#115;&#115;&#x2d;&#x6f;&#110;&#x2d;&#116;&#x77;&#x69;&#116;&#x74;&#101;&#114;&#45;&#x35;&#54;&#49;&#x66;&#49;&#x30;&#x37;&#98;&#101;&#x33;&#x65;&#x35;">&#104;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#111;&#109;&#x2f;&#64;&#116;&#x62;&#x6d;&#x6e;&#117;&#x6c;&#108;&#47;&#x6d;&#97;&#x6b;&#x69;&#110;&#x67;&#45;&#97;&#110;&#45;&#x78;&#115;&#115;&#x2d;&#116;&#114;&#x69;&#103;&#x67;&#x65;&#x72;&#101;&#100;&#x2d;&#x62;&#x79;&#45;&#99;&#115;&#112;&#45;&#x62;&#x79;&#112;&#97;&#115;&#115;&#x2d;&#x6f;&#110;&#x2d;&#116;&#x77;&#x69;&#116;&#x74;&#101;&#114;&#45;&#x35;&#54;&#49;&#x66;&#49;&#x30;&#x37;&#98;&#101;&#x33;&#x65;&#x35;</a></li>
 <li>一个人的企业安全建设之路<br><a href="http://www.freebuf.com/news/130971.html" target="_blank" rel="external">http://www.freebuf.com/news/130971.html</a></li>
 <li>pyrasite – 向python进程注入代码工具<br><a href="http://www.freebuf.com/sectool/139120.html" target="_blank" rel="external">http://www.freebuf.com/sectool/139120.html</a></li>
 <li>基于 Cobalt Strike 实现针对 Google 域名的 Domain Fronting，Domain Fronting 是一种利用高信誉域名隐藏通信远程终端的技术<br><a href="https://www.cyberark.com/threat-research-blog/red-team-insights-https-domain-fronting-google-hosts-using-cobalt-strike/" target="_blank" rel="external">https://www.cyberark.com/threat-research-blog/red-team-insights-https-domain-fronting-google-hosts-using-cobalt-strike/</a></li>
@@ -1729,162 +1879,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/05/20170704安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/05/20170704安全动态/" itemprop="url">
-                  20170704安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-05T10:44:25+08:00">
-                2017-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
-                    <span itemprop="name">每日安全动态</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><p>0.Windows必备神器Cmder使用教程 <a href="http://jingyan.baidu.com/article/63acb44acc855461fcc17ea6.html" target="_blank" rel="external">http://jingyan.baidu.com/article/63acb44acc855461fcc17ea6.html</a><br>1.标准化建设之网络安全应急响应浅析<br><a href="https://secvul.com/topics/707.html" target="_blank" rel="external">https://secvul.com/topics/707.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">甲方的小伙伴可以看下</div></pre></td></tr></table></figure></p>
-<p>2.mac安全小工具<br><a href="http://www.freebuf.com/column/137465.html" target="_blank" rel="external">http://www.freebuf.com/column/137465.html</a><br>3.挖洞经验|雅虎小企业服务平台Luminate身份认证漏洞 <a href="http://www.freebuf.com/vuls/138710.html" target="_blank" rel="external">http://www.freebuf.com/vuls/138710.html</a><br>4.黑产大数据：手机黑卡调查<br><a href="http://www.freebuf.com/articles/others-articles/135317.html" target="_blank" rel="external">http://www.freebuf.com/articles/others-articles/135317.html</a><br>5.通过非数字和字符的方式实现PHP WebShell<br> <a href="http://www.freebuf.com/articles/web/138687.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/138687.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">老生常谈的问题了</div></pre></td></tr></table></figure></p>
-<p>6.利用Rsyslog隐藏系统后门<br><a href="http://www.freebuf.com/articles/system/138391.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/138391.html</a><br>7.玩转大数据——Docker轻松搭建分析环境<br><a href="http://blog.nsfocus.net/play-big-data-dockereasily-build-analysis-environment/" target="_blank" rel="external">http://blog.nsfocus.net/play-big-data-dockereasily-build-analysis-environment/</a><br>8.linux 用户操作行为审计配置方法研究<br><a href="http://blog.nsfocus.net/linux-research-user-operation-behavior-audit-configuration-method/" target="_blank" rel="external">http://blog.nsfocus.net/linux-research-user-operation-behavior-audit-configuration-method/</a><br>9.据 FireEye 报道，定向攻击中越来越多地开始使用混淆和逃逸技术<br> <a href="https://www.fireeye.com/blog/threat-research/2017/06/obfuscation-in-the-wild.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/06/obfuscation-in-the-wild.html</a><br>10.ssl_logger - 解密并记录进程 SSL 流量的工具 <a href="https://github.com/google/ssl_logger" target="_blank" rel="external">https://github.com/google/ssl_logger</a></p>
-<ul>
-<li>Docker 安全部署手册<br><a href="https://github.com/GDSSecurity/Docker-Secure-Deployment-Guidelines" target="_blank" rel="external">https://github.com/GDSSecurity/Docker-Secure-Deployment-Guidelines</a></li>
-<li>基于 SetThreadContext() 和 NtContinue() 实现反射式 DLL 注入<br><a href="https://zerosum0x0.blogspot.com/2017/07/threadcontinue-reflective-injection.html" target="_blank" rel="external">https://zerosum0x0.blogspot.com/2017/07/threadcontinue-reflective-injection.html</a></li>
-<li>LFISuite - 本地文件包含漏洞的自动化扫描、攻击工具 <a href="https://github.com/D35m0nd142/LFISuite" target="_blank" rel="external">https://github.com/D35m0nd142/LFISuite</a></li>
-<li>filewatcher - macOS 下的一个简单审计套件，可以审计所有事件并根据文件名或进程名进行过滤<br><a href="https://github.com/m3liot/filewatcher" target="_blank" rel="external">https://github.com/m3liot/filewatcher</a></li>
-<li>初学Windows内核漏洞利用（一）：搭建实验环境 <a href="https://mp.weixin.qq.com/s/v6BsjpLU9dpYHEXsFkIUfg" target="_blank" rel="external">https://mp.weixin.qq.com/s/v6BsjpLU9dpYHEXsFkIUfg</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1929,7 +1928,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">161</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

