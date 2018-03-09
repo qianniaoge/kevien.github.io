@@ -104,19 +104,19 @@
 
 
 
-<meta name="description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
+<meta name="description" content="TL;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux一种无文件后门技巧">
 <meta property="og:url" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
+<meta property="og:description" content="TL;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/xeye.png">
 <meta property="og:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/lsof.png">
-<meta property="og:updated_time" content="2018-03-08T10:54:09.603Z">
+<meta property="og:updated_time" content="2018-03-09T10:16:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux一种无文件后门技巧">
-<meta name="twitter:description" content="TD;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
+<meta name="twitter:description" content="TL;DR 几周之前我看了这篇文章,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里linux进程注入)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话 1The current payload in use is a simple open/memfd_create/sendfile/fexecve program  我之前没有听过">
 <meta name="twitter:image" content="http://kevien.github.io/2018/02/20/linux一种无文件后门技巧/xeye.png">
 
 
@@ -385,7 +385,7 @@
       
 
       
-        <h4 id="TD-DR"><a href="#TD-DR" class="headerlink" title="TD;DR"></a>TD;DR</h4><ul>
+        <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
 <li><p>几周之前我看了这篇<a href="https://blog.gdssecurity.com/labs/2017/9/5/linux-based-inter-process-code-injection-without-ptrace2.html" target="_blank" rel="external">文章</a>,介绍的是不使用ptrace来进行linux进程注入的(使用ptrace进行进程注入的文章可以看向这里<a href="https://kevien.github.io/2018/01/28/linux进程注入/">linux进程注入</a>)，这篇文章很有意思建议你读一下，但引起我关注是的文末的一句话</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The current payload in use is a simple open/memfd_create/sendfile/fexecve program</div></pre></td></tr></table></figure>
 </li>
@@ -702,7 +702,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TD-DR"><span class="nav-number">1.</span> <span class="nav-text">TD;DR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memfd-create-和-fexecve"><span class="nav-number">2.</span> <span class="nav-text">memfd_create 和 fexecve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个简单的dropper"><span class="nav-number">3.</span> <span class="nav-text">一个简单的dropper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用memfd-create"><span class="nav-number">4.</span> <span class="nav-text">调用memfd_create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检测这个dropper"><span class="nav-number">6.</span> <span class="nav-text">检测这个dropper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看不见的文件"><span class="nav-number">7.</span> <span class="nav-text">看不见的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果系统中没有memfd-open不存在呢"><span class="nav-number">8.</span> <span class="nav-text">如果系统中没有memfd_open不存在呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#那如果fexecve不存在呢"><span class="nav-number">9.</span> <span class="nav-text">那如果fexecve不存在呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memfd-create-和-fexecve"><span class="nav-number">2.</span> <span class="nav-text">memfd_create 和 fexecve</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一个简单的dropper"><span class="nav-number">3.</span> <span class="nav-text">一个简单的dropper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用memfd-create"><span class="nav-number">4.</span> <span class="nav-text">调用memfd_create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试"><span class="nav-number">5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检测这个dropper"><span class="nav-number">6.</span> <span class="nav-text">检测这个dropper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看不见的文件"><span class="nav-number">7.</span> <span class="nav-text">看不见的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果系统中没有memfd-open不存在呢"><span class="nav-number">8.</span> <span class="nav-text">如果系统中没有memfd_open不存在呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#那如果fexecve不存在呢"><span class="nav-number">9.</span> <span class="nav-text">那如果fexecve不存在呢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">11.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
