@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-03-09T05:48:54.896Z</updated>
+  <updated>2018-03-14T05:38:21.000Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20180312安全动态</title>
+    <link href="http://kevien.github.io/2018/03/12/20180312%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
+    <id>http://kevien.github.io/2018/03/12/20180312安全动态/</id>
+    <published>2018-03-12T04:55:39.000Z</published>
+    <updated>2018-03-14T05:38:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>固件逆向介绍（Video）<br><a href="https://www.youtube.com/watch?v=GIU4yJn2-2A" target="_blank" rel="external">https://www.youtube.com/watch?v=GIU4yJn2-2A</a></li>
+<li>ELF 二进制中的定向函数 Fuzzing<br><a href="https://blahcat.github.io/2018/03/11/fuzzing-arbitrary-functions-in-elf-binaries/" target="_blank" rel="external">https://blahcat.github.io/2018/03/11/fuzzing-arbitrary-functions-in-elf-binaries/</a></li>
+<li>Unix system calls<br><a href="http://t.cn/REkcu67" target="_blank" rel="external">http://t.cn/REkcu67</a><br><a href="http://t.cn/REkcu6g" target="_blank" rel="external">http://t.cn/REkcu6g</a></li>
+<li>Sudohulk - 替换 sudo，利用 ptrace Hook execve 系统调用实现劫持<br><a href="https://github.com/hc0d3r/sudohulk" target="_blank" rel="external">https://github.com/hc0d3r/sudohulk</a></li>
+<li>rootstealer - 检测 Linux 中的 root 用户终端并注入自定义命令<br><a href="https://github.com/CoolerVoid/rootstealer" target="_blank" rel="external">https://github.com/CoolerVoid/rootstealer</a></li>
+<li><p>0d1n - 自动化 Web 安全扫描器<br><a href="https://github.com/CoolerVoid/0d1n" target="_blank" rel="external">https://github.com/CoolerVoid/0d1n</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c语言写的</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过实践学习 Radare<br><a href="http://www.radare.org/get/THC2018.pdf" target="_blank" rel="external">http://www.radare.org/get/THC2018.pdf</a></p>
+</li>
+<li>Let’s Encrypt 宣布 ACME v2 和通配证书（wildcard）支持现已上线<br><a href="https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579" target="_blank" rel="external">https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579</a></li>
+<li>vbg - 通过 X11 转发会话在 SSH 客户端上注入 Keystrokes 的工具<br><a href="https://github.com/xfee/vbg" target="_blank" rel="external">https://github.com/xfee/vbg</a></li>
+<li>从 4.0.0 开始的所有版本的 Samba 存在认证用户修改任意用户密码的漏洞（CVE-2018-1050）<br><https: wiki.samba.org="" index.php="" cve-2018-1057=""></https:></li>
+<li>CredSSP 存在严重漏洞(CVE-2018-0886)允许攻击者通过 MS-RDP 服务在服务器上远程执行代码（Video）<br><a href="https://blog.preempt.com/security-advisory-credssp" target="_blank" rel="external">https://blog.preempt.com/security-advisory-credssp</a></li>
+<li>以 Firefox 做通信通道来绕过防火墙限制的探索<br><a href="https://medium.com/code-fighters/firefox-tunnel-to-bypass-any-firewall-bc6f8b432980" target="_blank" rel="external">https://medium.com/code-fighters/firefox-tunnel-to-bypass-any-firewall-bc6f8b432980</a></li>
+<li>C 编译器生成只包含可打印字符的可执行文件(Paper)<br><a href="http://www.cs.cmu.edu/~tom7/abc/paper.pdf" target="_blank" rel="external">http://www.cs.cmu.edu/~tom7/abc/paper.pdf</a></li>
+<li>打造 GSM 基站<br><a href="https://n0where.net/build-gsm-base-station" target="_blank" rel="external">https://n0where.net/build-gsm-base-station</a></li>
+<li>使用 GDB 进行进程注入<br><a href="https://magisterquis.github.io/2018/03/11/process-injection-with-gdb.html" target="_blank" rel="external">https://magisterquis.github.io/2018/03/11/process-injection-with-gdb.html</a></li>
+<li>通过伪装图标的 JS 快捷方式调用 UNC 路径窃取用户 NetNTLM Hash<br><a href="https://isc.sans.edu/forums/diary/Payload+delivery+via+SMB/23433/" target="_blank" rel="external">https://isc.sans.edu/forums/diary/Payload+delivery+via+SMB/23433/</a></li>
+<li>uxss-db - UXSS 漏洞搜集仓库<br><a href="https://github.com/Metnew/uxss-db" target="_blank" rel="external">https://github.com/Metnew/uxss-db</a></li>
+<li>DockerAttack - 渗透测试用的 Docker 镜像<br><a href="https://github.com/ZephrFish/DockerAttack" target="_blank" rel="external">https://github.com/ZephrFish/DockerAttack</a></li>
+<li>getaltname - 从 SSL 证书中提取域名的工具<br><a href="https://github.com/franccesco/getaltname" target="_blank" rel="external">https://github.com/franccesco/getaltname</a></li>
+<li>RAT-via-Telegram - 利用 Telegram 进行 C&amp;C 通信的 Windows 远程控制工具<br><a href="https://github.com/Dviros/RAT-via-Telegram" target="_blank" rel="external">https://github.com/Dviros/RAT-via-Telegram</a></li>
+<li>区块链安全 - DAO攻击事件解析<br><a href="https://paper.seebug.org/544/" target="_blank" rel="external">https://paper.seebug.org/544/</a></li>
+<li>区块链安全 - 以太坊短地址攻击<br><a href="https://paper.seebug.org/545/" target="_blank" rel="external">https://paper.seebug.org/545/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;固件逆向介绍（Video）&lt;br&gt;&lt;a href=&quot;https://www.youtube.co
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>20180305安全动态</title>
@@ -97,7 +143,7 @@
     <updated>2018-03-02T06:37:05.842Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#x72;&#97;&#116;&#101;&#101;&#107;&#95;&#48;&#x34;&#57;&#48;&#x2f;&#x62;&#x75;&#103;&#x2d;&#x62;&#111;&#117;&#110;&#116;&#121;&#45;&#116;&#x69;&#112;&#x73;&#45;&#116;&#x72;&#x69;&#99;&#x6b;&#x73;&#45;&#106;&#115;&#x2d;&#106;&#97;&#118;&#x61;&#x73;&#99;&#114;&#105;&#x70;&#x74;&#x2d;&#102;&#x69;&#108;&#101;&#x73;&#x2d;&#98;&#x64;&#100;&#x65;&#x34;&#49;&#50;&#101;&#x61;&#52;&#x39;&#100;">&#104;&#x74;&#x74;&#x70;&#115;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#x2f;&#64;&#112;&#x72;&#97;&#116;&#101;&#101;&#107;&#95;&#48;&#x34;&#57;&#48;&#x2f;&#x62;&#x75;&#103;&#x2d;&#x62;&#111;&#117;&#110;&#116;&#121;&#45;&#116;&#x69;&#112;&#x73;&#45;&#116;&#x72;&#x69;&#99;&#x6b;&#x73;&#45;&#106;&#115;&#x2d;&#106;&#97;&#118;&#x61;&#x73;&#99;&#114;&#105;&#x70;&#x74;&#x2d;&#102;&#x69;&#108;&#101;&#x73;&#x2d;&#98;&#x64;&#100;&#x65;&#x34;&#49;&#50;&#101;&#x61;&#52;&#x39;&#100;</a></li>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#104;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#112;&#x72;&#97;&#116;&#x65;&#x65;&#107;&#x5f;&#48;&#x34;&#x39;&#48;&#x2f;&#x62;&#x75;&#x67;&#x2d;&#98;&#x6f;&#x75;&#110;&#x74;&#x79;&#x2d;&#116;&#105;&#112;&#x73;&#x2d;&#116;&#114;&#105;&#x63;&#x6b;&#x73;&#x2d;&#x6a;&#x73;&#x2d;&#x6a;&#x61;&#x76;&#97;&#115;&#x63;&#x72;&#105;&#112;&#x74;&#x2d;&#102;&#105;&#108;&#101;&#x73;&#x2d;&#x62;&#100;&#x64;&#x65;&#x34;&#x31;&#x32;&#x65;&#97;&#52;&#57;&#x64;">&#104;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#112;&#x72;&#97;&#116;&#x65;&#x65;&#107;&#x5f;&#48;&#x34;&#x39;&#48;&#x2f;&#x62;&#x75;&#x67;&#x2d;&#98;&#x6f;&#x75;&#110;&#x74;&#x79;&#x2d;&#116;&#105;&#112;&#x73;&#x2d;&#116;&#114;&#105;&#x63;&#x6b;&#x73;&#x2d;&#x6a;&#x73;&#x2d;&#x6a;&#x61;&#x76;&#97;&#115;&#x63;&#x72;&#105;&#112;&#x74;&#x2d;&#102;&#105;&#108;&#101;&#x73;&#x2d;&#x62;&#100;&#x64;&#x65;&#x34;&#x31;&#x32;&#x65;&#97;&#52;&#57;&#x64;</a></li>
 <li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
 <li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
 <li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
@@ -121,7 +167,7 @@
     <summary type="html">
     
       &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Bug Bounty Web 漏洞挖掘的几个小 Tips&lt;br&gt;&lt;a href=&quot;&amp;#109;&amp;
+&lt;li&gt;Bug Bounty Web 漏洞挖掘的几个小 Tips&lt;br&gt;&lt;a href=&quot;&amp;#x6d;&amp;
     
     </summary>
     
@@ -860,47 +906,6 @@
     <summary type="html">
     
       &lt;h4 id=&quot;S-CR&quot;&gt;&lt;a href=&quot;#S-CR&quot; class=&quot;headerlink&quot; title=&quot;S;CR&quot;&gt;&lt;/a&gt;S;CR&lt;/h4&gt;&lt;p&gt;工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20171127安全动态(以后每个星期更了)</title>
-    <link href="http://kevien.github.io/2017/11/27/20171127%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
-    <id>http://kevien.github.io/2017/11/27/20171127安全动态/</id>
-    <published>2017-11-27T05:50:43.000Z</published>
-    <updated>2017-12-02T09:21:20.398Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>RECon 2017 会议的演讲视频公开了<br><a href="https://recon.cx/2017/montreal/recordings/" target="_blank" rel="external">https://recon.cx/2017/montreal/recordings/</a></li>
-<li>Linux x64 系统中的 Egg Hunting（搜寻长的 Shellcode 并执行）技巧<br><a href="https://pentesterslife.blog/2017/11/24/x64-egg-hunting-in-linux-systems/" target="_blank" rel="external">https://pentesterslife.blog/2017/11/24/x64-egg-hunting-in-linux-systems/</a></li>
-<li>自动化动态恶意软件分析中的逃逸与反逃逸技术调查（Paper）<br><a href="https://github.com/bulaza/Publications/blob/master/ROOTS2017/A%20Survey%20On%20Automated%20Dynamic%20Malware%20Analysis%20Evasion%20and%20Counter-Evasion.pdf" target="_blank" rel="external">https://github.com/bulaza/Publications/blob/master/ROOTS2017/A%20Survey%20On%20Automated%20Dynamic%20Malware%20Analysis%20Evasion%20and%20Counter-Evasion.pdf</a></li>
-<li>TLS-Redirection - TLS 重定向攻击介绍文档<br><a href="https://github.com/GrrrDog/TLS-Redirection" target="_blank" rel="external">https://github.com/GrrrDog/TLS-Redirection</a></li>
-<li>Apache Guacamole - 一款开源的远程桌面网关，支持通过浏览器访问你远程的服务器,thanks html5<br><a href="https://guacamole.apache.org/" target="_blank" rel="external">https://guacamole.apache.org/</a></li>
-<li>CryKeX - Linux内存加密密钥提取工具<br><a href="https://github.com/cryptolok/CryKeX" target="_blank" rel="external">https://github.com/cryptolok/CryKeX</a></li>
-<li>RamFuzz - 基于深度神经网络、自动化生成单元测试用例的 C++ 代码 Fuzzing<br><a href="https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md" target="_blank" rel="external">https://github.com/dekimir/RamFuzz/blob/master/sci/ramfuzz.md</a></li>
-<li>linux-explorer - 用于 Linux 现场取证的工具箱<br><a href="https://github.com/intezer/linux-explorer" target="_blank" rel="external">https://github.com/intezer/linux-explorer</a></li>
-<li>OpenATS续篇：搭建自己的卫星地球站<br><a href="http://www.freebuf.com/articles/wireless/153793.html" target="_blank" rel="external">http://www.freebuf.com/articles/wireless/153793.html</a></li>
-<li>玄武的每日安全动态 上放了好多ipv6的研究文章<br><a href="https://weibo.com/ttarticle/p/show?id=2309404179032190099080" target="_blank" rel="external">https://weibo.com/ttarticle/p/show?id=2309404179032190099080</a></li>
-<li>TensorFlow自动识别验证码<br><a href="https://mp.weixin.qq.com/s/J9vjaoClzBbR4oigusNdpw" target="_blank" rel="external">https://mp.weixin.qq.com/s/J9vjaoClzBbR4oigusNdpw</a></li>
-<li>Gets You Root，Objective-See 研究员对昨天爆出的 macOS ROOT 空密码提权 Bug 的分析<br><a href="https://objective-see.com/blog/blog_0x24.html" target="_blank" rel="external">https://objective-see.com/blog/blog_0x24.html</a></li>
-<li>Hacking 智能家居设备，来自 H2HC 2017<br><a href="https://goo.gl/VeV9Nf" target="_blank" rel="external">https://goo.gl/VeV9Nf</a></li>
-<li>stacks-cli - 用于一键分析网站所用技术栈的命令行工具<br><a href="https://github.com/WeiChiaChang/stacks-cli" target="_blank" rel="external">https://github.com/WeiChiaChang/stacks-cli</a></li>
-<li>malsub - 用于在线恶意软件分析和威胁情报服务的 Python RESTful API 框架<br><a href="https://github.com/diogo-fernan/malsub?utm_content=buffer51301&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer" target="_blank" rel="external">https://github.com/diogo-fernan/malsub?utm_content=buffer51301&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer</a></li>
-<li>oni-probe - 网络干扰检测工具<br><a href="https://github.com/TheTorProject/ooni-probe" target="_blank" rel="external">https://github.com/TheTorProject/ooni-probe</a></li>
-<li>SpookFlare - Meterpreter 加载器生成工具，可绕过客户端与网络端防御<br><a href="https://github.com/hlldz/SpookFlare" target="_blank" rel="external">https://github.com/hlldz/SpookFlare</a></li>
-<li>通过 KPROCESS 结构的 InstrumentationCallback 域实现 Hook<br><a href="https://secrary.com/Random/InstrumentationCallback" target="_blank" rel="external">https://secrary.com/Random/InstrumentationCallback</a></li>
-<li>浅谈一下mshta在CVE-2017-11882里的命令构造<br><a href="http://www.freebuf.com/articles/web/155304.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/155304.html</a></li>
-<li>Windows 10新子系统*新挑战（看雪2017安全开发者峰会演讲回顾0x9）<br><a href="https://mp.weixin.qq.com/s/CLw5LVg_Gq1qLW8TSKcYYw" target="_blank" rel="external">https://mp.weixin.qq.com/s/CLw5LVg_Gq1qLW8TSKcYYw</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;每周安全动态&quot;&gt;&lt;a href=&quot;#每周安全动态&quot; class=&quot;headerlink&quot; title=&quot;每周安全动态&quot;&gt;&lt;/a&gt;每周安全动态&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;RECon 2017 会议的演讲视频公开了&lt;br&gt;&lt;a href=&quot;https://recon.
     
     </summary>
     
