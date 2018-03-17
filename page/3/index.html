@@ -308,6 +308,151 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/11/29/NuGet和travis实践/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/29/NuGet和travis实践/" itemprop="url">
+                  NuGet和travis实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T18:56:16+08:00">
+                2017-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="S-CR"><a href="#S-CR" class="headerlink" title="S;CR"></a>S;CR</h4><p>工作中接触到了yara，yara项目在windows上编译是通过vs2015编译的，其中用到了openssl和jansson的第三方库，其中作者<a href="https://github.com/plusvic" target="_blank" rel="external">Victor M. Alvarez</a>用的是nuget进行三方库管理的，感觉这个解决方案还不错，可能比自己去下载源码编译lib稍微方便一点儿，所以记录一下。</p>
+<h4 id="vs-Solution实际测试"><a href="#vs-Solution实际测试" class="headerlink" title="vs Solution实际测试"></a>vs Solution实际测试</h4><ul>
+<li>下面就以openssl库为例进行一下测试。</li>
+<li><p>首先需要在项目的根目录下创建一个NuGet.Config 的文件,这个应该是方便vs的NuGet进行索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;configuration&gt;</div><div class="line">  &lt;packageSources&gt;</div><div class="line">    &lt;add key=&quot;YARA.OpenSSL&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/openssl-oaib8n7lvvtp&quot; /&gt;</div><div class="line">    &lt;add key=&quot;YARA.Jansson&quot;</div><div class="line">         value=&quot;https://ci.appveyor.com/nuget/jansson-41we82mn284d&quot; /&gt;</div><div class="line">  &lt;/packageSources&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>vs的默认项目会带一个界面，可以直观的去下载，如下图。<br><img src="/2017/11/29/NuGet和travis实践/projectwithui.png" alt=""><br><img src="/2017/11/29/NuGet和travis实践/ui.png" alt=""><br><img src="/2017/11/29/NuGet和travis实践/out.png" alt=""><br>然后在项目中添加一下头文件的路径以及静态链接库的路径就可以使用了。<br><img src="/2017/11/29/NuGet和travis实践/1.png" alt=""><br><img src="/2017/11/29/NuGet和travis实践/2.png" alt=""><br><img src="/2017/11/29/NuGet和travis实践/3.png" alt=""></p>
+</li>
+<li>vs的cmake项目<br><del>vs的cmake项目稍微有些不同，就是他没有图形界面，这个时候可以使用Package Manager Console来进行查找和下载第三方库。</del><br><a href="https://docs.microsoft.com/en-us/nuget/tools/package-manager-console" target="_blank" rel="external">官方说明</a><br>使用Find-Package openssl 进行搜索，可以发现有很多<br><img src="/2017/11/29/NuGet和travis实践/4.png" alt=""><br>使用Install-Package YARA.OPENSSL.X64 命令进行下载<br><img src="/2017/11/29/NuGet和travis实践/5.png" alt=""><br><del>效果是一样的，都会在项目的主目录的下面创建一个packages的目录并就对应的库下载到其中。这个时候就可以通过CmakeLists.txt进行头文件以及静态链接库的包含就可以使用了</del><br>更新：<br>cmake的项目在install-package的时候会找不到default solution的问题，所以只能通过将之前下载的packages的内容复制到cmake的项目下了。<br>CMakeLists.txt的内容如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cmake_minimum_required(VERSION 3.8)</div><div class="line">include_directories(&quot;$&#123;PROJECT_SOURCE_DIR&#125;/packages/YARA.OpenSSL.x86.1.1.0/include&quot;)</div><div class="line"></div><div class="line">set(libcrypto $&#123;PROJECT_SOURCE_DIR&#125;/packages/YARA.OpenSSL.x86.1.1.0/lib/libcrypto.lib)</div><div class="line">set(libssl $&#123;PROJECT_SOURCE_DIR&#125;/packages/YARA.OpenSSL.x86.1.1.0/lib/libssl.lib)</div><div class="line">add_executable(Demo test.cpp)</div><div class="line"></div><div class="line">target_link_libraries(Demo $&#123;libcrypto&#125; $&#123;libssl&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>测试通过。<br>代码已上传至Github<br><a href="https://github.com/kevien/democode" target="_blank" rel="external">https://github.com/kevien/democode</a></p>
+<h4 id="打包自己的package"><a href="#打包自己的package" class="headerlink" title="打包自己的package"></a>打包自己的package</h4><ul>
+<li>yara项目中openssl库是作者自己打包到appveyor上的，那是如何上传自己打的包呢</li>
+<li>nuget包的制作可以通过 NuGetPackageExplorer <a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer" target="_blank" rel="external">link</a><br>这个工具还是挺方便的。<br><img src="/2017/11/29/NuGet和travis实践/6.png" alt=""></li>
+<li>而且这个工具还可以进行上传，如下图所示<br><img src="/2017/11/29/NuGet和travis实践/7.png" alt=""></li>
+<li>当然也可以直接使用nuget工具进行上传<br><img src="/2017/11/29/NuGet和travis实践/8.png" alt=""></li>
+<li>这样我们就完成了自定义包的上传。<br><img src="/2017/11/29/NuGet和travis实践/9.png" alt=""><br>(现在的方式还是需要进行验证的，也就是需要输入appveyor的用户名和密码，public的方式暂时还没找到方法)<h4 id="利用travis进行持续化集成"><a href="#利用travis进行持续化集成" class="headerlink" title="利用travis进行持续化集成"></a>利用travis进行持续化集成</h4></li>
+<li>首先在github创建一个token，并赋予适当的权限。可参考如下链接<br><a href="https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/" target="_blank" rel="external">https://blog.wyrihaximus.net/2015/09/github-auth-token-on-travis/</a><br><a href="https://docs.travis-ci.com/user/github-oauth-scopes/" target="_blank" rel="external">https://docs.travis-ci.com/user/github-oauth-scopes/</a></li>
+<li>然后在github的项目当中添加.travish.yml 文件，可参考<br><a href="https://docs.travis-ci.com/user/deployment/releases/" target="_blank" rel="external">https://docs.travis-ci.com/user/deployment/releases/</a></li>
+<li>测试项目<br><a href="https://github.com/kevien/travisTest/" target="_blank" rel="external">https://github.com/kevien/travisTest/</a><br><img src="/2017/11/29/NuGet和travis实践/10.png" alt=""><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">部署的时候有几个坑(MDZZ)，一个是file 的位置，这个会在travis的job log的展开中看到(看log、看log、看log)。</div><div class="line">第二个就是要在deploy项下加上键值 skip_cleanup: true</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>用NuGet进行第三方库的操作还是比较方便的,还有就是开源项目的持续集成使用travis工具是个不错的选择。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/11/27/20171127安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -680,7 +825,7 @@
             <h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
 <li>rootkit - 针对 Ubuntu 16.04 和 10.04 的 rootkit<br><a href="https://github.com/nurupo/rootkit" target="_blank" rel="external">https://github.com/nurupo/rootkit</a></li>
 <li>从 PE 文件结构角度出发，如何手动植入后门<br><a href="http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html" target="_blank" rel="external">http://www.abatchy.com/2017/05/introduction-to-manual-backdooring_24.html</a></li>
-<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#111;&#58;&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#112;&#97;&#108;&#97;&#x6e;&#116;&#x69;&#x72;&#47;&#x6f;&#x73;&#x71;&#x75;&#101;&#114;&#121;&#x2d;&#97;&#99;&#114;&#111;&#115;&#x73;&#x2d;&#x74;&#104;&#101;&#x2d;&#x65;&#110;&#116;&#x65;&#114;&#112;&#114;&#105;&#115;&#x65;&#x2d;&#x33;&#x63;&#51;&#99;&#57;&#x64;&#x31;&#51;&#x65;&#x63;&#x35;&#53;">&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#101;&#x64;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#109;&#47;&#64;&#112;&#97;&#108;&#97;&#x6e;&#116;&#x69;&#x72;&#47;&#x6f;&#x73;&#x71;&#x75;&#101;&#114;&#121;&#x2d;&#97;&#99;&#114;&#111;&#115;&#x73;&#x2d;&#x74;&#104;&#101;&#x2d;&#x65;&#110;&#116;&#x65;&#114;&#112;&#114;&#105;&#115;&#x65;&#x2d;&#x33;&#x63;&#51;&#99;&#57;&#x64;&#x31;&#51;&#x65;&#x63;&#x35;&#53;</a></li>
+<li>osquery 是 Facebook 开源的一款基于 SQL 的操作系统检测和监控框架。前两天推送过一篇《各个团队都是如何使用 osquery 的》。今天 Palantir 团队这篇 Blog 介绍如何部署和配置 osquery 框架<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#x61;&#x6c;&#97;&#110;&#x74;&#105;&#x72;&#x2f;&#111;&#x73;&#x71;&#117;&#x65;&#114;&#x79;&#45;&#97;&#99;&#x72;&#111;&#115;&#x73;&#45;&#x74;&#104;&#x65;&#45;&#x65;&#110;&#x74;&#x65;&#x72;&#x70;&#114;&#x69;&#115;&#101;&#x2d;&#51;&#x63;&#x33;&#x63;&#x39;&#x64;&#49;&#51;&#x65;&#x63;&#53;&#53;">&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#x75;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#x61;&#x6c;&#97;&#110;&#x74;&#105;&#x72;&#x2f;&#111;&#x73;&#x71;&#117;&#x65;&#114;&#x79;&#45;&#97;&#99;&#x72;&#111;&#115;&#x73;&#45;&#x74;&#104;&#x65;&#45;&#x65;&#110;&#x74;&#x65;&#x72;&#x70;&#114;&#x69;&#115;&#101;&#x2d;&#51;&#x63;&#x33;&#x63;&#x39;&#x64;&#49;&#51;&#x65;&#x63;&#53;&#53;</a></li>
 <li>使用 Windows Defender ATP 检查反射型 DLL 加载<br><a href="https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc" target="_blank" rel="external">https://blogs.technet.microsoft.com/mmpc/2017/11/13/detecting-reflective-dll-loading-with-windows-defender-atp/?ocid=cx-twitter-mmpc</a></li>
 <li>Windows 系统中的安全软件的 Bypass 策略。从特征检测、行为检测、信誉评估检测三个方向讨论对应的 Bypass 方法<br><a href="https://artofpwn.com/spookflare.html" target="_blank" rel="external">https://artofpwn.com/spookflare.html</a></li>
 <li>PowerKrabsEtw - 用于实时 ETW(事件日志) Trace 的 PowerShell 模块，基于微软的 krabsetw 库实现<br><a href="https://github.com/zacbrown/PowerKrabsEtw" target="_blank" rel="external">https://github.com/zacbrown/PowerKrabsEtw</a></li>
@@ -850,7 +995,7 @@
 <li>当第三方组件变成邪恶之源<br><a href="https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y" target="_blank" rel="external">https://1drv.ms/p/s!Al6ImNZd5mQmeK39RoVxiJ5re8Y</a></li>
 <li>glibc malloc学习笔记之fastbin<br><a href="https://paper.seebug.org/445/" target="_blank" rel="external">https://paper.seebug.org/445/</a></li>
 <li>Hyper-V安全从0到1<br><a href="https://bbs.pediy.com/thread-222626.htm" target="_blank" rel="external">https://bbs.pediy.com/thread-222626.htm</a></li>
-<li><p>Drexel One API逆向工程<br><a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#116;&#111;&#109;&#101;&#x72;&#x73;&#104;&#101;&#109;&#x65;&#x73;&#104;&#47;&#x72;&#x65;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#x65;&#110;&#x67;&#x69;&#x6e;&#x65;&#x65;&#114;&#x69;&#110;&#x67;&#45;&#116;&#104;&#x65;&#x2d;&#x64;&#114;&#x65;&#120;&#101;&#x6c;&#x2d;&#x6f;&#110;&#101;&#45;&#97;&#112;&#105;&#x2d;&#x33;&#x37;&#48;&#x61;&#53;&#54;&#x30;&#97;&#102;&#x65;&#x64;&#102;">&#x68;&#x74;&#116;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#x2f;&#x40;&#116;&#111;&#109;&#101;&#x72;&#x73;&#104;&#101;&#109;&#x65;&#x73;&#104;&#47;&#x72;&#x65;&#x76;&#x65;&#114;&#115;&#x65;&#45;&#x65;&#110;&#x67;&#x69;&#x6e;&#x65;&#x65;&#114;&#x69;&#110;&#x67;&#45;&#116;&#104;&#x65;&#x2d;&#x64;&#114;&#x65;&#120;&#101;&#x6c;&#x2d;&#x6f;&#110;&#101;&#45;&#97;&#112;&#105;&#x2d;&#x33;&#x37;&#48;&#x61;&#53;&#54;&#x30;&#97;&#102;&#x65;&#x64;&#102;</a></p>
+<li><p>Drexel One API逆向工程<br><a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#116;&#111;&#x6d;&#x65;&#114;&#x73;&#x68;&#x65;&#109;&#x65;&#x73;&#x68;&#x2f;&#x72;&#x65;&#118;&#101;&#x72;&#115;&#x65;&#x2d;&#x65;&#110;&#x67;&#105;&#110;&#x65;&#x65;&#x72;&#x69;&#110;&#103;&#x2d;&#x74;&#104;&#x65;&#45;&#100;&#114;&#101;&#x78;&#101;&#x6c;&#45;&#x6f;&#110;&#101;&#45;&#x61;&#x70;&#105;&#45;&#x33;&#x37;&#48;&#97;&#x35;&#54;&#48;&#x61;&#102;&#x65;&#100;&#x66;">&#x68;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#101;&#x64;&#105;&#117;&#109;&#x2e;&#x63;&#111;&#109;&#47;&#x40;&#116;&#111;&#x6d;&#x65;&#114;&#x73;&#x68;&#x65;&#109;&#x65;&#x73;&#x68;&#x2f;&#x72;&#x65;&#118;&#101;&#x72;&#115;&#x65;&#x2d;&#x65;&#110;&#x67;&#105;&#110;&#x65;&#x65;&#x72;&#x69;&#110;&#103;&#x2d;&#x74;&#104;&#x65;&#45;&#100;&#114;&#101;&#x78;&#101;&#x6c;&#45;&#x6f;&#110;&#101;&#45;&#x61;&#x70;&#105;&#45;&#x33;&#x37;&#48;&#97;&#x35;&#54;&#48;&#x61;&#102;&#x65;&#100;&#x66;</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mac上的逆向</div></pre></td></tr></table></figure>
 </li>
 <li><p>信息安全Cheat Sheets<br><a href="https://www.cybrary.it/0p3n/infosec-cheat-sheets/" target="_blank" rel="external">https://www.cybrary.it/0p3n/infosec-cheat-sheets/</a></p>
@@ -858,7 +1003,7 @@
 <li>新近出现的提权框架<br><a href="https://github.com/spencerdodd/kernelpop" target="_blank" rel="external">https://github.com/spencerdodd/kernelpop</a></li>
 <li>Windows利用开发四：SEH覆写<br><a href="http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html" target="_blank" rel="external">http://www.shogunlab.com/blog/2017/11/06/zdzg-windows-exploit-4.html</a></li>
 <li>DCOM与DDE的奇妙结合<br><a href="https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom" target="_blank" rel="external">https://www.cybereason.com/blog/leveraging-excel-dde-for-lateral-movement-via-dcom</a></li>
-<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#64;&#x6e;&#x6a;&#x76;&#111;&#x73;&#115;&#50;&#x39;&#57;&#x2f;&#x61;&#102;&#x6c;&#x2d;&#117;&#110;&#x69;&#99;&#x6f;&#114;&#x6e;&#45;&#x66;&#x75;&#x7a;&#122;&#105;&#110;&#103;&#45;&#x61;&#114;&#x62;&#x69;&#x74;&#114;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#97;&#114;&#121;&#45;&#x63;&#x6f;&#x64;&#101;&#x2d;&#53;&#x36;&#51;&#x63;&#x61;&#x32;&#x38;&#x39;&#51;&#54;&#98;&#102;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#111;&#x6d;&#x2f;&#64;&#x6e;&#x6a;&#x76;&#111;&#x73;&#115;&#50;&#x39;&#57;&#x2f;&#x61;&#102;&#x6c;&#x2d;&#117;&#110;&#x69;&#99;&#x6f;&#114;&#x6e;&#45;&#x66;&#x75;&#x7a;&#122;&#105;&#110;&#103;&#45;&#x61;&#114;&#x62;&#x69;&#x74;&#114;&#97;&#114;&#121;&#x2d;&#98;&#x69;&#x6e;&#97;&#114;&#121;&#45;&#x63;&#x6f;&#x64;&#101;&#x2d;&#53;&#x36;&#51;&#x63;&#x61;&#x32;&#x38;&#x39;&#51;&#54;&#98;&#102;</a></li>
+<li>二进制代码的模糊测试<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#58;&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#110;&#106;&#118;&#111;&#115;&#x73;&#x32;&#57;&#x39;&#47;&#97;&#102;&#108;&#45;&#x75;&#110;&#105;&#x63;&#111;&#x72;&#110;&#45;&#102;&#117;&#x7a;&#x7a;&#105;&#110;&#x67;&#45;&#x61;&#x72;&#98;&#105;&#116;&#114;&#97;&#114;&#x79;&#x2d;&#98;&#x69;&#x6e;&#x61;&#x72;&#x79;&#x2d;&#99;&#x6f;&#100;&#x65;&#45;&#x35;&#54;&#x33;&#x63;&#97;&#x32;&#56;&#x39;&#51;&#x36;&#98;&#102;">&#104;&#x74;&#x74;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#x69;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#110;&#106;&#118;&#111;&#115;&#x73;&#x32;&#57;&#x39;&#47;&#97;&#102;&#108;&#45;&#x75;&#110;&#105;&#x63;&#111;&#x72;&#110;&#45;&#102;&#117;&#x7a;&#x7a;&#105;&#110;&#x67;&#45;&#x61;&#x72;&#98;&#105;&#116;&#114;&#97;&#114;&#x79;&#x2d;&#98;&#x69;&#x6e;&#x61;&#x72;&#x79;&#x2d;&#99;&#x6f;&#100;&#x65;&#45;&#x35;&#54;&#x33;&#x63;&#97;&#x32;&#56;&#x39;&#51;&#x36;&#98;&#102;</a></li>
 </ul>
 
           
@@ -998,7 +1143,7 @@
 <li>hack with github 编选的 10 月份 Top 5 安全工具<br><a href="https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd" target="_blank" rel="external">https://medium.com/hack-with-github/top-5-security-tools-october-2017-76ab31834efd</a></li>
 <li>把一个恶意样本 PE 文件头部的 “This program cannot be run in DOS mode” 中的 “This” 改为 “That”，可以 Bypass 11 款杀软<br><a href="https://twitter.com/zerosum0x0/status/925486850399019009/photo/1" target="_blank" rel="external">https://twitter.com/zerosum0x0/status/925486850399019009/photo/1</a></li>
 <li>揭秘：两张A4纸破解虹膜、人脸识别，百度安全技术小哥怎么做到的？<br><a href="https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA" target="_blank" rel="external">https://mp.weixin.qq.com/s/zq7D8YzjljJ8rsteib1ljA</a></li>
-<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#104;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#x61;&#x6c;&#x65;&#x78;&#46;&#98;&#x69;&#114;&#x73;&#97;&#110;&#47;&#109;&#x65;&#115;&#x73;&#105;&#x6e;&#103;&#x2d;&#x77;&#x69;&#116;&#x68;&#x2d;&#116;&#x68;&#101;&#45;&#103;&#x6f;&#x6f;&#103;&#x6c;&#101;&#45;&#98;&#x75;&#103;&#x61;&#110;&#x69;&#x7a;&#x65;&#114;&#x2d;&#115;&#121;&#x73;&#116;&#x65;&#109;&#45;&#102;&#x6f;&#114;&#45;&#x31;&#53;&#x2d;&#x36;&#48;&#48;&#45;&#105;&#110;&#x2d;&#98;&#x6f;&#x75;&#110;&#x74;&#105;&#x65;&#115;&#x2d;&#x35;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#102;&#57;&#97;&#x35;">&#104;&#116;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#x6d;&#x65;&#x64;&#105;&#x75;&#x6d;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#x61;&#x6c;&#x65;&#x78;&#46;&#98;&#x69;&#114;&#x73;&#97;&#110;&#47;&#109;&#x65;&#115;&#x73;&#105;&#x6e;&#103;&#x2d;&#x77;&#x69;&#116;&#x68;&#x2d;&#116;&#x68;&#101;&#45;&#103;&#x6f;&#x6f;&#103;&#x6c;&#101;&#45;&#98;&#x75;&#103;&#x61;&#110;&#x69;&#x7a;&#x65;&#114;&#x2d;&#115;&#121;&#x73;&#116;&#x65;&#109;&#45;&#102;&#x6f;&#114;&#45;&#x31;&#53;&#x2d;&#x36;&#48;&#48;&#45;&#105;&#110;&#x2d;&#98;&#x6f;&#x75;&#110;&#x74;&#105;&#x65;&#115;&#x2d;&#x35;&#x38;&#102;&#56;&#x36;&#99;&#x63;&#57;&#102;&#57;&#97;&#x35;</a></li>
+<li>Google Bug Tracker 存在漏洞可越权查看未修复漏洞的报告<br><a href="https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687" target="_blank" rel="external">https://threatpost.com/flaw-in-google-bug-tracker-exposed-reports-about-unpatched-vulnerabilities/128687</a><br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#97;&#x6c;&#x65;&#120;&#x2e;&#x62;&#x69;&#x72;&#115;&#97;&#110;&#47;&#x6d;&#101;&#115;&#115;&#x69;&#x6e;&#x67;&#45;&#x77;&#x69;&#x74;&#x68;&#45;&#x74;&#104;&#101;&#x2d;&#x67;&#x6f;&#111;&#103;&#x6c;&#101;&#45;&#x62;&#x75;&#103;&#x61;&#x6e;&#x69;&#122;&#x65;&#114;&#x2d;&#115;&#x79;&#x73;&#116;&#x65;&#x6d;&#x2d;&#x66;&#111;&#x72;&#x2d;&#49;&#x35;&#x2d;&#54;&#48;&#x30;&#x2d;&#105;&#x6e;&#45;&#98;&#x6f;&#x75;&#x6e;&#x74;&#105;&#x65;&#x73;&#x2d;&#53;&#x38;&#x66;&#x38;&#54;&#99;&#99;&#x39;&#x66;&#x39;&#x61;&#53;">&#104;&#x74;&#116;&#x70;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#x64;&#x69;&#x75;&#109;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#97;&#x6c;&#x65;&#120;&#x2e;&#x62;&#x69;&#x72;&#115;&#97;&#110;&#47;&#x6d;&#101;&#115;&#115;&#x69;&#x6e;&#x67;&#45;&#x77;&#x69;&#x74;&#x68;&#45;&#x74;&#104;&#101;&#x2d;&#x67;&#x6f;&#111;&#103;&#x6c;&#101;&#45;&#x62;&#x75;&#103;&#x61;&#x6e;&#x69;&#122;&#x65;&#114;&#x2d;&#115;&#x79;&#x73;&#116;&#x65;&#x6d;&#x2d;&#x66;&#111;&#x72;&#x2d;&#49;&#x35;&#x2d;&#54;&#48;&#x30;&#x2d;&#105;&#x6e;&#45;&#98;&#x6f;&#x75;&#x6e;&#x74;&#105;&#x65;&#x73;&#x2d;&#53;&#x38;&#x66;&#x38;&#54;&#99;&#99;&#x39;&#x66;&#x39;&#x61;&#53;</a></li>
 <li>Office-DDE-Payloads - 生成嵌入 DDE 的 恶意 Office 文档的脚本<br><a href="https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads" target="_blank" rel="external">https://github.com/0xdeadbeefJERKY/Office-DDE-Payloads</a></li>
 <li>Ironsquirrel - 以加密的方式将浏览器漏洞利用代码发往受害者浏览器的工具<br><a href="https://github.com/MRGEffitas/Ironsquirrel" target="_blank" rel="external">https://github.com/MRGEffitas/Ironsquirrel</a></li>
 <li>LIEF - 之前推送过这个工具，QuarksLab 开源的一个跨平台可执行文件格式（PE/ELF/MachO）的解析、修改、抽象库，QuarksLab 昨天更新了一篇介绍 LIEF 库用法的 Blog<br><a href="https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html" target="_blank" rel="external">https://blog.quarkslab.com/have-fun-with-lief-and-executable-formats.html</a></li>
@@ -1284,7 +1429,7 @@
 <li>如图所示我们可以计算出两个buffer地址之间的距离是0x70（即112个字节），我们知道第一个buffer是以null为结束的，当我们写入这个buffer长度为112个字节的时候，那么第二个buffer将会被写入到datafile这个buffer开始的部分。<br><img src="/2017/10/28/堆溢出利用笔记/nulloverflow.png" alt=""></li>
 <li>如我们所预期的，第二个buffer被我们写入了空.那么如果被覆盖的不是null，而是其他的呢？会是什么情况<br><img src="/2017/10/28/堆溢出利用笔记/testfile.png" alt=""></li>
 <li>这次，溢出导致第一个buffer写入到了当前文件下的testfile文件中，而不再是/var/notes 这个文件中 ，可以看到当使用free释放内存的时候报错了，这个其实就类似于栈溢出覆盖了返回地址一样。<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4></li>
-<li>从上面可以看出，文件名可以控制，而且可以append到文件中。这里可能会有几种利用的方式，其中最常见的利用方式就是写入文件/etc/passwd，这个文件包含了系统的所有的用户名、ID、登录的shell等信息(对这个文件操作之前请注意先备份O！)</li>
+<li>从上面可以看出，文件名可以控制，而且可以append到文件中。这里可能会有几种利用的方式，其中最常见的利用方式就是写文件/etc/passwd，这个文件包含了系统的所有的用户名、ID、登录的shell等信息(对这个文件操作之前请注意先备份O！)</li>
 <li>这个文件是以分号分隔开的，依次是登录名、密码、用户ID、组ID，用户名、用户的根目录以及登录的shell，其中密码处可以是x(代表加密，存放在/etc/shadow文件中)，也可以直接是加密后的密文，此外用户id为0代表用户会是root的权限，这个时候我们的目标就是在这个文件中追加一条，一个带有密文且id为0的账号。</li>
 <li>关于密码加密我们可以使用下面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ perl -e &apos;print crypt(&quot;M0rk&quot;, &quot;AA&quot;). &quot;\n&quot;&apos;</div><div class="line">AAhmo1jgYI0HE</div></pre></td></tr></table></figure>
 </li>
@@ -1613,152 +1758,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/21/20171021安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/21/20171021安全动态/" itemprop="url">
-                  20171021安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-21T13:11:27+08:00">
-                2017-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安全动态"><a href="#安全动态" class="headerlink" title="安全动态"></a>安全动态</h4><ul>
-<li>OSX平台Proton后门恶意软件——供应链攻击<br><https: 10="" 2017="" blog.malwarebytes.com="" cybercrime="" mac-malware-osx-proton-strikes-again=""></https:></li>
-<li>Blockchains（区块链）是什么<br><a href="https://unwttng.com/what-is-a-blockchain" target="_blank" rel="external">https://unwttng.com/what-is-a-blockchain</a></li>
-<li>地下暗流：揭秘控制百万肉鸡的GhostFramework<br><a href="http://www.freebuf.com/articles/terminal/150360.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/150360.html</a></li>
-<li>【开发利器】中国国内可用API合集<br><a href="https://microzz.com/2017/02/03/API/" target="_blank" rel="external">https://microzz.com/2017/02/03/API/</a></li>
-<li>windows命令执行漏洞不会玩？ 看我！<br><a href="https://evi1cg.me/archives/remote_exec.html" target="_blank" rel="external">https://evi1cg.me/archives/remote_exec.html</a></li>
-<li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
-<li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
-<li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#111;&#109;&#47;&#64;&#x74;&#104;&#51;&#103;&#51;&#110;&#116;&#x33;&#x6c;&#x2f;&#104;&#x6f;&#119;&#45;&#x69;&#45;&#x66;&#x6f;&#x75;&#x6e;&#100;&#x2d;&#97;&#110;&#x2d;&#115;&#x73;&#x72;&#x66;&#x2d;&#105;&#x6e;&#x2d;&#x79;&#x61;&#104;&#x6f;&#x6f;&#x2d;&#x67;&#x75;&#101;&#x73;&#116;&#x68;&#111;&#117;&#115;&#101;&#x2d;&#x72;&#x65;&#x63;&#x6f;&#x6e;&#x2d;&#x77;&#105;&#x6e;&#x73;&#x2d;&#x38;&#x37;&#x32;&#50;&#x36;&#55;&#x32;&#101;&#52;&#49;&#100;&#x34;">&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#x6d;&#x65;&#100;&#105;&#x75;&#x6d;&#46;&#99;&#111;&#109;&#47;&#64;&#x74;&#104;&#51;&#103;&#51;&#110;&#116;&#x33;&#x6c;&#x2f;&#104;&#x6f;&#119;&#45;&#x69;&#45;&#x66;&#x6f;&#x75;&#x6e;&#100;&#x2d;&#97;&#110;&#x2d;&#115;&#x73;&#x72;&#x66;&#x2d;&#105;&#x6e;&#x2d;&#x79;&#x61;&#104;&#x6f;&#x6f;&#x2d;&#x67;&#x75;&#101;&#x73;&#116;&#x68;&#111;&#117;&#115;&#101;&#x2d;&#x72;&#x65;&#x63;&#x6f;&#x6e;&#x2d;&#x77;&#105;&#x6e;&#x73;&#x2d;&#x38;&#x37;&#x32;&#50;&#x36;&#55;&#x32;&#101;&#52;&#49;&#100;&#x34;</a></li>
-<li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
-</li>
-<li><p>BaRMIe - Java RMI Enumeration And Attack Tool<br><a href="http://www.kitploit.com/2017/10/barmie-java-rmi-enumeration-and-attack.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/barmie-java-rmi-enumeration-and-attack.html</a></p>
-</li>
-<li>Blazy ——登录爆破工具（同时可检测CSRF, Clickjacking, Cloudflare and WAF）<br><a href="http://www.kitploit.com/2017/10/blazy-modern-login-bruteforcer-which.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/blazy-modern-login-bruteforcer-which.html</a></li>
-<li><p><a href="https://github.com/ak1t4/open-redirect-scanner" target="_blank" rel="external">https://github.com/ak1t4/open-redirect-scanner</a><br><a href="https://github.com/ak1t4/open-redirect-scanner" target="_blank" rel="external">https://github.com/ak1t4/open-redirect-scanner</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个用来测试url跳转漏洞不错</div></pre></td></tr></table></figure>
-</li>
-<li><p>加拿大间谍机构发布其网络防御工具<br><a href="https://www.hackread.com/canadas-spy-agency-releases-its-cyber-defense-tool-for-public/" target="_blank" rel="external">https://www.hackread.com/canadas-spy-agency-releases-its-cyber-defense-tool-for-public/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">好像都是python的？</div></pre></td></tr></table></figure>
-</li>
-<li><p>如何通过USB完全接管系统<br><a href="http://blog.ptsecurity.com/2017/10/how-to-obtaining-full-system-access-via.html" target="_blank" rel="external">http://blog.ptsecurity.com/2017/10/how-to-obtaining-full-system-access-via.html</a></p>
-</li>
-<li>看我如何一步一步发现TP-Link路由器的远程代码执行(CVE-2017-13772)<br><a href="https://www.fidusinfosec.com/tp-link-remote-code-execution-cve-2017-13772/" target="_blank" rel="external">https://www.fidusinfosec.com/tp-link-remote-code-execution-cve-2017-13772/</a></li>
-<li>Seccubus：简易自动漏洞扫描、报告、分析工具（可结合Nessus、OpenVAS、Nikto、NMap等）<br><a href="http://www.kitploit.com/2017/10/seccubus-easy-automated-vulnerability.html" target="_blank" rel="external">http://www.kitploit.com/2017/10/seccubus-easy-automated-vulnerability.html</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><a href="http://www.hahack.com/work/my-2-years-at-pingan/" target="_blank" rel="external">我在平安的两年</a><br><a href="http://j4s0nh4ck.iteye.com/blog/2171149" target="_blank" rel="external">使用Volatility从memory dump获得密码</a><br><a href="http://www.restran.net/2017/08/10/memory-forensics-tool-volatility%20-%20%E5%89%AF%E6%9C%AC/" target="_blank" rel="external">内存取证工具 volatility 使用说明</a><br><a href="http://vinc.top/2017/08/14/ssdeep%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_blank" rel="external">ssdeep检测webshell并通过OSSEC告警</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1808,7 +1807,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">161</span>
+                <span class="site-state-item-count">162</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
