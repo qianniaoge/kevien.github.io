@@ -115,8 +115,9 @@
 <meta property="og:image" content="http://kevien.github.io/2018/03/18/malloc的系统调用/brkbefore.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/18/malloc的系统调用/brkafter.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/18/malloc的系统调用/mmapbefore.png">
+<meta property="og:image" content="http://kevien.github.io/2018/03/18/malloc的系统调用/mmapafter.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/18/malloc的系统调用/aftermunmap.png">
-<meta property="og:updated_time" content="2018-03-17T17:30:06.000Z">
+<meta property="og:updated_time" content="2018-03-17T17:36:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="malloc的系统调用">
 <meta name="twitter:description" content="TL;DR 在读这篇文章的时候你应该知道c语言的malloc是使用系统调用从操作系统申请内存的，这两个系统调用分别是brk和mmap。brk brk从内核获取内存是通过增加程序中断的地址方式的，开始于start_brk,结束于brk，初始的时候两者都指向的是同一个位置。 当ASLR关闭的时候，start_brk和brk都是指向bss段的尾部的 当ASLR开启的时候，start_brk和brk初始位">
@@ -413,7 +414,7 @@
 <li><p>输出分析：</p>
 </li>
 <li>在使用mmap之前：我们注意下面的一个内存地址段<br><img src="/2018/03/18/malloc的系统调用/mmapbefore.png" alt=""></li>
-<li>当我们通过mmap申请了132KB的空间的时候，看到如下图<br>b7df0000-b7e12000 其中这段虚拟内存地址就包含了我们刚刚申请到132KB大小的地址空间</li>
+<li>当我们通过mmap申请了132KB的空间的时候，看到如下图<br><img src="/2018/03/18/malloc的系统调用/mmapafter.png" alt=""><br>b7df0000-b7e12000 其中这段虚拟内存地址就包含了我们刚刚申请到132KB大小的地址空间</li>
 <li>其中b7df0000-b7e12000 是这个块的地址范围，对应的操作权限标志是rw-p即可读可写不可执行，私有的</li>
 <li>000000的文件偏移是因为没有映射任何的文件，00：00 是主要/次要的设备数-由于没有映射任何文件，所以这里也是0，最后的0是inode number，还是由于没有映射任何的文件，所以这里也还是0.</li>
 <li>当munmap之后，下面的输出我们可以看的到申请的内存被释放（变成原来的b7e11000-b7e12000），又交还给了操作系统。<br><img src="/2018/03/18/malloc的系统调用/aftermunmap.png" alt=""><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
