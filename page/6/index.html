@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -45,48 +43,16 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+<link href="//main.css?v=" rel="stylesheet" type="text/css" />
 
-
-  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
 
 
 
@@ -96,8 +62,6 @@
 
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
 
 
 
@@ -117,33 +81,31 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
+    scheme: 'Pisces',
+    sidebar: "",
+    fancybox: ,
+    motion: ,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
       applicationID: '',
       apiKey: '',
       indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      hits: "",
+      labels: ""
     }
   };
 </script>
 
 
 
-  <link rel="canonical" href="http://kevien.github.io/page/6/"/>
 
 
 
 
-
-  <title>M0rk's Blog</title>
+  <title> M0rk's Blog -  </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -165,10 +127,8 @@
 
   
   
-    
-  
 
-  <div class="container sidebar-position-left 
+  <div class="container  
    page-home 
  ">
     <div class="headband"></div>
@@ -186,7 +146,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description"></h1>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -203,87 +163,7 @@
   
 
   
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocapitalize="off" autocomplete="off" autocorrect="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
   
 </nav>
 
@@ -325,7 +205,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -335,21 +215,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T10:33:04+08:00">
-                2017-09-19
-              </time>
             
 
             
@@ -388,7 +258,7 @@
 <li>《 The Python Bites your Apple：Fuzzing and exploiting OSX Kernel bugs》，《蛇噬汝果：基于Python的OSX内核漏洞模糊测试挖掘和利用》，来自科恩实验室 Flanker 在 XKungfoo 2016 会议的演讲<br><a href="https://papers.put.as/papers/macosx/2016/xkungfoo.pdf" target="_blank" rel="external">https://papers.put.as/papers/macosx/2016/xkungfoo.pdf</a></li>
 <li>恶意 Chrome 插件分析<br><a href="https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c" target="_blank" rel="external">https://blog.0day.rocks/malicious-chrome-extension-meddling-with-your-searches-581aa56ddc9c</a></li>
 <li>探测 mimikatz 以及其他可疑的 lsass 访问 - Part 1<br><a href="https://www.eideon.com/2017-09-09-THL01-Mimikatz/" target="_blank" rel="external">https://www.eideon.com/2017-09-09-THL01-Mimikatz/</a></li>
-<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#110;&#x65;&#x74;&#119;&#111;&#x72;&#x6b;&#115;&#x65;&#99;&#x75;&#x72;&#x69;&#116;&#121;&#x2f;&#114;&#x64;&#x70;&#45;&#x68;&#105;&#106;&#x61;&#x63;&#107;&#x69;&#x6e;&#103;&#45;&#104;&#x6f;&#119;&#45;&#x74;&#111;&#x2d;&#x68;&#105;&#106;&#x61;&#99;&#107;&#x2d;&#114;&#100;&#115;&#45;&#97;&#110;&#x64;&#45;&#114;&#101;&#x6d;&#x6f;&#x74;&#101;&#x61;&#x70;&#112;&#x2d;&#x73;&#x65;&#115;&#115;&#105;&#111;&#x6e;&#x73;&#x2d;&#116;&#114;&#97;&#x6e;&#x73;&#112;&#97;&#x72;&#101;&#110;&#116;&#x6c;&#x79;&#x2d;&#x74;&#111;&#x2d;&#x6d;&#x6f;&#118;&#x65;&#45;&#116;&#x68;&#x72;&#x6f;&#x75;&#x67;&#104;&#45;&#x61;&#110;&#x2d;&#x64;&#x61;&#x32;&#97;&#x31;&#x65;&#55;&#51;&#x61;&#x35;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#99;&#x65;&#61;&#108;&#105;&#110;&#x6b;&#83;&#x68;&#x61;&#114;&#x65;&#x2d;&#x37;&#x64;&#98;&#54;&#100;&#50;&#100;&#102;&#x34;&#50;&#97;&#54;&#45;&#49;&#53;&#x30;&#x35;&#x36;&#x38;&#x36;&#x31;&#53;&#x32;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#47;&#x6d;&#101;&#100;&#x69;&#117;&#x6d;&#x2e;&#99;&#x6f;&#109;&#x2f;&#x40;&#110;&#x65;&#x74;&#119;&#111;&#x72;&#x6b;&#115;&#x65;&#99;&#x75;&#x72;&#x69;&#116;&#121;&#x2f;&#114;&#x64;&#x70;&#45;&#x68;&#105;&#106;&#x61;&#x63;&#107;&#x69;&#x6e;&#103;&#45;&#104;&#x6f;&#119;&#45;&#x74;&#111;&#x2d;&#x68;&#105;&#106;&#x61;&#99;&#107;&#x2d;&#114;&#100;&#115;&#45;&#97;&#110;&#x64;&#45;&#114;&#101;&#x6d;&#x6f;&#x74;&#101;&#x61;&#x70;&#112;&#x2d;&#x73;&#x65;&#115;&#115;&#105;&#111;&#x6e;&#x73;&#x2d;&#116;&#114;&#97;&#x6e;&#x73;&#112;&#97;&#x72;&#101;&#110;&#116;&#x6c;&#x79;&#x2d;&#x74;&#111;&#x2d;&#x6d;&#x6f;&#118;&#x65;&#45;&#116;&#x68;&#x72;&#x6f;&#x75;&#x67;&#104;&#45;&#x61;&#110;&#x2d;&#x64;&#x61;&#x32;&#97;&#x31;&#x65;&#55;&#51;&#x61;&#x35;&#x66;&#x36;&#x3f;&#115;&#111;&#x75;&#114;&#99;&#x65;&#61;&#108;&#105;&#110;&#x6b;&#83;&#x68;&#x61;&#114;&#x65;&#x2d;&#x37;&#x64;&#98;&#54;&#100;&#50;&#100;&#102;&#x34;&#50;&#97;&#54;&#45;&#49;&#53;&#x30;&#x35;&#x36;&#x38;&#x36;&#x31;&#53;&#x32;</a></li>
+<li>RDP劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话<br><a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x6e;&#x65;&#x74;&#119;&#x6f;&#114;&#x6b;&#115;&#101;&#x63;&#117;&#x72;&#x69;&#x74;&#x79;&#x2f;&#114;&#100;&#112;&#x2d;&#x68;&#x69;&#106;&#97;&#x63;&#107;&#105;&#x6e;&#103;&#x2d;&#x68;&#x6f;&#119;&#x2d;&#x74;&#x6f;&#45;&#x68;&#105;&#x6a;&#97;&#x63;&#107;&#x2d;&#x72;&#100;&#x73;&#45;&#x61;&#110;&#100;&#x2d;&#x72;&#x65;&#x6d;&#111;&#x74;&#x65;&#97;&#x70;&#x70;&#45;&#x73;&#101;&#x73;&#x73;&#x69;&#x6f;&#110;&#x73;&#x2d;&#116;&#114;&#x61;&#110;&#115;&#x70;&#97;&#x72;&#101;&#110;&#116;&#108;&#121;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#x76;&#101;&#45;&#x74;&#104;&#114;&#x6f;&#x75;&#103;&#x68;&#45;&#x61;&#x6e;&#x2d;&#100;&#97;&#50;&#97;&#x31;&#101;&#x37;&#x33;&#97;&#x35;&#x66;&#x36;&#63;&#x73;&#111;&#117;&#x72;&#x63;&#x65;&#x3d;&#108;&#105;&#x6e;&#x6b;&#x53;&#x68;&#x61;&#x72;&#x65;&#45;&#x37;&#100;&#x62;&#x36;&#x64;&#50;&#x64;&#102;&#x34;&#50;&#97;&#x36;&#45;&#49;&#53;&#x30;&#x35;&#54;&#56;&#x36;&#x31;&#53;&#x32;">&#104;&#x74;&#116;&#112;&#115;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#109;&#46;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#x6e;&#x65;&#x74;&#119;&#x6f;&#114;&#x6b;&#115;&#101;&#x63;&#117;&#x72;&#x69;&#x74;&#x79;&#x2f;&#114;&#100;&#112;&#x2d;&#x68;&#x69;&#106;&#97;&#x63;&#107;&#105;&#x6e;&#103;&#x2d;&#x68;&#x6f;&#119;&#x2d;&#x74;&#x6f;&#45;&#x68;&#105;&#x6a;&#97;&#x63;&#107;&#x2d;&#x72;&#100;&#x73;&#45;&#x61;&#110;&#100;&#x2d;&#x72;&#x65;&#x6d;&#111;&#x74;&#x65;&#97;&#x70;&#x70;&#45;&#x73;&#101;&#x73;&#x73;&#x69;&#x6f;&#110;&#x73;&#x2d;&#116;&#114;&#x61;&#110;&#115;&#x70;&#97;&#x72;&#101;&#110;&#116;&#108;&#121;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#x76;&#101;&#45;&#x74;&#104;&#114;&#x6f;&#x75;&#103;&#x68;&#45;&#x61;&#x6e;&#x2d;&#100;&#97;&#50;&#97;&#x31;&#101;&#x37;&#x33;&#97;&#x35;&#x66;&#x36;&#63;&#x73;&#111;&#117;&#x72;&#x63;&#x65;&#x3d;&#108;&#105;&#x6e;&#x6b;&#x53;&#x68;&#x61;&#x72;&#x65;&#45;&#x37;&#100;&#x62;&#x36;&#x64;&#50;&#x64;&#102;&#x34;&#50;&#97;&#x36;&#45;&#49;&#53;&#x30;&#x35;&#54;&#56;&#x36;&#x31;&#53;&#x32;</a></li>
 <li>Microsoft Office 有哪些特性可以被后门用来实现常驻（Persist），来自 MWR Labs<br><a href="https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf" target="_blank" rel="external">https://labs.mwrinfosecurity.com/assets/BlogFiles/WilliamKnowles-MWR-44con-PersistingWithMicrosoftOffice.pdf</a></li>
 <li>JSLinux - 在浏览器里运行 Linux 系统<br><a href="https://bellard.org/jslinux/" target="_blank" rel="external">https://bellard.org/jslinux/</a></li>
 <li>idahunt  - NCCGroup 开源的用于辅助 IDA Pro 逆向分析的工具，譬如批量分析二进制文件<br><a href="https://github.com/nccgroup/idahunt" target="_blank" rel="external">https://github.com/nccgroup/idahunt</a></li>
@@ -458,7 +328,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -468,21 +338,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-18T13:27:10+08:00">
-                2017-09-18
-              </time>
             
 
             
@@ -605,7 +465,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -615,21 +475,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T17:07:22+08:00">
-                2017-09-17
-              </time>
             
 
             
@@ -752,7 +602,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -762,21 +612,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T13:06:48+08:00">
-                2017-09-17
-              </time>
             
 
             
@@ -887,7 +727,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -897,21 +737,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T10:19:51+08:00">
-                2017-09-15
-              </time>
             
 
             
@@ -1035,7 +865,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -1045,21 +875,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-14T13:35:42+08:00">
-                2017-09-14
-              </time>
             
 
             
@@ -1155,7 +975,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -1165,21 +985,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-14T10:28:40+08:00">
-                2017-09-14
-              </time>
             
 
             
@@ -1290,7 +1100,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -1300,21 +1110,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T20:22:48+08:00">
-                2017-09-13
-              </time>
             
 
             
@@ -1422,7 +1222,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -1432,21 +1232,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T10:13:04+08:00">
-                2017-09-13
-              </time>
             
 
             
@@ -1487,7 +1277,7 @@
 <li>【干货分享】手把手教你Android Logcat组件安全<br><a href="http://blog.nsfocus.net/android-logcat-security/" target="_blank" rel="external">http://blog.nsfocus.net/android-logcat-security/</a></li>
 <li>逆向 OBi200 谷歌语音设备<br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-1/</a><br><a href="https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/" target="_blank" rel="external">https://randywestergren.com/reverse-engineering-obi200-google-voice-appliance-part-2/</a></li>
 <li>[ IoTDevice ]  ARM exploitation for IoT - part 2<br><a href="https://quequero.org/2017/09/arm-exploitation-iot-episode-2" target="_blank" rel="external">https://quequero.org/2017/09/arm-exploitation-iot-episode-2</a></li>
-<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#97;&#x6c;&#97;&#x6e;&#x74;&#105;&#x72;&#47;&#119;&#x69;&#x6e;&#x64;&#x6f;&#119;&#x73;&#45;&#x65;&#118;&#101;&#110;&#116;&#x2d;&#102;&#x6f;&#114;&#x77;&#x61;&#x72;&#100;&#105;&#110;&#x67;&#45;&#102;&#x6f;&#x72;&#45;&#110;&#101;&#116;&#x77;&#111;&#114;&#107;&#45;&#100;&#101;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#x63;&#x62;&#50;&#x30;&#56;&#100;&#53;&#x66;&#x66;&#x38;&#x36;&#102;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#47;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#64;&#112;&#97;&#x6c;&#97;&#x6e;&#x74;&#105;&#x72;&#47;&#119;&#x69;&#x6e;&#x64;&#x6f;&#119;&#x73;&#45;&#x65;&#118;&#101;&#110;&#116;&#x2d;&#102;&#x6f;&#114;&#x77;&#x61;&#x72;&#100;&#105;&#110;&#x67;&#45;&#102;&#x6f;&#x72;&#45;&#110;&#101;&#116;&#x77;&#111;&#114;&#107;&#45;&#100;&#101;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#x63;&#x62;&#50;&#x30;&#56;&#100;&#53;&#x66;&#x66;&#x38;&#x36;&#102;</a></li>
+<li>windows-event-forwarding - 一款使用 Windows 事件转发来进行事件的检测与响应的工具<br><a href="https://github.com/palantir/windows-event-forwarding" target="_blank" rel="external">https://github.com/palantir/windows-event-forwarding</a><br><a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#112;&#x61;&#108;&#97;&#110;&#x74;&#x69;&#x72;&#47;&#x77;&#105;&#x6e;&#100;&#x6f;&#119;&#x73;&#45;&#x65;&#x76;&#x65;&#x6e;&#x74;&#x2d;&#x66;&#111;&#x72;&#x77;&#x61;&#x72;&#100;&#105;&#x6e;&#103;&#x2d;&#x66;&#x6f;&#114;&#45;&#110;&#101;&#116;&#119;&#x6f;&#114;&#107;&#x2d;&#100;&#x65;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#99;&#x62;&#x32;&#x30;&#x38;&#100;&#53;&#x66;&#x66;&#56;&#x36;&#x66;">&#x68;&#116;&#116;&#112;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#112;&#x61;&#108;&#97;&#110;&#x74;&#x69;&#x72;&#47;&#x77;&#105;&#x6e;&#100;&#x6f;&#119;&#x73;&#45;&#x65;&#x76;&#x65;&#x6e;&#x74;&#x2d;&#x66;&#111;&#x72;&#x77;&#x61;&#x72;&#100;&#105;&#x6e;&#103;&#x2d;&#x66;&#x6f;&#114;&#45;&#110;&#101;&#116;&#119;&#x6f;&#114;&#107;&#x2d;&#100;&#x65;&#x66;&#x65;&#x6e;&#x73;&#101;&#x2d;&#99;&#x62;&#x32;&#x30;&#x38;&#100;&#53;&#x66;&#x66;&#56;&#x36;&#x66;</a></li>
 <li>ZDI 对补丁日的总结<br><a href="https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review" target="_blank" rel="external">https://www.thezdi.com/blog/2017/9/12/the-september-2017-security-update-review</a></li>
 <li>[ Industry News ]  Kromtech 安全中心的人发现 超过 4000 个 ElasticSearch 服务器托管着 PoS 恶意软件(AlinaPOS、 JackPOS)<br><a href="https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/" target="_blank" rel="external">https://www.bleepingcomputer.com/news/security/over-4-000-elasticsearch-servers-found-hosting-pos-malware-files/</a></li>
 <li>Strust2漏洞影响多个Cisco产品<br><a href="http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html" target="_blank" rel="external">http://thehackernews.com/2017/09/apache-struts-flaws-cisco.html</a></li>
@@ -1557,7 +1347,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
             
             
               
@@ -1567,21 +1357,11 @@
                 </a>
               
             
-          </h2>
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T21:47:54+08:00">
-                2017-09-12
-              </time>
             
 
             
@@ -1711,13 +1491,13 @@
           <p class="site-author-name" itemprop="name">M0rk</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-           
+          
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+              <a href="/">
                 <span class="site-state-item-count">163</span>
                 <span class="site-state-item-name">日志</span>
               </a>
@@ -1814,51 +1594,11 @@
   &copy; 
   <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">M0rk</span>
 </div>
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
-<br>
-<span id="busuanzi_container_site_pv">
-    本站总访问量<span id="busuanzi_value_site_pv"></span>次
-</span>
-<!--
-<span id="busuanzi_container_site_uv">
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-</span>
--->
-<script type="text/javascript">
-!function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/39357/kevien.github.io/optionalSubID/0/",s.parentNode.insertBefore(t,s)}();
-</script>
-
-<!--
-<script src="https://authedmine.com/lib/authedmine.min.js"></script>
-<script>
-  var miner = new CoinHive.Anonymous('uTu9h9LT1kVUk4O1UxyZAhd8uvoLLip5', {throttle: 0.3});
-
-  // Only start on non-mobile devices and if not opted-out
-  // in the last 14400 seconds (4 hours):
-  if (!miner.isMobile() && !miner.didOptOut(14400)) {
-    miner.start();
-  }
-</script>
--->
-
-
-<!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="https://kevien.github.io/static/api/js/canvas-nest.min.js"></script>-->
-<script src="https://kevien.github.io/static/api/js/love.js"></script>
 
 
         
@@ -1892,8 +1632,6 @@
 
 
 
-  
-
 
 
 
@@ -1906,42 +1644,46 @@
 
 
   
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="//jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="//fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="//jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="//velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="//velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+  <script type="text/javascript" src="//src/utils.js?v="></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+  <script type="text/javascript" src="//src/motion.js?v="></script>
 
 
 
   
   
 
-  
+
+  <script type="text/javascript" src="//src/affix.js?v="></script>
+
+  <script type="text/javascript" src="//src/schemes/pisces.js?v="></script>
+
+
 
   
 
+  
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="//src/bootstrap.js?v="></script>
 
 
 
@@ -1997,300 +1739,6 @@
 
 
   
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      $('#local-search-input').focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-      $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = $( "entry", xmlResponse ).map(function() {
-            return {
-              title: $( "title", this ).text(),
-              content: $("content",this).text(),
-              url: $( "url" , this).text()
-            };
-          }).get();
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === '') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-          proceedsearch();
-        }
-      });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
 
 
 
