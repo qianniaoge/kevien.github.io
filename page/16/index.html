@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, M0rk" />
+  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
 
 
 
@@ -186,7 +186,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <h1 class="site-subtitle" itemprop="description"></h1>
       
   </div>
 
@@ -308,6 +308,169 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/13/20170613安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/13/20170613安全动态/" itemprop="url">
+                  20170613安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T12:50:57+08:00">
+                2017-06-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
+                    <span itemprop="name">每日安全动态</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>执行下面的命令可在windows 10、8.1以及7上获取保存的 #Wi-Fi# 明文密码：<blockquote>
+<p>netsh wlan show profiles<br>netsh wlan show profile name=<profile> key=clear<br><a href="http://blog.digital-forensics.it/2015/01/happy-dpapi.html?m=1" target="_blank" rel="external">http://blog.digital-forensics.it/2015/01/happy-dpapi.html?m=1</a></profile></p>
+</blockquote>
+</li>
+<li>一键自动化域渗透工具（含演示视频）<br><a href="http://www.freebuf.com/sectool/136224.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136224.html</a></li>
+<li>mazda_getInfo - 攻击马自达汽车娱乐信息系统 USB 端口的 PoC<br><a href="https://github.com/shipcod3/mazda_getInfo" target="_blank" rel="external">https://github.com/shipcod3/mazda_getInfo</a></li>
+<li>MacSpy: OS X RAT as a Service，MacSpy 被认为是 macOS 系统中目前最为复杂的间谍软件<br><a href="https://www.alienvault.com/blogs/labs-research/macspy-os-x-rat-as-a-service" target="_blank" rel="external">https://www.alienvault.com/blogs/labs-research/macspy-os-x-rat-as-a-service</a></li>
+<li>ShutIt - 一款终端环境的 Shell 自动化框架，基于 expect 库，可以同时管理多个服务器 shell 会话<br><a href="https://learnxinyminutes.com/docs/shutit/" target="_blank" rel="external">https://learnxinyminutes.com/docs/shutit/</a></li>
+<li>PowerLessShell - 在不调用 PowerShell.exe 的情况下执行 PowerShell 脚本 <a href="https://github.com/Mr-Un1k0d3r/PowerLessShell" target="_blank" rel="external">https://github.com/Mr-Un1k0d3r/PowerLessShell</a></li>
+<li>利用 Waitfor.exe 实现后门机制<br><a href="https://3gstudent.github.io/3gstudent.github.io/Use-Waitfor.exe-to-maintain-persistence/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Use-Waitfor.exe-to-maintain-persistence/</a> </li>
+<li>初识 Fuzzing 工具 WinAFL<br><a href="http://paper.seebug.org/323/" target="_blank" rel="external">http://paper.seebug.org/323/</a></li>
+<li>【经典好文】- 攻击JavaWeb应用 [1]<br><a href="https://threathunter.org/topic/593ea6b1a5edfd44628f5b34" target="_blank" rel="external">https://threathunter.org/topic/593ea6b1a5edfd44628f5b34</a></li>
+<li>Windows 日志攻防之攻击篇<br><a href="https://threathunter.org/topic/593eb1bbb33ad233198afcfa" target="_blank" rel="external">https://threathunter.org/topic/593eb1bbb33ad233198afcfa</a></li>
+<li>shell在手分析服务器日志不愁<br><a href="https://segmentfault.com/a/1190000009745139" target="_blank" rel="external">https://segmentfault.com/a/1190000009745139</a></li>
+<li>SSRF/XXE/XSS 扫描工具<br><a href="https://github.com/jobertabma/ground-control" target="_blank" rel="external">https://github.com/jobertabma/ground-control</a></li>
+<li>MAC 下wifi密码破解工具<br><a href="http://www.freebuf.com/sectool/136664.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136664.html</a></li>
+<li>手工搭建伪基站监控系统<br><a href="http://www.freebuf.com/sectool/136738.html" target="_blank" rel="external">http://www.freebuf.com/sectool/136738.html</a></li>
+<li>FlaskJinja2 开发中遇到的的服务端注入问题研究 II<br><a href="http://www.freebuf.com/articles/web/136180.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/136180.html</a></li>
+<li>利用powershell进行端口扫描<br><a href="http://bobao.360.cn/learning/detail/3961.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3961.html</a></li>
+<li>Belati is tool for Collecting Public Data &amp; Public Document from Website and other service for OSINT purpose<br><a href="https://github.com/aancw/Belati" target="_blank" rel="external">https://github.com/aancw/Belati</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/12/20170612安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -325,7 +488,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -335,7 +498,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -482,7 +645,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -492,7 +655,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -638,7 +801,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -648,7 +811,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -791,7 +954,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -801,7 +964,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -946,7 +1109,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -956,7 +1119,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1079,7 +1242,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1089,7 +1252,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1210,7 +1373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1220,7 +1383,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1350,7 +1513,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1360,7 +1523,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1488,7 +1651,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
@@ -1498,7 +1661,7 @@
                 </a>
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -1592,143 +1755,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/06/04/每周安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/04/每周安全动态/" itemprop="url">
-                  每周安全动态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T17:56:49+08:00">
-                2017-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h1><ul>
-<li>Google 引入定制的机器学习技术检测 Gmail 中的钓鱼邮件 <a href="https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/" target="_blank" rel="external">https://threatpost.com/new-machine-learning-behind-early-phishing-detection-in-gmail/125976/</a></li>
-<li>Ganxo - 开源 API Hook 框架 <a href="https://github.com/PassingTheKnowledge/Ganxo" target="_blank" rel="external">https://github.com/PassingTheKnowledge/Ganxo</a></li>
-<li>HTTPS 原理浅析及其在 Android 中的使用 <a href="http://mobile.51cto.com/android-540662.htm" target="_blank" rel="external">http://mobile.51cto.com/android-540662.htm</a></li>
-<li>初见 Chrome Headless Browser <a href="https://lightless.me/archives/first-glance-at-chrome-headless-browser.html" target="_blank" rel="external">https://lightless.me/archives/first-glance-at-chrome-headless-browser.html</a></li>
-<li>EternalPot - 搭建全球性的SMB漏洞蜜罐基础设施的经验 <a href="https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe" target="_blank" rel="external">https://doublepulsar.com/eternalpot-lessons-from-building-a-global-nation-state-smb-exploit-honeypot-infrastructure-3f2a0b064ffe</a></li>
-<li>来自内部员工的威胁以及如何防御，来自 NCC Group 的 Paper  <a href="https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/" target="_blank" rel="external">https://www.nccgroup.trust/uk/our-research/understanding-the-insider-threat-and-how-to-mitigate-it/</a>  </li>
-<li>Cheat Sheet of Machine Learning and Python (and Math) Cheat Sheets <a href="https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6" target="_blank" rel="external">https://unsupervisedmethods.com/cheat-sheet-of-machine-learning-and-python-and-math-cheat-sheets-a4afe4e791b6</a></li>
-<li>Package 钓鱼 <a href="http://blog.fatezero.org/2017/06/01/package-fishing/" target="_blank" rel="external">http://blog.fatezero.org/2017/06/01/package-fishing/</a></li>
-<li>Invoke-Phant0m Windows日志杀手 <a href="https://github.com/hlldz/Invoke-Phant0m" target="_blank" rel="external">https://github.com/hlldz/Invoke-Phant0m</a></li>
-<li>如何在PE文件中手动植入一个后门 <a href="http://bobao.360.cn/learning/detail/3931.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3931.html</a></li>
-<li>渗透标准思维导图 <a href="https://www.processon.com/view/583e8834e4b08e31357bb727" target="_blank" rel="external">https://www.processon.com/view/583e8834e4b08e31357bb727</a></li>
-<li>从蜜罐数据到SSH蜜罐的典型攻击分析 <a href="http://bobao.360.cn/learning/detail/3929.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/3929.html</a></li>
-<li>Joomla Core 3.x后台getshell <a href="https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload" target="_blank" rel="external">https://howucan.gr/vulnerabilities/joomla-exploits/2215-joomla-core-3-x-poc-vulnerability-shell-upload</a></li>
-<li>sudo-CVE-2017-1000367漏洞利用程序 <a href="https://github.com/c0d3z3r0/sudo-CVE-2017-1000367" target="_blank" rel="external">https://github.com/c0d3z3r0/sudo-CVE-2017-1000367</a></li>
-<li>一键自动化域渗透工具 <a href="https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html" target="_blank" rel="external">https://byt3bl33d3r.github.io/automating-the-empire-with-the-death-star-getting-domain-admin-with-a-push-of-a-button.html</a></li>
-<li>在OSX上监听单个应用HTTPS流量 <a href="https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/" target="_blank" rel="external">https://calebfenton.github.io/2017/05/27/monitoring-https-of-a-single-app-on-osx/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1771,14 +1797,14 @@
           <p class="site-author-name" itemprop="name">M0rk</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">162</span>
+                <span class="site-state-item-count">163</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
