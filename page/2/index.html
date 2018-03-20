@@ -608,7 +608,9 @@
 <li>2.使用更加好用的shellcode让它另起一个进程，从而保持原程序正常运行</li>
 <li>3.你的shellcode将会运行在目标项目中并且可以读取打开的文件…</li>
 <li>一如往常，你可以github上找到文章中所涉及到的代码<br><a href="https://github.com/0x00pf/0x00sec_code/tree/master/mem_inject" target="_blank" rel="external">https://github.com/0x00pf/0x00sec_code/tree/master/mem_inject</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>附上译者的测试截图<br><img src="/2018/01/28/linux进程注入/testinject.png" alt=""></li>
+<li>附上译者的测试截图<br><img src="/2018/01/28/linux进程注入/testinject.png" alt=""><h4 id="20180320更新"><a href="#20180320更新" class="headerlink" title="20180320更新"></a>20180320更新</h4></li>
+<li>昨天在看《learing linux binary analysis》的时候看到的一个工具<a href="https://github.com/kevien/saruman" target="_blank" rel="external">saruman</a>,觉得还不错，这是一个已经相对比较稳定的进程注入工具。此外这里还有一个后门server感觉还不错。</li>
+<li>注意在编译server的时候记得加上 -fpic -pie的编译参数，其中fpic和pie参数用于生成位置无关可执行程序，其中fpic用于编译阶段，pie用于链接阶段。<br><img src="/2018/01/28/linux进程注入/poc.png" alt=""></li>
 </ul>
 
           

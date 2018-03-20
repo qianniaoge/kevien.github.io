@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kevien.github.io/"/>
-  <updated>2018-03-19T07:30:18.000Z</updated>
+  <updated>2018-03-20T10:18:19.844Z</updated>
   <id>http://kevien.github.io/</id>
   
   <author>
@@ -20,14 +20,18 @@
     <link href="http://kevien.github.io/2018/03/19/20180319%E5%AE%89%E5%85%A8%E5%8A%A8%E6%80%81/"/>
     <id>http://kevien.github.io/2018/03/19/20180319安全动态/</id>
     <published>2018-03-19T05:17:36.000Z</published>
-    <updated>2018-03-19T07:30:18.000Z</updated>
+    <updated>2018-03-20T10:18:19.844Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
 <li>使用 Sysmon 和 Splunk 进行高级事件检测与威胁追查，来自 BotConf2016<br><a href="https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf" target="_blank" rel="external">https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf</a></li>
-<li>RDP 劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话以实现横向渗透<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#x65;&#x74;&#x77;&#111;&#114;&#107;&#115;&#x65;&#99;&#117;&#x72;&#105;&#116;&#121;&#x2f;&#x72;&#x64;&#112;&#45;&#104;&#105;&#106;&#97;&#x63;&#x6b;&#105;&#x6e;&#103;&#x2d;&#104;&#x6f;&#x77;&#x2d;&#x74;&#x6f;&#x2d;&#104;&#x69;&#106;&#97;&#x63;&#x6b;&#45;&#114;&#100;&#x73;&#x2d;&#97;&#110;&#100;&#x2d;&#114;&#x65;&#x6d;&#111;&#116;&#x65;&#97;&#112;&#112;&#x2d;&#115;&#x65;&#115;&#x73;&#105;&#111;&#x6e;&#115;&#x2d;&#116;&#114;&#97;&#110;&#115;&#112;&#x61;&#x72;&#x65;&#110;&#116;&#108;&#121;&#45;&#x74;&#x6f;&#45;&#x6d;&#111;&#x76;&#x65;&#45;&#x74;&#x68;&#x72;&#x6f;&#x75;&#x67;&#104;&#45;&#97;&#110;&#x2d;&#100;&#97;&#x32;&#x61;&#x31;&#x65;&#x37;&#x33;&#97;&#53;&#x66;&#54;">&#x68;&#x74;&#x74;&#x70;&#115;&#58;&#47;&#x2f;&#x6d;&#x65;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#111;&#x6d;&#47;&#x40;&#110;&#x65;&#x74;&#x77;&#111;&#114;&#107;&#115;&#x65;&#99;&#117;&#x72;&#105;&#116;&#121;&#x2f;&#x72;&#x64;&#112;&#45;&#104;&#105;&#106;&#97;&#x63;&#x6b;&#105;&#x6e;&#103;&#x2d;&#104;&#x6f;&#x77;&#x2d;&#x74;&#x6f;&#x2d;&#104;&#x69;&#106;&#97;&#x63;&#x6b;&#45;&#114;&#100;&#x73;&#x2d;&#97;&#110;&#100;&#x2d;&#114;&#x65;&#x6d;&#111;&#116;&#x65;&#97;&#112;&#112;&#x2d;&#115;&#x65;&#115;&#x73;&#105;&#111;&#x6e;&#115;&#x2d;&#116;&#114;&#97;&#110;&#115;&#112;&#x61;&#x72;&#x65;&#110;&#116;&#108;&#121;&#45;&#x74;&#x6f;&#45;&#x6d;&#111;&#x76;&#x65;&#45;&#x74;&#x68;&#x72;&#x6f;&#x75;&#x67;&#104;&#45;&#97;&#110;&#x2d;&#100;&#97;&#x32;&#x61;&#x31;&#x65;&#x37;&#x33;&#97;&#53;&#x66;&#54;</a></li>
+<li>RDP 劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话以实现横向渗透<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#x6e;&#x65;&#x74;&#x77;&#x6f;&#114;&#107;&#115;&#x65;&#99;&#117;&#114;&#105;&#x74;&#121;&#47;&#x72;&#100;&#x70;&#45;&#104;&#x69;&#106;&#97;&#99;&#x6b;&#105;&#x6e;&#103;&#x2d;&#x68;&#111;&#119;&#x2d;&#x74;&#x6f;&#45;&#104;&#105;&#106;&#97;&#x63;&#107;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#100;&#x2d;&#114;&#x65;&#109;&#x6f;&#116;&#101;&#x61;&#x70;&#112;&#45;&#115;&#101;&#x73;&#x73;&#x69;&#x6f;&#x6e;&#115;&#x2d;&#116;&#114;&#x61;&#110;&#115;&#112;&#x61;&#114;&#101;&#110;&#x74;&#108;&#x79;&#45;&#x74;&#111;&#x2d;&#109;&#x6f;&#118;&#101;&#45;&#116;&#104;&#114;&#x6f;&#x75;&#x67;&#x68;&#x2d;&#x61;&#x6e;&#45;&#x64;&#97;&#50;&#x61;&#49;&#101;&#x37;&#51;&#x61;&#x35;&#x66;&#54;">&#x68;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#47;&#x40;&#x6e;&#x65;&#x74;&#x77;&#x6f;&#114;&#107;&#115;&#x65;&#99;&#117;&#114;&#105;&#x74;&#121;&#47;&#x72;&#100;&#x70;&#45;&#104;&#x69;&#106;&#97;&#99;&#x6b;&#105;&#x6e;&#103;&#x2d;&#x68;&#111;&#119;&#x2d;&#x74;&#x6f;&#45;&#104;&#105;&#106;&#97;&#x63;&#107;&#45;&#114;&#100;&#x73;&#45;&#x61;&#110;&#100;&#x2d;&#114;&#x65;&#109;&#x6f;&#116;&#101;&#x61;&#x70;&#112;&#45;&#115;&#101;&#x73;&#x73;&#x69;&#x6f;&#x6e;&#115;&#x2d;&#116;&#114;&#x61;&#110;&#115;&#112;&#x61;&#114;&#101;&#110;&#x74;&#108;&#x79;&#45;&#x74;&#111;&#x2d;&#109;&#x6f;&#118;&#101;&#45;&#116;&#104;&#114;&#x6f;&#x75;&#x67;&#x68;&#x2d;&#x61;&#x6e;&#45;&#x64;&#97;&#50;&#x61;&#49;&#101;&#x37;&#51;&#x61;&#x35;&#x66;&#54;</a></li>
 <li>Protecting Against HSTS Abuse<br><a href="https://webkit.org/blog/8146/protecting-against-hsts-abuse/" target="_blank" rel="external">https://webkit.org/blog/8146/protecting-against-hsts-abuse/</a></li>
 <li>Tokenvator - 操作 Windows Tokens 进行提权的工具<br><a href="https://github.com/0xbadjuju/Tokenvator" target="_blank" rel="external">https://github.com/0xbadjuju/Tokenvator</a></li>
 <li>Defending Microsoft environments at scale，大规模 Microsoft 环境的防御方案<br><a href="https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view" target="_blank" rel="external">https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view</a></li>
+<li>go-fuzz 使用指南，来自 GopherConRu 18 大会<br><a href="https://go-talks.appspot.com/github.com/dvyukov/go-fuzz/slides/fuzzing.slide" target="_blank" rel="external">https://go-talks.appspot.com/github.com/dvyukov/go-fuzz/slides/fuzzing.slide</a></li>
+<li>十种进程注入技术介绍<br><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="external">https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process</a></li>
+<li>Internal-Monologue - 在不触碰 LSASS 的情况下抓取 NTLM Hashes 的攻击方式<br><a href="https://github.com/eladshamir/Internal-Monologue" target="_blank" rel="external">https://github.com/eladshamir/Internal-Monologue</a></li>
+<li>滥用 LAPS 实现持久化控制<br><a href="https://rastamouse.me/2018/03/laps---part-2/" target="_blank" rel="external">https://rastamouse.me/2018/03/laps---part-2/</a></li>
 </ul>
 ]]></content>
     
@@ -234,7 +238,7 @@
     <updated>2018-03-02T06:37:05.842Z</updated>
     
     <content type="html"><![CDATA[<h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#x72;&#x61;&#116;&#101;&#101;&#107;&#x5f;&#x30;&#x34;&#57;&#48;&#47;&#98;&#x75;&#x67;&#45;&#x62;&#111;&#117;&#x6e;&#116;&#121;&#x2d;&#116;&#105;&#112;&#115;&#45;&#116;&#114;&#105;&#99;&#107;&#115;&#45;&#106;&#115;&#x2d;&#x6a;&#97;&#118;&#x61;&#x73;&#99;&#x72;&#x69;&#x70;&#116;&#x2d;&#102;&#x69;&#108;&#x65;&#115;&#45;&#98;&#100;&#100;&#101;&#x34;&#x31;&#50;&#x65;&#97;&#x34;&#x39;&#x64;">&#x68;&#x74;&#x74;&#112;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#46;&#99;&#x6f;&#109;&#x2f;&#64;&#x70;&#x72;&#x61;&#116;&#101;&#101;&#107;&#x5f;&#x30;&#x34;&#57;&#48;&#47;&#98;&#x75;&#x67;&#45;&#x62;&#111;&#117;&#x6e;&#116;&#121;&#x2d;&#116;&#105;&#112;&#115;&#45;&#116;&#114;&#105;&#99;&#107;&#115;&#45;&#106;&#115;&#x2d;&#x6a;&#97;&#118;&#x61;&#x73;&#99;&#x72;&#x69;&#x70;&#116;&#x2d;&#102;&#x69;&#108;&#x65;&#115;&#45;&#98;&#100;&#100;&#101;&#x34;&#x31;&#50;&#x65;&#97;&#x34;&#x39;&#x64;</a></li>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#58;&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x72;&#97;&#116;&#101;&#101;&#107;&#95;&#48;&#x34;&#57;&#48;&#47;&#x62;&#x75;&#x67;&#45;&#98;&#x6f;&#117;&#110;&#116;&#x79;&#45;&#116;&#105;&#x70;&#115;&#45;&#x74;&#114;&#105;&#x63;&#x6b;&#x73;&#45;&#106;&#115;&#45;&#x6a;&#x61;&#x76;&#97;&#115;&#99;&#x72;&#x69;&#x70;&#x74;&#45;&#x66;&#x69;&#x6c;&#101;&#115;&#x2d;&#98;&#x64;&#x64;&#x65;&#52;&#49;&#x32;&#x65;&#97;&#52;&#57;&#x64;">&#104;&#116;&#116;&#x70;&#115;&#58;&#47;&#x2f;&#109;&#x65;&#x64;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#x70;&#x72;&#97;&#116;&#101;&#101;&#107;&#95;&#48;&#x34;&#57;&#48;&#47;&#x62;&#x75;&#x67;&#45;&#98;&#x6f;&#117;&#110;&#116;&#x79;&#45;&#116;&#105;&#x70;&#115;&#45;&#x74;&#114;&#105;&#x63;&#x6b;&#x73;&#45;&#106;&#115;&#45;&#x6a;&#x61;&#x76;&#97;&#115;&#99;&#x72;&#x69;&#x70;&#x74;&#45;&#x66;&#x69;&#x6c;&#101;&#115;&#x2d;&#98;&#x64;&#x64;&#x65;&#52;&#49;&#x32;&#x65;&#97;&#52;&#57;&#x64;</a></li>
 <li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
 <li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
 <li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
@@ -507,7 +511,7 @@
     <link href="http://kevien.github.io/2018/01/28/linux%E8%BF%9B%E7%A8%8B%E6%B3%A8%E5%85%A5/"/>
     <id>http://kevien.github.io/2018/01/28/linux进程注入/</id>
     <published>2018-01-28T09:18:28.000Z</published>
-    <updated>2018-01-28T10:01:59.000Z</updated>
+    <updated>2018-03-20T16:11:24.000Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">译文声明</div><div class="line">本文是翻译文章，文章原作者0x00pf，文章来源：0x00sec.org</div><div class="line">原文地址：https://0x00sec.org/t/linux-infecting-running-processes/1097</div><div class="line">第一篇翻译的文章，如有不当，那也没有什么办法0.0</div><div class="line">主要是在工作中遇到了一个需要注入的场景就学习了一下。</div></pre></td></tr></table></figure>
 <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
@@ -587,7 +591,9 @@
 <li>2.使用更加好用的shellcode让它另起一个进程，从而保持原程序正常运行</li>
 <li>3.你的shellcode将会运行在目标项目中并且可以读取打开的文件…</li>
 <li>一如往常，你可以github上找到文章中所涉及到的代码<br><a href="https://github.com/0x00pf/0x00sec_code/tree/master/mem_inject" target="_blank" rel="external">https://github.com/0x00pf/0x00sec_code/tree/master/mem_inject</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>附上译者的测试截图<br><img src="/2018/01/28/linux进程注入/testinject.png" alt=""></li>
+<li>附上译者的测试截图<br><img src="/2018/01/28/linux进程注入/testinject.png" alt=""><h4 id="20180320更新"><a href="#20180320更新" class="headerlink" title="20180320更新"></a>20180320更新</h4></li>
+<li>昨天在看《learing linux binary analysis》的时候看到的一个工具<a href="https://github.com/kevien/saruman" target="_blank" rel="external">saruman</a>,觉得还不错，这是一个已经相对比较稳定的进程注入工具。此外这里还有一个后门server感觉还不错。</li>
+<li>注意在编译server的时候记得加上 -fpic -pie的编译参数，其中fpic和pie参数用于生成位置无关可执行程序，其中fpic用于编译阶段，pie用于链接阶段。<br><img src="/2018/01/28/linux进程注入/poc.png" alt=""></li>
 </ul>
 ]]></content>
     
