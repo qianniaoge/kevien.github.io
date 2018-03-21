@@ -112,11 +112,12 @@
 <meta property="og:site_name" content="M0rk's Blog">
 <meta property="og:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/game.png">
+<meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/gamemain.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/distance.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/flowattempt.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/jackpot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/getall.png">
-<meta property="og:updated_time" content="2018-03-21T17:53:02.000Z">
+<meta property="og:updated_time" content="2018-03-21T17:55:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BSS段的溢出攻击">
 <meta name="twitter:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
@@ -412,7 +413,7 @@
 <li><p>这个函数会接收用户输入的名字直到用户输入换行符，所以这里并没有有效的限制用户输入，就意味着可以被利用，此外我们覆盖之后还需要程序去调用这个函数指针，这个功能可以发生在下面代码的6、8或者10行，代码片段如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">if((choice &lt; 1) || (choice &gt; 7))</div><div class="line">       printf(&quot;\n[!!] The number %d is an invalid selection.\n\n&quot;, choice);</div><div class="line">    else if (choice &lt; 4) &#123;  // Othewise, choice was a game of some sort.</div><div class="line">          if(choice != last_game) &#123; // If the function ptr isn&apos;t set</div><div class="line">             if(choice == 1)        // then point it at the selected game </div><div class="line">                player.current_game = pick_a_number;   </div><div class="line">             else if(choice == 2)                     </div><div class="line">                player.current_game = dealer_no_match;</div><div class="line">             else</div><div class="line">                player.current_game = find_the_ace;</div><div class="line">             last_game = choice;   // and set last_game.</div><div class="line">          &#125;</div><div class="line">          play_the_game();   // Play the game.</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>如果last_game 和当前的选择不一致，函数指针current_game 会被设置成当前的选择，意味着要程序去调用函数指针，就需要首先设置last_game这个变量。<br>![gamemain.png]</p>
+<li><p>如果last_game 和当前的选择不一致，函数指针current_game 会被设置成当前的选择，意味着要程序去调用函数指针，就需要首先设置last_game这个变量。<br><img src="/2018/03/22/BSS段的溢出攻击/gamemain.png" alt=""></p>
 </li>
 <li>我们可以通过ctrl+z挂起当前的进程，这个时候，last_game变量被设置成了1(因为刚才玩的是游戏1)，这个时候就可以进入if后面的判断了，我们找到了可以被溢出的变量name，然后让我们通过简单调试看一下name和current_game指针在内存中的位置关系。<br><img src="/2018/03/22/BSS段的溢出攻击/distance.png" alt=""></li>
 <li>如上图所示，正好是100个字节，通过以上我们可以进行如下的覆盖尝试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;A&quot;x100 . &quot;BBBB&quot; . &quot;\n&quot;&apos;</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB</div></pre></td></tr></table></figure>
