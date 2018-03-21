@@ -104,23 +104,23 @@
 
 
 
-<meta name="description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
+<meta name="description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BSS段的溢出攻击">
 <meta property="og:url" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
+<meta property="og:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/game.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/gamemain.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/distance.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/flowattempt.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/jackpot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/getall.png">
-<meta property="og:updated_time" content="2018-03-21T17:55:41.000Z">
+<meta property="og:updated_time" content="2018-03-21T17:57:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BSS段的溢出攻击">
-<meta name="twitter:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
+<meta name="twitter:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
 <meta name="twitter:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/game.png">
 
 
@@ -400,7 +400,7 @@
 
       
         <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
-<li>缓冲区溢出除了典型的<a href="https://kevien.github.io/2017/08/16/linux栈溢出学习笔记/">栈溢出</a>和<a href="https://kevien.github.io/2017/10/28/堆溢出利用笔记/">堆溢出</a>，还有一种发生在bss节区上的，bss属于数据节区的一种，通常用来保存未初始化的静态变量。<a href="https://www.wikiwand.com/en/BSS" target="_blank" rel="external">wiki</a></li>
+<li>缓冲区溢出除了典型的<a href="https://kevien.github.io/2017/08/16/linux栈溢出学习笔记/">栈溢出</a>和<a href="https://kevien.github.io/2017/10/28/堆溢出利用笔记/">堆溢出</a>，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。<a href="https://www.wikiwand.com/en/BSS" target="_blank" rel="external">wiki</a></li>
 <li>测试环境ubuntu14.04X86.<h4 id="vul-code-snippet"><a href="#vul-code-snippet" class="headerlink" title="vul code snippet"></a>vul code snippet</h4></li>
 <li><p>from game_of_chance.c</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Custom user struct to store information about users </div><div class="line">struct user &#123;</div><div class="line">    int uid;</div><div class="line">    int credits;</div><div class="line">    int highscore;</div><div class="line">    char name[100];</div><div class="line">    int (*current_game) ();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">...</div><div class="line">struct user player;     // Player struct</div></pre></td></tr></table></figure>
