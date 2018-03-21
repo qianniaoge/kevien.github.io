@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/flowattempt.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/jackpot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/getall.png">
-<meta property="og:updated_time" content="2018-03-21T17:57:27.000Z">
+<meta property="og:updated_time" content="2018-03-21T19:31:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BSS段的溢出攻击">
 <meta name="twitter:description" content="TL;DR 缓冲区溢出除了典型的栈溢出和堆溢出，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。wiki 测试环境ubuntu14.04X86.vul code snippet from game_of_chance.c 1234567891011// Custom user struct to store information about users s">
@@ -410,18 +410,19 @@
 <li><p>如上的代码片段中用一个函数指针保存了上次玩了哪个游戏，这个指针保存在user的结构体中，且被声明为全局变量，这意味着user这个结构体变量保存在bss数据段。其中结构体中固定为100字节的name变量保存了用户的姓名，且这个name是可以被input_name()这个函数所控制的，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void input_name() &#123;</div><div class="line">   char *name_ptr, input_char=&apos;\n&apos;;</div><div class="line">   while(input_char == &apos;\n&apos;)    // Flush any leftover </div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // newline chars.</div><div class="line">   </div><div class="line">   name_ptr = (char *) &amp;(player.name); // name_ptr = player name&apos;s address</div><div class="line">   while(input_char != &apos;\n&apos;) &#123;  // Loop until newline.</div><div class="line">      *name_ptr = input_char;   // Put the input char into name field.</div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // Get the next char.</div><div class="line">      name_ptr++;               // Increment the name pointer.</div><div class="line">   &#125;</div><div class="line">   *name_ptr = 0;  // Terminate the string.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>这个函数会接收用户输入的名字直到用户输入换行符，所以这里并没有有效的限制用户输入，就意味着可以被利用，此外我们覆盖之后还需要程序去调用这个函数指针，这个功能可以发生在下面代码的6、8或者10行，代码片段如下：</p>
+<li><p>这个函数会接收用户输入的名字直到用户输入换行符，所以这里并没有有效的限制用户输入，就意味着可以被利用，此外我们覆盖之后还需要程序去调用这个函数指针，这个功能可以发生在下面代码的6、8或者10行以及play_the_game()函数中，代码片段如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">if((choice &lt; 1) || (choice &gt; 7))</div><div class="line">       printf(&quot;\n[!!] The number %d is an invalid selection.\n\n&quot;, choice);</div><div class="line">    else if (choice &lt; 4) &#123;  // Othewise, choice was a game of some sort.</div><div class="line">          if(choice != last_game) &#123; // If the function ptr isn&apos;t set</div><div class="line">             if(choice == 1)        // then point it at the selected game </div><div class="line">                player.current_game = pick_a_number;   </div><div class="line">             else if(choice == 2)                     </div><div class="line">                player.current_game = dealer_no_match;</div><div class="line">             else</div><div class="line">                player.current_game = find_the_ace;</div><div class="line">             last_game = choice;   // and set last_game.</div><div class="line">          &#125;</div><div class="line">          play_the_game();   // Play the game.</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>如果last_game 和当前的选择不一致，函数指针current_game 会被设置成当前的选择，意味着要程序去调用函数指针，就需要首先设置last_game这个变量。<br><img src="/2018/03/22/BSS段的溢出攻击/gamemain.png" alt=""></p>
-</li>
-<li>我们可以通过ctrl+z挂起当前的进程，这个时候，last_game变量被设置成了1(因为刚才玩的是游戏1)，这个时候就可以进入if后面的判断了，我们找到了可以被溢出的变量name，然后让我们通过简单调试看一下name和current_game指针在内存中的位置关系。<br><img src="/2018/03/22/BSS段的溢出攻击/distance.png" alt=""></li>
+</ul>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><ul>
+<li>如果last_game 和未设置，函数指针current_game 会被设置成一个0或者-1，这时不会触发漏洞，后面last_game被设置成1，当修改完名字，完成对current_game覆盖的时候，再玩游戏1的时候，进入play_the_game,漏洞即触发！！！<br><img src="/2018/03/22/BSS段的溢出攻击/gamemain.png" alt=""></li>
+<li>我们可以通过ctrl+z挂起当前的进程(这个时候last_game变量被设置成了1(因为刚才玩的是游戏choice是1))，我们找到可以被溢出的变量name，然后通过简单调试看一下name和current_game指针在内存中的位置关系。<br><img src="/2018/03/22/BSS段的溢出攻击/distance.png" alt=""></li>
 <li>如上图所示，正好是100个字节，通过以上我们可以进行如下的覆盖尝试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;A&quot;x100 . &quot;BBBB&quot; . &quot;\n&quot;&apos;</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="/2018/03/22/BSS段的溢出攻击/flowattempt.png" alt=""></p>
 <ul>
-<li>可以看到程序崩溃之前curren_game已被成功覆盖为BBBB，这个时候我们需要一个”有效的”地址去做不可描述的事情。</li>
+<li>可以看到程序崩溃之前curren_game已被成功覆盖为BBBB，这个时候我们需要一个”有效的”地址去做我们想要做的事情。</li>
 <li>nm命令可以查看程序的符号表，我们来看一下程序有哪些函数以及其对应的内存地址（此思路常用语破解）。<br><img src="/2018/03/22/BSS段的溢出攻击/jackpot.png" alt=""></li>
 <li>jackpot函数是我们理想的目标，这个函数用来给我们增加”金币”,所以当current_game函数指针被覆盖成这个函数的时候，我们就可以拥有无数”金币”</li>
 <li><p>这个程序通过标准输入进行用户交互，我们完全可以实现自动化，如下的例子将会自动选择游戏1，然后猜测数字7，当被问是否还玩的时候选择no，最后通过选择7退出程序。</p>
@@ -684,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vul-code-snippet"><span class="nav-number">2.</span> <span class="nav-text">vul code snippet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关源码下载"><span class="nav-number">3.</span> <span class="nav-text">相关源码下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reference"><span class="nav-number">4.</span> <span class="nav-text">reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#TL-DR"><span class="nav-number">1.</span> <span class="nav-text">TL;DR</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vul-code-snippet"><span class="nav-number">2.</span> <span class="nav-text">vul code snippet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#漏洞利用"><span class="nav-number">3.</span> <span class="nav-text">漏洞利用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关源码下载"><span class="nav-number">4.</span> <span class="nav-text">相关源码下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reference"><span class="nav-number">5.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
 
           </div>
