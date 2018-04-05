@@ -283,8 +283,8 @@ a {
   word-wrap: break-word;
 }
 a:hover {
-  color: #222;
-  border-bottom-color: #222;
+  color: #fff;
+  border-bottom-color: #fff;
 }
 blockquote {
   margin: 0;
@@ -1477,7 +1477,7 @@ pre .javascript .function {
   border-bottom: none;
 }
 .post-nav-item a:hover {
-  color: #222;
+  color: #fff;
   border-bottom: none;
 }
 .post-nav-item a:active {
@@ -1694,7 +1694,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8c750a;
+  background: #63cfff;
 }
 .links-of-blogroll {
   font-size: 13px;
