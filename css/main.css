@@ -180,7 +180,7 @@ th {
   padding: 0;
 }
 ::selection {
-  background: #2bbc8a;
+  background: #fff;
   color: #fc6423;
 }
 body {
@@ -1078,7 +1078,7 @@ pre .javascript .function {
   transition-delay: 0s;
 }
 .menu .menu-item a:hover {
-  border-bottom-color: #2bbc8a;
+  border-bottom-color: #fff;
 }
 .menu .menu-item .fa {
   margin-right: 5px;
@@ -1311,7 +1311,7 @@ pre .javascript .function {
   font-size: 26px;
   text-align: center;
   word-break: break-word;
-  color: #2bbc8a;
+  color: #fff;
   font-weight: 400;
 }
 @media (max-width: 767px) {
@@ -1322,7 +1322,7 @@ pre .javascript .function {
 .posts-expand .post-title-link {
   display: inline-block;
   position: relative;
-  color: #2bbc8a;
+  color: #fff;
   border-bottom: none;
   line-height: 1.2;
   vertical-align: top;
@@ -1695,7 +1695,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7d9411;
+  background: #ff2ad2;
 }
 .links-of-blogroll {
   font-size: 13px;
