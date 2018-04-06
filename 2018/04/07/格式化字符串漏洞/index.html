@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/objgot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell1.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell2.png">
-<meta property="og:updated_time" content="2018-04-06T21:50:29.000Z">
+<meta property="og:updated_time" content="2018-04-06T21:52:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格式化字符串漏洞">
 <meta name="twitter:description" content="TL;DR 不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数的从最右边的参数开始，逐个压栈。如果要传入的是">
@@ -408,7 +408,7 @@
 </li>
 <li><p>当我们输入 AAAA%08x.%08x.%08x.%08x可以看到我们读取到了保存于栈中的数据（输入的AAAA），当然如果输入的%08x更多还会读取到栈中更多的数据<br><img src="/2018/04/07/格式化字符串漏洞/memread.png" alt=""></p>
 </li>
-<li>如果写入的AAAA是一个敏感的地址呢，比如说指向敏感字符串的地址。<br><img src="/2018/04/07/格式化字符串漏洞/readspecifyadd.png" alt=""><h4 id="任意内存写入"><a href="#任意内存写入" class="headerlink" title="任意内存写入"></a>任意内存写入</h4></li>
+<li>如果写入的AAAA是一个敏感的地址呢，比如指向敏感字符串的地址。<br><img src="/2018/04/07/格式化字符串漏洞/readspecifyadd.png" alt=""><h4 id="任意内存写入"><a href="#任意内存写入" class="headerlink" title="任意内存写入"></a>任意内存写入</h4></li>
 <li>任意内存写入需要用到%n这个不常用的参数，它的功能是将%n之前printf已经打印的字符个数赋值给传入的指针,通过%n我们就可以修改内存中的值了。还是原来的漏洞代码。</li>
 <li><p>此外还需要$的配合，如下的代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;7th: %7$d, 4th: %4$05d\n&quot;, 10, 20, 30, 40, 50, 60, 70, 80);</div></pre></td></tr></table></figure>
