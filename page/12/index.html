@@ -1,0 +1,2527 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                <!--history.back();-->
+                window.location.href='https://kevien.github.io';
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="M0rk's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="M0rk's Blog">
+<meta property="og:url" content="http://kevien.github.io/page/12/index.html">
+<meta property="og:site_name" content="M0rk's Blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="M0rk's Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://kevien.github.io/page/12/"/>
+
+
+
+
+
+  <title> M0rk's Blog -  </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+   page-home 
+ ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">M0rk's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/01/20170801安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/01/20170801安全动态/" itemprop="url">
+                  20170801安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-01T09:29:37+08:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>DEF CON 25 会议上关于后渗透阶段利用与恶意软件投递的 Workshop，源码和 PPT<br><a href="https://github.com/zerosum0x0/defcon-25-workshop" target="_blank" rel="external">https://github.com/zerosum0x0/defcon-25-workshop</a></li>
+<li>【Blackhat】详解Web缓存欺骗攻击<br><a href="http://bobao.360.cn/learning/detail/4175.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4175.html</a></li>
+<li>Loadlibrary：将Windows的动态链接库移植到Linux下<br><a href="http://www.freebuf.com/sectool/141767.html" target="_blank" rel="external">http://www.freebuf.com/sectool/141767.html</a></li>
+<li>Jenkins Java Deserialization CVE-2016-0792<br><a href="https://packetstormsecurity.com/files/143523/jenkins-deserialize.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143523/jenkins-deserialize.txt</a></li>
+<li>渗透测试TIPS之删除、伪造Linux系统登录日志<br><a href="http://www.freebuf.com/articles/system/141474.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/141474.html</a></li>
+<li>Koadic：一款类似Meterpreter和Powershell Empire的Windows后渗透工具<br><a href="https://github.com/zerosum0x0/koadic" target="_blank" rel="external">https://github.com/zerosum0x0/koadic</a></li>
+<li>新手科普：浅谈家用路由器安全变迁<br><a href="http://www.freebuf.com/special/140817.html" target="_blank" rel="external">http://www.freebuf.com/special/140817.html</a></li>
+<li>使用Httrack和Tomcat快速搭建本地钓鱼网站<br><a href="http://www.freebuf.com/news/141918.html" target="_blank" rel="external">http://www.freebuf.com/news/141918.html</a></li>
+<li>渗透测试中的certutil<br><a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84certutil.exe/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84certutil.exe/</a></li>
+<li>通向内网的另一条路：记一次无线渗透测试实战<br><a href="http://bobao.360.cn/learning/detail/4178.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4178.html</a></li>
+<li>使用SSH反向隧道进行内网穿透<br><a href="http://arondight.me/2016/02/17/%E4%BD%BF%E7%94%A8SSH%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" target="_blank" rel="external">http://arondight.me/2016/02/17/%E4%BD%BF%E7%94%A8SSH%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a></li>
+<li><p>有人尝试通过 Google Hacking 的方式搜索服务器 RSA 私钥<br><a href="https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22&amp;oq=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22" target="_blank" rel="external">https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22&amp;oq=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">利用私钥登录的方法适用于服务器sshd_config 配置PasswordAuthentication no 这样才可以登录，亚马逊云的登录方式就是这样的，ssh通过私钥登录的方法 https://support.rackspace.com/how-to/logging-in-with-an-ssh-private-key-on-linuxmac/</div></pre></td></tr></table></figure>
+</li>
+<li><p>DG on Windows 10 S: 执行任意代码<br><a href="http://bobao.360.cn/learning/detail/4181.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4181.html</a></p>
+</li>
+<li>利用 WMI 组件不依赖 C/C++ 也能 Hook Windows events<br><a href="http://blog.huntingmalware.com/notes/WMI" target="_blank" rel="external">http://blog.huntingmalware.com/notes/WMI</a></li>
+<li>Python机器学习工具：Scikit-Learn介绍与实践<br><a href="http://www.freebuf.com/company-information/142695.html" target="_blank" rel="external">http://www.freebuf.com/company-information/142695.html</a></li>
+<li>利用esp8266制作一个可随身携带的WiFi密码钓鱼器<br><a href="http://www.freebuf.com/news/141922.html" target="_blank" rel="external">http://www.freebuf.com/news/141922.html</a></li>
+<li>Linux后门整理合集<br><a href="https://www.secpulse.com/archives/59674.html" target="_blank" rel="external">https://www.secpulse.com/archives/59674.html</a></li>
+<li>草料二维码<br><a href="http://cli.im/" target="_blank" rel="external">http://cli.im/</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/31/20170731安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/31/20170731安全动态/" itemprop="url">
+                  20170731安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T10:28:32+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>使用 MSF 路由转发实现MSF框架的内网渗透<br><a href="http://bobao.360.cn/learning/detail/4164.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4164.html</a></li>
+<li><p>如何利用查表瓶颈，对抗口令Hash破解<br><a href="http://www.freebuf.com/articles/database/141615.html" target="_blank" rel="external">http://www.freebuf.com/articles/database/141615.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">文章中介绍的认证方案设计还是很值得推荐的，较传统的认证存储好处很对，推荐</div></pre></td></tr></table></figure>
+</li>
+<li><p>用图形展示堆利用过程<br><a href="http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/" target="_blank" rel="external">http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/</a></p>
+</li>
+<li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
+<li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
+<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#104;&#116;&#x74;&#x70;&#58;&#47;&#47;&#x70;&#117;&#114;&#x70;&#108;&#101;&#114;&#111;&#x63;&#46;&#x63;&#111;&#109;&#x2f;&#77;&#x44;&#x2f;&#50;&#x30;&#49;&#x37;&#45;&#x30;&#54;&#45;&#50;&#56;&#x40;&#72;&#111;&#119;&#x25;&#x32;&#x30;&#x64;&#111;&#101;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#116;&#x79;&#x61;&#37;&#x32;&#x30;&#115;&#x70;&#114;&#x65;&#x61;&#x64;&#x25;&#x32;&#x30;&#x69;&#110;&#37;&#50;&#48;&#76;&#x41;&#78;&#46;&#x68;&#x74;&#x6d;&#x6c;">&#104;&#116;&#x74;&#x70;&#58;&#47;&#47;&#x70;&#117;&#114;&#x70;&#108;&#101;&#114;&#111;&#x63;&#46;&#x63;&#111;&#109;&#x2f;&#77;&#x44;&#x2f;&#50;&#x30;&#49;&#x37;&#45;&#x30;&#54;&#45;&#50;&#56;&#x40;&#72;&#111;&#119;&#x25;&#x32;&#x30;&#x64;&#111;&#101;&#x73;&#x25;&#x32;&#48;&#x50;&#101;&#116;&#x79;&#x61;&#37;&#x32;&#x30;&#115;&#x70;&#114;&#x65;&#x61;&#x64;&#x25;&#x32;&#x30;&#x69;&#110;&#37;&#50;&#48;&#76;&#x41;&#78;&#46;&#x68;&#x74;&#x6d;&#x6c;</a></li>
+<li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
+<li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
+<li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">通过键盘敲击声来进行键盘监听？</div></pre></td></tr></table></figure>
+</li>
+<li><p>Brida:使用Frida进行移动应用渗透测试<br><a href="https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/" target="_blank" rel="external">https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/</a></p>
+</li>
+<li>看我如何用20行代码做日志分析<br><a href="https://www.secpulse.com/archives/59608.html" target="_blank" rel="external">https://www.secpulse.com/archives/59608.html</a></li>
+<li>XSStrike：基于Python的XSS测试工具<br><a href="http://www.freebuf.com/sectool/142044.html" target="_blank" rel="external">http://www.freebuf.com/sectool/142044.html</a></li>
+<li>Android安全几道入门题目<br><a href="http://www.freebuf.com/articles/terminal/139451.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/139451.html</a></li>
+<li>sniper：一个开源的 Linux 下基于终端的 Webshell 利用与管理工具<br><a href="http://www.freebuf.com/column/142371.html" target="_blank" rel="external">http://www.freebuf.com/column/142371.html</a></li>
+<li><p>攻击者侵入系统后如何提升账户权限：提权技术详细分析<br><a href="http://www.freebuf.com/news/141335.html" target="_blank" rel="external">http://www.freebuf.com/news/141335.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这里只是介绍了使用metasploit对windows进行提权的两种方法，还是很不多的</div></pre></td></tr></table></figure>
+</li>
+<li><p>sThisLegit、Phinn：新型开源钓鱼工具<br><a href="https://github.com/duo-labs/isthislegit" target="_blank" rel="external">https://github.com/duo-labs/isthislegit</a></p>
+</li>
+<li>Man-in-the-middle wireless access point inside a docker container 造公共 WiFi 网络执行中间人攻击的 Docker 容器<br><a href="https://github.com/brannondorsey/mitm-router" target="_blank" rel="external">https://github.com/brannondorsey/mitm-router</a></li>
+<li><p>手把手教大家爬取js动态生成的页面<br><a href="http://www.freebuf.com/column/142404.html" target="_blank" rel="external">http://www.freebuf.com/column/142404.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">其实就是利用的selenium</div></pre></td></tr></table></figure>
+</li>
+<li><p>I2C 协议的逆向分析：<br><a href="https://xianzhi.aliyun.com/forum/read/1910.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1910.html</a></p>
+</li>
+<li>Blackhat兵器谱新添IOT安全武器<br><a href="http://www.freebuf.com/column/142421.html" target="_blank" rel="external">http://www.freebuf.com/column/142421.html</a></li>
+<li>一个钓鱼木马的分析 （一）<br><a href="http://www.freebuf.com/column/142406.html" target="_blank" rel="external">http://www.freebuf.com/column/142406.html</a></li>
+<li>blackhat之 A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages!<br><a href="http://blog.innerht.ml/testing-new-features/" target="_blank" rel="external">http://blog.innerht.ml/testing-new-features/</a></li>
+<li>Web端口复用正向后门研究实现与防御<br><a href="https://mp.weixin.qq.com/s?__biz=MzI0NjAyMjU4MA==&amp;mid=2649581381&amp;idx=1&amp;sn=dc46777ca1d69a7c8812deddb52233f0&amp;chksm=f15c6f9ec62be688e547b16f6e160b88a97d86968910cede837aba314b72f566557c149c1198&amp;mpshare=1&amp;scene=23&amp;srcid=073193eNCCy3uo3M2VvkVxO1#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI0NjAyMjU4MA==&amp;mid=2649581381&amp;idx=1&amp;sn=dc46777ca1d69a7c8812deddb52233f0&amp;chksm=f15c6f9ec62be688e547b16f6e160b88a97d86968910cede837aba314b72f566557c149c1198&amp;mpshare=1&amp;scene=23&amp;srcid=073193eNCCy3uo3M2VvkVxO1#rd</a></li>
+<li>Friday the 13th: JSON Attacks介绍针对 JSON serializers 和 .NET serializers 的攻击<br><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
+<li>测试驱动文档在后端 API 开发中的实践<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&amp;mid=2247483941&amp;idx=1&amp;sn=be3842f417f57f3e97b31a6c66aca60f&amp;chksm=96f41d48a183945ef7598593828ebbedf5759875b0847b6c0b316f32af8df014e09ed31f61df&amp;mpshare=1&amp;scene=23&amp;srcid=0731iAGUMovgmQCMlr3OJI9g##" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&amp;mid=2247483941&amp;idx=1&amp;sn=be3842f417f57f3e97b31a6c66aca60f&amp;chksm=96f41d48a183945ef7598593828ebbedf5759875b0847b6c0b316f32af8df014e09ed31f61df&amp;mpshare=1&amp;scene=23&amp;srcid=0731iAGUMovgmQCMlr3OJI9g##</a></li>
+<li><p>如何使用Fuzzing挖掘ImageMagick的漏洞<br><a href="https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md" target="_blank" rel="external">https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">目测又是一个全栈牛</div></pre></td></tr></table></figure>
+</li>
+<li><p>mysql注入可报错时爆表名、字段名、库名<br><a href="http://www.wupco.cn/?p=4117" target="_blank" rel="external">http://www.wupco.cn/?p=4117</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注入技巧</div></pre></td></tr></table></figure>
+</li>
+<li><p>sRDI - 用 Shellcode 实现的 DLL 反射注入。可以将指定 DLL 文件转换成 Shellcode 输出：<br><a href="https://github.com/monoxgas/sRDI" target="_blank" rel="external">https://github.com/monoxgas/sRDI</a></p>
+</li>
+<li>Revoke-Obfuscation - PowerShell 代码的混淆也开始出现了，来自 FireEye 在 BlackHat 会议的演讲<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html</a><br><a href="https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf" target="_blank" rel="external">https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf</a></li>
+<li>详述MSSQL服务在渗透测试中的利用<br><a href="http://www.freebuf.com/column/142307.html" target="_blank" rel="external">http://www.freebuf.com/column/142307.html</a></li>
+<li>搜狗可以搜索微信的文章,这个也是信息搜集的一个手段。<br><a href="http://weixin.sogou.com/" target="_blank" rel="external">http://weixin.sogou.com/</a></li>
+<li>元数据：黑客最好的朋友<br><a href="http://bobao.360.cn/learning/detail/4161.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4161.html</a><br><a href="http://bobao.360.cn/learning/detail/4162.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4162.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/28/20170728安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/28/20170728安全动态/" itemprop="url">
+                  20170728安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T09:13:48+08:00">
+                2017-07-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li><p>intellij idea远程调试jenkins<br><a href="http://blog.nsfocus.net/intellij-idea-remote-debugging-jenkins/" target="_blank" rel="external">http://blog.nsfocus.net/intellij-idea-remote-debugging-jenkins/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前想debug jenkins的，后来有事儿耽搁了，这周看看，对java感兴趣的赶紧操作起来</div></pre></td></tr></table></figure>
+</li>
+<li><p>CVE-2017-8464：LNK Remote Code Execution Vulnerability，Python exp<br><a href="https://github.com/nixawk/labs/blob/master/CVE-2017-8464/exploit_CVE-2017-8464.py" target="_blank" rel="external">https://github.com/nixawk/labs/blob/master/CVE-2017-8464/exploit_CVE-2017-8464.py</a></p>
+</li>
+<li>色情广告挂马分析：记一次挂马与挖矿之间的“亲密接触”<br><a href="http://www.freebuf.com/news/141589.html" target="_blank" rel="external">http://www.freebuf.com/news/141589.html</a></li>
+<li><p>测试如何用图表累计统计linux服务器的性能监控信息<br><a href="http://blog.nsfocus.net/test-performance-monitoring-information-linux-server-charts/" target="_blank" rel="external">http://blog.nsfocus.net/test-performance-monitoring-information-linux-server-charts/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">做运维的朋友可以关注下</div></pre></td></tr></table></figure>
+</li>
+<li><p>一款短小精致的SSH后门分析<br><a href="http://www.freebuf.com/articles/system/140880.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/140880.html</a></p>
+</li>
+<li><p>Headless Chrome略知一二<br><a href="http://blog.nsfocus.net/headless-chrome/" target="_blank" rel="external">http://blog.nsfocus.net/headless-chrome/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前还有一篇文章介绍这个的，可以结合着看</div></pre></td></tr></table></figure>
+</li>
+<li><p>SSRF 利用的新角度 - 攻击流行编程语言的 URL Parsers，来自 BlackHat 会议<br><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf</a></p>
+</li>
+<li>你还在关注勒索病毒？别人已经转行挖矿！<br><a href="http://www.freebuf.com/news/141004.html" target="_blank" rel="external">http://www.freebuf.com/news/141004.html</a></li>
+<li>攻击商业电子邮件时是如何通过 HTML 附件进行网络钓鱼的<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/html-attachments-phishing-used-bec-attacks/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/html-attachments-phishing-used-bec-attacks/</a></li>
+<li>对勒索软件受害用户支付行为的检测，来自 Google<br><a href="https://cdn.elie.net/talks/tracking-desktop-ransomware-payments-end-to-end-slides.pdf" target="_blank" rel="external">https://cdn.elie.net/talks/tracking-desktop-ransomware-payments-end-to-end-slides.pdf</a></li>
+<li>Awesome Web Security<br><a href="https://github.com/qazbnm456/awesome-web-security" target="_blank" rel="external">https://github.com/qazbnm456/awesome-web-security</a></li>
+<li>Web cache deception Attack<br><a href="https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf</a></li>
+<li>CLR-Injection<br><a href="https://github.com/3gstudent/CLR-Injection" target="_blank" rel="external">https://github.com/3gstudent/CLR-Injection</a></li>
+<li>攻击用户Docker容器隐藏、权限维持、植入恶意软件<br><a href="https://threatpost.com/attack-uses-docker-containers-to-hide-persist-plant-malware/126992/" target="_blank" rel="external">https://threatpost.com/attack-uses-docker-containers-to-hide-persist-plant-malware/126992/</a></li>
+<li>阿里云安骑士 webshell规则逆向<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483697&amp;idx=1&amp;sn=f36f1420fe39f51ca648e1de5b5431b2" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483697&amp;idx=1&amp;sn=f36f1420fe39f51ca648e1de5b5431b2</a></li>
+<li>腾讯云 webshell检测规则逆向<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483708&amp;idx=1&amp;sn=e8548a85d75584cc93fd2379f591c634" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483708&amp;idx=1&amp;sn=e8548a85d75584cc93fd2379f591c634</a></li>
+<li>Docker Security最佳实践电子书<br><a href="https://www.sqreen.io/resources/docker-security-best-practices" target="_blank" rel="external">https://www.sqreen.io/resources/docker-security-best-practices</a></li>
+<li>看雪CTF2017学习记录整理系列5<br><a href="https://weiyiling.cn/one/pediy_ctf2017-5" target="_blank" rel="external">https://weiyiling.cn/one/pediy_ctf2017-5</a></li>
+<li>php session机制<br><a href="http://blog.nsfocus.net/php-session-mechanism/" target="_blank" rel="external">http://blog.nsfocus.net/php-session-mechanism/</a></li>
+<li><p>MSDN，itellyou<br><a href="http://www.itellyou.cn/" target="_blank" rel="external">http://www.itellyou.cn/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用来下载系统镜像的网站</div></pre></td></tr></table></figure>
+</li>
+<li><p>小记录<br>今天拷贝ubuntu虚拟机，发现网络死活配不对，最后发现原来是图形界面的网络进行了ip的配置，怪不得一直命令行配不对，😓，思路还得灵活啊</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/27/20170727安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/27/20170727安全动态/" itemprop="url">
+                  20170727安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T09:59:39+08:00">
+                2017-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VM<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html</a></li>
+<li>绕过杀毒软件与主机入侵防御系统对流量的检测<br><a href="https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/" target="_blank" rel="external">https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/</a></li>
+<li>BinaryAlert - 一个含有实时追溯等特性的恶意软件检测工具<br><a href="https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90" target="_blank" rel="external">https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90</a></li>
+<li>Shadowsocks原理详解<br><a href="https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA" target="_blank" rel="external">https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA</a></li>
+<li>如何使用ldapsearch来dump域中的LAPS密码<br><a href="http://bobao.360.cn/learning/detail/4151.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4151.html</a></li>
+<li>域渗透之Exchange Server<br><a href="http://bobao.360.cn/learning/detail/4145.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4145.html</a></li>
+<li>一个利用“永恒之蓝”漏洞传播的挖矿程序分析<br><a href="http://www.freebuf.com/news/141011.html" target="_blank" rel="external">http://www.freebuf.com/news/141011.html</a></li>
+<li>SSD Advisory – Supervisor Authenticated Remote Code Execution<br><a href="https://blogs.securiteam.com/index.php/archives/3348" target="_blank" rel="external">https://blogs.securiteam.com/index.php/archives/3348</a></li>
+<li>nps_payload - 利用各种来源的公开技术，生成绕过基础入侵检测的 Payloads<br><a href="https://github.com/trustedsec/nps_payload" target="_blank" rel="external">https://github.com/trustedsec/nps_payload</a></li>
+<li><p>2017-NSCTF-PWN<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">周末学习一下</div></pre></td></tr></table></figure>
+</li>
+<li><p>WSSAT - Web 服务安全评估工具<br><a href="http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html" target="_blank" rel="external">http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html</a></p>
+</li>
+<li>DefCON 上将会公布一个 Windows SMB 内存耗尽拒绝服务0Day，不会蓝屏，连蓝屏需要的内存也不够了，需要建立大量连接<br><a href="http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/" target="_blank" rel="external">http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/</a></li>
+<li>ESET 在 GitHub 上分享的对一些样本逆向分析的辅助代码<br><a href="https://github.com/eset/malware-research" target="_blank" rel="external">https://github.com/eset/malware-research</a></li>
+<li>Awesome Vulnerability Research - 漏洞研究方面的资料整理<br><a href="https://github.com/re-pronin/Awesome-Vulnerability-Research" target="_blank" rel="external">https://github.com/re-pronin/Awesome-Vulnerability-Research</a></li>
+<li>Proxy Re-Encryption Playground in Python<br><a href="https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf" target="_blank" rel="external">https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf</a></li>
+<li>通过AI和Python生成密<br><a href="https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md" target="_blank" rel="external">https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md</a></li>
+<li>IaaS、PaaS、SaaS三者的比较<br><a href="http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each" target="_blank" rel="external">http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each</a></li>
+<li>Empire without PowerShell.exe（Empire：一款后渗透框架）<br><a href="https://bneg.io/2017/07/26/empire-without-powershell-exe/" target="_blank" rel="external">https://bneg.io/2017/07/26/empire-without-powershell-exe/</a></li>
+<li>Tomcat Security Constraint Bypass CVE-2017-5664 分析<br><a href="https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ</a></li>
+<li>SQLite手工注入Getshell技巧<br><a href="http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/" target="_blank" rel="external">http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/</a></li>
+<li>ubuntu安装metasploit<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall &amp;&amp; \</div><div class="line">  chmod 755 msfinstall &amp;&amp; \</div><div class="line">  ./msfinstall</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/26/metasploit调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/26/metasploit调试/" itemprop="url">
+                  metasploit调试以及ruby入门踩坑
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T19:18:53+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记录下踩的坑吧</p>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
+<h4 id="Gem使用"><a href="#Gem使用" class="headerlink" title="Gem使用"></a>Gem使用</h4><p>Gem 是一个管理 Ruby 库和程序的标准包。Ruby gem 包的安装方式：<br>所有的 gem 包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了 Cache、doc、gems、specifications 等目录，cache 下放置下载的原生 gem 包，gems 下则放置的是解压过的 gem 包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> M0rk@hhh  ~/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0  ls</div><div class="line">bin            build_info     cache          doc            environment    extensions     gems           specifications wrappers</div></pre></td></tr></table></figure></p>
+<p>当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的 gem 包，然后重新运行 gem install [gemname] 命令即可。<br>Ruby Gem 命令详解：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 更新Gem自身</div><div class="line"># 注意：在某些linux发行版中为了系统稳定性此命令禁止执行</div><div class="line">$ gem update --system</div><div class="line"></div><div class="line"># 从Gem源安装gem包</div><div class="line">$ gem install [gemname]</div><div class="line"></div><div class="line"># 从本机安装gem包</div><div class="line">$ gem install -l [gemname].gem</div><div class="line"></div><div class="line"># 安装指定版本的gem包</div><div class="line">$ gem install [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 更新所有已安装的gem包</div><div class="line">$ gem update</div><div class="line"></div><div class="line"># 更新指定的gem包</div><div class="line"># 注意：gem update [gemname]不会升级旧版本的包，此时你可以使用 gem install [gemname] --version=[ver]代替</div><div class="line">$ gem update [gemname]</div><div class="line"></div><div class="line"># 删除指定的gem包，注意此命令将删除所有已安装的版本</div><div class="line">$ gem uninstall [gemname]</div><div class="line"></div><div class="line"># 删除某指定版本gem</div><div class="line">$ gem uninstall [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 查看本机已安装的所有gem包</div><div class="line">$ gem list [--local]</div></pre></td></tr></table></figure>
+<h4 id="踩坑开始"><a href="#踩坑开始" class="headerlink" title="踩坑开始"></a>踩坑开始</h4><p>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是相同用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
+<p>0727更新：<br>今天又看了下资料，发现byebug还是不能用，搜索metasploit debug的资料也是很老的，但是在Stack Overflow发现了这个<a href="https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module" target="_blank" rel="external">https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module</a><br>就试了一下pry，果然可以和metasploit无缝使用。但是蛋疼的是pry没有step和next这种最基本的单步调试功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require ‘pry’ #需要pry库,否则binding.pry就不认识了</div><div class="line">g_a = 1</div><div class="line">g_b = 2</div><div class="line">binding.pry #运行到这句程序就停下来并打开pry让你调试</div></pre></td></tr></table></figure></p>
+<p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
+<p>pry常用命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
+<p>rvm 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RVM是Ruby Version Manager的缩写，是一个命令行工具，它可以让你轻松地安装，管理和使用多个版本的Ruby.不同的rails项目使用等ruby和rails版本不一样的时候，可以使用RVM自由切换。</div><div class="line">1.rvm list 查看所有的ruby版本</div><div class="line">2.rvm current 查看当前的ruby版本</div><div class="line">3.rvm --default use 2.x.x  切换到到版本2.x.xs</div></pre></td></tr></table></figure></p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决，感觉应该是metasploit使用了自带的ruby以及gem的问题<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。（当你通过whereis找不到这个文件的时候，就很有可能是个文本文件，find找到，然后file命令看一下）<br>6.metasploit的ruby是自带的，可执行文件在这个目录下 /opt/metasploit-framework/embedded/bin</p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
+<li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
+<li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
+<li><a href="https://github.com/pry/pry" target="_blank" rel="external">pry</a></li>
+<li><a href="http://www.jianshu.com/p/602db03b6b58" target="_blank" rel="external">如何单步调试ruby代码</a></li>
+<li><a href="http://drops.xmd5.com/static/drops/tips-14408.html" target="_blank" rel="external">乌云文章：Metasploit module开发入门篇</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/26/20170726安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/26/20170726安全动态/" itemprop="url">
+                  20170726安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T09:59:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：NetFlow、 IPFIX、 sFLOW，可以通过外部脚本通知用户<br><a href="https://packages.debian.org/sid/fastnetmon" target="_blank" rel="external">https://packages.debian.org/sid/fastnetmon</a></li>
+<li>JavaScript 反调试和混淆<br><a href="https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html" target="_blank" rel="external">https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html</a></li>
+<li>glibc malloc学习笔记之fastbin<br><a href="http://0x48.pw/2017/07/25/0x35/" target="_blank" rel="external">http://0x48.pw/2017/07/25/0x35/</a></li>
+<li>一个生成各种进制格式IP的小工具<br><a href="http://www.freebuf.com/sectool/140982.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140982.html</a></li>
+<li>通过 WebView 攻击 Android 应用<br><a href="https://zhuanlan.zhihu.com/p/28107901" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/28107901</a></li>
+<li>利用树莓派自制恶意充电宝实验<br><a href="http://bobao.360.cn/learning/detail/4153.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4153.html</a></li>
+<li>Openresty的开发闭环初探<br><a href="http://www.freebuf.com/company-information/141861.html" target="_blank" rel="external">http://www.freebuf.com/company-information/141861.html</a></li>
+<li>使用Windbg分析.NET恶意软件<br><a href="http://bobao.360.cn/learning/detail/4150.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4150.html</a></li>
+<li>picoCTF Write-up：通过格式化字符串漏洞绕过ASLR<br><a href="https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920" target="_blank" rel="external">https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920</a></li>
+<li>hackerone官博分享如何进行渗透测试前期的信息收集<br><a href="https://www.hackerone.com/blog/how-to-recon-and-content-discovery" target="_blank" rel="external">https://www.hackerone.com/blog/how-to-recon-and-content-discovery</a></li>
+<li>Open Sourcing JA3：用于恶意软件检测的SSL/TLS客户端指纹识别项目<br><a href="https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41" target="_blank" rel="external">https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41</a></li>
+<li>针对有双因子认证站点的钓鱼手段<br><a href="http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/" target="_blank" rel="external">http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/</a></li>
+<li>探索基于语音的身份认证系统命令注入<br><a href="https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG</a></li>
+<li>一道简单内核题入门内核利用<br><a href="http://bobao.360.cn/learning/detail/4148.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4148.html</a></li>
+<li><p>Metasploit 中新添加了针对 Windows 快捷方式 (.LNK) 代码执行漏洞（CVE-2017-8464）的利用代码<br><a href="https://github.com/rapid7/metasploit-framework/pull/8767" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8767</a><br><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注：在测试的时候，要把恶意payload放在优盘的根目录下</div><div class="line">更多信息：https://github.com/rapid7/metasploit-framework/tree/7ce813ae6e11f0336f51dc878e1aa40af6eabf9c/data/exploits/cve-2017-8464/src</div><div class="line">python 工具：</div><div class="line">https://www.exploit-db.com/exploits/42429/</div></pre></td></tr></table></figure>
+</li>
+<li><p>Windows 内核漏洞学习—空指针解引用<br><a href="http://www.freebuf.com/vuls/143575.html" target="_blank" rel="external">http://www.freebuf.com/vuls/143575.html</a></p>
+</li>
+<li>Metadata - 黑客的朋友，基础信息泄露的源头<br><a href="https://blog.sweepatic.com/metadata-hackers-best-friend/" target="_blank" rel="external">https://blog.sweepatic.com/metadata-hackers-best-friend/</a></li>
+<li>Java代码审计连载<br><a href="http://www.freebuf.com/column/143595.html" target="_blank" rel="external">http://www.freebuf.com/column/143595.html</a></li>
+<li>使用 LDAPSEARCH 导出 LAPS 明文密码<br><a href="https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/" target="_blank" rel="external">https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/</a></li>
+<li>macOS 安全和隐私指南<br><a href="https://github.com/drduh/macOS-Security-and-Privacy-Guide" target="_blank" rel="external">https://github.com/drduh/macOS-Security-and-Privacy-Guide</a></li>
+<li>Forcepoint 发现 URSNIF 变种通过收集鼠标移动轨迹判断是否处于沙盒以绕过查杀<br><a href="https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion" target="_blank" rel="external">https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion</a></li>
+<li>在oh-my-zsh中粉红是软连接、红色是可执行文件、蓝色是文件夹、白色是其它(比如压缩文件、图片、文本文件啥的，好像不同的shell规则也不一样，而且应该是可以修改的)</li>
+<li>chrome打开https网站的时候有时候会出现 您的连接不是私密连接 红色提示，导致我们打不开网站<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个是由于网站设置了HSTS的原因，HSTS是HTTP Strict Transport Security的缩写，即：“HTTP严格传输安全”。HSTS可以很大程度上解决SSL剥离攻击，因为只要浏览器曾经与服务器创建过一次安全连接，之后浏览器会强制使用HTTPS，即使链接被换成了HTTP。</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/25/20170725安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/25/20170725安全动态/" itemprop="url">
+                  20170725安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T08:58:35+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>一个机器学习社区<br><a href="http://paper.kakapo.ml/" target="_blank" rel="external">http://paper.kakapo.ml/</a></li>
+<li>The ThreatHunter Playbook - 专注威胁检测一个 GitHub 项目<br><a href="https://github.com/Cyb3rWard0g/ThreatHunter-Playbook" target="_blank" rel="external">https://github.com/Cyb3rWard0g/ThreatHunter-Playbook</a></li>
+<li>精选 HackerOne 这一年 6 个有趣的安全漏洞<br><a href="http://paper.seebug.org/358/" target="_blank" rel="external">http://paper.seebug.org/358/</a></li>
+<li>目标信息信息搜集的一个工具<br><a href="https://github.com/UltimateHackers/ReconDog" target="_blank" rel="external">https://github.com/UltimateHackers/ReconDog</a></li>
+<li>获取来源IP地址的正确姿势<br><a href="http://www.freebuf.com/articles/web/140669.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/140669.html</a></li>
+<li>Web Sight社区版 – 企业攻击面枚举工具<br><a href="https://l.avala.mp/?p=209" target="_blank" rel="external">https://l.avala.mp/?p=209</a></li>
+<li><p>Little Trick<br><img src="/2017/07/25/20170725安全动态/1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在渗透测试过程中，如果能够拿到mysql目录下的user.MYD文件，这个时候使用十六进制编辑工具，可以获取到mysql用户的账号和密码，然后去相关网站解密就可以了。</div></pre></td></tr></table></figure>
+</li>
+<li><p>二进制师傅们的博客<br><a href="http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2</a></p>
+</li>
+<li>没有绝对安全的系统：写在AES 256破解之后<br><a href="http://www.freebuf.com/column/141603.html" target="_blank" rel="external">http://www.freebuf.com/column/141603.html</a></li>
+<li><p>信任问题：利用TrustZone TEE</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">project zero 出品，还没看懂:(</div></pre></td></tr></table></figure>
+</li>
+<li><p>Bright City: 针对国外一款市政相关APP的安全性分析<br><a href="https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/" target="_blank" rel="external">https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/</a></p>
+</li>
+<li>一款基于PHP的漏洞扫描器<br><a href="https://github.com/dermotblair/webvulscan" target="_blank" rel="external">https://github.com/dermotblair/webvulscan</a></li>
+<li>旧瓶新酒之ngx_lua &amp; fail2ban实现主动诱捕<br><a href="https://www.secpulse.com/archives/59444.html" target="_blank" rel="external">https://www.secpulse.com/archives/59444.html</a></li>
+<li>Flash漏洞利用之“喜闻乐见”<br><a href="http://www.freebuf.com/vuls/141405.html" target="_blank" rel="external">http://www.freebuf.com/vuls/141405.html</a></li>
+<li>无线键盘易被监听，不知不觉导致信息泄露<br><a href="http://www.freebuf.com/geek/140951.html" target="_blank" rel="external">http://www.freebuf.com/geek/140951.html</a></li>
+<li>逆向入门学习——看雪CTF2017第3题 爱琴海CrackMe bailianmen2017-07-25 首发专栏：百炼门<br>关注<br><a href="http://www.freebuf.com/column/141147.html" target="_blank" rel="external">http://www.freebuf.com/column/141147.html</a></li>
+<li>HTTPS真的就是安全的象征吗？HTTPS检查工具带来的安全威胁<br><a href="http://www.freebuf.com/news/136565.html" target="_blank" rel="external">http://www.freebuf.com/news/136565.html</a></li>
+<li><p>查看windows management framework 以及ps版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">更新之前</div><div class="line"> PS C:\Users\Brian&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">CLRVersion                     2.0.50727.5485</div><div class="line">BuildVersion                   6.1.7601.17514</div><div class="line">PSVersion                      2.0</div><div class="line">WSManStackVersion              2.0</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0&#125;</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line">PSRemotingProtocolVersion      2.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\Brian&gt; $PSVersionTable.WSManStackVersion.Major</div><div class="line">2</div><div class="line">PS C:\Users\Brian&gt;</div><div class="line">更新之后：</div><div class="line">PS C:\Users\chq&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">PSVersion                      5.0.10586.117</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;</div><div class="line">BuildVersion                   10.0.10586.117</div><div class="line">CLRVersion                     4.0.30319.42000</div><div class="line">WSManStackVersion              3.0</div><div class="line">PSRemotingProtocolVersion      2.3</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\chq&gt;</div><div class="line">下面是mac版的powershell：</div><div class="line">PS /usr/share&gt; $PSVersionTable                                                                                                                                                                           </div><div class="line"></div><div class="line">Name                           Value                                                                                                                                                                    </div><div class="line">----                           -----                                                                                                                                                                    </div><div class="line">PSVersion                      6.0.0-beta                                                                                                                                                               </div><div class="line">PSEdition                      Core                                                                                                                                                                     </div><div class="line">GitCommitId                    v6.0.0-beta.3                                                                                                                                                            </div><div class="line">OS                             Darwin 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64                                                           </div><div class="line">Platform                       Unix                                                                                                                                                                     </div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;                                                                                                                                                  </div><div class="line">PSRemotingProtocolVersion      2.3                                                                                                                                                                      </div><div class="line">SerializationVersion           1.1.0.1                                                                                                                                                                  </div><div class="line">WSManStackVersion              3.0                                                                                                                                                                      </div><div class="line"></div><div class="line"></div><div class="line">PS /usr/share&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>新版powershell 支持多种文件hash校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm MD5| Format-List</div><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List</div></pre></td></tr></table></figure>
+</li>
+<li><p>linux中usr/local下一般是你安装软件的目录，这个目录就相当于在windows下的programefiles这个目录  /opt这个目录是一些大型软件的安装目录，或者是一些服务程序的安装目录</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/24/windows注册表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/24/windows注册表/" itemprop="url">
+                  windows注册表
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T11:47:22+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;注册表是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用至今。<br>由于注册表的功能非常强大，因此注册表对于病毒、木马来说是非常有利用价值的，而对于反病毒软件来说，注册表也是它需要加强守卫的地方，可以说，注册表是一个正义与邪恶的必争之地。<br>恶意程序在注册表中常见的操作有修改文件关联、增加系统启动项、映像劫持、篡改浏览器主页等。<br><strong>数据结构</strong>:<br>&nbsp;&nbsp;&nbsp;&nbsp;注册表由键（key，或称“项”）、子键（subkey，子项）和值项（value）构成。一个键就是树状数据结构中的一个节点，而子键就是这个节点的子节点，子键也是键。一个值项则是一个键的一条属性，由名称（name）、数据类型（datatype）以及数据（data）组成。一个键可以有一个或多个值，每个值的名称各不相同，如果一个值的名称为空，则该值为该键的默认值。<br><strong>数据类型</strong>:<br>注册表的数据类型主要有以下五种：</p>
+<table>
+<thead>
+<tr>
+<th>显示类型</th>
+<th>数据类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REG_SZ</td>
+<td>字符串</td>
+<td>文本字串</td>
+</tr>
+<tr>
+<td>REG_BINARY</td>
+<td>二进制数</td>
+<td>不定长度的二进制值，以十六进制显示</td>
+</tr>
+<tr>
+<td>REG_DWORD</td>
+<td>双字</td>
+<td>一个 32 位的二进制值，显示为 8 位的十六进制值</td>
+</tr>
+<tr>
+<td>REG_MULTI_SZ</td>
+<td>多字符串</td>
+<td>含有多个文本值的字符串，此名来源于字符串间用 nul 分隔、结尾两个 nul</td>
+</tr>
+<tr>
+<td>REG_EXPAND_SZ</td>
+<td>可扩充字符串</td>
+<td>含有环境变量的字符串</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注册表的分支结构</strong>:<br>注册表有五个一级分支，下面是这五个分支的名称及作用：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HKEY_CLASSES_ROOT</td>
+<td>存储Windows可识别的文件类型的详细列表，以及相关联的程序。</td>
+</tr>
+<tr>
+<td>HKEY_CURRENT_USER</td>
+<td>存储当前用户设置的信息。</td>
+</tr>
+<tr>
+<td>HKEY_LOCAL_MACHINE</td>
+<td>包括安装在计算机上的硬件和软件的信息。</td>
+</tr>
+<tr>
+<td>HKEY_USERS</td>
+<td>包含使用计算机的用户的信息。</td>
+</tr>
+<tr>
+<td>HKEY_CURRENT_CONFIG</td>
+<td>这个分支包含计算机当前的硬件配置信息。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="通过注册表获取开机启动项"><a href="#通过注册表获取开机启动项" class="headerlink" title="通过注册表获取开机启动项"></a>通过注册表获取开机启动项</h4><p>原理: 通过枚举注册表中的 “HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\“子键下的键值项,取得跟随windows启动而启动的程序。</p>
+<p>主要代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div></pre></td><td class="code"><pre><div class="line">VOID CManageRunDlg::InitRunList()</div><div class="line">&#123;</div><div class="line">    // 设置扩展样式</div><div class="line">    m_RunList.SetExtendedStyle(</div><div class="line">            m_RunList.GetExtendedStyle()</div><div class="line">            | LVS_EX_GRIDLINES          // 有网格</div><div class="line">            | LVS_EX_FULLROWSELECT);    // 选择单行</div><div class="line"></div><div class="line">    // 在ListCtrl中插入新列</div><div class="line">    m_RunList.InsertColumn(0, &quot;NO.&quot;);</div><div class="line">    m_RunList.InsertColumn(1, &quot;键值名称&quot;);</div><div class="line">    m_RunList.InsertColumn(2, &quot;键    值&quot;);</div><div class="line"></div><div class="line">    /*</div><div class="line">    LVSCW_AUTOSIZE_USEHEADER:</div><div class="line">    列的宽度自动匹配为标题文本</div><div class="line">    如果这个值用在最后一列，列宽被设置为ListCtrl剩余的长度</div><div class="line">    */</div><div class="line">    m_RunList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    m_RunList.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    m_RunList.SetColumnWidth(2, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#define REG_RUN &quot;Software\\Microsoft\\Windows\\CurrentVersion\\Run\\&quot;</div><div class="line"></div><div class="line">VOID CManageRunDlg::ShowRunList()</div><div class="line">&#123;</div><div class="line">    // 清空ListCtrl中的所有项</div><div class="line">    m_RunList.DeleteAllItems();    </div><div class="line"></div><div class="line">    DWORD dwType = 0;</div><div class="line">    DWORD dwBufferSize = MAXBYTE;</div><div class="line">    DWORD dwKeySize = MAXBYTE;</div><div class="line">    char szValueName[MAXBYTE] = &#123; 0 &#125;;</div><div class="line">    char szValueKey[MAXBYTE] = &#123; 0 &#125;;</div><div class="line"></div><div class="line">    HKEY hKey = NULL;</div><div class="line">    LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line"></div><div class="line">    if ( lRet != ERROR_SUCCESS )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int i = 0;</div><div class="line">    CString strTmp;</div><div class="line"></div><div class="line">    while ( TRUE )</div><div class="line">    &#123;</div><div class="line">        // 枚举键项</div><div class="line">        lRet = RegEnumValue(hKey, i, szValueName, </div><div class="line">            &amp;dwBufferSize, NULL, &amp;dwType, </div><div class="line">            (unsigned char *)szValueKey, &amp;dwKeySize);</div><div class="line"></div><div class="line">        // 没有则退出循环</div><div class="line">        if ( lRet == ERROR_NO_MORE_ITEMS )</div><div class="line">        &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 显示到列表控件中</div><div class="line">        strTmp.Format(&quot;%d&quot;, i);</div><div class="line">        m_RunList.InsertItem(i, strTmp);</div><div class="line">        m_RunList.SetItemText(i, 1, szValueName);</div><div class="line">        m_RunList.SetItemText(i, 2, szValueKey);</div><div class="line"></div><div class="line">        ZeroMemory(szValueKey, MAXBYTE);</div><div class="line">        ZeroMemory(szValueName, MAXBYTE);</div><div class="line"></div><div class="line">        dwBufferSize = MAXBYTE;</div><div class="line">        dwKeySize = MAXBYTE;</div><div class="line"></div><div class="line">        i ++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    RegCloseKey(hKey);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageRunDlg::OnBtnAdd() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CRegAdd RegAdd;</div><div class="line">    RegAdd.DoModal();</div><div class="line"></div><div class="line">    // 判断输入是否完整</div><div class="line">    if ( strlen(RegAdd.m_szKeyName) &gt; 0 &amp;&amp; </div><div class="line">        strlen(RegAdd.m_szKeyValue) &gt; 0)</div><div class="line">    &#123;</div><div class="line">        HKEY hKey = NULL;</div><div class="line">        LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line"></div><div class="line">        if ( lRet != ERROR_SUCCESS )</div><div class="line">        &#123;</div><div class="line">            return ;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        RegSetValueEx(hKey, RegAdd.m_szKeyName, 0, </div><div class="line">            REG_SZ, (const unsigned char*)RegAdd.m_szKeyValue,</div><div class="line">            strlen(RegAdd.m_szKeyValue) + sizeof(char));</div><div class="line"></div><div class="line">        RegCloseKey(hKey);</div><div class="line"></div><div class="line">        ShowRunList();</div><div class="line">    &#125; </div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请输入完整的内容&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageRunDlg::OnBtnDel() </div><div class="line">&#123;</div><div class="line">    // TODO: Add your control notification handler code here</div><div class="line">    POSITION pos = m_RunList.GetFirstSelectedItemPosition();</div><div class="line">    int nSelected = -1;</div><div class="line">    </div><div class="line">    while ( pos )</div><div class="line">    &#123;</div><div class="line">        nSelected = m_RunList.GetNextSelectedItem(pos);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ( -1 == nSelected )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请选择要删除的启动项&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    char szKeyName[MAXBYTE] = &#123; 0 &#125;;</div><div class="line">    m_RunList.GetItemText(nSelected, 1, szKeyName, MAXBYTE);</div><div class="line">        </div><div class="line">    HKEY hKey = NULL;</div><div class="line">    </div><div class="line">    LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line">    </div><div class="line">    RegDeleteValue(hKey, szKeyName);</div><div class="line">    </div><div class="line">    RegCloseKey(hKey);</div><div class="line">    </div><div class="line">    ShowRunList();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/07/24/windows注册表/1.png" alt=""></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>注册表 <a href="https://www.wikiwand.com/zh-hans/%E6%B3%A8%E5%86%8C%E8%A1%A8" target="_blank" rel="external">https://www.wikiwand.com/zh-hans/%E6%B3%A8%E5%86%8C%E8%A1%A8</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/24/20170724安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/24/20170724安全动态/" itemprop="url">
+                  20170724安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T09:04:14+08:00">
+                2017-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>2017黑帽大会兵工厂工具列表<br><a href="http://www.freebuf.com/column/141333.html" target="_blank" rel="external">http://www.freebuf.com/column/141333.html</a></li>
+<li>Centos 6/Centos 7/Debian单网卡绑定多个IP的方法<br><a href="https://www.moerats.com/archives/217/" target="_blank" rel="external">https://www.moerats.com/archives/217/</a></li>
+<li>Cisco_WebEx_Browser_Extension_RCE漏洞(CVE–2017–6753)分析<br><a href="https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b" target="_blank" rel="external">https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b</a></li>
+<li>powershell 通过IE下载文件<br><a href="https://evi1cg.me/archives/Downloader_byIE.html" target="_blank" rel="external">https://evi1cg.me/archives/Downloader_byIE.html</a></li>
+<li>Vmware虚拟机逃逸漏洞（CVE-2017-4901）Exploit代码分析与利用<br><a href="http://www.freebuf.com/news/141442.html" target="_blank" rel="external">http://www.freebuf.com/news/141442.html</a></li>
+<li><p>基于 Neo4j 的 Windows 日志可视化分析<br><a href="https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html" target="_blank" rel="external">https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个好像不错，mark</div></pre></td></tr></table></figure>
+</li>
+<li><p>多种 DLL 注入技术原理介绍<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></p>
+</li>
+<li>在Android N上对Java方法做hook遇到的坑<br><a href="http://rk700.github.io/2017/06/30/hook-on-android-n/" target="_blank" rel="external">http://rk700.github.io/2017/06/30/hook-on-android-n/</a></li>
+<li>利用 COM 对象 Excel.Application 的 RegisterXLL() 方法加载并执行 DLL<br><a href="https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52" target="_blank" rel="external">https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52</a></li>
+<li>我是如何利用 Paypal 服务器的任意文件上传漏洞远程执行代码的<br><a href="http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/" target="_blank" rel="external">http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/</a></li>
+<li>路由器固件安全分析技术（二）<br><a href="https://www.vulbox.com/knowledge/detail/?id=42" target="_blank" rel="external">https://www.vulbox.com/knowledge/detail/?id=42</a></li>
+<li>BadUSB防御初探<br><a href="http://www.freebuf.com/articles/terminal/140619.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/140619.html</a></li>
+<li>CentOS安装aria2 + yaaw实现离线下载<br><a href="https://www.moerats.com/archives/219/" target="_blank" rel="external">https://www.moerats.com/archives/219/</a></li>
+<li>我是如何利用一个假的私钥欺骗 Symantec 的<br><a href="https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html" target="_blank" rel="external">https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html</a></li>
+<li>浅谈bash command substitution<br><a href="https://threathunter.org/topic/59748a779a9197870df2e989" target="_blank" rel="external">https://threathunter.org/topic/59748a779a9197870df2e989</a></li>
+<li>小米九号平衡车国际版Ninebot mini PRO存在严重安全漏洞可被攻击者远程控制<br><a href="http://www.freebuf.com/news/141341.html" target="_blank" rel="external">http://www.freebuf.com/news/141341.html</a></li>
+<li>浅析OGNL表达式求值（S2003/005/009跟踪调试记录）<br><a href="https://xianzhi.aliyun.com/forum/read/1902.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1902.html</a></li>
+<li>基于python的后门框架<br><a href="https://n0where.net/python-backdoor-framework-nxcrypt/" target="_blank" rel="external">https://n0where.net/python-backdoor-framework-nxcrypt/</a></li>
+<li><p>Cure53 对 Briar 项目应用与协议的渗透测试报告<br><a href="https://briarproject.org/raw/BRP-01-report.pdf" target="_blank" rel="external">https://briarproject.org/raw/BRP-01-report.pdf</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">是一个app安全的渗透测试报告，可以学习一下国外的app报告是怎么写的</div></pre></td></tr></table></figure>
+</li>
+<li><p>SmoothCriminal - 从光标移动速度的角度检测沙盒<br><a href="https://github.com/G4lB1t/SmoothCriminal" target="_blank" rel="external">https://github.com/G4lB1t/SmoothCriminal</a></p>
+</li>
+<li>开发安全的API所需要核对的清单<br><a href="https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md" target="_blank" rel="external">https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md</a></li>
+<li>CVE-2012-1889 个人漏洞分析报告<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D</a></li>
+<li>htcap：一款实用的递归型Web漏洞扫描工具<br><a href="http://www.freebuf.com/sectool/140873.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140873.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/07/21/20170721安全动态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/21/20170721安全动态/" itemprop="url">
+                  20170721安全动态
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T10:12:49+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/每日安全动态/" itemprop="url" rel="index">
+                    <span itemprop="name">每日安全动态</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
+<li>应急响应-开机启动知识梳理<br><a href="http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/" target="_blank" rel="external">http://vinc.top/2017/07/21/%E3%80%90%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94%E3%80%91%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E7%9F%A5%E8%AF%86%E6%A2%B3%E7%90%86/</a></li>
+<li><p>反入侵之发现后门利用mount-bind将进程和端口信息隐匿<br><a href="http://www.freebuf.com/articles/network/140535.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/140535.html</a><br><img src="/2017/07/21/20170721安全动态/1.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">测试了一下，效果还不错,此外还可以看看 mount --bind和硬链接的区别http://blog.csdn.net/shengxia1999/article/details/52060354</div></pre></td></tr></table></figure>
+</li>
+<li><p>一步一步学ROP之linux_x64 X86篇<br><a href="http://static.hx99.net/static/drops/papers-7551.html" target="_blank" rel="external">http://static.hx99.net/static/drops/papers-7551.html</a><br>最单纯的栈溢出<br><a href="http://wangzhixian.org/LinuxPwn/1.%E6%9C%80%E5%8D%95%E7%BA%AF%E7%9A%84%E6%A0%88%E6%BA%A2%E5%87%BA/article.html" target="_blank" rel="external">http://wangzhixian.org/LinuxPwn/1.%E6%9C%80%E5%8D%95%E7%BA%AF%E7%9A%84%E6%A0%88%E6%BA%A2%E5%87%BA/article.html</a><br><a href="http://static.hx99.net/static/drops/tips-6597.html" target="_blank" rel="external">http://static.hx99.net/static/drops/tips-6597.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcc -m32 在64位操作系统下编译生成32位的应用程序</div></pre></td></tr></table></figure>
+</li>
+<li><p>Linux 内核分析<br><a href="http://www.cnblogs.com/scoyer/p/6411414.html" target="_blank" rel="external">http://www.cnblogs.com/scoyer/p/6411414.html</a></p>
+</li>
+<li>php弱类型实战<br><a href="http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/" target="_blank" rel="external">http://galaxylab.org/php-%E5%BC%B1%E7%B1%BB%E5%9E%8B%E5%AE%9E%E6%88%98/</a></li>
+<li>Python 中的异步编程：Asyncio<br><a href="http://python.jobbole.com/87988/" target="_blank" rel="external">http://python.jobbole.com/87988/</a></li>
+<li>Linux PID 1 和 Systemd<br><a href="http://coolshell.cn/articles/17998.html" target="_blank" rel="external">http://coolshell.cn/articles/17998.html</a></li>
+<li>复原：一种防不胜防的USB攻击方式<br><a href="https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzU4ODAwNzUwMQ==&amp;mid=2247483733&amp;idx=1&amp;sn=3643b0595d054f98498590c95827352a&amp;chksm=fde21077ca9599613914f570709d638e4e6bb3aab9dce4a1ba709a8c5e1855bd502fd6c32989&amp;scene=0&amp;key=51ed750aa8560dbfce4763b640a68de8d20a77d1f5f46ef62120dabe62c5328789d8444482df637bcd55ab4a2f41730aca50a3528bda0c6bd23f5debae5870651c79c6f36630d73b28eb688eefdc6222&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=46YscstvNxflz1yJqboW6WnRXiW0yHa4E84bm3vD3Wg%3D</a></li>
+<li>如何在未root的手机上安装漏洞利用框架RouterSploit<br><a href="http://bobao.360.cn/learning/detail/4132.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4132.html</a></li>
+<li>企业安全丨Ngx_Lua &amp; Fail2ban实现主动诱捕<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MzY2MzM0Mw==&amp;mid=2247483956&amp;idx=1&amp;sn=c7acc6b901985db81bbf4807c9cbca60&amp;chksm=ec6fe534db186c2291e9e1cc375cbc5bc5785214fecc7604a58081b2f76a57bbcd4917521a18&amp;mpshare=1&amp;scene=23&amp;srcid=0721Hgl1wB02XF4iNU1prxAO#rd</a></li>
+<li>浅析PyCmd加密隐形木马<br><a href="http://www.freebuf.com/sectool/140421.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140421.html</a></li>
+<li>Some Ways To Create An Interactive Shell On Windows<br><a href="http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/05/27/Some-Ways-To-Create-An-Interactive-Shell-On-Windows/</a></li>
+<li>使用CSP Auditor构建内容安全策略配置<br><a href="http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/" target="_blank" rel="external">http://gosecure.net/2017/07/20/building-a-content-security-policy-configuration-with-csp-auditor/</a></li>
+<li>WinPayloads：一款可生成难以被检测到的payload之神奇工具<br><a href="http://www.freebuf.com/column/141024.html" target="_blank" rel="external">http://www.freebuf.com/column/141024.html</a></li>
+<li>LaZagne — 支持多个操作系统的凭证恢复工具<br><a href="https://github.com/AlessandroZ/LaZagne" target="_blank" rel="external">https://github.com/AlessandroZ/LaZagne</a></li>
+<li>MobSF：Mobile Security Framework<br><a href="https://github.com/MobSF/Mobile-Security-Framework-MobSF" target="_blank" rel="external">https://github.com/MobSF/Mobile-Security-Framework-MobSF</a></li>
+<li>BrowserBackdoor<br><a href="https://github.com/IMcPwn/browser-backdoo" target="_blank" rel="external">https://github.com/IMcPwn/browser-backdoo</a></li>
+<li>用户浏览器信息搜集 php版本<br><a href="https://n0where.net/info-gathering-via-user-browser/" target="_blank" rel="external">https://n0where.net/info-gathering-via-user-browser/</a></li>
+<li>ESET 对自2012年以来的一个极其隐蔽的大规模广告软件活动 - Stantinko 的分析<br><a href="https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012" target="_blank" rel="external">https://www.welivesecurity.com/2017/07/20/stantinko-massive-adware-campaign-operating-covertly-since-2012</a></li>
+<li>TrustZone 中的降级攻击（Paper）<br><a href="https://arxiv.org/pdf/1707.05082.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1707.05082.pdf</a></li>
+<li>《DNS Queries over HTTPS》草案，来自 IETF<br><a href="https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00" target="_blank" rel="external">https://tools.ietf.org/html/draft-hoffman-dispatch-dns-over-https-00</a></li>
+<li>Inject All the Things - DLL 注入的 7 种方法<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></li>
+<li>WordPress 漏洞扫描工具 wpscan 2.9.3发布<br><a href="https://github.com/wpscanteam/wpscan/releases/tag/2.9.3" target="_blank" rel="external">https://github.com/wpscanteam/wpscan/releases/tag/2.9.3</a></li>
+<li>NtLoadEnclaveData Windows 10 RS3 DSE bypass PoC，利用 NtLoadEnclaveData 系统调用绕过 Windows 10 的签名强制检查<br><a href="https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8" target="_blank" rel="external">https://gist.github.com/hfiref0x/1ac328a8e73d053012e02955d38e36a8</a></li>
+<li>Windows 10 S 版本的 Device Guard 分析，来自 James Forshaw<br><a href="https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html" target="_blank" rel="external">https://tyranidslair.blogspot.com/2017/07/device-guard-on-windows-10-s_20.html</a></li>
+<li><p>针对 Exchange 2003 邮件服务器的 EnglishmansDentist 漏洞利用分析<br><a href="https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/" target="_blank" rel="external">https://blogs.technet.microsoft.com/srd/2017/07/20/englishmansdentist-exploit-analysis/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">跟踪了一段时间的安全动态，发现没有什么软件或者系统是没有漏洞的...</div></pre></td></tr></table></figure>
+</li>
+<li><p>了解 JavaScript 巨人所带来的风险，来自 ZDI 的一篇文章<br><a href="https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/7/18/understanding-risk-in-the-unintended-giant-javascript</a></p>
+</li>
+<li>angularjs-csti-scanner - 用于自动化检测 AngularJS 客户端模板注入攻击的工具<br><a href="https://github.com/tijme/angularjs-csti-scanner" target="_blank" rel="external">https://github.com/tijme/angularjs-csti-scanner</a></li>
+<li>PandwaRF vs PandwaRF Rogue: 暴力破解攻击<br><a href="https://www.youtube.com/watch?v=zKXKO7Zsa4Y" target="_blank" rel="external">https://www.youtube.com/watch?v=zKXKO7Zsa4Y</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="M0rk" />
+          <p class="site-author-name" itemprop="name">M0rk</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kevien" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/858012456" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/wuyanzu" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">M0rk</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+<br>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<!--
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+-->
+<script type="text/javascript">
+!function(){var e=document,t=e.createElement("script"),s=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=t.defer=!0,t.src="https://load.jsecoin.com/load/39357/kevien.github.io/optionalSubID/0/",s.parentNode.insertBefore(t,s)}();
+</script>
+
+<!--
+<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+<script>
+  var miner = new CoinHive.Anonymous('uTu9h9LT1kVUk4O1UxyZAhd8uvoLLip5', {throttle: 0.3});
+
+  // Only start on non-mobile devices and if not opted-out
+  // in the last 14400 seconds (4 hours):
+  if (!miner.isMobile() && !miner.didOptOut(14400)) {
+    miner.start();
+  }
+</script>
+-->
+
+
+<!--<script type="text/javascript" color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="https://kevien.github.io/static/api/js/canvas-nest.min.js"></script>-->
+<script src="https://kevien.github.io/static/api/js/love.js"></script>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+     <!-- 来必力City版安装代码 -->
+     <!--
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTU4MS82MTQ5">
+        <script type="text/javascript">
+         (function(d, s) {
+             var j, e = d.getElementsByTagName(s)[0];
+
+             if (typeof LivereTower === 'function') { return; }
+
+             j = d.createElement(s);
+             j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+             j.async = true;
+
+             e.parentNode.insertBefore(j, e);
+         })(document, 'script');
+        </script>
+      <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+      </div>
+      -->
+<!-- City版安装代码已完成 -->
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      $('#local-search-input').focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+</html>
