@@ -119,7 +119,7 @@
 <meta property="og:image" content="http://kevien.github.io/2017/08/23/栈帧/6.png">
 <meta property="og:image" content="http://kevien.github.io/2017/08/23/栈帧/7.png">
 <meta property="og:image" content="http://kevien.github.io/2017/08/23/栈帧/8.png">
-<meta property="og:updated_time" content="2017-08-23T14:32:27.000Z">
+<meta property="og:updated_time" content="2018-04-06T04:46:02.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="栈帧">
 <meta name="twitter:description" content="前言 主要通过od来跟踪调试一下，理解一下栈的调用情况。环境及代码环境win7 32位+vc6.012345678910111213141516#include &amp;quot;stdio.h&amp;quot;long add(long a, long b)&amp;#123;    long x = a, y = b;    return (x + y);&amp;#125;int main(int argc, char">
@@ -407,7 +407,8 @@
 </ul>
 <h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><p>在这之前，首先找到main函数，并加上一定的注释以及对应的断点。<br>1.首先是进入main函数之前，我们查看一下ebp的值是0012ff88，esp是0012ff50，注意此时下一条指令的地址是00401279，如下图<br><img src="/2017/08/23/栈帧/1.png" alt=""><br>2.这个时候f7进入main函数，这个时候esp变成0012ff4c即减小了4，ebp不变<br><img src="/2017/08/23/栈帧/2.png" alt=""><br>3.然后呢，有一个跳转到push ebp，所以执行这个代码时候，ebp的值会入栈，esp的值加4，变成00112ff48<br><img src="/2017/08/23/栈帧/3.png" alt=""><br>4.f8执行 mov ebp,esp命令，这个时候ebp的值发生变化，变成和esp一样的值都是0012ff48<br><img src="/2017/08/23/栈帧/4.png" alt=""><br>5.f8执行 sub esp,48 扩展栈空间，esp减小48h个长度，ebp保持不变<br><img src="/2017/08/23/栈帧/5.png" alt=""><br>6.f8 然后就是将ebx，esi，edi等入栈的操作等<br>。。。<br>7.函数的返回要注意清场,栈顶和栈底是一样的都是0012ff48<br><img src="/2017/08/23/栈帧/6.png" alt=""><br>8.f8执行pop ebp，这个时候是将栈顶中的值0012ff88放到ebp中，那么ebp的值发生变化成为0012ff88，执行pop操作，esp+4 为0012ff4c<br><img src="/2017/08/23/栈帧/7.png" alt=""><br>9.f8 执行retn指令，esp发生变化+4变为0012ff50，ebp的值为0012ff88，eip指向00401279，即call main函数的下一条指令执行<br><img src="/2017/08/23/栈帧/8.png" alt=""></p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
-<li>main函数的过程中，进入之前栈底指针ebp是0012ff88，栈顶指针是0012ff50，结束函数之后，没有发生变化，即栈维持这平衡。</li>
+<li>main函数的过程中，进入之前栈底指针ebp是0012ff88，栈顶指针是0012ff50，结束函数之后，没有发生变化，即栈维持这平衡。<h4 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h4></li>
+<li>漏洞挖掘基础之格式化字符串<br><a href="http://drops.xmd5.com/static/drops/papers-9426.html" target="_blank" rel="external">http://drops.xmd5.com/static/drops/papers-9426.html</a></li>
 </ul>
 
       
@@ -567,7 +568,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">166</span>
+                <span class="site-state-item-count">167</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -651,7 +652,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境及代码"><span class="nav-number">2.</span> <span class="nav-text">环境及代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程"><span class="nav-number">3.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境及代码"><span class="nav-number">2.</span> <span class="nav-text">环境及代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程"><span class="nav-number">3.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reference"><span class="nav-number">5.</span> <span class="nav-text">reference</span></a></li></ol></div>
             
 
           </div>
