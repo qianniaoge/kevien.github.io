@@ -318,6 +318,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/24/linux调试工具GDB入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="M0rk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="M0rk's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/24/linux调试工具GDB入门/" itemprop="url">
+                  linux调试工具GDB入门
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T17:11:37+08:00">
+                2017-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>gdb可以用在代码调试和反汇编代码的调试</p>
+<h4 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h4><p>调用gdb编译需要在cc后面加 -g参数再加-o；<br>[root@redhat home]#gdb 调试文件：启动gdb<br>(gdb) l ：（字母l）从第一行开始列出源码<br>(gdb) break n :在第n行处设置断点<br>(gdb) break func：在函数func()的入口处设置断点<br>(gdb) info break： 查看断点信息<br>(gdb) r：运行程序<br>(gdb) n：单步执行<br>(gdb) c：继续运行<br>(gdb) p 变量 ：打印变量的值<br>(gdb) bt：查看函数堆栈<br>(gdb) finish：退出函数<br>(gdb) shell 命令行：执行shell命令行<br>(gdb) set args 参数:指定运行时的参数<br>(gdb) show args：查看设置好的参数<br>(gdb) show paths:查看程序运行路径；<br>           set environment varname [=value] 设置环境变量。如：set env USER=hchen；<br>            show environment [varname] 查看环境变量；<br>(gdb) cd 相当于shell的cd;<br>(gdb)pwd ：显示当前所在目录<br>(gdb)info program： 来查看程序的是否在运行，进程号，被暂停的原因。<br>(gdb)clear 行号n：清除第n行的断点<br>(gdb)delete 断点号n：删除第n个断点<br>(gdb)disable 断点号n：暂停第n个断点<br>(gdb)enable 断点号n：开启第n个断点<br>(gdb)step：单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的</p>
+<p>list ：简记为 l ，其作用就是列出程序的源代码，默认每次显示10行。<br>list 行号：将显示当前文件以“行号”为中心的前后10行代码，如：list 12<br>list 函数名：将显示“函数名”所在函数的源代码，如：list main<br>list ：不带参数，将接着上一次 list 命令的，输出下边的内容。<br>注意 ：如果运行list 命令得到类似如下的打印，那是因为在编译程序时没有加入 -g 选项：<br>(gdb) list<br>1       ../sysdeps/i386/elf/start.S: No such file or directory.<br>        in ../sysdeps/i386/elf/start.S</p>
+<p>run：简记为 r ，其作用是运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步的命令。<br>回车：重复上一条命令。<br>set args：设置运行程序时的命令行参数，如：set args 33 55<br>show args：显示命令行参数<br>continue：简讯为 c ，其作用是继续运行被断点中断的程序。<br>break：为程序设置断点。<br>break 行号：在当前文件的“行号”处设置断点，如：break  33<br>break 函数名：在用户定义的函数“函数名”处设置断点，如：break cb_button<br>info breakpoints：显示当前程序的断点设置情况<br>disable breakpoints Num：关闭断点“Num”，使其无效，其中“Num”为 info breakpoints 中显示的对应值<br>enable breakpoints Num：打开断点“Num”，使其重新生效<br>step：简记为 s ，单步跟踪程序，当遇到函数调用时，则进入此函数体（一般只进入用户自定义函数）。<br>next：简记为 n，单步跟踪程序，当遇到函数调用时，也不进入此函数体；此命令同 step 的主要区别是，step 遇到用户自定义的函数，将步进到函数中去运行，而 next 则直接调用函数，不会进入到函数体内。<br>until：当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环体。<br>finish： 运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息。<br>stepi或nexti：单步跟踪一些机器指令。<br>print 表达式：简记为 p ，其中“表达式”可以是任何当前正在被测试程序的有效表达式，比如当前正在调试C语言的程序，那么“表达式”可以是任何C语言的有效表达式，包括数字，变量甚至是函数调用。<br>print a：将显示整数 a 的值<br>print ++a：将把 a 中的值加1,并显示出来<br>print name：将显示字符串 name 的值<br>print gdb_test(22)：将以整数22作为参数调用 gdb_test() 函数<br>print gdb_test(a)：将以变量 a 作为参数调用 gdb_test() 函数<br>bt：显示当前程序的函数调用堆栈。<br>display 表达式：在单步运行时将非常有用，使用display命令设置一个表达式后，它将在每次单步进行指令后，紧接着输出被设置的表达式及值。如： display a<br>watch 表达式：设置一个监视点，一旦被监视的“表达式”的值改变，gdb将强行终止正在被调试的程序。如： watch a<br>kill：将强行终止当前正在调试的程序<br>help 命令：help 命令将显示“命令”的常用帮助信息<br>call 函数(参数)：调用“函数”，并传递“参数”，如：call  gdb_test(55)<br>layout：用于分割窗口，可以一边查看代码，一边测试：<br>layout src：显示源代码窗口<br>layout asm：显示反汇编窗口<br>layout regs：显示源代码/反汇编和CPU寄存器窗口<br>layout split：显示源代码和反汇编窗口<br>Ctrl + L：刷新窗口<br>quit：简记为 q ，退出gdb</p>
+<h4 id="内存查看"><a href="#内存查看" class="headerlink" title="内存查看"></a>内存查看</h4><ul>
+<li><p>可以使用 examine 命令(简写是 x)来查看内存地址中的值。x 命令的语法如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">x/&lt;n/f/u&gt; &lt;addr&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>n、f、u 是可选的参数。</p>
+</li>
+<li>n 是一个正整数，表示显示内存的长度，也就是说从当前地址向后显示几个地址的内容。</li>
+<li>f 表示显示的格式，参见上面。如果地址所指的是字符串，那么格式可以是 s，如果地十是指令地址， 那么格式可以是 i。</li>
+<li>u 表示从当前地址往后请求的字节数，如果不指定的话，GDB 默认是 4 个 bytes。u 参数可以用下 面的字符来代替，b 表示单字节，h 表示双字节，w 表示四字节，g 表示八字节。当我们指定了字节长度后， GDB 会从指内存定的内存地址开始，读写指定字节，并把其当作一个值取出来。</li>
+<li><addr>表示一个内存地址。</addr></li>
+<li>n/f/u三个参数可以一起使用。例如:命令:x/3uh 0x54320 表示，从内存地址 0x54320 读取内容，h表示以双字节为一个单位，3 表 示三个单位，u表示按十六进制显示。</li>
+<li>常用的组合例如 x/100xh  第一个x代表examine 第二个x代表hexadecimal，h代表半个word即两个字节<h4 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h4>首先我们使用gcc -g命令对代码进行编译  generates debug information to be used by GDB debugger.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">xxx@ubuntu:~/Desktop/test1$ cat command.c</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(int argc,char *argv[])</div><div class="line">&#123;</div><div class="line">int i;</div><div class="line">for (i=0;i&lt;argc;i++)</div><div class="line">	printf(&quot;argv[%d]:%s \n&quot;,i,argv[i]);</div><div class="line">return 0;</div><div class="line">&#125;</div><div class="line">xxx@ubuntu:~/Desktop/test1$ gcc -g command.c -o command</div><div class="line">xxx@ubuntu:~/Desktop/test1$ gdb -q ./command</div><div class="line">Reading symbols from ./command...done.</div><div class="line">gdb-peda$ l</div><div class="line">1	#include &lt;stdio.h&gt;</div><div class="line">2	int main(int argc,char *argv[])</div><div class="line">3	&#123;</div><div class="line">4	int i;</div><div class="line">5	for (i=0;i&lt;argc;i++)</div><div class="line">6		printf(&quot;argv[%d]:%s \n&quot;,i,argv[i]);</div><div class="line">7	return 0;</div><div class="line">8	&#125;</div><div class="line">gdb-peda$ b 6</div><div class="line">Breakpoint 1 at 0x400545: file command.c, line 6.</div><div class="line">gdb-peda$ run param1 param2 param3</div><div class="line">Starting program: /home/xxx/Desktop/test1/command param1 param2 param3</div><div class="line"></div><div class="line">[----------------------------------registers-----------------------------------]</div><div class="line">RAX: 0x0 </div><div class="line">RBX: 0x0 </div><div class="line">RCX: 0x0 </div><div class="line">RDX: 0x7fffffffe010 --&gt; 0x7fffffffe390 (&quot;XDG_VTNR=7&quot;)</div><div class="line">RSI: 0x7fffffffdfe8 --&gt; 0x7fffffffe35b (&quot;/home/xxx/Desktop/test1/command&quot;)</div><div class="line">RDI: 0x4 </div><div class="line">RBP: 0x7fffffffdf00 --&gt; 0x0 </div><div class="line">RSP: 0x7fffffffdee0 --&gt; 0x7fffffffdfe8 --&gt; 0x7fffffffe35b (&quot;/home/xxx/Desktop/test1/command&quot;)</div><div class="line">RIP: 0x400545 (&lt;main+24&gt;:	mov    eax,DWORD PTR [rbp-0x4])</div><div class="line">R8 : 0x7ffff7dd4e80 --&gt; 0x0 </div><div class="line">R9 : 0x7ffff7dea700 (&lt;_dl_fini&gt;:	push   rbp)</div><div class="line">R10: 0x7fffffffdd90 --&gt; 0x0 </div><div class="line">R11: 0x7ffff7a32e50 (&lt;__libc_start_main&gt;:	push   r14)</div><div class="line">R12: 0x400440 (&lt;_start&gt;:	xor    ebp,ebp)</div><div class="line">R13: 0x7fffffffdfe0 --&gt; 0x4 </div><div class="line">R14: 0x0 </div><div class="line">R15: 0x0</div><div class="line">EFLAGS: 0x297 (CARRY PARITY ADJUST zero SIGN trap INTERRUPT direction overflow)</div><div class="line">[-------------------------------------code-------------------------------------]</div><div class="line">   0x400538 &lt;main+11&gt;:	mov    QWORD PTR [rbp-0x20],rsi</div><div class="line">   0x40053c &lt;main+15&gt;:	mov    DWORD PTR [rbp-0x4],0x0</div><div class="line">   0x400543 &lt;main+22&gt;:	jmp    0x400574 &lt;main+71&gt;</div><div class="line">=&gt; 0x400545 &lt;main+24&gt;:	mov    eax,DWORD PTR [rbp-0x4]</div><div class="line">   0x400548 &lt;main+27&gt;:	cdqe   </div><div class="line">   0x40054a &lt;main+29&gt;:	lea    rdx,[rax*8+0x0]</div><div class="line">   0x400552 &lt;main+37&gt;:	mov    rax,QWORD PTR [rbp-0x20]</div><div class="line">   0x400556 &lt;main+41&gt;:	add    rax,rdx</div><div class="line">[------------------------------------stack-------------------------------------]</div><div class="line">0000| 0x7fffffffdee0 --&gt; 0x7fffffffdfe8 --&gt; 0x7fffffffe35b (&quot;/home/xxx/Desktop/test1/command&quot;)</div><div class="line">0008| 0x7fffffffdee8 --&gt; 0x400400440 </div><div class="line">0016| 0x7fffffffdef0 --&gt; 0x7fffffffdfe0 --&gt; 0x4 </div><div class="line">0024| 0x7fffffffdef8 --&gt; 0x0 </div><div class="line">0032| 0x7fffffffdf00 --&gt; 0x0 </div><div class="line">0040| 0x7fffffffdf08 --&gt; 0x7ffff7a32f45 (&lt;__libc_start_main+245&gt;:	mov    edi,eax)</div><div class="line">0048| 0x7fffffffdf10 --&gt; 0x0 </div><div class="line">0056| 0x7fffffffdf18 --&gt; 0x7fffffffdfe8 --&gt; 0x7fffffffe35b (&quot;/home/xxx/Desktop/test1/command&quot;)</div><div class="line">[------------------------------------------------------------------------------]</div><div class="line">Legend: code, data, rodata, value</div><div class="line"></div><div class="line">Breakpoint 1, main (argc=0x4, argv=0x7fffffffdfe8) at command.c:6</div><div class="line">6		printf(&quot;argv[%d]:%s \n&quot;,i,argv[i]);</div><div class="line">gdb-peda$ p i</div><div class="line">$1 = 0x0</div><div class="line">gdb-peda$ p argv</div><div class="line">$2 = (char **) 0x7fffffffdfe8</div><div class="line">gdb-peda$ p argc</div><div class="line">$3 = 0x4</div><div class="line">gdb-peda$</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="不定期更新"><a href="#不定期更新" class="headerlink" title="不定期更新"></a>不定期更新</h4><ul>
+<li><p>查看eip的address，可以使用info frame命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">gdb-peda$ info frame</div><div class="line">Stack level 0, frame at 0xbfffeeb4:</div><div class="line"> eip = 0x42424242; saved eip = 0x0</div><div class="line"> called by frame at 0xbfffeeb8</div><div class="line"> Arglist at 0xbfffeeac, args: </div><div class="line"> Locals at 0xbfffeeac, Previous frame&apos;s sp is 0xbfffeeb4</div><div class="line"> Saved registers:</div><div class="line">  eip at 0xbfffeeb0</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看程序存在的函数  info  func</p>
+</li>
+</ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
+<li>linux 调试工具 GDB 使用教程<br><a href="http://bbs.pediy.com/thread-77746.htm" target="_blank" rel="external">http://bbs.pediy.com/thread-77746.htm</a></li>
+<li>Quick Intro to gdb<br><a href="https://www.youtube.com/watch?v=xQ0ONbt-qPs" target="_blank" rel="external">https://www.youtube.com/watch?v=xQ0ONbt-qPs</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/24/window逆向基础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,12 +682,12 @@
 <li>waf openstar<br><a href="https://github.com/starjun/openstar" target="_blank" rel="external">https://github.com/starjun/openstar</a></li>
 <li>如何使用Shodan命令行获取一个国家最受欢迎的服务列表   ,主要对一些服务的统计<br><https: 48142="" asciinema.org="" a=""></https:></li>
 <li>小技巧 使用certutil 传送文件<br><a href="http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html" target="_blank" rel="external">http://carnal0wnage.attackresearch.com/2017/08/certutil-for-delivery-of-files.html</a></li>
-<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#104;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#101;&#x72;&#x2f;&#109;&#117;&#108;&#x74;&#105;&#x2d;&#x70;&#108;&#97;&#116;&#102;&#x6f;&#114;&#109;&#45;&#109;&#x61;&#99;&#114;&#x6f;&#x2d;&#112;&#104;&#105;&#115;&#x68;&#x69;&#x6e;&#103;&#45;&#x70;&#x61;&#121;&#108;&#x6f;&#97;&#x64;&#115;&#45;&#x33;&#x62;&#x36;&#x38;&#x38;&#101;&#56;&#x65;&#102;&#102;&#54;&#56;">&#104;&#x74;&#x74;&#x70;&#115;&#x3a;&#47;&#47;&#x6d;&#101;&#x64;&#105;&#x75;&#109;&#46;&#99;&#111;&#109;&#x2f;&#64;&#109;&#97;&#108;&#99;&#111;&#x6d;&#118;&#101;&#x74;&#116;&#101;&#x72;&#x2f;&#109;&#117;&#108;&#x74;&#105;&#x2d;&#x70;&#108;&#97;&#116;&#102;&#x6f;&#114;&#109;&#45;&#109;&#x61;&#99;&#114;&#x6f;&#x2d;&#112;&#104;&#105;&#115;&#x68;&#x69;&#x6e;&#103;&#45;&#x70;&#x61;&#121;&#108;&#x6f;&#97;&#x64;&#115;&#45;&#x33;&#x62;&#x36;&#x38;&#x38;&#101;&#56;&#x65;&#102;&#102;&#54;&#56;</a></li>
+<li>跨平台Macro钓鱼攻击payload<br><a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#x6d;&#x61;&#108;&#x63;&#111;&#x6d;&#118;&#x65;&#116;&#116;&#101;&#114;&#x2f;&#x6d;&#117;&#x6c;&#x74;&#x69;&#45;&#112;&#108;&#97;&#116;&#102;&#111;&#x72;&#x6d;&#x2d;&#x6d;&#x61;&#99;&#x72;&#111;&#x2d;&#x70;&#104;&#105;&#x73;&#x68;&#105;&#x6e;&#103;&#45;&#112;&#x61;&#x79;&#108;&#111;&#97;&#100;&#115;&#45;&#x33;&#98;&#x36;&#x38;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#54;&#56;">&#x68;&#x74;&#116;&#112;&#115;&#x3a;&#x2f;&#47;&#x6d;&#101;&#100;&#105;&#117;&#x6d;&#x2e;&#x63;&#111;&#109;&#x2f;&#x40;&#x6d;&#x61;&#108;&#x63;&#111;&#x6d;&#118;&#x65;&#116;&#116;&#101;&#114;&#x2f;&#x6d;&#117;&#x6c;&#x74;&#x69;&#45;&#112;&#108;&#97;&#116;&#102;&#111;&#x72;&#x6d;&#x2d;&#x6d;&#x61;&#99;&#x72;&#111;&#x2d;&#x70;&#104;&#105;&#x73;&#x68;&#105;&#x6e;&#103;&#45;&#112;&#x61;&#x79;&#108;&#111;&#97;&#100;&#115;&#45;&#x33;&#98;&#x36;&#x38;&#x38;&#x65;&#x38;&#x65;&#x66;&#102;&#54;&#56;</a></li>
 <li>canisrufus：隐藏的基于Python的Windows后门，使用Github作为CC服务器<br><a href="https://github.com/maldevel/canisrufus" target="_blank" rel="external">https://github.com/maldevel/canisrufus</a></li>
 <li><p>portia：在内网渗透中自动化执行<br><a href="https://github.com/SpiderLabs/portia" target="_blank" rel="external">https://github.com/SpiderLabs/portia</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">一键日内网？</div></pre></td></tr></table></figure>
 </li>
-<li><p>如何安全的使用PGP<br><a href="&#109;&#x61;&#x69;&#108;&#x74;&#111;&#58;&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#x68;&#101;&#103;&#114;&#x75;&#103;&#x71;&#47;&#116;&#x68;&#x65;&#x2d;&#x7a;&#101;&#x6e;&#45;&#x6f;&#x66;&#x2d;&#112;&#103;&#x70;&#x2d;&#54;&#102;&#x35;&#53;&#100;&#52;&#x34;&#54;&#x35;&#x37;&#x64;&#100;">&#104;&#116;&#x74;&#112;&#115;&#58;&#x2f;&#47;&#x6d;&#x65;&#100;&#105;&#x75;&#109;&#x2e;&#99;&#x6f;&#x6d;&#47;&#x40;&#116;&#x68;&#101;&#103;&#114;&#x75;&#103;&#x71;&#47;&#116;&#x68;&#x65;&#x2d;&#x7a;&#101;&#x6e;&#45;&#x6f;&#x66;&#x2d;&#112;&#103;&#x70;&#x2d;&#54;&#102;&#x35;&#53;&#100;&#52;&#x34;&#54;&#x35;&#x37;&#x64;&#100;</a></p>
+<li><p>如何安全的使用PGP<br><a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#x74;&#104;&#101;&#x67;&#114;&#117;&#103;&#113;&#47;&#x74;&#x68;&#101;&#x2d;&#x7a;&#101;&#x6e;&#45;&#111;&#102;&#x2d;&#x70;&#103;&#112;&#x2d;&#x36;&#102;&#53;&#53;&#x64;&#52;&#x34;&#x36;&#x35;&#x37;&#100;&#x64;">&#x68;&#x74;&#116;&#112;&#115;&#58;&#47;&#47;&#109;&#101;&#100;&#x69;&#x75;&#x6d;&#x2e;&#x63;&#111;&#109;&#47;&#64;&#x74;&#104;&#101;&#x67;&#114;&#117;&#103;&#113;&#47;&#x74;&#x68;&#101;&#x2d;&#x7a;&#101;&#x6e;&#45;&#111;&#102;&#x2d;&#x70;&#103;&#112;&#x2d;&#x36;&#102;&#53;&#53;&#x64;&#52;&#x34;&#x36;&#x35;&#x37;&#100;&#x64;</a></p>
 </li>
 <li>sRDI：Shellcode反射式DLL注入<br><a href="https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/" target="_blank" rel="external">https://silentbreaksecurity.com/srdi-shellcode-reflective-dll-injection/</a></li>
 <li>逆向Humble Bundle应用程序以获得API访问<br><https: 21="" 2017="" www.schiff.io="" blog="" 07="" reverse-engineering-humble-bundle-api=""></https:></li>
@@ -1508,146 +1656,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://kevien.github.io/2017/08/18/20170818安全动态/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="M0rk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="M0rk's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/08/18/20170818安全动态/" itemprop="url">
-                  20170818安全动态
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-18T10:24:30+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>漏洞根源在于人——知识深度篇<br><a href="http://www.freebuf.com/vuls/144705.html" target="_blank" rel="external">http://www.freebuf.com/vuls/144705.html</a></li>
-<li>safari本地文件读取漏洞之扩展攻击面<br><a href="http://www.wupco.cn/?p=4134" target="_blank" rel="external">http://www.wupco.cn/?p=4134</a></li>
-<li>Bypass 360主机卫士SQL注入防御<br><a href="http://www.cnblogs.com/xiaozi/p/7275134.html" target="_blank" rel="external">http://www.cnblogs.com/xiaozi/p/7275134.html</a></li>
-<li>node-postgres code execution vulnerability<br><a href="https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability" target="_blank" rel="external">https://node-postgres.com/announcements#2017-08-12-code-execution-vulnerability</a></li>
-<li>msdtc后门的实现思路<br><a href="http://www.4hou.com/system/6890.html" target="_blank" rel="external">http://www.4hou.com/system/6890.html</a></li>
-<li>#164224 Urgent: Server side template injection via Smarty template allows for RCE<br><a href="https://hackerone.com/reports/164224" target="_blank" rel="external">https://hackerone.com/reports/164224</a></li>
-<li>Using get_defined_functions To Hidden A PHP Backdoor<br><a href="http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/" target="_blank" rel="external">http://reverse-tcp.xyz/2017/08/17/Using-get_defined_functions-to-hidden-a-php-backdoor/</a></li>
-<li>内网发现技巧补充<br><a href="https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A" target="_blank" rel="external">https://mp.weixin.qq.com/s/l-Avt72ajCIo5GdMEwVx7A</a></li>
-<li>ssh如何方向代理稳定穿透内网<br><a href="http://bobao.360.cn/learning/detail/4234.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4234.html</a></li>
-<li>ZDI 公开了两个 Foxit Reader 的 0Day，分别是 JavaScript API 触发的命令执行（CVE-2017-10951）和文件写漏洞（CVE-2017-10952），由于触发漏洞需要绕过 Safe Reading Mode，所以官方拒绝修复<br><a href="https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader" target="_blank" rel="external">https://www.zerodayinitiative.com/blog/2017/8/17/busting-myths-in-foxit-reader</a></li>
-<li>mod0Umleitung - Windows 上的 DNS 转发服务器，可中途对 DNS 请求进行篡改以及返回自定义的 DNS 解析结果<br><a href="https://modzero.github.io/mod0Umleitung/" target="_blank" rel="external">https://modzero.github.io/mod0Umleitung/</a></li>
-<li>结合 Blind SSRF 漏洞以及 HashiCorp Consul 的错误配置转换成高危的 RCE 漏洞<br><a href="http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html" target="_blank" rel="external">http://www.kernelpicnic.net/2017/05/29/Pivoting-from-blind-SSRF-to-RCE-with-Hashicorp-Consul.html</a></li>
-<li>Koadic：COM 命令控制框架（JScript RAT，类似Meterpreter、Empire）<br><a href="http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html" target="_blank" rel="external">http://www.kitploit.com/2017/08/koadic-com-command-control-framework.html</a></li>
-<li>3个步骤实现简单语言解释器（自制简易编程语言）<br><a href="https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/" target="_blank" rel="external">https://francisstokes.wordpress.com/2017/08/16/programming-language-from-scratch/</a></li>
-<li>AndroidManifest.xml文件安全探索<br><http: mp.weixin.qq.com="" s="" c1serfo7aq2pesloras-hq=""></http:></li>
-<li>burpsuite插件开发被动式扫描<br><a href="http://www.itwzw.cn/burpsuite-ext-passivescan/" target="_blank" rel="external">http://www.itwzw.cn/burpsuite-ext-passivescan/</a><h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
-<li>如何知道程序的运行时间<br>time xxx  ,time python demo.py</li>
-<li>一次基于zio编写pwn的exp的尝试<br><a href="http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/" target="_blank" rel="external">http://bestwing.me/2016/10/22/%E5%9F%BA%E4%BA%8Ezio%E7%9A%84exp%E5%88%9D%E6%AC%A1%E5%B0%9D%E8%AF%95/</a></li>
-<li>反汇编的利器 IDA 和 Hopper 的基本使用<br><a href="https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/" target="_blank" rel="external">https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1697,7 +1705,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">167</span>
+                <span class="site-state-item-count">168</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
