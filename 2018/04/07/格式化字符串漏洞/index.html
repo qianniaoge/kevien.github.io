@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
+  <meta name="keywords" content="M0rk,blog,security,hack,Hexo" />
 
 
 
@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/objgot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell1.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell2.png">
-<meta property="og:updated_time" content="2018-04-08T12:36:52.000Z">
+<meta property="og:updated_time" content="2018-04-10T12:40:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格式化字符串漏洞">
 <meta name="twitter:description" content="TL;DR 不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入的">
@@ -444,8 +444,8 @@
 </li>
 <li><p>这次我们还是将shellcode放入到环境变量中，然后将exit函数的地址指向shellcode所存放的环境变量(这种一般是用在提权操作上,普通用户运行了setuid的程序)<br><img src="/2018/04/07/格式化字符串漏洞/shell1.png" alt=""><br><img src="/2018/04/07/格式化字符串漏洞/shell2.png" alt=""></p>
 </li>
-<li>如上，当程序调用exit函数的时候，通过PLT跳转并在GOT表中获取到了调用的地址,由于这个地址已经被修改为shellcode的地址，所以我们就获取到了root权限的shell。</li>
-<li>可以写任意地址其实就提供了很多可能性，只要是可写的内存且包含了程序的执行流的都可以成为写入的目标。<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
+<li>如上，当程序调用exit函数的时候，通过PLT跳转并在GOT表中获取到了调用的地址,由于这个地址已经被修改为shellcode的入口地址，所以我们就获取到了root权限的shell。</li>
+<li>可以写任意地址其实就提供了很多种可能性，只要是可写的内存且包含了程序执行流的都可以是写入的目标。<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4></li>
 <li>这里就主要过程做了说明，想要真正理解还需要自己动手去实践。<br><a href="https://github.com/kevien/exploitcode/tree/master/formatstringexp" target="_blank" rel="external">github repo</a><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4></li>
 <li>《Hacking the art of exploitation》0x352</li>
 <li>漏洞挖掘基础之格式化字符串<br><a href="http://drops.xmd5.com/static/drops/papers-9426.html" target="_blank" rel="external">http://drops.xmd5.com/static/drops/papers-9426.html</a></li>
@@ -1212,6 +1212,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

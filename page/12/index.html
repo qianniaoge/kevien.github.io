@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, M0rk,blog,security,hack" />
+  <meta name="keywords" content="M0rk,blog,security,hack,Hexo" />
 
 
 
@@ -394,40 +394,20 @@
       
         
           
-            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>一般将进程定义成一个正在运行的程序的一个实例，它由以下两部分构成。</p>
-<ul>
-<li>一个内核对象，操作系统用它来管理进程。内核对象也是系统保存进程统计信息的地方。</li>
-<li>一个地址空间，其中包含所有可执行文件或DLL模块的代码和数据。此外，它还包含动态内存分配，比如线程堆栈和堆的分配。</li>
-</ul>
-<p>进程是有“惰性”的。进程要做任何事情，都必须让一个线程在它的上下文中运行。该线程负责执行进程地址空间包含的代码。事实上，一个进程可以有多个线程，所有线程都在进程的地址空间中“同时”执行代码。为此，每个线程都有它自己的一组CPU寄存器和它自己的堆栈。每个进程至少要有一个线程来执行进程地址空间包含的代码。当系统创建一个进程的时候，会自动为进程创建第一个线程，这称为主线程。然后，这个线程再创建更多的线程，后者再创建更多的线程。。。如果没有线程要执行进程地址空间包含的代码，进程就失去了继续存在的理由。这时，系统会自动销毁进程及其地址空间。</p>
-<p>对于所有要运行的线程，操作系统会轮流为每个线程调度一些CPU时间。它会采取循环（轮询或轮流）方式，为每个线程都分配时间片（称为“量程”），从而营造出所有线程都在“并发”运行的假象。</p>
-<p>如果计算机配备了多个CPU，操作系统会采用更复杂的算法为线程分配CPU时间。</p>
-<p>线程也有两个组成部分：</p>
-<ul>
-<li>一个是线程的内核对象，操作系统用它管理线程。系统还用内核对象来存放线程统计信息的地方。</li>
-<li>一个线程栈，用于维护线程执行时所需的所有函数参数和局部变量。</li>
-</ul>
-<p>进程从来不执行任何东西，它只是一个线程的容器。线程必然是在某个进程的上下文中创建的，而且会在这个进程内部“终其一生”。这意味着线程要在其进程的地址空间内执行代码和处理数据。所以，假如一个进程上下文中有两个以上的线程运行，这些线程将共享同一个地址空间。这些线程可以执行同样的代码，可以处理相同的数据。此外，这些线程还共享内核对象句柄，因为句柄表是针对每一个进程的，而不是针对每一个线程。</p>
-<p>可以看出，相较于线程，进程所使用的系统资源更多。其原因在于地址空间。为一个进程创建一个虚拟的地址空间需要大量系统资源。系统中会发生大量的记录活动，而这需要用到大量内存。而且，由于.exe和.dll文件要加载到一个地址空间，所以还需要用到文件资源。另一方面，线程使用的系统资源要少得多。事实上，线程只有一个内核对象和一个栈；几乎不涉及记录活动，所以不需要占用多少内存。</p>
-<p>每个线程都有一个上下文，后者保存在线程的内核对象中。这个上下文反映了线程上一次执行时CPU寄存器的状态。大约每隔20ms，Windows都会查看所有当前存在的线程内核对象。在这些对象中，只有一些被认为是可调度的。Windows在可调度的线程内核对象中选择一个，并将上次保存在线程上下文中的值载入CPU寄存器。这一操作被称为上下文切换。线程执行代码，并在进程的地址空间中操作数据。又过了大约20ms，Windows将CPU寄存器存回线程的上下文，线程不再运行。系统再次检查剩下的可调度线程内核对象，选择另一个线程的内核对象，将该线程的上下文载入CPU寄存器，然后继续。载入线程上下文、让线程运行、保存上下文并重复的操作在系统启动的时候就开始，然后这样的操作会不断重复，直至系统关闭。</p>
-<p>系统只调度可调度的线程，但是事实上，系统中大多数线程都不是可调度的。例如有些线程对象的挂起计数大于0，这意味着该线程已被挂起，不应该给它调度任何CPU时间。可以通过调用CreateProcess或者CreateThread函数并传入CREATE_SUSPENDED标志来创建一个被挂起的线程。</p>
-<p>除了被挂起的线程之外，还有其他很多线程无法调度，因为它们都在等待某种事件发生。例如，如果运行Notepad程序，但是并不输入任何东西，Notepad线程将什么都不做。系统不会给没有任务的线程分配任何CPU时间。当我们移动Notepad的窗口时，或者其窗口需要重绘内容时，或者我们在其中输入时，系统将自动使其线程变为可调度。这并不意味着Notepad线程将立即获得CPU时间。只不过Notepad线程有任务了，系统会在某个时刻抽时间调度它——当然，我们希望越快越好。<br>父进程结束不会使子进程结束，但是多线程中，主进程的退出，会使所有线程退出。</p>
-<h4 id="window进程与线程实例"><a href="#window进程与线程实例" class="headerlink" title="window进程与线程实例"></a>window进程与线程实例</h4><p>进程的创建主要函数是CreateProcess()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">#define EXEC_FILE &quot;c:\\windows\\system32\\notepad.exe&quot;</div><div class="line">#define EXEC_FILE1 &quot;c:\\windows\\system32\\calc.exe&quot;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    PROCESS_INFORMATION pi = &#123; 0 &#125;;</div><div class="line">    STARTUPINFO si = &#123; 0 &#125;;</div><div class="line">    </div><div class="line">    si.cb = sizeof(STARTUPINFO);</div><div class="line">    </div><div class="line">    BOOL bRet = CreateProcess(EXEC_FILE,</div><div class="line">                        NULL, NULL, NULL, FALSE,</div><div class="line">                        NULL, NULL, NULL, &amp;si, &amp;pi);</div><div class="line"></div><div class="line">    BOOL bRet1 = CreateProcess(EXEC_FILE1,</div><div class="line">		NULL, NULL, NULL, FALSE,</div><div class="line">                        NULL, NULL, NULL, &amp;si, &amp;pi);</div><div class="line">    </div><div class="line">    if ( bRet == FALSE )</div><div class="line">    &#123;</div><div class="line">        printf(&quot;CreateProcess Error ! \r\n&quot;);</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    CloseHandle(pi.hThread);</div><div class="line">    CloseHandle(pi.hProcess);</div><div class="line">	Sleep(500000);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>通过上面的代码，我们可以创建了两个子进程，运行这个可执行文件之后，通过Process Explorer查看进程树<br><img src="/2017/08/01/进程与线程/2.png" alt=""><br>如上图所示，可以看到calc.exe和notepad.exe是CreateProcessTest创建的两个子进程。当父进程结束的时候，两个子进程并没有结束。<br>线程的创建主要函数是CreateThread()<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    printf(&quot;ThreadProc \r\n&quot;);</div><div class="line">	Sleep(500000);</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc1(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    printf(&quot;ThreadProc1 \r\n&quot;);</div><div class="line">	Sleep(500000);</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    HANDLE hThread = CreateThread(NULL, </div><div class="line">                        0, </div><div class="line">                        ThreadProc, </div><div class="line">                        NULL, </div><div class="line">                        0, </div><div class="line">                        NULL);</div><div class="line"></div><div class="line">	HANDLE hThread1 = CreateThread(NULL, </div><div class="line">		0, </div><div class="line">		ThreadProc1, </div><div class="line">		NULL, </div><div class="line">		0, </div><div class="line">                        NULL);</div><div class="line"></div><div class="line">    WaitForSingleObject(hThread, INFINITE);</div><div class="line">    WaitForSingleObject(hThread1, INFINITE);</div><div class="line"></div><div class="line">    printf(&quot;main \r\n&quot;);</div><div class="line"></div><div class="line">    CloseHandle(hThread);</div><div class="line">	CloseHandle(hThread1);</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>通过上面的代码，我们创建了两个线程hThread和hThread1，通过pslist命令可以查看相应进程中的线程信息<br><img src="/2017/08/01/进程与线程/3.png" alt=""><br>如上图所示，CreateThreadTest进程id为6628，它产生了一个主线程和两个子线程，线程id分别为7996，1224和6452</p>
-<ul>
-<li>进程、进程中的DLL枚举以及进程的暂停与恢复</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div></pre></td><td class="code"><pre><div class="line">VOID CManageProcessDlg::InitProcessList()</div><div class="line">&#123;</div><div class="line">    m_ListProcess.SetExtendedStyle(</div><div class="line">        m_ListProcess.GetExtendedStyle()</div><div class="line">        | LVS_EX_FULLROWSELECT </div><div class="line">        | LVS_EX_GRIDLINES );</div><div class="line">    </div><div class="line">    m_ListProcess.InsertColumn(0, &quot;进程名&quot;);</div><div class="line">    m_ListProcess.InsertColumn(1, &quot;进程ID&quot;);</div><div class="line">    </div><div class="line">    m_ListProcess.SetColumnWidth(0, 150);</div><div class="line">    m_ListProcess.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    </div><div class="line">    m_ListModule.SetExtendedStyle(</div><div class="line">        m_ListModule.GetExtendedStyle()</div><div class="line">        | LVS_EX_FULLROWSELECT</div><div class="line">        | LVS_EX_GRIDLINES );</div><div class="line">    </div><div class="line">    m_ListModule.InsertColumn(0, &quot;DLL名&quot;);</div><div class="line">    m_ListModule.InsertColumn(1, &quot;DLL路径&quot;);</div><div class="line">    </div><div class="line">    m_ListModule.SetColumnWidth(0, 100);</div><div class="line">    m_ListModule.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CManageProcessDlg::ShowProcess()</div><div class="line">&#123;</div><div class="line">    // 清空列表框内容</div><div class="line">    m_ListProcess.DeleteAllItems();</div><div class="line">    </div><div class="line">    // 创建进程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);</div><div class="line">    </div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    PROCESSENTRY32 Pe32 = &#123; 0 &#125;;</div><div class="line">    Pe32.dwSize = sizeof(PROCESSENTRY32);</div><div class="line">    </div><div class="line">    BOOL bRet = Process32First(hSnap, &amp;Pe32);</div><div class="line">    int i = 0;</div><div class="line">    CString str;</div><div class="line"></div><div class="line">    // 循环获取进程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        m_ListProcess.InsertItem(i, Pe32.szExeFile);</div><div class="line">        str.Format(&quot;%d&quot;, Pe32.th32ProcessID);</div><div class="line">        m_ListProcess.SetItemText(i, 1, str);</div><div class="line"></div><div class="line">        i ++;</div><div class="line">        bRet = Process32Next(hSnap, &amp;Pe32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">VOID CManageProcessDlg::ShowModule()</div><div class="line">&#123;</div><div class="line">    // 清空列表框内容</div><div class="line">    m_ListModule.DeleteAllItems();</div><div class="line">    </div><div class="line">    // 获取选中的进程号</div><div class="line">    int nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    MODULEENTRY32 Me32 = &#123; 0 &#125;;</div><div class="line">    Me32.dwSize = sizeof(MODULEENTRY32);</div><div class="line">    </div><div class="line">    // 创建模块快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    BOOL bRet = Module32First(hSnap, &amp;Me32);</div><div class="line">    int i = 0;</div><div class="line">    CString str;</div><div class="line"></div><div class="line">    // 循环获取模块快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        m_ListModule.InsertItem(i, Me32.szModule);</div><div class="line">        m_ListModule.SetItemText(i, 1, Me32.szExePath);</div><div class="line">        i ++;</div><div class="line">        bRet = Module32Next(hSnap, &amp;Me32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int CManageProcessDlg::GetSelectPid()</div><div class="line">&#123;</div><div class="line">    int nPid = -1;</div><div class="line">    </div><div class="line">    POSITION Pos = m_ListProcess.GetFirstSelectedItemPosition();</div><div class="line">    int nSelect = -1;</div><div class="line">    while ( Pos )</div><div class="line">    &#123;</div><div class="line">        nSelect = m_ListProcess.GetNextSelectedItem(Pos);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ( -1 == nSelect )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请选中要显示DLL的进程&quot;);</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    char  szPid[10] = &#123; 0 &#125;;</div><div class="line">    m_ListProcess.GetItemText(nSelect, 1, szPid, 10);</div><div class="line">    nPid = atoi(szPid);</div><div class="line">    </div><div class="line">    return nPid;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnCreate() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnTerminate() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnStop() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">    int nPid = -1;</div><div class="line">    nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 创建线程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    THREADENTRY32 Te32 = &#123; 0 &#125;;</div><div class="line">    Te32.dwSize = sizeof(THREADENTRY32);</div><div class="line">    BOOL bRet = Thread32First(hSnap, &amp;Te32);</div><div class="line">    </div><div class="line">    // 循环获取线程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        // 得到属于选中进程的线程</div><div class="line">        if ( Te32.th32OwnerProcessID == nPid )</div><div class="line">        &#123;</div><div class="line">            // 打开线程</div><div class="line">            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS,</div><div class="line">                        FALSE, Te32.th32ThreadID);</div><div class="line">            </div><div class="line">            // 暂停线程</div><div class="line">            SuspendThread(hThread);</div><div class="line">            </div><div class="line">            CloseHandle(hThread);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        bRet = Thread32Next(hSnap, &amp;Te32);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CloseHandle(hSnap);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnResume() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">    </div><div class="line">    int nPid = -1;</div><div class="line">    nPid = GetSelectPid();</div><div class="line">    </div><div class="line">    // 进程ID为0则返回</div><div class="line">    if ( nPid == 0 )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    // 创建线程快照</div><div class="line">    HANDLE hSnap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, nPid);</div><div class="line">    if ( hSnap == INVALID_HANDLE_VALUE )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;CreateToolhelp32Snapshot Error&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    THREADENTRY32 Te32 = &#123; 0 &#125;;</div><div class="line">    Te32.dwSize = sizeof(THREADENTRY32);</div><div class="line">    BOOL bRet = Thread32First(hSnap, &amp;Te32);</div><div class="line"></div><div class="line">    // 循环获取线程快照中的每一项</div><div class="line">    while ( bRet )</div><div class="line">    &#123;</div><div class="line">        // 得到属于选中进程的线程</div><div class="line">        if ( Te32.th32OwnerProcessID == nPid )</div><div class="line">        &#123;</div><div class="line">            // 打开线程</div><div class="line">            HANDLE hThread = OpenThread(THREAD_ALL_ACCESS, </div><div class="line">                        FALSE, Te32.th32ThreadID);</div><div class="line">            </div><div class="line">            // 暂停线程</div><div class="line">            ResumeThread(hThread);</div><div class="line">            </div><div class="line">            CloseHandle(hThread);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        bRet = Thread32Next(hSnap, &amp;Te32);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnShowmodule() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	ShowModule();</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageProcessDlg::OnBtnExit() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">//调整权限使当前进程拥有&quot;SeDebugPrivilege&quot;权限</div><div class="line">VOID CManageProcessDlg::DebugPrivilege()</div><div class="line">&#123;</div><div class="line">    HANDLE hToken = NULL;</div><div class="line">    </div><div class="line">    BOOL bRet = OpenProcessToken(GetCurrentProcess(), </div><div class="line">                        TOKEN_ALL_ACCESS, &amp;hToken);</div><div class="line">    </div><div class="line">    if ( bRet == TRUE )</div><div class="line">    &#123;</div><div class="line">        TOKEN_PRIVILEGES tp;</div><div class="line">        tp.PrivilegeCount = 1;</div><div class="line">        LookupPrivilegeValue(NULL, </div><div class="line">                SE_DEBUG_NAME, </div><div class="line">                &amp;tp.Privileges[0].Luid);</div><div class="line">        tp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;</div><div class="line">        AdjustTokenPrivileges(hToken, </div><div class="line">                FALSE, &amp;tp, sizeof(tp),</div><div class="line">                NULL, NULL);</div><div class="line">        </div><div class="line">        CloseHandle(hToken);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/2017/08/01/进程与线程/1.png" alt=""></p>
-<ul>
-<li>多线程以及临界区</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">#include &lt;windows.h&gt;</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int g_Num_One = 0;</div><div class="line">CRITICAL_SECTION g_cs;</div><div class="line"></div><div class="line">DWORD WINAPI ThreadProc(LPVOID lpParam)</div><div class="line">&#123;</div><div class="line">    int nTmp = 0;</div><div class="line"></div><div class="line">    for ( int i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        // 进入临界区</div><div class="line">        EnterCriticalSection(&amp;g_cs);</div><div class="line"></div><div class="line">        nTmp = g_Num_One;</div><div class="line">        nTmp ++;</div><div class="line">        Sleep(1);</div><div class="line">        g_Num_One = nTmp;</div><div class="line"></div><div class="line">        // 离开临界区</div><div class="line">        LeaveCriticalSection(&amp;g_cs);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    InitializeCriticalSection(&amp;g_cs);</div><div class="line"></div><div class="line">    HANDLE hThread[10] = &#123; 0 &#125;;</div><div class="line">    int i;</div><div class="line">    for ( i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        hThread[i] = CreateThread(NULL, 0, ThreadProc, NULL, 0, NULL);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    WaitForMultipleObjects(10, hThread, TRUE, INFINITE);</div><div class="line"></div><div class="line">    printf(&quot;g_Num_One = %d \r\n&quot;, g_Num_One);</div><div class="line"></div><div class="line">    for ( i = 0; i &lt; 10; i ++ )</div><div class="line">    &#123;</div><div class="line">        CloseHandle(hThread[i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    DeleteCriticalSection(&amp;g_cs);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="linux的进程和线程"><a href="#linux的进程和线程" class="headerlink" title="linux的进程和线程"></a>linux的进程和线程</h4><p>通过python可以轻易实现多线程和多进程的操作<br>通过pstree -p 命令查看父进程和子进程以及线程之前的关系<br><img src="/2017/08/01/进程与线程/4.png" alt=""><br><img src="/2017/08/01/进程与线程/5.png" alt=""></p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>1.<a href="http://blog.csdn.net/super_chris/article/details/6556118" target="_blank" rel="external">Windows和Linux下进程、线程理解</a></p>
+          简介一般将进程定义成一个正在运行的程序的一个实例，它由以下两部分构成。
 
-          
+一个内核对象，操作系统用它来管理进程。内核对象也是系统保存进程统计信息的地方。
+一个地址空间，其中包含所有可执行文件或DLL模块的代码和数据。此外，它还包含动态内存分配，比如线程堆栈和堆的分配。
+
+进程是有“惰性”的。进程要做
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/01/进程与线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -545,31 +525,17 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>DEF CON 25 会议上关于后渗透阶段利用与恶意软件投递的 Workshop，源码和 PPT<br><a href="https://github.com/zerosum0x0/defcon-25-workshop" target="_blank" rel="external">https://github.com/zerosum0x0/defcon-25-workshop</a></li>
-<li>【Blackhat】详解Web缓存欺骗攻击<br><a href="http://bobao.360.cn/learning/detail/4175.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4175.html</a></li>
-<li>Loadlibrary：将Windows的动态链接库移植到Linux下<br><a href="http://www.freebuf.com/sectool/141767.html" target="_blank" rel="external">http://www.freebuf.com/sectool/141767.html</a></li>
-<li>Jenkins Java Deserialization CVE-2016-0792<br><a href="https://packetstormsecurity.com/files/143523/jenkins-deserialize.txt" target="_blank" rel="external">https://packetstormsecurity.com/files/143523/jenkins-deserialize.txt</a></li>
-<li>渗透测试TIPS之删除、伪造Linux系统登录日志<br><a href="http://www.freebuf.com/articles/system/141474.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/141474.html</a></li>
-<li>Koadic：一款类似Meterpreter和Powershell Empire的Windows后渗透工具<br><a href="https://github.com/zerosum0x0/koadic" target="_blank" rel="external">https://github.com/zerosum0x0/koadic</a></li>
-<li>新手科普：浅谈家用路由器安全变迁<br><a href="http://www.freebuf.com/special/140817.html" target="_blank" rel="external">http://www.freebuf.com/special/140817.html</a></li>
-<li>使用Httrack和Tomcat快速搭建本地钓鱼网站<br><a href="http://www.freebuf.com/news/141918.html" target="_blank" rel="external">http://www.freebuf.com/news/141918.html</a></li>
-<li>渗透测试中的certutil<br><a href="https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84certutil.exe/" target="_blank" rel="external">https://3gstudent.github.io/3gstudent.github.io/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84certutil.exe/</a></li>
-<li>通向内网的另一条路：记一次无线渗透测试实战<br><a href="http://bobao.360.cn/learning/detail/4178.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4178.html</a></li>
-<li>使用SSH反向隧道进行内网穿透<br><a href="http://arondight.me/2016/02/17/%E4%BD%BF%E7%94%A8SSH%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" target="_blank" rel="external">http://arondight.me/2016/02/17/%E4%BD%BF%E7%94%A8SSH%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</a></li>
-<li><p>有人尝试通过 Google Hacking 的方式搜索服务器 RSA 私钥<br><a href="https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22&amp;oq=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22" target="_blank" rel="external">https://www.google.com.hk/search?newwindow=1&amp;safe=strict&amp;q=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22&amp;oq=inurl%3Aserver+filetype%3Akey+%22-----BEGIN%2BRSA%2BPRIVATE%2BKEY-----%22</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">利用私钥登录的方法适用于服务器sshd_config 配置PasswordAuthentication no 这样才可以登录，亚马逊云的登录方式就是这样的，ssh通过私钥登录的方法 https://support.rackspace.com/how-to/logging-in-with-an-ssh-private-key-on-linuxmac/</div></pre></td></tr></table></figure>
-</li>
-<li><p>DG on Windows 10 S: 执行任意代码<br><a href="http://bobao.360.cn/learning/detail/4181.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4181.html</a></p>
-</li>
-<li>利用 WMI 组件不依赖 C/C++ 也能 Hook Windows events<br><a href="http://blog.huntingmalware.com/notes/WMI" target="_blank" rel="external">http://blog.huntingmalware.com/notes/WMI</a></li>
-<li>Python机器学习工具：Scikit-Learn介绍与实践<br><a href="http://www.freebuf.com/company-information/142695.html" target="_blank" rel="external">http://www.freebuf.com/company-information/142695.html</a></li>
-<li>利用esp8266制作一个可随身携带的WiFi密码钓鱼器<br><a href="http://www.freebuf.com/news/141922.html" target="_blank" rel="external">http://www.freebuf.com/news/141922.html</a></li>
-<li>Linux后门整理合集<br><a href="https://www.secpulse.com/archives/59674.html" target="_blank" rel="external">https://www.secpulse.com/archives/59674.html</a></li>
-<li>草料二维码<br><a href="http://cli.im/" target="_blank" rel="external">http://cli.im/</a></li>
-</ul>
-
-          
+          每日安全动态
+DEF CON 25 会议上关于后渗透阶段利用与恶意软件投递的 Workshop，源码和 PPThttps://github.com/zerosum0x0/defcon-25-workshop
+【Blackhat】详解Web缓存欺骗攻击http://bobao.360.cn/learn
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/01/20170801安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -687,59 +653,18 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>使用 MSF 路由转发实现MSF框架的内网渗透<br><a href="http://bobao.360.cn/learning/detail/4164.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4164.html</a></li>
-<li><p>如何利用查表瓶颈，对抗口令Hash破解<br><a href="http://www.freebuf.com/articles/database/141615.html" target="_blank" rel="external">http://www.freebuf.com/articles/database/141615.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">文章中介绍的认证方案设计还是很值得推荐的，较传统的认证存储好处很对，推荐</div></pre></td></tr></table></figure>
-</li>
-<li><p>用图形展示堆利用过程<br><a href="http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/" target="_blank" rel="external">http://veritas501.space/2017/07/25/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B1%95%E7%A4%BA%E5%A0%86%E5%88%A9%E7%94%A8%E8%BF%87%E7%A8%8B/</a></p>
-</li>
-<li>MFC 程序入口和执行流程<br><a href="http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html" target="_blank" rel="external">http://www.cnblogs.com/mrchang/archive/2013/05/01/3053092.html</a></li>
-<li>How I Chained 4 vulnerabilities on GitHub Enterprise, From SSRF Execution Chain to RCE!<br><a href="http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html" target="_blank" rel="external">http://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html</a></li>
-<li>Petya 内网传播分析<br><a href="&#109;&#x61;&#105;&#108;&#116;&#x6f;&#x3a;&#104;&#x74;&#116;&#x70;&#x3a;&#47;&#47;&#x70;&#117;&#114;&#x70;&#108;&#101;&#x72;&#x6f;&#99;&#46;&#x63;&#x6f;&#109;&#x2f;&#77;&#x44;&#x2f;&#x32;&#48;&#49;&#x37;&#45;&#x30;&#x36;&#x2d;&#50;&#56;&#x40;&#x48;&#111;&#119;&#37;&#x32;&#x30;&#100;&#111;&#x65;&#115;&#x25;&#x32;&#48;&#80;&#101;&#116;&#121;&#x61;&#37;&#x32;&#48;&#115;&#x70;&#x72;&#101;&#97;&#x64;&#x25;&#50;&#48;&#105;&#110;&#x25;&#x32;&#x30;&#x4c;&#x41;&#x4e;&#x2e;&#104;&#116;&#109;&#x6c;">&#104;&#x74;&#116;&#x70;&#x3a;&#47;&#47;&#x70;&#117;&#114;&#x70;&#108;&#101;&#x72;&#x6f;&#99;&#46;&#x63;&#x6f;&#109;&#x2f;&#77;&#x44;&#x2f;&#x32;&#48;&#49;&#x37;&#45;&#x30;&#x36;&#x2d;&#50;&#56;&#x40;&#x48;&#111;&#119;&#37;&#x32;&#x30;&#100;&#111;&#x65;&#115;&#x25;&#x32;&#48;&#80;&#101;&#116;&#121;&#x61;&#37;&#x32;&#48;&#115;&#x70;&#x72;&#101;&#97;&#x64;&#x25;&#50;&#48;&#105;&#110;&#x25;&#x32;&#x30;&#x4c;&#x41;&#x4e;&#x2e;&#104;&#116;&#109;&#x6c;</a></li>
-<li>PROFTPD-1.3.3C后门分析<br><a href="http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi" target="_blank" rel="external">http://whereisk0shl.top/post/proftpd-1.3.3chou-men-fen-xi</a></li>
-<li>BurpSuite插件：利用BurpSuite Spider收集子域名和相似域名<br><a href="http://www.polaris-lab.com/index.php/archives/349/" target="_blank" rel="external">http://www.polaris-lab.com/index.php/archives/349/</a></li>
-<li><p>Skype-Type：一款keyboard acoustic eavesdropping工具<br><a href="https://github.com/SPRITZ-Research-Group/Skype-Type" target="_blank" rel="external">https://github.com/SPRITZ-Research-Group/Skype-Type</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">通过键盘敲击声来进行键盘监听？</div></pre></td></tr></table></figure>
-</li>
-<li><p>Brida:使用Frida进行移动应用渗透测试<br><a href="https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/" target="_blank" rel="external">https://techblog.mediaservice.net/2017/07/brida-advanced-mobile-application-penetration-testing-with-frida/</a></p>
-</li>
-<li>看我如何用20行代码做日志分析<br><a href="https://www.secpulse.com/archives/59608.html" target="_blank" rel="external">https://www.secpulse.com/archives/59608.html</a></li>
-<li>XSStrike：基于Python的XSS测试工具<br><a href="http://www.freebuf.com/sectool/142044.html" target="_blank" rel="external">http://www.freebuf.com/sectool/142044.html</a></li>
-<li>Android安全几道入门题目<br><a href="http://www.freebuf.com/articles/terminal/139451.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/139451.html</a></li>
-<li>sniper：一个开源的 Linux 下基于终端的 Webshell 利用与管理工具<br><a href="http://www.freebuf.com/column/142371.html" target="_blank" rel="external">http://www.freebuf.com/column/142371.html</a></li>
-<li><p>攻击者侵入系统后如何提升账户权限：提权技术详细分析<br><a href="http://www.freebuf.com/news/141335.html" target="_blank" rel="external">http://www.freebuf.com/news/141335.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这里只是介绍了使用metasploit对windows进行提权的两种方法，还是很不多的</div></pre></td></tr></table></figure>
-</li>
-<li><p>sThisLegit、Phinn：新型开源钓鱼工具<br><a href="https://github.com/duo-labs/isthislegit" target="_blank" rel="external">https://github.com/duo-labs/isthislegit</a></p>
-</li>
-<li>Man-in-the-middle wireless access point inside a docker container 造公共 WiFi 网络执行中间人攻击的 Docker 容器<br><a href="https://github.com/brannondorsey/mitm-router" target="_blank" rel="external">https://github.com/brannondorsey/mitm-router</a></li>
-<li><p>手把手教大家爬取js动态生成的页面<br><a href="http://www.freebuf.com/column/142404.html" target="_blank" rel="external">http://www.freebuf.com/column/142404.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">其实就是利用的selenium</div></pre></td></tr></table></figure>
-</li>
-<li><p>I2C 协议的逆向分析：<br><a href="https://xianzhi.aliyun.com/forum/read/1910.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1910.html</a></p>
-</li>
-<li>Blackhat兵器谱新添IOT安全武器<br><a href="http://www.freebuf.com/column/142421.html" target="_blank" rel="external">http://www.freebuf.com/column/142421.html</a></li>
-<li>一个钓鱼木马的分析 （一）<br><a href="http://www.freebuf.com/column/142406.html" target="_blank" rel="external">http://www.freebuf.com/column/142406.html</a></li>
-<li>blackhat之 A New Era of SSRF - Exploiting URL Parser in Trending Programming Languages!<br><a href="http://blog.innerht.ml/testing-new-features/" target="_blank" rel="external">http://blog.innerht.ml/testing-new-features/</a></li>
-<li>Web端口复用正向后门研究实现与防御<br><a href="https://mp.weixin.qq.com/s?__biz=MzI0NjAyMjU4MA==&amp;mid=2649581381&amp;idx=1&amp;sn=dc46777ca1d69a7c8812deddb52233f0&amp;chksm=f15c6f9ec62be688e547b16f6e160b88a97d86968910cede837aba314b72f566557c149c1198&amp;mpshare=1&amp;scene=23&amp;srcid=073193eNCCy3uo3M2VvkVxO1#rd" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI0NjAyMjU4MA==&amp;mid=2649581381&amp;idx=1&amp;sn=dc46777ca1d69a7c8812deddb52233f0&amp;chksm=f15c6f9ec62be688e547b16f6e160b88a97d86968910cede837aba314b72f566557c149c1198&amp;mpshare=1&amp;scene=23&amp;srcid=073193eNCCy3uo3M2VvkVxO1#rd</a></li>
-<li>Friday the 13th: JSON Attacks介绍针对 JSON serializers 和 .NET serializers 的攻击<br><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/thursday/us-17-Munoz-Friday-The-13th-Json-Attacks.pdf</a></li>
-<li>测试驱动文档在后端 API 开发中的实践<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&amp;mid=2247483941&amp;idx=1&amp;sn=be3842f417f57f3e97b31a6c66aca60f&amp;chksm=96f41d48a183945ef7598593828ebbedf5759875b0847b6c0b316f32af8df014e09ed31f61df&amp;mpshare=1&amp;scene=23&amp;srcid=0731iAGUMovgmQCMlr3OJI9g##" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&amp;mid=2247483941&amp;idx=1&amp;sn=be3842f417f57f3e97b31a6c66aca60f&amp;chksm=96f41d48a183945ef7598593828ebbedf5759875b0847b6c0b316f32af8df014e09ed31f61df&amp;mpshare=1&amp;scene=23&amp;srcid=0731iAGUMovgmQCMlr3OJI9g##</a></li>
-<li><p>如何使用Fuzzing挖掘ImageMagick的漏洞<br><a href="https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md" target="_blank" rel="external">https://github.com/lcatro/Fuzzing-ImageMagick/blob/master/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Fuzzing%E6%8C%96%E6%8E%98ImageMagick%E7%9A%84%E6%BC%8F%E6%B4%9E.md</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">目测又是一个全栈牛</div></pre></td></tr></table></figure>
-</li>
-<li><p>mysql注入可报错时爆表名、字段名、库名<br><a href="http://www.wupco.cn/?p=4117" target="_blank" rel="external">http://www.wupco.cn/?p=4117</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注入技巧</div></pre></td></tr></table></figure>
-</li>
-<li><p>sRDI - 用 Shellcode 实现的 DLL 反射注入。可以将指定 DLL 文件转换成 Shellcode 输出：<br><a href="https://github.com/monoxgas/sRDI" target="_blank" rel="external">https://github.com/monoxgas/sRDI</a></p>
-</li>
-<li>Revoke-Obfuscation - PowerShell 代码的混淆也开始出现了，来自 FireEye 在 BlackHat 会议的演讲<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/revoke-obfuscation-powershell.html</a><br><a href="https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf" target="_blank" rel="external">https://www.fireeye.com/content/dam/fireeye-www/blog/pdfs/revoke-obfuscation-report.pdf</a></li>
-<li>详述MSSQL服务在渗透测试中的利用<br><a href="http://www.freebuf.com/column/142307.html" target="_blank" rel="external">http://www.freebuf.com/column/142307.html</a></li>
-<li>搜狗可以搜索微信的文章,这个也是信息搜集的一个手段。<br><a href="http://weixin.sogou.com/" target="_blank" rel="external">http://weixin.sogou.com/</a></li>
-<li>元数据：黑客最好的朋友<br><a href="http://bobao.360.cn/learning/detail/4161.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4161.html</a><br><a href="http://bobao.360.cn/learning/detail/4162.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4162.html</a></li>
-</ul>
-
-          
+          每日安全动态
+使用 MSF 路由转发实现MSF框架的内网渗透http://bobao.360.cn/learning/detail/4164.html
+如何利用查表瓶颈，对抗口令Hash破解http://www.freebuf.com/articles/database/141615.html
+1文
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/31/20170731安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -857,43 +782,19 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li><p>intellij idea远程调试jenkins<br><a href="http://blog.nsfocus.net/intellij-idea-remote-debugging-jenkins/" target="_blank" rel="external">http://blog.nsfocus.net/intellij-idea-remote-debugging-jenkins/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前想debug jenkins的，后来有事儿耽搁了，这周看看，对java感兴趣的赶紧操作起来</div></pre></td></tr></table></figure>
-</li>
-<li><p>CVE-2017-8464：LNK Remote Code Execution Vulnerability，Python exp<br><a href="https://github.com/nixawk/labs/blob/master/CVE-2017-8464/exploit_CVE-2017-8464.py" target="_blank" rel="external">https://github.com/nixawk/labs/blob/master/CVE-2017-8464/exploit_CVE-2017-8464.py</a></p>
-</li>
-<li>色情广告挂马分析：记一次挂马与挖矿之间的“亲密接触”<br><a href="http://www.freebuf.com/news/141589.html" target="_blank" rel="external">http://www.freebuf.com/news/141589.html</a></li>
-<li><p>测试如何用图表累计统计linux服务器的性能监控信息<br><a href="http://blog.nsfocus.net/test-performance-monitoring-information-linux-server-charts/" target="_blank" rel="external">http://blog.nsfocus.net/test-performance-monitoring-information-linux-server-charts/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">做运维的朋友可以关注下</div></pre></td></tr></table></figure>
-</li>
-<li><p>一款短小精致的SSH后门分析<br><a href="http://www.freebuf.com/articles/system/140880.html" target="_blank" rel="external">http://www.freebuf.com/articles/system/140880.html</a></p>
-</li>
-<li><p>Headless Chrome略知一二<br><a href="http://blog.nsfocus.net/headless-chrome/" target="_blank" rel="external">http://blog.nsfocus.net/headless-chrome/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">之前还有一篇文章介绍这个的，可以结合着看</div></pre></td></tr></table></figure>
-</li>
-<li><p>SSRF 利用的新角度 - 攻击流行编程语言的 URL Parsers，来自 BlackHat 会议<br><a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf</a></p>
-</li>
-<li>你还在关注勒索病毒？别人已经转行挖矿！<br><a href="http://www.freebuf.com/news/141004.html" target="_blank" rel="external">http://www.freebuf.com/news/141004.html</a></li>
-<li>攻击商业电子邮件时是如何通过 HTML 附件进行网络钓鱼的<br><a href="http://blog.trendmicro.com/trendlabs-security-intelligence/html-attachments-phishing-used-bec-attacks/" target="_blank" rel="external">http://blog.trendmicro.com/trendlabs-security-intelligence/html-attachments-phishing-used-bec-attacks/</a></li>
-<li>对勒索软件受害用户支付行为的检测，来自 Google<br><a href="https://cdn.elie.net/talks/tracking-desktop-ransomware-payments-end-to-end-slides.pdf" target="_blank" rel="external">https://cdn.elie.net/talks/tracking-desktop-ransomware-payments-end-to-end-slides.pdf</a></li>
-<li>Awesome Web Security<br><a href="https://github.com/qazbnm456/awesome-web-security" target="_blank" rel="external">https://github.com/qazbnm456/awesome-web-security</a></li>
-<li>Web cache deception Attack<br><a href="https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf" target="_blank" rel="external">https://www.blackhat.com/docs/us-17/wednesday/us-17-Gil-Web-Cache-Deception-Attack-wp.pdf</a></li>
-<li>CLR-Injection<br><a href="https://github.com/3gstudent/CLR-Injection" target="_blank" rel="external">https://github.com/3gstudent/CLR-Injection</a></li>
-<li>攻击用户Docker容器隐藏、权限维持、植入恶意软件<br><a href="https://threatpost.com/attack-uses-docker-containers-to-hide-persist-plant-malware/126992/" target="_blank" rel="external">https://threatpost.com/attack-uses-docker-containers-to-hide-persist-plant-malware/126992/</a></li>
-<li>阿里云安骑士 webshell规则逆向<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483697&amp;idx=1&amp;sn=f36f1420fe39f51ca648e1de5b5431b2" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483697&amp;idx=1&amp;sn=f36f1420fe39f51ca648e1de5b5431b2</a></li>
-<li>腾讯云 webshell检测规则逆向<br><a href="https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483708&amp;idx=1&amp;sn=e8548a85d75584cc93fd2379f591c634" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI4NjYwMTQ1Ng==&amp;mid=2247483708&amp;idx=1&amp;sn=e8548a85d75584cc93fd2379f591c634</a></li>
-<li>Docker Security最佳实践电子书<br><a href="https://www.sqreen.io/resources/docker-security-best-practices" target="_blank" rel="external">https://www.sqreen.io/resources/docker-security-best-practices</a></li>
-<li>看雪CTF2017学习记录整理系列5<br><a href="https://weiyiling.cn/one/pediy_ctf2017-5" target="_blank" rel="external">https://weiyiling.cn/one/pediy_ctf2017-5</a></li>
-<li>php session机制<br><a href="http://blog.nsfocus.net/php-session-mechanism/" target="_blank" rel="external">http://blog.nsfocus.net/php-session-mechanism/</a></li>
-<li><p>MSDN，itellyou<br><a href="http://www.itellyou.cn/" target="_blank" rel="external">http://www.itellyou.cn/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用来下载系统镜像的网站</div></pre></td></tr></table></figure>
-</li>
-<li><p>小记录<br>今天拷贝ubuntu虚拟机，发现网络死活配不对，最后发现原来是图形界面的网络进行了ip的配置，怪不得一直命令行配不对，😓，思路还得灵活啊</p>
-</li>
-</ul>
+          每日安全动态
+intellij idea远程调试jenkinshttp://blog.nsfocus.net/intellij-idea-remote-debugging-jenkins/
+1之前想debug jenkins的，后来有事儿耽搁了，这周看看，对java感兴趣的赶紧操作起来
 
-          
+CVE-2
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/28/20170728安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1011,35 +912,17 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VM<br><a href="https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html" target="_blank" rel="external">https://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html</a></li>
-<li>绕过杀毒软件与主机入侵防御系统对流量的检测<br><a href="https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/" target="_blank" rel="external">https://pentestlab.blog/2017/07/26/bypassing-antivirus-host-intrusion-prevention-systems/</a></li>
-<li>BinaryAlert - 一个含有实时追溯等特性的恶意软件检测工具<br><a href="https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90" target="_blank" rel="external">https://medium.com/airbnb-engineering/binaryalert-real-time-serverless-malware-detection-ca44370c1b90</a></li>
-<li>Shadowsocks原理详解<br><a href="https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA" target="_blank" rel="external">https://mp.weixin.qq.com/s/5D0Zoz2jq9s7oGyzfSorMA</a></li>
-<li>如何使用ldapsearch来dump域中的LAPS密码<br><a href="http://bobao.360.cn/learning/detail/4151.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4151.html</a></li>
-<li>域渗透之Exchange Server<br><a href="http://bobao.360.cn/learning/detail/4145.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4145.html</a></li>
-<li>一个利用“永恒之蓝”漏洞传播的挖矿程序分析<br><a href="http://www.freebuf.com/news/141011.html" target="_blank" rel="external">http://www.freebuf.com/news/141011.html</a></li>
-<li>SSD Advisory – Supervisor Authenticated Remote Code Execution<br><a href="https://blogs.securiteam.com/index.php/archives/3348" target="_blank" rel="external">https://blogs.securiteam.com/index.php/archives/3348</a></li>
-<li>nps_payload - 利用各种来源的公开技术，生成绕过基础入侵检测的 Payloads<br><a href="https://github.com/trustedsec/nps_payload" target="_blank" rel="external">https://github.com/trustedsec/nps_payload</a></li>
-<li><p>2017-NSCTF-PWN<br><a href="https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MzI5MDQ2NjExOQ==&amp;mid=2247484473&amp;idx=1&amp;sn=92ebb380124fa3451777b17d62660631&amp;chksm=ec1e3411db69bd0729228043f3caf38089392455edfb0b858074161bc48e1934edc418448f84&amp;scene=0&amp;key=58e45431df36b4fb27bd5de7a94bb0b571d3e10cdffd8290711b39f605430fcded3fbadcd8ecaf963d429e31809e46e06b5b41960d182d610032ef61934937e9316472ed7595811769aa24091317ddc5&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=NjiCM%2F5tefRAismalpcTl8Ak%2By8OO3uIz%2FRR%2BlubRNw%3D</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">周末学习一下</div></pre></td></tr></table></figure>
-</li>
-<li><p>WSSAT - Web 服务安全评估工具<br><a href="http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html" target="_blank" rel="external">http://www.kitploit.com/2017/07/wssat-web-service-security-assessment.html</a></p>
-</li>
-<li>DefCON 上将会公布一个 Windows SMB 内存耗尽拒绝服务0Day，不会蓝屏，连蓝屏需要的内存也不够了，需要建立大量连接<br><a href="http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/" target="_blank" rel="external">http://threatpost.com/windows-smb-zero-day-to-be-disclosed-during-def-con/126927/</a></li>
-<li>ESET 在 GitHub 上分享的对一些样本逆向分析的辅助代码<br><a href="https://github.com/eset/malware-research" target="_blank" rel="external">https://github.com/eset/malware-research</a></li>
-<li>Awesome Vulnerability Research - 漏洞研究方面的资料整理<br><a href="https://github.com/re-pronin/Awesome-Vulnerability-Research" target="_blank" rel="external">https://github.com/re-pronin/Awesome-Vulnerability-Research</a></li>
-<li>Proxy Re-Encryption Playground in Python<br><a href="https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf" target="_blank" rel="external">https://hackernoon.com/proxy-re-encryption-playground-in-python-3bc66170b9bf</a></li>
-<li>通过AI和Python生成密<br><a href="https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md" target="_blank" rel="external">https://github.com/k3170makan/PyMLProjects/blob/master/passwords/README.md</a></li>
-<li>IaaS、PaaS、SaaS三者的比较<br><a href="http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each" target="_blank" rel="external">http://www.engineyard.com/blog/the-differences-between-iaas-paas-and-saas-and-when-to-use-each</a></li>
-<li>Empire without PowerShell.exe（Empire：一款后渗透框架）<br><a href="https://bneg.io/2017/07/26/empire-without-powershell-exe/" target="_blank" rel="external">https://bneg.io/2017/07/26/empire-without-powershell-exe/</a></li>
-<li>Tomcat Security Constraint Bypass CVE-2017-5664 分析<br><a href="https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ" target="_blank" rel="external">https://mp.weixin.qq.com/s/AWXjwO03oxrL960l3WxyCQ</a></li>
-<li>SQLite手工注入Getshell技巧<br><a href="http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/" target="_blank" rel="external">http://fuping.site/2017/07/19/SQLite-Injection-Get-WebShell/</a></li>
-<li>ubuntu安装metasploit<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb &gt; msfinstall &amp;&amp; \</div><div class="line">  chmod 755 msfinstall &amp;&amp; \</div><div class="line">  ./msfinstall</div></pre></td></tr></table></figure>
-</li>
-</ul>
-
-          
+          每日安全动态
+FireEye 公开了一个用于恶意代码分析的 Windows 定制虚拟机 - FLARE VMhttps://www.fireeye.com/blog/threat-research/2017/07/flare-vm-the-windows-malware.html
+绕过杀毒软件与主机
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/27/20170727安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1157,27 +1040,16 @@
       
         
           
-            <p>记录下踩的坑吧</p>
-<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严格按照MVC结构开发的。它努力使自身保持简单，来使实际的应用开发时的代码更少，使用最少的配置。(据说Twitter就是用的这个框架)</p>
-<h4 id="Gem使用"><a href="#Gem使用" class="headerlink" title="Gem使用"></a>Gem使用</h4><p>Gem 是一个管理 Ruby 库和程序的标准包。Ruby gem 包的安装方式：<br>所有的 gem 包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了 Cache、doc、gems、specifications 等目录，cache 下放置下载的原生 gem 包，gems 下则放置的是解压过的 gem 包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> M0rk@hhh  ~/.rvm/rubies/ruby-2.3.0/lib/ruby/gems/2.3.0  ls</div><div class="line">bin            build_info     cache          doc            environment    extensions     gems           specifications wrappers</div></pre></td></tr></table></figure></p>
-<p>当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的 gem 包，然后重新运行 gem install [gemname] 命令即可。<br>Ruby Gem 命令详解：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 更新Gem自身</div><div class="line"># 注意：在某些linux发行版中为了系统稳定性此命令禁止执行</div><div class="line">$ gem update --system</div><div class="line"></div><div class="line"># 从Gem源安装gem包</div><div class="line">$ gem install [gemname]</div><div class="line"></div><div class="line"># 从本机安装gem包</div><div class="line">$ gem install -l [gemname].gem</div><div class="line"></div><div class="line"># 安装指定版本的gem包</div><div class="line">$ gem install [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 更新所有已安装的gem包</div><div class="line">$ gem update</div><div class="line"></div><div class="line"># 更新指定的gem包</div><div class="line"># 注意：gem update [gemname]不会升级旧版本的包，此时你可以使用 gem install [gemname] --version=[ver]代替</div><div class="line">$ gem update [gemname]</div><div class="line"></div><div class="line"># 删除指定的gem包，注意此命令将删除所有已安装的版本</div><div class="line">$ gem uninstall [gemname]</div><div class="line"></div><div class="line"># 删除某指定版本gem</div><div class="line">$ gem uninstall [gemname] --version=[ver]</div><div class="line"></div><div class="line"># 查看本机已安装的所有gem包</div><div class="line">$ gem list [--local]</div></pre></td></tr></table></figure>
-<h4 id="踩坑开始"><a href="#踩坑开始" class="headerlink" title="踩坑开始"></a>踩坑开始</h4><p>开始的时候看的是这篇文章<br><a href="https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger" target="_blank" rel="external">https://community.rapid7.com/community/metasploit/blog/2014/03/14/debugging-metasploit-modules-with-pry-debugger</a><br>但是在安装的时候报错，没有好的解决方法<br>这个时候我发现了这个<br><a href="https://github.com/deivid-rodriguez/byebug" target="_blank" rel="external">https://github.com/deivid-rodriguez/byebug</a><br>感觉应该是相同用途，安装没报错，然后修改rb的时候一直加载不了，这个时候想到自己有安装RubyMine，那就测试个helloworld试试看。测试的没问题，如下图：<br><img src="/2017/07/26/metasploit调试/1.png" alt=""><br>后来发现，当添加或者修改metasploit的modules的时候，需要使用 reload_all 命令来重新加载所有的模块，但是添加了 require ‘byebug’ 时候还是报错，好像是需要rerun bundle的，rerun的时候又是各种问题，首先ruby版本太低，升级完ruby版本，bundle install的时候没错了，但是运行msfconsole还是失败…完，meatsloit弄坏了，晚上回来， /opt/metasploit-framework/embedded/framework  sudo ./msfupdate 升级了一下又能用了，太晚了，明天再看看吧</p>
-<p>0727更新：<br>今天又看了下资料，发现byebug还是不能用，搜索metasploit debug的资料也是很老的，但是在Stack Overflow发现了这个<a href="https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module" target="_blank" rel="external">https://stackoverflow.com/questions/43882397/debugging-about-the-metasploit-exploit-module</a><br>就试了一下pry，果然可以和metasploit无缝使用。但是蛋疼的是pry没有step和next这种最基本的单步调试功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require ‘pry’ #需要pry库,否则binding.pry就不认识了</div><div class="line">g_a = 1</div><div class="line">g_b = 2</div><div class="line">binding.pry #运行到这句程序就停下来并打开pry让你调试</div></pre></td></tr></table></figure></p>
-<p>随便找个msf的rb脚本，插上上面的代码<br><img src="/2017/07/26/metasploit调试/2.png" alt=""></p>
-<p>pry常用命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cd: 这可不是切换目录的，而是切换类。如”cd Article”会进入Article类中，”Article.all”可直接缩写为”all”</div><div class="line">nesting: cd切来切去如果迷了路，用它可以看当前在哪个类下面。我倒觉得如果名字改为”pwd”会更好。</div><div class="line">ls: 查看一些信息，ls -h查看帮助，ls -m查看实例方法，ls -M查看类方法，ls -p查看private方法。</div><div class="line">show-doc Array#in_groups_of：查看文档。</div><div class="line">show-method -l Array#in_groups_of：查看方法的源代码，-l显示行号。</div><div class="line">edit-method Array#in_groups_of：调出nano来编辑代码，如果是能调出vim就好啦。(后来发现其实很简单，见后面。)</div><div class="line">help：显示帮助</div></pre></td></tr></table></figure>
-<p>rvm 常用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RVM是Ruby Version Manager的缩写，是一个命令行工具，它可以让你轻松地安装，管理和使用多个版本的Ruby.不同的rails项目使用等ruby和rails版本不一样的时候，可以使用RVM自由切换。</div><div class="line">1.rvm list 查看所有的ruby版本</div><div class="line">2.rvm current 查看当前的ruby版本</div><div class="line">3.rvm --default use 2.x.x  切换到到版本2.x.xs</div></pre></td></tr></table></figure></p>
-<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>1.pry-debugger在ruby2.0+已不再能使用，所以基本上可以放弃<br>2.pry-byebug 应该是现在在用的，但是我这里bundle install完之后，msfconsole就报错了，暂时问题还没解决，感觉应该是metasploit使用了自带的ruby以及gem的问题<br>3.最终还是选择了没有单步步过功能的pry<br>4.其实python也有这种调试工具，是pdb的模块，感兴趣的可以学习下<br>5.msfconsole居然是一个脚本文件，一开始以为是个二进制程序。。。（当你通过whereis找不到这个文件的时候，就很有可能是个文本文件，find找到，然后file命令看一下）<br>6.metasploit的ruby是自带的，可执行文件在这个目录下 /opt/metasploit-framework/embedded/bin</p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ol>
-<li><a href="http://blog.csdn.net/nixawk/article/details/43732835" target="_blank" rel="external">metasploit - debug</a></li>
-<li><a href="http://shashanzhao.com/archives/877.html" target="_blank" rel="external">使用pry调试程序介绍</a></li>
-<li><a href="https://github.com/pry/pry" target="_blank" rel="external">pry</a></li>
-<li><a href="http://www.jianshu.com/p/602db03b6b58" target="_blank" rel="external">如何单步调试ruby代码</a></li>
-<li><a href="http://drops.xmd5.com/static/drops/tips-14408.html" target="_blank" rel="external">乌云文章：Metasploit module开发入门篇</a></li>
-</ol>
-
-          
+          记录下踩的坑吧
+前言Ruby是什么，gem又是什么，Ruby on Rails又是什么，之前只是知道Ruby是一门面向对象的脚本语言，gem是有一个ruby的包管理器，好比是python的pip以及nodejs的NPM，而Ruby on Rails是一个使用Ruby语言写的开源Web应用框架，它是严
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/metasploit调试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1295,38 +1167,17 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：NetFlow、 IPFIX、 sFLOW，可以通过外部脚本通知用户<br><a href="https://packages.debian.org/sid/fastnetmon" target="_blank" rel="external">https://packages.debian.org/sid/fastnetmon</a></li>
-<li>JavaScript 反调试和混淆<br><a href="https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html" target="_blank" rel="external">https://0x0d.im/archives/javascript-anti-debug-and-obfuscator.html</a></li>
-<li>glibc malloc学习笔记之fastbin<br><a href="http://0x48.pw/2017/07/25/0x35/" target="_blank" rel="external">http://0x48.pw/2017/07/25/0x35/</a></li>
-<li>一个生成各种进制格式IP的小工具<br><a href="http://www.freebuf.com/sectool/140982.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140982.html</a></li>
-<li>通过 WebView 攻击 Android 应用<br><a href="https://zhuanlan.zhihu.com/p/28107901" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/28107901</a></li>
-<li>利用树莓派自制恶意充电宝实验<br><a href="http://bobao.360.cn/learning/detail/4153.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4153.html</a></li>
-<li>Openresty的开发闭环初探<br><a href="http://www.freebuf.com/company-information/141861.html" target="_blank" rel="external">http://www.freebuf.com/company-information/141861.html</a></li>
-<li>使用Windbg分析.NET恶意软件<br><a href="http://bobao.360.cn/learning/detail/4150.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4150.html</a></li>
-<li>picoCTF Write-up：通过格式化字符串漏洞绕过ASLR<br><a href="https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920" target="_blank" rel="external">https://0x00sec.org/t/picoctf-write-up-bypassing-aslr-via-format-string-bug/1920</a></li>
-<li>hackerone官博分享如何进行渗透测试前期的信息收集<br><a href="https://www.hackerone.com/blog/how-to-recon-and-content-discovery" target="_blank" rel="external">https://www.hackerone.com/blog/how-to-recon-and-content-discovery</a></li>
-<li>Open Sourcing JA3：用于恶意软件检测的SSL/TLS客户端指纹识别项目<br><a href="https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41" target="_blank" rel="external">https://engineering.salesforce.com/open-sourcing-ja3-92c9e53c3c41</a></li>
-<li>针对有双因子认证站点的钓鱼手段<br><a href="http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/" target="_blank" rel="external">http://www.openskycorp.com/resource-center/blog/phishing-way-past-multi-factor-authentication/</a></li>
-<li>探索基于语音的身份认证系统命令注入<br><a href="https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG" target="_blank" rel="external">https://www.youtube.com/playlist?list=PLl6DAJhNeWAmOcGC38tLlFGdevLniiUmG</a></li>
-<li>一道简单内核题入门内核利用<br><a href="http://bobao.360.cn/learning/detail/4148.html" target="_blank" rel="external">http://bobao.360.cn/learning/detail/4148.html</a></li>
-<li><p>Metasploit 中新添加了针对 Windows 快捷方式 (.LNK) 代码执行漏洞（CVE-2017-8464）的利用代码<br><a href="https://github.com/rapid7/metasploit-framework/pull/8767" target="_blank" rel="external">https://github.com/rapid7/metasploit-framework/pull/8767</a><br><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注：在测试的时候，要把恶意payload放在优盘的根目录下</div><div class="line">更多信息：https://github.com/rapid7/metasploit-framework/tree/7ce813ae6e11f0336f51dc878e1aa40af6eabf9c/data/exploits/cve-2017-8464/src</div><div class="line">python 工具：</div><div class="line">https://www.exploit-db.com/exploits/42429/</div></pre></td></tr></table></figure>
-</li>
-<li><p>Windows 内核漏洞学习—空指针解引用<br><a href="http://www.freebuf.com/vuls/143575.html" target="_blank" rel="external">http://www.freebuf.com/vuls/143575.html</a></p>
-</li>
-<li>Metadata - 黑客的朋友，基础信息泄露的源头<br><a href="https://blog.sweepatic.com/metadata-hackers-best-friend/" target="_blank" rel="external">https://blog.sweepatic.com/metadata-hackers-best-friend/</a></li>
-<li>Java代码审计连载<br><a href="http://www.freebuf.com/column/143595.html" target="_blank" rel="external">http://www.freebuf.com/column/143595.html</a></li>
-<li>使用 LDAPSEARCH 导出 LAPS 明文密码<br><a href="https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/" target="_blank" rel="external">https://room362.com/post/2017/dump-laps-passwords-with-ldapsearch/</a></li>
-<li>macOS 安全和隐私指南<br><a href="https://github.com/drduh/macOS-Security-and-Privacy-Guide" target="_blank" rel="external">https://github.com/drduh/macOS-Security-and-Privacy-Guide</a></li>
-<li>Forcepoint 发现 URSNIF 变种通过收集鼠标移动轨迹判断是否处于沙盒以绕过查杀<br><a href="https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion" target="_blank" rel="external">https://blogs.forcepoint.com/security-labs/ursnif-variant-found-using-mouse-movement-decryption-and-evasion</a></li>
-<li>在oh-my-zsh中粉红是软连接、红色是可执行文件、蓝色是文件夹、白色是其它(比如压缩文件、图片、文本文件啥的，好像不同的shell规则也不一样，而且应该是可以修改的)</li>
-<li>chrome打开https网站的时候有时候会出现 您的连接不是私密连接 红色提示，导致我们打不开网站<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个是由于网站设置了HSTS的原因，HSTS是HTTP Strict Transport Security的缩写，即：“HTTP严格传输安全”。HSTS可以很大程度上解决SSL剥离攻击，因为只要浏览器曾经与服务器创建过一次安全连接，之后浏览器会强制使用HTTPS，即使链接被换成了HTTP。</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/2017/07/26/20170726安全动态/1.png" alt=""></p>
-
-          
+          每日安全动态
+FastNetMon - Debian 官方推出的一个 DDoS 检测工具，基于三个抓包引擎：NetFlow、 IPFIX、 sFLOW，可以通过外部脚本通知用户https://packages.debian.org/sid/fastnetmon
+JavaScript 反调试和混淆ht
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/20170726安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1444,41 +1295,18 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>一个机器学习社区<br><a href="http://paper.kakapo.ml/" target="_blank" rel="external">http://paper.kakapo.ml/</a></li>
-<li>The ThreatHunter Playbook - 专注威胁检测一个 GitHub 项目<br><a href="https://github.com/Cyb3rWard0g/ThreatHunter-Playbook" target="_blank" rel="external">https://github.com/Cyb3rWard0g/ThreatHunter-Playbook</a></li>
-<li>精选 HackerOne 这一年 6 个有趣的安全漏洞<br><a href="http://paper.seebug.org/358/" target="_blank" rel="external">http://paper.seebug.org/358/</a></li>
-<li>目标信息信息搜集的一个工具<br><a href="https://github.com/UltimateHackers/ReconDog" target="_blank" rel="external">https://github.com/UltimateHackers/ReconDog</a></li>
-<li>获取来源IP地址的正确姿势<br><a href="http://www.freebuf.com/articles/web/140669.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/140669.html</a></li>
-<li>Web Sight社区版 – 企业攻击面枚举工具<br><a href="https://l.avala.mp/?p=209" target="_blank" rel="external">https://l.avala.mp/?p=209</a></li>
-<li><p>Little Trick<br><img src="/2017/07/25/20170725安全动态/1.png" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在渗透测试过程中，如果能够拿到mysql目录下的user.MYD文件，这个时候使用十六进制编辑工具，可以获取到mysql用户的账号和密码，然后去相关网站解密就可以了。</div></pre></td></tr></table></figure>
-</li>
-<li><p>二进制师傅们的博客<br><a href="http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank" rel="external">http://wangzhixian.org/%E5%90%84%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E5%8D%9A%E5%AE%A2</a></p>
-</li>
-<li>没有绝对安全的系统：写在AES 256破解之后<br><a href="http://www.freebuf.com/column/141603.html" target="_blank" rel="external">http://www.freebuf.com/column/141603.html</a></li>
-<li><p>信任问题：利用TrustZone TEE</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">project zero 出品，还没看懂:(</div></pre></td></tr></table></figure>
-</li>
-<li><p>Bright City: 针对国外一款市政相关APP的安全性分析<br><a href="https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/" target="_blank" rel="external">https://randywestergren.com/bright-city-highly-insecure-police-municipal-government-app/</a></p>
-</li>
-<li>一款基于PHP的漏洞扫描器<br><a href="https://github.com/dermotblair/webvulscan" target="_blank" rel="external">https://github.com/dermotblair/webvulscan</a></li>
-<li>旧瓶新酒之ngx_lua &amp; fail2ban实现主动诱捕<br><a href="https://www.secpulse.com/archives/59444.html" target="_blank" rel="external">https://www.secpulse.com/archives/59444.html</a></li>
-<li>Flash漏洞利用之“喜闻乐见”<br><a href="http://www.freebuf.com/vuls/141405.html" target="_blank" rel="external">http://www.freebuf.com/vuls/141405.html</a></li>
-<li>无线键盘易被监听，不知不觉导致信息泄露<br><a href="http://www.freebuf.com/geek/140951.html" target="_blank" rel="external">http://www.freebuf.com/geek/140951.html</a></li>
-<li>逆向入门学习——看雪CTF2017第3题 爱琴海CrackMe bailianmen2017-07-25 首发专栏：百炼门<br>关注<br><a href="http://www.freebuf.com/column/141147.html" target="_blank" rel="external">http://www.freebuf.com/column/141147.html</a></li>
-<li>HTTPS真的就是安全的象征吗？HTTPS检查工具带来的安全威胁<br><a href="http://www.freebuf.com/news/136565.html" target="_blank" rel="external">http://www.freebuf.com/news/136565.html</a></li>
-<li><p>查看windows management framework 以及ps版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">更新之前</div><div class="line"> PS C:\Users\Brian&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">CLRVersion                     2.0.50727.5485</div><div class="line">BuildVersion                   6.1.7601.17514</div><div class="line">PSVersion                      2.0</div><div class="line">WSManStackVersion              2.0</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0&#125;</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line">PSRemotingProtocolVersion      2.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\Brian&gt; $PSVersionTable.WSManStackVersion.Major</div><div class="line">2</div><div class="line">PS C:\Users\Brian&gt;</div><div class="line">更新之后：</div><div class="line">PS C:\Users\chq&gt; $PSVersionTable</div><div class="line"></div><div class="line">Name                           Value</div><div class="line">----                           -----</div><div class="line">PSVersion                      5.0.10586.117</div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;</div><div class="line">BuildVersion                   10.0.10586.117</div><div class="line">CLRVersion                     4.0.30319.42000</div><div class="line">WSManStackVersion              3.0</div><div class="line">PSRemotingProtocolVersion      2.3</div><div class="line">SerializationVersion           1.1.0.1</div><div class="line"></div><div class="line"></div><div class="line">PS C:\Users\chq&gt;</div><div class="line">下面是mac版的powershell：</div><div class="line">PS /usr/share&gt; $PSVersionTable                                                                                                                                                                           </div><div class="line"></div><div class="line">Name                           Value                                                                                                                                                                    </div><div class="line">----                           -----                                                                                                                                                                    </div><div class="line">PSVersion                      6.0.0-beta                                                                                                                                                               </div><div class="line">PSEdition                      Core                                                                                                                                                                     </div><div class="line">GitCommitId                    v6.0.0-beta.3                                                                                                                                                            </div><div class="line">OS                             Darwin 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64                                                           </div><div class="line">Platform                       Unix                                                                                                                                                                     </div><div class="line">PSCompatibleVersions           &#123;1.0, 2.0, 3.0, 4.0...&#125;                                                                                                                                                  </div><div class="line">PSRemotingProtocolVersion      2.3                                                                                                                                                                      </div><div class="line">SerializationVersion           1.1.0.1                                                                                                                                                                  </div><div class="line">WSManStackVersion              3.0                                                                                                                                                                      </div><div class="line"></div><div class="line"></div><div class="line">PS /usr/share&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>新版powershell 支持多种文件hash校验</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm MD5| Format-List</div><div class="line">Get-FileHash C:\Windows\notepad.exe -Algorithm SHA1| Format-List</div></pre></td></tr></table></figure>
-</li>
-<li><p>linux中usr/local下一般是你安装软件的目录，这个目录就相当于在windows下的programefiles这个目录  /opt这个目录是一些大型软件的安装目录，或者是一些服务程序的安装目录</p>
-</li>
-</ul>
-
-          
+          每日安全动态
+一个机器学习社区http://paper.kakapo.ml/
+The ThreatHunter Playbook - 专注威胁检测一个 GitHub 项目https://github.com/Cyb3rWard0g/ThreatHunter-Playbook
+精选 HackerOne
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/25/20170725安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1596,82 +1424,15 @@
       
         
           
-            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;注册表是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从Windows 95开始，注册表才真正成为Windows用户经常接触的内容，并在其后的操作系统中继续沿用至今。<br>由于注册表的功能非常强大，因此注册表对于病毒、木马来说是非常有利用价值的，而对于反病毒软件来说，注册表也是它需要加强守卫的地方，可以说，注册表是一个正义与邪恶的必争之地。<br>恶意程序在注册表中常见的操作有修改文件关联、增加系统启动项、映像劫持、篡改浏览器主页等。<br><strong>数据结构</strong>:<br>&nbsp;&nbsp;&nbsp;&nbsp;注册表由键（key，或称“项”）、子键（subkey，子项）和值项（value）构成。一个键就是树状数据结构中的一个节点，而子键就是这个节点的子节点，子键也是键。一个值项则是一个键的一条属性，由名称（name）、数据类型（datatype）以及数据（data）组成。一个键可以有一个或多个值，每个值的名称各不相同，如果一个值的名称为空，则该值为该键的默认值。<br><strong>数据类型</strong>:<br>注册表的数据类型主要有以下五种：</p>
-<table>
-<thead>
-<tr>
-<th>显示类型</th>
-<th>数据类型</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>REG_SZ</td>
-<td>字符串</td>
-<td>文本字串</td>
-</tr>
-<tr>
-<td>REG_BINARY</td>
-<td>二进制数</td>
-<td>不定长度的二进制值，以十六进制显示</td>
-</tr>
-<tr>
-<td>REG_DWORD</td>
-<td>双字</td>
-<td>一个 32 位的二进制值，显示为 8 位的十六进制值</td>
-</tr>
-<tr>
-<td>REG_MULTI_SZ</td>
-<td>多字符串</td>
-<td>含有多个文本值的字符串，此名来源于字符串间用 nul 分隔、结尾两个 nul</td>
-</tr>
-<tr>
-<td>REG_EXPAND_SZ</td>
-<td>可扩充字符串</td>
-<td>含有环境变量的字符串</td>
-</tr>
-</tbody>
-</table>
-<p><strong>注册表的分支结构</strong>:<br>注册表有五个一级分支，下面是这五个分支的名称及作用：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HKEY_CLASSES_ROOT</td>
-<td>存储Windows可识别的文件类型的详细列表，以及相关联的程序。</td>
-</tr>
-<tr>
-<td>HKEY_CURRENT_USER</td>
-<td>存储当前用户设置的信息。</td>
-</tr>
-<tr>
-<td>HKEY_LOCAL_MACHINE</td>
-<td>包括安装在计算机上的硬件和软件的信息。</td>
-</tr>
-<tr>
-<td>HKEY_USERS</td>
-<td>包含使用计算机的用户的信息。</td>
-</tr>
-<tr>
-<td>HKEY_CURRENT_CONFIG</td>
-<td>这个分支包含计算机当前的硬件配置信息。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="通过注册表获取开机启动项"><a href="#通过注册表获取开机启动项" class="headerlink" title="通过注册表获取开机启动项"></a>通过注册表获取开机启动项</h4><p>原理: 通过枚举注册表中的 “HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run\“子键下的键值项,取得跟随windows启动而启动的程序。</p>
-<p>主要代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div></pre></td><td class="code"><pre><div class="line">VOID CManageRunDlg::InitRunList()</div><div class="line">&#123;</div><div class="line">    // 设置扩展样式</div><div class="line">    m_RunList.SetExtendedStyle(</div><div class="line">            m_RunList.GetExtendedStyle()</div><div class="line">            | LVS_EX_GRIDLINES          // 有网格</div><div class="line">            | LVS_EX_FULLROWSELECT);    // 选择单行</div><div class="line"></div><div class="line">    // 在ListCtrl中插入新列</div><div class="line">    m_RunList.InsertColumn(0, &quot;NO.&quot;);</div><div class="line">    m_RunList.InsertColumn(1, &quot;键值名称&quot;);</div><div class="line">    m_RunList.InsertColumn(2, &quot;键    值&quot;);</div><div class="line"></div><div class="line">    /*</div><div class="line">    LVSCW_AUTOSIZE_USEHEADER:</div><div class="line">    列的宽度自动匹配为标题文本</div><div class="line">    如果这个值用在最后一列，列宽被设置为ListCtrl剩余的长度</div><div class="line">    */</div><div class="line">    m_RunList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    m_RunList.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">    m_RunList.SetColumnWidth(2, LVSCW_AUTOSIZE_USEHEADER);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#define REG_RUN &quot;Software\\Microsoft\\Windows\\CurrentVersion\\Run\\&quot;</div><div class="line"></div><div class="line">VOID CManageRunDlg::ShowRunList()</div><div class="line">&#123;</div><div class="line">    // 清空ListCtrl中的所有项</div><div class="line">    m_RunList.DeleteAllItems();    </div><div class="line"></div><div class="line">    DWORD dwType = 0;</div><div class="line">    DWORD dwBufferSize = MAXBYTE;</div><div class="line">    DWORD dwKeySize = MAXBYTE;</div><div class="line">    char szValueName[MAXBYTE] = &#123; 0 &#125;;</div><div class="line">    char szValueKey[MAXBYTE] = &#123; 0 &#125;;</div><div class="line"></div><div class="line">    HKEY hKey = NULL;</div><div class="line">    LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line"></div><div class="line">    if ( lRet != ERROR_SUCCESS )</div><div class="line">    &#123;</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    int i = 0;</div><div class="line">    CString strTmp;</div><div class="line"></div><div class="line">    while ( TRUE )</div><div class="line">    &#123;</div><div class="line">        // 枚举键项</div><div class="line">        lRet = RegEnumValue(hKey, i, szValueName, </div><div class="line">            &amp;dwBufferSize, NULL, &amp;dwType, </div><div class="line">            (unsigned char *)szValueKey, &amp;dwKeySize);</div><div class="line"></div><div class="line">        // 没有则退出循环</div><div class="line">        if ( lRet == ERROR_NO_MORE_ITEMS )</div><div class="line">        &#123;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        // 显示到列表控件中</div><div class="line">        strTmp.Format(&quot;%d&quot;, i);</div><div class="line">        m_RunList.InsertItem(i, strTmp);</div><div class="line">        m_RunList.SetItemText(i, 1, szValueName);</div><div class="line">        m_RunList.SetItemText(i, 2, szValueKey);</div><div class="line"></div><div class="line">        ZeroMemory(szValueKey, MAXBYTE);</div><div class="line">        ZeroMemory(szValueName, MAXBYTE);</div><div class="line"></div><div class="line">        dwBufferSize = MAXBYTE;</div><div class="line">        dwKeySize = MAXBYTE;</div><div class="line"></div><div class="line">        i ++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    RegCloseKey(hKey);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageRunDlg::OnBtnAdd() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CRegAdd RegAdd;</div><div class="line">    RegAdd.DoModal();</div><div class="line"></div><div class="line">    // 判断输入是否完整</div><div class="line">    if ( strlen(RegAdd.m_szKeyName) &gt; 0 &amp;&amp; </div><div class="line">        strlen(RegAdd.m_szKeyValue) &gt; 0)</div><div class="line">    &#123;</div><div class="line">        HKEY hKey = NULL;</div><div class="line">        LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line"></div><div class="line">        if ( lRet != ERROR_SUCCESS )</div><div class="line">        &#123;</div><div class="line">            return ;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        RegSetValueEx(hKey, RegAdd.m_szKeyName, 0, </div><div class="line">            REG_SZ, (const unsigned char*)RegAdd.m_szKeyValue,</div><div class="line">            strlen(RegAdd.m_szKeyValue) + sizeof(char));</div><div class="line"></div><div class="line">        RegCloseKey(hKey);</div><div class="line"></div><div class="line">        ShowRunList();</div><div class="line">    &#125; </div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请输入完整的内容&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CManageRunDlg::OnBtnDel() </div><div class="line">&#123;</div><div class="line">    // TODO: Add your control notification handler code here</div><div class="line">    POSITION pos = m_RunList.GetFirstSelectedItemPosition();</div><div class="line">    int nSelected = -1;</div><div class="line">    </div><div class="line">    while ( pos )</div><div class="line">    &#123;</div><div class="line">        nSelected = m_RunList.GetNextSelectedItem(pos);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    if ( -1 == nSelected )</div><div class="line">    &#123;</div><div class="line">        AfxMessageBox(&quot;请选择要删除的启动项&quot;);</div><div class="line">        return ;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    char szKeyName[MAXBYTE] = &#123; 0 &#125;;</div><div class="line">    m_RunList.GetItemText(nSelected, 1, szKeyName, MAXBYTE);</div><div class="line">        </div><div class="line">    HKEY hKey = NULL;</div><div class="line">    </div><div class="line">    LONG lRet = RegOpenKeyEx(HKEY_LOCAL_MACHINE, </div><div class="line">            REG_RUN, 0, KEY_ALL_ACCESS, &amp;hKey);</div><div class="line">    </div><div class="line">    RegDeleteValue(hKey, szKeyName);</div><div class="line">    </div><div class="line">    RegCloseKey(hKey);</div><div class="line">    </div><div class="line">    ShowRunList();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><img src="/2017/07/24/windows注册表/1.png" alt=""></p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
-<li>注册表 <a href="https://www.wikiwand.com/zh-hans/%E6%B3%A8%E5%86%8C%E8%A1%A8" target="_blank" rel="external">https://www.wikiwand.com/zh-hans/%E6%B3%A8%E5%86%8C%E8%A1%A8</a></li>
-</ul>
-
-          
+          前言&nbsp;&nbsp;&nbsp;&nbsp;注册表是Microsoft Windows中的一个重要的数据库，用于存储系统和应用程序的设置信息。早在Windows 3.0推出OLE技术的时候，注册表就已经出现。随后推出的Windows NT是第一个从系统级别广泛使用注册表的操作系统。但是，从W
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/24/windows注册表/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1789,39 +1550,18 @@
       
         
           
-            <h4 id="每日安全动态"><a href="#每日安全动态" class="headerlink" title="每日安全动态"></a>每日安全动态</h4><ul>
-<li>2017黑帽大会兵工厂工具列表<br><a href="http://www.freebuf.com/column/141333.html" target="_blank" rel="external">http://www.freebuf.com/column/141333.html</a></li>
-<li>Centos 6/Centos 7/Debian单网卡绑定多个IP的方法<br><a href="https://www.moerats.com/archives/217/" target="_blank" rel="external">https://www.moerats.com/archives/217/</a></li>
-<li>Cisco_WebEx_Browser_Extension_RCE漏洞(CVE–2017–6753)分析<br><a href="https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b" target="_blank" rel="external">https://cert.360.cn/detailbug.html?id=cd916704c2f95860e806fd60202c1d6b</a></li>
-<li>powershell 通过IE下载文件<br><a href="https://evi1cg.me/archives/Downloader_byIE.html" target="_blank" rel="external">https://evi1cg.me/archives/Downloader_byIE.html</a></li>
-<li>Vmware虚拟机逃逸漏洞（CVE-2017-4901）Exploit代码分析与利用<br><a href="http://www.freebuf.com/news/141442.html" target="_blank" rel="external">http://www.freebuf.com/news/141442.html</a></li>
-<li><p>基于 Neo4j 的 Windows 日志可视化分析<br><a href="https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html" target="_blank" rel="external">https://haveyousecured.blogspot.ca/2017/07/visualize-windows-logs-with-neo4j.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">这个好像不错，mark</div></pre></td></tr></table></figure>
-</li>
-<li><p>多种 DLL 注入技术原理介绍<br><a href="http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/" target="_blank" rel="external">http://blog.deniable.org/blog/2017/07/16/inject-all-the-things/</a></p>
-</li>
-<li>在Android N上对Java方法做hook遇到的坑<br><a href="http://rk700.github.io/2017/06/30/hook-on-android-n/" target="_blank" rel="external">http://rk700.github.io/2017/06/30/hook-on-android-n/</a></li>
-<li>利用 COM 对象 Excel.Application 的 RegisterXLL() 方法加载并执行 DLL<br><a href="https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52" target="_blank" rel="external">https://gist.github.com/ryhanson/227229866af52e2d963cf941af135a52</a></li>
-<li>我是如何利用 Paypal 服务器的任意文件上传漏洞远程执行代码的<br><a href="http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/" target="_blank" rel="external">http://blog.pentestbegins.com/2017/07/21/hacking-into-paypal-server-remote-code-execution-2017/</a></li>
-<li>路由器固件安全分析技术（二）<br><a href="https://www.vulbox.com/knowledge/detail/?id=42" target="_blank" rel="external">https://www.vulbox.com/knowledge/detail/?id=42</a></li>
-<li>BadUSB防御初探<br><a href="http://www.freebuf.com/articles/terminal/140619.html" target="_blank" rel="external">http://www.freebuf.com/articles/terminal/140619.html</a></li>
-<li>CentOS安装aria2 + yaaw实现离线下载<br><a href="https://www.moerats.com/archives/219/" target="_blank" rel="external">https://www.moerats.com/archives/219/</a></li>
-<li>我是如何利用一个假的私钥欺骗 Symantec 的<br><a href="https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html" target="_blank" rel="external">https://blog.hboeck.de/archives/888-How-I-tricked-Symantec-with-a-Fake-Private-Key.html</a></li>
-<li>浅谈bash command substitution<br><a href="https://threathunter.org/topic/59748a779a9197870df2e989" target="_blank" rel="external">https://threathunter.org/topic/59748a779a9197870df2e989</a></li>
-<li>小米九号平衡车国际版Ninebot mini PRO存在严重安全漏洞可被攻击者远程控制<br><a href="http://www.freebuf.com/news/141341.html" target="_blank" rel="external">http://www.freebuf.com/news/141341.html</a></li>
-<li>浅析OGNL表达式求值（S2003/005/009跟踪调试记录）<br><a href="https://xianzhi.aliyun.com/forum/read/1902.html" target="_blank" rel="external">https://xianzhi.aliyun.com/forum/read/1902.html</a></li>
-<li>基于python的后门框架<br><a href="https://n0where.net/python-backdoor-framework-nxcrypt/" target="_blank" rel="external">https://n0where.net/python-backdoor-framework-nxcrypt/</a></li>
-<li><p>Cure53 对 Briar 项目应用与协议的渗透测试报告<br><a href="https://briarproject.org/raw/BRP-01-report.pdf" target="_blank" rel="external">https://briarproject.org/raw/BRP-01-report.pdf</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">是一个app安全的渗透测试报告，可以学习一下国外的app报告是怎么写的</div></pre></td></tr></table></figure>
-</li>
-<li><p>SmoothCriminal - 从光标移动速度的角度检测沙盒<br><a href="https://github.com/G4lB1t/SmoothCriminal" target="_blank" rel="external">https://github.com/G4lB1t/SmoothCriminal</a></p>
-</li>
-<li>开发安全的API所需要核对的清单<br><a href="https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md" target="_blank" rel="external">https://github.com/shieldfy/API-Security-Checklist/blob/master/README-zh.md</a></li>
-<li>CVE-2012-1889 个人漏洞分析报告<br><a href="https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D" target="_blank" rel="external">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458284116&amp;idx=1&amp;sn=4ae9de8a41b6a92b9b1cda29129733c6&amp;chksm=b18140de86f6c9c86f058016383461ba1f7c517bb3cdb306544b9a26fb579f6ce730809dbfc2&amp;scene=0&amp;key=749b9ba3255131eb780f072483cab23d06330774e27685ba5376b1c1ede36e90f85deef9fad3ef4ade0b3deea43faa7cf88eb8d6c7aeee6ddc40b40f1c2a1212d4aeb6bb2805a2a8ee44bae08b55acfd&amp;ascene=0&amp;uin=NzQxNDQ1&amp;devicetype=iMac+MacBookPro11%2C3+OSX+OSX+10.12.5+build(16F73)&amp;version=12020810&amp;nettype=WIFI&amp;fontScale=100&amp;pass_ticket=VOYpP3XMMVI9LX9HciKi5dGZ23kXs%2FckO5pCWaTycxs%3D</a></li>
-<li>htcap：一款实用的递归型Web漏洞扫描工具<br><a href="http://www.freebuf.com/sectool/140873.html" target="_blank" rel="external">http://www.freebuf.com/sectool/140873.html</a></li>
-</ul>
-
-          
+          每日安全动态
+2017黑帽大会兵工厂工具列表http://www.freebuf.com/column/141333.html
+Centos 6/Centos 7/Debian单网卡绑定多个IP的方法https://www.moerats.com/archives/217/
+Cisco_WebEx_
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/24/20170724安全动态/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2486,6 +2226,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
