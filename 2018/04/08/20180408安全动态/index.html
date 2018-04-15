@@ -15,8 +15,8 @@
         if(''){
             if (prompt('请输入文章密码') !== ''){
                 alert('密码错误！');
-                <!--history.back();-->
-                window.location.href='https://kevien.github.io';
+                history.back(-1);
+                <!--window.location.href='https://kevien.github.io'-->;
             }
         }
     })();
@@ -104,17 +104,17 @@
 
 
 
-<meta name="description" content="每周安全动态 Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http://www.labofapenetrationtester.com/2018/04/dcshadow.html">
+<meta name="description" content="每周安全动态 RID Hijacking on Windowshttp://csl.com.co/rid-hijacking/ Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20180408每周安全动态">
 <meta property="og:url" content="http://kevien.github.io/2018/04/08/20180408安全动态/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="每周安全动态 Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http://www.labofapenetrationtester.com/2018/04/dcshadow.html">
-<meta property="og:updated_time" content="2018-04-10T13:19:21.983Z">
+<meta property="og:description" content="每周安全动态 RID Hijacking on Windowshttp://csl.com.co/rid-hijacking/ Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http">
+<meta property="og:updated_time" content="2018-04-13T11:03:00.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20180408每周安全动态">
-<meta name="twitter:description" content="每周安全动态 Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http://www.labofapenetrationtester.com/2018/04/dcshadow.html">
+<meta name="twitter:description" content="每周安全动态 RID Hijacking on Windowshttp://csl.com.co/rid-hijacking/ Linux kernel exploit stack smashinghttp://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/ Mimikatz 的 DCShadow 使用方法介绍http">
 
 
 
@@ -393,6 +393,7 @@
 
       
         <h4 id="每周安全动态"><a href="#每周安全动态" class="headerlink" title="每周安全动态"></a>每周安全动态</h4><ul>
+<li>RID Hijacking on Windows<br><a href="http://csl.com.co/rid-hijacking/" target="_blank" rel="external">http://csl.com.co/rid-hijacking/</a></li>
 <li>Linux kernel exploit stack smashing<br><a href="http://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/" target="_blank" rel="external">http://tacxingxing.com/2018/02/15/linux-kernel-exploit-stack-smashing/</a></li>
 <li>Mimikatz 的 DCShadow 使用方法介绍<br><a href="http://www.labofapenetrationtester.com/2018/04/dcshadow.html" target="_blank" rel="external">http://www.labofapenetrationtester.com/2018/04/dcshadow.html</a></li>
 <li>Astra - REST API 安全测试框架<br>&lt; <a href="https://github.com/flipkart-incubator/astra&gt;" target="_blank" rel="external">https://github.com/flipkart-incubator/astra&gt;</a></li>
@@ -411,6 +412,28 @@
 <li>破解学校网站的图片验证之使用 Python 编写图片验证码识别工具<br>&lt; <a href="https://dev.to/presto412/how-i-cracked-the-captcha-on-my-universitys-website-237j&gt;" target="_blank" rel="external">https://dev.to/presto412/how-i-cracked-the-captcha-on-my-universitys-website-237j&gt;</a></li>
 <li>Windows RID 劫持攻击的 Metasploit 利用脚本发布<br><a href="https://www.rapid7.com/db/modules/post/windows/manage/rid_hijack" target="_blank" rel="external">https://www.rapid7.com/db/modules/post/windows/manage/rid_hijack</a></li>
 <li>理解 Get-InjectedThread 的运行原理并进行修改使其绕过查杀<br><a href="https://blog.xpnsec.com/undersanding-and-evading-get-injectedthread/" target="_blank" rel="external">https://blog.xpnsec.com/undersanding-and-evading-get-injectedthread/</a></li>
+<li>Hooking Chrome 浏览器的 SSL 函数读取 SSL 通信数据<br><a href="https://nytrosecurity.com/2018/02/26/hooking-chromes-ssl-functions/" target="_blank" rel="external">https://nytrosecurity.com/2018/02/26/hooking-chromes-ssl-functions/</a></li>
+<li>Holey Beep: Linux 提权漏洞分析与利用(CVE-2018-0492)<br><a href="https://sigint.sh/#/holeybeep" target="_blank" rel="external">https://sigint.sh/#/holeybeep</a></li>
+<li>通过修改主机安全描述符实现远程提取机器上的本地用户哈希<br><a href="https://posts.specterops.io/remote-hash-extraction-on-demand-via-host-security-descriptor-modification-2cf505ec5c40" target="_blank" rel="external">https://posts.specterops.io/remote-hash-extraction-on-demand-via-host-security-descriptor-modification-2cf505ec5c40</a></li>
+<li>Mimikatz misc::skeleton 域环境下设置万能密码的方法介绍<br><a href="https://pentestlab.blog/2018/04/10/skeleton-key/" target="_blank" rel="external">https://pentestlab.blog/2018/04/10/skeleton-key/</a></li>
+<li>ids_bypass - 绕过 Suricata IDS 规则注入恶意数据的 POC (CVE-2018-6794)<br><a href="https://github.com/kirillwow/ids_bypass" target="_blank" rel="external">https://github.com/kirillwow/ids_bypass</a></li>
+<li>JSON Web Token Security Cheat Sheet<br><a href="https://assets.pentesterlab.com/jwt_security_cheatsheet/jwt_security_cheatsheet.pdf" target="_blank" rel="external">https://assets.pentesterlab.com/jwt_security_cheatsheet/jwt_security_cheatsheet.pdf</a></li>
+<li>Red Team Tips<br><a href="https://vincentyiu.co.uk/red-team-tips/" target="_blank" rel="external">https://vincentyiu.co.uk/red-team-tips/</a></li>
+<li>OWASP TOP 10 物联网漏洞一览<br><a href="https://embedi.com/blog/reflecting-upon-owasp-top-10-iot-vulnerabilities/" target="_blank" rel="external">https://embedi.com/blog/reflecting-upon-owasp-top-10-iot-vulnerabilities/</a></li>
+<li>将可执行文件放入 ADS 流并执行的方法 Part 2<br><a href="https://oddvar.moe/2018/04/11/putting-data-in-alternate-data-streams-and-how-to-execute-it-part-2/" target="_blank" rel="external">https://oddvar.moe/2018/04/11/putting-data-in-alternate-data-streams-and-how-to-execute-it-part-2/</a></li>
+<li>Linux shellcode x64 汇编代码生成脚本<br><a href="https://www.exploit-db.com/exploits/44445/" target="_blank" rel="external">https://www.exploit-db.com/exploits/44445/</a></li>
+<li>Windows 反调试技术——OpenProcess 权限过滤<br><a href="https://mp.weixin.qq.com/s/XA7xzNk0uj0Dqz8-tD_G7A" target="_blank" rel="external">https://mp.weixin.qq.com/s/XA7xzNk0uj0Dqz8-tD_G7A</a></li>
+<li>Spring Data Commons 远程代码执行漏洞披露(CVE-2018-1273)<br><a href="http://blog.nsfocus.net/cve-2018-1273-analysis/" target="_blank" rel="external">http://blog.nsfocus.net/cve-2018-1273-analysis/</a></li>
+<li>MS-RDP 身份验证的远程代码执行漏洞(CVE-2018-0886) POC 放出<br><a href="https://blog.preempt.com/how-we-exploited-the-authentication-in-ms-rdp" target="_blank" rel="external">https://blog.preempt.com/how-we-exploited-the-authentication-in-ms-rdp</a></li>
+<li>HTTPS Payload and C2 Redirectors<br><a href="https://posts.specterops.io/https-payload-and-c2-redirectors-ff8eb6f87742" target="_blank" rel="external">https://posts.specterops.io/https-payload-and-c2-redirectors-ff8eb6f87742</a></li>
+<li>PowerMeta -  通过搜索引擎下载指定域名下的所有文件，然后做元数据分析以提取敏感信息的工具<br><a href="https://github.com/dafthack/PowerMeta" target="_blank" rel="external">https://github.com/dafthack/PowerMeta</a></li>
+<li>好奇驱使我对XSS平台的一次小研究<br><a href="http://www.bugsafe.cn/archives/240.html" target="_blank" rel="external">http://www.bugsafe.cn/archives/240.html</a></li>
+<li>defineClass在java反序列化当中的利用<br><a href="https://xz.aliyun.com/t/2272" target="_blank" rel="external">https://xz.aliyun.com/t/2272</a></li>
+<li>修炼 Java 之：内部类剖析<br><a href="https://www.v2ex.com/t/446518#reply1" target="_blank" rel="external">https://www.v2ex.com/t/446518#reply1</a></li>
+<li>看我花式绕过校园网计费认证<br><a href="http://www.freebuf.com/articles/network/167641.html" target="_blank" rel="external">http://www.freebuf.com/articles/network/167641.html</a></li>
+<li>Java反序列 Jdk7u21 Payload 学习笔记<br><a href="https://mp.weixin.qq.com/s/_miC88X6bsomHY00FJeiCA" target="_blank" rel="external">https://mp.weixin.qq.com/s/_miC88X6bsomHY00FJeiCA</a></li>
+<li>Directory Traversal with Spring MVC on Windows<br><a href="https://bl4ck.in/vulnerability/analysis/2018/04/10/Directory-Traversal-with-Spring-MVC-on-Window.html" target="_blank" rel="external">https://bl4ck.in/vulnerability/analysis/2018/04/10/Directory-Traversal-with-Spring-MVC-on-Window.html</a></li>
+<li>翻译 Stealing HttpOnly Cookie via XSS<br><a href="https://xz.aliyun.com/t/2266" target="_blank" rel="external">https://xz.aliyun.com/t/2266</a></li>
 </ul>
 
       
