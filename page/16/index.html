@@ -2294,7 +2294,7 @@ macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('');
+                  var upperBound = parseInt('1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
@@ -2361,7 +2361,7 @@ macOS Disk Arbitration Daemon 条件竞争提权漏洞利用脚本（CVE-2017
             }
           }
 
-          if ('auto' === '') {
+          if ('auto' === 'auto') {
             input.addEventListener('input', inputEventFunction);
           } else {
             $('.search-icon').click(inputEventFunction);
