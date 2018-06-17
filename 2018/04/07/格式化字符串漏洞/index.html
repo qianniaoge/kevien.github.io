@@ -104,22 +104,22 @@
 
 
 
-<meta name="description" content="TL;DR 不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入的">
+<meta name="description" content="TL;DR 不同于buffer overflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入">
 <meta name="keywords" content="reverse,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="格式化字符串漏洞">
 <meta property="og:url" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="TL;DR 不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入的">
+<meta property="og:description" content="TL;DR 不同于buffer overflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/memread.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/readspecifyadd.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/objgot.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell1.png">
 <meta property="og:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/shell2.png">
-<meta property="og:updated_time" content="2018-05-01T01:19:40.000Z">
+<meta property="og:updated_time" content="2018-06-17T18:39:40.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="格式化字符串漏洞">
-<meta name="twitter:description" content="TL;DR 不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入的">
+<meta name="twitter:description" content="TL;DR 不同于buffer overflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。 在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入">
 <meta name="twitter:image" content="http://kevien.github.io/2018/04/07/格式化字符串漏洞/memread.png">
 
 
@@ -399,7 +399,7 @@
 
       
         <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
-<li>不同于bufferoverflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。</li>
+<li>不同于buffer overflow，格式化字符串漏洞是另外一种漏洞类型，这两天学习了一下，仅当笔记留以备忘。</li>
 <li>在了解格式化字符串漏洞之前还是应该先了解一下printf函数的基本功能。可以使用命令 man 3 printf 查看printf函数的功能介绍，其中printf是c语言中为数不多的支持可变参数的库函数。根据cdecl的函数调用规定，函数从最右边的参数开始，逐个压栈。如果要传入的是一个字符串，那么就将字符串的指针压栈。这一切都井井有条的进行着。如果是一般的函数，函数的调用者和被调用者都应该知道函数的参数个数以及每个参数的类型。但是对于像printf这种可变参数的函数来说，一切就变得模糊了起来。函数的调用者可以自由的指定函数参数的数量和类型，被调用者无法知道在函数调用之前到底有多少参数被压入栈帧当中。所以printf函数要求传入一个format参数用以指定到底有多少，怎么样的参数被传入其中。然后它就会忠实的按照函数调用者传入的格式一个一个的打印出数据。</li>
 <li>测试环境ubuntuX86<h4 id="任意内存读取"><a href="#任意内存读取" class="headerlink" title="任意内存读取"></a>任意内存读取</h4></li>
 <li><p>如下是函数printf format的参数、输入类型以及输出类型</p>
@@ -617,7 +617,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">175</span>
+                <span class="site-state-item-count">176</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
