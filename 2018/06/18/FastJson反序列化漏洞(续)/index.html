@@ -104,20 +104,20 @@
 
 
 
-<meta name="description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些琐事导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar组件">
+<meta name="description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些其它事情导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar">
 <meta name="keywords" content="java安全 RCE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FastJson反序列化漏洞(续)">
 <meta property="og:url" content="http://kevien.github.io/2018/06/18/FastJson反序列化漏洞(续)/index.html">
 <meta property="og:site_name" content="M0rk's Blog">
-<meta property="og:description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些琐事导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar组件">
+<meta property="og:description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些其它事情导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar">
 <meta property="og:image" content="http://kevien.github.io/2018/06/18/FastJson反序列化漏洞(续)/pwn.png">
 <meta property="og:image" content="http://kevien.github.io/2018/06/18/FastJson反序列化漏洞(续)/denylist.png">
 <meta property="og:image" content="http://kevien.github.io/2018/06/18/FastJson反序列化漏洞(续)/calculatehash.png">
-<meta property="og:updated_time" content="2018-06-18T09:20:51.938Z">
+<meta property="og:updated_time" content="2018-06-18T16:19:52.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FastJson反序列化漏洞(续)">
-<meta name="twitter:description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些琐事导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar组件">
+<meta name="twitter:description" content="TL;DR 之前写了篇fastjson反序列化漏洞的分析文章，见Fastjson反序列化漏洞研究,最近读了这篇文章DefineClass在Java反序列化当中的利用深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些其它事情导致现在才更 :( 作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。details 在上面的文章中作者是利用了tomcat-dbcp.jar">
 <meta name="twitter:image" content="http://kevien.github.io/2018/06/18/FastJson反序列化漏洞(续)/pwn.png">
 
 
@@ -397,7 +397,7 @@
 
       
         <h4 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h4><ul>
-<li>之前写了篇fastjson反序列化漏洞的分析文章，见<a href="https://www.cnblogs.com/mrchang/p/6789060.html" target="_blank" rel="external">Fastjson反序列化漏洞研究</a>,最近<br>读了这篇文章<a href="http://www.freebuf.com/articles/others-articles/167932.html" target="_blank" rel="external">DefineClass在Java反序列化当中的利用</a>深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些琐事导致现在才更 :(</li>
+<li>之前写了篇fastjson反序列化漏洞的分析文章，见<a href="https://www.cnblogs.com/mrchang/p/6789060.html" target="_blank" rel="external">Fastjson反序列化漏洞研究</a>,最近<br>读了这篇文章<a href="http://www.freebuf.com/articles/others-articles/167932.html" target="_blank" rel="external">DefineClass在Java反序列化当中的利用</a>深受启发，学习到了另外的利用姿势.本来很早就应该填的坑，因为一些其它事情导致现在才更 :(</li>
 <li>作者文章写的很好，只是有些点以及代码没有完全给出来，所以需要自己去测试。<h4 id="details"><a href="#details" class="headerlink" title="details"></a>details</h4></li>
 <li>在上面的文章中作者是利用了tomcat-dbcp.jar组件中org.apache.tomcat.dbcp.dbcp.BasicDataSource类的Class.forName()方法，关于Class.forName执行代码的方法，有两种（作者也在文章中介绍了），这个Class.forName是关键，它可以设置classLoader和classname，从而加载.class文件，恶意的.class中静态代码块儿static{}会执行。下面给出文章中一些缺少的代码。关于ClassLoader的机制可以参考@frozenme大佬的文章(很棒)：P<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">package FastJsonDemo;</div><div class="line">import com.sun.org.apache.bcel.internal.classfile.Utility;</div><div class="line"></div><div class="line">import java.nio.file.Files;</div><div class="line">import java.nio.file.Path;</div><div class="line">import java.nio.file.Paths;</div><div class="line"></div><div class="line">public class BCELencode &#123;</div><div class="line">    public static void main(String []args) throws Exception&#123;</div><div class="line">        //There also should be compiled class file,not java file</div><div class="line">        Path path = Paths.get(&quot;/Users/m0rk/Desktop/tmp/untitled/src/FastJsonDemo/evil.class&quot;);</div><div class="line">        byte[] data = Files.readAllBytes(path);</div><div class="line">        String s =  Utility.encode(data,true);</div><div class="line">        System.out.print(s);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
